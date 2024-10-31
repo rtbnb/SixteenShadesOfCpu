@@ -1,7 +1,7 @@
 ### Usefull Links:
 
 - [Contraint File](https://github.com/Digilent/digilent-xdc/blob/master/Arty-A7-35-Master.xdc)
-- [Digilent Product Page](https://digilent.com/reference/programmable-logic/arty-a7/start)
+- [Digilent Board Product Page](https://digilent.com/reference/programmable-logic/arty-a7/start)
 
 ### Architektur Dokumentation
 
