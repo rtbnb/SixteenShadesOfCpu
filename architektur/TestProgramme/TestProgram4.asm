@@ -24,3 +24,4 @@ EXT  0, $t1, $t1
 ALU  0, $t0, $t4
 CR   $t0, $AO
 JA   19
+
