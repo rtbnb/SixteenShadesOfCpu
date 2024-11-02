@@ -74,25 +74,6 @@
       <a name="facing" val="north"/>
       <a name="label" val="InstrExec"/>
     </comp>
-    <comp lib="0" loc="(1080,140)" name="Splitter">
-      <a name="bit1" val="0"/>
-      <a name="bit10" val="2"/>
-      <a name="bit11" val="2"/>
-      <a name="bit12" val="3"/>
-      <a name="bit13" val="3"/>
-      <a name="bit14" val="3"/>
-      <a name="bit15" val="3"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="1"/>
-      <a name="bit5" val="1"/>
-      <a name="bit6" val="1"/>
-      <a name="bit7" val="1"/>
-      <a name="bit8" val="2"/>
-      <a name="bit9" val="2"/>
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="16"/>
-    </comp>
     <comp lib="0" loc="(1090,1000)" name="Bit Extender">
       <a name="in_width" val="16"/>
       <a name="out_width" val="4"/>
@@ -182,21 +163,11 @@
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 16 16
-4000 5000 1000 49ff 590f 4001 5000 10e0
-f1e9 a006
+4000 5000 1000 4001 5000 69e0 f1e9 10e0
+a005
 </a>
       <a name="dataWidth" val="16"/>
     </comp>
-    <comp lib="5" loc="(1170,80)" name="Hex Digit Display">
-      <a name="labelvisible" val="true"/>
-    </comp>
-    <comp lib="5" loc="(1210,80)" name="Hex Digit Display">
-      <a name="labelvisible" val="true"/>
-    </comp>
-    <comp lib="5" loc="(1250,80)" name="Hex Digit Display">
-      <a name="labelvisible" val="true"/>
-    </comp>
-    <comp lib="5" loc="(1290,80)" name="Hex Digit Display"/>
     <comp lib="5" loc="(1750,1180)" name="Button"/>
     <comp lib="5" loc="(1800,1060)" name="RGB Video">
       <a name="cursor" val="No Cursor"/>
@@ -230,23 +201,17 @@ f1e9 a006
     <wire from="(1060,440)" to="(1080,440)"/>
     <wire from="(1080,1060)" to="(1080,1080)"/>
     <wire from="(1080,1060)" to="(1130,1060)"/>
-    <wire from="(1080,140)" to="(1200,140)"/>
     <wire from="(1080,430)" to="(1080,440)"/>
     <wire from="(1080,430)" to="(1100,430)"/>
     <wire from="(1090,1000)" to="(1130,1000)"/>
     <wire from="(110,700)" to="(110,840)"/>
     <wire from="(110,700)" to="(570,700)"/>
     <wire from="(110,840)" to="(140,840)"/>
-    <wire from="(1100,100)" to="(1290,100)"/>
-    <wire from="(1100,110)" to="(1250,110)"/>
-    <wire from="(1100,120)" to="(1210,120)"/>
-    <wire from="(1100,130)" to="(1170,130)"/>
     <wire from="(1110,440)" to="(1110,520)"/>
     <wire from="(1130,420)" to="(1310,420)"/>
     <wire from="(1130,640)" to="(1130,980)"/>
     <wire from="(1160,370)" to="(1160,570)"/>
     <wire from="(1160,370)" to="(1250,370)"/>
-    <wire from="(1170,80)" to="(1170,130)"/>
     <wire from="(1180,220)" to="(1200,220)"/>
     <wire from="(1180,240)" to="(1200,240)"/>
     <wire from="(1180,260)" to="(1190,260)"/>
@@ -258,20 +223,14 @@ f1e9 a006
     <wire from="(120,710)" to="(580,710)"/>
     <wire from="(120,820)" to="(140,820)"/>
     <wire from="(1200,140)" to="(1200,220)"/>
-    <wire from="(1200,140)" to="(1300,140)"/>
     <wire from="(1200,240)" to="(1200,290)"/>
-    <wire from="(1210,80)" to="(1210,120)"/>
     <wire from="(1250,370)" to="(1250,440)"/>
     <wire from="(1250,440)" to="(1310,440)"/>
-    <wire from="(1250,80)" to="(1250,110)"/>
     <wire from="(1280,480)" to="(1280,490)"/>
     <wire from="(1280,480)" to="(1320,480)"/>
-    <wire from="(1290,150)" to="(1290,270)"/>
-    <wire from="(1290,270)" to="(1420,270)"/>
     <wire from="(1290,470)" to="(1290,500)"/>
     <wire from="(1290,470)" to="(1320,470)"/>
     <wire from="(1290,520)" to="(1300,520)"/>
-    <wire from="(1290,80)" to="(1290,100)"/>
     <wire from="(130,720)" to="(130,800)"/>
     <wire from="(130,720)" to="(590,720)"/>
     <wire from="(130,800)" to="(140,800)"/>
@@ -289,7 +248,7 @@ f1e9 a006
     <wire from="(1350,1100)" to="(1460,1100)"/>
     <wire from="(1350,1120)" to="(1460,1120)"/>
     <wire from="(1350,980)" to="(1450,980)"/>
-    <wire from="(1420,270)" to="(1420,290)"/>
+    <wire from="(1420,150)" to="(1420,290)"/>
     <wire from="(1440,1060)" to="(1440,1070)"/>
     <wire from="(1440,1070)" to="(1460,1070)"/>
     <wire from="(1460,1080)" to="(1460,1090)"/>
@@ -375,10 +334,10 @@ f1e9 a006
     <wire from="(650,240)" to="(650,570)"/>
     <wire from="(650,240)" to="(700,240)"/>
     <wire from="(650,570)" to="(730,570)"/>
-    <wire from="(660,140)" to="(1080,140)"/>
+    <wire from="(660,140)" to="(1200,140)"/>
     <wire from="(660,140)" to="(660,380)"/>
     <wire from="(660,380)" to="(700,380)"/>
-    <wire from="(670,150)" to="(1290,150)"/>
+    <wire from="(670,150)" to="(1420,150)"/>
     <wire from="(670,150)" to="(670,400)"/>
     <wire from="(670,400)" to="(700,400)"/>
     <wire from="(70,290)" to="(70,320)"/>
@@ -3020,16 +2979,16 @@ f1e9 a006
     <a name="simulationFrequency" val="256.0"/>
     <appear>
       <rect fill="none" height="90" stroke="#000000" width="220" x="50" y="50"/>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="60">E N</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="64" y="80">A0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="65" y="100">A1</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="120">CLK</text>
       <visible-sevensegment height="20" path="/7-Segment Display(910,130)" stroke-width="0" width="14" x="142" y="83"/>
       <visible-hexdigit height="20" path="/Hex Digit Display(960,190)" stroke-width="0" width="14" x="156" y="83"/>
       <visible-hexdigit height="20" path="/Hex Digit Display(1000,190)" stroke-width="0" width="14" x="170" y="83"/>
       <visible-hexdigit height="20" path="/Hex Digit Display(1040,190)" stroke-width="0" width="14" x="184" y="83"/>
       <visible-hexdigit height="20" path="/Hex Digit Display(1080,190)" stroke-width="0" width="14" x="198" y="83"/>
       <visible-hexdigit font-family="SansSerif" font-size="10" height="20" path="/Hex Digit Display(1120,190)" stroke-width="0" width="14" x="212" y="83"/>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="60">E N</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="64" y="80">A0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="65" y="100">A1</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="120">CLK</text>
       <circ-anchor facing="east" x="140" y="90"/>
       <circ-port dir="in" pin="300,140" x="50" y="60"/>
       <circ-port dir="in" pin="300,160" x="50" y="80"/>
@@ -11324,11 +11283,11 @@ f1e9 a006
     <a name="circuit" val="ClockController"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="32.0"/>
-    <comp lib="0" loc="(250,340)" name="Pin">
+    <comp lib="0" loc="(170,350)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="RawCLK"/>
     </comp>
-    <comp lib="0" loc="(350,380)" name="Pin">
+    <comp lib="0" loc="(350,490)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="Reset"/>
     </comp>
@@ -11350,6 +11309,16 @@ f1e9 a006
       <a name="label" val="InstrSave"/>
       <a name="output" val="true"/>
     </comp>
+    <comp lib="1" loc="(200,430)" name="NOT Gate"/>
+    <comp lib="1" loc="(220,370)" name="NOT Gate"/>
+    <comp lib="1" loc="(240,430)" name="NOT Gate"/>
+    <comp lib="1" loc="(280,360)" name="AND Gate">
+      <a name="size" val="30"/>
+    </comp>
+    <comp lib="1" loc="(280,420)" name="AND Gate">
+      <a name="size" val="30"/>
+    </comp>
+    <comp lib="1" loc="(350,390)" name="OR Gate"/>
     <comp lib="2" loc="(560,290)" name="Decoder">
       <a name="select" val="2"/>
     </comp>
@@ -11358,10 +11327,24 @@ f1e9 a006
       <a name="max" val="0x3"/>
       <a name="width" val="2"/>
     </comp>
-    <wire from="(250,340)" to="(380,340)"/>
-    <wire from="(350,380)" to="(390,380)"/>
-    <wire from="(380,330)" to="(380,340)"/>
-    <wire from="(390,330)" to="(390,380)"/>
+    <wire from="(170,350)" to="(170,370)"/>
+    <wire from="(170,350)" to="(250,350)"/>
+    <wire from="(170,370)" to="(170,430)"/>
+    <wire from="(170,370)" to="(190,370)"/>
+    <wire from="(200,430)" to="(210,430)"/>
+    <wire from="(220,370)" to="(240,370)"/>
+    <wire from="(240,370)" to="(240,410)"/>
+    <wire from="(240,370)" to="(250,370)"/>
+    <wire from="(240,410)" to="(250,410)"/>
+    <wire from="(240,430)" to="(250,430)"/>
+    <wire from="(280,360)" to="(280,370)"/>
+    <wire from="(280,370)" to="(300,370)"/>
+    <wire from="(280,410)" to="(280,420)"/>
+    <wire from="(280,410)" to="(300,410)"/>
+    <wire from="(350,390)" to="(380,390)"/>
+    <wire from="(350,490)" to="(390,490)"/>
+    <wire from="(380,330)" to="(380,390)"/>
+    <wire from="(390,330)" to="(390,490)"/>
     <wire from="(400,310)" to="(560,310)"/>
     <wire from="(560,290)" to="(560,310)"/>
     <wire from="(580,250)" to="(660,250)"/>
@@ -11395,13 +11378,13 @@ f1e9 a006
     </comp>
     <comp lib="0" loc="(300,200)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="CLK_Out"/>
-      <a name="output" val="true"/>
+      <a name="label" val="EXT0_CLK"/>
     </comp>
     <comp lib="0" loc="(300,200)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="label" val="EXT0_CLK"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="CLK_Out"/>
+      <a name="output" val="true"/>
     </comp>
     <comp lib="0" loc="(400,160)" name="Splitter">
       <a name="bit1" val="0"/>
