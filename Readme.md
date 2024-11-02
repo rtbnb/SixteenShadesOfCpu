@@ -1,6 +1,6 @@
 ### Usefull Links:
 
-- [Contraint File](https://github.com/Digilent/digilent-xdc/blob/master/Arty-A7-35-Master.xdc)
+- [Constraint File](https://github.com/Digilent/digilent-xdc/blob/master/Arty-A7-35-Master.xdc)
 - [Digilent Board Product Page](https://digilent.com/reference/programmable-logic/arty-a7/start)
 - [Logisim Github](https://github.com/logisim-evolution/logisim-evolution?tab=readme-ov-file#download)
 
@@ -8,6 +8,8 @@
 - MMU (Memory Management Unit)
 - VRAM (Video RAM)
 - IRAM (Instruction RAM)
+- ALU (Arithmetic Logic Unit)
+- MUX (Multiplexer)
 
 Weitere gerne hinzufügen
 
