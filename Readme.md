@@ -24,6 +24,10 @@ Auch die Dokumente für die Präsentation sollen erstmal hier abgelegt werden.
 
 Wird vorerst in dem Ordner `pictures` gespeichert.
 
+### Tools
+
+Werden jeweils mit eigenem Unterordner im Ordner `tools` gespeichert.
+
     
 
 
