@@ -12,7 +12,7 @@ WRMr $t2, $t3, 0
 ALU  0, $t0, $t2
 JC   0, +5
 CR   $t1, $AO
-ALU  0, $t3, t4
+ALU  0, $t3, $t4
 CR   $t3, $AO
 JA   6
 IML  $t0, 0
