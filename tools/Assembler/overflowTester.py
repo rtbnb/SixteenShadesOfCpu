@@ -19,4 +19,4 @@ if __name__ == "__main__":
             sum = a - b
             overflow = sum < -8 or sum > 7
             gpt_overflow = determine_overflow_circuit(a, b, sum, 1)
-            print(f"{a}+{b}={sum} => Overflow: {overflow} Circuit: {gpt_overflow} {'-----------------------' if overflow != gpt_overflow else ''}")
+            print(f"{a}-{b}={sum} => Overflow: {overflow} Circuit: {gpt_overflow} {'-----------------------' if overflow != gpt_overflow else ''}")
