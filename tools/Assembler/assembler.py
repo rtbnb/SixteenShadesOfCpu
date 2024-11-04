@@ -37,7 +37,7 @@ class Argument():
                 return current_binary | ((int(argument) & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
             
 
-asm_file = "architektur/TestProgramme/TestProgram5.asm"
+asm_file = "architektur/TestProgramme/TestProgram4_NoIMH.asm"
 
 instructions = {
     #      OP-Code Arguments
@@ -46,13 +46,13 @@ instructions = {
     "RDMi": [2, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
     "WRMi": [3, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
     "IML": [4, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
-    "IMH": [5, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
+    #"IMH": [5, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
     "RDMr": [6, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.NUMBER, 0, 1)]],
     "WRMr": [7, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.NUMBER, 0, 1)]],
     "JC": [8, [Argument(0, ArgumentType.NUMBER, 10, 2), Argument(1, ArgumentType.NUMBER, 0, 10)]],
     "JR": [9, [Argument(0, ArgumentType.NUMBER, 0, 12)]],
     "JA": [10, [Argument(0, ArgumentType.NUMBER, 0, 12)]],
-    "CR": [14, [Argument(0, ArgumentType.REGISTER, 4, 8), Argument(1, ArgumentType.REGISTER, 0, 4)]],
+    "CR": [14, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 0, 4)]],
     "EXT": [15, [Argument(0, ArgumentType.NUMBER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.REGISTER, 0, 4)]]
 }
 
