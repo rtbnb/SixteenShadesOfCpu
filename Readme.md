@@ -10,8 +10,10 @@
 - VRAM (Video RAM)
 - IRAM (Instruction RAM)
 - GRAM (General Purpose RAM)
+- CC (Clock Controller)
 - ALU (Arithmetic Logic Unit)
 - MUX (Multiplexer)
+- MMIO (Memory mapped IO)
 
 Weitere gerne hinzufügen
 
@@ -29,6 +31,12 @@ Wird vorerst in dem Ordner `pictures` gespeichert.
 ### Tools
 
 Werden jeweils mit eigenem Unterordner im Ordner `tools` gespeichert.
+
+### Vivado Projekte 
+
+Werden jeweils in dem Unterordner `vivado` gespeichert.
+
+Project Setup Guide muss noch hinzugefügt werden.
 
     
 
