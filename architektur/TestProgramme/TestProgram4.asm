@@ -14,7 +14,7 @@ JC   0, +5
 CR   $t1, $AO
 ALU  0, $t3, $t4
 CR   $t3, $AO
-JA   6
+JA   8
 IML  $t0, 0
 IMH  $t0, 0
 ALU  1, $t3, $t0
