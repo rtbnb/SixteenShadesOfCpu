@@ -60,7 +60,19 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="downloadFrequency" val="2083333.3333333333"/>
     <a name="simulationFrequency" val="2048000.0"/>
+    <boardmap boardname="BASYS3">
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+    </boardmap>
     <comp lib="0" loc="(100,140)" name="Clock"/>
     <comp lib="0" loc="(1450,350)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -237,6 +249,7 @@
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="dataWidth" val="16"/>
+      <a name="label" val="RAM_1"/>
     </comp>
     <comp lib="4" loc="(400,330)" name="ROM">
       <a name="addrWidth" val="16"/>
@@ -246,26 +259,50 @@
 a005
 </a>
       <a name="dataWidth" val="16"/>
+      <a name="label" val="ROM_1"/>
     </comp>
-    <comp lib="5" loc="(100,180)" name="Button"/>
-    <comp lib="5" loc="(3510,1420)" name="Button"/>
-    <comp lib="5" loc="(3560,1300)" name="RGB Video">
-      <a name="cursor" val="No Cursor"/>
-      <a name="height" val="256"/>
-      <a name="width" val="256"/>
+    <comp lib="5" loc="(100,180)" name="Button">
+      <a name="label" val="Button_1"/>
     </comp>
-    <comp lib="5" loc="(970,460)" name="Hex Digit Display"/>
-    <comp loc="(1240,370)" name="InstructionDecoder"/>
-    <comp loc="(1730,290)" name="RegFile"/>
-    <comp loc="(2270,240)" name="ExecutePipelineStage"/>
-    <comp loc="(2740,1280)" name="ExternalDeviceController"/>
-    <comp loc="(2740,970)" name="JumpController"/>
-    <comp loc="(2760,330)" name="ALU"/>
-    <comp loc="(2850,1290)" name="SignedNumberDisplay"/>
-    <comp loc="(2930,1350)" name="VGAController"/>
-    <comp loc="(3270,330)" name="WriteBackPipelineStage"/>
-    <comp loc="(370,140)" name="ClockController"/>
-    <comp loc="(900,330)" name="PipeliningController"/>
+    <comp lib="5" loc="(3510,1420)" name="Button">
+      <a name="label" val="Button_2"/>
+    </comp>
+    <comp lib="5" loc="(970,460)" name="Hex Digit Display">
+      <a name="label" val="Hex_Digit_Display_1"/>
+    </comp>
+    <comp loc="(1240,370)" name="InstructionDecoder">
+      <a name="label" val="InstructionDecoder_1"/>
+    </comp>
+    <comp loc="(1730,290)" name="RegFile">
+      <a name="label" val="RegFile_1"/>
+    </comp>
+    <comp loc="(2270,240)" name="ExecutePipelineStage">
+      <a name="label" val="ExecutePipelineStage_1"/>
+    </comp>
+    <comp loc="(2740,1280)" name="ExternalDeviceController">
+      <a name="label" val="ExternalDeviceController_1"/>
+    </comp>
+    <comp loc="(2740,970)" name="JumpController">
+      <a name="label" val="JumpController_1"/>
+    </comp>
+    <comp loc="(2760,330)" name="ALU">
+      <a name="label" val="ALU_1"/>
+    </comp>
+    <comp loc="(2850,1290)" name="SignedNumberDisplay">
+      <a name="label" val="SignedNumberDisplay_1"/>
+    </comp>
+    <comp loc="(2930,1350)" name="VGAController">
+      <a name="label" val="VGAController_1"/>
+    </comp>
+    <comp loc="(3270,330)" name="WriteBackPipelineStage">
+      <a name="label" val="WriteBackPipelineStage_1"/>
+    </comp>
+    <comp loc="(370,140)" name="ClockController">
+      <a name="label" val="ClockController_1"/>
+    </comp>
+    <comp loc="(900,330)" name="PipeliningController">
+      <a name="label" val="PipeliningController_1"/>
+    </comp>
     <wire from="(100,140)" to="(150,140)"/>
     <wire from="(100,180)" to="(110,180)"/>
     <wire from="(110,180)" to="(110,200)"/>
@@ -489,7 +526,7 @@ a005
     <wire from="(2330,400)" to="(2330,410)"/>
     <wire from="(2330,410)" to="(2340,410)"/>
     <wire from="(2330,420)" to="(2330,530)"/>
-    <wire from="(2330,530)" to="(2530,530)"/>
+    <wire from="(2330,530)" to="(2520,530)"/>
     <wire from="(2340,280)" to="(2340,400)"/>
     <wire from="(2340,280)" to="(2370,280)"/>
     <wire from="(2340,400)" to="(2370,400)"/>
@@ -558,6 +595,8 @@ a005
     <wire from="(2520,1090)" to="(2520,1100)"/>
     <wire from="(2520,450)" to="(2520,470)"/>
     <wire from="(2520,450)" to="(2540,450)"/>
+    <wire from="(2520,530)" to="(2520,560)"/>
+    <wire from="(2520,560)" to="(2530,560)"/>
     <wire from="(2530,460)" to="(2530,510)"/>
     <wire from="(2530,460)" to="(2570,460)"/>
     <wire from="(2540,440)" to="(2540,450)"/>
@@ -746,9 +785,15 @@ a005
       <a name="selloc" val="tr"/>
       <a name="width" val="16"/>
     </comp>
-    <comp loc="(1550,470)" name="ALUFlagPacker"/>
-    <comp loc="(800,360)" name="ArithmeticUnit"/>
-    <comp loc="(800,500)" name="LogicUnit"/>
+    <comp loc="(1550,470)" name="ALUFlagPacker">
+      <a name="label" val="ALUFlagPacker_1"/>
+    </comp>
+    <comp loc="(800,360)" name="ArithmeticUnit">
+      <a name="label" val="ArithmeticUnit_1"/>
+    </comp>
+    <comp loc="(800,500)" name="LogicUnit">
+      <a name="label" val="LogicUnit_1"/>
+    </comp>
     <wire from="(1000,370)" to="(1110,370)"/>
     <wire from="(1020,380)" to="(1040,380)"/>
     <wire from="(1020,390)" to="(1040,390)"/>
@@ -1376,6 +1421,7 @@ a005
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="RegFile"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="downloadFrequency" val="2083333.3333333333"/>
     <a name="simulationFrequency" val="2048000.0"/>
     <comp lib="0" loc="(1060,350)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1738,6 +1784,7 @@ a005
     <wire from="(460,1110)" to="(520,1110)"/>
     <wire from="(460,1180)" to="(460,1250)"/>
     <wire from="(460,1180)" to="(520,1180)"/>
+    <wire from="(460,120)" to="(520,120)"/>
     <wire from="(460,1250)" to="(520,1250)"/>
     <wire from="(460,1320)" to="(520,1320)"/>
     <wire from="(460,140)" to="(460,270)"/>
@@ -1936,7 +1983,35 @@ a005
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="InstructionDecoder"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="downloadFrequency" val="2083333.3333333333"/>
     <a name="simulationFrequency" val="2048000.0"/>
+    <boardmap boardname="BASYS3">
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+    </boardmap>
+    <comp lib="0" loc="(1020,910)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="16"/>
+    </comp>
     <comp lib="0" loc="(1050,320)" name="Tunnel">
       <a name="label" val="InstructionName"/>
       <a name="width" val="4"/>
@@ -2866,6 +2941,58 @@ a005
       <a name="in_width" val="12"/>
       <a name="type" val="zero"/>
     </comp>
+    <comp lib="0" loc="(990,130)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,150)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,170)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,210)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,360)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,380)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,450)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,570)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,600)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,640)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,720)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(990,780)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(990,840)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="16"/>
+    </comp>
     <comp lib="1" loc="(1460,220)" name="OR Gate">
       <a name="inputs" val="5"/>
       <a name="size" val="30"/>
@@ -2981,7 +3108,7 @@ a005
       <a name="mode" val="unsigned"/>
       <a name="width" val="4"/>
     </comp>
-    <comp lib="8" loc="(920,460)" name="Text">
+    <comp lib="8" loc="(718,447)" name="Text">
       <a name="text" val="$FL for Conditional Jumps"/>
     </comp>
     <wire from="(1010,590)" to="(1010,630)"/>
@@ -2997,8 +3124,34 @@ a005
     <wire from="(1020,810)" to="(1030,810)"/>
     <wire from="(1020,820)" to="(1020,830)"/>
     <wire from="(1020,820)" to="(1030,820)"/>
+    <wire from="(1020,910)" to="(1030,910)"/>
     <wire from="(1020,930)" to="(1020,1000)"/>
     <wire from="(1020,930)" to="(1030,930)"/>
+    <wire from="(1030,170)" to="(1030,180)"/>
+    <wire from="(1030,180)" to="(1030,190)"/>
+    <wire from="(1030,210)" to="(1030,220)"/>
+    <wire from="(1030,220)" to="(1030,230)"/>
+    <wire from="(1030,230)" to="(1030,240)"/>
+    <wire from="(1030,240)" to="(1030,250)"/>
+    <wire from="(1030,250)" to="(1030,260)"/>
+    <wire from="(1030,380)" to="(1030,390)"/>
+    <wire from="(1030,390)" to="(1030,400)"/>
+    <wire from="(1030,450)" to="(1030,460)"/>
+    <wire from="(1030,460)" to="(1030,470)"/>
+    <wire from="(1030,470)" to="(1030,480)"/>
+    <wire from="(1030,480)" to="(1030,490)"/>
+    <wire from="(1030,490)" to="(1030,500)"/>
+    <wire from="(1030,640)" to="(1030,650)"/>
+    <wire from="(1030,650)" to="(1030,660)"/>
+    <wire from="(1030,660)" to="(1030,670)"/>
+    <wire from="(1030,670)" to="(1030,680)"/>
+    <wire from="(1030,680)" to="(1030,690)"/>
+    <wire from="(1030,690)" to="(1030,700)"/>
+    <wire from="(1030,830)" to="(1030,840)"/>
+    <wire from="(1030,840)" to="(1030,850)"/>
+    <wire from="(1030,890)" to="(1030,900)"/>
+    <wire from="(1030,900)" to="(1030,910)"/>
+    <wire from="(1030,910)" to="(1030,920)"/>
     <wire from="(1050,290)" to="(1050,300)"/>
     <wire from="(1050,300)" to="(1050,320)"/>
     <wire from="(1050,300)" to="(1320,300)"/>
@@ -3202,6 +3355,19 @@ a005
     <wire from="(970,870)" to="(970,910)"/>
     <wire from="(980,880)" to="(1030,880)"/>
     <wire from="(980,880)" to="(980,950)"/>
+    <wire from="(990,130)" to="(1030,130)"/>
+    <wire from="(990,150)" to="(1030,150)"/>
+    <wire from="(990,170)" to="(1030,170)"/>
+    <wire from="(990,210)" to="(1030,210)"/>
+    <wire from="(990,360)" to="(1030,360)"/>
+    <wire from="(990,380)" to="(1030,380)"/>
+    <wire from="(990,450)" to="(1030,450)"/>
+    <wire from="(990,570)" to="(1030,570)"/>
+    <wire from="(990,600)" to="(1030,600)"/>
+    <wire from="(990,640)" to="(1030,640)"/>
+    <wire from="(990,720)" to="(1030,720)"/>
+    <wire from="(990,780)" to="(1030,780)"/>
+    <wire from="(990,840)" to="(1030,840)"/>
   </circuit>
   <circuit name="ExternalDeviceController">
     <a name="appearance" val="custom"/>
@@ -11798,21 +11964,30 @@ a005
 100008 100007 100006 100005 100004 100003 100002 100001
 </a>
       <a name="dataWidth" val="21"/>
+      <a name="label" val="ROM_1"/>
     </comp>
     <comp lib="5" loc="(1000,190)" name="Hex Digit Display">
+      <a name="label" val="Hex_Digit_Display_2"/>
       <a name="labelvisible" val="true"/>
     </comp>
     <comp lib="5" loc="(1040,190)" name="Hex Digit Display">
+      <a name="label" val="Hex_Digit_Display_3"/>
       <a name="labelvisible" val="true"/>
     </comp>
     <comp lib="5" loc="(1080,190)" name="Hex Digit Display">
+      <a name="label" val="Hex_Digit_Display_4"/>
       <a name="labelvisible" val="true"/>
     </comp>
     <comp lib="5" loc="(1120,190)" name="Hex Digit Display">
+      <a name="label" val="Hex_Digit_Display_5"/>
       <a name="labelvisible" val="true"/>
     </comp>
-    <comp lib="5" loc="(910,130)" name="7-Segment Display"/>
-    <comp lib="5" loc="(960,190)" name="Hex Digit Display"/>
+    <comp lib="5" loc="(910,130)" name="7-Segment Display">
+      <a name="label" val="L_7_Segment_Display_1"/>
+    </comp>
+    <comp lib="5" loc="(960,190)" name="Hex Digit Display">
+      <a name="label" val="Hex_Digit_Display_1"/>
+    </comp>
     <wire from="(1000,190)" to="(1000,240)"/>
     <wire from="(1040,190)" to="(1040,250)"/>
     <wire from="(1080,190)" to="(1080,260)"/>
@@ -11889,6 +12064,7 @@ a005
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="PipeliningController"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="downloadFrequency" val="2083333.3333333333"/>
     <a name="simulationFrequency" val="2048000.0"/>
     <comp lib="0" loc="(1080,130)" name="Constant">
       <a name="value" val="0xf"/>
@@ -12380,9 +12556,15 @@ a005
     <comp lib="8" loc="(500,760)" name="Text">
       <a name="text" val="Execute"/>
     </comp>
-    <comp loc="(800,130)" name="InstructionDecoder"/>
-    <comp loc="(800,560)" name="InstructionDecoder"/>
-    <comp loc="(800,990)" name="InstructionDecoder"/>
+    <comp loc="(800,130)" name="InstructionDecoder">
+      <a name="label" val="InstructionDecoder_1"/>
+    </comp>
+    <comp loc="(800,560)" name="InstructionDecoder">
+      <a name="label" val="InstructionDecoder_2"/>
+    </comp>
+    <comp loc="(800,990)" name="InstructionDecoder">
+      <a name="label" val="InstructionDecoder_3"/>
+    </comp>
     <wire from="(1080,130)" to="(1110,130)"/>
     <wire from="(1080,300)" to="(1110,300)"/>
     <wire from="(1080,470)" to="(1110,470)"/>
@@ -12656,6 +12838,7 @@ a005
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="JumpController"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="downloadFrequency" val="2083333.3333333333"/>
     <a name="simulationFrequency" val="2048000.0"/>
     <comp lib="0" loc="(100,220)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -12691,6 +12874,9 @@ a005
       <a name="label" val="PC_In"/>
       <a name="radix" val="16"/>
       <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(420,310)" name="Constant">
+      <a name="value" val="0x0"/>
     </comp>
     <comp lib="0" loc="(500,260)" name="Tunnel">
       <a name="label" val="JumpConditionFullfilled"/>
@@ -12730,7 +12916,9 @@ a005
     <comp lib="3" loc="(490,420)" name="Adder">
       <a name="width" val="16"/>
     </comp>
-    <comp loc="(320,220)" name="ALUFlagUnpacker"/>
+    <comp loc="(320,220)" name="ALUFlagUnpacker">
+      <a name="label" val="ALUFlagUnpacker_1"/>
+    </comp>
     <wire from="(270,100)" to="(700,100)"/>
     <wire from="(270,130)" to="(630,130)"/>
     <wire from="(270,160)" to="(540,160)"/>
@@ -12752,6 +12940,10 @@ a005
     <wire from="(350,260)" to="(440,260)"/>
     <wire from="(360,270)" to="(360,320)"/>
     <wire from="(360,270)" to="(440,270)"/>
+    <wire from="(420,280)" to="(420,290)"/>
+    <wire from="(420,280)" to="(440,280)"/>
+    <wire from="(420,290)" to="(420,310)"/>
+    <wire from="(420,290)" to="(440,290)"/>
     <wire from="(430,390)" to="(430,410)"/>
     <wire from="(430,390)" to="(570,390)"/>
     <wire from="(430,410)" to="(450,410)"/>
