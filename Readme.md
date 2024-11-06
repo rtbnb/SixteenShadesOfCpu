@@ -5,6 +5,15 @@
 - [Logisim Github](https://github.com/logisim-evolution/logisim-evolution?tab=readme-ov-file#download)
 - [FPGA Chip Datasheet](https://docs.amd.com/v/u/en-US/ds180_7Series_Overview)
 
+### Projekt Aufteilung
+
+| Name     | Aufgabe                   | Status    |
+|----------|---------------------------|-----------|
+| Lukas    | Pipeline & Control Unit   | Preparing |
+| Nico     | RegFile & Program Counter | Preparing |
+| Robin    | Memory & Decoder          | Preparing |
+| Matthias | Alu                       | Preparing |
+
 ### Abkürzungen
 - MMU (Memory Management Unit)
 - VRAM (Video RAM)
