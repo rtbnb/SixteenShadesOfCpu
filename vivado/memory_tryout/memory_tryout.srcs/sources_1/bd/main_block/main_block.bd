@@ -1,0 +1,255 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x356FAB861A6FE67D",
+      "device": "xc7a35ticsg324-1L",
+      "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
+      "name": "main_block",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "mmu": "",
+      "clk_wiz_0": "",
+      "blk_mem_gen_0": "",
+      "blk_mem_gen_1": ""
+    },
+    "ports": {
+      "clk100mhz": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_clk100mhz",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "led": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "mmu": {
+        "vlnv": "xilinx.com:module_ref:main:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_block_main_0_0",
+        "xci_path": "ip\\main_block_main_0_0\\main_block_main_0_0.xci",
+        "inst_hier_path": "mmu",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "main",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "led": {
+            "direction": "O"
+          },
+          "addr1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "addr2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "din1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "din2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "we": {
+            "direction": "O"
+          },
+          "oe": {
+            "direction": "O"
+          },
+          "dout1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dout2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "ip_revision": "14",
+        "xci_name": "main_block_clk_wiz_0_0",
+        "xci_path": "ip\\main_block_clk_wiz_0_0\\main_block_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "Custom"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      },
+      "blk_mem_gen_0": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "ip_revision": "8",
+        "xci_name": "main_block_blk_mem_gen_0_0",
+        "xci_path": "ip\\main_block_blk_mem_gen_0_0\\main_block_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "blk_mem_gen_0",
+        "parameters": {
+          "Algorithm": {
+            "value": "Minimum_Area"
+          },
+          "Register_PortA_Output_of_Memory_Core": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "65535"
+          },
+          "Write_Width_A": {
+            "value": "16"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "blk_mem_gen_1": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "ip_revision": "8",
+        "xci_name": "main_block_blk_mem_gen_1_0",
+        "xci_path": "ip\\main_block_blk_mem_gen_1_0\\main_block_blk_mem_gen_1_0.xci",
+        "inst_hier_path": "blk_mem_gen_1",
+        "parameters": {
+          "Write_Depth_A": {
+            "value": "65535"
+          },
+          "Write_Width_A": {
+            "value": "16"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      }
+    },
+    "nets": {
+      "blk_mem_gen_0_douta": {
+        "ports": [
+          "blk_mem_gen_0/douta",
+          "mmu/dout1"
+        ]
+      },
+      "blk_mem_gen_1_douta": {
+        "ports": [
+          "blk_mem_gen_1/douta",
+          "mmu/dout2"
+        ]
+      },
+      "clk100mhz_1": {
+        "ports": [
+          "clk100mhz",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "blk_mem_gen_0/clka",
+          "blk_mem_gen_1/clka",
+          "mmu/clk"
+        ]
+      },
+      "main_0_led": {
+        "ports": [
+          "mmu/led",
+          "led"
+        ]
+      },
+      "main_0_oe": {
+        "ports": [
+          "mmu/oe",
+          "blk_mem_gen_0/ena",
+          "blk_mem_gen_1/ena"
+        ]
+      },
+      "mmu_addr1": {
+        "ports": [
+          "mmu/addr1",
+          "blk_mem_gen_0/addra"
+        ]
+      },
+      "mmu_addr2": {
+        "ports": [
+          "mmu/addr2",
+          "blk_mem_gen_1/addra"
+        ]
+      },
+      "mmu_din1": {
+        "ports": [
+          "mmu/din1",
+          "blk_mem_gen_0/dina"
+        ]
+      },
+      "mmu_din2": {
+        "ports": [
+          "mmu/din2",
+          "blk_mem_gen_1/dina"
+        ]
+      },
+      "mmu_we": {
+        "ports": [
+          "mmu/we",
+          "blk_mem_gen_0/wea",
+          "blk_mem_gen_1/wea"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,284 @@
+
+*** Running vivado
+    with args -log main_block_main_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source main_block_main_0_0.tcl
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Wed Nov  6 16:20:27 2024
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source main_block_main_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/AMD/Vivado/2024.1/data/ip'.
+Command: synth_design -top main_block_main_0_0 -part xc7a35ticsg324-1L -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 3892
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1380.332 ; gain = 447.641
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'main_block_main_0_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:71]
+INFO: [Synth 8-3491] module 'main' declared at 'C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:35' bound to instance 'U0' of component 'main' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:101]
+INFO: [Synth 8-638] synthesizing module 'main' [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'main' (0#1) [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'main_block_main_0_0' (0#1) [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:71]
+WARNING: [Synth 8-7129] Port dout1[15] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[14] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[13] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[12] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[11] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[10] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[9] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[8] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[7] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[6] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[5] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[4] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[3] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[2] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[1] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[0] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[15] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[14] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[13] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[12] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[11] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[10] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[9] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[8] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[7] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[6] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[5] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[4] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[3] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[2] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[1] in module main is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[0] in module main is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1493.926 ; gain = 561.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1493.926 ; gain = 561.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1493.926 ; gain = 561.234
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1493.926 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1578.383 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1578.699 ; gain = 0.316
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35ticsg324-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   27 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port dout1[15] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[14] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[13] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[12] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[11] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[10] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[9] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[8] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[7] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[6] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[5] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[4] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[3] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[2] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[1] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout1[0] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[15] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[14] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[13] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[12] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[11] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[10] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[9] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[8] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[7] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[6] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[5] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[4] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[3] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[2] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[1] in module main_block_main_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dout2[0] in module main_block_main_0_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    22|
+|2     |LUT1   |     3|
+|3     |LUT3   |     1|
+|4     |LUT6   |    10|
+|5     |FDRE   |    62|
+|6     |FDSE   |     1|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1578.699 ; gain = 646.008
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 33 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1578.699 ; gain = 561.234
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1578.699 ; gain = 646.008
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1578.699 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 22 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1578.699 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 36e2116f
+INFO: [Common 17-83] Releasing license: Synthesis
+24 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:22 . Memory (MB): peak = 1578.699 ; gain = 1048.949
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1578.699 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/main_block_main_0_0_synth_1/main_block_main_0_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file main_block_main_0_0_utilization_synth.rpt -pb main_block_main_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Nov  6 16:20:55 2024...
