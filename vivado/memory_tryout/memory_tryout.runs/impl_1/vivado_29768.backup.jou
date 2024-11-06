@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Nov  6 15:31:31 2024
+# Process ID: 29768
+# Current directory: C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/impl_1
+# Command line: vivado.exe -log main_block_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source main_block_wrapper.tcl -notrace
+# Log file: C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/impl_1/main_block_wrapper.vdi
+# Journal file: C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/impl_1\vivado.jou
+# Running On        :Robin_Laptop
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :13th Gen Intel(R) Core(TM) i7-13700H
+# CPU Frequency     :2918 MHz
+# CPU Physical cores:14
+# CPU Logical cores :20
+# Host memory       :33854 MB
+# Swap memory       :19327 MB
+# Total Virtual     :53181 MB
+# Available Virtual :28529 MB
+#-----------------------------------------------------------
+source main_block_wrapper.tcl -notrace
