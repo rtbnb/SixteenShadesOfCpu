@@ -51,8 +51,43 @@ entity Pipelining_WriteBackStage is
 end Pipelining_WriteBackStage;
 
 architecture Behavioral of Pipelining_WriteBackStage is
-
+    signal whb_s, wlb_s, is_alu_op_s, jmp_s : STD_LOGIC := '0'; 
+    signal write_address_s, write_data_s, flags_s : STD_LOGIC_VECTOR(15 downto 0) := X"0000";
 begin
-
+    
+    latcher:process(InstrLoad_CLK) is
+    begin
+    if (rising_edge(InstrLoad_CLK)) then
+        whb_s <= WHB;
+        wlb_s <= WLB;
+        is_alu_op_s <= Is_ALU_OP;
+        jmp_s <= JMP;
+        write_address_s <= WriteAddress;
+        write_data_s <= WriteData;
+        flags_s <= Flags;        
+    end if;
+    end process latcher;
+    
+    resetter:process(Reset) is
+    begin
+    if (rising_edge(Reset)) then
+        whb_s <= '0';
+        wlb_s <= '0';
+        is_alu_op_s <= '0';
+        jmp_s <= '0';
+        write_address_s <= X"0000";
+        write_data_s <= X"0000";
+        flags_s <= X"0000";        
+    end if;
+    end process resetter;
+    
+    WriteAddress_out <= write_address_s;
+    WriteData_out <= write_data_s;
+    Flags_out <= flags_s;
+    
+    WHB_out <= whb_s;
+    WLB_out <= wlb_s;
+    Is_ALU_OP_out <= is_alu_op_s;
+    JMP_out <= jmp_s;
 
 end Behavioral;
