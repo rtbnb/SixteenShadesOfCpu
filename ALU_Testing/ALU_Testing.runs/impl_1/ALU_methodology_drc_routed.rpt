@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Thu Nov  7 14:17:10 2024
+| Date         : Thu Nov  7 14:46:02 2024
 | Host         : DESKTOP-NFG9C79 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file ALU_methodology_drc_routed.rpt -pb ALU_methodology_drc_routed.pb -rpx ALU_methodology_drc_routed.rpx
 | Design       : ALU
@@ -23,99 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 17
-+-----------+----------+--------------------------------+------------+
-| Rule      | Severity | Description                    | Violations |
-+-----------+----------+--------------------------------+------------+
-| TIMING-20 | Warning  | Non-clocked latch              | 16         |
-| LATCH-1   | Advisory | Existing latches in the design | 1          |
-+-----------+----------+--------------------------------+------------+
+             Violations found: 0
++------+----------+-------------+------------+
+| Rule | Severity | Description | Violations |
++------+----------+-------------+------------+
++------+----------+-------------+------------+
 
 2. REPORT DETAILS
 -----------------
-TIMING-20#1 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[0] cannot be properly analyzed as its control pin ALU_OUT_reg[0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#2 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[10] cannot be properly analyzed as its control pin ALU_OUT_reg[10]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#3 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[11] cannot be properly analyzed as its control pin ALU_OUT_reg[11]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#4 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[12] cannot be properly analyzed as its control pin ALU_OUT_reg[12]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#5 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[13] cannot be properly analyzed as its control pin ALU_OUT_reg[13]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#6 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[14] cannot be properly analyzed as its control pin ALU_OUT_reg[14]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#7 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[15] cannot be properly analyzed as its control pin ALU_OUT_reg[15]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#8 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[1] cannot be properly analyzed as its control pin ALU_OUT_reg[1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#9 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[2] cannot be properly analyzed as its control pin ALU_OUT_reg[2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#10 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[3] cannot be properly analyzed as its control pin ALU_OUT_reg[3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#11 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[4] cannot be properly analyzed as its control pin ALU_OUT_reg[4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#12 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[5] cannot be properly analyzed as its control pin ALU_OUT_reg[5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#13 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[6] cannot be properly analyzed as its control pin ALU_OUT_reg[6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#14 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[7] cannot be properly analyzed as its control pin ALU_OUT_reg[7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#15 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[8] cannot be properly analyzed as its control pin ALU_OUT_reg[8]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#16 Warning
-Non-clocked latch  
-The latch ALU_OUT_reg[9] cannot be properly analyzed as its control pin ALU_OUT_reg[9]/G is not reached by a timing clock
-Related violations: <none>
-
-LATCH-1#1 Advisory
-Existing latches in the design  
-There are 16 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
-Related violations: <none>
-
 
