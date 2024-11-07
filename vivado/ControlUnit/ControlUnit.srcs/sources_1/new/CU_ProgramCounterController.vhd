@@ -32,12 +32,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity CU_ProgramCounterController is
---  Port ( );
+    Port ( JumpController_JMP_Verified : in STD_LOGIC;
+           InstrExec_CLK : in STD_LOGIC;
+           PipeliningController_PC_CLK : in STD_LOGIC;
+           PC_CLK : out STD_LOGIC);
 end CU_ProgramCounterController;
 
 architecture Behavioral of CU_ProgramCounterController is
-
+    
 begin
 
+    PC_CLK <= PipeliningController_PC_CLK or (InstrExec_CLK and JumpController_JMP_Verified);
 
 end Behavioral;
