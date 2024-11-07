@@ -3,12 +3,12 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Nov  6 22:17:00 2024
-# Process ID: 29768
-# Current directory: C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.runs/synth_1
+# Start of session at: Thu Nov  7 09:03:02 2024
+# Process ID: 18288
+# Current directory: C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.runs/synth_1
 # Command line: vivado.exe -log RegFile.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RegFile.tcl
-# Log file: C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.runs/synth_1/RegFile.vds
-# Journal file: C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.runs/synth_1\vivado.jou
+# Log file: C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.runs/synth_1/RegFile.vds
+# Journal file: C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.runs/synth_1\vivado.jou
 # Running On        :BOOK-69BD3QPCMV
 # Platform          :Windows Server 2016 or Windows 10
 # Operating System  :22631
@@ -17,74 +17,80 @@
 # CPU Physical cores:14
 # CPU Logical cores :18
 # Host memory       :16739 MB
-# Swap memory       :5342 MB
-# Total Virtual     :22082 MB
-# Available Virtual :4015 MB
+# Swap memory       :5100 MB
+# Total Virtual     :21839 MB
+# Available Virtual :12134 MB
 #-----------------------------------------------------------
 source RegFile.tcl -notrace
-create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:16 . Memory (MB): peak = 515.660 ; gain = 197.176
+create_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 517.105 ; gain = 200.332
+Command: read_checkpoint -auto_incremental -incremental C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/utils_1/imports/synth_1/RegFile.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/utils_1/imports/synth_1/RegFile.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top RegFile -part xc7a35ticsg324-1L
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
 INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 10428
+INFO: [Synth 8-7075] Helper process launched with PID 17924
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1369.023 ; gain = 446.574
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 1372.191 ; gain = 448.449
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'RegFile' [C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:53]
-INFO: [Synth 8-226] default block is never used [C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:61]
-INFO: [Synth 8-226] default block is never used [C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:80]
-INFO: [Synth 8-226] default block is never used [C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:106]
-INFO: [Synth 8-256] done synthesizing module 'RegFile' (0#1) [C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:53]
-WARNING: [Synth 8-7129] Port RHOPin in module RegFile is either unconnected or has no load
+INFO: [Synth 8-638] synthesizing module 'RegFile' [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:53]
+INFO: [Synth 8-226] default block is never used [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:62]
+INFO: [Synth 8-226] default block is never used [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:81]
+INFO: [Synth 8-226] default block is never used [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:107]
+INFO: [Synth 8-256] done synthesizing module 'RegFile' (0#1) [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:53]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 1479.895 ; gain = 557.445
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1483.184 ; gain = 559.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 1479.895 ; gain = 557.445
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1483.184 ; gain = 559.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 1479.895 ; gain = 557.445
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1483.184 ; gain = 559.441
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1479.895 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1483.184 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.srcs/constrs_1/new/constraints.xdc]
-Finished Parsing XDC File [C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.srcs/constrs_1/new/constraints.xdc]
+Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/constrs_1/new/constraints.xdc]
+Finished Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/constrs_1/new/constraints.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1561.633 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1512.164 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1561.633 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1512.164 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:22 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:22 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:22 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:22 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:04 ; elapsed = 00:00:22 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:22 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:22 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:22 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -93,10 +99,9 @@ Detailed RTL Component Info :
 +---Registers : 
 	               16 Bit    Registers := 16    
 +---Muxes : 
-	   2 Input   16 Bit        Muxes := 1     
-	  16 Input   16 Bit        Muxes := 1     
-	  16 Input    1 Bit        Muxes := 16    
-	   2 Input    1 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 3     
+	  16 Input   16 Bit        Muxes := 2     
+	  16 Input    1 Bit        Muxes := 15    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -113,27 +118,26 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port RHOPin in module RegFile is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:04 ; elapsed = 00:00:27 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:27 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:34 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:35 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:35 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:35 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:06 ; elapsed = 00:00:35 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:35 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -151,37 +155,46 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:07 ; elapsed = 00:00:40 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:42 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:07 ; elapsed = 00:00:40 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:42 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin RHOPin_IBUF with 1st driver pin 'RHOPin_IBUF_inst/O' [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:34]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin RHOPin_IBUF with 2nd driver pin 'RegF_reg[5]/Q' [C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:104]
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        1|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:07 ; elapsed = 00:00:40 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:42 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:07 ; elapsed = 00:00:40 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:42 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:40 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:42 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:07 ; elapsed = 00:00:40 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:42 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -204,31 +217,32 @@ Report Cell Usage:
 |5     |MUXF7 |    64|
 |6     |MUXF8 |    32|
 |7     |FDRE  |   256|
-|8     |IBUF  |    47|
+|8     |IBUF  |    48|
 |9     |OBUF  |    52|
 +------+------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:07 ; elapsed = 00:00:40 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:42 . Memory (MB): peak = 1512.164 ; gain = 588.422
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:04 ; elapsed = 00:00:38 . Memory (MB): peak = 1561.633 ; gain = 557.445
-Synthesis Optimization Complete : Time (s): cpu = 00:00:07 ; elapsed = 00:00:41 . Memory (MB): peak = 1561.633 ; gain = 639.184
+Synthesis finished with 0 errors, 2 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:40 . Memory (MB): peak = 1512.164 ; gain = 559.441
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:42 . Memory (MB): peak = 1512.164 ; gain = 588.422
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1561.633 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1512.164 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 96 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1561.633 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1512.164 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: c714fb3b
+Synth Design complete | Checksum: f0a1a1b5
 INFO: [Common 17-83] Releasing license: Synthesis
-20 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+26 Infos, 1 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:01:06 . Memory (MB): peak = 1561.633 ; gain = 1045.973
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1561.633 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Development/SixteenShadesOfCpu/RegisterFile/RegFile.runs/synth_1/RegFile.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:50 . Memory (MB): peak = 1512.164 ; gain = 988.465
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1512.164 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.runs/synth_1/RegFile.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file RegFile_utilization_synth.rpt -pb RegFile_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov  6 22:18:35 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov  7 09:04:05 2024...

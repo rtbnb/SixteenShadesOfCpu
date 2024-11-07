@@ -56,6 +56,7 @@ architecture Behavioral of RegFile is
 begin
     RegMA_data <= RegA;
     BankID <= RegB(3 downto 0);
+    RegF(5) <= RHOPin;
     
     -- Select data for addrreg1
     with AddrReg1 select
