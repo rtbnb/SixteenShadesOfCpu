@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Wed Nov  6 22:18:35 2024
+| Date         : Thu Nov  7 09:04:05 2024
 | Host         : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 | Command      : report_utilization -file RegFile_utilization_synth.rpt -pb RegFile_utilization_synth.pb
 | Design       : RegFile
@@ -93,7 +93,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |   99 |     0 |          0 |       210 | 47.14 |
+| Bonded IOB                  |  100 |     0 |          0 |       210 | 47.62 |
 | Bonded IPADs                |    0 |     0 |          0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         5 |  0.00 |
 | PHASER_REF                  |    0 |     0 |          0 |         5 |  0.00 |
@@ -153,7 +153,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | LUT6     |  129 |                 LUT |
 | MUXF7    |   64 |               MuxFx |
 | OBUF     |   52 |                  IO |
-| IBUF     |   47 |                  IO |
+| IBUF     |   48 |                  IO |
 | MUXF8    |   32 |               MuxFx |
 | LUT5     |   16 |                 LUT |
 | LUT3     |   16 |                 LUT |
