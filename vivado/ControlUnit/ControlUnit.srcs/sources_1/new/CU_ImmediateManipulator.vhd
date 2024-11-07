@@ -37,15 +37,15 @@ entity CU_ImmediateManipulator is
            RF_WHB : in STD_LOGIC;
            RF_WLB : in STD_LOGIC;
            ManipulatedImmidiate : out STD_LOGIC_VECTOR (15 downto 0));
-end CU_ImmediateManipulator;
+end entity CU_ImmediateManipulator;
 
 architecture Behavioral of CU_ImmediateManipulator is
     signal selection : STD_LOGIC_VECTOR (1 downto 0);
     signal imh, iml : STD_LOGIC_VECTOR (15 downto 0);
 begin
     
-    selection(0 downto 0) <= RF_WHB;
-    selection(1 downto 1) <= RF_WLB;
+    selection(0) <= RF_WHB;
+    selection(1) <= RF_WLB;
     
     imh(7 downto 0) <= Reg1(7 downto 0);
     imh(15 downto 8) <= Immidiate(7 downto 0);
@@ -53,11 +53,11 @@ begin
     iml(7 downto 0) <= Immidiate(7 downto 0);
     iml(15 downto 8) <= Reg1(15 downto 8);
     
-    SELECT (selection) ManipulatedImmidiate <=
+    WITH selection SELECT ManipulatedImmidiate <=
         Reg1 WHEN "00",
         imh WHEN "01",
         iml WHEN "10",
         Immidiate WHEN "11";
      
 
-end Behavioral;
+end architecture Behavioral;
