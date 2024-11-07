@@ -8,12 +8,12 @@
   **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Thu Nov  7 14:11:23 2024
+  **** Start of session at: Thu Nov  7 14:40:14 2024
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source ALU.tcl -notrace
-create_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 491.434 ; gain = 199.492
+create_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 494.898 ; gain = 201.770
 Command: read_checkpoint -auto_incremental -incremental D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/utils_1/imports/synth_1/ALU.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/utils_1/imports/synth_1/ALU.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -25,50 +25,53 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 9596
+INFO: [Synth 8-7075] Helper process launched with PID 3612
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:15 ; elapsed = 00:00:25 . Memory (MB): peak = 957.941 ; gain = 452.422
+Starting Synthesize : Time (s): cpu = 00:00:15 ; elapsed = 00:00:26 . Memory (MB): peak = 955.578 ; gain = 446.344
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'ALU' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:45]
-WARNING: [Synth 8-614] signal 'D1' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:50]
-WARNING: [Synth 8-614] signal 'D2' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:50]
-WARNING: [Synth 8-614] signal 'D1Singend' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:50]
-WARNING: [Synth 8-614] signal 'D2Singend' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:50]
+WARNING: [Synth 8-614] signal 'D1' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:52]
+WARNING: [Synth 8-614] signal 'D2' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:52]
+WARNING: [Synth 8-614] signal 'D1Singend' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:52]
+WARNING: [Synth 8-614] signal 'D2Singend' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:52]
+WARNING: [Synth 8-614] signal 'ALU_OPP_Internal' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:52]
+WARNING: [Synth 8-614] signal 'RHO_PIN' is read in the process but is not in the sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'ALU' (0#1) [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:45]
-WARNING: [Synth 8-7129] Port RHO_PIN in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[15] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[14] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[13] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[12] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[11] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[10] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[9] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[8] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[7] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[6] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[5] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[4] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[3] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[2] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[1] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[0] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-3848] Net ALU_OUT in module/entity ALU does not have driver. [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:40]
+WARNING: [Synth 8-7129] Port ALU_OUT[15] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[14] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[13] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[12] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[11] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[10] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[9] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[8] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[7] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[6] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[5] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[4] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[3] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[2] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[1] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[0] in module ALU is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:19 ; elapsed = 00:00:30 . Memory (MB): peak = 1067.086 ; gain = 561.566
+Finished Synthesize : Time (s): cpu = 00:00:19 ; elapsed = 00:00:32 . Memory (MB): peak = 1064.105 ; gain = 554.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1067.086 ; gain = 561.566
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:33 . Memory (MB): peak = 1064.105 ; gain = 554.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1067.086 ; gain = 561.566
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:33 . Memory (MB): peak = 1064.105 ; gain = 554.871
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-327] inferring latch for variable 'ALU_OUT_reg' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:58]
 INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+WARNING: [Synth 8-327] inferring latch for variable 'ALU_FLAGS_reg' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:118]
+WARNING: [Synth 8-327] inferring latch for variable 'ALU_OPP_Internal_reg' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:60]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 1067.086 ; gain = 561.566
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:35 . Memory (MB): peak = 1064.105 ; gain = 554.871
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -81,6 +84,7 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input     16 Bit         XORs := 2     
 +---Muxes : 
+	   2 Input   16 Bit        Muxes := 1     
 	  13 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -100,7 +104,22 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port RHO_PIN in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[15] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[14] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[13] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[12] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[11] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[10] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[9] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[8] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[7] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[6] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[5] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[4] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[3] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[2] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[1] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OUT[0] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_FLAGS[15] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_FLAGS[14] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_FLAGS[13] in module ALU is either unconnected or has no load
@@ -110,28 +129,43 @@ WARNING: [Synth 8-7129] Port ALU_FLAGS[10] in module ALU is either unconnected o
 WARNING: [Synth 8-7129] Port ALU_FLAGS[9] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_FLAGS[8] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_FLAGS[7] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[6] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[5] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_FLAGS[4] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[3] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[2] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ALU_FLAGS[1] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_FLAGS[0] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (ALU_FLAGS_reg[6]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_FLAGS_reg[3]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_FLAGS_reg[2]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_FLAGS_reg[1]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[15]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[14]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[13]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[12]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[11]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[10]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[9]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[8]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[7]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[6]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[5]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[4]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[3]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[2]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[1]) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (ALU_OPP_Internal_reg[0]) is unused and will be removed from module ALU.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:53 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:50 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:53 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:50 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:54 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -149,37 +183,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:01:08 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:01:08 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:01:08 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:01:08 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:01:08 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:01:08 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -192,49 +226,40 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |CARRY4 |     8|
-|2     |LUT2   |    33|
-|3     |LUT3   |    24|
-|4     |LUT4   |     9|
-|5     |LUT5   |    59|
-|6     |LUT6   |    39|
-|7     |LD     |    16|
-|8     |IBUF   |    36|
-|9     |OBUF   |    16|
-+------+-------+------+
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |IBUF  |     1|
+|2     |OBUF  |     5|
+|3     |OBUFT |    27|
++------+------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   240|
+|1     |top      |       |    33|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:01:08 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 40 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:49 ; elapsed = 00:01:09 . Memory (MB): peak = 1259.840 ; gain = 754.320
-Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:01:09 . Memory (MB): peak = 1259.840 ; gain = 754.320
+Synthesis finished with 0 errors, 0 critical warnings and 73 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:01:02 . Memory (MB): peak = 1243.863 ; gain = 734.629
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.070 . Memory (MB): peak = 1266.660 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.157 . Memory (MB): peak = 1244.859 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1356.711 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1339.637 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 16 instances were transformed.
-  LD => LDCE: 16 instances
+No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 4e1ac9ad
+Synth Design complete | Checksum: f6de06d5
 INFO: [Common 17-83] Releasing license: Synthesis
-19 Infos, 40 Warnings, 0 Critical Warnings and 0 Errors encountered.
+17 Infos, 73 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:53 ; elapsed = 00:01:35 . Memory (MB): peak = 1356.711 ; gain = 857.570
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.242 . Memory (MB): peak = 1356.711 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:01:24 . Memory (MB): peak = 1339.637 ; gain = 837.043
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.198 . Memory (MB): peak = 1339.637 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.runs/synth_1/ALU.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file ALU_utilization_synth.rpt -pb ALU_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov  7 14:13:34 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov  7 14:42:45 2024...
