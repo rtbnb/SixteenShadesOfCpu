@@ -40,10 +40,17 @@ entity main is
         addr2: out std_logic_vector(15 downto 0);
         din1: out std_logic_vector(15 downto 0);
         din2: out std_logic_vector(15 downto 0);
-        we: out std_logic;
-        oe: out std_logic;
-        dout1: in std_logic_vector(15 downto 0);
-        dout2: in std_logic_vector(15 downto 0)
+        we: out std_logic := '1';
+        oe: out std_logic := '1';
+        dout1: in std_logic_vector(15 downto 0) := "0000000000000000";
+        dout2: in std_logic_vector(15 downto 0) := "0000000000000000";
+        clka: out std_logic;
+        clkb: out std_logic;
+        test_data: in std_logic_vector(15 downto 0) := "0000000000000000";
+        test_addr: in std_logic_vector(15 downto 0) := "0000000000000000";
+        test_write: in std_logic;
+        should_write: in std_logic;
+        should_read: in std_logic
     );
 
 --  Port ( );
@@ -56,59 +63,83 @@ signal clk_s: std_logic;
 signal addr_s: std_logic_vector(15 downto 0);
 signal din_s: std_logic_vector(15 downto 0);
 signal we_s: std_logic := '1';
-signal oe_s: std_logic := '0';
-signal dout1_s: std_logic_vector(15 downto 0);
-signal dout2_s: std_logic_vector(15 downto 0);
+signal oe_s: std_logic := '1';
+signal dout1_s: std_logic_vector(15 downto 0) := "0000000000000000";
+signal dout2_s: std_logic_vector(15 downto 0) := "0000000000000000";
 signal doneWriting: boolean := FALSE;
 signal memAddr_s: unsigned(15 downto 0) := "0000000000000000";
 signal clk2: std_logic := '0';
+signal state: integer range 0 to 10;
+signal clka_s: std_logic := '0';
+signal clkb_s: std_logic := '0';
+signal write_active: boolean := FALSE; 
 begin
-
     led <= led_s;
     we <= we_s;
     oe <= oe_s;
+    clka <= clka_s; 
+    clkb <= clkb_s;
     
     addr1 <= std_logic_vector(memAddr_s);
     addr2 <= std_logic_vector(memAddr_s);
     din1 <= din_s;
     din2 <= din_s;
     
-    blink_process:process(clk)
+    mem_validate:process(clk)
     begin
-        if rising_edge(clk) then
-            counter <= counter+1;
-            
-            if counter+1=100000000 then
---                led_s <= not led_s;
-                clk2 <= not clk2;
-                we_s <= not we_s;
-                oe_s <= not oe_s;
+        if state=0 then
+            if test_write='1' then
+                state <= 1;
             end if;
+        end if;
         
+        if write_active then
+            if rising_edge(clk) then
+                clka_s <= '1';
+            end if;
+            
+            if falling_edge(clk) then
+                clka_s <= '0';
+            end if;
         end if;
-    end process;
     
-    mem_test:process(clk2)
-    begin
-        if rising_edge(clk2) then
-            memAddr_s <= memAddr_s + 1;
+        if rising_edge(clk) then
+            clka_s <= '1';
+        
+            case state is
+                when 0 =>
+                    state <= 0;
+                when 1 =>
+                    memAddr_s <= unsigned(test_addr);
+                    din_s <= test_data;
+--                    memAddr_s <= "0000000000000010";
+--                    din_s <= "0000000000001010";
+                    state <= 1;
+                    
+                    we_s <= should_write;
+                    oe_s <= should_read;
+                    
+                    write_active <= TRUE;
+--                when 2 => 
+--                    state <= 3;
+--                    memAddr_s <= unsigned(test_addr);
+--                    din_s <= test_data;
+--                    memAddr_s <= "0000000000000000";
+--                    din_s <= "0000000000000000";
+--                when 3 =>
+--                    state <= 4;
+--                    write_active <= FALSE;
+--                when 4 => 
+--                    state <= 0;
+                when others =>
+                    state <= 0;
+            end case;
             
-            if doneWriting then
-                if memAddr_s+1=65 then
-                    memAddr_s <= "0000000000000000";
-                end if;
-            end if;
-            
-            if not doneWriting then
-                din_s <= std_logic_vector(memAddr_s);
-            end if;
-            
-            if memAddr_s+1=65 then
-                led_s <= '1';
-                doneWriting <= TRUE;
-                memAddr_s <= "0000000000000000";
-            end if;
         end if;
+        
+        
+        
+    
     
     end process;
 

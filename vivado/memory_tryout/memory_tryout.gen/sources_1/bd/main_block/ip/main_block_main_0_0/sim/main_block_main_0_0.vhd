@@ -64,7 +64,14 @@ ENTITY main_block_main_0_0 IS
     we : OUT STD_LOGIC;
     oe : OUT STD_LOGIC;
     dout1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    dout2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+    dout2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    clka : OUT STD_LOGIC;
+    clkb : OUT STD_LOGIC;
+    test_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    test_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    test_write : IN STD_LOGIC;
+    should_write : IN STD_LOGIC;
+    should_read : IN STD_LOGIC
   );
 END main_block_main_0_0;
 
@@ -82,12 +89,19 @@ ARCHITECTURE main_block_main_0_0_arch OF main_block_main_0_0 IS
       we : OUT STD_LOGIC;
       oe : OUT STD_LOGIC;
       dout1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      dout2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+      dout2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      clka : OUT STD_LOGIC;
+      clkb : OUT STD_LOGIC;
+      test_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      test_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      test_write : IN STD_LOGIC;
+      should_write : IN STD_LOGIC;
+      should_read : IN STD_LOGIC
     );
   END COMPONENT main;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clk100mhz, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
 BEGIN
   U0 : main
@@ -101,6 +115,13 @@ BEGIN
       we => we,
       oe => oe,
       dout1 => dout1,
-      dout2 => dout2
+      dout2 => dout2,
+      clka => clka,
+      clkb => clkb,
+      test_data => test_data,
+      test_addr => test_addr,
+      test_write => test_write,
+      should_write => should_write,
+      should_read => should_read
     );
 END main_block_main_0_0_arch;
