@@ -37,15 +37,52 @@ entity CU_JumpController is
            JMP_Relative : in STD_LOGIC;
            JMP_Condition : in STD_LOGIC_VECTOR (2 downto 0);
            Flags : in STD_LOGIC_VECTOR (15 downto 0);
-           JMP_Addr : in STD_LOGIC_VECTOR (15 downto 0);
+           JMP_Address : in STD_LOGIC_VECTOR (15 downto 0);
            PC_Current : in STD_LOGIC_VECTOR (15 downto 0);
            JMP_Verified : out STD_LOGIC;
            PC_Next : out STD_LOGIC_VECTOR (0 downto 0));
 end CU_JumpController;
 
 architecture Behavioral of CU_JumpController is
-
+    
+    component FlagUnpacker is
+        Port ( Flags : in STD_LOGIC_VECTOR (15 downto 0);
+               CarryFlag : out STD_LOGIC;
+               ZeroFlag : out STD_LOGIC;
+               SmallerZeroFlag : out STD_LOGIC;
+               BiggerZeroFlag : out STD_LOGIC;
+               OverflowFlag : out STD_LOGIC;
+               RhoFlag : out STD_LOGIC);
+    end component FlagUnpacker;
+    
+    signal carry_flag, zero_flag, smaller_zero_flag, bigger_zero_flag, overflow_flag, rho_flag : STD_LOGIC;
+    signal jump_condition_fullfilled : STD_LOGIC;
 begin
-
+    
+    FlagUnpackerInstance : FlagUnpacker port map(
+        Flags => Flags,
+        CarryFlag => carry_flag,
+        ZeroFlag => zero_flag,
+        SmallerZeroFlag => smaller_zero_flag,
+        BiggerZeroFlag => bigger_zero_flag,
+        OverflowFlag => overflow_flag,
+        RhoFlag => rho_flag
+    );
+    
+    SELECT (JMP_Condition) jump_condition_fullfilled <=
+        carry_flag WHEN "000",
+        zero_flag WHEN "001",
+        smaller_zero_flag WHEN "010",
+        bigger_zero_flag WHEN "011",
+        overflow_flag WHEN "100",
+        rho_flag WHEN "101",
+        (not zero_flag) WHEN "110",
+        '1' WHEN "111";
+    
+    JMP_Verified <= JMP and ((not JMP_Conditional) or jump_condition_fullfilled);
+    
+    SELECT (JMP_Relative) PC_Next <=
+        JMP_Address WHEN '0',
+        JMP_Address + PC_Current - X"0001" WHEN '1';
 
 end Behavioral;
