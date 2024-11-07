@@ -1,1 +1,1 @@
-vopt -l elaborate.log +acc=npr -suppress 10016  -L xil_defaultlib -L blk_mem_gen_v8_4_8 -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.main_block xil_defaultlib.glbl -o main_block_opt
+vopt -l elaborate.log +acc=npr -suppress 10016  -L xil_defaultlib -L xpm -L blk_mem_gen_v8_4_8 -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.main_block xil_defaultlib.glbl -o main_block_opt

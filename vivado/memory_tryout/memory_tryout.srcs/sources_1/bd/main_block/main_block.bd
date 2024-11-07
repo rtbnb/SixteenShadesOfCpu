@@ -1,18 +1,17 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x356FAB861A6FE67D",
+      "boundary_crc": "0x8ADD1BAB5878669C",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
       "name": "main_block",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "Hierarchical",
+      "synth_flow_mode": "None",
       "tool_version": "2024.1",
       "validated": "true"
     },
     "design_tree": {
       "mmu": "",
-      "clk_wiz_0": "",
       "blk_mem_gen_0": "",
       "blk_mem_gen_1": ""
     },
@@ -44,6 +43,72 @@
       },
       "led": {
         "direction": "O"
+      },
+      "dout1_t": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "addr1_t": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "din1_t": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "oe_t": {
+        "direction": "O"
+      },
+      "we_t": {
+        "direction": "O"
+      },
+      "test_addr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "test_data": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "test_write": {
+        "direction": "I"
+      },
+      "mem_clk": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_clk100mhz",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "user_prop"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "should_write": {
+        "direction": "I"
+      },
+      "should_read": {
+        "direction": "I"
       }
     },
     "components": {
@@ -65,15 +130,11 @@
             "parameters": {
               "FREQ_HZ": {
                 "value": "100000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
+                "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
+                "value": "main_block_clk100mhz",
+                "value_src": "default_prop"
               }
             }
           },
@@ -115,24 +176,31 @@
             "direction": "I",
             "left": "15",
             "right": "0"
-          }
-        }
-      },
-      "clk_wiz_0": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "ip_revision": "14",
-        "xci_name": "main_block_clk_wiz_0_0",
-        "xci_path": "ip\\main_block_clk_wiz_0_0\\main_block_clk_wiz_0_0.xci",
-        "inst_hier_path": "clk_wiz_0",
-        "parameters": {
-          "CLK_IN1_BOARD_INTERFACE": {
-            "value": "Custom"
           },
-          "RESET_BOARD_INTERFACE": {
-            "value": "reset"
+          "clka": {
+            "direction": "O"
           },
-          "USE_BOARD_FLOW": {
-            "value": "true"
+          "clkb": {
+            "direction": "O"
+          },
+          "test_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "test_addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "test_write": {
+            "direction": "I"
+          },
+          "should_write": {
+            "direction": "I"
+          },
+          "should_read": {
+            "direction": "I"
           }
         }
       },
@@ -183,6 +251,7 @@
       "blk_mem_gen_0_douta": {
         "ports": [
           "blk_mem_gen_0/douta",
+          "dout1_t",
           "mmu/dout1"
         ]
       },
@@ -192,17 +261,11 @@
           "mmu/dout2"
         ]
       },
-      "clk100mhz_1": {
-        "ports": [
-          "clk100mhz",
-          "clk_wiz_0/clk_in1"
-        ]
-      },
       "clk_wiz_0_clk_out1": {
         "ports": [
-          "clk_wiz_0/clk_out1",
+          "clk100mhz",
           "blk_mem_gen_0/clka",
-          "blk_mem_gen_1/clka",
+          "mem_clk",
           "mmu/clk"
         ]
       },
@@ -216,13 +279,15 @@
         "ports": [
           "mmu/oe",
           "blk_mem_gen_0/ena",
-          "blk_mem_gen_1/ena"
+          "blk_mem_gen_1/ena",
+          "oe_t"
         ]
       },
       "mmu_addr1": {
         "ports": [
           "mmu/addr1",
-          "blk_mem_gen_0/addra"
+          "blk_mem_gen_0/addra",
+          "addr1_t"
         ]
       },
       "mmu_addr2": {
@@ -231,10 +296,17 @@
           "blk_mem_gen_1/addra"
         ]
       },
+      "mmu_clkb": {
+        "ports": [
+          "mmu/clkb",
+          "blk_mem_gen_1/clka"
+        ]
+      },
       "mmu_din1": {
         "ports": [
           "mmu/din1",
-          "blk_mem_gen_0/dina"
+          "blk_mem_gen_0/dina",
+          "din1_t"
         ]
       },
       "mmu_din2": {
@@ -247,7 +319,38 @@
         "ports": [
           "mmu/we",
           "blk_mem_gen_0/wea",
-          "blk_mem_gen_1/wea"
+          "blk_mem_gen_1/wea",
+          "we_t"
+        ]
+      },
+      "should_read_1": {
+        "ports": [
+          "should_read",
+          "mmu/should_read"
+        ]
+      },
+      "should_write_1": {
+        "ports": [
+          "should_write",
+          "mmu/should_write"
+        ]
+      },
+      "test_addr_1": {
+        "ports": [
+          "test_addr",
+          "mmu/test_addr"
+        ]
+      },
+      "test_data_1": {
+        "ports": [
+          "test_data",
+          "mmu/test_data"
+        ]
+      },
+      "test_write_1": {
+        "ports": [
+          "test_write",
+          "mmu/test_write"
         ]
       }
     }
