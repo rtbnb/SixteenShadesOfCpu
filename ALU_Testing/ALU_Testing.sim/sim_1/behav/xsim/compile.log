@@ -1,17 +1,6 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'ALU'
-ERROR: [VRFC 10-4982] syntax error near 'case' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:55]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:60]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:64]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:68]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:72]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:76]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:80]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:84]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:88]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:92]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:96]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:100]
-ERROR: [VRFC 10-4982] syntax error near 'when' [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:104]
+ERROR: [VRFC 10-8820] cannot read from 'out' object 'alu_out'; use 'buffer' or 'inout' instead [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:111]
+ERROR: [VRFC 10-8755] argument of operator "=" cannot be an 'others' aggregate [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:111]
 ERROR: [VRFC 10-9458] unit 'alubehavioral' is ignored due to previous errors [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:45]
 INFO: [VRFC 10-8704] VHDL file 'D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd' is ignored due to errors
