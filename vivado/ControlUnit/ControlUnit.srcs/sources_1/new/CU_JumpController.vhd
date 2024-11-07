@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -56,7 +56,9 @@ architecture Behavioral of CU_JumpController is
     end component FlagUnpacker;
     
     signal carry_flag, zero_flag, smaller_zero_flag, bigger_zero_flag, overflow_flag, rho_flag : STD_LOGIC;
+    signal not_zero_flag : STD_LOGIC;
     signal jump_condition_fullfilled : STD_LOGIC;
+    signal relative_jump_destination : STD_LOGIC_VECTOR(15 downto 0);
 begin
     
     FlagUnpackerInstance : FlagUnpacker port map(
@@ -69,20 +71,24 @@ begin
         RhoFlag => rho_flag
     );
     
-    SELECT (JMP_Condition) jump_condition_fullfilled <=
+    not_zero_flag <= not zero_flag;
+    
+    WITH JMP_Condition SELECT jump_condition_fullfilled <=
         carry_flag WHEN "000",
         zero_flag WHEN "001",
         smaller_zero_flag WHEN "010",
         bigger_zero_flag WHEN "011",
         overflow_flag WHEN "100",
         rho_flag WHEN "101",
-        (not zero_flag) WHEN "110",
+        not_zero_flag WHEN "110",
         '1' WHEN "111";
     
     JMP_Verified <= JMP and ((not JMP_Conditional) or jump_condition_fullfilled);
     
-    SELECT (JMP_Relative) PC_Next <=
+    relative_jump_destination <= std_logic_vector(TO_UNSIGNED(JMP_Address, 16) + TO_SIGNED(PC_Current, 16) - 1);
+    
+    WITH JMP_Relative SELECT PC_Next <=
         JMP_Address WHEN '0',
-        JMP_Address + PC_Current - X"0001" WHEN '1';
+        relative_jump_destination WHEN '1';
 
 end Behavioral;

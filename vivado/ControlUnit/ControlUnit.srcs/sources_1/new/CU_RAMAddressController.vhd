@@ -43,12 +43,12 @@ end CU_RAMAddressController;
 architecture Behavioral of CU_RAMAddressController is
     signal used_address : STD_LOGIC_VECTOR(15 downto 0);
 begin
-    SELECT (RAM_Address_Src) used_address <=
+    WITH RAM_Address_Src SELECT used_address <=
         Reg2 WHEN '0',
         Immidiate WHEN '1';
     
-    SELECT (Use_MA) RAM_Address <=
+    WITH Use_MA SELECT RAM_Address <=
         used_address WHEN '0',
-        used_address + MA WHEN '1';
+        (used_address + MA) WHEN '1';
 
 end Behavioral;
