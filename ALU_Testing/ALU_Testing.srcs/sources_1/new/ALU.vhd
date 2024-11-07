@@ -33,19 +33,21 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity ALU is
  Port ( 
-    D1: IN std_logic_vector(15 downto 0 );
-    D2: IN std_logic_vector(15 downto 0 );
-    ALU_OPP: IN std_logic_vector(3 downto 0 );
-    RHO_PIN: IN std_logic;
-    ALU_OUT: OUT std_logic_vector(15 downto 0 );
-    ALU_FLAGS: OUT std_logic_vector(15 downto 0 )
+    D1: IN std_logic_vector(15 downto 0 ):= (others => '0');
+    D2: IN std_logic_vector(15 downto 0 ):= (others => '0');
+    ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
+    RHO_PIN: IN std_logic:= '0';
+    ALU_OUT: OUT std_logic_vector(15 downto 0 ):= (others => '0');
+    ALU_FLAGS: OUT std_logic_vector(15 downto 0) := (others => '0')
  );
 end ALU;
 
 architecture ALUBehavioral of ALU is
 signal D1Singend: signed(15 downto 0) := (others => '0');
 signal D2Singend: signed(15 downto 0) := (others => '0');
-signal ALU_OPP_Internal: std_logic_vector(15 downto 0) := (others => '0');
+signal ALU_OUT_Internal: std_logic_vector(15 downto 0) := (others => '0');
+
+signal temp:  signed(16 downto 0); --Adding using a bit more then needed
 
 
 begin
@@ -57,51 +59,58 @@ begin
     case ALU_OPP is
         when "0000" =>
             -- Adding
-            ALU_OPP_Internal <= std_logic_vector(D1Singend+D2Singend);
+            temp <= '0' & D1Singend +  D2Singend;
+            ALU_OUT_Internal <= std_logic_vector(temp(15 downto 0));
+            --carry flag
+            ALU_FLAGS(0) <= temp(16);
             
          when "0001" =>
             -- Subtracting
-            ALU_OPP_Internal <= std_logic_vector(D1Singend-D2Singend);
-         
+            --ALU_OUT_Internal <= std_logic_vector(D1Singend-D2Singend);
+            temp <= '0' & D1Singend -  D2Singend;
+            ALU_OUT_Internal <= std_logic_vector(temp(15 downto 0));
+            --carry flag
+            ALU_FLAGS(0) <= temp(16);
+            
          when "0010" =>
             -- Shift left
-            ALU_OPP_Internal <= std_logic_vector(shift_left(D1Singend, to_integer(unsigned(D2Singend))));
+            ALU_OUT_Internal <= std_logic_vector(shift_left(D1Singend, to_integer(unsigned(D2Singend))));
             
          when "0011" =>
             -- Shift right
-            ALU_OPP_Internal <= std_logic_vector(shift_right(D1Singend, to_integer(unsigned(D2Singend))));
+            ALU_OUT_Internal <= std_logic_vector(shift_right(D1Singend, to_integer(unsigned(D2Singend))));
             
          when "1000" =>
             -- Identity
-            ALU_OPP_Internal <= D1;
+            ALU_OUT_Internal <= D1;
             
          when "1001" =>
             -- AND
-           ALU_OPP_Internal <= D1 AND D2;
+           ALU_OUT_Internal <= D1 AND D2;
            
          when "1010" =>
             -- OR
-           ALU_OPP_Internal <= D1 OR D2;           
+           ALU_OUT_Internal <= D1 OR D2;           
     
          when "1011" =>
             -- XOR     
-           ALU_OPP_Internal <= D1 XOR D2;
+           ALU_OUT_Internal <= D1 XOR D2;
     
          when "1100" =>
             -- Neg
-            ALU_OPP_Internal <= not D1;
+            ALU_OUT_Internal <= not D1;
             
          when "1101" =>
             -- NAND 
-           ALU_OPP_Internal <= D1 NAND D2;
+           ALU_OUT_Internal <= D1 NAND D2;
            
          when "1110" =>
             -- NOR
-           ALU_OPP_Internal <= D1 NOR D2;
+           ALU_OUT_Internal <= D1 NOR D2;
     
          when "1111" =>
             -- XNOR
-           ALU_OPP_Internal <= D1 XNOR D2;
+           ALU_OUT_Internal <= D1 XNOR D2;
            
          when others =>
             --pass
@@ -109,11 +118,7 @@ begin
          
      end case;
      
-     --TODO: Check carry
-     -- Check overflow
-     -- Check unconditional
-     
-     if ALU_OPP_Internal = "0000000000000000" then
+     if ALU_OUT_Internal = "0000000000000000" then
      --ALU FLAG: ZERO FLAG
         ALU_FLAGS(1) <= '1';
      else
@@ -121,7 +126,7 @@ begin
         ALU_FLAGS(6) <= '1';
      end if;
      
-     if signed(ALU_OPP_Internal) < 0 then
+     if signed(ALU_OUT_Internal) < 0 then
      --ALU FLAG: SMALLER THEN ZERO
         ALU_FLAGS(2) <= '1';
      else
@@ -129,7 +134,12 @@ begin
         ALU_FLAGS(3) <= '1';
      end if;
      
+     -- ALU FLAG: overflow
+     ALU_FLAGS(4) <= ((ALU_OPP(0) XOR D2(15)) XNOR D1(15)) AND (D1(15) XOR ALU_OUT_Internal(15));
+     
      ALU_FLAGS(5) <= RHO_PIN;
+     
+     ALU_OUT <= ALU_OUT_Internal;
      
      
 end process;
