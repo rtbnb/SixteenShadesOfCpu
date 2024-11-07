@@ -36,14 +36,66 @@ entity ALU is
     D1: IN std_logic_vector(15 downto 0 );
     D2: IN std_logic_vector(15 downto 0 );
     ALU_OPP: IN std_logic_vector(3 downto 0 );
+    RHO_PIN: IN std_logic;
     ALU_OUT: OUT std_logic_vector(15 downto 0 );
     ALU_FLAGS: in std_logic_vector(15 downto 0 )
  );
 end ALU;
 
-architecture Behavioral of ALU is
+architecture ALUBehavioral of ALU is
 
 begin
+process (ALU_OPP)
+--Wrapping in process for testing
+begin
+    case ALU_OPP is
+        when "0000" =>
+            -- Adding
+            
+         when "0001" =>
+            -- Subtracting
+         
+         when "0010" =>
+            -- Shift left
+            
+         when "0011" =>
+            -- Shift right
+            
+         when "1000" =>
+            -- Identity
+            
+         when "1001" =>
+            -- AND
+           ALU_OUT <= D1 AND D2;
+           
+         when "1010" =>
+            -- OR
+           ALU_OUT <= D1 OR D2;
+            
+    
+         when "1011" =>
+            -- XOR     
+           ALU_OUT <= D1 XOR D2;
+    
+         when "1100" =>
+            -- Neg
+            
+         when "1101" =>
+            -- NAND 
+           ALU_OUT <= D1 NAND D2;
+           
+         when "1110" =>
+            -- NOR
+           ALU_OUT <= D1 NOR D2;
+    
+         when "1111" =>
+            -- XNOR
+           ALU_OUT <= D1 XNOR D2;
+           
+         when others =>
+            --pass
+         
+     end case;
+end process;
 
-
-end Behavioral;
+end ALUBehavioral;
