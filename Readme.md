@@ -5,13 +5,24 @@
 - [Logisim Github](https://github.com/logisim-evolution/logisim-evolution?tab=readme-ov-file#download)
 - [FPGA Chip Datasheet](https://docs.amd.com/v/u/en-US/ds180_7Series_Overview)
 
+### Projekt Aufteilung
+
+| Name     | Aufgabe                   | Status    |
+|----------|---------------------------|-----------|
+| Lukas    | Pipeline & Control Unit   | Preparing |
+| Nico     | RegFile & Program Counter | Preparing |
+| Robin    | Memory & Decoder          | Preparing |
+| Matthias | Alu                       | Preparing |
+
 ### Abkürzungen
 - MMU (Memory Management Unit)
 - VRAM (Video RAM)
 - IRAM (Instruction RAM)
 - GRAM (General Purpose RAM)
+- CC (Clock Controller)
 - ALU (Arithmetic Logic Unit)
 - MUX (Multiplexer)
+- MMIO (Memory mapped IO)
 
 Weitere gerne hinzufügen
 
@@ -29,6 +40,12 @@ Wird vorerst in dem Ordner `pictures` gespeichert.
 ### Tools
 
 Werden jeweils mit eigenem Unterordner im Ordner `tools` gespeichert.
+
+### Vivado Projekte 
+
+Werden jeweils in dem Unterordner `vivado` gespeichert.
+
+Project Setup Guide muss noch hinzugefügt werden.
 
     
 
