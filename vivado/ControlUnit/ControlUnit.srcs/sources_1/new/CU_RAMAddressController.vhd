@@ -35,13 +35,20 @@ entity CU_RAMAddressController is
     Port ( Reg2 : in STD_LOGIC_VECTOR (15 downto 0);
            Immidiate : in STD_LOGIC_VECTOR (15 downto 0);
            MA : in STD_LOGIC_VECTOR (15 downto 0);
+           RAM_Address_Src : in STD_LOGIC;
            Use_MA : in STD_LOGIC;
            RAM_Address : out STD_LOGIC_VECTOR (15 downto 0));
 end CU_RAMAddressController;
 
 architecture Behavioral of CU_RAMAddressController is
-
+    signal used_address : STD_LOGIC_VECTOR(15 downto 0);
 begin
-
+    SELECT (RAM_Address_Src) used_address <=
+        Reg2 WHEN '0',
+        Immidiate WHEN '1';
+    
+    SELECT (Use_MA) RAM_Address <=
+        used_address WHEN '0',
+        used_address + MA WHEN '1';
 
 end Behavioral;
