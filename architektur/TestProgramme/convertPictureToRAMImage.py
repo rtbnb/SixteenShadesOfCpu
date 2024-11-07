@@ -19,9 +19,9 @@ def encode_image(image):
     
     return encoded_data
 
-image_path = 'TestImage.png'
+image_path = 'Cyberpunk.png'
 image = Image.open(image_path)
 
-with open("image.txt", "w") as f:
+with open("cyberpunk_compiled.txt", "w") as f:
     f.write("v2.0 raw\n")
     f.write(encode_image(image))
