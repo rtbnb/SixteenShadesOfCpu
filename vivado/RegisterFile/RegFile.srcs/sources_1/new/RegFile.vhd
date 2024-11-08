@@ -1,21 +1,21 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
+-- Company:
+-- Engineer:
+--
 -- Create Date: 06.11.2024 13:50:44
--- Design Name: 
+-- Design Name:
 -- Module Name: RegFile - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
+-- Project Name:
+-- Target Devices:
+-- Tool Versions:
+-- Description:
+--
+-- Dependencies:
+--
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
--- 
+--
 ----------------------------------------------------------------------------------
 
 
@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity RegFile is
-    port ( 
+    port (
         AddrReg1: in std_logic_vector(3 downto 0);
         AddrReg2: in std_logic_vector(3 downto 0);
         AddrWriteReg: in std_logic_vector(3 downto 0);
@@ -40,27 +40,24 @@ entity RegFile is
         Flags: in std_logic_vector(15 downto 0);
         WE: in std_logic;
         OverwriteFl: in std_logic;
-        RHOPin: in std_logic;
         clk: in std_logic;
-        
+
         Reg1_data: out std_logic_vector(15 downto 0);
         Reg2_data: out std_logic_vector(15 downto 0);
         RegMA_data: out std_logic_vector(15 downto 0);
         BankID: out std_logic_vector(3 downto 0)
     );
-end RegFile;
+end entity RegFile;
 
 architecture Behavioral of RegFile is
     signal Reg0, Reg1, Reg2, Reg3, Reg4, Reg5, Reg6, Reg7, Reg8, Reg9, RegA, RegB, RegC, RegD, RegE, RegF: std_logic_vector(15 downto 0) := (others => '0');
-
 begin
     RegMA_data <= RegA;
     BankID <= RegB(3 downto 0);
-    RegF(5) <= RHOPin;
-    
+
     -- Select data for addrreg1
-    with AddrReg1 select
-        Reg1_data <= Reg0 when "0000",
+    with AddrReg1 select Reg1_data <=
+                Reg0 when "0000",
                 Reg1 when "0001",
                 Reg2 when "0010",
                 Reg3 when "0011",
@@ -78,8 +75,8 @@ begin
                 RegF when "1111",
                 "0000000000000000" when others;
     -- Select data for addrreg1
-    with AddrReg2 select
-        Reg2_data <= Reg0 when "0000",
+    with AddrReg2 select Reg2_data <=
+                Reg0 when "0000",
                 Reg1 when "0001",
                 Reg2 when "0010",
                 Reg3 when "0011",
@@ -96,14 +93,14 @@ begin
                 RegE when "1110",
                 RegF when "1111",
                 "0000000000000000" when others;
-    
-    writeReg: process(clk)
-    begin        
+
+    writeReg: process(clk) is
+    begin
         if rising_edge(clk) then
-            if OverwriteFl = '1' then
+            if (OverwriteFl = '1') then
                 RegF <= Flags;
             end if;
-            if WE = '1' then
+            if (WE = '1') then
                 case AddrWriteReg is
                     when "0000" =>
                         Reg0 <= WriteData;
@@ -135,13 +132,13 @@ begin
                         RegD <= WriteData;
                     when "1110" =>
                         RegE <= WriteData;
-                    when "1111" =>
-                        RegF <= WriteData;
+                    --when "1111" =>
+                    --    RegF <= WriteData;
                     when others =>
                         RegD <= WriteData;
                 end case;
             end if;
         end if;
-    end process;
+    end process writeReg;
 
-end Behavioral;
+end architecture Behavioral;
