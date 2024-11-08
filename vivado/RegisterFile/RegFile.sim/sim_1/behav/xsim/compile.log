@@ -1,4 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'RegFile'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sim_1/new/RegFileSim.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'RegFileSim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sim_1/new/PCSim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'PCSim'
