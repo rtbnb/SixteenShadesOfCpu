@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"ALU_TB_ADDING_func_synth.vhd" \
+"../../../../../ALU_Testing.srcs/sim_1/new/ALU_TB_ADDING.vhd" \
+
+# Do not sort compile order
+nosort
