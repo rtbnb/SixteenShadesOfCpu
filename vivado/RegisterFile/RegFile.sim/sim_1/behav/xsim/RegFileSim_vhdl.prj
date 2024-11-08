@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../RegFile.srcs/sources_1/new/RegFile.vhd" \
-"../../../../RegFile.srcs/sim_1/new/RegFileSim.vhd" \
-
-# Do not sort compile order
-nosort

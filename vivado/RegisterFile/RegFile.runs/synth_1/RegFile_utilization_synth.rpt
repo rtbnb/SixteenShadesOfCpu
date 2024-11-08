@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Thu Nov  7 09:04:05 2024
+| Date         : Thu Nov  7 13:51:28 2024
 | Host         : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 | Command      : report_utilization -file RegFile_utilization_synth.rpt -pb RegFile_utilization_synth.pb
 | Design       : RegFile
@@ -31,8 +31,8 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  153 |     0 |          0 |     20800 |  0.74 |
-|   LUT as Logic          |  153 |     0 |          0 |     20800 |  0.74 |
+| Slice LUTs*             |  143 |     0 |          0 |     20800 |  0.69 |
+|   LUT as Logic          |  143 |     0 |          0 |     20800 |  0.69 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
 | Slice Registers         |  256 |     0 |          0 |     41600 |  0.62 |
 |   Register as Flip Flop |  256 |     0 |          0 |     41600 |  0.62 |
@@ -93,7 +93,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |  100 |     0 |          0 |       210 | 47.62 |
+| Bonded IOB                  |   99 |     0 |          0 |       210 | 47.14 |
 | Bonded IPADs                |    0 |     0 |          0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         5 |  0.00 |
 | PHASER_REF                  |    0 |     0 |          0 |         5 |  0.00 |
@@ -150,13 +150,13 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |  256 |        Flop & Latch |
-| LUT6     |  129 |                 LUT |
+| LUT6     |  128 |                 LUT |
 | MUXF7    |   64 |               MuxFx |
 | OBUF     |   52 |                  IO |
-| IBUF     |   48 |                  IO |
+| IBUF     |   47 |                  IO |
 | MUXF8    |   32 |               MuxFx |
-| LUT5     |   16 |                 LUT |
-| LUT3     |   16 |                 LUT |
+| LUT5     |   14 |                 LUT |
+| LUT4     |    1 |                 LUT |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
