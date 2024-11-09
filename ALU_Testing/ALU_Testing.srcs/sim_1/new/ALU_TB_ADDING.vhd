@@ -43,9 +43,7 @@ architecture Behavioral of ALU_TB_ADDING is
             ALU_OPP: IN std_logic_vector(3 downto 0 );
             RHO_PIN: IN std_logic;
             ALU_OUT: OUT std_logic_vector(15 downto 0 );
-            ALU_FLAGS: OUT std_logic_vector(15 downto 0);
-            
-            ALU_FLAGS1: OUT signed(16 downto 0) := (others => '0')
+            ALU_FLAGS: OUT std_logic_vector(15 downto 0)
          );
     end component;
 
@@ -56,7 +54,6 @@ architecture Behavioral of ALU_TB_ADDING is
     
     signal ALU_OUT: std_logic_vector(15 downto 0 );
     signal ALU_FLAGS: std_logic_vector(15 downto 0);
-    signal ALU_FLAGS1: signed(16 downto 0);
 
 begin
 
@@ -66,29 +63,20 @@ begin
         ALU_OPP => ALU_OPP,
         RHO_PIN => RHO_PIN,
         ALU_OUT => ALU_OUT,
-        ALU_FLAGS => ALU_FLAGS,
-        ALU_FLAGS1 => ALU_FLAGS1
+        ALU_FLAGS => ALU_FLAGS
     );
     
     process
     begin 
         wait for 10 ns;
-        D1 <= "0111111111111111";
-        D2 <= "0111111111111111";
+        D1 <= "0000000000000000";
+        D2 <= "0000000000000000";
         RHO_PIN <= '0'; 
         ALU_OPP <= "0000"; 
         wait for 10 ns;
-        D1 <= "0000000000000001";
-        D2 <= "0000000000000001";
-        RHO_PIN <= '0'; 
-        ALU_OPP <= "0001"; 
-        wait for 10 ns;
-        
-        D1 <= "0000000000000001";
-        D2 <= "0000000000000001";
-        RHO_PIN <= '0'; 
-        ALU_OPP <= "0011"; 
-        wait for 10 ns;
+        assert ALU_OUT = "0000000000000000"
+            report "0+0 operation Failed: wrong ALU_OUT"
+            severity failure;
         
     end process;
 

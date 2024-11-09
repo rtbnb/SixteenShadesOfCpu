@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Fri Nov  8 15:52:03 2024
-# Process ID: 4412
+# Start of session at: Sat Nov  9 16:25:11 2024
+# Process ID: 12444
 # Current directory: D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.runs/synth_1
 # Command line: vivado.exe -log ALU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ALU.tcl
 # Log file: D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.runs/synth_1/ALU.vds
@@ -19,6 +19,6 @@
 # Host memory       :6352 MB
 # Swap memory       :9663 MB
 # Total Virtual     :16015 MB
-# Available Virtual :5056 MB
+# Available Virtual :5408 MB
 #-----------------------------------------------------------
 source ALU.tcl -notrace

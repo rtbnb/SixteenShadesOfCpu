@@ -38,9 +38,8 @@ entity ALU is
     ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
     RHO_PIN: IN std_logic:= '0';
     ALU_OUT: OUT std_logic_vector(15 downto 0 ):= (others => '0');
-    ALU_FLAGS: OUT std_logic_vector(15 downto 0) := (others => '0');
-    
-    ALU_FLAGS1: OUT signed(16 downto 0) := (others => '0')
+    ALU_FLAGS: OUT std_logic_vector(15 downto 0) := (others => '0')
+
  );
 end ALU;
 
@@ -49,16 +48,16 @@ signal D1Singend: signed(16 downto 0);
 signal D2Singend: signed(16 downto 0);
 signal ALU_OUT_Internal: std_logic_vector(16 downto 0);
 
-signal temp:  signed(16 downto 0); --Adding using a bit more then needed
-
 begin
+    
     D1Singend <=resize(signed(D1), 17);
     D2Singend <=resize(signed(D2), 17);
+    
     with ((ALU_OPP)) select AlU_OUT_Internal <= 
         std_logic_vector(D1Singend+D2Singend) when "0000", --addtion
         std_logic_vector(D1Singend-D2Singend) when "0001", -- subtraction
-        std_logic_vector(shift_left(D1Singend, to_integer(unsigned(D2Singend)))) when "0010", --shift left
-        std_logic_vector(shift_right(D1Singend, to_integer(unsigned(D2Singend)))) when "0011", --shift right
+        std_logic_vector(shift_left(D1Singend, to_integer(D2Singend))) when "0010", --shift left
+        std_logic_vector(shift_right(D1Singend, to_integer(D2Singend))) when "0011", --shift right
         '0' & D1 when "1000", -- identity
         '0' &(D1 AND D2) when "1001", -- and
         '0' &(D1 OR D2) when "1010", -- or
@@ -68,40 +67,34 @@ begin
         '0' &(D1 NOR D2) when "1110", -- or
         '0' &(D1 XNOR D2) when "1111", -- XOR
         
-        std_logic_vector(D1Singend+D2Singend) when others;
-           
+        (others => 'X') when others;
+    
+    aluPostOp: process(ALU_OUT_Internal)
+    begin
+        ALU_FLAGS(0) <= ALU_OUT_Internal(16);
+        
+         if ALU_OUT_Internal(15 downto 0) = "0000000000000000" then
+         --ALU FLAG: ZERO FLAG
+            ALU_FLAGS(1) <= '1';
+         else
+            --ALU FLAG: Non Zero
+            ALU_FLAGS(6) <= '1';
+         end if;
          
-    ALU_OUT <= ALU_OUT_Internal(15 downto 0);
-     
-    ALU_FLAGS(0) <= ALU_OUT_Internal(16);
-    
-    --zero flag
-    with ALU_OUT_Internal(15 downto 0) select
-       ALU_FLAGS(1) <= '1' when "0000000000000000",
-              '0' when others;
-    
-    --Non zero flag
-    with ALU_OUT_Internal(15 downto 0) select
-       ALU_FLAGS(6) <= '0' when "0000000000000000",
-              '1' when others;
-              
-    -- smaller then zero flag
-    with ALU_OUT_Internal(15) select
-       ALU_FLAGS(2) <= '1' when '1',
-              '0' when others;
-    
-    
-    -- bigger then zero flag
-    with ALU_OUT_Internal(15) select
-       ALU_FLAGS(3) <= '1' when '0',
-              '0' when others;
-              
-     
-     -- ALU FLAG: overflow
-     ALU_FLAGS(4) <= ((ALU_OPP(0) XOR D2(15)) XNOR D1(15)) AND (D1(15) XOR ALU_OUT_Internal(15));
-     
-     ALU_FLAGS(5) <= RHO_PIN;
-     
-    -- ALU_OUT <= ALU_OUT_Internal;
-     
+         if signed(ALU_OUT_Internal) < 0 then
+         --ALU FLAG: SMALLER THEN ZERO
+            ALU_FLAGS(2) <= '1';
+         else
+         --ALU FLAG: BIGGER THEN ZERO
+            ALU_FLAGS(3) <= '1';
+         end if;
+         
+         -- ALU FLAG: overflow
+         ALU_FLAGS(4) <= ((ALU_OPP(0) XOR D2(15)) XNOR D1(15)) AND (D1(15) XOR ALU_OUT_Internal(15));
+         
+         ALU_FLAGS(5) <= RHO_PIN;
+         
+         
+         ALU_OUT <= ALU_OUT_Internal(15 downto 0);
+    end process aluPostOp; 
 end ALUBehavioral;
