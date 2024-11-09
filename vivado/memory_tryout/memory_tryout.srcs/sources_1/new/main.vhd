@@ -34,112 +34,75 @@ use IEEE.numeric_std.all;
 
 entity main is
     port(
-        clk: in std_logic;
-        led: out std_logic;
-        addr1: out std_logic_vector(15 downto 0);
-        addr2: out std_logic_vector(15 downto 0);
-        din1: out std_logic_vector(15 downto 0);
-        din2: out std_logic_vector(15 downto 0);
-        we: out std_logic := '1';
-        oe: out std_logic := '1';
-        dout1: in std_logic_vector(15 downto 0) := "0000000000000000";
-        dout2: in std_logic_vector(15 downto 0) := "0000000000000000";
-        clka: out std_logic;
-        clkb: out std_logic;
-        test_data: in std_logic_vector(15 downto 0) := "0000000000000000";
-        test_addr: in std_logic_vector(15 downto 0) := "0000000000000000";
-        test_write: in std_logic;
-        should_write: in std_logic;
-        should_read: in std_logic
-    );
+        clk200mhz: in std_logic;
+        
+--iram begin        
+        iram_addr, iram_din: in std_logic_vector(15 downto 0) := "0000000000000000";
+        iram_we, iram_oe, iram_clk: in std_logic := '0';
+        iram_bank: in std_logic_vector(3 downto 0) := "0000";
+        iram_dout: out std_logic_vector(15 downto 0);
+        
+        iram_mem_addr, iram_mem_din: out std_logic_vector(15 downto 0);
+        iram_mem_clk: out std_logic;
+        iram_mem_we, iram_mem_oe: out std_logic := '1';
+        iram_mem_dout: in std_logic_vector(15 downto 0) := "0000000000000000";
+--iram end
 
---  Port ( );
+--testOutputs
+        internal_clk_t: out std_logic;
+        iram_en_t: out std_logic;
+        iram_state_t: out std_logic_vector(4 downto 0)
+    );
 end main;
 
 architecture Behavioral of main is
-signal led_s: std_logic := '0';
-signal counter: integer range 0 to 100000000;
-signal clk_s: std_logic;
-signal addr_s: std_logic_vector(15 downto 0);
-signal din_s: std_logic_vector(15 downto 0);
-signal we_s: std_logic := '1';
-signal oe_s: std_logic := '1';
-signal dout1_s: std_logic_vector(15 downto 0) := "0000000000000000";
-signal dout2_s: std_logic_vector(15 downto 0) := "0000000000000000";
-signal doneWriting: boolean := FALSE;
-signal memAddr_s: unsigned(15 downto 0) := "0000000000000000";
-signal clk2: std_logic := '0';
-signal state: integer range 0 to 10;
-signal clka_s: std_logic := '0';
-signal clkb_s: std_logic := '0';
-signal write_active: boolean := FALSE; 
+    signal internal_clk_s: std_logic;
+
+    signal iram_mem_clk_s: std_logic;
+    signal iram_mem_addr_s: std_logic_vector(15 downto 0);
+    signal iram_mem_din_s: std_logic_vector(15 downto 0);
+    signal iram_mem_we_s: std_logic := '1';
+    signal iram_mem_oe_s: std_logic := '1';
+    
+    signal iram_en_s: std_logic := '0';
+    signal iram_state_s: integer range 0 to 100;
 begin
-    led <= led_s;
-    we <= we_s;
-    oe <= oe_s;
-    clka <= clka_s; 
-    clkb <= clkb_s;
+    internal_clk_s <= not clk200mhz;
+    iram_mem_clk <= iram_mem_clk_s;
     
-    addr1 <= std_logic_vector(memAddr_s);
-    addr2 <= std_logic_vector(memAddr_s);
-    din1 <= din_s;
-    din2 <= din_s;
+    iram_mem_we <= iram_mem_we_s;
+    iram_mem_oe <= iram_mem_oe_s;
+    iram_mem_addr <= iram_mem_addr_s;
+    iram_mem_din <= iram_mem_din_s;
     
-    mem_validate:process(clk)
+    iram_dout <= iram_mem_dout;
+    
+    iram_en_t <= iram_en_s;
+  
+    iram_state_t <= to_unsigned(iram_state_s, iram_state_t'length);
+    
+    mmu_main:process(iram_clk)
     begin
-        if state=0 then
-            if test_write='1' then
-                state <= 1;
-            end if;
-        end if;
         
-        if write_active then
-            if rising_edge(clk) then
-                clka_s <= '1';
-            end if;
-            
-            if falling_edge(clk) then
-                clka_s <= '0';
-            end if;
-        end if;
-    
-        if rising_edge(clk) then
-            clka_s <= '1';
-        
-            case state is
+        if rising_edge(iram_clk) then
+            case iram_state_s is
                 when 0 =>
-                    state <= 0;
+                    iram_en_s <= '1';
+                    iram_mem_addr_s <= iram_addr;
+                    iram_mem_we_s <= iram_we;
+                    iram_mem_oe_s <= iram_oe;
+                    if iram_we='1' then
+                        iram_mem_din_s <= iram_din;
+                    end if;
+                    iram_state_s <= 1;
                 when 1 =>
-                    memAddr_s <= unsigned(test_addr);
-                    din_s <= test_data;
---                    memAddr_s <= "0000000000000010";
---                    din_s <= "0000000000001010";
-                    state <= 1;
-                    
-                    we_s <= should_write;
-                    oe_s <= should_read;
-                    
-                    write_active <= TRUE;
---                when 2 => 
---                    state <= 3;
---                    memAddr_s <= unsigned(test_addr);
---                    din_s <= test_data;
---                    memAddr_s <= "0000000000000000";
---                    din_s <= "0000000000000000";
---                when 3 =>
---                    state <= 4;
---                    write_active <= FALSE;
---                when 4 => 
---                    state <= 0;
-                when others =>
-                    state <= 0;
-            end case;
-            
+                    iram_dout <= iram_mem_dout;
+                    iram_state_s <= 2;
+                when others => 
+                    iram_state_s <= 0;
+                    iram_en_s <= '0';
+            end case;     
         end if;
-        
-        
-        
-    
     
     end process;
 

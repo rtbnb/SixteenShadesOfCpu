@@ -93,7 +93,7 @@ begin
         should_write <= '0';
         wait for 400ns;
         should_read <= '1';
-        wait for 100ns;
+        wait for 400ns;
     end process;
 
 

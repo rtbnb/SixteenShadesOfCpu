@@ -23,10 +23,10 @@ vlog -work blk_mem_gen_v8_4_8  -incr -mfcu  \
 
 vlog -work xil_defaultlib  -incr -mfcu  \
 "../../../bd/main_block/ip/main_block_blk_mem_gen_0_0/sim/main_block_blk_mem_gen_0_0.v" \
-"../../../bd/main_block/ip/main_block_blk_mem_gen_1_0/sim/main_block_blk_mem_gen_1_0.v" \
 
 vcom -work xil_defaultlib  -93  \
 "../../../bd/main_block/sim/main_block.vhd" \
+
 
 vlog -work xil_defaultlib \
 "glbl.v"
