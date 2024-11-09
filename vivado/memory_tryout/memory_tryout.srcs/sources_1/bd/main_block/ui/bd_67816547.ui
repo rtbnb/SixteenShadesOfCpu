@@ -1,44 +1,42 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.820084",
-   "Default View_TopLeft":"-157,-262",
+   "Default View_ScaleFactor":"1.16629",
+   "Default View_TopLeft":"-35,-160",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port port-id_clk100mhz -pg 1 -lvl 0 -x -20 -y -40 -defaultsOSRD
-preplace port port-id_led -pg 1 -lvl 3 -x 1030 -y -90 -defaultsOSRD
-preplace port port-id_oe_t -pg 1 -lvl 3 -x 1030 -y 100 -defaultsOSRD
-preplace port port-id_we_t -pg 1 -lvl 3 -x 1030 -y 70 -defaultsOSRD
-preplace port port-id_test_write -pg 1 -lvl 0 -x -20 -y 60 -defaultsOSRD
-preplace port port-id_mem_clk -pg 1 -lvl 3 -x 1030 -y -60 -defaultsOSRD
-preplace port port-id_should_write -pg 1 -lvl 0 -x -20 -y 130 -defaultsOSRD
-preplace port port-id_should_read -pg 1 -lvl 0 -x -20 -y 180 -defaultsOSRD
-preplace portBus dout1_t -pg 1 -lvl 3 -x 1030 -y 40 -defaultsOSRD
-preplace portBus addr1_t -pg 1 -lvl 3 -x 1030 -y 10 -defaultsOSRD
-preplace portBus din1_t -pg 1 -lvl 3 -x 1030 -y -20 -defaultsOSRD
-preplace portBus test_addr -pg 1 -lvl 0 -x -20 -y 30 -defaultsOSRD
-preplace portBus test_data -pg 1 -lvl 0 -x -20 -y 0 -defaultsOSRD
+preplace port port-id_clk200mhz -pg 1 -lvl 0 -x -20 -y -80 -defaultsOSRD
+preplace port port-id_iram_we -pg 1 -lvl 0 -x -20 -y -20 -defaultsOSRD
+preplace port port-id_iram_oe -pg 1 -lvl 0 -x -20 -y 0 -defaultsOSRD
+preplace port port-id_internal_clk_t -pg 1 -lvl 3 -x 1150 -y 30 -defaultsOSRD
+preplace port port-id_iram_en_t -pg 1 -lvl 3 -x 1150 -y 50 -defaultsOSRD
+preplace port port-id_iram_clk -pg 1 -lvl 0 -x -20 -y 20 -defaultsOSRD
+preplace portBus iram_addr -pg 1 -lvl 0 -x -20 -y -60 -defaultsOSRD
+preplace portBus iram_din -pg 1 -lvl 0 -x -20 -y -40 -defaultsOSRD
+preplace portBus iram_bank -pg 1 -lvl 0 -x -20 -y 40 -defaultsOSRD
+preplace portBus iram_dout -pg 1 -lvl 3 -x 1150 -y -70 -defaultsOSRD
+preplace portBus iram_state_t -pg 1 -lvl 3 -x 1150 -y 70 -defaultsOSRD
 preplace inst mmu -pg 1 -lvl 1 -x 590 -y -10 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -x 910 -y 270 -defaultsOSRD
-preplace inst blk_mem_gen_1 -pg 1 -lvl 2 -x 910 -y 590 -defaultsOSRD
-preplace netloc blk_mem_gen_0_douta 1 0 3 450 130 790 40 N
-preplace netloc blk_mem_gen_1_douta 1 0 2 440 610 N
-preplace netloc clk_wiz_0_clk_out1 1 0 3 400 140 810 -60 N
-preplace netloc main_0_led 1 1 2 NJ -90 N
-preplace netloc main_0_oe 1 1 2 730 100 N
-preplace netloc mmu_addr1 1 1 2 800 10 N
-preplace netloc mmu_addr2 1 1 1 770 -50n
-preplace netloc mmu_clkb 1 1 1 740 70n
-preplace netloc mmu_din1 1 1 2 780 -20 N
-preplace netloc mmu_din2 1 1 1 760 -10n
-preplace netloc mmu_we 1 1 2 750 70 N
-preplace netloc test_addr_1 1 0 1 10J 0n
-preplace netloc test_data_1 1 0 1 0J -20n
-preplace netloc test_write_1 1 0 1 410J 20n
-preplace netloc should_write_1 1 0 1 420 40n
-preplace netloc should_read_1 1 0 1 430 60n
-levelinfo -pg 1 -20 590 910 1030
-pagesize -pg 1 -db -bbox -sgen -170 -410 1170 710
+preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -x 1030 -y 290 -defaultsOSRD
+preplace netloc blk_mem_gen_0_douta 1 0 2 410 310 N
+preplace netloc clk200mhz_1 1 0 1 N -80
+preplace netloc iram_addr_1 1 0 1 N -60
+preplace netloc iram_bank_1 1 0 1 N 40
+preplace netloc iram_din_1 1 0 1 N -40
+preplace netloc iram_oe_1 1 0 1 N 0
+preplace netloc iram_we_1 1 0 1 N -20
+preplace netloc mmu_internal_clk_t 1 1 2 N 30 NJ
+preplace netloc mmu_iram_dout 1 1 2 NJ -90 1130
+preplace netloc mmu_iram_en_t 1 1 2 N 50 NJ
+preplace netloc mmu_iram_mem_addr 1 1 1 810 -70n
+preplace netloc mmu_iram_mem_clk 1 1 1 790 -30n
+preplace netloc mmu_iram_mem_din 1 1 1 800 -50n
+preplace netloc mmu_iram_mem_oe 1 1 1 770 10n
+preplace netloc mmu_iram_mem_we 1 1 1 780 -10n
+preplace netloc mmu_iram_state_t 1 1 2 N 70 NJ
+preplace netloc iram_clk_1 1 0 1 N 20
+levelinfo -pg 1 -20 590 1030 1150
+pagesize -pg 1 -db -bbox -sgen -180 -540 1420 1430
 "
 }
 {

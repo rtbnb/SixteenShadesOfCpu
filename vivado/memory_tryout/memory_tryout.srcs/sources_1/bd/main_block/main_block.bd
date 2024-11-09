@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x8ADD1BAB5878669C",
+      "boundary_crc": "0x23A981917ACB30D4",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -12,83 +12,45 @@
     },
     "design_tree": {
       "mmu": "",
-      "blk_mem_gen_0": "",
-      "blk_mem_gen_1": ""
+      "blk_mem_gen_0": ""
     },
     "ports": {
-      "clk100mhz": {
-        "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_clk100mhz",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
-      },
-      "led": {
-        "direction": "O"
-      },
-      "dout1_t": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
-      },
-      "addr1_t": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
-      },
-      "din1_t": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
-      },
-      "oe_t": {
-        "direction": "O"
-      },
-      "we_t": {
-        "direction": "O"
-      },
-      "test_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "test_data": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "test_write": {
+      "clk200mhz": {
         "direction": "I"
       },
-      "mem_clk": {
+      "iram_addr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "iram_din": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "iram_we": {
+        "direction": "I"
+      },
+      "iram_oe": {
+        "direction": "I"
+      },
+      "iram_bank": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "iram_dout": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "internal_clk_t": {
         "type": "clk",
         "direction": "O",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_clk100mhz",
-            "value_src": "default_prop"
-          },
           "FREQ_HZ": {
             "value": "100000000",
-            "value_src": "user_prop"
+            "value_src": "default"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -104,10 +66,15 @@
           }
         }
       },
-      "should_write": {
-        "direction": "I"
+      "iram_en_t": {
+        "direction": "O"
       },
-      "should_read": {
+      "iram_state_t": {
+        "direction": "O",
+        "left": "4",
+        "right": "0"
+      },
+      "iram_clk": {
         "direction": "I"
       }
     },
@@ -124,83 +91,74 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clk": {
+          "clk200mhz": {
+            "direction": "I"
+          },
+          "iram_addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "iram_din": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "iram_we": {
+            "direction": "I"
+          },
+          "iram_oe": {
+            "direction": "I"
+          },
+          "iram_clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_block_clk100mhz",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "led": {
-            "direction": "O"
-          },
-          "addr1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "addr2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "din1": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "din2": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "we": {
-            "direction": "O"
-          },
-          "oe": {
-            "direction": "O"
-          },
-          "dout1": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "dout2": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "clka": {
-            "direction": "O"
-          },
-          "clkb": {
-            "direction": "O"
-          },
-          "test_data": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "test_addr": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "test_write": {
             "direction": "I"
           },
-          "should_write": {
-            "direction": "I"
+          "iram_bank": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
           },
-          "should_read": {
-            "direction": "I"
+          "iram_dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "iram_mem_addr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "iram_mem_din": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "iram_mem_clk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "iram_mem_we": {
+            "direction": "O"
+          },
+          "iram_mem_oe": {
+            "direction": "O"
+          },
+          "iram_mem_dout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "internal_clk_t": {
+            "direction": "O"
+          },
+          "iram_en_t": {
+            "direction": "O"
+          },
+          "iram_state_t": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
           }
         }
       },
@@ -214,27 +172,18 @@
           "Algorithm": {
             "value": "Minimum_Area"
           },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Load_Init_File": {
+            "value": "false"
+          },
           "Register_PortA_Output_of_Memory_Core": {
             "value": "false"
           },
-          "Write_Depth_A": {
-            "value": "65535"
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
           },
-          "Write_Width_A": {
-            "value": "16"
-          },
-          "use_bram_block": {
-            "value": "Stand_Alone"
-          }
-        }
-      },
-      "blk_mem_gen_1": {
-        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-        "ip_revision": "8",
-        "xci_name": "main_block_blk_mem_gen_1_0",
-        "xci_path": "ip\\main_block_blk_mem_gen_1_0\\main_block_blk_mem_gen_1_0.xci",
-        "inst_hier_path": "blk_mem_gen_1",
-        "parameters": {
           "Write_Depth_A": {
             "value": "65535"
           },
@@ -251,106 +200,103 @@
       "blk_mem_gen_0_douta": {
         "ports": [
           "blk_mem_gen_0/douta",
-          "dout1_t",
-          "mmu/dout1"
+          "mmu/iram_mem_dout"
         ]
       },
-      "blk_mem_gen_1_douta": {
+      "clk200mhz_1": {
         "ports": [
-          "blk_mem_gen_1/douta",
-          "mmu/dout2"
+          "clk200mhz",
+          "mmu/clk200mhz"
         ]
       },
-      "clk_wiz_0_clk_out1": {
+      "iram_addr_1": {
         "ports": [
-          "clk100mhz",
-          "blk_mem_gen_0/clka",
-          "mem_clk",
-          "mmu/clk"
+          "iram_addr",
+          "mmu/iram_addr"
         ]
       },
-      "main_0_led": {
+      "iram_bank_1": {
         "ports": [
-          "mmu/led",
-          "led"
+          "iram_bank",
+          "mmu/iram_bank"
         ]
       },
-      "main_0_oe": {
+      "iram_clk_1": {
         "ports": [
-          "mmu/oe",
-          "blk_mem_gen_0/ena",
-          "blk_mem_gen_1/ena",
-          "oe_t"
+          "iram_clk",
+          "mmu/iram_clk"
         ]
       },
-      "mmu_addr1": {
+      "iram_din_1": {
         "ports": [
-          "mmu/addr1",
-          "blk_mem_gen_0/addra",
-          "addr1_t"
+          "iram_din",
+          "mmu/iram_din"
         ]
       },
-      "mmu_addr2": {
+      "iram_oe_1": {
         "ports": [
-          "mmu/addr2",
-          "blk_mem_gen_1/addra"
+          "iram_oe",
+          "mmu/iram_oe"
         ]
       },
-      "mmu_clkb": {
+      "iram_we_1": {
         "ports": [
-          "mmu/clkb",
-          "blk_mem_gen_1/clka"
+          "iram_we",
+          "mmu/iram_we"
         ]
       },
-      "mmu_din1": {
+      "mmu_internal_clk_t": {
         "ports": [
-          "mmu/din1",
-          "blk_mem_gen_0/dina",
-          "din1_t"
+          "mmu/internal_clk_t",
+          "internal_clk_t"
         ]
       },
-      "mmu_din2": {
+      "mmu_iram_dout": {
         "ports": [
-          "mmu/din2",
-          "blk_mem_gen_1/dina"
+          "mmu/iram_dout",
+          "iram_dout"
         ]
       },
-      "mmu_we": {
+      "mmu_iram_en_t": {
         "ports": [
-          "mmu/we",
-          "blk_mem_gen_0/wea",
-          "blk_mem_gen_1/wea",
-          "we_t"
+          "mmu/iram_en_t",
+          "iram_en_t"
         ]
       },
-      "should_read_1": {
+      "mmu_iram_mem_addr": {
         "ports": [
-          "should_read",
-          "mmu/should_read"
+          "mmu/iram_mem_addr",
+          "blk_mem_gen_0/addra"
         ]
       },
-      "should_write_1": {
+      "mmu_iram_mem_clk": {
         "ports": [
-          "should_write",
-          "mmu/should_write"
+          "mmu/iram_mem_clk",
+          "blk_mem_gen_0/clka"
         ]
       },
-      "test_addr_1": {
+      "mmu_iram_mem_din": {
         "ports": [
-          "test_addr",
-          "mmu/test_addr"
+          "mmu/iram_mem_din",
+          "blk_mem_gen_0/dina"
         ]
       },
-      "test_data_1": {
+      "mmu_iram_mem_oe": {
         "ports": [
-          "test_data",
-          "mmu/test_data"
+          "mmu/iram_mem_oe",
+          "blk_mem_gen_0/ena"
         ]
       },
-      "test_write_1": {
+      "mmu_iram_mem_we": {
         "ports": [
-          "test_write",
-          "mmu/test_write"
+          "mmu/iram_mem_we",
+          "blk_mem_gen_0/wea"
+        ]
+      },
+      "mmu_iram_state_t": {
+        "ports": [
+          "mmu/iram_state_t",
+          "iram_state_t"
         ]
       }
     }

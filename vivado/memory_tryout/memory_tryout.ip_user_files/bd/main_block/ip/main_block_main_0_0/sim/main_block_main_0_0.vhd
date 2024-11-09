@@ -55,23 +55,23 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_block_main_0_0 IS
   PORT (
-    clk : IN STD_LOGIC;
-    led : OUT STD_LOGIC;
-    addr1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    addr2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    din1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    din2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    we : OUT STD_LOGIC;
-    oe : OUT STD_LOGIC;
-    dout1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    dout2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    clka : OUT STD_LOGIC;
-    clkb : OUT STD_LOGIC;
-    test_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    test_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    test_write : IN STD_LOGIC;
-    should_write : IN STD_LOGIC;
-    should_read : IN STD_LOGIC
+    clk200mhz : IN STD_LOGIC;
+    iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    iram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    iram_we : IN STD_LOGIC;
+    iram_oe : IN STD_LOGIC;
+    iram_clk : IN STD_LOGIC;
+    iram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    iram_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    iram_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    iram_mem_clk : OUT STD_LOGIC;
+    iram_mem_we : OUT STD_LOGIC;
+    iram_mem_oe : OUT STD_LOGIC;
+    iram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    internal_clk_t : OUT STD_LOGIC;
+    iram_en_t : OUT STD_LOGIC;
+    iram_state_t : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
   );
 END main_block_main_0_0;
 
@@ -80,48 +80,50 @@ ARCHITECTURE main_block_main_0_0_arch OF main_block_main_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_block_main_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT main IS
     PORT (
-      clk : IN STD_LOGIC;
-      led : OUT STD_LOGIC;
-      addr1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      addr2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      din1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      din2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      we : OUT STD_LOGIC;
-      oe : OUT STD_LOGIC;
-      dout1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      dout2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      clka : OUT STD_LOGIC;
-      clkb : OUT STD_LOGIC;
-      test_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      test_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      test_write : IN STD_LOGIC;
-      should_write : IN STD_LOGIC;
-      should_read : IN STD_LOGIC
+      clk200mhz : IN STD_LOGIC;
+      iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      iram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      iram_we : IN STD_LOGIC;
+      iram_oe : IN STD_LOGIC;
+      iram_clk : IN STD_LOGIC;
+      iram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      iram_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      iram_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      iram_mem_clk : OUT STD_LOGIC;
+      iram_mem_we : OUT STD_LOGIC;
+      iram_mem_oe : OUT STD_LOGIC;
+      iram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      internal_clk_t : OUT STD_LOGIC;
+      iram_en_t : OUT STD_LOGIC;
+      iram_state_t : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
     );
   END COMPONENT main;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clk100mhz, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF iram_clk: SIGNAL IS "XIL_INTERFACENAME iram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF iram_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 iram_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF iram_mem_clk: SIGNAL IS "XIL_INTERFACENAME iram_mem_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_main_0_0_iram_mem_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF iram_mem_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 iram_mem_clk CLK";
 BEGIN
   U0 : main
     PORT MAP (
-      clk => clk,
-      led => led,
-      addr1 => addr1,
-      addr2 => addr2,
-      din1 => din1,
-      din2 => din2,
-      we => we,
-      oe => oe,
-      dout1 => dout1,
-      dout2 => dout2,
-      clka => clka,
-      clkb => clkb,
-      test_data => test_data,
-      test_addr => test_addr,
-      test_write => test_write,
-      should_write => should_write,
-      should_read => should_read
+      clk200mhz => clk200mhz,
+      iram_addr => iram_addr,
+      iram_din => iram_din,
+      iram_we => iram_we,
+      iram_oe => iram_oe,
+      iram_clk => iram_clk,
+      iram_bank => iram_bank,
+      iram_dout => iram_dout,
+      iram_mem_addr => iram_mem_addr,
+      iram_mem_din => iram_mem_din,
+      iram_mem_clk => iram_mem_clk,
+      iram_mem_we => iram_mem_we,
+      iram_mem_oe => iram_mem_oe,
+      iram_mem_dout => iram_mem_dout,
+      internal_clk_t => internal_clk_t,
+      iram_en_t => iram_en_t,
+      iram_state_t => iram_state_t
     );
 END main_block_main_0_0_arch;
