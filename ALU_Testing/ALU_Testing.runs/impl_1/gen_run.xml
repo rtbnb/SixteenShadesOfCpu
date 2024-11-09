@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1731077516">
+<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1731165895">
   <File Type="ROUTE-PWR" Name="ALU_power_routed.rpt"/>
   <File Type="PA-TCL" Name="ALU.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="ALU_power_summary_routed.pb"/>
