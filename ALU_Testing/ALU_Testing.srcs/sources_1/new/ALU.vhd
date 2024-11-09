@@ -38,8 +38,14 @@ entity ALU is
     ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
     RHO_PIN: IN std_logic:= '0';
     ALU_OUT: OUT std_logic_vector(15 downto 0 ):= (others => '0');
-    ALU_FLAGS: OUT std_logic_vector(15 downto 0) := (others => '0')
-
+    --ALU_FLAGS: OUT std_logic_vector(15 downto 0) := (others => '0')
+    CARRY_FLAG: OUT STD_LOGIC:= '0';
+    ZERO_FLAG: OUT STD_LOGIC:= '0';
+    SMALLER_ZERO_FLAG: OUT STD_LOGIC:= '0';
+    BIGGER_ZERO_FLAG: OUT STD_LOGIC:= '0';
+    OVERFLOW_FLAG: OUT STD_LOGIC:= '0';
+    RHO_FLAG: OUT STD_LOGIC:= '0';
+    NOT_ZERO_FLAG: OUT STD_LOGIC:= '0'
  );
 end ALU;
 
@@ -71,28 +77,35 @@ begin
     
     aluPostOp: process(ALU_OUT_Internal)
     begin
-        ALU_FLAGS(0) <= ALU_OUT_Internal(16);
-        
-         if ALU_OUT_Internal(15 downto 0) = "0000000000000000" then
-         --ALU FLAG: ZERO FLAG
-            ALU_FLAGS(1) <= '1';
+        CARRY_FLAG <= ALU_OUT_Internal(16);
+         
+         if ALU_OUT_Internal(15) = '1' then
+         
+            BIGGER_ZERO_FLAG <= '0';
+            SMALLER_ZERO_FLAG <= '1';
+            NOT_ZERO_FLAG <= '1';
+            ZERO_FLAG <= '0';
+            
          else
-            --ALU FLAG: Non Zero
-            ALU_FLAGS(6) <= '1';
+         
+            BIGGER_ZERO_FLAG <= '1';
+            SMALLER_ZERO_FLAG <= '0';
+            NOT_ZERO_FLAG <= '1';
+            ZERO_FLAG <= '0';
          end if;
          
-         if signed(ALU_OUT_Internal) < 0 then
-         --ALU FLAG: SMALLER THEN ZERO
-            ALU_FLAGS(2) <= '1';
-         else
-         --ALU FLAG: BIGGER THEN ZERO
-            ALU_FLAGS(3) <= '1';
-         end if;
+         if ALU_OUT_Internal = "00000000000000000" then
+            BIGGER_ZERO_FLAG <= '0';
+            SMALLER_ZERO_FLAG <= '0';
+            NOT_ZERO_FLAG <= '0';
+            ZERO_FLAG <= '1';
+        end if;
+        
          
          -- ALU FLAG: overflow
-         ALU_FLAGS(4) <= ((ALU_OPP(0) XOR D2(15)) XNOR D1(15)) AND (D1(15) XOR ALU_OUT_Internal(15));
+         OVERFLOW_FLAG <= ((ALU_OPP(0) XOR D2(15)) XNOR D1(15)) AND (D1(15) XOR ALU_OUT_Internal(15));
          
-         ALU_FLAGS(5) <= RHO_PIN;
+         RHO_FLAG <= RHO_PIN;
          
          
          ALU_OUT <= ALU_OUT_Internal(15 downto 0);
