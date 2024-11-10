@@ -18,10 +18,14 @@
   <File Type="BITSTR-MMI" Name="RegFile.mmi"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="RegFile_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-SYSDEF" Name="RegFile.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="RegFile_methodology_drc_routed.pb"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="RegFile.ltx"/>
+  <File Type="BOOT-PDI-FILE" Name="RegFile_boot.pdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="NPI_FILE" Name="RegFile.npi"/>
   <File Type="OPT-DRC" Name="RegFile_drc_opted.rpt"/>
+  <File Type="RBD_FILE" Name="RegFile.rbd"/>
   <File Type="OPT-HWDEF" Name="RegFile.hwdef"/>
   <File Type="PLACE-IO" Name="RegFile_io_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="RegFile_utilization_placed.rpt"/>
@@ -55,17 +59,13 @@
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="RegFile_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="RegFile_bus_skew_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="RegFile_bus_skew_postroute_physopted.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="RegFile_methodology_drc_routed.pb"/>
   <File Type="ROUTE-DRC-RPX" Name="RegFile_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="RegFile_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="RegFile.pdi"/>
-  <File Type="BOOT-PDI-FILE" Name="RegFile_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="RegFile_pld.pdi"/>
   <File Type="RCFI_FILE" Name="RegFile.rcfi"/>
   <File Type="CFI_FILE" Name="RegFile.cfi"/>
   <File Type="RNPI_FILE" Name="RegFile.rnpi"/>
-  <File Type="NPI_FILE" Name="RegFile.npi"/>
-  <File Type="RBD_FILE" Name="RegFile.rbd"/>
   <File Type="ROUTE-RQS" Name="RegFile_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="RegFile_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>

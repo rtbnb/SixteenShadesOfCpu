@@ -34,8 +34,9 @@ use ieee.numeric_std.all;
 
 entity ProgramCounter is
     Port ( 
-    clk: in std_logic;
-    LD: in std_logic; -- if '1' load Din into program counter signal
+    Count : in STD_LOGIC;
+    Load : in STD_LOGIC;
+    Reset : in STD_LOGIC;
     Din: in std_logic_vector(15 downto 0); -- Absolute addr to IRAM
     
     Dout: out std_logic_vector(15 downto 0)
@@ -46,15 +47,19 @@ architecture Behavioral of ProgramCounter is
     signal InstrAddr: std_logic_vector(15 downto 0) := (others => '0');
 begin
     Dout <= InstrAddr;
-    count: process(clk) is
+    pc_p: process(Count, Load, Reset) is
     begin
-        if rising_edge(clk) then
-            if (LD = '1') then
-                InstrAddr <= std_logic_vector(to_unsigned(to_integer(unsigned( Din )) + 1, 16));
-            else
-                InstrAddr <= std_logic_vector(to_unsigned(to_integer(unsigned( InstrAddr )) + 1, 16));
-            end if;
+        if rising_edge(Count) then
+            InstrAddr <= std_logic_vector(unsigned( InstrAddr ) + 1);
         end if;
-    end process count;
+        
+        if rising_edge(Load) then
+            InstrAddr <= Din;
+        end if;
+        
+        if rising_edge(Reset) then
+            InstrAddr <= X"0000";
+        end if;
+    end process pc_p;
 
 end Behavioral;
