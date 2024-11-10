@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Sun Nov 10 16:44:50 2024
+--Date        : Sun Nov 10 17:41:06 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
@@ -23,6 +23,8 @@ entity main_block is
     iram_dout_t : out STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_en_t : out STD_LOGIC;
     iram_mem_clk : out STD_LOGIC;
+    iram_mem_oe_t : out STD_LOGIC;
+    iram_mem_we_t : out STD_LOGIC;
     iram_oe : in STD_LOGIC;
     iram_we : in STD_LOGIC
   );
@@ -91,6 +93,8 @@ begin
   iram_dout_t(15 downto 0) <= blk_mem_gen_0_douta(15 downto 0);
   iram_en_t <= mmu_iram_en_t;
   iram_mem_clk <= mmu_iram_mem_clk;
+  iram_mem_oe_t <= mmu_iram_mem_oe;
+  iram_mem_we_t <= mmu_iram_mem_we;
   iram_oe_1 <= iram_oe;
   iram_we_1 <= iram_we;
 blk_mem_gen_0: component main_block_blk_mem_gen_0_0

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Nov 10 16:44:50 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Nov 10 17:41:06 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -47,6 +47,16 @@
     <PORT CLKFREQUENCY="100000000" DIR="O" NAME="iram_mem_clk" SIGIS="clk" SIGNAME="mmu_iram_mem_clk">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu" PORT="iram_mem_clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="iram_mem_oe_t" SIGIS="undef" SIGNAME="mmu_iram_mem_oe">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmu" PORT="iram_mem_oe"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="iram_mem_we_t" SIGIS="undef" SIGNAME="mmu_iram_mem_we">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmu" PORT="iram_mem_we"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="iram_oe" SIGIS="undef" SIGNAME="External_Ports_iram_oe">
@@ -337,11 +347,13 @@
         <PORT DIR="O" NAME="iram_mem_oe" SIGIS="undef" SIGNAME="mmu_iram_mem_oe">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="ena"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="iram_mem_oe_t"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="iram_mem_we" SIGIS="undef" SIGNAME="mmu_iram_mem_we">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="wea"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="iram_mem_we_t"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="iram_oe" SIGIS="undef" SIGNAME="External_Ports_iram_oe">

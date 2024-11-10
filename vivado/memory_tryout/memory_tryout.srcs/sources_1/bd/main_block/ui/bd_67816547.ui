@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"3.07786",
-   "Default View_TopLeft":"390,-121",
+   "Default View_ScaleFactor":"2.41281",
+   "Default View_TopLeft":"428,-137",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
@@ -11,6 +11,8 @@ preplace port port-id_iram_oe -pg 1 -lvl 0 -x -20 -y 0 -defaultsOSRD
 preplace port port-id_iram_en_t -pg 1 -lvl 3 -x 1150 -y 50 -defaultsOSRD
 preplace port port-id_iram_clk -pg 1 -lvl 0 -x -20 -y 20 -defaultsOSRD
 preplace port port-id_iram_mem_clk -pg 1 -lvl 3 -x 1150 -y 130 -defaultsOSRD
+preplace port port-id_iram_mem_oe_t -pg 1 -lvl 3 -x 1150 -y 90 -defaultsOSRD
+preplace port port-id_iram_mem_we_t -pg 1 -lvl 3 -x 1150 -y 110 -defaultsOSRD
 preplace portBus iram_addr -pg 1 -lvl 0 -x -20 -y -60 -defaultsOSRD
 preplace portBus iram_din -pg 1 -lvl 0 -x -20 -y -40 -defaultsOSRD
 preplace portBus iram_bank -pg 1 -lvl 0 -x -20 -y 40 -defaultsOSRD
@@ -31,8 +33,8 @@ preplace netloc mmu_iram_en_t 1 1 2 N 50 NJ
 preplace netloc mmu_iram_mem_addr 1 1 1 930 -50n
 preplace netloc mmu_iram_mem_clk 1 1 2 900 130 N
 preplace netloc mmu_iram_mem_din 1 1 1 910 -30n
-preplace netloc mmu_iram_mem_oe 1 1 1 770 30n
-preplace netloc mmu_iram_mem_we 1 1 1 780 10n
+preplace netloc mmu_iram_mem_oe 1 1 2 880 90 N
+preplace netloc mmu_iram_mem_we 1 1 2 890 110 N
 levelinfo -pg 1 -20 590 1030 1150
 pagesize -pg 1 -db -bbox -sgen -180 -540 1420 1430
 "

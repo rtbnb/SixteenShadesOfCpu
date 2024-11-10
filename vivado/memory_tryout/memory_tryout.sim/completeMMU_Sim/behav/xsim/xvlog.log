@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.ip_user_files/bd/main_block/ip/main_block_blk_mem_gen_0_0/sim/main_block_blk_mem_gen_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_block_blk_mem_gen_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.sim/completeMMU_Sim/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
