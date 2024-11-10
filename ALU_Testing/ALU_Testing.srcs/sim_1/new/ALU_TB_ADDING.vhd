@@ -190,6 +190,38 @@ begin
             report "1+(-1) operation Failed: wrong OVERFLOW_FLAG"
             severity failure;
             
+        --testing (-1)+(-1)
+        wait for 10 ns;
+        D1 <= "1111111111111111";
+        D2 <= "1111111111111111";
+        RHO_PIN <= '0'; 
+        ALU_OPP <= "0000"; 
+        wait for 10 ns;
+        assert ALU_OUT = "1111111111111110"
+            report "(-1)+(-1) operation Failed: wrong ALU_OUT"
+            severity failure;
+        assert CARRY_FLAG = '1'
+            report "(-1)+(-1) operation Failed: wrong CARRY_FLAG"
+            severity failure;
+        assert ZERO_FLAG = '0'
+            report "(-1)+(-1) operation Failed: wrong ZERO_FLAG"
+            severity failure;
+        assert SMALLER_ZERO_FLAG = '1'
+            report "(-1)+(-1) operation Failed: wrong SMALLER_ZERO_FLAG"
+            severity failure;
+        assert BIGGER_ZERO_FLAG = '0'
+            report "(-1)+(-1) operation Failed: wrong BIGGER_ZERO_FLAG"
+            severity failure;
+        assert RHO_FLAG = '0'
+            report "1+(-1) operation Failed: wrong RHO_FLAG"
+            severity failure;
+        assert NOT_ZERO_FLAG = '1'
+            report "1+(-1) operation Failed: wrong NOT_ZERO_FLAG"
+            severity failure;
+        assert OVERFLOW_FLAG = '0'
+            report "1+(-1) operation Failed: wrong OVERFLOW_FLAG"
+            severity failure;
+            
         --testing 1+32767 (Overflow)
         wait for 10 ns;
         D1 <= "0000000000000001";
@@ -220,6 +252,39 @@ begin
             severity failure;
         assert OVERFLOW_FLAG = '1'
             report "1+32767 (Overflow) operation Failed: wrong OVERFLOW_FLAG"
+            severity failure;
+        
+                    
+        --testing (-32768) + (-1)(Negative Overflow)
+        wait for 10 ns;
+        D1 <= "1000000000000000";
+        D2 <= "1111111111111111";
+        RHO_PIN <= '0'; 
+        ALU_OPP <= "0000"; 
+        wait for 10 ns;
+        assert ALU_OUT = "0111111111111111"
+            report "(-32768) + (-1)(Negative Overflow) operation Failed: wrong ALU_OUT"
+            severity failure;
+        assert CARRY_FLAG = '1'
+            report "(-32768) + (-1)(Negative Overflow) operation Failed: wrong CARRY_FLAG"
+            severity failure;
+        assert ZERO_FLAG = '0'
+            report "(-32768) + (-1)(Negative Overflow) operation Failed: wrong ZERO_FLAG"
+            severity failure;
+        assert SMALLER_ZERO_FLAG = '0'
+            report "(-32768) + (-1)(Negative Overflow) operation Failed: wrong SMALLER_ZERO_FLAG"
+            severity failure;
+        assert BIGGER_ZERO_FLAG = '1'
+            report "(-32768) + (-1)(Negative Overflow) operation Failed: wrong BIGGER_ZERO_FLAG"
+            severity failure;
+        assert RHO_FLAG = '0'
+            report "(-32768) + (-1)(Negative Overflow) operation Failed: wrong RHO_FLAG"
+            severity failure;
+        assert NOT_ZERO_FLAG = '1'
+            report "(-32768) + (-1)(Negative Overflow) operation Failed: wrong NOT_ZERO_FLAG"
+            severity failure;
+        assert OVERFLOW_FLAG = '1'
+            report "(-32768) + (-1)(Negative Overflow) operation Failed: wrong OVERFLOW_FLAG"
             severity failure;
         
     end process;
