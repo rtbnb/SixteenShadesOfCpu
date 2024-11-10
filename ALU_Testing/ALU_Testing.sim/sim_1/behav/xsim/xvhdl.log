@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_ADDING.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ALU_TB_ADDING'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SUBTRACTING.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ALU_TB_SUBTRACTING'
