@@ -1,17 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov  8 16:20:25 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Nov 10 16:44:50 2024" VIVADOVERSION="2024.1">
 
-  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
+  <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
   <EXTERNALPORTS>
     <PORT DIR="I" NAME="clk200mhz" SIGIS="undef" SIGNAME="External_Ports_clk200mhz">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu" PORT="clk200mhz"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="internal_clk_t" SIGIS="clk" SIGNAME="mmu_internal_clk_t">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mmu" PORT="internal_clk_t"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="15" NAME="iram_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_iram_addr">
@@ -39,19 +34,24 @@
         <CONNECTION INSTANCE="mmu" PORT="iram_dout"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="O" LEFT="15" NAME="iram_dout_t" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_douta">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="douta"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="O" NAME="iram_en_t" SIGIS="undef" SIGNAME="mmu_iram_en_t">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu" PORT="iram_en_t"/>
       </CONNECTIONS>
     </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="iram_mem_clk" SIGIS="clk" SIGNAME="mmu_iram_mem_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmu" PORT="iram_mem_clk"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" NAME="iram_oe" SIGIS="undef" SIGNAME="External_Ports_iram_oe">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu" PORT="iram_oe"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="4" NAME="iram_state_t" RIGHT="0" SIGIS="undef" SIGNAME="mmu_iram_state_t">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mmu" PORT="iram_state_t"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="iram_we" SIGIS="undef" SIGNAME="External_Ports_iram_we">
@@ -236,6 +236,7 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="douta" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_douta">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="iram_dout_t"/>
             <CONNECTION INSTANCE="mmu" PORT="iram_mem_dout"/>
           </CONNECTIONS>
         </PORT>
@@ -282,11 +283,6 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk200mhz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="internal_clk_t" SIGIS="undef" SIGNAME="mmu_internal_clk_t">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="internal_clk_t"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" LEFT="15" NAME="iram_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_iram_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="iram_addr"/>
@@ -325,6 +321,7 @@
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="iram_mem_clk" SIGIS="clk" SIGNAME="mmu_iram_mem_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clka"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="iram_mem_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="iram_mem_din" RIGHT="0" SIGIS="undef" SIGNAME="mmu_iram_mem_din">
@@ -350,11 +347,6 @@
         <PORT DIR="I" NAME="iram_oe" SIGIS="undef" SIGNAME="External_Ports_iram_oe">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="iram_oe"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="4" NAME="iram_state_t" RIGHT="0" SIGIS="undef" SIGNAME="mmu_iram_state_t">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="iram_state_t"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="iram_we" SIGIS="undef" SIGNAME="External_Ports_iram_we">

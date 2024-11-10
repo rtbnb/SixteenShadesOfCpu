@@ -35,7 +35,6 @@ use IEEE.numeric_std.all;
 entity main is
     port(
         clk200mhz: in std_logic;
-        
 --iram begin        
         iram_addr, iram_din: in std_logic_vector(15 downto 0) := "0000000000000000";
         iram_we, iram_oe, iram_clk: in std_logic := '0';
@@ -47,27 +46,21 @@ entity main is
         iram_mem_we, iram_mem_oe: out std_logic := '1';
         iram_mem_dout: in std_logic_vector(15 downto 0) := "0000000000000000";
 --iram end
-
---testOutputs
-        internal_clk_t: out std_logic;
-        iram_en_t: out std_logic;
-        iram_state_t: out std_logic_vector(4 downto 0)
+        iram_en_t: out std_logic
     );
 end main;
 
 architecture Behavioral of main is
-    signal internal_clk_s: std_logic;
-
     signal iram_mem_clk_s: std_logic;
     signal iram_mem_addr_s: std_logic_vector(15 downto 0);
     signal iram_mem_din_s: std_logic_vector(15 downto 0);
     signal iram_mem_we_s: std_logic := '1';
     signal iram_mem_oe_s: std_logic := '1';
+    signal iram_dout_s: std_logic_vector(15 downto 0);
     
     signal iram_en_s: std_logic := '0';
-    signal iram_state_s: integer range 0 to 100;
+    signal iram_op_en: boolean := FALSE;
 begin
-    internal_clk_s <= not clk200mhz;
     iram_mem_clk <= iram_mem_clk_s;
     
     iram_mem_we <= iram_mem_we_s;
@@ -75,35 +68,51 @@ begin
     iram_mem_addr <= iram_mem_addr_s;
     iram_mem_din <= iram_mem_din_s;
     
+    iram_en_t <= iram_en_s;
     iram_dout <= iram_mem_dout;
     
-    iram_en_t <= iram_en_s;
-  
-    iram_state_t <= to_unsigned(iram_state_s, iram_state_t'length);
+--    with iram_oe select
+--       iram_dout_s <= iram_mem_dout        when '1', 
+--                     "0000000000000000" when others;
+                     
+--    with iram_dout_s select
+--        iram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
+--                     iram_dout_s when others;                   
+
     
-    mmu_main:process(iram_clk)
+--    with iram_mem_dout select
+--        iram_dout_s <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
+--                       iram_mem_dout      when others;
+    
+--    with iram_oe select
+--        iram_dout <= iram_dout_s        when '1', 
+--                     "0000000000000000" when others;
+                     
+    
+    mmu_main:process(clk200mhz)
     begin
-        
-        if rising_edge(iram_clk) then
-            case iram_state_s is
-                when 0 =>
-                    iram_en_s <= '1';
-                    iram_mem_addr_s <= iram_addr;
-                    iram_mem_we_s <= iram_we;
-                    iram_mem_oe_s <= iram_oe;
-                    if iram_we='1' then
-                        iram_mem_din_s <= iram_din;
-                    end if;
-                    iram_state_s <= 1;
-                when 1 =>
-                    iram_dout <= iram_mem_dout;
-                    iram_state_s <= 2;
-                when others => 
-                    iram_state_s <= 0;
-                    iram_en_s <= '0';
-            end case;     
+        if falling_edge(clk200mhz) then
+            iram_mem_clk_s <= '0';
         end if;
-    
+  
+        if rising_edge(clk200mhz) and rising_edge(iram_clk) then
+                iram_mem_clk_s <= '1';
+                iram_en_s <= '1';
+                iram_mem_addr_s <= iram_addr;
+                iram_mem_we_s <= iram_we;
+                iram_mem_oe_s <= iram_oe;
+                if iram_we='1' then
+                    iram_mem_din_s <= iram_din;
+                end if;
+                iram_op_en <= TRUE; 
+        end if;
+        
+        if rising_edge(clk200mhz) and falling_edge(iram_clk) then
+            iram_op_en <= FALSE;
+            iram_en_s <= '0';
+            iram_mem_clk_s <= '1';
+        end if;
+        
     end process;
 
 end Behavioral;
