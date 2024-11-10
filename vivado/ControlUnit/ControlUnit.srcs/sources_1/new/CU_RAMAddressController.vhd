@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -45,10 +45,12 @@ architecture Behavioral of CU_RAMAddressController is
 begin
     WITH RAM_Address_Src SELECT used_address <=
         Reg2 WHEN '0',
-        Immidiate WHEN '1';
+        Immidiate WHEN '1',
+        X"0000" WHEN OTHERS;
     
     WITH Use_MA SELECT RAM_Address <=
         used_address WHEN '0',
-        (used_address + MA) WHEN '1';
+        (std_logic_vector(unsigned(used_address) + unsigned(MA))) WHEN '1',
+        X"0000" WHEN OTHERS;
 
 end Behavioral;

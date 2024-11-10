@@ -59,6 +59,8 @@ architecture Behavioral of CU_JumpController is
     signal not_zero_flag : STD_LOGIC;
     signal jump_condition_fullfilled : STD_LOGIC;
     signal relative_jump_destination : STD_LOGIC_VECTOR(15 downto 0);
+    
+    constant pc_offset : signed(15 downto 0) := "1111111111111111";
 begin
     
     FlagUnpackerInstance : FlagUnpacker port map(
@@ -81,14 +83,16 @@ begin
         overflow_flag WHEN "100",
         rho_flag WHEN "101",
         not_zero_flag WHEN "110",
-        '1' WHEN "111";
+        '1' WHEN "111",
+        '0' WHEN OTHERS;
     
     JMP_Verified <= JMP and ((not JMP_Conditional) or jump_condition_fullfilled);
     
-    relative_jump_destination <= std_logic_vector(TO_UNSIGNED(JMP_Address, 16) + TO_SIGNED(PC_Current, 16) - 1);
+    relative_jump_destination <= std_logic_vector(SIGNED(JMP_Address) + SIGNED(PC_Current) + pc_offset);
     
     WITH JMP_Relative SELECT PC_Next <=
         JMP_Address WHEN '0',
-        relative_jump_destination WHEN '1';
+        relative_jump_destination WHEN '1',
+        X"0000" WHEN OTHERS;
 
 end Behavioral;
