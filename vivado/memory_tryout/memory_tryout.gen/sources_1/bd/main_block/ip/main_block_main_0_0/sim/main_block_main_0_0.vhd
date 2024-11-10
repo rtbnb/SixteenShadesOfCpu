@@ -69,9 +69,7 @@ ENTITY main_block_main_0_0 IS
     iram_mem_we : OUT STD_LOGIC;
     iram_mem_oe : OUT STD_LOGIC;
     iram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    internal_clk_t : OUT STD_LOGIC;
-    iram_en_t : OUT STD_LOGIC;
-    iram_state_t : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
+    iram_en_t : OUT STD_LOGIC
   );
 END main_block_main_0_0;
 
@@ -94,9 +92,7 @@ ARCHITECTURE main_block_main_0_0_arch OF main_block_main_0_0 IS
       iram_mem_we : OUT STD_LOGIC;
       iram_mem_oe : OUT STD_LOGIC;
       iram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      internal_clk_t : OUT STD_LOGIC;
-      iram_en_t : OUT STD_LOGIC;
-      iram_state_t : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
+      iram_en_t : OUT STD_LOGIC
     );
   END COMPONENT main;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -122,8 +118,6 @@ BEGIN
       iram_mem_we => iram_mem_we,
       iram_mem_oe => iram_mem_oe,
       iram_mem_dout => iram_mem_dout,
-      internal_clk_t => internal_clk_t,
-      iram_en_t => iram_en_t,
-      iram_state_t => iram_state_t
+      iram_en_t => iram_en_t
     );
 END main_block_main_0_0_arch;

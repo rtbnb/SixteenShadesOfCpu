@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x23A981917ACB30D4",
+      "boundary_crc": "0xAEF8D2127AD75021",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -44,10 +44,20 @@
         "left": "15",
         "right": "0"
       },
-      "internal_clk_t": {
+      "iram_en_t": {
+        "direction": "O"
+      },
+      "iram_clk": {
+        "direction": "I"
+      },
+      "iram_mem_clk": {
         "type": "clk",
         "direction": "O",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_main_0_0_iram_mem_clk",
+            "value_src": "default_prop"
+          },
           "FREQ_HZ": {
             "value": "100000000",
             "value_src": "default"
@@ -66,16 +76,10 @@
           }
         }
       },
-      "iram_en_t": {
-        "direction": "O"
-      },
-      "iram_state_t": {
+      "iram_dout_t": {
         "direction": "O",
-        "left": "4",
+        "left": "15",
         "right": "0"
-      },
-      "iram_clk": {
-        "direction": "I"
       }
     },
     "components": {
@@ -149,16 +153,8 @@
             "left": "15",
             "right": "0"
           },
-          "internal_clk_t": {
-            "direction": "O"
-          },
           "iram_en_t": {
             "direction": "O"
-          },
-          "iram_state_t": {
-            "direction": "O",
-            "left": "4",
-            "right": "0"
           }
         }
       },
@@ -200,6 +196,7 @@
       "blk_mem_gen_0_douta": {
         "ports": [
           "blk_mem_gen_0/douta",
+          "iram_dout_t",
           "mmu/iram_mem_dout"
         ]
       },
@@ -245,12 +242,6 @@
           "mmu/iram_we"
         ]
       },
-      "mmu_internal_clk_t": {
-        "ports": [
-          "mmu/internal_clk_t",
-          "internal_clk_t"
-        ]
-      },
       "mmu_iram_dout": {
         "ports": [
           "mmu/iram_dout",
@@ -272,7 +263,8 @@
       "mmu_iram_mem_clk": {
         "ports": [
           "mmu/iram_mem_clk",
-          "blk_mem_gen_0/clka"
+          "blk_mem_gen_0/clka",
+          "iram_mem_clk"
         ]
       },
       "mmu_iram_mem_din": {
@@ -291,12 +283,6 @@
         "ports": [
           "mmu/iram_mem_we",
           "blk_mem_gen_0/wea"
-        ]
-      },
-      "mmu_iram_state_t": {
-        "ports": [
-          "mmu/iram_state_t",
-          "iram_state_t"
         ]
       }
     }

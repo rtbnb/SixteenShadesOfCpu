@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov  8 16:20:25 2024
---Host        : Robin_Laptop running 64-bit major release  (build 9200)
+--Date        : Sun Nov 10 16:44:50 2024
+--Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
 --Purpose     : IP block netlist
@@ -15,15 +15,15 @@ use UNISIM.VCOMPONENTS.ALL;
 entity main_block is
   port (
     clk200mhz : in STD_LOGIC;
-    internal_clk_t : out STD_LOGIC;
     iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     iram_clk : in STD_LOGIC;
     iram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    iram_dout_t : out STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_en_t : out STD_LOGIC;
+    iram_mem_clk : out STD_LOGIC;
     iram_oe : in STD_LOGIC;
-    iram_state_t : out STD_LOGIC_VECTOR ( 4 downto 0 );
     iram_we : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
@@ -49,9 +49,7 @@ architecture STRUCTURE of main_block is
     iram_mem_we : out STD_LOGIC;
     iram_mem_oe : out STD_LOGIC;
     iram_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    internal_clk_t : out STD_LOGIC;
-    iram_en_t : out STD_LOGIC;
-    iram_state_t : out STD_LOGIC_VECTOR ( 4 downto 0 )
+    iram_en_t : out STD_LOGIC
   );
   end component main_block_main_0_0;
   component main_block_blk_mem_gen_0_0 is
@@ -72,7 +70,6 @@ architecture STRUCTURE of main_block is
   signal iram_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal iram_oe_1 : STD_LOGIC;
   signal iram_we_1 : STD_LOGIC;
-  signal mmu_internal_clk_t : STD_LOGIC;
   signal mmu_iram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_iram_en_t : STD_LOGIC;
   signal mmu_iram_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -80,22 +77,21 @@ architecture STRUCTURE of main_block is
   signal mmu_iram_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_iram_mem_oe : STD_LOGIC;
   signal mmu_iram_mem_we : STD_LOGIC;
-  signal mmu_iram_state_t : STD_LOGIC_VECTOR ( 4 downto 0 );
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of internal_clk_t : signal is "xilinx.com:signal:clock:1.0 CLK.INTERNAL_CLK_T CLK";
+  attribute X_INTERFACE_INFO of iram_mem_clk : signal is "xilinx.com:signal:clock:1.0 CLK.IRAM_MEM_CLK CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of internal_clk_t : signal is "XIL_INTERFACENAME CLK.INTERNAL_CLK_T, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_PARAMETER of iram_mem_clk : signal is "XIL_INTERFACENAME CLK.IRAM_MEM_CLK, CLK_DOMAIN main_block_main_0_0_iram_mem_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
   clk200mhz_1 <= clk200mhz;
-  internal_clk_t <= mmu_internal_clk_t;
   iram_addr_1(15 downto 0) <= iram_addr(15 downto 0);
   iram_bank_1(3 downto 0) <= iram_bank(3 downto 0);
   iram_clk_1 <= iram_clk;
   iram_din_1(15 downto 0) <= iram_din(15 downto 0);
   iram_dout(15 downto 0) <= mmu_iram_dout(15 downto 0);
+  iram_dout_t(15 downto 0) <= blk_mem_gen_0_douta(15 downto 0);
   iram_en_t <= mmu_iram_en_t;
+  iram_mem_clk <= mmu_iram_mem_clk;
   iram_oe_1 <= iram_oe;
-  iram_state_t(4 downto 0) <= mmu_iram_state_t(4 downto 0);
   iram_we_1 <= iram_we;
 blk_mem_gen_0: component main_block_blk_mem_gen_0_0
      port map (
@@ -109,7 +105,6 @@ blk_mem_gen_0: component main_block_blk_mem_gen_0_0
 mmu: component main_block_main_0_0
      port map (
       clk200mhz => clk200mhz_1,
-      internal_clk_t => mmu_internal_clk_t,
       iram_addr(15 downto 0) => iram_addr_1(15 downto 0),
       iram_bank(3 downto 0) => iram_bank_1(3 downto 0),
       iram_clk => iram_clk_1,
@@ -123,7 +118,6 @@ mmu: component main_block_main_0_0
       iram_mem_oe => mmu_iram_mem_oe,
       iram_mem_we => mmu_iram_mem_we,
       iram_oe => iram_oe_1,
-      iram_state_t(4 downto 0) => mmu_iram_state_t(4 downto 0),
       iram_we => iram_we_1
     );
 end STRUCTURE;
