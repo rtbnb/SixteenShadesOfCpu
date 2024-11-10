@@ -32,14 +32,15 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity CU_JumpController is
-    Port ( JMP : in STD_LOGIC;
+    Port ( InstrExec_CLK : in STD_LOGIC;
+           JMP : in STD_LOGIC;
            JMP_Conditional : in STD_LOGIC;
            JMP_Relative : in STD_LOGIC;
            JMP_Condition : in STD_LOGIC_VECTOR (2 downto 0);
            Flags : in STD_LOGIC_VECTOR (15 downto 0);
            JMP_Address : in STD_LOGIC_VECTOR (15 downto 0);
            PC_Current : in STD_LOGIC_VECTOR (15 downto 0);
-           JMP_Verified : out STD_LOGIC;
+           PC_Load : out STD_LOGIC;
            PC_Next : out STD_LOGIC_VECTOR (0 downto 0));
 end CU_JumpController;
 
@@ -59,7 +60,7 @@ architecture Behavioral of CU_JumpController is
     signal not_zero_flag : STD_LOGIC;
     signal jump_condition_fullfilled : STD_LOGIC;
     signal relative_jump_destination : STD_LOGIC_VECTOR(15 downto 0);
-    
+    signal jmp_verified : STD_LOGIC;
     constant pc_offset : signed(15 downto 0) := "1111111111111111";
 begin
     
@@ -86,8 +87,8 @@ begin
         '1' WHEN "111",
         '0' WHEN OTHERS;
     
-    JMP_Verified <= JMP and ((not JMP_Conditional) or jump_condition_fullfilled);
-    
+    jmp_verified <= JMP and ((not JMP_Conditional) or jump_condition_fullfilled);
+    PC_Load <= jmp_verified and InstrExec_CLK;
     relative_jump_destination <= std_logic_vector(SIGNED(JMP_Address) + SIGNED(PC_Current) + pc_offset);
     
     WITH JMP_Relative SELECT PC_Next <=
