@@ -44,6 +44,7 @@ entity CU_Decoder is
            JMP : out STD_LOGIC;
            JMP_Conditional : out STD_LOGIC;
            JMP_Relative : out STD_LOGIC;
+           JMP_DestinationSource : out STD_LOGIC;
            Is_ALU_OP : out STD_LOGIC;
            Is_RAM_OP : out STD_LOGIC);
 end CU_Decoder;
@@ -100,6 +101,10 @@ begin
     JMP <= '1' WHEN is_jc or is_jr or is_ja ELSE '0';
     JMP_Conditional <= '1' WHEN is_jc ELSE '0';
     JMP_Relative <= '1' WHEN is_jc ELSE '0';
+    
+    -- '1': Jumps to value in Reg1
+    -- '0': Jumps to value in Immediate
+    JMP_DestinationSource <= '1' WHEN is_jr ELSE '0';
     
     Is_ALU_OP <= '1' WHEN is_alu ELSE '0';
     Is_RAM_OP <= '1' WHEN is_rdmi or is_wrmi or is_rdmr or is_wrmr ELSE '0';
