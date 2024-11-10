@@ -222,6 +222,40 @@ begin
             report "1+(-1) operation Failed: wrong OVERFLOW_FLAG"
             severity failure;
             
+            
+        
+        -- Testing 69+420
+        wait for 10 ns;
+        D1 <= "0000000001000101";
+        D2 <= "0000000110100100";
+        RHO_PIN <= '0'; 
+        ALU_OPP <= "0000"; 
+        wait for 10 ns;
+        assert ALU_OUT = "0000000111101001"
+            report "69+420 operation Failed: wrong ALU_OUT"
+            severity failure;
+        assert CARRY_FLAG = '0'
+            report "69+420 operation Failed: wrong CARRY_FLAG"
+            severity failure;
+        assert ZERO_FLAG = '0'
+            report "69+420 operation Failed: wrong ZERO_FLAG"
+            severity failure;
+        assert SMALLER_ZERO_FLAG = '0'
+            report "69+420 operation Failed: wrong SMALLER_ZERO_FLAG"
+            severity failure;
+        assert BIGGER_ZERO_FLAG = '1'
+            report "69+420 operation Failed: wrong BIGGER_ZERO_FLAG"
+            severity failure;
+        assert RHO_FLAG = '0'
+            report "69+420 operation Failed: wrong RHO_FLAG"
+            severity failure;
+        assert NOT_ZERO_FLAG = '1'
+            report "69+420 operation Failed: wrong NOT_ZERO_FLAG"
+            severity failure;
+        assert OVERFLOW_FLAG = '0'
+            report "69+420 operation Failed: wrong OVERFLOW_FLAG"
+            severity failure;
+            
         --testing 1+32767 (Overflow)
         wait for 10 ns;
         D1 <= "0000000000000001";
