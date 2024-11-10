@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xAEF8D2127AD75021",
+      "boundary_crc": "0xE1F62A5C23B707D1",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -80,6 +80,12 @@
         "direction": "O",
         "left": "15",
         "right": "0"
+      },
+      "iram_mem_oe_t": {
+        "direction": "O"
+      },
+      "iram_mem_we_t": {
+        "direction": "O"
       }
     },
     "components": {
@@ -276,13 +282,15 @@
       "mmu_iram_mem_oe": {
         "ports": [
           "mmu/iram_mem_oe",
-          "blk_mem_gen_0/ena"
+          "blk_mem_gen_0/ena",
+          "iram_mem_oe_t"
         ]
       },
       "mmu_iram_mem_we": {
         "ports": [
           "mmu/iram_mem_we",
-          "blk_mem_gen_0/wea"
+          "blk_mem_gen_0/wea",
+          "iram_mem_we_t"
         ]
       }
     }

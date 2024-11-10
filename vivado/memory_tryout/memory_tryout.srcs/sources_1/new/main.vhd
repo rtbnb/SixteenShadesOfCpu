@@ -41,10 +41,10 @@ entity main is
         iram_bank: in std_logic_vector(3 downto 0) := "0000";
         iram_dout: out std_logic_vector(15 downto 0);
         
-        iram_mem_addr, iram_mem_din: out std_logic_vector(15 downto 0);
+        iram_mem_addr, iram_mem_din: out std_logic_vector(15 downto 0) := "0000000000000000";
         iram_mem_clk: out std_logic;
-        iram_mem_we, iram_mem_oe: out std_logic := '1';
-        iram_mem_dout: in std_logic_vector(15 downto 0) := "0000000000000000";
+        iram_mem_we, iram_mem_oe: out std_logic := '0';
+        iram_mem_dout: in std_logic_vector(15 downto 0);
 --iram end
         iram_en_t: out std_logic
     );
@@ -54,39 +54,28 @@ architecture Behavioral of main is
     signal iram_mem_clk_s: std_logic;
     signal iram_mem_addr_s: std_logic_vector(15 downto 0);
     signal iram_mem_din_s: std_logic_vector(15 downto 0);
-    signal iram_mem_we_s: std_logic := '1';
-    signal iram_mem_oe_s: std_logic := '1';
+    signal iram_mem_we_s: std_logic := '0';
+    signal iram_mem_oe_s: std_logic := '0';
     signal iram_dout_s: std_logic_vector(15 downto 0);
+    signal iram_op_s: std_logic;
     
-    signal iram_en_s: std_logic := '0';
-    signal iram_op_en: boolean := FALSE;
 begin
     iram_mem_clk <= iram_mem_clk_s;
     
     iram_mem_we <= iram_mem_we_s;
-    iram_mem_oe <= iram_mem_oe_s;
     iram_mem_addr <= iram_mem_addr_s;
     iram_mem_din <= iram_mem_din_s;
     
-    iram_en_t <= iram_en_s;
-    iram_dout <= iram_mem_dout;
     
---    with iram_oe select
---       iram_dout_s <= iram_mem_dout        when '1', 
---                     "0000000000000000" when others;
-                     
---    with iram_dout_s select
---        iram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
---                     iram_dout_s when others;                   
-
+    with iram_mem_oe_s select
+       iram_dout_s <= iram_mem_dout        when '1', 
+                     "0000000000000000" when others;
+                 
+    with iram_dout_s select
+        iram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
+                     iram_dout_s when others;                   
     
---    with iram_mem_dout select
---        iram_dout_s <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
---                       iram_mem_dout      when others;
-    
---    with iram_oe select
---        iram_dout <= iram_dout_s        when '1', 
---                     "0000000000000000" when others;
+    iram_op_s <= iram_we or iram_oe;
                      
     
     mmu_main:process(clk200mhz)
@@ -96,20 +85,17 @@ begin
         end if;
   
         if rising_edge(clk200mhz) and rising_edge(iram_clk) then
+--and iram_op_s='1' 
+--not (iram_addr="UUUUUUUUUUUUUUUU" or iram_din="UUUUUUUUUUUUUUUU")
                 iram_mem_clk_s <= '1';
-                iram_en_s <= '1';
+                iram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
                 iram_mem_addr_s <= iram_addr;
                 iram_mem_we_s <= iram_we;
                 iram_mem_oe_s <= iram_oe;
-                if iram_we='1' then
-                    iram_mem_din_s <= iram_din;
-                end if;
-                iram_op_en <= TRUE; 
+                iram_mem_din_s <= iram_din;
         end if;
         
-        if rising_edge(clk200mhz) and falling_edge(iram_clk) then
-            iram_op_en <= FALSE;
-            iram_en_s <= '0';
+        if rising_edge(clk200mhz) and falling_edge(iram_clk) and iram_op_s='1' then
             iram_mem_clk_s <= '1';
         end if;
         
