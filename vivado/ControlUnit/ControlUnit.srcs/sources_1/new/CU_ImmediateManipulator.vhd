@@ -57,7 +57,8 @@ begin
         Reg1 WHEN "00",
         imh WHEN "01",
         iml WHEN "10",
-        Immidiate WHEN "11";
+        Immidiate WHEN "11",
+        X"0000" WHEN OTHERS;
      
 
 end architecture Behavioral;
