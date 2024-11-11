@@ -42,7 +42,7 @@ entity CU_JumpController is
            PC_Current : in STD_LOGIC_VECTOR (15 downto 0);
            PC_Load : out STD_LOGIC;
            PC_Next : out STD_LOGIC_VECTOR (0 downto 0));
-end CU_JumpController;
+end entity CU_JumpController;
 
 architecture Behavioral of CU_JumpController is
     
