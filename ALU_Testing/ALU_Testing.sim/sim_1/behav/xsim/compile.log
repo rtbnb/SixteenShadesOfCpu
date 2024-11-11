@@ -1,2 +1,14 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SUBTRACTING.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ALU_TB_SUBTRACTING'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ALU_TB_SHIFTING'
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:97]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:102]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:130]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:135]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:163]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:168]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:195]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:200]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:228]
+ERROR: [VRFC 10-1281] process cannot have both a wait statement and a sensitivity list [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:233]
+ERROR: [VRFC 10-9458] unit 'behavioral' is ignored due to previous errors [D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd:40]
+INFO: [VRFC 10-8704] VHDL file 'D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd' is ignored due to errors
