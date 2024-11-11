@@ -38,7 +38,7 @@ entity CU_WriteSelector is
            ALU_Out : in STD_LOGIC_VECTOR (15 downto 0);
            Write_Sel : in STD_LOGIC_VECTOR (1 downto 0);
            Write_Data : out STD_LOGIC_VECTOR (15 downto 0));
-end CU_WriteSelector;
+end entity CU_WriteSelector;
 
 architecture Behavioral of CU_WriteSelector is
 
@@ -51,4 +51,4 @@ begin
         ALU_Out WHEN "11",
         X"0000" WHEN OTHERS;
 
-end Behavioral;
+end architecture Behavioral;
