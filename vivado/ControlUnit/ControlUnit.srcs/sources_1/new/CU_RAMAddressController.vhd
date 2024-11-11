@@ -33,7 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity CU_RAMAddressController is
     Port ( Reg2 : in STD_LOGIC_VECTOR (15 downto 0);
-           Immidiate : in STD_LOGIC_VECTOR (15 downto 0);
+           Immediate : in STD_LOGIC_VECTOR (15 downto 0);
            MA : in STD_LOGIC_VECTOR (15 downto 0);
            RAM_Address_Src : in STD_LOGIC;
            Use_MA : in STD_LOGIC;
@@ -45,7 +45,7 @@ architecture Behavioral of CU_RAMAddressController is
 begin
     WITH RAM_Address_Src SELECT used_address <=
         Reg2 WHEN '0',
-        Immidiate WHEN '1',
+        Immediate WHEN '1',
         X"0000" WHEN OTHERS;
     
     WITH Use_MA SELECT RAM_Address <=
