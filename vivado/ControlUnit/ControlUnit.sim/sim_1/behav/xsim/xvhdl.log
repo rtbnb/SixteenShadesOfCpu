@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sim_1/new/CU_WriteSelector_SIM.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CU_WriteSelector_SIM'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sim_1/new/CU_JumpController_SIM.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CU_JumpController_SIM'
