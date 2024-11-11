@@ -38,7 +38,7 @@ entity CU_Decoder is
            RF_WHB : out STD_LOGIC;
            RF_WLB : out STD_LOGIC;
            Write_Data_Sel : out STD_LOGIC_VECTOR (1 downto 0);
-           RAM_Src : out STD_LOGIC;
+           RAM_Address_Src : out STD_LOGIC;
            RAM_Read : out STD_LOGIC;
            RAM_Write : out STD_LOGIC;
            JMP : out STD_LOGIC;
@@ -89,14 +89,20 @@ begin
     RF_WHB <= '1' WHEN write_whole_byte or is_imh ELSE '0';
     RF_WLB <= '1' WHEN write_whole_byte or is_iml ELSE '0';
     
-    -- ALU => Select 0
+    -- ALU => Select 0 (Also used as default)
     -- IMH/IML => Select 1
     -- CR => Select 2
     -- RDMR/RDMI (others) => Select 3
     Write_Data_Sel <= "00" WHEN is_alu ELSE 
                       "01" WHEN is_imh or is_iml ELSE 
                       "10" WHEN is_cr ELSE 
-                      "11";
+                      "11" WHEN is_rdmi or is_rdmr ELSE
+                      "00";
+    -- '0': Reg2 is used as RAM Address
+    -- '1': Immediate is used as RAM Address                  
+    RAM_Address_Src <= '1' WHEN is_rdmi or is_wrmi ELSE '0';
+    RAM_Read <= '1' WHEN is_rdmi or is_rdmr ELSE '0';
+    RAM_Write <= '1' WHEN is_wrmi or is_wrmr ELSE '0';
     
     JMP <= '1' WHEN is_jc or is_jr or is_ja ELSE '0';
     JMP_Conditional <= '1' WHEN is_jc ELSE '0';
