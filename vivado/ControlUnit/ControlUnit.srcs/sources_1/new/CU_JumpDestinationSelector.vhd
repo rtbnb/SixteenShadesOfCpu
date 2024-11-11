@@ -36,7 +36,7 @@ entity CU_JumpDestinationSelector is
            Register1 : in STD_LOGIC_VECTOR (15 downto 0);
            JMP_DestinationSelect : in STD_LOGIC;
            JMP_Address : out STD_LOGIC_VECTOR (15 downto 0));
-end CU_JumpDestinationSelector;
+end entity CU_JumpDestinationSelector;
 
 architecture Behavioral of CU_JumpDestinationSelector is
 
