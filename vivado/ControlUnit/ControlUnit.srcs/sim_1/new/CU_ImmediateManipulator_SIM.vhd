@@ -36,8 +36,41 @@ entity CU_ImmediateManipulator_SIM is
 end CU_ImmediateManipulator_SIM;
 
 architecture Behavioral of CU_ImmediateManipulator_SIM is
-
+    component CU_ImmediateManipulator is
+        Port ( Reg1 : in STD_LOGIC_VECTOR (15 downto 0);
+               Immediate : in STD_LOGIC_VECTOR (15 downto 0);
+               RF_WHB : in STD_LOGIC;
+               RF_WLB : in STD_LOGIC;
+               ManipulatedImmidiate : out STD_LOGIC_VECTOR (15 downto 0));
+    end component CU_ImmediateManipulator;
+    
+    signal Reg1 : std_logic_vector(15 downto 0) := X"abcd";
+    signal Immediate : std_logic_vector(15 downto 0) := X"3377";
+    signal RF_WHB, RF_WLB : STD_LOGIC;
+    
 begin
-
+    EUT : CU_ImmediateManipulator port map(
+        Reg1 => Reg1,
+        Immediate => Immediate,
+        RF_WHB => RF_WHB,
+        RF_WLB => RF_WLB
+    );
+    
+    
+    process is
+    begin
+        RF_WHB <= '0';
+        RF_WLB <= '0';
+        wait for 10 ns;
+        RF_WHB <= '0';
+        RF_WLB <= '1';
+        wait for 10 ns;
+        RF_WHB <= '1';
+        RF_WLB <= '0';
+        wait for 10 ns;
+        RF_WHB <= '1';
+        RF_WLB <= '1';
+        wait for 10 ns;
+    end process;
 
 end Behavioral;
