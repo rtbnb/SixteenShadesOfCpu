@@ -132,10 +132,11 @@ begin
                         RegD <= WriteData;
                     when "1110" =>
                         RegE <= WriteData;
-                    --when "1111" =>
-                    --    RegF <= WriteData;
+                    when "1111" =>
+                        -- RegF <= WriteData;
+                        null;
                     when others =>
-                        RegD <= WriteData;
+                        null;
                 end case;
             end if;
         end if;
