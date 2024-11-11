@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity CU_ImmediateManipulator is
     Port ( Reg1 : in STD_LOGIC_VECTOR (15 downto 0);
-           Immidiate : in STD_LOGIC_VECTOR (15 downto 0);
+           Immediate : in STD_LOGIC_VECTOR (15 downto 0);
            RF_WHB : in STD_LOGIC;
            RF_WLB : in STD_LOGIC;
            ManipulatedImmidiate : out STD_LOGIC_VECTOR (15 downto 0));
@@ -48,16 +48,16 @@ begin
     selection(1) <= RF_WLB;
     
     imh(7 downto 0) <= Reg1(7 downto 0);
-    imh(15 downto 8) <= Immidiate(7 downto 0);
+    imh(15 downto 8) <= Immediate(7 downto 0);
     
-    iml(7 downto 0) <= Immidiate(7 downto 0);
+    iml(7 downto 0) <= Immediate(7 downto 0);
     iml(15 downto 8) <= Reg1(15 downto 8);
     
     WITH selection SELECT ManipulatedImmidiate <=
         Reg1 WHEN "00",
         imh WHEN "01",
         iml WHEN "10",
-        Immidiate WHEN "11",
+        Immediate WHEN "11",
         X"0000" WHEN OTHERS;
      
 
