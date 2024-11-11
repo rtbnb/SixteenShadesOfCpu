@@ -1,7 +1,8 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../ALU_Testing.srcs/sources_1/new/ALU.vhd" \
-"../../../../ALU_Testing.srcs/sim_1/new/ALU_TB_SUBTRACTING.vhd" \
+"../../../../ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd" \
+"../../../../ALU_Testing.srcs/sim_1/new/ALU_TB_TOP.vhd" \
 
 # Do not sort compile order
 nosort
