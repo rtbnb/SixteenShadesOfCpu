@@ -4,7 +4,9 @@ May 22 2024
 19:03:11
 D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sim_1/new/CU_Decoder_SIM.vhd,1731319212,vhdl,,,,cu_decoder_sim,,,,,,,,
 D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sim_1/new/CU_ImmediateManipulator_SIM.vhd,1731320279,vhdl,,,,cu_immediatemanipulator_sim,,,,,,,,
+D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sim_1/new/CU_JumpDestinationSelector_SIM.vhd,1731322370,vhdl,,,,cu_jumpdestinationselector_sim,,,,,,,,
 D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sim_1/new/CU_RAMAddressController_SIM.vhd,1731321097,vhdl,,,,cu_ramaddresscontroller_sim,,,,,,,,
 D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd,1731319385,vhdl,,,,cu_decoder,,,,,,,,
 D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd,1731319937,vhdl,,,,cu_immediatemanipulator,,,,,,,,
+D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd,1731322375,vhdl,,,,cu_jumpdestinationselector,,,,,,,,
 D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd,1731320477,vhdl,,,,cu_ramaddresscontroller,,,,,,,,
