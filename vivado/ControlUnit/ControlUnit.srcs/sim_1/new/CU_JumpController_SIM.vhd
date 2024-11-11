@@ -76,11 +76,65 @@ begin
         JMP_Relative <= '0';
         JMP_Address <= X"1F00";
         PC_Current <= X"0000";
-        
+        Flags <= X"0000";
     
         FOR i in 0 to 7 loop
-            JMP_Condition <= std_logic_vector(to_unsigned(i, 3));   
+            JMP_Condition <= std_logic_vector(to_unsigned(i, 3));
             
+            Flags(i) <= '1';
+            
+            JMP <= '1';
+            InstrExec_CLK <= '0';
+            wait for 10ns;
+            InstrExec_CLK <= '1';
+            wait for 10ns;
+            JMP <= '0';
+            InstrExec_CLK <= '0';
+            wait for 10ns;
+            InstrExec_CLK <= '1';
+            wait for 10 ns;
+              
+            Flags <= X"0000";   
+            JMP <= '1';
+            InstrExec_CLK <= '0';
+            wait for 10ns;
+            InstrExec_CLK <= '1';
+            wait for 10ns;
+            JMP <= '0';   
+            InstrExec_CLK <= '0';
+            wait for 10ns;
+            InstrExec_CLK <= '1';   
+            wait for 10 ns;
+        end loop;
+        
+        JMP_Conditional <= '1';
+        
+        FOR i in 0 to 7 loop
+            JMP_Condition <= std_logic_vector(to_unsigned(i, 3));
+            
+            Flags(i) <= '1';
+            
+            JMP <= '1';
+            InstrExec_CLK <= '0';
+            wait for 10ns;
+            InstrExec_CLK <= '1';
+            wait for 10ns;
+            JMP <= '0';
+            InstrExec_CLK <= '0';
+            wait for 10ns;
+            InstrExec_CLK <= '1';
+            wait for 10 ns;
+              
+            Flags <= X"0000";   
+            JMP <= '1';
+            InstrExec_CLK <= '0';
+            wait for 10ns;
+            InstrExec_CLK <= '1';
+            wait for 10ns;
+            JMP <= '0';   
+            InstrExec_CLK <= '0';
+            wait for 10ns;
+            InstrExec_CLK <= '1';   
             wait for 10 ns;
         end loop;
     end process;
