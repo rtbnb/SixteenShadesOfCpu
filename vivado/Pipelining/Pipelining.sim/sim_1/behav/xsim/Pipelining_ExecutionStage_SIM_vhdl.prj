@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd" \
-"../../../../Pipelining.srcs/sim_1/new/Pipelining_ExecutionStage_SIM.vhd" \
-
-# Do not sort compile order
-nosort

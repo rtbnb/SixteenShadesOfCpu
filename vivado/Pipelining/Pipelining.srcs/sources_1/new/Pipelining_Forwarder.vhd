@@ -56,16 +56,19 @@ begin
         CurrentOperand1 WHEN "00",
         CurrentOperand1 WHEN "01",
         ExecutionWriteData WHEN "10",
-        ExecutionFlags WHEN "11";
+        ExecutionFlags WHEN "11",
+        X"0000" WHEN OTHERS;
         
     WITH (operand_2_sel_s) SELECT ForwardedOperand2 <=
         CurrentOperand2 WHEN "00",
         CurrentOperand2 WHEN "01",
         ExecutionWriteData WHEN "10",
-        ExecutionFlags WHEN "11";
+        ExecutionFlags WHEN "11",
+        X"0000" WHEN OTHERS;
         
     WITH (ma_sel_s) SELECT ForwardedMA <=
         CurrentMA WHEN '0',
-        ExecutionWriteData WHEN '1';
+        ExecutionWriteData WHEN '1',
+        X"0000" WHEN OTHERS;
 
 end Behavioral;
