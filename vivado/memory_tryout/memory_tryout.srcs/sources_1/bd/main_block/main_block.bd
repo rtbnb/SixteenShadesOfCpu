@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x9F54A427229D6E36",
+      "boundary_crc": "0xB7DB73BD4B0266D9",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
       "name": "main_block",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "None",
-      "tool_version": "2024.1"
+      "tool_version": "2024.1",
+      "validated": "true"
     },
     "design_tree": {
       "mmu": "",
@@ -72,8 +73,24 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_gram_clk",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
@@ -86,8 +103,24 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_vram_clk",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
@@ -100,8 +133,24 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_debug_clk200mhz",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "200000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
@@ -109,8 +158,24 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_debug_clk",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
@@ -140,6 +205,106 @@
         "direction": "I",
         "left": "3",
         "right": "0"
+      },
+      "mmio_dout": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "mmio_mem_ck": {
+        "direction": "O"
+      },
+      "mmio_mem_we": {
+        "direction": "O"
+      },
+      "mmio_mem_addr": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "mmio_mem_oe": {
+        "direction": "O"
+      },
+      "mmio_mem_din": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "mmio_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_mmio_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "mmio_we": {
+        "direction": "I"
+      },
+      "mmio_oe": {
+        "direction": "I"
+      },
+      "mmio_addr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "mmio_din": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "mmio_mem_dout": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "gram_dout_t": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "gram_clk_t": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "test_op": {
+        "direction": "O"
       }
     },
     "components": {
@@ -177,18 +342,17 @@
             "left": "15",
             "right": "0"
           },
-          "iram_mem_addr": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
           "iram_mem_din": {
             "direction": "O",
             "left": "15",
             "right": "0"
           },
-          "iram_mem_clk": {
-            "type": "clk",
+          "iram_mem_addr": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "iram_mem_ck": {
             "direction": "O"
           },
           "iram_mem_we": {
@@ -220,7 +384,17 @@
           },
           "gram_clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_gram_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "gram_bank": {
             "direction": "I",
@@ -232,18 +406,17 @@
             "left": "15",
             "right": "0"
           },
-          "gram_mem_addr": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
           "gram_mem_din": {
             "direction": "O",
             "left": "15",
             "right": "0"
           },
-          "gram_mem_clk": {
-            "type": "clk",
+          "gram_mem_addr": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "gram_mem_ck": {
             "direction": "O"
           },
           "gram_mem_we": {
@@ -259,7 +432,17 @@
           },
           "vram_clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_vram_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "vram_addr": {
             "direction": "I",
@@ -281,8 +464,7 @@
             "left": "15",
             "right": "0"
           },
-          "vram_mem_clk": {
-            "type": "clk",
+          "vram_mem_ck": {
             "direction": "O"
           },
           "vram_mem_we": {
@@ -296,12 +478,95 @@
             "left": "15",
             "right": "0"
           },
-          "debug_clk200mhz": {
+          "mmio_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_mmio_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "mmio_we": {
             "direction": "I"
+          },
+          "mmio_oe": {
+            "direction": "I"
+          },
+          "mmio_addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "mmio_din": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "mmio_dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmio_mem_ck": {
+            "direction": "O"
+          },
+          "mmio_mem_we": {
+            "direction": "O"
+          },
+          "mmio_mem_oe": {
+            "direction": "O"
+          },
+          "mmio_mem_addr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmio_mem_din": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmio_mem_dout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "debug_clk200mhz": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_debug_clk200mhz",
+                "value_src": "default_prop"
+              }
+            }
           },
           "debug_clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_debug_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "debug_we": {
             "direction": "I"
@@ -334,6 +599,9 @@
             "direction": "O",
             "left": "15",
             "right": "0"
+          },
+          "test_op": {
+            "direction": "O"
           }
         }
       },
@@ -360,7 +628,7 @@
             "value": "false"
           },
           "Write_Depth_A": {
-            "value": "65535"
+            "value": "16383"
           },
           "Write_Width_A": {
             "value": "16"
@@ -411,7 +679,7 @@
             "value": "false"
           },
           "Write_Depth_A": {
-            "value": "16383"
+            "value": "65535"
           },
           "Write_Width_A": {
             "value": "16"
@@ -516,6 +784,7 @@
       "gram_douta": {
         "ports": [
           "gram/douta",
+          "gram_dout_t",
           "mmu/gram_mem_dout"
         ]
       },
@@ -549,6 +818,42 @@
           "mmu/iram_din"
         ]
       },
+      "mmio_addr_1": {
+        "ports": [
+          "mmio_addr",
+          "mmu/mmio_addr"
+        ]
+      },
+      "mmio_clk_1": {
+        "ports": [
+          "mmio_clk",
+          "mmu/mmio_clk"
+        ]
+      },
+      "mmio_din_1": {
+        "ports": [
+          "mmio_din",
+          "mmu/mmio_din"
+        ]
+      },
+      "mmio_mem_dout_1": {
+        "ports": [
+          "mmio_mem_dout",
+          "mmu/mmio_mem_dout"
+        ]
+      },
+      "mmio_oe_1": {
+        "ports": [
+          "mmio_oe",
+          "mmu/mmio_oe"
+        ]
+      },
+      "mmio_we_1": {
+        "ports": [
+          "mmio_we",
+          "mmu/mmio_we"
+        ]
+      },
       "mmu_debug_dout": {
         "ports": [
           "mmu/debug_dout",
@@ -569,8 +874,9 @@
       },
       "mmu_gram_mem_clk": {
         "ports": [
-          "mmu/gram_mem_clk",
-          "gram/clka"
+          "mmu/gram_mem_ck",
+          "gram/clka",
+          "gram_clk_t"
         ]
       },
       "mmu_gram_mem_din": {
@@ -605,7 +911,7 @@
       },
       "mmu_iram_mem_clk": {
         "ports": [
-          "mmu/iram_mem_clk",
+          "mmu/iram_mem_ck",
           "iram/clka"
         ]
       },
@@ -627,6 +933,48 @@
           "iram/wea"
         ]
       },
+      "mmu_mmio_dout": {
+        "ports": [
+          "mmu/mmio_dout",
+          "mmio_dout"
+        ]
+      },
+      "mmu_mmio_mem_addr": {
+        "ports": [
+          "mmu/mmio_mem_addr",
+          "mmio_mem_addr"
+        ]
+      },
+      "mmu_mmio_mem_ck": {
+        "ports": [
+          "mmu/mmio_mem_ck",
+          "mmio_mem_ck"
+        ]
+      },
+      "mmu_mmio_mem_din": {
+        "ports": [
+          "mmu/mmio_mem_din",
+          "mmio_mem_din"
+        ]
+      },
+      "mmu_mmio_mem_oe": {
+        "ports": [
+          "mmu/mmio_mem_oe",
+          "mmio_mem_oe"
+        ]
+      },
+      "mmu_mmio_mem_we": {
+        "ports": [
+          "mmu/mmio_mem_we",
+          "mmio_mem_we"
+        ]
+      },
+      "mmu_test_op": {
+        "ports": [
+          "mmu/test_op",
+          "test_op"
+        ]
+      },
       "mmu_vram_dout": {
         "ports": [
           "mmu/vram_dout",
@@ -641,7 +989,7 @@
       },
       "mmu_vram_mem_clk": {
         "ports": [
-          "mmu/vram_mem_clk",
+          "mmu/vram_mem_ck",
           "vram/clka"
         ]
       },
