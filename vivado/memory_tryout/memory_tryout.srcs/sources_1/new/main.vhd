@@ -109,28 +109,46 @@ entity main is
 end main;
 
 architecture Behavioral of main is
-    signal iram_mem_ck_s: std_logic;
-    signal iram_mem_addr_s, iram_mem_din_s, iram_dout_s: std_logic_vector(15 downto 0);
-    signal iram_mem_we_s, iram_mem_oe_s: std_logic := '0';
+    signal internal_clk_s: std_logic;
     
-    signal gram_mem_ck_s: std_logic;
+    signal iram_mem_addr_s, iram_mem_din_s, iram_dout_s: std_logic_vector(15 downto 0);
+    signal iram_mem_we_s, iram_mem_oe_s, iram_op_s: std_logic := '0';
+    
     signal gram_mem_addr_s, gram_mem_din_s, gram_dout_s: std_logic_vector(15 downto 0);
     signal gram_mem_we_s, gram_mem_oe_s, gram_op_s: std_logic := '0';
     
     signal vram_mem_ck_s: std_logic;
     signal vram_mem_addr_s, vram_mem_din_s, vram_dout_s: std_logic_vector(15 downto 0);
-    signal vram_mem_we_s, vram_mem_oe_s, vram_op_s: std_logic := '0';
+    signal vram_mem_we_s, vram_mem_oe_s, vram_op_s: std_logic := '0'; --TODO Implement vram op when implementing vram buffer interface
     
     signal debug_dout_s: std_logic_vector(15 downto 0); --should be irrelevant
+    signal debug_op_s, debug_enable_s: std_logic := '0';
     
     signal test_op_s: std_logic;
+    signal iram_op_state: integer range 0 to 10 := 0;
+    signal gram_op_state: integer range 0 to 10 := 0;
+    
 begin
-    iram_mem_ck <= iram_mem_ck_s;
+    with debug_enable select
+        internal_clk_s <= not debug_clk200mhz when '1',
+                          not clk200mhz when others;
+    
+    with debug_enable select
+        debug_enable_s <= '1' when '1',
+                          '0' when others;
+    
+    with iram_op_state select
+        iram_mem_ck <= internal_clk_s when 1|2|3,
+                       '0' when others;
+                       
+    with gram_op_state select
+        gram_mem_ck <= internal_clk_s when 1|2|3,
+                       '0' when others;                   
+
     iram_mem_we <= iram_mem_we_s;
     iram_mem_addr <= iram_mem_addr_s( 13 downto 0);
     iram_mem_din <= iram_mem_din_s;
     
-    gram_mem_ck <= gram_mem_ck_s;
     gram_mem_we <= gram_mem_we_s;
     gram_mem_addr <= gram_mem_addr_s( 13 downto 0);
     gram_mem_din <= gram_mem_din_s;
@@ -139,7 +157,13 @@ begin
     vram_mem_addr <= vram_mem_addr_s;
     vram_mem_din <= vram_mem_din_s;
     vram_mem_we <= vram_mem_we_s;
+
     
+
+    
+    iram_op_s <= not debug_enable_s;
+    gram_op_s <= (gram_we or gram_oe) and not debug_enable_s;
+    debug_op_s <= (debug_we or debug_oe) and debug_enable_s;
     
     with iram_mem_oe_s select
        iram_dout_s <= iram_mem_dout        when '1', 
@@ -163,19 +187,14 @@ begin
                  
     with gram_dout_s select
         gram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
-                     gram_dout_s when others;      
+                     gram_dout_s when others;            
     
-    test_op <= gram_oe or gram_we;       
-
-    iram_main:process(clk200mhz)
+    iram:process(internal_clk_s)
     begin
-        if debug_enable='0' then
-            if falling_edge(clk200mhz) then
-                iram_mem_ck_s <= '0';
-            end if;
-      
-            if rising_edge(clk200mhz) and rising_edge(iram_clk) then
-                iram_mem_ck_s <= '1';
+        if debug_enable_s='0' then
+            if rising_edge(internal_clk_s) and iram_clk='0' and iram_op_state=0 and iram_op_s='1' then
+                iram_op_state <= 1;
+                
                 iram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
                 iram_mem_addr_s <= iram_addr;
                 iram_mem_we_s <= '0';
@@ -183,36 +202,43 @@ begin
                 iram_mem_din_s <= iram_din;
             end if;
             
-            if rising_edge(clk200mhz) and falling_edge(iram_clk) then
-                iram_mem_ck_s <= '1';
+            if rising_edge(internal_clk_s) and iram_op_state=1 then--TODO Fix IRAM the same aus GRAM
+                iram_op_state <= 2;
             end if;
-        end if;     
+            
+            if falling_edge(internal_clk_s) and iram_op_state=2 then
+                iram_op_state <= 0;
+            end if;
+            
+        end if;
     end process;
-    
-    gram_main:process(clk200mhz)
-    begin
-        if debug_enable='0' then
-        
-            if falling_edge(clk200mhz) then
-                gram_mem_ck_s <= '0';
-            end if;
-      
-            if rising_edge(clk200mhz) and rising_edge(gram_clk) then
-                gram_mem_ck_s <= '1';
+   
+   gram:process(internal_clk_s)
+   begin
+        if debug_enable_s='0' then        
+            if rising_edge(internal_clk_s) and gram_clk='0' and gram_op_state=0 and gram_op_s='1' then
+                gram_op_state <= 1;
+                
                 gram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
                 gram_mem_addr_s <= gram_addr;
                 gram_mem_we_s <= gram_we;
                 gram_mem_oe_s <= gram_oe;
                 gram_mem_din_s <= gram_din;
-                gram_op_s <= '1';
             end if;
             
-            if rising_edge(clk200mhz) and falling_edge(gram_clk) and gram_op_s='1' then
-                gram_mem_ck_s <= '1';
-                gram_op_s <= '0';
+            if falling_edge(internal_clk_s) and gram_op_state=1 then
+                gram_op_state <= 2;
             end if;
-        end if;
-    end process;
+            
+            if rising_edge(internal_clk_s) and gram_op_state=2 then
+                gram_op_state <= 3;
+            end if;
+            
+            if falling_edge(internal_clk_s) and gram_op_state=3 then
+                gram_op_state <= 0;
+            end if;
+        end if;    
+   end process;
     
     vram_main:process(clk200mhz)
     begin

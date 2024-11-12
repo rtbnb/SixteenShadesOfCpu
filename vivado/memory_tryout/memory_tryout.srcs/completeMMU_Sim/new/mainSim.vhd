@@ -136,23 +136,36 @@ begin
 
     process begin
         clk200mhz <= '0';
-        wait for 100ns;
+        wait for 50ns;
         clk200mhz <= '1';
-        wait for 100ns;    
+        wait for 50ns;    
+    end process;
+    
+    process begin
+        gram_clk <= '0';
+        wait for 50ns;
+        gram_clk <= '1';
+        wait for 100ns;
+        gram_clk <= '0';
+        wait for 50ns;
     end process;
     
     process begin
         debug_enable <= '0';
-    
-        gram_clk <= '0';
-        wait for 100ns;
-        gram_clk <= '1';
+        gram_addr <= "UUUUUUUUUUUUUUUU";
+        gram_din <= "UUUUUUUUUUUUUUUU";
+        gram_we <= '0';
+        gram_oe <= '0';
+        
+        wait for 150ns;
+
         gram_addr <= "0000000000000000";
         gram_din <= "0000000000000001";
         gram_we <= '1';
         gram_oe <= '1';
+        
         wait for 200ns;
-        gram_clk <= '0';
+
         gram_addr <= "UUUUUUUUUUUUUUUU";
         gram_din <= "UUUUUUUUUUUUUUUU";
         gram_we <= '0';
@@ -161,34 +174,31 @@ begin
 --        iram_clk <= '0';
         wait for 200ns;
         
-        gram_clk <= '1';
+
         gram_addr <= "0000000000000001";
         gram_din <= "0000000000000011";
         gram_we <= '1';
         gram_oe <= '1';
         wait for 200ns;
-        gram_clk <= '0';
+
         gram_addr <= "UUUUUUUUUUUUUUUU";
         gram_din <= "UUUUUUUUUUUUUUUU";
         gram_we <= '0';
         gram_oe <= '0';
         wait for 200ns;
         
-        gram_clk <= '1';
+
         gram_addr <= "0000000000000000";
         gram_din <= "0000000000000001";
         gram_we <= '0';
         gram_oe <= '1';
         wait for 200ns;
-        gram_clk <= '0';
+
         gram_addr <= "UUUUUUUUUUUUUUUU";
         gram_din <= "UUUUUUUUUUUUUUUU";
         gram_we <= '0';
         gram_oe <= '0';
         wait for 200ns;
-        
-        wait for 100ns;
-        gram_clk <= '0';
     end process;
 
 
