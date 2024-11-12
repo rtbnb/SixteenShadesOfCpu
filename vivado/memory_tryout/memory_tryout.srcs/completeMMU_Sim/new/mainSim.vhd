@@ -39,19 +39,100 @@ end mainSim;
 architecture Behavioral of mainSim is
     component main_block_wrapper
         port (
-            clk200mhz, iram_clk, iram_oe, iram_we : in STD_LOGIC;
-            iram_en_t, iram_mem_clk, iram_mem_oe_t, iram_mem_we_t : out STD_LOGIC;
-            iram_addr, iram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-            iram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-            iram_dout, iram_dout_t : out STD_LOGIC_VECTOR ( 15 downto 0 )
+            clk200mhz : in STD_LOGIC;
+            debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+            debug_clk : in STD_LOGIC;
+            debug_clk200mhz : in STD_LOGIC;
+            debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            debug_enable : in STD_LOGIC;
+            debug_iram_select : in STD_LOGIC;
+            debug_oe : in STD_LOGIC;
+            debug_we : in STD_LOGIC;
+            gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+            gram_clk : in STD_LOGIC;
+            gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            gram_oe : in STD_LOGIC;
+            gram_we : in STD_LOGIC;
+            iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            iram_clk : in STD_LOGIC;
+            iram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            mmio_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            mmio_clk : in STD_LOGIC;
+            mmio_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            mmio_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            mmio_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            mmio_mem_ck : out STD_LOGIC;
+            mmio_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            mmio_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            mmio_mem_oe : out STD_LOGIC;
+            mmio_mem_we : out STD_LOGIC;
+            mmio_oe : in STD_LOGIC;
+            mmio_we : in STD_LOGIC;
+            vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            vram_clk : in STD_LOGIC;
+            vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            
+            gram_dout_t: out STD_LOGIC_VECTOR ( 15 downto 0);
+            gram_clk_t: out STD_LOGIC;
+            test_op: out STD_LOGIC
         );
     end component;
     
-    signal clk200mhz, iram_clk, iram_oe, iram_we, iram_en_t, iram_mem_clk, iram_mem_oe_t, iram_mem_we_t : STD_LOGIC;
-    signal iram_addr, iram_din, iram_dout, iram_dout_t : STD_LOGIC_VECTOR ( 15 downto 0 );
-    signal iram_bank : STD_LOGIC_VECTOR ( 3 downto 0 );
+    signal clk200mhz, debug_clk, debug_clk200mhz, debug_enable, debug_iram_select, debug_oe, debug_we, gram_clk, gram_oe, gram_we, iram_clk, mmio_clk, mmio_mem_ck, mmio_mem_oe, mmio_mem_we, mmio_oe, mmio_we, vram_clk : STD_LOGIC;
+    signal debug_addr, debug_din, debug_dout, gram_addr, gram_din, gram_dout, iram_addr, iram_din, iram_dout, mmio_addr, mmio_din, mmio_dout, mmio_mem_addr, mmio_mem_din, mmio_mem_dout, vram_addr, vram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+    signal debug_bank, gram_bank: STD_LOGIC_VECTOR ( 3 downto 0 );
+    
+    signal gram_dout_t: STD_LOGIC_VECTOR(15 downto 0);
+    signal gram_clk_t, test_op: STD_LOGIC;
 begin
-    EUT: main_block_wrapper port map(clk200mhz => clk200mhz, iram_clk => iram_clk, iram_oe => iram_oe, iram_we => iram_we, iram_en_t => iram_en_t, iram_addr => iram_addr, iram_din => iram_din, iram_dout => iram_dout, iram_bank => iram_bank, iram_mem_clk => iram_mem_clk, iram_dout_t => iram_dout_t, iram_mem_oe_t => iram_mem_oe_t, iram_mem_we_t => iram_mem_we_t);
+    EUT: main_block_wrapper port map(
+        clk200mhz => clk200mhz,
+        debug_addr => debug_addr,
+        debug_bank => debug_bank,
+        debug_clk => debug_clk,
+        debug_clk200mhz => debug_clk200mhz,
+        debug_din => debug_din,
+        debug_dout => debug_dout,
+        debug_enable => debug_enable,
+        debug_iram_select => debug_iram_select,
+        debug_oe => debug_oe,
+        debug_we => debug_we,
+        gram_addr => gram_addr,
+        gram_bank => gram_bank,
+        gram_clk => gram_clk,
+        gram_din => gram_din,
+        gram_dout => gram_dout,
+        gram_oe => gram_oe,
+        gram_we => gram_we,
+        iram_addr => iram_addr,
+        iram_clk => iram_clk,
+        iram_din => iram_din,
+        iram_dout => iram_dout,
+        mmio_addr => mmio_addr,
+        mmio_clk => mmio_clk,
+        mmio_din => mmio_din,
+        mmio_dout => mmio_dout,
+        mmio_mem_addr => mmio_mem_addr,
+        mmio_mem_ck => mmio_mem_ck,
+        mmio_mem_din => mmio_mem_din,
+        mmio_mem_dout => mmio_mem_dout,
+        mmio_mem_oe => mmio_mem_oe,
+        mmio_mem_we => mmio_mem_we,
+        mmio_oe => mmio_oe,
+        mmio_we => mmio_we,
+        vram_addr => vram_addr,
+        vram_clk => vram_clk,
+        vram_dout => vram_dout,
+        
+        gram_dout_t => gram_dout_t,
+        gram_clk_t => gram_clk_t,
+        test_op => test_op
+    );
 
     process begin
         clk200mhz <= '0';
@@ -61,53 +142,53 @@ begin
     end process;
     
     process begin
-        iram_clk <= '0';
+        debug_enable <= '0';
+    
+        gram_clk <= '0';
         wait for 100ns;
-        iram_clk <= '1';
-        iram_addr <= "0000000000000000";
-        iram_din <= "0000000000000001";
-        iram_we <= '1';
-        iram_oe <= '1';
+        gram_clk <= '1';
+        gram_addr <= "0000000000000000";
+        gram_din <= "0000000000000001";
+        gram_we <= '1';
+        gram_oe <= '1';
         wait for 200ns;
-        iram_clk <= '0';
-        iram_addr <= "UUUUUUUUUUUUUUUU";
-        iram_din <= "UUUUUUUUUUUUUUUU";
-        iram_we <= '0';
-        iram_oe <= '0';
+        gram_clk <= '0';
+        gram_addr <= "UUUUUUUUUUUUUUUU";
+        gram_din <= "UUUUUUUUUUUUUUUU";
+        gram_we <= '0';
+        gram_oe <= '0';
 --        wait for 100ns;
 --        iram_clk <= '0';
         wait for 200ns;
         
-        iram_clk <= '1';
-        iram_addr <= "0000000000000000";
-        iram_din <= "0000000000000011";
-        iram_we <= '1';
-        iram_oe <= '1';
+        gram_clk <= '1';
+        gram_addr <= "0000000000000001";
+        gram_din <= "0000000000000011";
+        gram_we <= '1';
+        gram_oe <= '1';
         wait for 200ns;
-        iram_clk <= '0';
-        iram_addr <= "UUUUUUUUUUUUUUUU";
-        iram_din <= "UUUUUUUUUUUUUUUU";
-        iram_we <= '0';
-        iram_oe <= '0';
+        gram_clk <= '0';
+        gram_addr <= "UUUUUUUUUUUUUUUU";
+        gram_din <= "UUUUUUUUUUUUUUUU";
+        gram_we <= '0';
+        gram_oe <= '0';
         wait for 200ns;
         
-        iram_clk <= '1';
-        iram_addr <= "0000000000000000";
-        iram_din <= "0000000000000001";
-        iram_we <= '0';
-        iram_oe <= '1';
+        gram_clk <= '1';
+        gram_addr <= "0000000000000000";
+        gram_din <= "0000000000000001";
+        gram_we <= '0';
+        gram_oe <= '1';
         wait for 200ns;
-        iram_clk <= '0';
-        iram_addr <= "UUUUUUUUUUUUUUUU";
-        iram_din <= "UUUUUUUUUUUUUUUU";
-        iram_we <= '0';
-        iram_oe <= '0';
+        gram_clk <= '0';
+        gram_addr <= "UUUUUUUUUUUUUUUU";
+        gram_din <= "UUUUUUUUUUUUUUUU";
+        gram_we <= '0';
+        gram_oe <= '0';
         wait for 200ns;
         
         wait for 100ns;
-        iram_clk <= '0';
-        
-        
+        gram_clk <= '0';
     end process;
 
 
