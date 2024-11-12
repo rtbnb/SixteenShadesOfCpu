@@ -32,9 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity ALU_TB_SHIFTING is
-      Port (
-        ENABLE: IN std_logic := '0'
-       );
+      --Port ();
 end ALU_TB_SHIFTING;
 
 architecture Behavioral of ALU_TB_SHIFTING is
@@ -90,7 +88,7 @@ begin
          
     );
     
-    process (ENABLE)
+    process
     begin 
     
         --Testing shifting 1 to the left
