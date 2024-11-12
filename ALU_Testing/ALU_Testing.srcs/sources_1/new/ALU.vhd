@@ -69,7 +69,7 @@ begin
         '0' &(D1 OR D2) when "1010", -- or
         '0' &(D1 XOR D2) when "1011", -- XOR
         '0' & (not D1) when "1100", -- identity
-        '0' &(D1 NAND D2) when "1101", -- and
+        '0' &(D1 NAND D2) when "1101", -- nand
         '0' &(D1 NOR D2) when "1110", -- or
         '0' &(D1 XNOR D2) when "1111", -- XOR
         
