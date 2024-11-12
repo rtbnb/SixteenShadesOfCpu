@@ -1,7 +1,7 @@
-Running: xsim.dir/CU_JumpController_SIM_behav/xsimk.exe -simmode gui -wdb CU_JumpController_SIM_behav.wdb -simrunnum 0 -socket 50296
+Running: xsim.dir/CU_JumpController_SIM_behav/xsimk.exe -simmode gui -wdb CU_JumpController_SIM_behav.wdb -simrunnum 0 -socket 57559
 Design successfully loaded
-Design Loading Memory Usage: 7676 KB (Peak: 7676 KB)
+Design Loading Memory Usage: 9128 KB (Peak: 9128 KB)
 Design Loading CPU Usage: 0 ms
 Simulation completed
-Simulation Memory Usage: 8120 KB (Peak: 8120 KB)
+Simulation Memory Usage: 9636 KB (Peak: 9636 KB)
 Simulation CPU Usage: 0 ms

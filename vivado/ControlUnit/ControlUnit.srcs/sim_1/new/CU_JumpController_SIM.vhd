@@ -69,13 +69,21 @@ begin
     
     process is
     begin
+        JMP_Relative <= '0';
+        wait for 6 ns;
+        JMP_Relative <= '1';
+        wait for 6 ns;
+    
+    end process;
+    
+    process is
+    begin
         
         InstrExec_CLK <= '0';
         JMP <= '0';
         JMP_Conditional <= '0';
-        JMP_Relative <= '0';
         JMP_Address <= X"1F00";
-        PC_Current <= X"0000";
+        PC_Current <= X"0001";
         Flags <= X"0000";
     
         FOR i in 0 to 7 loop
