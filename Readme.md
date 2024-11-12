@@ -4,6 +4,7 @@
 - [Digilent Board Product Page](https://digilent.com/reference/programmable-logic/arty-a7/start)
 - [Logisim Github](https://github.com/logisim-evolution/logisim-evolution?tab=readme-ov-file#download)
 - [FPGA Chip Datasheet](https://docs.amd.com/v/u/en-US/ds180_7Series_Overview)
+- [RISC-V CPU in VHDL in Vivado](https://github.com/Domipheus/ArtyS7-RPU-SoC/)
 
 ### Projekt Aufteilung
 
