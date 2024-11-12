@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.16629",
-   "Default View_TopLeft":"697,-623",
+   "Default View_TopLeft":"-256,-755",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
@@ -95,6 +95,7 @@ preplace netloc mmu_mmio_mem_ck 1 1 2 1040 -480 NJ
 preplace netloc mmu_mmio_mem_din 1 1 2 830 -400 NJ
 preplace netloc mmu_mmio_mem_oe 1 1 2 860 -440 NJ
 preplace netloc mmu_mmio_mem_we 1 1 2 860 -460 NJ
+preplace netloc mmu_test_op 1 1 2 N -370 NJ
 preplace netloc mmu_vram_dout 1 1 2 1090 -620 NJ
 preplace netloc mmu_vram_mem_addr 1 1 1 820 -610n
 preplace netloc mmu_vram_mem_clk 1 1 1 800 -570n
@@ -104,7 +105,6 @@ preplace netloc mmu_vram_mem_we 1 1 1 790 -550n
 preplace netloc vram_addr_1 1 0 1 N -650
 preplace netloc vram_clk_1 1 0 1 N -670
 preplace netloc vram_douta 1 0 2 390 260 N
-preplace netloc mmu_test_op 1 1 2 N -370 NJ
 levelinfo -pg 1 -490 590 1230 1400
 pagesize -pg 1 -db -bbox -sgen -690 -1070 1600 1430
 "
