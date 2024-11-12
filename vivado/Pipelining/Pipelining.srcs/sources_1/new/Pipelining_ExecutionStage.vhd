@@ -49,6 +49,7 @@ entity Pipelining_ExecutionStage is
            JMP : in STD_LOGIC;
            JMP_Conditional : in STD_LOGIC;
            JMP_Relative : in STD_LOGIC;
+           JMP_DestinationSelect : in STD_LOGIC;
            JMP_Condition : in STD_LOGIC_VECTOR (2 downto 0);
            Is_ALU_OP : in STD_LOGIC;
            Is_RAM_OP : in STD_LOGIC;
@@ -67,6 +68,7 @@ entity Pipelining_ExecutionStage is
            JMP_out : out STD_LOGIC;
            JMP_Conditional_out : out STD_LOGIC;
            JMP_Relative_out : out STD_LOGIC;
+           JMP_DestinationSelect_out : out STD_LOGIC;
            JMP_Condition_out : out STD_LOGIC_VECTOR (2 downto 0);
            IS_ALU_OP_out : out STD_LOGIC;
            Is_RAM_OP_out : out STD_LOGIC);
@@ -74,12 +76,12 @@ end Pipelining_ExecutionStage;
 architecture Behavioral of Pipelining_ExecutionStage is
     signal operand1_s, operand2_s, immediate_s, ma_s : STD_LOGIC_VECTOR(15 downto 0);
     signal write_address_s : STD_LOGIC_VECTOR(3 downto 0);
-    signal whb_s, wlb_s, ram_src_s, ram_read_s, ram_write_s, use_ma_s, jmp_s, jmp_conditional_s, jmp_relative_s, is_alu_op_s, is_ram_op_s : STD_LOGIC;
+    signal whb_s, wlb_s, ram_src_s, ram_read_s, ram_write_s, use_ma_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s : STD_LOGIC;
     signal write_data_select_s : STD_LOGIC_VECTOR(1 downto 0);
     signal jmp_condition_s : STD_LOGIC_VECTOR(2 downto 0);
 begin
 
-    latcher:process(InstrLoad_CLK) is
+    latcher:process(InstrLoad_CLK, Reset) is
     begin
     if rising_edge(InstrLoad_CLK) then
         operand1_s <= Operand1;
@@ -97,14 +99,11 @@ begin
         jmp_s <= JMP;
         jmp_conditional_s <= JMP_Conditional;
         jmp_relative_s <= JMP_Relative;
+        jmp_destination_sel_s <= JMP_DestinationSelect;
         jmp_condition_s <= JMP_Condition;
         is_alu_op_s <= Is_ALU_OP;
         is_ram_op_s <= Is_RAM_OP;
     end if;
-    end process latcher;
-    
-    resetter:process(Reset) is
-    begin
     if rising_edge(Reset) then
         operand1_s <= X"0000";
         operand2_s <= X"0000";
@@ -121,11 +120,13 @@ begin
         jmp_s <= '0';
         jmp_conditional_s <= '0';
         jmp_relative_s <= '0';
+        jmp_destination_sel_s <= '0';
         jmp_condition_s <= "000";
         is_alu_op_s <= '0';
         is_ram_op_s <= '0';
     end if;
-    end process resetter;
+    end process latcher;
+    
     Operand1_out <= operand1_s;
     Operand2_out <= operand2_s;
     Immediate_out <= immediate_s;
@@ -141,6 +142,7 @@ begin
     JMP_out <= jmp_s;
     JMP_Conditional_out <= jmp_conditional_s;
     JMP_Relative_out <= jmp_relative_s;
+    JMP_DestinationSelect_out <= jmp_destination_sel_s;
     JMP_Condition_out <= jmp_condition_s;
     IS_ALU_OP_out <= is_alu_op_s;
     Is_RAM_OP_out <= is_ram_op_s;
