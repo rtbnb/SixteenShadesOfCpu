@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd" \
+"../../../../Pipelining.srcs/sim_1/new/Pipelining_Forwarder_SIM.vhd" \
+
+# Do not sort compile order
+nosort
