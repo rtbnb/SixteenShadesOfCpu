@@ -45,10 +45,10 @@ architecture Behavioral of CU_WriteSelector is
 begin
 
     WITH (Write_Sel) SELECT Write_Data <=
-        RAM_Out WHEN "00",
+        ALU_Out WHEN "00",
         Manipulated_Immidiate WHEN "01",
         Reg1 WHEN "10",
-        ALU_Out WHEN "11",
+        RAM_Out WHEN "11",
         X"0000" WHEN OTHERS;
 
 end architecture Behavioral;

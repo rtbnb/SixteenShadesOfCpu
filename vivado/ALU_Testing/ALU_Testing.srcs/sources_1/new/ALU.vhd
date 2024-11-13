@@ -35,7 +35,7 @@ entity ALU is
  Port ( 
     D1: IN std_logic_vector(15 downto 0 ):= (others => '0');
     D2: IN std_logic_vector(15 downto 0 ):= (others => '0');
-    ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
+    ALU_OPP: IN std_logic_vector(15 downto 0 ):= (others => '0');
     RHO_PIN: IN std_logic:= '0';
     ALU_OUT: OUT std_logic_vector(15 downto 0 ):= (others => '0');
     --ALU_FLAGS: OUT std_logic_vector(15 downto 0) := (others => '0')
@@ -59,7 +59,7 @@ begin
     D1Singend <=resize(signed(D1), 17);
     D2Singend <=resize(signed(D2), 17);
     
-    with ((ALU_OPP)) select AlU_OUT_Internal <= 
+    with ((ALU_OPP(3 downto 0))) select AlU_OUT_Internal <= 
         std_logic_vector(D1Singend+D2Singend) when "0000", --addtion
         std_logic_vector(D1Singend-D2Singend) when "0001", -- subtraction
         std_logic_vector(shift_left(D1Singend, to_integer(D2Singend))) when "0010", --shift left
