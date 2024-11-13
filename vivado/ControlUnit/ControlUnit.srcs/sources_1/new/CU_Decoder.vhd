@@ -74,7 +74,7 @@ begin
     -- WRMR for write data
     -- JR for jump address
     -- CR for write data
-    Reg1Read <= '1' WHEN is_alu or is_wrmi or is_iml or is_imh or is_wrmr or is_jc or is_jr or is_cr ELSE '0';
+    Reg1Read <= '1' WHEN is_alu or is_wrmi or is_iml or is_imh or is_wrmr or is_jr or is_cr ELSE '0';
     
     -- ALU for operand2
     -- RDMR and WRMR for address
