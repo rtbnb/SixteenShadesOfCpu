@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "Pipelining_Controller_SIM_behav" "xil_defaultlib.Pipelining_Controller_SIM" -log "elaborate.log" 
