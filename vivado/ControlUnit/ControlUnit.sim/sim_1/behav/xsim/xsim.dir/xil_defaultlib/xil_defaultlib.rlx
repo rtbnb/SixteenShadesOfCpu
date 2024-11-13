@@ -2,6 +2,5 @@
 2020.2
 May 22 2024
 19:03:11
-D:/FPGA_CPU/vivado/ControlUnit/ControlUnit.srcs/sim_1/new/CU_JumpController_SIM.vhd,1731412197,vhdl,,,,cu_jumpcontroller_sim,,,,,,,,
-D:/FPGA_CPU/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd,1731407985,vhdl,,,,cu_jumpcontroller,,,,,,,,
-D:/FPGA_CPU/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/FlagUnpacker.vhd,1731407985,vhdl,,,,flagunpacker,,,,,,,,
+D:/Programmieren/Projekte/FPGA_CPU/test/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sim_1/new/CU_Decoder_SIM.vhd,1731486397,vhdl,,,,cu_decoder_sim,,,,,,,,
+D:/Programmieren/Projekte/FPGA_CPU/test/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd,1731486397,vhdl,,,,cu_decoder,,,,,,,,
