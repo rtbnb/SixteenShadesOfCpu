@@ -57,7 +57,8 @@ entity main is
         iram_mem_din: out std_logic_vector(15 downto 0) := "0000000000000000";
         iram_mem_addr: out std_logic_vector(13 downto 0) := "00000000000000";
         iram_mem_ck: out std_logic;
-        iram_mem_we, iram_mem_oe: out std_logic := '0'; --TODO Build into debug
+        iram_mem_we : out std_logic := '0'; --TODO Build into debug
+        iram_mem_oe : out std_logic := '1';
         iram_mem_dout: in std_logic_vector(15 downto 0);
 --iram end
     
@@ -70,7 +71,8 @@ entity main is
         gram_mem_din: out std_logic_vector(15 downto 0) := "0000000000000000";
         gram_mem_addr: out std_logic_vector(13 downto 0) := "00000000000000";
         gram_mem_ck: out std_logic;
-        gram_mem_we, gram_mem_oe: out std_logic := '0';
+        gram_mem_we : out std_logic := '0';
+        gram_mem_oe : out std_logic := '1';
         gram_mem_dout: in std_logic_vector(15 downto 0);
 --gram end
 
@@ -132,38 +134,31 @@ begin
     with debug_enable select
         internal_clk_s <= not debug_clk200mhz when '1',
                           not clk200mhz when others;
-    
+
+--debug begin
     with debug_enable select
         debug_enable_s <= '1' when '1',
                           '0' when others;
     
+    debug_op_s <= (debug_we or debug_oe) and debug_enable_s;
+--debug end
+
+--iram begin
+    iram_op_s <= not debug_enable_s;
+
     with iram_op_state select
         iram_mem_ck <= internal_clk_s when 1|2|3,
                        '0' when others;
-                       
-    with gram_op_state select
-        gram_mem_ck <= internal_clk_s when 1|2|3,
-                       '0' when others;                   
 
+    with debug_enable_s select
+        iram_mem_addr <= debug_addr(13 downto 0) when '1',
+                         iram_mem_addr_s( 13 downto 0) when others;
+                         
+    with debug_enable_s select
+        iram_mem_din <= debug_din when '1',
+                        iram_mem_din_s when others;
+                
     iram_mem_we <= iram_mem_we_s;
-    iram_mem_addr <= iram_mem_addr_s( 13 downto 0);
-    iram_mem_din <= iram_mem_din_s;
-    
-    gram_mem_we <= gram_mem_we_s;
-    gram_mem_addr <= gram_mem_addr_s( 13 downto 0);
-    gram_mem_din <= gram_mem_din_s;
-    
-    vram_mem_ck <= vram_mem_ck_s;
-    vram_mem_addr <= vram_mem_addr_s;
-    vram_mem_din <= vram_mem_din_s;
-    vram_mem_we <= vram_mem_we_s;
-
-    
-
-    
-    iram_op_s <= not debug_enable_s;
-    gram_op_s <= (gram_we or gram_oe) and not debug_enable_s;
-    debug_op_s <= (debug_we or debug_oe) and debug_enable_s;
     
     with iram_mem_oe_s select
        iram_dout_s <= iram_mem_dout        when '1', 
@@ -172,6 +167,39 @@ begin
     with iram_dout_s select
         iram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
                      iram_dout_s when others;                   
+--iram begin
+    
+--gram begin
+    gram_op_s <= (gram_we or gram_oe) and not debug_enable_s;
+
+    with gram_op_state select
+        gram_mem_ck <= internal_clk_s when 1|2|3,
+                       '0' when others;          
+                       
+    gram_mem_we <= gram_mem_we_s;
+    
+    with debug_enable_s select
+        gram_mem_addr <= debug_addr(13 downto 0) when '1',
+                         gram_mem_addr_s( 13 downto 0) when others;
+                         
+    with debug_enable_s select
+        gram_mem_din <= debug_din when '1',
+                        gram_mem_din_s when others;   
+                        
+    with gram_mem_oe_s select
+       gram_dout_s <= gram_mem_dout        when '1', 
+                     "0000000000000000" when others;
+                 
+    with gram_dout_s select
+        gram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
+                     gram_dout_s when others;      
+--gram end
+ 
+--vram begin    
+    vram_mem_ck <= vram_mem_ck_s;
+    vram_mem_addr <= vram_mem_addr_s;
+    vram_mem_din <= vram_mem_din_s;
+    vram_mem_we <= vram_mem_we_s;
     
     with vram_mem_oe_s select
        vram_dout_s <= vram_mem_dout        when '1', 
@@ -179,23 +207,16 @@ begin
                  
     with vram_dout_s select
         vram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
-                     vram_dout_s when others;            
+                     vram_dout_s when others;  
+--vram end
 
-    with gram_mem_oe_s select
-       gram_dout_s <= gram_mem_dout        when '1', 
-                     "0000000000000000" when others;
-                 
-    with gram_dout_s select
-        gram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
-                     gram_dout_s when others;            
-    
     iram:process(internal_clk_s)
     begin
         if debug_enable_s='0' then
             if rising_edge(internal_clk_s) and iram_clk='0' and iram_op_state=0 and iram_op_s='1' then
                 iram_op_state <= 1;
                 
-                iram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
+--                iram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
                 iram_mem_addr_s <= iram_addr;
                 iram_mem_we_s <= '0';
                 iram_mem_oe_s <= '1';
@@ -219,11 +240,11 @@ begin
             if rising_edge(internal_clk_s) and gram_clk='0' and gram_op_state=0 and gram_op_s='1' then
                 gram_op_state <= 1;
                 
-                gram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
+--                gram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
                 gram_mem_addr_s <= gram_addr;
+                gram_mem_din_s <= gram_din;
                 gram_mem_we_s <= gram_we;
                 gram_mem_oe_s <= gram_oe;
-                gram_mem_din_s <= gram_din;
             end if;
             
             if falling_edge(internal_clk_s) and gram_op_state=1 then
@@ -235,6 +256,7 @@ begin
             end if;
             
             if falling_edge(internal_clk_s) and gram_op_state=3 then
+                gram_mem_we_s <= '0';
                 gram_op_state <= 0;
             end if;
         end if;    

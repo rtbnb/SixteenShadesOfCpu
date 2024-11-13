@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.001 ns"></ZoomEndTime>
-      <Cursor1Time time="450.000 ns"></Cursor1Time>
+      <ZoomEndTime time="3,000.001 ns"></ZoomEndTime>
+      <Cursor1Time time="1,150.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+      <NameColumnWidth column_width="197"></NameColumnWidth>
+      <ValueColumnWidth column_width="69"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="45" />
+   <WVObjectSize size="49" />
    <wvobject fp_name="/mainSim/clk200mhz" type="logic">
       <obj_property name="ElementShortName">clk200mhz</obj_property>
       <obj_property name="ObjectShortName">clk200mhz</obj_property>
@@ -39,6 +39,22 @@
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_op_s" type="logic">
       <obj_property name="ElementShortName">gram_op_s</obj_property>
       <obj_property name="ObjectShortName">gram_op_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_mem_we_s" type="logic">
+      <obj_property name="ElementShortName">gram_mem_we_s</obj_property>
+      <obj_property name="ObjectShortName">gram_mem_we_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_mem_oe_s" type="logic">
+      <obj_property name="ElementShortName">gram_mem_oe_s</obj_property>
+      <obj_property name="ObjectShortName">gram_mem_oe_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_mem_addr_s" type="array">
+      <obj_property name="ElementShortName">gram_mem_addr_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gram_mem_addr_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_mem_din_s" type="array">
+      <obj_property name="ElementShortName">gram_mem_din_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gram_mem_din_s[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/vram_op_s" type="logic">
       <obj_property name="ElementShortName">vram_op_s</obj_property>

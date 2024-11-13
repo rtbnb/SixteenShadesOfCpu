@@ -151,7 +151,7 @@ begin
     end process;
     
     process begin
-        debug_enable <= '0';
+        debug_enable <= '1';
         gram_addr <= "UUUUUUUUUUUUUUUU";
         gram_din <= "UUUUUUUUUUUUUUUU";
         gram_we <= '0';
@@ -178,7 +178,7 @@ begin
         gram_addr <= "0000000000000001";
         gram_din <= "0000000000000011";
         gram_we <= '1';
-        gram_oe <= '1';
+        gram_oe <= '0';
         wait for 200ns;
 
         gram_addr <= "UUUUUUUUUUUUUUUU";
