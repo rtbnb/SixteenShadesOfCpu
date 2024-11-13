@@ -1,0 +1,50 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "main_Decoder_0_0",
+    "cell_name": "Decoder_0",
+    "component_reference": "xilinx.com:module_ref:Decoder:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../../../Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0",
+    "parameters": {
+      "component_parameters": {
+        "Component_Name": [ { "value": "main_Decoder_0_0", "resolve_type": "user", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "artix7" } ],
+        "BASE_BOARD_PART": [ { "value": "digilentinc.com:arty-a7-35:part0:1.1" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xc7a35ti" } ],
+        "NEXTGEN_VERSAL": [ { "value": "0" } ],
+        "PACKAGE": [ { "value": "csg324" } ],
+        "PREFHDL": [ { "value": "VHDL" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-1L" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "I" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2024.1" } ],
+        "SYNTHESISFLOW": [ { "value": "OOC_HIERARCHICAL" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "Instruction": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "Register1": [ { "direction": "out", "size_left": "3", "size_right": "0" } ],
+        "Register2": [ { "direction": "out", "size_left": "3", "size_right": "0" } ],
+        "WriteBackRegister": [ { "direction": "out", "size_left": "3", "size_right": "0" } ],
+        "Immediate": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "JMP_Condition": [ { "direction": "out", "size_left": "2", "size_right": "0" } ],
+        "Use_MA": [ { "direction": "out" } ]
+      }
+    }
+  }
+}
