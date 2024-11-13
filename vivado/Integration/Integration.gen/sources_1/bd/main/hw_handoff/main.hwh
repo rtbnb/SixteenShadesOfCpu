@@ -1,0 +1,1053 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov 13 15:59:11 2024" VIVADOVERSION="2024.1">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="InstrExec_CLK" SIGIS="undef" SIGNAME="External_Ports_InstrExec_CLK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrExec_CLK"/>
+        <CONNECTION INSTANCE="RegFile_0" PORT="clk"/>
+        <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="CLK"/>
+        <CONNECTION INSTANCE="CU_JumpController_0" PORT="InstrExec_CLK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="InstrLoad_CLK" SIGIS="undef" SIGNAME="External_Ports_InstrLoad_CLK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrLoad_CLK"/>
+        <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="InstrLoad_CLK"/>
+        <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="InstrLoad_CLK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ProgramCounter_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Reset"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/ALU_0" HWVERSION="1.0" INSTANCE="ALU_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ALU" VLNV="xilinx.com:module_ref:ALU:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_ALU_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="ALU_OPP" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ALU_OUT" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ALU_OUT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="ALU_Out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="BIGGER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_BIGGER_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="BIGGER_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="CARRY_FLAG" SIGIS="undef" SIGNAME="ALU_0_CARRY_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="CARRY_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="D1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="D2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="NOT_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_NOT_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="NOT_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="OVERFLOW_FLAG" SIGIS="undef" SIGNAME="ALU_0_OVERFLOW_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="OVERFLOW_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RHO_FLAG" SIGIS="undef" SIGNAME="ALU_0_RHO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="RHO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RHO_PIN" SIGIS="undef"/>
+        <PORT DIR="O" NAME="SMALLER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_SMALLER_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="SMALLER_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/ALU_FLAG_PACKER_0" HWVERSION="1.0" INSTANCE="ALU_FLAG_PACKER_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ALU_FLAG_PACKER" VLNV="xilinx.com:module_ref:ALU_FLAG_PACKER:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_ALU_FLAG_PACKER_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="15" NAME="ALU_FLAGS" RIGHT="0" SIGIS="undef" SIGNAME="ALU_FLAG_PACKER_0_ALU_FLAGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ExecutionFlags"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Flags"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="BIGGER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_BIGGER_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="BIGGER_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CARRY_FLAG" SIGIS="undef" SIGNAME="ALU_0_CARRY_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="CARRY_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="NOT_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_NOT_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="NOT_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="OVERFLOW_FLAG" SIGIS="undef" SIGNAME="ALU_0_OVERFLOW_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="OVERFLOW_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RHO_FLAG" SIGIS="undef" SIGNAME="ALU_0_RHO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="RHO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="SMALLER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_SMALLER_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="SMALLER_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_Decoder_0" HWVERSION="1.0" INSTANCE="CU_Decoder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_Decoder" VLNV="xilinx.com:module_ref:CU_Decoder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_Decoder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Instruction" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionToExecute"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Is_ALU_OP" SIGIS="undef" SIGNAME="CU_Decoder_0_Is_ALU_OP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Is_ALU_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Is_RAM_OP" SIGIS="undef" SIGNAME="CU_Decoder_0_Is_RAM_OP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Is_RAM_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_Conditional" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Conditional">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Conditional"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_DestinationSource" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_DestinationSource">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_DestinationSelect"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_Relative" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Relative">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Relative"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Address_Src" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Address_Src">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Src"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Read" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Read">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Read"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Write" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Write">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Write"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RF_WHB" SIGIS="undef" SIGNAME="CU_Decoder_0_RF_WHB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WHB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RF_WLB" SIGIS="undef" SIGNAME="CU_Decoder_0_RF_WLB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WLB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Reg1Read" SIGIS="undef"/>
+        <PORT DIR="O" NAME="Reg2Read" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="1" NAME="Write_Data_Sel" RIGHT="0" SIGIS="undef" SIGNAME="CU_Decoder_0_Write_Data_Sel">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WriteDataSel"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_ImmediateManipula_0" HWVERSION="1.0" INSTANCE="CU_ImmediateManipula_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_ImmediateManipulator" VLNV="xilinx.com:module_ref:CU_ImmediateManipulator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_ImmediateManipula_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ManipulatedImmidiate" RIGHT="0" SIGIS="undef" SIGNAME="CU_ImmediateManipula_0_ManipulatedImmidiate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Manipulated_Immidiate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RF_WHB" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WHB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WHB_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RF_WLB" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WLB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WLB_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Reg1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_JumpController_0" HWVERSION="1.0" INSTANCE="CU_JumpController_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_JumpController" VLNV="xilinx.com:module_ref:CU_JumpController:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_JumpController_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Flags" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="External_Ports_InstrExec_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="InstrExec_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="JMP_Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpDestinationSe_0_JMP_Address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="JMP_Address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="JMP_Condition" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Condition_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Condition_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_Conditional" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Conditional_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Conditional_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_Relative" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Relative_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Relative_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_Current" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="PC_Load" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Load">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Load"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_Next" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Din"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_JumpDestinationSe_0" HWVERSION="1.0" INSTANCE="CU_JumpDestinationSe_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_JumpDestinationSelector" VLNV="xilinx.com:module_ref:CU_JumpDestinationSelector:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_JumpDestinationSe_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="JMP_Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpDestinationSe_0_JMP_Address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP_Address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_DestinationSelect" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_DestinationSelect_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_DestinationSelect_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Register1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_RAMAddressControl_0" HWVERSION="1.0" INSTANCE="CU_RAMAddressControl_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_RAMAddressController" VLNV="xilinx.com:module_ref:CU_RAMAddressController:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_RAMAddressControl_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="MA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_MA_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="MA_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="RAM_Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_RAMAddressControl_0_RAM_Address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="Address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RAM_Address_Src" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Src_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Src_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Reg2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Use_MA" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Use_MA_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Use_MA_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_WriteSelector_0" HWVERSION="1.0" INSTANCE="CU_WriteSelector_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_WriteSelector" VLNV="xilinx.com:module_ref:CU_WriteSelector:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_WriteSelector_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="ALU_Out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ALU_OUT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ALU_OUT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Manipulated_Immidiate" RIGHT="0" SIGIS="undef" SIGNAME="CU_ImmediateManipula_0_ManipulatedImmidiate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="ManipulatedImmidiate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="RAM_Out" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Placeholder_0_DataOut">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="DataOut"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Reg1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Write_Data" RIGHT="0" SIGIS="undef" SIGNAME="CU_WriteSelector_0_Write_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ExecutionWriteData"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteData"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="Write_Sel" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WriteDataSel_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WriteDataSel_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Decoder_0" HWVERSION="1.0" INSTANCE="Decoder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Decoder" VLNV="xilinx.com:module_ref:Decoder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Decoder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Immediate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Instruction" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionToExecute"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="JMP_Condition" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_JMP_Condition">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Condition"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="Register1" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="AddrReg1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="Register2" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="AddrReg2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Use_MA" SIGIS="undef" SIGNAME="Decoder_0_Use_MA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Use_MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="WriteBackRegister" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_WriteBackRegister">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WriteAddress"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/IROM_0" HWVERSION="1.0" INSTANCE="IROM_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="IROM" VLNV="xilinx.com:module_ref:IROM:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_IROM_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Address" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Data" RIGHT="0" SIGIS="undef" SIGNAME="IROM_0_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Instruction"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pipelining_Controller_0" HWVERSION="1.0" INSTANCE="Pipelining_Controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pipelining_Controller" VLNV="xilinx.com:module_ref:Pipelining_Controller:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Pipelining_Controller_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="External_Ports_InstrExec_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="InstrExec_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="External_Ports_InstrLoad_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="InstrLoad_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Instruction" RIGHT="0" SIGIS="undef" SIGNAME="IROM_0_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="IROM_0" PORT="Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="4" NAME="InstructionForwardConfiguration" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionForwardConfiguration">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardingConfiguration"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="InstructionToExecute" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Instruction"/>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="Instruction"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="PC_Count" SIGIS="undef" SIGNAME="Pipelining_Controller_0_PC_Count">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Count"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ResetStall" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="JMP_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pipelining_Execution_0" HWVERSION="1.0" INSTANCE="Pipelining_Execution_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pipelining_ExecutionStage" VLNV="xilinx.com:module_ref:Pipelining_ExecutionStage:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Pipelining_Execution_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="IS_ALU_OP_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_IS_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Is_ALU_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Immediate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Immediate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Immediate_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="Immediate"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="ALU_OPP"/>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Immediate"/>
+            <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="Immediate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="External_Ports_InstrLoad_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="InstrLoad_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Is_ALU_OP" SIGIS="undef" SIGNAME="CU_Decoder_0_Is_ALU_OP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="Is_ALU_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Is_RAM_OP" SIGIS="undef" SIGNAME="CU_Decoder_0_Is_RAM_OP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="Is_RAM_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Is_RAM_OP_out" SIGIS="undef"/>
+        <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="JMP_Condition" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_JMP_Condition">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="JMP_Condition"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="JMP_Condition_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Condition_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP_Condition"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_Conditional" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Conditional">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP_Conditional"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_Conditional_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Conditional_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP_Conditional"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_DestinationSelect" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_DestinationSource">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP_DestinationSource"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_DestinationSelect_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_DestinationSelect_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="JMP_DestinationSelect"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_Relative" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Relative">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP_Relative"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_Relative_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Relative_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP_Relative"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="JMP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="MA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedMA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedMA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="MA_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_MA_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Operand1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Operand1_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="Reg1"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="D1"/>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="DataIn"/>
+            <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="Register1"/>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Reg1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Operand2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Operand2_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="D2"/>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Reg2"/>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="Flags"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RAM_Read" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Read">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RAM_Read"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Read_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Read_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="OE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RAM_Src" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Address_Src">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RAM_Address_Src"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Src_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Src_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="RAM_Address_Src"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RAM_Write" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Write">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RAM_Write"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Write_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Write_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="WE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Use_MA" SIGIS="undef" SIGNAME="Decoder_0_Use_MA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Use_MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Use_MA_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Use_MA_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Use_MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WHB" SIGIS="undef" SIGNAME="CU_Decoder_0_RF_WHB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RF_WHB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="WHB_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WHB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="RF_WHB"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WHB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WLB" SIGIS="undef" SIGNAME="CU_Decoder_0_RF_WLB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RF_WLB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="WLB_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WLB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="RF_WLB"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WLB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="WriteAddress" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_WriteBackRegister">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="WriteBackRegister"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="WriteAddress_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteAddress"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="WriteDataSel" RIGHT="0" SIGIS="undef" SIGNAME="CU_Decoder_0_Write_Data_Sel">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="Write_Data_Sel"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="WriteDataSel_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WriteDataSel_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Write_Sel"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pipelining_Forwarder_0" HWVERSION="1.0" INSTANCE="Pipelining_Forwarder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pipelining_Forwarder" VLNV="xilinx.com:module_ref:Pipelining_Forwarder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Pipelining_Forwarder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="CurrentMA" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_RegMA_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="RegMA_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="CurrentOperand1" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg1_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Reg1_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="CurrentOperand2" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg2_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Reg2_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="ExecutionFlags" RIGHT="0" SIGIS="undef" SIGNAME="ALU_FLAG_PACKER_0_ALU_FLAGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="ALU_FLAGS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="ExecutionWriteData" RIGHT="0" SIGIS="undef" SIGNAME="CU_WriteSelector_0_Write_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Write_Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ForwardedMA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedMA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ForwardedOperand1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ForwardedOperand2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="4" NAME="ForwardingConfiguration" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionForwardConfiguration">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionForwardConfiguration"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pipelining_WriteBack_0" HWVERSION="1.0" INSTANCE="Pipelining_WriteBack_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pipelining_WriteBackStage" VLNV="xilinx.com:module_ref:Pipelining_WriteBackStage:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Pipelining_WriteBack_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Flags" RIGHT="0" SIGIS="undef" SIGNAME="ALU_FLAG_PACKER_0_ALU_FLAGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="ALU_FLAGS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Flags_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Flags_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Flags"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="External_Ports_InstrLoad_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="InstrLoad_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Is_ALU_OP" SIGIS="undef" SIGNAME="Pipelining_Execution_0_IS_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="IS_ALU_OP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Is_ALU_OP_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Is_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="OverwriteFl"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="ResetStall"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RF_WE_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="WE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WHB" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WHB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WHB_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WLB" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WLB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WLB_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="WriteAddress" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WriteAddress_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="WriteAddress_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="AddrWriteReg"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="WriteData" RIGHT="0" SIGIS="undef" SIGNAME="CU_WriteSelector_0_Write_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Write_Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="WriteData_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteData_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="WriteData"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/ProgramCounter_0" HWVERSION="1.0" INSTANCE="ProgramCounter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ProgramCounter" VLNV="xilinx.com:module_ref:ProgramCounter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_ProgramCounter_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="Count" SIGIS="undef" SIGNAME="Pipelining_Controller_0_PC_Count">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="PC_Count"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Next"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="IROM_0" PORT="Address"/>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Current"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Load" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Load">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Load"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/RAM_Placeholder_0" HWVERSION="1.0" INSTANCE="RAM_Placeholder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RAM_Placeholder" VLNV="xilinx.com:module_ref:RAM_Placeholder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_RAM_Placeholder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_RAMAddressControl_0_RAM_Address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="RAM_Address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_InstrExec_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="InstrExec_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="DataIn" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="DataOut" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Placeholder_0_DataOut">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="RAM_Out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="OE" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Read_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Read_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WE" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Write_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Write_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/RegFile_0" HWVERSION="1.0" INSTANCE="RegFile_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RegFile" VLNV="xilinx.com:module_ref:RegFile:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_RegFile_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="3" NAME="AddrReg1" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Register1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="AddrReg2" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Register2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="AddrWriteReg" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteAddress_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="BankID" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="15" NAME="Flags" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Flags_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Flags_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="OverwriteFl" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Is_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Is_ALU_OP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Reg1_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg1_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentOperand1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Reg2_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg2_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentOperand2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="RegMA_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_RegMA_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentMA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WE" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="RF_WE_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="WriteData" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteData_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteData_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_InstrExec_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="InstrExec_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

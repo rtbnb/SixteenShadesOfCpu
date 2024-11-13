@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="mainSim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="mainSim" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="232.201 ns"></ZoomEndTime>
+      <Cursor1Time time="135.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="214"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/mainSim/InstrExec_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrExec_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrExec_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/InstrLoad_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrLoad_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrLoad_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg0" type="array">
+      <obj_property name="ElementShortName">Reg0[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg0[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg1" type="array">
+      <obj_property name="ElementShortName">Reg1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg2" type="array">
+      <obj_property name="ElementShortName">Reg2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg3" type="array">
+      <obj_property name="ElementShortName">Reg3[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg3[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg4" type="array">
+      <obj_property name="ElementShortName">Reg4[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg4[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg5" type="array">
+      <obj_property name="ElementShortName">Reg5[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg5[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg6" type="array">
+      <obj_property name="ElementShortName">Reg6[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg6[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg7" type="array">
+      <obj_property name="ElementShortName">Reg7[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg7[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg8" type="array">
+      <obj_property name="ElementShortName">Reg8[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg8[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg9" type="array">
+      <obj_property name="ElementShortName">Reg9[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg9[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegA" type="array">
+      <obj_property name="ElementShortName">RegA[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegA[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegB" type="array">
+      <obj_property name="ElementShortName">RegB[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegB[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegC" type="array">
+      <obj_property name="ElementShortName">RegC[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegC[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegD" type="array">
+      <obj_property name="ElementShortName">RegD[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegD[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegE" type="array">
+      <obj_property name="ElementShortName">RegE[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegE[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegF" type="array">
+      <obj_property name="ElementShortName">RegF[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegF[15:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>
