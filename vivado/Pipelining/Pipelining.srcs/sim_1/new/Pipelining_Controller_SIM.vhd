@@ -95,6 +95,10 @@ begin
         Instruction <= X"8005";
         wait for 20 ns;
         Instruction <= X"e10e";
+        wait for 105 ns;
+        ResetStall <= '1';
+        wait for 10 ns;
+        ResetStall <= '0';
         wait for 200 ns;
         
     end process;
