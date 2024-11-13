@@ -1,0 +1,7 @@
+Running: xsim.dir/Pipelining_Controller_SIM_behav/xsimk.exe -simmode gui -wdb Pipelining_Controller_SIM_behav.wdb -simrunnum 0 -socket 52644
+Design successfully loaded
+Design Loading Memory Usage: 7748 KB (Peak: 7748 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 8204 KB (Peak: 8204 KB)
+Simulation CPU Usage: 15 ms
