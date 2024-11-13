@@ -37,7 +37,7 @@ entity Pipelining_Controller is
            Reset : in STD_LOGIC;
            Instruction : in STD_LOGIC_VECTOR (15 downto 0);
            ResetStall : in STD_LOGIC;
-           PC_CLK : out STD_LOGIC;
+           PC_Count : out STD_LOGIC;
            InstructionForwardConfiguration : out STD_LOGIC_VECTOR (4 downto 0);
            InstructionToExecute : out STD_LOGIC_VECTOR (15 downto 0));
 end Pipelining_Controller;
@@ -51,12 +51,13 @@ architecture Behavioral of Pipelining_Controller is
            RF_WHB : out STD_LOGIC;
            RF_WLB : out STD_LOGIC;
            Write_Data_Sel : out STD_LOGIC_VECTOR (1 downto 0);
-           RAM_Src : out STD_LOGIC;
+           RAM_Address_Src : out STD_LOGIC;
            RAM_Read : out STD_LOGIC;
            RAM_Write : out STD_LOGIC;
            JMP : out STD_LOGIC;
            JMP_Conditional : out STD_LOGIC;
            JMP_Relative : out STD_LOGIC;
+           JMP_DestinationSource : out STD_LOGIC;
            Is_ALU_OP : out STD_LOGIC;
            Is_RAM_OP : out STD_LOGIC);
     end component CU_Decoder;
@@ -74,7 +75,7 @@ architecture Behavioral of Pipelining_Controller is
     
     signal rf_read_buffer, execution_buffer, write_back_buffer, output_buffer : STD_LOGIC_VECTOR(15 downto 0);
     signal stalled : STD_LOGIC := '0';
-    signal load_buffer, stall_required : STD_LOGIC;
+    signal stall_required : STD_LOGIC;
     
     signal rf_reg_1, rf_reg_2 : STD_LOGIC_VECTOR(3 downto 0);
     signal rf_reg_1_read, rf_reg_2_read, rf_use_ma : STD_LOGIC;
@@ -118,7 +119,6 @@ begin
     
     
     InstructionToExecute <= output_buffer;
-    load_buffer <= InstrExec_CLK and stalled;
     
     instruction_fetch_shift_register : process(InstrExec_CLK, InstrLoad_CLK, Reset) is
     begin
@@ -128,15 +128,14 @@ begin
         write_back_buffer <= X"0000";
         output_buffer <= X"0000";
     end if;
-    if (rising_edge(InstrLoad_CLK) or (rising_edge(InstrExec_CLK) and (stalled = '1'))) then
-        if load_buffer = '1' then
-            rf_read_buffer <= X"0000";
-        else
-            output_buffer <= write_back_buffer;
-            write_back_buffer <= execution_buffer;
-            execution_buffer <= rf_read_buffer;
-            rf_read_buffer <= Instruction;
-        end if;
+    if (rising_edge(InstrLoad_CLK)) then
+        output_buffer <= write_back_buffer;
+        write_back_buffer <= execution_buffer;
+        execution_buffer <= rf_read_buffer;
+        rf_read_buffer <= Instruction;
+    end if;
+    if (rising_edge(InstrExec_CLK) and (stalled = '1')) then
+        rf_read_buffer <= X"0000";
     end if;
     end process instruction_fetch_shift_Register;
     
@@ -150,9 +149,11 @@ begin
     end if; 
     end process staller;
     
+    PC_Count <= InstrExec_CLK and not stalled;
+    
     
     reg_1_reads_flags <= (rf_reg_1_read = '1') and (rf_reg_1 = FL);
-    reg_1_reads_flags <= (rf_reg_2_read = '1') and (rf_reg_2 = FL);
+    reg_2_reads_flags <= (rf_reg_2_read = '1') and (rf_reg_2 = FL);
     
     reg_1_reads_exc_results <= (rf_reg_1_read = '1') and (rf_reg_1 = exc_write_reg);
     reg_2_reads_exc_results <= (rf_reg_2_read = '1') and (rf_reg_2 = exc_write_reg);
@@ -160,6 +161,8 @@ begin
     ma_reads_exc_results <= (rf_use_ma = '1') and (exc_write_reg = MA);
     
     exc_write <= (exc_rf_whb or exc_rf_wlb or exc_alu) = '1';
+    
+    stall_required <= exc_jmp;
     
     input_forward(1 downto 0) <= 
         "11" WHEN ((exc_alu = '1') and reg_1_reads_flags) ELSE
@@ -189,5 +192,7 @@ begin
     end if;
     end process forward_shift_register;
     
+    
+    InstructionForwardConfiguration <= output_forward;
     
 end Behavioral;
