@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="232.201 ns"></ZoomEndTime>
-      <Cursor1Time time="135.000 ns"></Cursor1Time>
+      <ZoomStartTime time="738.394 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,052.322 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="214"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <ValueColumnWidth column_width="82"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="33" />
    <wvobject fp_name="/mainSim/InstrExec_CLK" type="logic">
       <obj_property name="ElementShortName">InstrExec_CLK</obj_property>
       <obj_property name="ObjectShortName">InstrExec_CLK</obj_property>
@@ -30,6 +30,46 @@
    <wvobject fp_name="/mainSim/Reset" type="logic">
       <obj_property name="ElementShortName">Reset</obj_property>
       <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/ProgramCounter_0/Dout" type="array">
+      <obj_property name="ElementShortName">Dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/InstructionToExecute" type="array">
+      <obj_property name="ElementShortName">InstructionToExecute[15:0]</obj_property>
+      <obj_property name="ObjectShortName">InstructionToExecute[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/InstructionForwardConfiguration" type="array">
+      <obj_property name="ElementShortName">InstructionForwardConfiguration[4:0]</obj_property>
+      <obj_property name="ObjectShortName">InstructionForwardConfiguration[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/CU_WriteSelector_0/U0/Write_Data" type="array">
+      <obj_property name="ElementShortName">Write_Data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Write_Data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/ALU_0/ALU_OUT" type="array">
+      <obj_property name="ElementShortName">ALU_OUT[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OUT[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Forwarder_0/ForwardedOperand1" type="array">
+      <obj_property name="ElementShortName">ForwardedOperand1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ForwardedOperand1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Forwarder_0/ForwardedOperand2" type="array">
+      <obj_property name="ElementShortName">ForwardedOperand2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ForwardedOperand2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/WriteData" type="array">
+      <obj_property name="ElementShortName">WriteData[15:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteData[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/AddrWriteReg" type="array">
+      <obj_property name="ElementShortName">AddrWriteReg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AddrWriteReg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/WE" type="logic">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg0" type="array">
       <obj_property name="ElementShortName">Reg0[15:0]</obj_property>
@@ -94,6 +134,21 @@
    <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegF" type="array">
       <obj_property name="ElementShortName">RegF[15:0]</obj_property>
       <obj_property name="ObjectShortName">RegF[15:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/stalled" type="logic">
+      <obj_property name="ElementShortName">stalled</obj_property>
+      <obj_property name="ObjectShortName">stalled</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/stall_required" type="logic">
+      <obj_property name="ElementShortName">stall_required</obj_property>
+      <obj_property name="ObjectShortName">stall_required</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/ResetStall" type="logic">
+      <obj_property name="ElementShortName">ResetStall</obj_property>
+      <obj_property name="ObjectShortName">ResetStall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/PC_Count" type="logic">
+      <obj_property name="ElementShortName">PC_Count</obj_property>
+      <obj_property name="ObjectShortName">PC_Count</obj_property>
    </wvobject>
 </wave_config>

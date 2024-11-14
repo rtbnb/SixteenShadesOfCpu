@@ -149,7 +149,7 @@ begin
     end if; 
     end process staller;
     
-    PC_Count <= InstrExec_CLK and not stalled;
+    PC_Count <= InstrExec_CLK and (not stalled) and (not ResetStall);
     
     
     reg_1_reads_flags <= (rf_reg_1_read = '1') and (rf_reg_1 = FL);

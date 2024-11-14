@@ -49,7 +49,7 @@ begin
     Dout <= InstrAddr;
     pc_p: process(Count, Load, Reset) is
     begin
-        if rising_edge(Count) then
+        if rising_edge(Count) and (not Reset='1') and not rising_edge(Reset) then
             InstrAddr <= std_logic_vector(unsigned( InstrAddr ) + 1);
         end if;
         
