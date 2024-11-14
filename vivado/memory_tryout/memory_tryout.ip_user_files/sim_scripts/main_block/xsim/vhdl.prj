@@ -1,5 +1,6 @@
 vhdl xil_defaultlib  \
 "../../../bd/main_block/ip/main_block_main_0_0/sim/main_block_main_0_0.vhd" \
+"../../../bd/main_block/ip/main_block_mmio_0_0/sim/main_block_mmio_0_0.vhd" \
 "../../../bd/main_block/sim/main_block.vhd" \
 
 # Do not sort compile order

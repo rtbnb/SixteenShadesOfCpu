@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 14 15:13:09 2024
---Host        : Robin_Laptop running 64-bit major release  (build 9200)
+--Date        : Thu Nov 14 21:23:48 2024
+--Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
 --Purpose     : IP block netlist
@@ -38,13 +38,6 @@ entity main_block_wrapper is
     mmio_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     mmio_clk : in STD_LOGIC;
     mmio_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_mem_ck : out STD_LOGIC;
-    mmio_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_mem_oe : out STD_LOGIC;
-    mmio_mem_we : out STD_LOGIC;
     mmio_oe : in STD_LOGIC;
     mmio_we : in STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -80,18 +73,11 @@ architecture STRUCTURE of main_block_wrapper is
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    mmio_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_mem_ck : out STD_LOGIC;
-    mmio_mem_we : out STD_LOGIC;
-    mmio_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_mem_oe : out STD_LOGIC;
-    mmio_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
     mmio_clk : in STD_LOGIC;
     mmio_we : in STD_LOGIC;
     mmio_oe : in STD_LOGIC;
     mmio_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    mmio_din : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_block;
 begin
@@ -121,13 +107,6 @@ main_block_i: component main_block
       mmio_addr(15 downto 0) => mmio_addr(15 downto 0),
       mmio_clk => mmio_clk,
       mmio_din(15 downto 0) => mmio_din(15 downto 0),
-      mmio_dout(15 downto 0) => mmio_dout(15 downto 0),
-      mmio_mem_addr(15 downto 0) => mmio_mem_addr(15 downto 0),
-      mmio_mem_ck => mmio_mem_ck,
-      mmio_mem_din(15 downto 0) => mmio_mem_din(15 downto 0),
-      mmio_mem_dout(15 downto 0) => mmio_mem_dout(15 downto 0),
-      mmio_mem_oe => mmio_mem_oe,
-      mmio_mem_we => mmio_mem_we,
       mmio_oe => mmio_oe,
       mmio_we => mmio_we,
       vram_addr(15 downto 0) => vram_addr(15 downto 0),

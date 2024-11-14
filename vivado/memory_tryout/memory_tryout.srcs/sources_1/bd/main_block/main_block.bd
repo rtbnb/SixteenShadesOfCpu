@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC3BAE380C6B52284",
+      "boundary_crc": "0x3E7F83228EB57620",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -14,7 +14,8 @@
       "mmu": "",
       "iram": "",
       "gram": "",
-      "vram": ""
+      "vram": "",
+      "mmio_0": ""
     },
     "ports": {
       "clk200mhz": {
@@ -201,30 +202,6 @@
         "left": "3",
         "right": "0"
       },
-      "mmio_dout": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
-      },
-      "mmio_mem_ck": {
-        "direction": "O"
-      },
-      "mmio_mem_we": {
-        "direction": "O"
-      },
-      "mmio_mem_addr": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
-      },
-      "mmio_mem_oe": {
-        "direction": "O"
-      },
-      "mmio_mem_din": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
-      },
       "mmio_clk": {
         "type": "clk",
         "direction": "I",
@@ -262,11 +239,6 @@
         "right": "0"
       },
       "mmio_din": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "mmio_mem_dout": {
         "direction": "I",
         "left": "15",
         "right": "0"
@@ -468,11 +440,6 @@
             "left": "15",
             "right": "0"
           },
-          "mmio_dout": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
           "mmio_mem_ck": {
             "direction": "O"
           },
@@ -570,10 +537,10 @@
         "inst_hier_path": "iram",
         "parameters": {
           "Algorithm": {
-            "value": "Low_Power"
+            "value": "Fixed_Primitives"
           },
           "Fill_Remaining_Memory_Locations": {
-            "value": "true"
+            "value": "false"
           },
           "Load_Init_File": {
             "value": "false"
@@ -603,13 +570,16 @@
         "inst_hier_path": "gram",
         "parameters": {
           "Algorithm": {
-            "value": "Low_Power"
+            "value": "Fixed_Primitives"
           },
           "Fill_Remaining_Memory_Locations": {
-            "value": "true"
+            "value": "false"
           },
           "Load_Init_File": {
             "value": "false"
+          },
+          "Primitive": {
+            "value": "8kx2"
           },
           "Register_PortA_Output_of_Memory_Primitives": {
             "value": "false"
@@ -632,8 +602,11 @@
         "xci_path": "ip\\main_block_blk_mem_gen_2_0\\main_block_blk_mem_gen_2_0.xci",
         "inst_hier_path": "vram",
         "parameters": {
+          "Algorithm": {
+            "value": "Fixed_Primitives"
+          },
           "Fill_Remaining_Memory_Locations": {
-            "value": "true"
+            "value": "false"
           },
           "Register_PortA_Output_of_Memory_Primitives": {
             "value": "false"
@@ -646,6 +619,44 @@
           },
           "use_bram_block": {
             "value": "Stand_Alone"
+          }
+        }
+      },
+      "mmio_0": {
+        "vlnv": "xilinx.com:module_ref:mmio:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_block_mmio_0_0",
+        "xci_path": "ip\\main_block_mmio_0_0\\main_block_mmio_0_0.xci",
+        "inst_hier_path": "mmio_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mmio",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "ck": {
+            "direction": "I"
+          },
+          "we": {
+            "direction": "I"
+          },
+          "oe": {
+            "direction": "I"
+          },
+          "addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "din": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           }
         }
       }
@@ -771,6 +782,12 @@
           "mmu/iram_clk"
         ]
       },
+      "mmio_0_dout": {
+        "ports": [
+          "mmio_0/dout",
+          "mmu/mmio_mem_dout"
+        ]
+      },
       "mmio_addr_1": {
         "ports": [
           "mmio_addr",
@@ -787,12 +804,6 @@
         "ports": [
           "mmio_din",
           "mmu/mmio_din"
-        ]
-      },
-      "mmio_mem_dout_1": {
-        "ports": [
-          "mmio_mem_dout",
-          "mmu/mmio_mem_dout"
         ]
       },
       "mmio_oe_1": {
@@ -885,40 +896,34 @@
           "iram/wea"
         ]
       },
-      "mmu_mmio_dout": {
-        "ports": [
-          "mmu/mmio_dout",
-          "mmio_dout"
-        ]
-      },
       "mmu_mmio_mem_addr": {
         "ports": [
           "mmu/mmio_mem_addr",
-          "mmio_mem_addr"
+          "mmio_0/addr"
         ]
       },
       "mmu_mmio_mem_ck": {
         "ports": [
           "mmu/mmio_mem_ck",
-          "mmio_mem_ck"
+          "mmio_0/ck"
         ]
       },
       "mmu_mmio_mem_din": {
         "ports": [
           "mmu/mmio_mem_din",
-          "mmio_mem_din"
+          "mmio_0/din"
         ]
       },
       "mmu_mmio_mem_oe": {
         "ports": [
           "mmu/mmio_mem_oe",
-          "mmio_mem_oe"
+          "mmio_0/oe"
         ]
       },
       "mmu_mmio_mem_we": {
         "ports": [
           "mmu/mmio_mem_we",
-          "mmio_mem_we"
+          "mmio_0/we"
         ]
       },
       "mmu_vram_dout": {

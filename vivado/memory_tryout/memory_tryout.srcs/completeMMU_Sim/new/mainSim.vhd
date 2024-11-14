@@ -64,12 +64,6 @@ architecture Behavioral of mainSim is
             mmio_clk : in STD_LOGIC;
             mmio_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
             mmio_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-            mmio_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
-            mmio_mem_ck : out STD_LOGIC;
-            mmio_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
-            mmio_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
-            mmio_mem_oe : out STD_LOGIC;
-            mmio_mem_we : out STD_LOGIC;
             mmio_oe : in STD_LOGIC;
             mmio_we : in STD_LOGIC;
             vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -108,12 +102,6 @@ begin
         mmio_clk => mmio_clk,
         mmio_din => mmio_din,
         mmio_dout => mmio_dout,
-        mmio_mem_addr => mmio_mem_addr,
-        mmio_mem_ck => mmio_mem_ck,
-        mmio_mem_din => mmio_mem_din,
-        mmio_mem_dout => mmio_mem_dout,
-        mmio_mem_oe => mmio_mem_oe,
-        mmio_mem_we => mmio_mem_we,
         mmio_oe => mmio_oe,
         mmio_we => mmio_we,
         vram_addr => vram_addr,

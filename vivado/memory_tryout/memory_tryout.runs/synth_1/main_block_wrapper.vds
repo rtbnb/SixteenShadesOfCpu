@@ -3,30 +3,31 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Nov 14 15:25:42 2024
-# Process ID: 8728
-# Current directory: C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1
+# Start of session at: Thu Nov 14 21:23:51 2024
+# Process ID: 45612
+# Current directory: O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1
 # Command line: vivado.exe -log main_block_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main_block_wrapper.tcl
-# Log file: C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1/main_block_wrapper.vds
-# Journal file: C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1\vivado.jou
-# Running On        :Robin_Laptop
+# Log file: O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1/main_block_wrapper.vds
+# Journal file: O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1\vivado.jou
+# Running On        :DESKTOP-Q664A4O
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :22631
-# Processor Detail  :13th Gen Intel(R) Core(TM) i7-13700H
-# CPU Frequency     :2918 MHz
+# Operating System  :19045
+# Processor Detail  :13th Gen Intel(R) Core(TM) i5-13600KF
+# CPU Frequency     :3494 MHz
 # CPU Physical cores:14
 # CPU Logical cores :20
-# Host memory       :33854 MB
-# Swap memory       :19327 MB
-# Total Virtual     :53181 MB
-# Available Virtual :25626 MB
+# Host memory       :34183 MB
+# Swap memory       :11274 MB
+# Total Virtual     :45457 MB
+# Available Virtual :11343 MB
 #-----------------------------------------------------------
 source main_block_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 517.359 ; gain = 200.395
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/AMD/Vivado/2024.1/data/ip'.
-Command: read_checkpoint -auto_incremental -incremental C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/utils_1/imports/synth_1/main.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'S:/Vivado/Vivado/2024.1/data/ip'.
+Command: read_checkpoint -auto_incremental -incremental O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/utils_1/imports/synth_1/main.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top main_block_wrapper -part xc7a35ticsg324-1L
 Starting synth_design
@@ -38,15 +39,15 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 31020
+INFO: [Synth 8-7075] Helper process launched with PID 42296
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 1381.859 ; gain = 449.801
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1381.051 ; gain = 448.859
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'main_block_wrapper' [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd:56]
-INFO: [Synth 8-3491] module 'main_block' declared at 'c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:15' bound to instance 'main_block_i' of component 'main_block' [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd:98]
-INFO: [Synth 8-638] synthesizing module 'main_block' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:60]
-INFO: [Synth 8-3491] module 'main_block_blk_mem_gen_1_0' declared at 'c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/synth/main_block_blk_mem_gen_1_0.vhd:59' bound to instance 'gram' of component 'main_block_blk_mem_gen_1_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:252]
-INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_1_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/synth/main_block_blk_mem_gen_1_0.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'main_block_wrapper' [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd:49]
+INFO: [Synth 8-3491] module 'main_block' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:15' bound to instance 'main_block_i' of component 'main_block' [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'main_block' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:53]
+INFO: [Synth 8-3491] module 'main_block_blk_mem_gen_1_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/synth/main_block_blk_mem_gen_1_0.vhd:59' bound to instance 'gram' of component 'main_block_blk_mem_gen_1_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:246]
+INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_1_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/synth/main_block_blk_mem_gen_1_0.vhd:70]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -60,12 +61,12 @@ INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_1_0' [c:/Entwick
 	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_MEM_TYPE bound to: 0 - type: integer 
 	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
-	Parameter C_ALGORITHM bound to: 2 - type: integer 
+	Parameter C_ALGORITHM bound to: 0 - type: integer 
 	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
 	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
 	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
 	Parameter C_INIT_FILE bound to: NONE - type: string 
-	Parameter C_USE_DEFAULT_DATA bound to: 1 - type: integer 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
 	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
 	Parameter C_HAS_RSTA bound to: 0 - type: integer 
 	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
@@ -119,13 +120,13 @@ INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_1_0' [c:/Entwick
 	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
 	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
 	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
-	Parameter C_COUNT_18K_BRAM bound to: 16 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.302734 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_8' declared at 'c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ipshared/09bd/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195208' bound to instance 'U0' of component 'blk_mem_gen_v8_4_8' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/synth/main_block_blk_mem_gen_1_0.vhd:236]
-INFO: [Synth 8-256] done synthesizing module 'main_block_blk_mem_gen_1_0' (0#1) [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/synth/main_block_blk_mem_gen_1_0.vhd:70]
-INFO: [Synth 8-3491] module 'main_block_blk_mem_gen_0_0' declared at 'c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/synth/main_block_blk_mem_gen_0_0.vhd:59' bound to instance 'iram' of component 'main_block_blk_mem_gen_0_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:261]
-INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_0_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/synth/main_block_blk_mem_gen_0_0.vhd:70]
+	Parameter C_COUNT_36K_BRAM bound to: 8 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     15.988501 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_8' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ipshared/09bd/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195208' bound to instance 'U0' of component 'blk_mem_gen_v8_4_8' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/synth/main_block_blk_mem_gen_1_0.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'main_block_blk_mem_gen_1_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/synth/main_block_blk_mem_gen_1_0.vhd:70]
+INFO: [Synth 8-3491] module 'main_block_blk_mem_gen_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/synth/main_block_blk_mem_gen_0_0.vhd:59' bound to instance 'iram' of component 'main_block_blk_mem_gen_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:255]
+INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/synth/main_block_blk_mem_gen_0_0.vhd:70]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -139,12 +140,12 @@ INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_0_0' [c:/Entwick
 	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_MEM_TYPE bound to: 0 - type: integer 
 	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
-	Parameter C_ALGORITHM bound to: 2 - type: integer 
+	Parameter C_ALGORITHM bound to: 0 - type: integer 
 	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
 	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
 	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
 	Parameter C_INIT_FILE bound to: NONE - type: string 
-	Parameter C_USE_DEFAULT_DATA bound to: 1 - type: integer 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
 	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
 	Parameter C_HAS_RSTA bound to: 0 - type: integer 
 	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
@@ -198,35 +199,41 @@ INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_0_0' [c:/Entwick
 	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
 	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
 	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
-	Parameter C_COUNT_18K_BRAM bound to: 16 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.302734 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_8' declared at 'c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ipshared/09bd/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195208' bound to instance 'U0' of component 'blk_mem_gen_v8_4_8' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/synth/main_block_blk_mem_gen_0_0.vhd:236]
-INFO: [Synth 8-256] done synthesizing module 'main_block_blk_mem_gen_0_0' (0#1) [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/synth/main_block_blk_mem_gen_0_0.vhd:70]
-INFO: [Synth 8-3491] module 'main_block_main_0_0' declared at 'c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:56' bound to instance 'mmu' of component 'main_block_main_0_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:270]
-INFO: [Synth 8-638] synthesizing module 'main_block_main_0_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:115]
-INFO: [Synth 8-3491] module 'main' declared at 'C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:49' bound to instance 'U0' of component 'main' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:197]
-INFO: [Synth 8-638] synthesizing module 'main' [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:109]
-WARNING: [Synth 8-153] case item 16'bxxxxxxxxxxxxxxxx will never be executed [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:169]
-WARNING: [Synth 8-153] case item 16'bxxxxxxxxxxxxxxxx will never be executed [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:197]
-WARNING: [Synth 8-153] case item 16'bxxxxxxxxxxxxxxxx will never be executed [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:212]
-INFO: [Synth 8-226] default block is never used [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:218]
-WARNING: [Synth 8-614] signal 'debug_enable_s' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:224]
-WARNING: [Synth 8-614] signal 'iram_op_s' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:224]
-WARNING: [Synth 8-614] signal 'iram_clk' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:224]
-WARNING: [Synth 8-614] signal 'iram_op_state' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:224]
-WARNING: [Synth 8-614] signal 'debug_enable_s' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:252]
-WARNING: [Synth 8-614] signal 'gram_op_s' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:252]
-WARNING: [Synth 8-614] signal 'gram_clk' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:252]
-WARNING: [Synth 8-614] signal 'gram_op_state' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:252]
-WARNING: [Synth 8-614] signal 'debug_enable_s' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:286]
-WARNING: [Synth 8-614] signal 'debug_op_s' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:286]
-WARNING: [Synth 8-614] signal 'debug_clk' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:286]
-WARNING: [Synth 8-614] signal 'debug_op_state' is read in the process but is not in the sensitivity list [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:286]
-INFO: [Synth 8-256] done synthesizing module 'main' (0#1) [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:109]
-INFO: [Synth 8-256] done synthesizing module 'main_block_main_0_0' (0#1) [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:115]
-INFO: [Synth 8-3491] module 'main_block_blk_mem_gen_2_0' declared at 'c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/synth/main_block_blk_mem_gen_2_0.vhd:59' bound to instance 'vram' of component 'main_block_blk_mem_gen_2_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:327]
-INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_2_0' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/synth/main_block_blk_mem_gen_2_0.vhd:70]
+	Parameter C_COUNT_36K_BRAM bound to: 8 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     15.988501 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_8' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ipshared/09bd/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195208' bound to instance 'U0' of component 'blk_mem_gen_v8_4_8' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/synth/main_block_blk_mem_gen_0_0.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'main_block_blk_mem_gen_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/synth/main_block_blk_mem_gen_0_0.vhd:70]
+INFO: [Synth 8-3491] module 'main_block_mmio_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_mmio_0_0/synth/main_block_mmio_0_0.vhd:56' bound to instance 'mmio_0' of component 'main_block_mmio_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:264]
+INFO: [Synth 8-638] synthesizing module 'main_block_mmio_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_mmio_0_0/synth/main_block_mmio_0_0.vhd:67]
+INFO: [Synth 8-3491] module 'mmio' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/mmio.vhd:34' bound to instance 'U0' of component 'mmio' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_mmio_0_0/synth/main_block_mmio_0_0.vhd:89]
+INFO: [Synth 8-638] synthesizing module 'mmio' [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/mmio.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'mmio' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/mmio.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'main_block_mmio_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_mmio_0_0/synth/main_block_mmio_0_0.vhd:67]
+INFO: [Synth 8-3491] module 'main_block_main_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:56' bound to instance 'mmu' of component 'main_block_main_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:273]
+INFO: [Synth 8-638] synthesizing module 'main_block_main_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:114]
+INFO: [Synth 8-3491] module 'main' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:49' bound to instance 'U0' of component 'main' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:195]
+INFO: [Synth 8-638] synthesizing module 'main' [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:108]
+INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:142]
+WARNING: [Synth 8-153] case item 16'bxxxxxxxxxxxxxxxx will never be executed [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:173]
+WARNING: [Synth 8-153] case item 16'bxxxxxxxxxxxxxxxx will never be executed [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:201]
+WARNING: [Synth 8-153] case item 16'bxxxxxxxxxxxxxxxx will never be executed [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:216]
+WARNING: [Synth 8-614] signal 'debug_enable_s' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:225]
+WARNING: [Synth 8-614] signal 'iram_op_s' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:225]
+WARNING: [Synth 8-614] signal 'iram_clk' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:225]
+WARNING: [Synth 8-614] signal 'iram_op_state' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:225]
+WARNING: [Synth 8-614] signal 'debug_enable_s' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:253]
+WARNING: [Synth 8-614] signal 'gram_op_s' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:253]
+WARNING: [Synth 8-614] signal 'gram_clk' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:253]
+WARNING: [Synth 8-614] signal 'gram_op_state' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:253]
+WARNING: [Synth 8-614] signal 'debug_enable_s' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:287]
+WARNING: [Synth 8-614] signal 'debug_op_s' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:287]
+WARNING: [Synth 8-614] signal 'debug_clk' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:287]
+WARNING: [Synth 8-614] signal 'debug_op_state' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:287]
+INFO: [Synth 8-256] done synthesizing module 'main' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:108]
+INFO: [Synth 8-256] done synthesizing module 'main_block_main_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_main_0_0/synth/main_block_main_0_0.vhd:114]
+INFO: [Synth 8-3491] module 'main_block_blk_mem_gen_2_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/synth/main_block_blk_mem_gen_2_0.vhd:59' bound to instance 'vram' of component 'main_block_blk_mem_gen_2_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:329]
+INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_2_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/synth/main_block_blk_mem_gen_2_0.vhd:70]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -240,12 +247,12 @@ INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_2_0' [c:/Entwick
 	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_MEM_TYPE bound to: 0 - type: integer 
 	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
-	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_ALGORITHM bound to: 0 - type: integer 
 	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
 	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
 	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
 	Parameter C_INIT_FILE bound to: NONE - type: string 
-	Parameter C_USE_DEFAULT_DATA bound to: 1 - type: integer 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
 	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
 	Parameter C_HAS_RSTA bound to: 0 - type: integer 
 	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
@@ -299,36 +306,35 @@ INFO: [Synth 8-638] synthesizing module 'main_block_blk_mem_gen_2_0' [c:/Entwick
 	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
 	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
 	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 30 - type: string 
+	Parameter C_COUNT_36K_BRAM bound to: 32 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     17.870402 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_8' declared at 'c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ipshared/09bd/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195208' bound to instance 'U0' of component 'blk_mem_gen_v8_4_8' [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/synth/main_block_blk_mem_gen_2_0.vhd:236]
-INFO: [Synth 8-256] done synthesizing module 'main_block_blk_mem_gen_2_0' (0#1) [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/synth/main_block_blk_mem_gen_2_0.vhd:70]
-INFO: [Synth 8-256] done synthesizing module 'main_block' (0#1) [c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:60]
-INFO: [Synth 8-256] done synthesizing module 'main_block_wrapper' (0#1) [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd:56]
-WARNING: [Synth 8-6014] Unused sequential element iram_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:227]
-WARNING: [Synth 8-6014] Unused sequential element iram_mem_we_s_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:232]
-WARNING: [Synth 8-6014] Unused sequential element iram_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:227]
-WARNING: [Synth 8-6014] Unused sequential element iram_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:227]
-WARNING: [Synth 8-6014] Unused sequential element gram_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:255]
-WARNING: [Synth 8-6014] Unused sequential element gram_mem_we_s_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:261]
-WARNING: [Synth 8-6014] Unused sequential element gram_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:255]
-WARNING: [Synth 8-6014] Unused sequential element gram_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:255]
-WARNING: [Synth 8-6014] Unused sequential element debug_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:289]
-WARNING: [Synth 8-6014] Unused sequential element debug_iram_mem_oe_s_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:299]
-WARNING: [Synth 8-6014] Unused sequential element debug_gram_mem_oe_s_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:304]
-WARNING: [Synth 8-6014] Unused sequential element debug_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:289]
-WARNING: [Synth 8-6014] Unused sequential element debug_op_state_reg was removed.  [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:289]
-WARNING: [Synth 8-3848] Net vram_mem_addr_s in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:119]
-WARNING: [Synth 8-3848] Net vram_mem_din_s in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:119]
-WARNING: [Synth 8-3848] Net vram_mem_ck_s in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:118]
-WARNING: [Synth 8-3848] Net mmio_dout in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:93]
-WARNING: [Synth 8-3848] Net mmio_mem_ck in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:95]
-WARNING: [Synth 8-3848] Net mmio_mem_we in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:95]
-WARNING: [Synth 8-3848] Net mmio_mem_oe in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:95]
-WARNING: [Synth 8-3848] Net mmio_mem_addr in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:96]
-WARNING: [Synth 8-3848] Net mmio_mem_din in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:96]
-WARNING: [Synth 8-3848] Net debug_dout in module/entity main does not have driver. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:104]
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     18.4167 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_8' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ipshared/09bd/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195208' bound to instance 'U0' of component 'blk_mem_gen_v8_4_8' [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/synth/main_block_blk_mem_gen_2_0.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'main_block_blk_mem_gen_2_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/synth/main_block_blk_mem_gen_2_0.vhd:70]
+INFO: [Synth 8-256] done synthesizing module 'main_block' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/synth/main_block.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'main_block_wrapper' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd:49]
+WARNING: [Synth 8-6014] Unused sequential element iram_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:228]
+WARNING: [Synth 8-6014] Unused sequential element iram_mem_we_s_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:233]
+WARNING: [Synth 8-6014] Unused sequential element iram_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:228]
+WARNING: [Synth 8-6014] Unused sequential element iram_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:228]
+WARNING: [Synth 8-6014] Unused sequential element gram_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:256]
+WARNING: [Synth 8-6014] Unused sequential element gram_mem_we_s_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:262]
+WARNING: [Synth 8-6014] Unused sequential element gram_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:256]
+WARNING: [Synth 8-6014] Unused sequential element gram_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:256]
+WARNING: [Synth 8-6014] Unused sequential element debug_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:290]
+WARNING: [Synth 8-6014] Unused sequential element debug_iram_mem_oe_s_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:300]
+WARNING: [Synth 8-6014] Unused sequential element debug_gram_mem_oe_s_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:305]
+WARNING: [Synth 8-6014] Unused sequential element debug_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:290]
+WARNING: [Synth 8-6014] Unused sequential element debug_op_state_reg was removed.  [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:290]
+WARNING: [Synth 8-3848] Net vram_mem_addr_s in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:118]
+WARNING: [Synth 8-3848] Net vram_mem_din_s in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:118]
+WARNING: [Synth 8-3848] Net vram_mem_ck_s in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:117]
+WARNING: [Synth 8-3848] Net mmio_mem_ck in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:94]
+WARNING: [Synth 8-3848] Net mmio_mem_we in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:94]
+WARNING: [Synth 8-3848] Net mmio_mem_oe in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:94]
+WARNING: [Synth 8-3848] Net mmio_mem_addr in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:95]
+WARNING: [Synth 8-3848] Net mmio_mem_din in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:95]
+WARNING: [Synth 8-3848] Net debug_dout in module/entity main does not have driver. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:103]
 WARNING: [Synth 8-7129] Port CLKB in module blk_mem_output_block__parameterized0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DOUTB_I[15] in module blk_mem_output_block__parameterized0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DOUTB_I[14] in module blk_mem_output_block__parameterized0 is either unconnected or has no load
@@ -364,115 +370,115 @@ WARNING: [Synth 8-7129] Port RDADDRECC_I[3] in module blk_mem_output_block__para
 WARNING: [Synth 8-7129] Port RDADDRECC_I[2] in module blk_mem_output_block__parameterized0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port RDADDRECC_I[1] in module blk_mem_output_block__parameterized0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port RDADDRECC_I[0] in module blk_mem_output_block__parameterized0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[0] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SBITERR in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DBITERR in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SSRA in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port CLKB in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SSRB in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENB in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port REGCEB in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port WEB[0] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[15] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[14] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[13] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[12] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[11] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[10] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[9] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[8] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[7] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[6] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[5] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[4] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[3] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[2] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[1] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[0] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DINB[0] in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SLEEP in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port INJECTSBITERR in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port INJECTDBITERR in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ECCPIPECE in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ram_rstram_b in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ram_rstreg_b in module blk_mem_gen_prim_wrapper_init__parameterized31 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[8] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[7] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[6] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[5] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[4] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[3] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[2] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[1] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTB[0] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SBITERR in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DBITERR in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SSRA in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port CLKB in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SSRB in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENB in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port REGCEB in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port WEB[0] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[11] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[10] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[9] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[8] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[7] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[6] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[5] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[4] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[3] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[2] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[1] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ADDRB[0] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DINB[8] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DINB[7] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DINB[6] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DINB[5] in module blk_mem_gen_prim_wrapper_init__parameterized15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTB[1] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTB[0] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERR in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DBITERR in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSRA in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLKB in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSRB in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ENB in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port REGCEB in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WEB[0] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[13] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[12] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[11] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[10] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[9] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[8] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[7] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[6] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[5] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[4] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[3] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[2] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[1] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDRB[0] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DINB[1] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DINB[0] in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SLEEP in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port INJECTSBITERR in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port INJECTDBITERR in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ECCPIPECE in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ram_rstram_b in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ram_rstreg_b in module blk_mem_gen_prim_wrapper__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MUX_RST[0] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MEM_LAT_RST in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MEM_REG_RST in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MUX_REGCE[0] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MEM_REGCE in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WE in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[15] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[14] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[13] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[12] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[11] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[10] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[9] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[8] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[7] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[6] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[5] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[4] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[3] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[2] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[1] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_IN[0] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[63] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[62] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[61] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[60] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[59] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[58] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[57] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[56] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[55] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[54] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SBITERRIN[53] in module blk_mem_gen_mux__parameterized2 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:30 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1890.711 ; gain = 958.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:30 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1890.711 ; gain = 958.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:30 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1890.711 ; gain = 958.520
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.067 . Memory (MB): peak = 2012.473 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 62 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 1890.711 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 48 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/constrs_1/new/main.xdc]
-Finished Parsing XDC File [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/constrs_1/new/main.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/constrs_1/new/main.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_block_wrapper_propImpl.xdc].
+Parsing XDC File [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/constrs_1/new/main.xdc]
+Finished Parsing XDC File [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/constrs_1/new/main.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/constrs_1/new/main.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_block_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_block_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1/dont_touch.xdc]
+Parsing XDC File [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2012.473 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1894.734 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 2012.473 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1894.734 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:36 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:36 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -482,15 +488,16 @@ Applied set_property KEEP_HIERARCHY = SOFT for main_block_i/mmu. (constraint fil
 Applied set_property KEEP_HIERARCHY = SOFT for main_block_i/iram. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_block_i/gram. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_block_i/vram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_block_i/mmio_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:36 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3936] Found unconnected internal register 'iram_mem_addr_s_reg' and it is trimmed from '16' to '14' bits. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:231]
-WARNING: [Synth 8-3936] Found unconnected internal register 'gram_mem_addr_s_reg' and it is trimmed from '16' to '14' bits. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:259]
-WARNING: [Synth 8-3936] Found unconnected internal register 'debug_iram_mem_addr_s_reg' and it is trimmed from '16' to '14' bits. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:296]
-WARNING: [Synth 8-3936] Found unconnected internal register 'debug_gram_mem_addr_s_reg' and it is trimmed from '16' to '14' bits. [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:301]
+WARNING: [Synth 8-3936] Found unconnected internal register 'iram_mem_addr_s_reg' and it is trimmed from '16' to '14' bits. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:232]
+WARNING: [Synth 8-3936] Found unconnected internal register 'gram_mem_addr_s_reg' and it is trimmed from '16' to '14' bits. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:260]
+WARNING: [Synth 8-3936] Found unconnected internal register 'debug_iram_mem_addr_s_reg' and it is trimmed from '16' to '14' bits. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:297]
+WARNING: [Synth 8-3936] Found unconnected internal register 'debug_gram_mem_addr_s_reg' and it is trimmed from '16' to '14' bits. [O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd:302]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:37 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -499,12 +506,15 @@ Detailed RTL Component Info :
 +---Registers : 
 	               16 Bit    Registers := 3     
 	               14 Bit    Registers := 4     
-	                4 Bit    Registers := 9     
-	                1 Bit    Registers := 7     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 11    
 +---Muxes : 
-	   2 Input   16 Bit        Muxes := 4     
+	   2 Input   16 Bit        Muxes := 8     
 	   2 Input   14 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 104   
+	   2 Input    3 Bit        Muxes := 1     
+	   6 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 32    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -522,25 +532,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:38 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:42 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:42 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:42 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -558,37 +568,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -607,35 +617,35 @@ Report Cell Usage:
 |1     |BUFG     |     1|
 |2     |LUT2     |    51|
 |3     |LUT3     |    46|
-|4     |LUT4     |     3|
+|4     |LUT4     |     1|
 |5     |LUT5     |     2|
-|6     |RAMB18E1 |     2|
+|6     |RAMB36E1 |    16|
 |7     |FDRE     |   108|
 |8     |IBUF     |    85|
-|9     |OBUF     |   115|
+|9     |OBUF     |    64|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:45 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1894.734 ; gain = 962.543
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 507 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:44 . Memory (MB): peak = 2012.473 ; gain = 1080.414
-Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:46 . Memory (MB): peak = 2012.473 ; gain = 1080.414
+Synthesis finished with 0 errors, 0 critical warnings and 511 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:26 . Memory (MB): peak = 1894.734 ; gain = 958.520
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1894.734 ; gain = 962.543
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2012.473 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1894.734 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2012.473 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1894.734 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: f662102f
+Synth Design complete | Checksum: ab4eeda0
 INFO: [Common 17-83] Releasing license: Synthesis
-52 Infos, 143 Warnings, 0 Critical Warnings and 0 Errors encountered.
+58 Infos, 142 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:49 . Memory (MB): peak = 2012.473 ; gain = 1481.777
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2012.473 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1/main_block_wrapper.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1894.734 ; gain = 1364.816
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1894.734 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/synth_1/main_block_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file main_block_wrapper_utilization_synth.rpt -pb main_block_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 14 15:26:37 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 14 21:24:29 2024...

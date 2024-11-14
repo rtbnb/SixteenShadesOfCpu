@@ -92,7 +92,6 @@ ENTITY main_block_main_0_0 IS
     mmio_oe : IN STD_LOGIC;
     mmio_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmio_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    mmio_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmio_mem_ck : OUT STD_LOGIC;
     mmio_mem_we : OUT STD_LOGIC;
     mmio_mem_oe : OUT STD_LOGIC;
@@ -154,7 +153,6 @@ ARCHITECTURE main_block_main_0_0_arch OF main_block_main_0_0 IS
       mmio_oe : IN STD_LOGIC;
       mmio_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmio_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      mmio_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmio_mem_ck : OUT STD_LOGIC;
       mmio_mem_we : OUT STD_LOGIC;
       mmio_mem_oe : OUT STD_LOGIC;
@@ -225,7 +223,6 @@ BEGIN
       mmio_oe => mmio_oe,
       mmio_addr => mmio_addr,
       mmio_din => mmio_din,
-      mmio_dout => mmio_dout,
       mmio_mem_ck => mmio_mem_ck,
       mmio_mem_we => mmio_mem_we,
       mmio_mem_oe => mmio_mem_oe,
