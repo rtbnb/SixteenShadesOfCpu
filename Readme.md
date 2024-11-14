@@ -20,10 +20,14 @@
 - VRAM (Video RAM)
 - IRAM (Instruction RAM)
 - GRAM (General Purpose RAM)
+- BRAM (Block RAM)
 - CC (Clock Controller)
 - ALU (Arithmetic Logic Unit)
 - MUX (Multiplexer)
 - MMIO (Memory mapped IO)
+- LUT (Look up Table)
+- FF (Flip Flop)
+- BUFG (Global Clock Simple Buffer)
 
 Weitere gerne hinzufügen
 
