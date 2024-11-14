@@ -64,7 +64,7 @@ begin
         wait for 10 ns;
         Reset <= '0';
         wait for 10 ns;
-        FOR i in 0 to 1000 loop
+        WHILE true loop
             InstrLoad_CLK <= '1';
             wait for 5 ns;
             InstrLoad_CLK <= '0';

@@ -144,7 +144,8 @@ begin
     begin
     if rising_edge (stall_required) then
         stalled <= '1';
-    elsif (rising_edge(Reset) or (rising_edge(InstrExec_CLK) and (ResetStall = '1'))) then
+    end if;
+    if (rising_edge(Reset) or (rising_edge(InstrExec_CLK) and (ResetStall = '1'))) then
         stalled <= '0';
     end if; 
     end process staller;
