@@ -1200,8 +1200,8 @@
           "InstrExec_CLK",
           "RegFile_0/clk",
           "CU_JumpController_0/InstrExec_CLK",
-          "Pipelining_Controller_0/InstrExec_CLK",
-          "RAM_Placeholder_0/CLK"
+          "RAM_Placeholder_0/CLK",
+          "Pipelining_Controller_0/InstrExec_CLK"
         ]
       },
       "InstrLoad_CLK_1": {
@@ -1441,8 +1441,8 @@
           "Reset",
           "Pipelining_Execution_0/Reset",
           "Pipelining_WriteBack_0/Reset",
-          "Pipelining_Controller_0/Reset",
-          "ProgramCounter_0/Reset"
+          "ProgramCounter_0/Reset",
+          "Pipelining_Controller_0/Reset"
         ]
       }
     }
