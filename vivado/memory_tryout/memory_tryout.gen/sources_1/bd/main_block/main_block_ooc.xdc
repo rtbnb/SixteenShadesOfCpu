@@ -10,6 +10,5 @@ create_clock -name gram_clk -period 10 [get_ports gram_clk]
 create_clock -name vram_clk -period 10 [get_ports vram_clk]
 create_clock -name debug_clk200mhz -period 5 [get_ports debug_clk200mhz]
 create_clock -name debug_clk -period 10 [get_ports debug_clk]
-create_clock -name mmio_clk -period 10 [get_ports mmio_clk]
 
 ################################################################################

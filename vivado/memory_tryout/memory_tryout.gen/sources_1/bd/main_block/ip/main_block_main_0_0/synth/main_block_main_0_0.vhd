@@ -87,11 +87,6 @@ ENTITY main_block_main_0_0 IS
     vram_mem_we : OUT STD_LOGIC;
     vram_mem_oe : OUT STD_LOGIC;
     vram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    mmio_clk : IN STD_LOGIC;
-    mmio_we : IN STD_LOGIC;
-    mmio_oe : IN STD_LOGIC;
-    mmio_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    mmio_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmio_mem_ck : OUT STD_LOGIC;
     mmio_mem_we : OUT STD_LOGIC;
     mmio_mem_oe : OUT STD_LOGIC;
@@ -148,11 +143,6 @@ ARCHITECTURE main_block_main_0_0_arch OF main_block_main_0_0 IS
       vram_mem_we : OUT STD_LOGIC;
       vram_mem_oe : OUT STD_LOGIC;
       vram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      mmio_clk : IN STD_LOGIC;
-      mmio_we : IN STD_LOGIC;
-      mmio_oe : IN STD_LOGIC;
-      mmio_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      mmio_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmio_mem_ck : OUT STD_LOGIC;
       mmio_mem_we : OUT STD_LOGIC;
       mmio_mem_oe : OUT STD_LOGIC;
@@ -187,8 +177,6 @@ ARCHITECTURE main_block_main_0_0_arch OF main_block_main_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF gram_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 gram_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF iram_clk: SIGNAL IS "XIL_INTERFACENAME iram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF iram_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 iram_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF mmio_clk: SIGNAL IS "XIL_INTERFACENAME mmio_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_mmio_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF mmio_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 mmio_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF vram_clk: SIGNAL IS "XIL_INTERFACENAME vram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_vram_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF vram_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 vram_clk CLK";
 BEGIN
@@ -226,11 +214,6 @@ BEGIN
       vram_mem_we => vram_mem_we,
       vram_mem_oe => vram_mem_oe,
       vram_mem_dout => vram_mem_dout,
-      mmio_clk => mmio_clk,
-      mmio_we => mmio_we,
-      mmio_oe => mmio_oe,
-      mmio_addr => mmio_addr,
-      mmio_din => mmio_din,
       mmio_mem_ck => mmio_mem_ck,
       mmio_mem_we => mmio_mem_we,
       mmio_mem_oe => mmio_mem_oe,

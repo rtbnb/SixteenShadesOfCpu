@@ -87,10 +87,7 @@ entity main is
         vram_mem_dout: in std_logic_vector(15 downto 0);
 --vram end
 
---mmio begin
-        mmio_clk, mmio_we, mmio_oe : in std_logic;
-        mmio_addr, mmio_din: in std_logic_vector(15 downto 0);
-        
+--mmio begin        
         mmio_mem_ck, mmio_mem_we, mmio_mem_oe: out std_logic;
         mmio_mem_addr, mmio_mem_din: out std_logic_vector(15 downto 0);
         mmio_mem_dout: in std_logic_vector(15 downto 0);      
@@ -125,8 +122,15 @@ architecture Behavioral of main is
     signal debug_iram_select_s: std_logic := '0';
     
     signal test_op_s: std_logic;
+    
+    signal gram_op_state_1: boolean := FALSE;
+    signal gram_op_state_2: boolean := FALSE;
+    signal gram_op_state_3: boolean := FALSE;
+    signal gram_op_state_4: boolean := FALSE;
+    signal gram_all_op: boolean := FALSE;
+    
+    
     signal iram_op_state: integer range 0 to 10 := 0;
-    signal gram_op_state: integer range 0 to 10 := 0;
     signal debug_op_state: integer range 0 to 10 := 0;
     
 begin
@@ -177,10 +181,31 @@ begin
     
 --gram begin
     gram_op_s <= (gram_we or gram_oe) and not debug_enable_s;
+    gram_all_op <= gram_op_state_1 and gram_op_state_2 and gram_op_state_3 and gram_op_state_4;
+    
+    with gram_all_op select
+        gram_op_state_1 <= gram_op_state_1 when FALSE,
+                           FALSE when others;
+    with gram_all_op select
+        gram_op_state_2 <= gram_op_state_2 when FALSE,
+                           FALSE when others;
+    with gram_all_op select
+        gram_op_state_3 <= gram_op_state_3 when FALSE,
+                           FALSE when others;
+    with gram_all_op select
+        gram_op_state_4 <= gram_op_state_4 when FALSE,
+                           FALSE when others;                        
+    with gram_all_op select
+        gram_mem_we_s <= gram_mem_we_s when FALSE,
+                         '0' when TRUE;                                          
 
-    with gram_op_state select
-        gram_mem_ck <= internal_clk_s when 1|2|3,
-                       '0' when others;          
+    with gram_op_state_1 or gram_op_state_2 or gram_op_state_3 select
+        gram_mem_ck <= internal_clk_s when TRUE,
+                       '0' when others;
+    
+--    with gram_op_state select
+--        gram_mem_ck <= internal_clk_s when 1|2|3,
+--                      '0' when others;          
 
     with debug_enable_s select
         gram_mem_we <= debug_gram_mem_we_s when '1',
@@ -196,7 +221,7 @@ begin
                         
     with gram_mem_oe_s select
        gram_dout_s <= gram_mem_dout        when '1', 
-                     "0000000000000000" when others;
+                      "0000000000000000" when others;
                  
     with gram_dout_s select
         gram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
@@ -252,9 +277,9 @@ begin
    
    gram:process(internal_clk_s)
    begin
-        if debug_enable_s='0' then        
-            if rising_edge(internal_clk_s) and gram_clk='0' and gram_op_state=0 and gram_op_s='1' then
-                gram_op_state <= 1;
+        if debug_enable_s='0' and rising_edge(internal_clk_s) then
+            if gram_clk='0' and not gram_all_op and gram_op_s='1' then
+                gram_op_state_1 <= TRUE;
                 
 --                gram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
                 gram_mem_addr_s <= gram_addr;
@@ -263,19 +288,25 @@ begin
                 gram_mem_oe_s <= gram_oe;
             end if;
             
-            if falling_edge(internal_clk_s) and gram_op_state=1 then
-                gram_op_state <= 2;
-            end if;
-            
-            if rising_edge(internal_clk_s) and gram_op_state=2 then
-                gram_op_state <= 3;
-            end if;
-            
-            if falling_edge(internal_clk_s) and gram_op_state=3 then
-                gram_mem_we_s <= '0';
-                gram_op_state <= 0;
+            if gram_op_state_2 then
+                gram_op_state_3 <= TRUE;
             end if;
         end if;    
+   end process;
+   
+    gram_2:process(internal_clk_s)
+    begin
+        if falling_edge(internal_clk_s) then
+            if gram_op_state_1 then
+                gram_op_state_2 <= TRUE;
+            end if;  
+            
+            if gram_op_state_3 then
+                gram_op_state_4 <= TRUE;
+            end if;        
+        end if;
+        
+
    end process;
     
     vram_main:process(clk200mhz)

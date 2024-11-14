@@ -90,12 +90,12 @@ output wire [15 : 0] douta;
     .C_AXI_ID_WIDTH(4),
     .C_MEM_TYPE(0),
     .C_BYTE_SIZE(9),
-    .C_ALGORITHM(1),
+    .C_ALGORITHM(0),
     .C_PRIM_TYPE(1),
     .C_LOAD_INIT_FILE(0),
     .C_INIT_FILE_NAME("no_coe_file_loaded"),
     .C_INIT_FILE("NONE"),
-    .C_USE_DEFAULT_DATA(1),
+    .C_USE_DEFAULT_DATA(0),
     .C_DEFAULT_DATA("0"),
     .C_HAS_RSTA(0),
     .C_RST_PRIORITY_A("CE"),
@@ -149,9 +149,9 @@ output wire [15 : 0] douta;
     .C_EN_SHUTDOWN_PIN(0),
     .C_EN_SAFETY_CKT(0),
     .C_DISABLE_WARN_BHV_RANGE(0),
-    .C_COUNT_36K_BRAM("30"),
+    .C_COUNT_36K_BRAM("32"),
     .C_COUNT_18K_BRAM("0"),
-    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     17.870402 mW")
+    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     18.4167 mW")
   ) inst (
     .clka(clka),
     .rsta(1'D0),

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x3E7F83228EB57620",
+      "boundary_crc": "0x1B2EB704B250AFD6",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -201,47 +201,6 @@
         "direction": "I",
         "left": "3",
         "right": "0"
-      },
-      "mmio_clk": {
-        "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_mmio_clk",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
-      },
-      "mmio_we": {
-        "direction": "I"
-      },
-      "mmio_oe": {
-        "direction": "I"
-      },
-      "mmio_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "mmio_din": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
       }
     },
     "components": {
@@ -406,36 +365,6 @@
             "direction": "O"
           },
           "vram_mem_dout": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "mmio_clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_block_mmio_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "mmio_we": {
-            "direction": "I"
-          },
-          "mmio_oe": {
-            "direction": "I"
-          },
-          "mmio_addr": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "mmio_din": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -786,36 +715,6 @@
         "ports": [
           "mmio_0/dout",
           "mmu/mmio_mem_dout"
-        ]
-      },
-      "mmio_addr_1": {
-        "ports": [
-          "mmio_addr",
-          "mmu/mmio_addr"
-        ]
-      },
-      "mmio_clk_1": {
-        "ports": [
-          "mmio_clk",
-          "mmu/mmio_clk"
-        ]
-      },
-      "mmio_din_1": {
-        "ports": [
-          "mmio_din",
-          "mmu/mmio_din"
-        ]
-      },
-      "mmio_oe_1": {
-        "ports": [
-          "mmio_oe",
-          "mmu/mmio_oe"
-        ]
-      },
-      "mmio_we_1": {
-        "ports": [
-          "mmio_we",
-          "mmu/mmio_we"
         ]
       },
       "mmu_debug_dout": {
