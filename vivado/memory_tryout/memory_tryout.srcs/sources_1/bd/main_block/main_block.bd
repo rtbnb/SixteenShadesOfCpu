@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB7DB73BD4B0266D9",
+      "boundary_crc": "0xC3BAE380C6B52284",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../memory_tryout.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -21,11 +21,6 @@
         "direction": "I"
       },
       "iram_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "iram_din": {
         "direction": "I",
         "left": "15",
         "right": "0"
@@ -275,36 +270,6 @@
         "direction": "I",
         "left": "15",
         "right": "0"
-      },
-      "gram_dout_t": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
-      },
-      "gram_clk_t": {
-        "type": "clk",
-        "direction": "O",
-        "parameters": {
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
-      },
-      "test_op": {
-        "direction": "O"
       }
     },
     "components": {
@@ -324,11 +289,6 @@
             "direction": "I"
           },
           "iram_addr": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "iram_din": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -599,9 +559,6 @@
             "direction": "O",
             "left": "15",
             "right": "0"
-          },
-          "test_op": {
-            "direction": "O"
           }
         }
       },
@@ -784,7 +741,6 @@
       "gram_douta": {
         "ports": [
           "gram/douta",
-          "gram_dout_t",
           "mmu/gram_mem_dout"
         ]
       },
@@ -810,12 +766,6 @@
         "ports": [
           "iram_clk",
           "mmu/iram_clk"
-        ]
-      },
-      "iram_din_1": {
-        "ports": [
-          "iram_din",
-          "mmu/iram_din"
         ]
       },
       "mmio_addr_1": {
@@ -875,8 +825,7 @@
       "mmu_gram_mem_clk": {
         "ports": [
           "mmu/gram_mem_ck",
-          "gram/clka",
-          "gram_clk_t"
+          "gram/clka"
         ]
       },
       "mmu_gram_mem_din": {
@@ -967,12 +916,6 @@
         "ports": [
           "mmu/mmio_mem_we",
           "mmio_mem_we"
-        ]
-      },
-      "mmu_test_op": {
-        "ports": [
-          "mmu/test_op",
-          "test_op"
         ]
       },
       "mmu_vram_dout": {

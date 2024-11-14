@@ -57,7 +57,6 @@ ENTITY main_block_main_0_0 IS
   PORT (
     clk200mhz : IN STD_LOGIC;
     iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    iram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     iram_clk : IN STD_LOGIC;
     iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     iram_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -109,8 +108,7 @@ ENTITY main_block_main_0_0 IS
     debug_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    debug_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    test_op : OUT STD_LOGIC
+    debug_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END main_block_main_0_0;
 
@@ -121,7 +119,6 @@ ARCHITECTURE main_block_main_0_0_arch OF main_block_main_0_0 IS
     PORT (
       clk200mhz : IN STD_LOGIC;
       iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      iram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       iram_clk : IN STD_LOGIC;
       iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       iram_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -173,8 +170,7 @@ ARCHITECTURE main_block_main_0_0_arch OF main_block_main_0_0 IS
       debug_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-      debug_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      test_op : OUT STD_LOGIC
+      debug_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT main;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -202,7 +198,6 @@ BEGIN
     PORT MAP (
       clk200mhz => clk200mhz,
       iram_addr => iram_addr,
-      iram_din => iram_din,
       iram_clk => iram_clk,
       iram_dout => iram_dout,
       iram_mem_din => iram_mem_din,
@@ -254,7 +249,6 @@ BEGIN
       debug_addr => debug_addr,
       debug_din => debug_din,
       debug_bank => debug_bank,
-      debug_dout => debug_dout,
-      test_op => test_op
+      debug_dout => debug_dout
     );
 END main_block_main_0_0_arch;

@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="3,000.001 ns"></ZoomEndTime>
-      <Cursor1Time time="1,150.000 ns"></Cursor1Time>
+      <ZoomEndTime time="2,000.000 ns"></ZoomEndTime>
+      <Cursor1Time time="2,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="197"></NameColumnWidth>
-      <ValueColumnWidth column_width="69"></ValueColumnWidth>
+      <ValueColumnWidth column_width="61"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="49" />
+   <WVObjectSize size="48" />
    <wvobject fp_name="/mainSim/clk200mhz" type="logic">
       <obj_property name="ElementShortName">clk200mhz</obj_property>
       <obj_property name="ObjectShortName">clk200mhz</obj_property>
@@ -55,6 +55,18 @@
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_mem_din_s" type="array">
       <obj_property name="ElementShortName">gram_mem_din_s[15:0]</obj_property>
       <obj_property name="ObjectShortName">gram_mem_din_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/iram_op_state" type="other">
+      <obj_property name="ElementShortName">iram_op_state</obj_property>
+      <obj_property name="ObjectShortName">iram_op_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/debug_op_state" type="other">
+      <obj_property name="ElementShortName">debug_op_state</obj_property>
+      <obj_property name="ObjectShortName">debug_op_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/iram_op_s" type="logic">
+      <obj_property name="ElementShortName">iram_op_s</obj_property>
+      <obj_property name="ObjectShortName">iram_op_s</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/vram_op_s" type="logic">
       <obj_property name="ElementShortName">vram_op_s</obj_property>
@@ -156,10 +168,6 @@
       <obj_property name="ElementShortName">iram_addr[15:0]</obj_property>
       <obj_property name="ObjectShortName">iram_addr[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/iram_din" type="array">
-      <obj_property name="ElementShortName">iram_din[15:0]</obj_property>
-      <obj_property name="ObjectShortName">iram_din[15:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/mainSim/iram_dout" type="array">
       <obj_property name="ElementShortName">iram_dout[15:0]</obj_property>
       <obj_property name="ObjectShortName">iram_dout[15:0]</obj_property>
@@ -203,17 +211,5 @@
    <wvobject fp_name="/mainSim/gram_bank" type="array">
       <obj_property name="ElementShortName">gram_bank[3:0]</obj_property>
       <obj_property name="ObjectShortName">gram_bank[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/gram_dout_t" type="array">
-      <obj_property name="ElementShortName">gram_dout_t[15:0]</obj_property>
-      <obj_property name="ObjectShortName">gram_dout_t[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/gram_clk_t" type="logic">
-      <obj_property name="ElementShortName">gram_clk_t</obj_property>
-      <obj_property name="ObjectShortName">gram_clk_t</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/test_op" type="logic">
-      <obj_property name="ElementShortName">test_op</obj_property>
-      <obj_property name="ObjectShortName">test_op</obj_property>
    </wvobject>
 </wave_config>

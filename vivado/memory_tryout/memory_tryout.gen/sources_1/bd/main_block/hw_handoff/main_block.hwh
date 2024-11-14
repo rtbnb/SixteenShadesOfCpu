@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov 13 14:29:44 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 14 12:17:27 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -74,11 +74,6 @@
         <CONNECTION INSTANCE="mmu" PORT="gram_clk"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="gram_clk_t" SIGIS="clk" SIGNAME="mmu_gram_mem_ck">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mmu" PORT="gram_mem_ck"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" LEFT="15" NAME="gram_din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gram_din">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu" PORT="gram_din"/>
@@ -87,11 +82,6 @@
     <PORT DIR="O" LEFT="15" NAME="gram_dout" RIGHT="0" SIGIS="undef" SIGNAME="mmu_gram_dout">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu" PORT="gram_dout"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="15" NAME="gram_dout_t" RIGHT="0" SIGIS="undef" SIGNAME="gram_douta">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="gram" PORT="douta"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="gram_oe" SIGIS="undef" SIGNAME="External_Ports_gram_oe">
@@ -112,11 +102,6 @@
     <PORT DIR="I" NAME="iram_clk" SIGIS="undef" SIGNAME="External_Ports_iram_clk">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu" PORT="iram_clk"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="15" NAME="iram_din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_iram_din">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mmu" PORT="iram_din"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="15" NAME="iram_dout" RIGHT="0" SIGIS="undef" SIGNAME="mmu_iram_dout">
@@ -182,11 +167,6 @@
     <PORT DIR="I" NAME="mmio_we" SIGIS="undef" SIGNAME="External_Ports_mmio_we">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu" PORT="mmio_we"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="test_op" SIGIS="undef" SIGNAME="mmu_test_op">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mmu" PORT="test_op"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="15" NAME="vram_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_vram_addr">
@@ -381,7 +361,6 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="douta" RIGHT="0" SIGIS="undef" SIGNAME="gram_douta">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="gram_dout_t"/>
             <CONNECTION INSTANCE="mmu" PORT="gram_mem_dout"/>
           </CONNECTIONS>
         </PORT>
@@ -717,7 +696,6 @@
         <PORT DIR="O" NAME="gram_mem_ck" SIGIS="undef" SIGNAME="mmu_gram_mem_ck">
           <CONNECTIONS>
             <CONNECTION INSTANCE="gram" PORT="clka"/>
-            <CONNECTION INSTANCE="External_Ports" PORT="gram_clk_t"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="gram_mem_din" RIGHT="0" SIGIS="undef" SIGNAME="mmu_gram_mem_din">
@@ -758,11 +736,6 @@
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="iram_clk" SIGIS="clk" SIGNAME="External_Ports_iram_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="iram_clk"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="iram_din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_iram_din">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="iram_din"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="iram_dout" RIGHT="0" SIGIS="undef" SIGNAME="mmu_iram_dout">
@@ -858,11 +831,6 @@
         <PORT DIR="I" NAME="mmio_we" SIGIS="undef" SIGNAME="External_Ports_mmio_we">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="mmio_we"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="test_op" SIGIS="undef" SIGNAME="mmu_test_op">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="test_op"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="vram_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_vram_addr">
