@@ -59,7 +59,6 @@ architecture Behavioral of mainSim is
             gram_we : in STD_LOGIC;
             iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
             iram_clk : in STD_LOGIC;
-            iram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
             iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
             mmio_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
             mmio_clk : in STD_LOGIC;
@@ -75,20 +74,13 @@ architecture Behavioral of mainSim is
             mmio_we : in STD_LOGIC;
             vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
             vram_clk : in STD_LOGIC;
-            vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-            
-            gram_dout_t: out STD_LOGIC_VECTOR ( 15 downto 0);
-            gram_clk_t: out STD_LOGIC;
-            test_op: out STD_LOGIC
+            vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
         );
     end component;
     
     signal clk200mhz, debug_clk, debug_clk200mhz, debug_enable, debug_iram_select, debug_oe, debug_we, gram_clk, gram_oe, gram_we, iram_clk, mmio_clk, mmio_mem_ck, mmio_mem_oe, mmio_mem_we, mmio_oe, mmio_we, vram_clk : STD_LOGIC;
-    signal debug_addr, debug_din, debug_dout, gram_addr, gram_din, gram_dout, iram_addr, iram_din, iram_dout, mmio_addr, mmio_din, mmio_dout, mmio_mem_addr, mmio_mem_din, mmio_mem_dout, vram_addr, vram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+    signal debug_addr, debug_din, debug_dout, gram_addr, gram_din, gram_dout, iram_addr, iram_dout, mmio_addr, mmio_din, mmio_dout, mmio_mem_addr, mmio_mem_din, mmio_mem_dout, vram_addr, vram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
     signal debug_bank, gram_bank: STD_LOGIC_VECTOR ( 3 downto 0 );
-    
-    signal gram_dout_t: STD_LOGIC_VECTOR(15 downto 0);
-    signal gram_clk_t, test_op: STD_LOGIC;
 begin
     EUT: main_block_wrapper port map(
         clk200mhz => clk200mhz,
@@ -111,7 +103,6 @@ begin
         gram_we => gram_we,
         iram_addr => iram_addr,
         iram_clk => iram_clk,
-        iram_din => iram_din,
         iram_dout => iram_dout,
         mmio_addr => mmio_addr,
         mmio_clk => mmio_clk,
@@ -127,13 +118,9 @@ begin
         mmio_we => mmio_we,
         vram_addr => vram_addr,
         vram_clk => vram_clk,
-        vram_dout => vram_dout,
-        
-        gram_dout_t => gram_dout_t,
-        gram_clk_t => gram_clk_t,
-        test_op => test_op
+        vram_dout => vram_dout
     );
-
+    
     process begin
         clk200mhz <= '0';
         wait for 50ns;
@@ -151,7 +138,15 @@ begin
     end process;
     
     process begin
-        debug_enable <= '1';
+        iram_clk <= '0';
+        wait for 50ns;
+        iram_clk <= '1';
+        wait for 100ns;
+        iram_clk <= '0';
+        wait for 50ns;
+    end process;
+    
+    process begin  
         gram_addr <= "UUUUUUUUUUUUUUUU";
         gram_din <= "UUUUUUUUUUUUUUUU";
         gram_we <= '0';
@@ -165,15 +160,6 @@ begin
         gram_oe <= '1';
         
         wait for 200ns;
-
-        gram_addr <= "UUUUUUUUUUUUUUUU";
-        gram_din <= "UUUUUUUUUUUUUUUU";
-        gram_we <= '0';
-        gram_oe <= '0';
---        wait for 100ns;
---        iram_clk <= '0';
-        wait for 200ns;
-        
 
         gram_addr <= "0000000000000001";
         gram_din <= "0000000000000011";
@@ -193,12 +179,34 @@ begin
         gram_we <= '0';
         gram_oe <= '1';
         wait for 200ns;
+    end process;
+    
+    process begin
+        iram_addr <= "UUUUUUUUUUUUUUUU";
+        
+        wait for 150ns;
 
-        gram_addr <= "UUUUUUUUUUUUUUUU";
-        gram_din <= "UUUUUUUUUUUUUUUU";
-        gram_we <= '0';
-        gram_oe <= '0';
+        iram_addr <= "0000000000000000";
+        
         wait for 200ns;
+
+        iram_addr <= "0000000000000001";
+        
+        wait for 200ns;
+
+        iram_addr <= "UUUUUUUUUUUUUUUU";
+        
+        wait for 200ns;
+        
+        iram_addr <= "0000000000000000";
+        
+        wait for 200ns;
+    end process;
+    
+    process begin
+        debug_enable <= '0';
+        wait for 350ns;
+        debug_enable <= '1';
     end process;
 
 

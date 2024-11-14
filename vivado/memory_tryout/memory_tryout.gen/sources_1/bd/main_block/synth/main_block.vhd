@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Wed Nov 13 14:29:44 2024
---Host        : Robin_Laptop running 64-bit major release  (build 9200)
+--Date        : Thu Nov 14 12:17:27 2024
+--Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
 --Purpose     : IP block netlist
@@ -28,15 +28,12 @@ entity main_block is
     gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     gram_clk : in STD_LOGIC;
-    gram_clk_t : out STD_LOGIC;
     gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_dout_t : out STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_oe : in STD_LOGIC;
     gram_we : in STD_LOGIC;
     iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_clk : in STD_LOGIC;
-    iram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     mmio_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     mmio_clk : in STD_LOGIC;
@@ -50,7 +47,6 @@ entity main_block is
     mmio_mem_we : out STD_LOGIC;
     mmio_oe : in STD_LOGIC;
     mmio_we : in STD_LOGIC;
-    test_op : out STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vram_clk : in STD_LOGIC;
     vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
@@ -66,7 +62,6 @@ architecture STRUCTURE of main_block is
   port (
     clk200mhz : in STD_LOGIC;
     iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    iram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_clk : in STD_LOGIC;
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -118,8 +113,7 @@ architecture STRUCTURE of main_block is
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    test_op : out STD_LOGIC
+    debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_block_main_0_0;
   component main_block_blk_mem_gen_0_0 is
@@ -172,7 +166,6 @@ architecture STRUCTURE of main_block is
   signal gram_we_1 : STD_LOGIC;
   signal iram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal iram_clk_1 : STD_LOGIC;
-  signal iram_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_clk_1 : STD_LOGIC;
   signal mmio_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -198,7 +191,6 @@ architecture STRUCTURE of main_block is
   signal mmu_mmio_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_mmio_mem_oe : STD_LOGIC;
   signal mmu_mmio_mem_we : STD_LOGIC;
-  signal mmu_test_op : STD_LOGIC;
   signal mmu_vram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_vram_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_vram_mem_clk : STD_LOGIC;
@@ -216,8 +208,6 @@ architecture STRUCTURE of main_block is
   attribute X_INTERFACE_PARAMETER of debug_clk200mhz : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK200MHZ, CLK_DOMAIN main_block_debug_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of gram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.GRAM_CLK CLK";
   attribute X_INTERFACE_PARAMETER of gram_clk : signal is "XIL_INTERFACENAME CLK.GRAM_CLK, CLK_DOMAIN main_block_gram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of gram_clk_t : signal is "xilinx.com:signal:clock:1.0 CLK.GRAM_CLK_T CLK";
-  attribute X_INTERFACE_PARAMETER of gram_clk_t : signal is "XIL_INTERFACENAME CLK.GRAM_CLK_T, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of mmio_clk : signal is "xilinx.com:signal:clock:1.0 CLK.MMIO_CLK CLK";
   attribute X_INTERFACE_PARAMETER of mmio_clk : signal is "XIL_INTERFACENAME CLK.MMIO_CLK, CLK_DOMAIN main_block_mmio_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of vram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.VRAM_CLK CLK";
@@ -237,15 +227,12 @@ begin
   gram_addr_1(15 downto 0) <= gram_addr(15 downto 0);
   gram_bank_1(3 downto 0) <= gram_bank(3 downto 0);
   gram_clk_1 <= gram_clk;
-  gram_clk_t <= mmu_gram_mem_clk;
   gram_din_1(15 downto 0) <= gram_din(15 downto 0);
   gram_dout(15 downto 0) <= mmu_gram_dout(15 downto 0);
-  gram_dout_t(15 downto 0) <= gram_douta(15 downto 0);
   gram_oe_1 <= gram_oe;
   gram_we_1 <= gram_we;
   iram_addr_1(15 downto 0) <= iram_addr(15 downto 0);
   iram_clk_1 <= iram_clk;
-  iram_din_1(15 downto 0) <= iram_din(15 downto 0);
   iram_dout(15 downto 0) <= mmu_iram_dout(15 downto 0);
   mmio_addr_1(15 downto 0) <= mmio_addr(15 downto 0);
   mmio_clk_1 <= mmio_clk;
@@ -259,7 +246,6 @@ begin
   mmio_mem_we <= mmu_mmio_mem_we;
   mmio_oe_1 <= mmio_oe;
   mmio_we_1 <= mmio_we;
-  test_op <= mmu_test_op;
   vram_addr_1(15 downto 0) <= vram_addr(15 downto 0);
   vram_clk_1 <= vram_clk;
   vram_dout(15 downto 0) <= mmu_vram_dout(15 downto 0);
@@ -309,7 +295,6 @@ mmu: component main_block_main_0_0
       gram_we => gram_we_1,
       iram_addr(15 downto 0) => iram_addr_1(15 downto 0),
       iram_clk => iram_clk_1,
-      iram_din(15 downto 0) => iram_din_1(15 downto 0),
       iram_dout(15 downto 0) => mmu_iram_dout(15 downto 0),
       iram_mem_addr(13 downto 0) => mmu_iram_mem_addr(13 downto 0),
       iram_mem_ck => mmu_iram_mem_clk,
@@ -329,7 +314,6 @@ mmu: component main_block_main_0_0
       mmio_mem_we => mmu_mmio_mem_we,
       mmio_oe => mmio_oe_1,
       mmio_we => mmio_we_1,
-      test_op => mmu_test_op,
       vram_addr(15 downto 0) => vram_addr_1(15 downto 0),
       vram_clk => vram_clk_1,
       vram_dout(15 downto 0) => mmu_vram_dout(15 downto 0),
