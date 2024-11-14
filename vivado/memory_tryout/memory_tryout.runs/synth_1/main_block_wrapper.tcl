@@ -57,7 +57,6 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 5
-set_param xicom.use_bs_reader 1
 set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
@@ -68,22 +67,21 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.cache/wt [current_project]
 set_property parent.project_path C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part_repo_paths {C:/Users/eiler/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store} [current_project]
-set_property board_part digilentinc.com:arty-a7-35:part0:1.1 [current_project]
 set_property ip_output_repo c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd
+read_vhdl -library xil_defaultlib {
+  C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/new/main.vhd
+  C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd
+}
 add_files C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.srcs/sources_1/bd/main_block/main_block.bd
-set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_clk_wiz_0_0/main_block_clk_wiz_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_clk_wiz_0_0/main_block_clk_wiz_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_clk_wiz_0_0/main_block_clk_wiz_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/main_block_blk_mem_gen_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/main_block_blk_mem_gen_1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/main_block_blk_mem_gen_2_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/main_block_ooc.xdc]
 
 OPTRACE "Adding files" END { }

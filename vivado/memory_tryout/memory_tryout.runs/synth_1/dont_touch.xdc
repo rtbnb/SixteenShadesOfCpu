@@ -9,13 +9,19 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_block 
 # IP: bd/main_block/ip/main_block_main_0_0/main_block_main_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_block_main_0_0 || ORIG_REF_NAME==main_block_main_0_0} -quiet] -quiet
 
-# IP: bd/main_block/ip/main_block_clk_wiz_0_0/main_block_clk_wiz_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_block_clk_wiz_0_0 || ORIG_REF_NAME==main_block_clk_wiz_0_0} -quiet] -quiet
-
 # IP: bd/main_block/ip/main_block_blk_mem_gen_0_0/main_block_blk_mem_gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_block_blk_mem_gen_0_0 || ORIG_REF_NAME==main_block_blk_mem_gen_0_0} -quiet] -quiet
 
 # IP: bd/main_block/ip/main_block_blk_mem_gen_1_0/main_block_blk_mem_gen_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_block_blk_mem_gen_1_0 || ORIG_REF_NAME==main_block_blk_mem_gen_1_0} -quiet] -quiet
+
+# IP: bd/main_block/ip/main_block_blk_mem_gen_2_0/main_block_blk_mem_gen_2_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_block_blk_mem_gen_2_0 || ORIG_REF_NAME==main_block_blk_mem_gen_2_0} -quiet] -quiet
+
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_0_0/main_block_blk_mem_gen_0_0_ooc.xdc
+
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_1_0/main_block_blk_mem_gen_1_0_ooc.xdc
+
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/ip/main_block_blk_mem_gen_2_0/main_block_blk_mem_gen_2_0_ooc.xdc
 
 # XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.gen/sources_1/bd/main_block/main_block_ooc.xdc

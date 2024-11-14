@@ -570,7 +570,7 @@
         "inst_hier_path": "iram",
         "parameters": {
           "Algorithm": {
-            "value": "Minimum_Area"
+            "value": "Low_Power"
           },
           "Fill_Remaining_Memory_Locations": {
             "value": "true"
@@ -602,6 +602,9 @@
         "xci_path": "ip\\main_block_blk_mem_gen_1_0\\main_block_blk_mem_gen_1_0.xci",
         "inst_hier_path": "gram",
         "parameters": {
+          "Algorithm": {
+            "value": "Low_Power"
+          },
           "Fill_Remaining_Memory_Locations": {
             "value": "true"
           },
