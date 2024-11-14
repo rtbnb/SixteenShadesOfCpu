@@ -50,10 +50,10 @@ instructions = {
     "RDMr": [6, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.NUMBER, 0, 1)]],
     "WRMr": [7, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.NUMBER, 0, 1)]],
     "JC": [8, [Argument(0, ArgumentType.NUMBER, 9, 3), Argument(1, ArgumentType.NUMBER, 0, 9)]],
-    "JR": [9, [Argument(0, ArgumentType.NUMBER, 0, 12)]],
+    "JR": [9, [Argument(0, ArgumentType.REGISTER, 8, 4)]],
     "JA": [10, [Argument(0, ArgumentType.NUMBER, 0, 12)]],
-    "CR": [14, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 0, 4)]],
-    "EXT": [15, [Argument(0, ArgumentType.NUMBER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.REGISTER, 0, 4)]]
+    "CR": [14, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4)]],
+    #"EXT": [15, [Argument(0, ArgumentType.NUMBER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.REGISTER, 0, 4)]]
 }
 
 def replace_defines(lines, defines=[]):
