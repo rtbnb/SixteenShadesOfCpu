@@ -41,12 +41,19 @@ architecture Behavioral of IROM is
 begin
 
     WITH (Address) SELECT Data <=
-        X"0000" WHEN X"0000",
-        X"4001" WHEN X"0001",
-        X"5000" WHEN X"0002",
-        X"4102" WHEN X"0003",
-        X"5100" WHEN X"0004",
-        X"1001" WHEN X"0005",
+        X"4000" WHEN X"0000",
+        X"5000" WHEN X"0001",
+        X"4101" WHEN X"0002",
+        X"5100" WHEN X"0003",
+        X"4300" WHEN X"0004",
+        X"5300" WHEN X"0005",
+        X"e200" WHEN X"0006",
+        X"e010" WHEN X"0007",
+        X"f022" WHEN X"0008",
+        X"1002" WHEN X"0009",
+        X"8003" WHEN X"000a",
+        X"e1e0" WHEN X"000b",
+        X"a006" WHEN X"000c",
         X"0000" WHEN OTHERS;
 
 end Behavioral;

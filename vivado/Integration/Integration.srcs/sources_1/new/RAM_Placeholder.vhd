@@ -41,8 +41,9 @@ entity RAM_Placeholder is
 end RAM_Placeholder;
 
 architecture Behavioral of RAM_Placeholder is
-    TYPE memoryArray IS ARRAY ( 256 DOWNTO 0 ) OF std_logic_vector( 15 DOWNTO 0);
+    TYPE memoryArray IS ARRAY ( 255 DOWNTO 0 ) OF std_logic_vector(15 DOWNTO 0);
    SIGNAL s_memContents   : memoryArray;
+   signal memIndex : integer range 0 to 255;
 begin
 
    --------------------------------------------------------------------------------
@@ -56,11 +57,14 @@ begin
    --------------------------------------------------------------------------------
    -- The actual memorie(s) is(are) defined here                                 --
    --------------------------------------------------------------------------------
+   
+   memIndex <= to_integer(unsigned(Address(7 downto 0)));
+   
    mem : PROCESS(CLK) IS
    BEGIN
       IF (rising_edge(CLK)) THEN
          IF (WE = '1') THEN
-            s_memContents(to_integer(unsigned(Address))) <= DataIn;
+            s_memContents(memIndex) <= DataIn;
          END IF;
       END IF;
    END PROCESS mem;
@@ -69,7 +73,7 @@ begin
    -- The output register is defined here                                        --
    --------------------------------------------------------------------------------
    
-   DataOut <= s_memContents(to_integer(unsigned(Address)));
+   DataOut <= s_memContents(memIndex);
    
 
 end Behavioral;
