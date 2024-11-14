@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Nov  6 16:22:42 2024
-# Process ID: 8808
+# Start of session at: Thu Nov 14 15:27:02 2024
+# Process ID: 46452
 # Current directory: C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/impl_1
 # Command line: vivado.exe -log main_block_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source main_block_wrapper.tcl -notrace
 # Log file: C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.runs/impl_1/main_block_wrapper.vdi
@@ -19,6 +19,6 @@
 # Host memory       :33854 MB
 # Swap memory       :19327 MB
 # Total Virtual     :53181 MB
-# Available Virtual :27778 MB
+# Available Virtual :25666 MB
 #-----------------------------------------------------------
 source main_block_wrapper.tcl -notrace

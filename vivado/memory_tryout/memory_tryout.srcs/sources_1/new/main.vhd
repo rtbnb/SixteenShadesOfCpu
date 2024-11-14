@@ -123,6 +123,7 @@ architecture Behavioral of main is
     signal debug_gram_mem_we_s, debug_gram_mem_oe_s, debug_iram_mem_we_s, debug_iram_mem_oe_s: std_logic := '0';
     signal debug_dout_s: std_logic_vector(15 downto 0); --should be irrelevant
     signal debug_op_s, debug_enable_s: std_logic := '0';
+    signal debug_iram_select_s: std_logic := '0';
     
     signal test_op_s: std_logic;
     signal iram_op_state: integer range 0 to 10 := 0;
@@ -182,7 +183,7 @@ begin
                        gram_mem_we_s when others;
     
     with debug_enable_s select
-        gram_mem_addr <= debug_gram_mem_addr_s(13 downto 0) when '1', --TODO Change to debug_mem_addr_s
+        gram_mem_addr <= debug_gram_mem_addr_s( 13 downto 0) when '1', --TODO Change to debug_mem_addr_s
                          gram_mem_addr_s( 13 downto 0) when others;
                          
     with debug_enable_s select
@@ -214,7 +215,10 @@ begin
 --vram end
 
 --debug begin
-
+    with debug_iram_select select
+        debug_iram_select_s <= debug_iram_select when '1',
+                               debug_iram_select when '0',
+                               '0' when others;
 --debug end
 
     iram:process(internal_clk_s)
@@ -285,11 +289,20 @@ begin
             if rising_edge(internal_clk_s) and debug_clk='0' and debug_op_state=0 and debug_op_s='1' then
                 debug_op_state <= 1;
                 
---                gram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
---                debug_mem_addr_s <= debug_addr;
---                debug_mem_din_s <= debug_din;
---                debug_mem_we_s <= debug_we;
---                debug_mem_oe_s <= debug_oe;
+                iram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
+                gram_mem_oe <= '1';
+                
+                if debug_iram_select_s='1' then
+                    debug_iram_mem_addr_s <= debug_addr;
+                    debug_iram_mem_din_s <= debug_din;
+                    debug_iram_mem_we_s <= debug_we;
+                    debug_iram_mem_oe_s <= debug_oe;
+                else
+                    debug_gram_mem_addr_s <= debug_addr;
+                    debug_gram_mem_din_s <= debug_din;
+                    debug_gram_mem_we_s <= debug_we;
+                    debug_gram_mem_oe_s <= debug_oe;
+                end if;
             end if;
             
             if falling_edge(internal_clk_s) and debug_op_state=1 then

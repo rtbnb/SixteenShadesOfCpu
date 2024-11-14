@@ -205,8 +205,9 @@ begin
     
     process begin
         debug_enable <= '0';
-        wait for 350ns;
+        wait for 950ns;
         debug_enable <= '1';
+        wait for 950ns;
     end process;
 
 
