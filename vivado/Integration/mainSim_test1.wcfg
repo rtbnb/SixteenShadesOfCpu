@@ -10,13 +10,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="738.394 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,052.322 ns"></ZoomEndTime>
-      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="7,666.334 ns"></ZoomStartTime>
+      <ZoomEndTime time="10,028.335 ns"></ZoomEndTime>
+      <Cursor1Time time="3,866.334 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="214"></NameColumnWidth>
-      <ValueColumnWidth column_width="82"></ValueColumnWidth>
+      <NameColumnWidth column_width="194"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="33" />
    <wvobject fp_name="/mainSim/InstrExec_CLK" type="logic">
