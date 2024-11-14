@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 14 21:12:51 2024
+--Date        : Thu Nov 14 22:39:07 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
@@ -35,11 +35,6 @@ entity main_block is
     iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_clk : in STD_LOGIC;
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_clk : in STD_LOGIC;
-    mmio_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_oe : in STD_LOGIC;
-    mmio_we : in STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vram_clk : in STD_LOGIC;
     vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
@@ -85,11 +80,6 @@ architecture STRUCTURE of main_block is
     vram_mem_we : out STD_LOGIC;
     vram_mem_oe : out STD_LOGIC;
     vram_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_clk : in STD_LOGIC;
-    mmio_we : in STD_LOGIC;
-    mmio_oe : in STD_LOGIC;
-    mmio_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    mmio_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     mmio_mem_ck : out STD_LOGIC;
     mmio_mem_we : out STD_LOGIC;
     mmio_mem_oe : out STD_LOGIC;
@@ -169,11 +159,6 @@ architecture STRUCTURE of main_block is
   signal iram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal iram_clk_1 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmio_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmio_clk_1 : STD_LOGIC;
-  signal mmio_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmio_oe_1 : STD_LOGIC;
-  signal mmio_we_1 : STD_LOGIC;
   signal mmu_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_gram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_gram_mem_addr : STD_LOGIC_VECTOR ( 13 downto 0 );
@@ -209,8 +194,6 @@ architecture STRUCTURE of main_block is
   attribute X_INTERFACE_PARAMETER of debug_clk200mhz : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK200MHZ, CLK_DOMAIN main_block_debug_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of gram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.GRAM_CLK CLK";
   attribute X_INTERFACE_PARAMETER of gram_clk : signal is "XIL_INTERFACENAME CLK.GRAM_CLK, CLK_DOMAIN main_block_gram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of mmio_clk : signal is "xilinx.com:signal:clock:1.0 CLK.MMIO_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of mmio_clk : signal is "XIL_INTERFACENAME CLK.MMIO_CLK, CLK_DOMAIN main_block_mmio_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of vram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.VRAM_CLK CLK";
   attribute X_INTERFACE_PARAMETER of vram_clk : signal is "XIL_INTERFACENAME CLK.VRAM_CLK, CLK_DOMAIN main_block_vram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
@@ -235,11 +218,6 @@ begin
   iram_addr_1(15 downto 0) <= iram_addr(15 downto 0);
   iram_clk_1 <= iram_clk;
   iram_dout(15 downto 0) <= mmu_iram_dout(15 downto 0);
-  mmio_addr_1(15 downto 0) <= mmio_addr(15 downto 0);
-  mmio_clk_1 <= mmio_clk;
-  mmio_din_1(15 downto 0) <= mmio_din(15 downto 0);
-  mmio_oe_1 <= mmio_oe;
-  mmio_we_1 <= mmio_we;
   vram_addr_1(15 downto 0) <= vram_addr(15 downto 0);
   vram_clk_1 <= vram_clk;
   vram_dout(15 downto 0) <= mmu_vram_dout(15 downto 0);
@@ -305,17 +283,12 @@ mmu: component main_block_main_0_0
       iram_mem_dout(15 downto 0) => blk_mem_gen_0_douta(15 downto 0),
       iram_mem_oe => mmu_iram_mem_oe,
       iram_mem_we => mmu_iram_mem_we,
-      mmio_addr(15 downto 0) => mmio_addr_1(15 downto 0),
-      mmio_clk => mmio_clk_1,
-      mmio_din(15 downto 0) => mmio_din_1(15 downto 0),
       mmio_mem_addr(15 downto 0) => mmu_mmio_mem_addr(15 downto 0),
       mmio_mem_ck => mmu_mmio_mem_ck,
       mmio_mem_din(15 downto 0) => mmu_mmio_mem_din(15 downto 0),
       mmio_mem_dout(15 downto 0) => mmio_0_dout(15 downto 0),
       mmio_mem_oe => mmu_mmio_mem_oe,
       mmio_mem_we => mmu_mmio_mem_we,
-      mmio_oe => mmio_oe_1,
-      mmio_we => mmio_we_1,
       vram_addr(15 downto 0) => vram_addr_1(15 downto 0),
       vram_clk => vram_clk_1,
       vram_dout(15 downto 0) => mmu_vram_dout(15 downto 0),
