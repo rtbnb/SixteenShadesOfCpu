@@ -1,25 +1,20 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="eiler" Host="ROBIN_LAPTOP" Pid="28932" HostCore="20" HostMemory="033854128128">
+    <Process Command="vivado.bat" Owner="Robin" Host="DESKTOP-Q664A4O" Pid="34008" HostCore="20" HostMemory="034183245824">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="eiler" Host="ROBIN_LAPTOP" Pid="46728" HostCore="20" HostMemory="033854128128">
+    <Process Command="vivado.bat" Owner="Robin" Host="DESKTOP-Q664A4O" Pid="8484" HostCore="20" HostMemory="034183245824">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="eiler" Host="ROBIN_LAPTOP" Pid="1188" HostCore="20" HostMemory="033854128128">
+    <Process Command="vivado.bat" Owner="Robin" Host="DESKTOP-Q664A4O" Pid="45436" HostCore="20" HostMemory="034183245824">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="eiler" Host="ROBIN_LAPTOP" Pid="8784" HostCore="20" HostMemory="033854128128">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="eiler" Host="ROBIN_LAPTOP" Pid="10356" HostCore="20" HostMemory="033854128128">
+    <Process Command="vivado.bat" Owner="Robin" Host="DESKTOP-Q664A4O" Pid="44460" HostCore="20" HostMemory="034183245824">
     </Process>
 </ProcessHandle>

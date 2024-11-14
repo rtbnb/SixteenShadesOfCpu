@@ -90,7 +90,6 @@ entity main is
 --mmio begin
         mmio_clk, mmio_we, mmio_oe : in std_logic;
         mmio_addr, mmio_din: in std_logic_vector(15 downto 0);
-        mmio_dout: out std_logic_vector(15 downto 0);
         
         mmio_mem_ck, mmio_mem_we, mmio_mem_oe: out std_logic;
         mmio_mem_addr, mmio_mem_din: out std_logic_vector(15 downto 0);
@@ -139,6 +138,11 @@ begin
     with debug_enable select
         debug_enable_s <= '1' when '1',
                           '0' when others;
+
+    with debug_iram_select select
+        debug_iram_select_s <= debug_iram_select when '1',
+                               debug_iram_select when '0',
+                               '0' when others;
     
     debug_op_s <= (debug_we or debug_oe) and debug_enable_s;
 --debug end
@@ -214,12 +218,9 @@ begin
                      vram_dout_s when others;  
 --vram end
 
---debug begin
-    with debug_iram_select select
-        debug_iram_select_s <= debug_iram_select when '1',
-                               debug_iram_select when '0',
-                               '0' when others;
---debug end
+--mmio begin
+
+--mmio end
 
     iram:process(internal_clk_s)
     begin

@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="67" Path="C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.xpr">
+<Project Product="Vivado" Version="7" Minor="67" Path="O:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="207730daedb5404a8d305d747778229f"/>
@@ -60,20 +60,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="arty-a7-35"/>
-    <Option Name="WTXSimLaunchSim" Val="355"/>
+    <Option Name="WTXSimLaunchSim" Val="357"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="125"/>
-    <Option Name="WTModelSimExportSim" Val="125"/>
-    <Option Name="WTQuestaExportSim" Val="125"/>
+    <Option Name="WTXSimExportSim" Val="131"/>
+    <Option Name="WTModelSimExportSim" Val="131"/>
+    <Option Name="WTQuestaExportSim" Val="131"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="125"/>
-    <Option Name="WTRivieraExportSim" Val="125"/>
-    <Option Name="WTActivehdlExportSim" Val="125"/>
+    <Option Name="WTVcsExportSim" Val="131"/>
+    <Option Name="WTRivieraExportSim" Val="131"/>
+    <Option Name="WTActivehdlExportSim" Val="131"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -92,6 +92,12 @@
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sources_1/new/main.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/mmio.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
