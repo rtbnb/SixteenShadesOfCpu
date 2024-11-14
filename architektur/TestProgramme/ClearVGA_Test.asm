@@ -23,7 +23,6 @@
 %define HW_TIMER_0_LSB 0xfc
 %define HW_TIMER_1_LSB 0xfd
 
-%define VGA_ED_ID 1
 %define VGA_WIDTH 200
 %define VGA_HEIGHT 150
 
@@ -49,7 +48,7 @@ IML $t6, VGA_HEIGHT
 IMH $t6, 0
 ALU ALU_SHL, $t1, $t3
 ALU ALU_OR, $AO, $t0
-EXT VGA_ED_ID, $AO, $t2
+WRMr $t2, $AO, 0
 ALU ALU_ADD, $t0, $t4
 CR $t0, $AO
 ALU ALU_SUB, $t5, $t0
