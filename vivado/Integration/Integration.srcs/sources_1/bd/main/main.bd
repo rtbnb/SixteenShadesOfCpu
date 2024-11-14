@@ -1198,18 +1198,18 @@
       "InstrExec_CLK_1": {
         "ports": [
           "InstrExec_CLK",
-          "Pipelining_Controller_0/InstrExec_CLK",
           "RegFile_0/clk",
-          "RAM_Placeholder_0/CLK",
-          "CU_JumpController_0/InstrExec_CLK"
+          "CU_JumpController_0/InstrExec_CLK",
+          "Pipelining_Controller_0/InstrExec_CLK",
+          "RAM_Placeholder_0/CLK"
         ]
       },
       "InstrLoad_CLK_1": {
         "ports": [
           "InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK",
           "Pipelining_Execution_0/InstrLoad_CLK",
-          "Pipelining_WriteBack_0/InstrLoad_CLK"
+          "Pipelining_WriteBack_0/InstrLoad_CLK",
+          "Pipelining_Controller_0/InstrLoad_CLK"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -1221,8 +1221,8 @@
       "Pipelining_Controller_0_InstructionToExecute": {
         "ports": [
           "Pipelining_Controller_0/InstructionToExecute",
-          "Decoder_0/Instruction",
-          "CU_Decoder_0/Instruction"
+          "CU_Decoder_0/Instruction",
+          "Decoder_0/Instruction"
         ]
       },
       "Pipelining_Controller_0_PC_Count": {
@@ -1288,9 +1288,9 @@
           "Pipelining_Execution_0/Operand1_out",
           "CU_ImmediateManipula_0/Reg1",
           "ALU_0/D1",
-          "RAM_Placeholder_0/DataIn",
           "CU_JumpDestinationSe_0/Register1",
-          "CU_WriteSelector_0/Reg1"
+          "CU_WriteSelector_0/Reg1",
+          "RAM_Placeholder_0/DataIn"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -1408,8 +1408,8 @@
       "ProgramCounter_0_Dout": {
         "ports": [
           "ProgramCounter_0/Dout",
-          "IROM_0/Address",
-          "CU_JumpController_0/PC_Current"
+          "CU_JumpController_0/PC_Current",
+          "IROM_0/Address"
         ]
       },
       "RAM_Placeholder_0_DataOut": {
@@ -1439,10 +1439,10 @@
       "Reset_1": {
         "ports": [
           "Reset",
-          "ProgramCounter_0/Reset",
-          "Pipelining_Controller_0/Reset",
           "Pipelining_Execution_0/Reset",
-          "Pipelining_WriteBack_0/Reset"
+          "Pipelining_WriteBack_0/Reset",
+          "Pipelining_Controller_0/Reset",
+          "ProgramCounter_0/Reset"
         ]
       }
     }
