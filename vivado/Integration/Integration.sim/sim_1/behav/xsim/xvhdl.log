@@ -1,8 +1,4 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/FPGA_CPU/vivado/Integration/Integration.srcs/sources_1/new/IROM.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'IROM'
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/FPGA_CPU/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_IROM_0_1/sim/main_IROM_0_1.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_IROM_0_1'
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/FPGA_CPU/vivado/Integration/Integration.ip_user_files/bd/main/sim/main.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main'
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'main_wrapper'

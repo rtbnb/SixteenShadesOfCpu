@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 14 13:38:00 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 14 16:10:25 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -8,8 +8,8 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="RegFile_0" PORT="clk"/>
         <CONNECTION INSTANCE="CU_JumpController_0" PORT="InstrExec_CLK"/>
-        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrExec_CLK"/>
         <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="CLK"/>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrExec_CLK"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="InstrLoad_CLK" SIGIS="undef" SIGNAME="External_Ports_InstrLoad_CLK">
@@ -23,8 +23,8 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Reset"/>
         <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Reset"/>
-        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
         <CONNECTION INSTANCE="ProgramCounter_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>

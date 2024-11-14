@@ -1,5 +1,5 @@
 
-src = "TestProgram4.txt"
+src = "ClearVGA_Test.txt"
 
 if __name__ == "__main__":
     
