@@ -59,8 +59,8 @@ ENTITY main_Pipelining_Controller_0_0 IS
     InstrExec_CLK : IN STD_LOGIC;
     Reset : IN STD_LOGIC;
     Instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    ResetStall : IN STD_LOGIC;
-    PC_Count : OUT STD_LOGIC;
+    ResolveStall : IN STD_LOGIC;
+    Stalled : OUT STD_LOGIC;
     InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
     InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
@@ -75,8 +75,8 @@ ARCHITECTURE main_Pipelining_Controller_0_0_arch OF main_Pipelining_Controller_0
       InstrExec_CLK : IN STD_LOGIC;
       Reset : IN STD_LOGIC;
       Instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      ResetStall : IN STD_LOGIC;
-      PC_Count : OUT STD_LOGIC;
+      ResolveStall : IN STD_LOGIC;
+      Stalled : OUT STD_LOGIC;
       InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
       InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
@@ -96,8 +96,8 @@ BEGIN
       InstrExec_CLK => InstrExec_CLK,
       Reset => Reset,
       Instruction => Instruction,
-      ResetStall => ResetStall,
-      PC_Count => PC_Count,
+      ResolveStall => ResolveStall,
+      Stalled => Stalled,
       InstructionForwardConfiguration => InstructionForwardConfiguration,
       InstructionToExecute => InstructionToExecute
     );

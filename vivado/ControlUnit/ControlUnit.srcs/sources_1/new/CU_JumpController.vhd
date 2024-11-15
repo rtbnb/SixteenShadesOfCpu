@@ -88,7 +88,7 @@ begin
         '0' WHEN OTHERS;
     
     jmp_verified <= JMP and ((not JMP_Conditional) or jump_condition_fullfilled);
-    PC_Load <= jmp_verified and InstrExec_CLK;
+    PC_Load <= jmp_verified;
     relative_jump_destination <= std_logic_vector(SIGNED(JMP_Address) + SIGNED(PC_Current) + pc_offset);
     
     WITH JMP_Relative SELECT PC_Next <=
