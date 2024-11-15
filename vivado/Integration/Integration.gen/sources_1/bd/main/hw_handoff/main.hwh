@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 14 21:30:21 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 15 14:44:04 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -7,24 +7,30 @@
     <PORT DIR="I" NAME="InstrExec_CLK" SIGIS="undef" SIGNAME="External_Ports_InstrExec_CLK">
       <CONNECTIONS>
         <CONNECTION INSTANCE="RegFile_0" PORT="clk"/>
-        <CONNECTION INSTANCE="CU_JumpController_0" PORT="InstrExec_CLK"/>
         <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="CLK"/>
+        <CONNECTION INSTANCE="CU_JumpController_0" PORT="InstrExec_CLK"/>
         <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrExec_CLK"/>
+        <CONNECTION INSTANCE="ProgramCounter_0" PORT="InstrExec_CLK"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="InstrLoad_CLK" SIGIS="undef" SIGNAME="External_Ports_InstrLoad_CLK">
       <CONNECTIONS>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrLoad_CLK"/>
         <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="InstrLoad_CLK"/>
         <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="InstrLoad_CLK"/>
-        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrLoad_CLK"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
       <CONNECTIONS>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
         <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Reset"/>
         <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Reset"/>
-        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
         <CONNECTION INSTANCE="ProgramCounter_0" PORT="Reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="JMP_out"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -310,7 +316,7 @@
         </PORT>
         <PORT DIR="O" NAME="PC_Load" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Load">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Load"/>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="JMP"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="PC_Next" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
@@ -530,19 +536,19 @@
             <CONNECTION INSTANCE="Decoder_0" PORT="Instruction"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="PC_Count" SIGIS="undef" SIGNAME="Pipelining_Controller_0_PC_Count">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Count"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="ResetStall" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
+        <PORT DIR="I" NAME="ResolveStall" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="JMP_out"/>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Stalled" SIGIS="undef" SIGNAME="Pipelining_Controller_0_Stalled">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Stalled"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -638,6 +644,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP"/>
             <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="JMP"/>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="ResolveStall"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="MA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedMA">
@@ -860,7 +867,7 @@
         </PORT>
         <PORT DIR="O" NAME="JMP_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="ResetStall"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="led"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="RF_WE_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
@@ -913,11 +920,6 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="Count" SIGIS="undef" SIGNAME="Pipelining_Controller_0_PC_Count">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="PC_Count"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" LEFT="15" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Next"/>
@@ -929,7 +931,12 @@
             <CONNECTION INSTANCE="IROM_0" PORT="Address"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="Load" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Load">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="External_Ports_InstrExec_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="InstrExec_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Load">
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Load"/>
           </CONNECTIONS>
@@ -937,6 +944,11 @@
         <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Stalled" SIGIS="undef" SIGNAME="Pipelining_Controller_0_Stalled">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Stalled"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

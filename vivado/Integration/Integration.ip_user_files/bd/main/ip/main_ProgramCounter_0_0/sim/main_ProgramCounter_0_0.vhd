@@ -55,8 +55,9 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_ProgramCounter_0_0 IS
   PORT (
-    Count : IN STD_LOGIC;
-    Load : IN STD_LOGIC;
+    InstrExec_CLK : IN STD_LOGIC;
+    Stalled : IN STD_LOGIC;
+    JMP : IN STD_LOGIC;
     Reset : IN STD_LOGIC;
     Din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     Dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
@@ -68,8 +69,9 @@ ARCHITECTURE main_ProgramCounter_0_0_arch OF main_ProgramCounter_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_ProgramCounter_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT ProgramCounter IS
     PORT (
-      Count : IN STD_LOGIC;
-      Load : IN STD_LOGIC;
+      InstrExec_CLK : IN STD_LOGIC;
+      Stalled : IN STD_LOGIC;
+      JMP : IN STD_LOGIC;
       Reset : IN STD_LOGIC;
       Din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       Dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
@@ -77,13 +79,16 @@ ARCHITECTURE main_ProgramCounter_0_0_arch OF main_ProgramCounter_0_0 IS
   END COMPONENT ProgramCounter;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrExec_CLK: SIGNAL IS "XIL_INTERFACENAME InstrExec_CLK, ASSOCIATED_RESET Reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF InstrExec_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrExec_CLK CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF Reset: SIGNAL IS "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF Reset: SIGNAL IS "xilinx.com:signal:reset:1.0 Reset RST";
 BEGIN
   U0 : ProgramCounter
     PORT MAP (
-      Count => Count,
-      Load => Load,
+      InstrExec_CLK => InstrExec_CLK,
+      Stalled => Stalled,
+      JMP => JMP,
       Reset => Reset,
       Din => Din,
       Dout => Dout

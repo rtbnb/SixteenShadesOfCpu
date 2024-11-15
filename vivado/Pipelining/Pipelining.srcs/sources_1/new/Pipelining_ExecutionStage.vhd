@@ -83,7 +83,7 @@ begin
 
     latcher:process(InstrLoad_CLK, Reset) is
     begin
-    if Reset = '1' then
+    if (Reset = '1') then
         operand1_s <= X"0000";
         operand2_s <= X"0000";
         immediate_s <= X"0000";

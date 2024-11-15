@@ -1,0 +1,8 @@
++====================+===================+================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                            |
++====================+===================+================================================+
+| sys_clk_pin        | sys_clk_pin       | main_i/ProgramCounter_0/U0/InstrAddr_reg[15]/D |
+| sys_clk_pin        | sys_clk_pin       | main_i/ProgramCounter_0/U0/InstrAddr_reg[13]/D |
+| sys_clk_pin        | sys_clk_pin       | main_i/ProgramCounter_0/U0/InstrAddr_reg[12]/D |
+| sys_clk_pin        | sys_clk_pin       | main_i/ProgramCounter_0/U0/InstrAddr_reg[11]/D |
++--------------------+-------------------+------------------------------------------------+

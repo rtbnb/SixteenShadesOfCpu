@@ -232,7 +232,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8a706380</spirit:value>
+            <spirit:value>9:60c482d0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -244,7 +244,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:511a78b9</spirit:value>
+            <spirit:value>9:b01c91cb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -255,7 +255,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:511a78b9</spirit:value>
+            <spirit:value>9:b01c91cb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -271,11 +271,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 14 17:59:49 UTC 2024</spirit:value>
+            <spirit:value>Fri Nov 15 13:30:46 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8a706380</spirit:value>
+            <spirit:value>9:60c482d0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -291,11 +291,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 14 17:59:49 UTC 2024</spirit:value>
+            <spirit:value>Fri Nov 15 13:44:00 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:511a78b9</spirit:value>
+            <spirit:value>9:b01c91cb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -358,7 +358,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>ResetStall</spirit:name>
+        <spirit:name>ResolveStall</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -371,7 +371,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC_Count</spirit:name>
+        <spirit:name>Stalled</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
