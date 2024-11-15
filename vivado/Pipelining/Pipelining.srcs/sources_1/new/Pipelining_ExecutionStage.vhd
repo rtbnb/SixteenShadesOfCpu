@@ -83,28 +83,7 @@ begin
 
     latcher:process(InstrLoad_CLK, Reset) is
     begin
-    if rising_edge(InstrLoad_CLK) then
-        operand1_s <= Operand1;
-        operand2_s <= Operand2;
-        immediate_s <= Immediate;
-        ma_s <= MA;
-        write_address_s <= WriteAddress;
-        whb_s <= WHB;
-        wlb_s <= WLB;
-        write_data_select_s <= WriteDataSel;
-        ram_src_s <= RAM_Src;
-        ram_read_s <= RAM_Read;
-        ram_write_s <= RAM_Write;
-        use_ma_s <= Use_MA;
-        jmp_s <= JMP;
-        jmp_conditional_s <= JMP_Conditional;
-        jmp_relative_s <= JMP_Relative;
-        jmp_destination_sel_s <= JMP_DestinationSelect;
-        jmp_condition_s <= JMP_Condition;
-        is_alu_op_s <= Is_ALU_OP;
-        is_ram_op_s <= Is_RAM_OP;
-    end if;
-    if rising_edge(Reset) then
+    if Reset = '1' then
         operand1_s <= X"0000";
         operand2_s <= X"0000";
         immediate_s <= X"0000";
@@ -124,6 +103,26 @@ begin
         jmp_condition_s <= "000";
         is_alu_op_s <= '0';
         is_ram_op_s <= '0';
+    elsif rising_edge(InstrLoad_CLK) then
+        operand1_s <= Operand1;
+        operand2_s <= Operand2;
+        immediate_s <= Immediate;
+        ma_s <= MA;
+        write_address_s <= WriteAddress;
+        whb_s <= WHB;
+        wlb_s <= WLB;
+        write_data_select_s <= WriteDataSel;
+        ram_src_s <= RAM_Src;
+        ram_read_s <= RAM_Read;
+        ram_write_s <= RAM_Write;
+        use_ma_s <= Use_MA;
+        jmp_s <= JMP;
+        jmp_conditional_s <= JMP_Conditional;
+        jmp_relative_s <= JMP_Relative;
+        jmp_destination_sel_s <= JMP_DestinationSelect;
+        jmp_condition_s <= JMP_Condition;
+        is_alu_op_s <= Is_ALU_OP;
+        is_ram_op_s <= Is_RAM_OP;
     end if;
     end process latcher;
     

@@ -62,6 +62,10 @@ begin
         wait for 10 ns;
         Reset <= '1';
         wait for 10 ns;
+        InstrLoad_CLK <= '1';
+        wait for 10 ns;
+        InstrLoad_CLK <= '0';
+        wait for 10 ns;
         Reset <= '0';
         wait for 10 ns;
         WHILE true loop

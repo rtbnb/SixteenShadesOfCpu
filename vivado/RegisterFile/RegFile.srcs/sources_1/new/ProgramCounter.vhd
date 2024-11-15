@@ -44,22 +44,25 @@ entity ProgramCounter is
 end ProgramCounter;
 
 architecture Behavioral of ProgramCounter is
-    signal InstrAddr: std_logic_vector(15 downto 0) := (others => '0');
+    signal InstrAddr: std_logic_vector(15 downto 0);
+    signal combined : STD_LOGIC;
 begin
     Dout <= InstrAddr;
-    pc_p: process(Count, Load, Reset) is
+    
+    combined <= Count or Load;
+    
+    process(combined, Count, Load, Reset)
     begin
-        if rising_edge(Count) and (not Reset='1') and not rising_edge(Reset) then
-            InstrAddr <= std_logic_vector(unsigned( InstrAddr ) + 1);
-        end if;
-        
-        if rising_edge(Load) then
-            InstrAddr <= Din;
-        end if;
-        
-        if rising_edge(Reset) then
+        if Reset = '1' then
             InstrAddr <= X"0000";
+        elsif rising_edge (combined) then
+            if Count = '1' then
+                InstrAddr <= std_logic_vector(unsigned( InstrAddr ) + 1);
+            elsif Load = '1' then
+                InstrAddr <= Din;
+            end if;
         end if;
-    end process pc_p;
+    
+    end process;
 
 end Behavioral;

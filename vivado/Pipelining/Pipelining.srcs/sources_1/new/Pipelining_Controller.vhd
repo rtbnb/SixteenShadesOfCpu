@@ -179,17 +179,18 @@ begin
     
     forward_shift_register : process(InstrExec_CLK, Reset) is
     begin
-    if rising_edge(Reset) then
-        rf_forward <= "00000";
-        execution_forward <= "00000"; 
-        write_back_forward <= "00000";
-        output_forward <= "00000";
-    end if;
     if rising_edge(InstrExec_CLK) then
-        rf_forward <= input_forward;
-        execution_forward <= rf_forward; 
-        write_back_forward <= execution_forward;
-        output_forward <= write_back_forward;
+        if Reset = '1' then
+            rf_forward <= "00000";
+            execution_forward <= "00000"; 
+            write_back_forward <= "00000";
+            output_forward <= "00000";
+        else
+            rf_forward <= input_forward;
+            execution_forward <= rf_forward; 
+            write_back_forward <= execution_forward;
+            output_forward <= write_back_forward;
+        end if;
     end if;
     end process forward_shift_register;
     
