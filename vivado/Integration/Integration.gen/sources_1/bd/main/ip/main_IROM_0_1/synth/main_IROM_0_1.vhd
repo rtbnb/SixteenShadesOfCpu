@@ -46,54 +46,41 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:ProgramCounter:1.0
+-- IP VLNV: xilinx.com:module_ref:IROM:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY main_ProgramCounter_0_0 IS
+ENTITY main_IROM_0_1 IS
   PORT (
-    Count : IN STD_LOGIC;
-    Load : IN STD_LOGIC;
-    Reset : IN STD_LOGIC;
-    Din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    Dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    Address : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    Data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
-END main_ProgramCounter_0_0;
+END main_IROM_0_1;
 
-ARCHITECTURE main_ProgramCounter_0_0_arch OF main_ProgramCounter_0_0 IS
+ARCHITECTURE main_IROM_0_1_arch OF main_IROM_0_1 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_ProgramCounter_0_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT ProgramCounter IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_IROM_0_1_arch: ARCHITECTURE IS "yes";
+  COMPONENT IROM IS
     PORT (
-      Count : IN STD_LOGIC;
-      Load : IN STD_LOGIC;
-      Reset : IN STD_LOGIC;
-      Din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      Dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+      Address : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      Data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
-  END COMPONENT ProgramCounter;
+  END COMPONENT IROM;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF main_ProgramCounter_0_0_arch: ARCHITECTURE IS "ProgramCounter,Vivado 2024.1";
+  ATTRIBUTE X_CORE_INFO OF main_IROM_0_1_arch: ARCHITECTURE IS "IROM,Vivado 2024.1";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF main_ProgramCounter_0_0_arch : ARCHITECTURE IS "main_ProgramCounter_0_0,ProgramCounter,{}";
+  ATTRIBUTE CHECK_LICENSE_TYPE OF main_IROM_0_1_arch : ARCHITECTURE IS "main_IROM_0_1,IROM,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF main_ProgramCounter_0_0_arch: ARCHITECTURE IS "main_ProgramCounter_0_0,ProgramCounter,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=ProgramCounter,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
+  ATTRIBUTE CORE_GENERATION_INFO OF main_IROM_0_1_arch: ARCHITECTURE IS "main_IROM_0_1,IROM,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=IROM,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF main_ProgramCounter_0_0_arch: ARCHITECTURE IS "module_ref";
-  ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF Reset: SIGNAL IS "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF Reset: SIGNAL IS "xilinx.com:signal:reset:1.0 Reset RST";
+  ATTRIBUTE IP_DEFINITION_SOURCE OF main_IROM_0_1_arch: ARCHITECTURE IS "module_ref";
 BEGIN
-  U0 : ProgramCounter
+  U0 : IROM
     PORT MAP (
-      Count => Count,
-      Load => Load,
-      Reset => Reset,
-      Din => Din,
-      Dout => Dout
+      Address => Address,
+      Data => Data
     );
-END main_ProgramCounter_0_0_arch;
+END main_IROM_0_1_arch;

@@ -6,7 +6,7 @@
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "Hierarchical",
+      "synth_flow_mode": "None",
       "tool_version": "2024.1",
       "validated": "true"
     },
@@ -1441,8 +1441,8 @@
           "Reset",
           "Pipelining_Execution_0/Reset",
           "Pipelining_WriteBack_0/Reset",
-          "ProgramCounter_0/Reset",
-          "Pipelining_Controller_0/Reset"
+          "Pipelining_Controller_0/Reset",
+          "ProgramCounter_0/Reset"
         ]
       }
     }
