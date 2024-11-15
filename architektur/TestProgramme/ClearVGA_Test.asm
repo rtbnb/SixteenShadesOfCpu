@@ -17,6 +17,8 @@
 %define JC_Bigger 3
 %define JC_Overflow 4
 %define JC_Bool 5
+%define JC_NotZero 6
+%define JC_Unconditional 7
 
 %define TICKS_PER_FRAME 1666 ;One tick is 10us
 %define HW_INPUTS_MSB 0xff
@@ -36,9 +38,9 @@ IMH $t1, 0
 ; blue
 IML $t2, 0x0f
 IMH $t2, 0x00
-; (<<) 8
-IML $t3, 8
-IMH $t3, 0
+; 1 << 8
+IML $t3, 0
+IMH $t3, 1
 ; (+) 1
 IML $t4, 1
 IMH $t4, 0
@@ -46,16 +48,19 @@ IML $t5, VGA_WIDTH
 IMH $t5, 0
 IML $t6, VGA_HEIGHT
 IMH $t6, 0
-ALU ALU_SHL, $t1, $t3
-ALU ALU_OR, $AO, $t0
+IML $t7, 8
+IMH $t7, 0
+ALU ALU_SHL, $t6, $t7
+CR $t6, $AO
+ALU ALU_OR, $t1, $t0
 WRMr $t2, $AO, 0
 ALU ALU_ADD, $t0, $t4
 CR $t0, $AO
 ALU ALU_SUB, $t5, $t0
-JC JC_Bigger, -6
+JC JC_Bigger, -5
 IML $t0, 0
 IMH $t0, 0
-ALU ALU_ADD, $t1, $t4
+ALU ALU_ADD, $t1, $t3
 CR $t1, $AO
 ALU ALU_SUB, $t6, $t1
-JC JC_Bigger, -12
+JC JC_NotZero, -11
