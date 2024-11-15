@@ -36,8 +36,8 @@ entity Pipelining_Controller is
            InstrExec_CLK : in STD_LOGIC;
            Reset : in STD_LOGIC;
            Instruction : in STD_LOGIC_VECTOR (15 downto 0);
-           ResetStall : in STD_LOGIC;
-           PC_Count : out STD_LOGIC;
+           ResolveStall : in STD_LOGIC;
+           Stalled : out STD_LOGIC;
            InstructionForwardConfiguration : out STD_LOGIC_VECTOR (4 downto 0);
            InstructionToExecute : out STD_LOGIC_VECTOR (15 downto 0));
 end Pipelining_Controller;
@@ -74,14 +74,14 @@ architecture Behavioral of Pipelining_Controller is
     
     
     signal rf_read_buffer, execution_buffer, write_back_buffer, output_buffer : STD_LOGIC_VECTOR(15 downto 0);
-    signal stalled : STD_LOGIC := '0';
+    signal stalled_s : STD_LOGIC := '0';
     signal stall_required : STD_LOGIC;
     
     signal rf_reg_1, rf_reg_2 : STD_LOGIC_VECTOR(3 downto 0);
-    signal rf_reg_1_read, rf_reg_2_read, rf_use_ma : STD_LOGIC;
+    signal rf_reg_1_read, rf_reg_2_read, rf_use_ma, rf_jmp : STD_LOGIC;
     
     signal exc_write_reg : STD_LOGIC_VECTOR(3 downto 0);
-    signal exc_rf_whb, exc_rf_wlb, exc_alu, exc_jmp : STD_LOGIC;
+    signal exc_rf_whb, exc_rf_wlb, exc_alu : STD_LOGIC;
     
     signal reg_1_reads_flags, reg_2_reads_flags, reg_1_reads_exc_results, reg_2_reads_exc_results, ma_reads_exc_results : boolean;
     signal exc_write : boolean;
@@ -94,7 +94,8 @@ begin
     CU_Decoder_RF : CU_Decoder port map(
         Instruction => rf_read_buffer,
         Reg1Read => rf_reg_1_read,
-        Reg2Read => rf_reg_2_read
+        Reg2Read => rf_reg_2_read,
+        JMP => rf_jmp
     );
     
     Decoder_RF : Decoder port map(
@@ -108,7 +109,6 @@ begin
         Instruction => execution_buffer,
         RF_WHB => exc_rf_whb,
         RF_WLB => exc_rf_wlb,
-        JMP => exc_jmp,
         Is_ALU_OP => exc_alu
     );
     
@@ -120,37 +120,42 @@ begin
     
     InstructionToExecute <= output_buffer;
     
-    instruction_fetch_shift_register : process(InstrExec_CLK, InstrLoad_CLK, Reset) is
+    instruction_fetch_shift_register : process(InstrLoad_CLK, Reset) is
     begin
-    if rising_edge(Reset) then
+    if (Reset = '1') then
         rf_read_buffer <= X"0000";
         execution_buffer <= X"0000";
         write_back_buffer <= X"0000";
         output_buffer <= X"0000";
-    end if;
-    if (rising_edge(InstrLoad_CLK)) then
+    elsif (rising_edge(InstrLoad_CLK)) then
         output_buffer <= write_back_buffer;
         write_back_buffer <= execution_buffer;
         execution_buffer <= rf_read_buffer;
-        rf_read_buffer <= Instruction;
-    end if;
-    if (rising_edge(InstrExec_CLK) and (stalled = '1')) then
-        rf_read_buffer <= X"0000";
+        if (stalled_s = '1') then
+            rf_read_buffer <= X"0000";
+        else
+            rf_read_buffer <= Instruction;
+        end if;
     end if;
     end process instruction_fetch_shift_Register;
     
     
     staller : process(InstrExec_CLK, Reset, stall_required) is
     begin
-    if rising_edge (stall_required) then
-        stalled <= '1';
+    if (Reset = '1') then
+        stalled_s <= '0';
+    elsif (rising_edge(InstrExec_CLK)) then
+        if (stall_required = '1') then
+            stalled_s <= '1';
+        elsif (ResolveStall = '1') then
+            stalled_s <= '0';
+        else
+            stalled_s <= stalled_s;
+        end if;
     end if;
-    if (rising_edge(Reset) or (rising_edge(InstrExec_CLK) and (ResetStall = '1'))) then
-        stalled <= '0';
-    end if; 
     end process staller;
     
-    PC_Count <= InstrExec_CLK and (not stalled) and (not ResetStall);
+    stalled <= stalled_s;
     
     
     reg_1_reads_flags <= (rf_reg_1_read = '1') and (rf_reg_1 = FL);
@@ -163,7 +168,7 @@ begin
     
     exc_write <= (exc_rf_whb or exc_rf_wlb or exc_alu) = '1';
     
-    stall_required <= exc_jmp;
+    stall_required <= rf_jmp;
     
     input_forward(1 downto 0) <= 
         "11" WHEN ((exc_alu = '1') and reg_1_reads_flags) ELSE
@@ -179,18 +184,16 @@ begin
     
     forward_shift_register : process(InstrExec_CLK, Reset) is
     begin
-    if rising_edge(InstrExec_CLK) then
-        if Reset = '1' then
-            rf_forward <= "00000";
-            execution_forward <= "00000"; 
-            write_back_forward <= "00000";
-            output_forward <= "00000";
-        else
-            rf_forward <= input_forward;
-            execution_forward <= rf_forward; 
-            write_back_forward <= execution_forward;
-            output_forward <= write_back_forward;
-        end if;
+    if (Reset = '1') then
+        rf_forward <= "00000";
+        execution_forward <= "00000"; 
+        write_back_forward <= "00000";
+        output_forward <= "00000";
+    elsif rising_edge(InstrExec_CLK) then
+        rf_forward <= input_forward;
+        execution_forward <= rf_forward; 
+        write_back_forward <= execution_forward;
+        output_forward <= write_back_forward;
     end if;
     end process forward_shift_register;
     

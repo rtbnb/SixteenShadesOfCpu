@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB52060015A188518",
+      "boundary_crc": "0x8925DF2775D4200",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -49,6 +49,9 @@
       },
       "InstrLoad_CLK": {
         "direction": "I"
+      },
+      "led": {
+        "direction": "O"
       }
     },
     "components": {
@@ -81,10 +84,10 @@
             "left": "15",
             "right": "0"
           },
-          "ResetStall": {
+          "ResolveStall": {
             "direction": "I"
           },
-          "PC_Count": {
+          "Stalled": {
             "direction": "O"
           },
           "InstructionForwardConfiguration": {
@@ -111,10 +114,20 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "Count": {
+          "InstrExec_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "Stalled": {
             "direction": "I"
           },
-          "Load": {
+          "JMP": {
             "direction": "I"
           },
           "Reset": {
@@ -1125,7 +1138,7 @@
       "CU_JumpController_0_PC_Load": {
         "ports": [
           "CU_JumpController_0/PC_Load",
-          "ProgramCounter_0/Load"
+          "ProgramCounter_0/JMP"
         ]
       },
       "CU_JumpController_0_PC_Next": {
@@ -1199,17 +1212,18 @@
         "ports": [
           "InstrExec_CLK",
           "RegFile_0/clk",
-          "CU_JumpController_0/InstrExec_CLK",
           "RAM_Placeholder_0/CLK",
-          "Pipelining_Controller_0/InstrExec_CLK"
+          "CU_JumpController_0/InstrExec_CLK",
+          "Pipelining_Controller_0/InstrExec_CLK",
+          "ProgramCounter_0/InstrExec_CLK"
         ]
       },
       "InstrLoad_CLK_1": {
         "ports": [
           "InstrLoad_CLK",
+          "Pipelining_Controller_0/InstrLoad_CLK",
           "Pipelining_Execution_0/InstrLoad_CLK",
-          "Pipelining_WriteBack_0/InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK"
+          "Pipelining_WriteBack_0/InstrLoad_CLK"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -1225,10 +1239,10 @@
           "Decoder_0/Instruction"
         ]
       },
-      "Pipelining_Controller_0_PC_Count": {
+      "Pipelining_Controller_0_Stalled": {
         "ports": [
-          "Pipelining_Controller_0/PC_Count",
-          "ProgramCounter_0/Count"
+          "Pipelining_Controller_0/Stalled",
+          "ProgramCounter_0/Stalled"
         ]
       },
       "Pipelining_Execution_0_IS_ALU_OP_out": {
@@ -1274,7 +1288,8 @@
         "ports": [
           "Pipelining_Execution_0/JMP_out",
           "CU_JumpController_0/JMP",
-          "Pipelining_WriteBack_0/JMP"
+          "Pipelining_WriteBack_0/JMP",
+          "Pipelining_Controller_0/ResolveStall"
         ]
       },
       "Pipelining_Execution_0_MA_out": {
@@ -1384,7 +1399,7 @@
       "Pipelining_WriteBack_0_JMP_out": {
         "ports": [
           "Pipelining_WriteBack_0/JMP_out",
-          "Pipelining_Controller_0/ResetStall"
+          "led"
         ]
       },
       "Pipelining_WriteBack_0_RF_WE_out": {
@@ -1439,9 +1454,9 @@
       "Reset_1": {
         "ports": [
           "Reset",
+          "Pipelining_Controller_0/Reset",
           "Pipelining_Execution_0/Reset",
           "Pipelining_WriteBack_0/Reset",
-          "Pipelining_Controller_0/Reset",
           "ProgramCounter_0/Reset"
         ]
       }
