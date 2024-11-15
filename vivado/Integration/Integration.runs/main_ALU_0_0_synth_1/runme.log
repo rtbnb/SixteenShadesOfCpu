@@ -111,3 +111,238 @@ WARNING: [Synth 8-7129] Port ALU_OPP[7] in module main_ALU_0_0 is either unconne
 WARNING: [Synth 8-7129] Port ALU_OPP[6] in module main_ALU_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_OPP[5] in module main_ALU_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ALU_OPP[4] in module main_ALU_0_0 is either unconnected or has no load
+
+*** Running vivado
+    with args -log main_ALU_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source main_ALU_0_0.tcl
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Thu Nov 14 17:46:34 2024
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source main_ALU_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:37 ; elapsed = 00:00:48 . Memory (MB): peak = 491.320 ; gain = 199.020
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Vivado/2024.1/data/ip'.
+Command: synth_design -top main_ALU_0_0 -part xc7a35ticsg324-1L -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11316
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:27 ; elapsed = 00:00:50 . Memory (MB): peak = 964.863 ; gain = 450.180
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'main_ALU_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/synth/main_ALU_0_0.vhd:73]
+INFO: [Synth 8-3491] module 'ALU' declared at 'D:/FPGA_CPU/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:34' bound to instance 'U0' of component 'ALU' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/synth/main_ALU_0_0.vhd:101]
+INFO: [Synth 8-638] synthesizing module 'ALU' [D:/FPGA_CPU/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:52]
+WARNING: [Synth 8-614] signal 'ALU_OPP' is read in the process but is not in the sensitivity list [D:/FPGA_CPU/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:78]
+WARNING: [Synth 8-614] signal 'D2' is read in the process but is not in the sensitivity list [D:/FPGA_CPU/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:78]
+WARNING: [Synth 8-614] signal 'D1' is read in the process but is not in the sensitivity list [D:/FPGA_CPU/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:78]
+WARNING: [Synth 8-614] signal 'RHO_PIN' is read in the process but is not in the sensitivity list [D:/FPGA_CPU/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:78]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (0#1) [D:/FPGA_CPU/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'main_ALU_0_0' (0#1) [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/synth/main_ALU_0_0.vhd:73]
+WARNING: [Synth 8-7129] Port ALU_OPP[15] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[14] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[13] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[12] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[11] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[10] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[9] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[8] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[7] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[6] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[5] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[4] in module ALU is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:37 ; elapsed = 00:01:11 . Memory (MB): peak = 1074.539 ; gain = 559.855
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:01:14 . Memory (MB): peak = 1074.539 ; gain = 559.855
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35ticsg324-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:01:14 . Memory (MB): peak = 1074.539 ; gain = 559.855
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:01:16 . Memory (MB): peak = 1074.539 ; gain = 559.855
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   18 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 2     
+	   3 Input   17 Bit       Adders := 1     
++---XORs : 
+	   2 Input     16 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 3     
++---Muxes : 
+	   2 Input   18 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port ALU_OPP[15] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[14] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[13] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[12] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[11] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[10] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[9] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[8] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[7] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[6] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[5] in module main_ALU_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ALU_OPP[4] in module main_ALU_0_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:20 ; elapsed = 00:02:34 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:21 ; elapsed = 00:02:34 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:21 ; elapsed = 00:02:35 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    21|
+|2     |LUT1   |    18|
+|3     |LUT2   |    47|
+|4     |LUT3   |    22|
+|5     |LUT4   |    28|
+|6     |LUT5   |   129|
+|7     |LUT6   |   146|
+|8     |MUXF7  |    22|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   433|
+|2     |  U0     |ALU    |   433|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 29 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+Synthesis Optimization Complete : Time (s): cpu = 00:01:49 ; elapsed = 00:03:19 . Memory (MB): peak = 1286.520 ; gain = 771.836
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1296.504 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 43 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1360.820 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 90b488f9
+INFO: [Common 17-83] Releasing license: Synthesis
+22 Infos, 29 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:58 ; elapsed = 00:03:32 . Memory (MB): peak = 1360.820 ; gain = 854.156
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1660.402 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/FPGA_CPU/vivado/Integration/Integration.runs/main_ALU_0_0_synth_1/main_ALU_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:35 ; elapsed = 00:01:09 . Memory (MB): peak = 1660.535 ; gain = 299.715
+INFO: [Vivado 12-24828] Executing command : report_utilization -file main_ALU_0_0_utilization_synth.rpt -pb main_ALU_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 14 17:52:35 2024...

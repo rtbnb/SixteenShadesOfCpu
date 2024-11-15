@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="main_Decoder_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_Decoder_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_RegFile_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_RegFile_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_ProgramCounter_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_ProgramCounter_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_CU_ImmediateManipula_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_CU_ImmediateManipula_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_ALU_FLAG_PACKER_0_1_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_ALU_FLAG_PACKER_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_Pipelining_Controller_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_Pipelining_Controller_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_CU_JumpDestinationSe_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_CU_JumpDestinationSe_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_Pipelining_Execution_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_Pipelining_Execution_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_CU_WriteSelector_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_CU_WriteSelector_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_Pipelining_WriteBack_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_Pipelining_WriteBack_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_CU_RAMAddressControl_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_CU_RAMAddressControl_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_RAM_Placeholder_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_RAM_Placeholder_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_ALU_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_ALU_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_CU_Decoder_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_CU_Decoder_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_Pipelining_Forwarder_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_Pipelining_Forwarder_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_CU_JumpController_0_0_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_CU_JumpController_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="main_IROM_0_1_synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/main_IROM_0_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="main_Decoder_0_0_synth_1"/>
+		<Parent Id="main_RegFile_0_0_synth_1"/>
+		<Parent Id="main_ProgramCounter_0_0_synth_1"/>
+		<Parent Id="main_CU_ImmediateManipula_0_0_synth_1"/>
+		<Parent Id="main_ALU_FLAG_PACKER_0_1_synth_1"/>
+		<Parent Id="main_Pipelining_Controller_0_0_synth_1"/>
+		<Parent Id="main_CU_JumpDestinationSe_0_0_synth_1"/>
+		<Parent Id="main_Pipelining_Execution_0_0_synth_1"/>
+		<Parent Id="main_CU_WriteSelector_0_0_synth_1"/>
+		<Parent Id="main_Pipelining_WriteBack_0_0_synth_1"/>
+		<Parent Id="main_CU_RAMAddressControl_0_0_synth_1"/>
+		<Parent Id="main_RAM_Placeholder_0_0_synth_1"/>
+		<Parent Id="main_ALU_0_0_synth_1"/>
+		<Parent Id="main_CU_Decoder_0_0_synth_1"/>
+		<Parent Id="main_Pipelining_Forwarder_0_0_synth_1"/>
+		<Parent Id="main_CU_JumpController_0_0_synth_1"/>
+		<Parent Id="main_IROM_0_1_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+		<Parameter Name="general.shortenLongPath" Val="true" Type="bool"/>
+	</Parameters>
+	<ProductInfo Name="vivado"/>
+</Runs>
+

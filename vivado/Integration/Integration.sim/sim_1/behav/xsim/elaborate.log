@@ -43,7 +43,7 @@ Compiling architecture main_pipelining_forwarder_0_0_arch of entity xil_defaultl
 Compiling architecture behavioral of entity xil_defaultlib.Pipelining_WriteBackStage [pipelining_writebackstage_defaul...]
 Compiling architecture main_pipelining_writeback_0_0_arch of entity xil_defaultlib.main_Pipelining_WriteBack_0_0 [main_pipelining_writeback_0_0_de...]
 Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
-Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
+Compiling architecture main_programcounter_0_1_arch of entity xil_defaultlib.main_ProgramCounter_0_1 [main_programcounter_0_1_default]
 Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
 Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
 Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]

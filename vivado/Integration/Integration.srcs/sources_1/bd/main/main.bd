@@ -12,7 +12,6 @@
     },
     "design_tree": {
       "Pipelining_Controller_0": "",
-      "ProgramCounter_0": "",
       "CU_Decoder_0": "",
       "Decoder_0": "",
       "RegFile_0": "",
@@ -27,7 +26,8 @@
       "Pipelining_WriteBack_0": "",
       "IROM_0": "",
       "RAM_Placeholder_0": "",
-      "ALU_FLAG_PACKER_0": ""
+      "ALU_FLAG_PACKER_0": "",
+      "ProgramCounter_0": ""
     },
     "ports": {
       "Reset": {
@@ -81,10 +81,10 @@
             "left": "15",
             "right": "0"
           },
-          "ResetStall": {
+          "ResolveStall": {
             "direction": "I"
           },
-          "PC_Count": {
+          "Stalled": {
             "direction": "O"
           },
           "InstructionForwardConfiguration": {
@@ -93,40 +93,6 @@
             "right": "0"
           },
           "InstructionToExecute": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "ProgramCounter_0": {
-        "vlnv": "xilinx.com:module_ref:ProgramCounter:1.0",
-        "ip_revision": "1",
-        "xci_name": "main_ProgramCounter_0_0",
-        "xci_path": "ip\\main_ProgramCounter_0_0\\main_ProgramCounter_0_0.xci",
-        "inst_hier_path": "ProgramCounter_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "ProgramCounter",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Count": {
-            "direction": "I"
-          },
-          "Load": {
-            "direction": "I"
-          },
-          "Reset": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "Din": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "Dout": {
             "direction": "O",
             "left": "15",
             "right": "0"
@@ -986,6 +952,50 @@
             "right": "0"
           }
         }
+      },
+      "ProgramCounter_0": {
+        "vlnv": "xilinx.com:module_ref:ProgramCounter:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ProgramCounter_0_1",
+        "xci_path": "ip\\main_ProgramCounter_0_1\\main_ProgramCounter_0_1.xci",
+        "inst_hier_path": "ProgramCounter_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ProgramCounter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrExec_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "Stalled": {
+            "direction": "I"
+          },
+          "JMP": {
+            "direction": "I"
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Din": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
       }
     },
     "nets": {
@@ -1125,7 +1135,7 @@
       "CU_JumpController_0_PC_Load": {
         "ports": [
           "CU_JumpController_0/PC_Load",
-          "ProgramCounter_0/Load"
+          "ProgramCounter_0/JMP"
         ]
       },
       "CU_JumpController_0_PC_Next": {
@@ -1199,17 +1209,18 @@
         "ports": [
           "InstrExec_CLK",
           "RegFile_0/clk",
-          "CU_JumpController_0/InstrExec_CLK",
           "RAM_Placeholder_0/CLK",
-          "Pipelining_Controller_0/InstrExec_CLK"
+          "Pipelining_Controller_0/InstrExec_CLK",
+          "ProgramCounter_0/InstrExec_CLK",
+          "CU_JumpController_0/InstrExec_CLK"
         ]
       },
       "InstrLoad_CLK_1": {
         "ports": [
           "InstrLoad_CLK",
+          "Pipelining_Controller_0/InstrLoad_CLK",
           "Pipelining_Execution_0/InstrLoad_CLK",
-          "Pipelining_WriteBack_0/InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK"
+          "Pipelining_WriteBack_0/InstrLoad_CLK"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -1225,10 +1236,10 @@
           "Decoder_0/Instruction"
         ]
       },
-      "Pipelining_Controller_0_PC_Count": {
+      "Pipelining_Controller_0_Stalled": {
         "ports": [
-          "Pipelining_Controller_0/PC_Count",
-          "ProgramCounter_0/Count"
+          "Pipelining_Controller_0/Stalled",
+          "ProgramCounter_0/Stalled"
         ]
       },
       "Pipelining_Execution_0_IS_ALU_OP_out": {
@@ -1273,8 +1284,9 @@
       "Pipelining_Execution_0_JMP_out": {
         "ports": [
           "Pipelining_Execution_0/JMP_out",
-          "CU_JumpController_0/JMP",
-          "Pipelining_WriteBack_0/JMP"
+          "Pipelining_WriteBack_0/JMP",
+          "Pipelining_Controller_0/ResolveStall",
+          "CU_JumpController_0/JMP"
         ]
       },
       "Pipelining_Execution_0_MA_out": {
@@ -1381,12 +1393,6 @@
           "RegFile_0/OverwriteFl"
         ]
       },
-      "Pipelining_WriteBack_0_JMP_out": {
-        "ports": [
-          "Pipelining_WriteBack_0/JMP_out",
-          "Pipelining_Controller_0/ResetStall"
-        ]
-      },
       "Pipelining_WriteBack_0_RF_WE_out": {
         "ports": [
           "Pipelining_WriteBack_0/RF_WE_out",
@@ -1408,8 +1414,8 @@
       "ProgramCounter_0_Dout": {
         "ports": [
           "ProgramCounter_0/Dout",
-          "CU_JumpController_0/PC_Current",
-          "IROM_0/Address"
+          "IROM_0/Address",
+          "CU_JumpController_0/PC_Current"
         ]
       },
       "RAM_Placeholder_0_DataOut": {
@@ -1439,10 +1445,10 @@
       "Reset_1": {
         "ports": [
           "Reset",
+          "Pipelining_Controller_0/Reset",
           "Pipelining_Execution_0/Reset",
           "Pipelining_WriteBack_0/Reset",
-          "ProgramCounter_0/Reset",
-          "Pipelining_Controller_0/Reset"
+          "ProgramCounter_0/Reset"
         ]
       }
     }

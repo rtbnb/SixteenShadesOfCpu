@@ -70,6 +70,6 @@ begin
         X"1013" WHEN X"001a",
         X"e1e0" WHEN X"001b",
         X"1161" WHEN X"001c",
-        X"87f5" WHEN X"001d",
+        X"8df5" WHEN X"001d",
         X"0000" WHEN OTHERS;
 end Behavioral;

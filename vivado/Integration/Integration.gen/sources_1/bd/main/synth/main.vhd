@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 14 16:10:23 2024
+--Date        : Fri Nov 15 11:21:27 2024
 --Host        : 8x8-Bit running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
@@ -31,21 +31,12 @@ architecture STRUCTURE of main is
     InstrExec_CLK : in STD_LOGIC;
     Reset : in STD_LOGIC;
     Instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    ResetStall : in STD_LOGIC;
-    PC_Count : out STD_LOGIC;
+    ResolveStall : in STD_LOGIC;
+    Stalled : out STD_LOGIC;
     InstructionForwardConfiguration : out STD_LOGIC_VECTOR ( 4 downto 0 );
     InstructionToExecute : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_Pipelining_Controller_0_0;
-  component main_ProgramCounter_0_0 is
-  port (
-    Count : in STD_LOGIC;
-    Load : in STD_LOGIC;
-    Reset : in STD_LOGIC;
-    Din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    Dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component main_ProgramCounter_0_0;
   component main_CU_Decoder_0_0 is
   port (
     Instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -263,6 +254,16 @@ architecture STRUCTURE of main is
     ALU_FLAGS : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_ALU_FLAG_PACKER_0_1;
+  component main_ProgramCounter_0_1 is
+  port (
+    InstrExec_CLK : in STD_LOGIC;
+    Stalled : in STD_LOGIC;
+    JMP : in STD_LOGIC;
+    Reset : in STD_LOGIC;
+    Din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component main_ProgramCounter_0_1;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ALU_0_BIGGER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_CARRY_FLAG : STD_LOGIC;
@@ -301,7 +302,7 @@ architecture STRUCTURE of main is
   signal InstrLoad_CLK_1 : STD_LOGIC;
   signal Pipelining_Controller_0_InstructionForwardConfiguration : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal Pipelining_Controller_0_InstructionToExecute : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal Pipelining_Controller_0_PC_Count : STD_LOGIC;
+  signal Pipelining_Controller_0_Stalled : STD_LOGIC;
   signal Pipelining_Execution_0_IS_ALU_OP_out : STD_LOGIC;
   signal Pipelining_Execution_0_Immediate_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_JMP_Condition_out : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -325,7 +326,6 @@ architecture STRUCTURE of main is
   signal Pipelining_Forwarder_0_ForwardedOperand2 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_WriteBack_0_Flags_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_WriteBack_0_Is_ALU_OP_out : STD_LOGIC;
-  signal Pipelining_WriteBack_0_JMP_out : STD_LOGIC;
   signal Pipelining_WriteBack_0_RF_WE_out : STD_LOGIC;
   signal Pipelining_WriteBack_0_WriteAddress_out : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Pipelining_WriteBack_0_WriteData_out : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -338,6 +338,7 @@ architecture STRUCTURE of main is
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
+  signal NLW_Pipelining_WriteBack_0_JMP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_RegFile_0_BankID_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
@@ -459,9 +460,9 @@ Pipelining_Controller_0: component main_Pipelining_Controller_0_0
       Instruction(15 downto 0) => IROM_0_Data(15 downto 0),
       InstructionForwardConfiguration(4 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(4 downto 0),
       InstructionToExecute(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
-      PC_Count => Pipelining_Controller_0_PC_Count,
       Reset => Reset_1,
-      ResetStall => Pipelining_WriteBack_0_JMP_out
+      ResolveStall => Pipelining_Execution_0_JMP_out,
+      Stalled => Pipelining_Controller_0_Stalled
     );
 Pipelining_Execution_0: component main_Pipelining_Execution_0_0
      port map (
@@ -526,7 +527,7 @@ Pipelining_WriteBack_0: component main_Pipelining_WriteBack_0_0
       Is_ALU_OP => Pipelining_Execution_0_IS_ALU_OP_out,
       Is_ALU_OP_out => Pipelining_WriteBack_0_Is_ALU_OP_out,
       JMP => Pipelining_Execution_0_JMP_out,
-      JMP_out => Pipelining_WriteBack_0_JMP_out,
+      JMP_out => NLW_Pipelining_WriteBack_0_JMP_out_UNCONNECTED,
       RF_WE_out => Pipelining_WriteBack_0_RF_WE_out,
       Reset => Reset_1,
       WHB => Pipelining_Execution_0_WHB_out,
@@ -536,13 +537,14 @@ Pipelining_WriteBack_0: component main_Pipelining_WriteBack_0_0
       WriteData(15 downto 0) => CU_WriteSelector_0_Write_Data(15 downto 0),
       WriteData_out(15 downto 0) => Pipelining_WriteBack_0_WriteData_out(15 downto 0)
     );
-ProgramCounter_0: component main_ProgramCounter_0_0
+ProgramCounter_0: component main_ProgramCounter_0_1
      port map (
-      Count => Pipelining_Controller_0_PC_Count,
       Din(15 downto 0) => CU_JumpController_0_PC_Next(15 downto 0),
       Dout(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
-      Load => CU_JumpController_0_PC_Load,
-      Reset => Reset_1
+      InstrExec_CLK => InstrExec_CLK_1,
+      JMP => CU_JumpController_0_PC_Load,
+      Reset => Reset_1,
+      Stalled => Pipelining_Controller_0_Stalled
     );
 RAM_Placeholder_0: component main_RAM_Placeholder_0_0
      port map (

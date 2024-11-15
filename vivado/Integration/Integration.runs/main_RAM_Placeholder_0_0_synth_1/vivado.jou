@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu Nov 14 17:46:20 2024
+# Process ID: 17180
+# Current directory: D:/FPGA_CPU/vivado/Integration/Integration.runs/main_RAM_Placeholder_0_0_synth_1
+# Command line: vivado.exe -log main_RAM_Placeholder_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main_RAM_Placeholder_0_0.tcl
+# Log file: D:/FPGA_CPU/vivado/Integration/Integration.runs/main_RAM_Placeholder_0_0_synth_1/main_RAM_Placeholder_0_0.vds
+# Journal file: D:/FPGA_CPU/vivado/Integration/Integration.runs/main_RAM_Placeholder_0_0_synth_1\vivado.jou
+# Running On        :8x8-Bit
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :Intel(R) Core(TM) m3-8100Y CPU @ 1.10GHz
+# CPU Frequency     :1608 MHz
+# CPU Physical cores:2
+# CPU Logical cores :4
+# Host memory       :8453 MB
+# Swap memory       :11099 MB
+# Total Virtual     :19552 MB
+# Available Virtual :4095 MB
+#-----------------------------------------------------------
+source main_RAM_Placeholder_0_0.tcl -notrace

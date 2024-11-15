@@ -65,7 +65,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0847edcd</spirit:value>
+            <spirit:value>f9d2033e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -78,7 +78,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0847edcd</spirit:value>
+            <spirit:value>f9d2033e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -149,7 +149,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>ResetStall</spirit:name>
+        <spirit:name>ResolveStall</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -162,7 +162,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PC_Count</spirit:name>
+        <spirit:name>Stalled</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -243,7 +243,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-11-14T14:45:34Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2024-11-15T09:16:42Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2024.1</xilinx:xilinxVersion>

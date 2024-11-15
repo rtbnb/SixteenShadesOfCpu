@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="22,272.750 ns"></ZoomStartTime>
-      <ZoomEndTime time="22,332.401 ns"></ZoomEndTime>
-      <Cursor1Time time="22,295.000 ns"></Cursor1Time>
+      <ZoomStartTime time="3,014,694.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="3,015,893.001 ns"></ZoomEndTime>
+      <Cursor1Time time="3,015,195.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="182"></NameColumnWidth>
+      <NameColumnWidth column_width="176"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="33" />
+   <WVObjectSize size="34" />
    <wvobject fp_name="/mainSim/InstrExec_CLK" type="logic">
       <obj_property name="ElementShortName">InstrExec_CLK</obj_property>
       <obj_property name="ObjectShortName">InstrExec_CLK</obj_property>
@@ -135,20 +135,24 @@
       <obj_property name="ElementShortName">RegF[15:0]</obj_property>
       <obj_property name="ObjectShortName">RegF[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/stalled" type="logic">
-      <obj_property name="ElementShortName">stalled</obj_property>
-      <obj_property name="ObjectShortName">stalled</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/Stalled" type="logic">
+      <obj_property name="ElementShortName">Stalled</obj_property>
+      <obj_property name="ObjectShortName">Stalled</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/stall_required" type="logic">
       <obj_property name="ElementShortName">stall_required</obj_property>
       <obj_property name="ObjectShortName">stall_required</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/ResetStall" type="logic">
-      <obj_property name="ElementShortName">ResetStall</obj_property>
-      <obj_property name="ObjectShortName">ResetStall</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_i/CU_JumpController_0/U0/Flags" type="array">
+      <obj_property name="ElementShortName">Flags[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Flags[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/PC_Count" type="logic">
-      <obj_property name="ElementShortName">PC_Count</obj_property>
-      <obj_property name="ObjectShortName">PC_Count</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_i/CU_JumpController_0/U0/PC_Load" type="logic">
+      <obj_property name="ElementShortName">PC_Load</obj_property>
+      <obj_property name="ObjectShortName">PC_Load</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/CU_JumpController_0/U0/PC_Next" type="array">
+      <obj_property name="ElementShortName">PC_Next[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_Next[15:0]</obj_property>
    </wvobject>
 </wave_config>
