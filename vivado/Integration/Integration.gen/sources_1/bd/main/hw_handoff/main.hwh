@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 15 11:21:30 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 15 11:40:04 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -26,6 +26,11 @@
         <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Reset"/>
         <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Reset"/>
         <CONNECTION INSTANCE="ProgramCounter_0" PORT="Reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="JMP_out"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -860,7 +865,11 @@
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="JMP_out" SIGIS="undef"/>
+        <PORT DIR="O" NAME="JMP_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="RF_WE_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RegFile_0" PORT="WE"/>

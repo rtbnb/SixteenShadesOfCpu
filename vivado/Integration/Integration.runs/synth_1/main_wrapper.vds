@@ -1,0 +1,353 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Fri Nov 15 11:46:20 2024
+# Process ID: 2092
+# Current directory: D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1
+# Command line: vivado.exe -log main_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main_wrapper.tcl
+# Log file: D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/main_wrapper.vds
+# Journal file: D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1\vivado.jou
+# Running On        :8x8-Bit
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :Intel(R) Core(TM) m3-8100Y CPU @ 1.10GHz
+# CPU Frequency     :1608 MHz
+# CPU Physical cores:2
+# CPU Logical cores :4
+# Host memory       :8453 MB
+# Swap memory       :11126 MB
+# Total Virtual     :19579 MB
+# Available Virtual :3979 MB
+#-----------------------------------------------------------
+source main_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 493.293 ; gain = 199.824
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Vivado/2024.1/data/ip'.
+Command: read_checkpoint -auto_incremental -incremental D:/FPGA_CPU/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from D:/FPGA_CPU/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top main_wrapper -part xc7a35ticsg324-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11408
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:14 . Memory (MB): peak = 1358.051 ; gain = 449.988
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'main_wrapper' [D:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd:24]
+INFO: [Synth 8-3491] module 'main' declared at 'd:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:15' bound to instance 'main_i' of component 'main' [D:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd:34]
+INFO: [Synth 8-638] synthesizing module 'main' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:28]
+INFO: [Synth 8-3491] module 'main_ALU_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_ALU_0_0_stub.vhdl:6' bound to instance 'ALU_0' of component 'main_ALU_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:353]
+INFO: [Synth 8-638] synthesizing module 'main_ALU_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_ALU_0_0_stub.vhdl:24]
+INFO: [Synth 8-3491] module 'main_ALU_FLAG_PACKER_0_1' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_ALU_FLAG_PACKER_0_1_stub.vhdl:6' bound to instance 'ALU_FLAG_PACKER_0' of component 'main_ALU_FLAG_PACKER_0_1' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:368]
+INFO: [Synth 8-638] synthesizing module 'main_ALU_FLAG_PACKER_0_1' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_ALU_FLAG_PACKER_0_1_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'main_CU_Decoder_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_Decoder_0_0_stub.vhdl:6' bound to instance 'CU_Decoder_0' of component 'main_CU_Decoder_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:379]
+INFO: [Synth 8-638] synthesizing module 'main_CU_Decoder_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_Decoder_0_0_stub.vhdl:27]
+INFO: [Synth 8-3491] module 'main_CU_ImmediateManipula_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_ImmediateManipula_0_0_stub.vhdl:6' bound to instance 'CU_ImmediateManipula_0' of component 'main_CU_ImmediateManipula_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:397]
+INFO: [Synth 8-638] synthesizing module 'main_CU_ImmediateManipula_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_ImmediateManipula_0_0_stub.vhdl:17]
+INFO: [Synth 8-3491] module 'main_CU_JumpController_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_JumpController_0_0_stub.vhdl:6' bound to instance 'CU_JumpController_0' of component 'main_CU_JumpController_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:405]
+INFO: [Synth 8-638] synthesizing module 'main_CU_JumpController_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_JumpController_0_0_stub.vhdl:22]
+INFO: [Synth 8-3491] module 'main_CU_JumpDestinationSe_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_JumpDestinationSe_0_0_stub.vhdl:6' bound to instance 'CU_JumpDestinationSe_0' of component 'main_CU_JumpDestinationSe_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:418]
+INFO: [Synth 8-638] synthesizing module 'main_CU_JumpDestinationSe_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_JumpDestinationSe_0_0_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'main_CU_RAMAddressControl_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_RAMAddressControl_0_0_stub.vhdl:6' bound to instance 'CU_RAMAddressControl_0' of component 'main_CU_RAMAddressControl_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:425]
+INFO: [Synth 8-638] synthesizing module 'main_CU_RAMAddressControl_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_RAMAddressControl_0_0_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'main_CU_WriteSelector_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_WriteSelector_0_0_stub.vhdl:6' bound to instance 'CU_WriteSelector_0' of component 'main_CU_WriteSelector_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:434]
+INFO: [Synth 8-638] synthesizing module 'main_CU_WriteSelector_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_CU_WriteSelector_0_0_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'main_Decoder_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Decoder_0_0_stub.vhdl:6' bound to instance 'Decoder_0' of component 'main_Decoder_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:443]
+INFO: [Synth 8-638] synthesizing module 'main_Decoder_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Decoder_0_0_stub.vhdl:19]
+INFO: [Synth 8-3491] module 'main_IROM_0_1' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_IROM_0_1_stub.vhdl:6' bound to instance 'IROM_0' of component 'main_IROM_0_1' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:453]
+INFO: [Synth 8-638] synthesizing module 'main_IROM_0_1' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_IROM_0_1_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'main_Pipelining_Controller_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Pipelining_Controller_0_0_stub.vhdl:6' bound to instance 'Pipelining_Controller_0' of component 'main_Pipelining_Controller_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:458]
+INFO: [Synth 8-638] synthesizing module 'main_Pipelining_Controller_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Pipelining_Controller_0_0_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'main_Pipelining_Execution_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Pipelining_Execution_0_0_stub.vhdl:6' bound to instance 'Pipelining_Execution_0' of component 'main_Pipelining_Execution_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:469]
+INFO: [Synth 8-638] synthesizing module 'main_Pipelining_Execution_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Pipelining_Execution_0_0_stub.vhdl:52]
+INFO: [Synth 8-3491] module 'main_Pipelining_Forwarder_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Pipelining_Forwarder_0_0_stub.vhdl:6' bound to instance 'Pipelining_Forwarder_0' of component 'main_Pipelining_Forwarder_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:512]
+INFO: [Synth 8-638] synthesizing module 'main_Pipelining_Forwarder_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Pipelining_Forwarder_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'main_Pipelining_WriteBack_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Pipelining_WriteBack_0_0_stub.vhdl:6' bound to instance 'Pipelining_WriteBack_0' of component 'main_Pipelining_WriteBack_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:524]
+INFO: [Synth 8-638] synthesizing module 'main_Pipelining_WriteBack_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_Pipelining_WriteBack_0_0_stub.vhdl:27]
+INFO: [Synth 8-3491] module 'main_ProgramCounter_0_1' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_ProgramCounter_0_1_stub.vhdl:6' bound to instance 'ProgramCounter_0' of component 'main_ProgramCounter_0_1' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:542]
+INFO: [Synth 8-638] synthesizing module 'main_ProgramCounter_0_1' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_ProgramCounter_0_1_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'main_RAM_Placeholder_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_RAM_Placeholder_0_0_stub.vhdl:6' bound to instance 'RAM_Placeholder_0' of component 'main_RAM_Placeholder_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:551]
+INFO: [Synth 8-638] synthesizing module 'main_RAM_Placeholder_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_RAM_Placeholder_0_0_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'main_RegFile_0_0' declared at 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_RegFile_0_0_stub.vhdl:6' bound to instance 'RegFile_0' of component 'main_RegFile_0_0' [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:560]
+INFO: [Synth 8-638] synthesizing module 'main_RegFile_0_0' [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/.Xil/Vivado-2092-8x8-Bit/realtime/main_RegFile_0_0_stub.vhdl:24]
+INFO: [Synth 8-256] done synthesizing module 'main' (0#1) [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'main_wrapper' (0#1) [D:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd:24]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1468.680 ; gain = 560.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1468.680 ; gain = 560.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1468.680 ; gain = 560.617
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1468.680 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Controller_0_0/main_Pipelining_Controller_0_0/main_Pipelining_Controller_0_0_in_context.xdc] for cell 'main_i/Pipelining_Controller_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Controller_0_0/main_Pipelining_Controller_0_0/main_Pipelining_Controller_0_0_in_context.xdc] for cell 'main_i/Pipelining_Controller_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_Decoder_0_0/main_CU_Decoder_0_0/main_CU_Decoder_0_0_in_context.xdc] for cell 'main_i/CU_Decoder_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_Decoder_0_0/main_CU_Decoder_0_0/main_CU_Decoder_0_0_in_context.xdc] for cell 'main_i/CU_Decoder_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0/main_Decoder_0_0/main_Decoder_0_0_in_context.xdc] for cell 'main_i/Decoder_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0/main_Decoder_0_0/main_Decoder_0_0_in_context.xdc] for cell 'main_i/Decoder_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RegFile_0_0/main_RegFile_0_0/main_RegFile_0_0_in_context.xdc] for cell 'main_i/RegFile_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RegFile_0_0/main_RegFile_0_0/main_RegFile_0_0_in_context.xdc] for cell 'main_i/RegFile_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Forwarder_0_0/main_Pipelining_Forwarder_0_0/main_Pipelining_Forwarder_0_0_in_context.xdc] for cell 'main_i/Pipelining_Forwarder_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Forwarder_0_0/main_Pipelining_Forwarder_0_0/main_Pipelining_Forwarder_0_0_in_context.xdc] for cell 'main_i/Pipelining_Forwarder_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Execution_0_0/main_Pipelining_Execution_0_0/main_Pipelining_Execution_0_0_in_context.xdc] for cell 'main_i/Pipelining_Execution_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Execution_0_0/main_Pipelining_Execution_0_0/main_Pipelining_Execution_0_0_in_context.xdc] for cell 'main_i/Pipelining_Execution_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_RAMAddressControl_0_0/main_CU_RAMAddressControl_0_0/main_CU_RAMAddressControl_0_0_in_context.xdc] for cell 'main_i/CU_RAMAddressControl_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_RAMAddressControl_0_0/main_CU_RAMAddressControl_0_0/main_CU_RAMAddressControl_0_0_in_context.xdc] for cell 'main_i/CU_RAMAddressControl_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/main_ALU_0_0/main_ALU_0_0_in_context.xdc] for cell 'main_i/ALU_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/main_ALU_0_0/main_ALU_0_0_in_context.xdc] for cell 'main_i/ALU_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_ImmediateManipula_0_0/main_CU_ImmediateManipula_0_0/main_CU_ImmediateManipula_0_0_in_context.xdc] for cell 'main_i/CU_ImmediateManipula_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_ImmediateManipula_0_0/main_CU_ImmediateManipula_0_0/main_CU_ImmediateManipula_0_0_in_context.xdc] for cell 'main_i/CU_ImmediateManipula_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpDestinationSe_0_0/main_CU_JumpDestinationSe_0_0/main_CU_JumpDestinationSe_0_0_in_context.xdc] for cell 'main_i/CU_JumpDestinationSe_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpDestinationSe_0_0/main_CU_JumpDestinationSe_0_0/main_CU_JumpDestinationSe_0_0_in_context.xdc] for cell 'main_i/CU_JumpDestinationSe_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpController_0_0/main_CU_JumpController_0_0/main_CU_JumpController_0_0_in_context.xdc] for cell 'main_i/CU_JumpController_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpController_0_0/main_CU_JumpController_0_0/main_CU_JumpController_0_0_in_context.xdc] for cell 'main_i/CU_JumpController_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_WriteSelector_0_0/main_CU_WriteSelector_0_0/main_CU_WriteSelector_0_0_in_context.xdc] for cell 'main_i/CU_WriteSelector_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_WriteSelector_0_0/main_CU_WriteSelector_0_0/main_CU_WriteSelector_0_0_in_context.xdc] for cell 'main_i/CU_WriteSelector_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_WriteBack_0_0/main_Pipelining_WriteBack_0_0/main_Pipelining_WriteBack_0_0_in_context.xdc] for cell 'main_i/Pipelining_WriteBack_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_WriteBack_0_0/main_Pipelining_WriteBack_0_0/main_Pipelining_WriteBack_0_0_in_context.xdc] for cell 'main_i/Pipelining_WriteBack_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_IROM_0_1/main_IROM_0_1/main_IROM_0_1_in_context.xdc] for cell 'main_i/IROM_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_IROM_0_1/main_IROM_0_1/main_IROM_0_1_in_context.xdc] for cell 'main_i/IROM_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RAM_Placeholder_0_0/main_RAM_Placeholder_0_0/main_RAM_Placeholder_0_0_in_context.xdc] for cell 'main_i/RAM_Placeholder_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RAM_Placeholder_0_0/main_RAM_Placeholder_0_0/main_RAM_Placeholder_0_0_in_context.xdc] for cell 'main_i/RAM_Placeholder_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_FLAG_PACKER_0_1/main_ALU_FLAG_PACKER_0_1/main_ALU_FLAG_PACKER_0_1_in_context.xdc] for cell 'main_i/ALU_FLAG_PACKER_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_FLAG_PACKER_0_1/main_ALU_FLAG_PACKER_0_1/main_ALU_FLAG_PACKER_0_1_in_context.xdc] for cell 'main_i/ALU_FLAG_PACKER_0'
+Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ProgramCounter_0_1/main_ProgramCounter_0_1/main_ProgramCounter_0_1_in_context.xdc] for cell 'main_i/ProgramCounter_0'
+Finished Parsing XDC File [d:/FPGA_CPU/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ProgramCounter_0_1/main_ProgramCounter_0_1/main_ProgramCounter_0_1_in_context.xdc] for cell 'main_i/ProgramCounter_0'
+Parsing XDC File [D:/FPGA_CPU/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+WARNING: [Vivado 12-584] No ports matched 'InstrLoad_CLK'. [D:/FPGA_CPU/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc:3]
+WARNING: [Vivado 12-584] No ports matched 'InstrExec_CLK'. [D:/FPGA_CPU/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc:4]
+Finished Parsing XDC File [D:/FPGA_CPU/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/FPGA_CPU/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/main_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/FPGA_CPU/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/main_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1482.637 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1482.637 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:37 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35ticsg324-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:37 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for main_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/Pipelining_Controller_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/CU_Decoder_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/Decoder_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/RegFile_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/Pipelining_Forwarder_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/Pipelining_Execution_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/CU_RAMAddressControl_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/ALU_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/CU_ImmediateManipula_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/CU_JumpDestinationSe_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/CU_JumpController_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/CU_WriteSelector_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/Pipelining_WriteBack_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/IROM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/RAM_Placeholder_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/ALU_FLAG_PACKER_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/ProgramCounter_0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:37 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:38 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:58 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:58 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:58 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:01:08 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:01:08 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:01:08 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:01:08 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:01:08 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:01:08 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-------------------------------+----------+
+|      |BlackBox name                  |Instances |
++------+-------------------------------+----------+
+|1     |main_ALU_0_0                   |         1|
+|2     |main_ALU_FLAG_PACKER_0_1       |         1|
+|3     |main_CU_Decoder_0_0            |         1|
+|4     |main_CU_ImmediateManipula_0_0  |         1|
+|5     |main_CU_JumpController_0_0     |         1|
+|6     |main_CU_JumpDestinationSe_0_0  |         1|
+|7     |main_CU_RAMAddressControl_0_0  |         1|
+|8     |main_CU_WriteSelector_0_0      |         1|
+|9     |main_Decoder_0_0               |         1|
+|10    |main_IROM_0_1                  |         1|
+|11    |main_Pipelining_Controller_0_0 |         1|
+|12    |main_Pipelining_Execution_0_0  |         1|
+|13    |main_Pipelining_Forwarder_0_0  |         1|
+|14    |main_Pipelining_WriteBack_0_0  |         1|
+|15    |main_ProgramCounter_0_1        |         1|
+|16    |main_RAM_Placeholder_0_0       |         1|
+|17    |main_RegFile_0_0               |         1|
++------+-------------------------------+----------+
+
+Report Cell Usage: 
++------+------------------------------------+------+
+|      |Cell                                |Count |
++------+------------------------------------+------+
+|1     |main_ALU_0_0_bbox                   |     1|
+|2     |main_ALU_FLAG_PACKER_0_1_bbox       |     1|
+|3     |main_CU_Decoder_0_0_bbox            |     1|
+|4     |main_CU_ImmediateManipula_0_0_bbox  |     1|
+|5     |main_CU_JumpController_0_0_bbox     |     1|
+|6     |main_CU_JumpDestinationSe_0_0_bbox  |     1|
+|7     |main_CU_RAMAddressControl_0_0_bbox  |     1|
+|8     |main_CU_WriteSelector_0_0_bbox      |     1|
+|9     |main_Decoder_0_0_bbox               |     1|
+|10    |main_IROM_0_1_bbox                  |     1|
+|11    |main_Pipelining_Controller_0_0_bbox |     1|
+|12    |main_Pipelining_Execution_0_0_bbox  |     1|
+|13    |main_Pipelining_Forwarder_0_0_bbox  |     1|
+|14    |main_Pipelining_WriteBack_0_0_bbox  |     1|
+|15    |main_ProgramCounter_0_1_bbox        |     1|
+|16    |main_RAM_Placeholder_0_0_bbox       |     1|
+|17    |main_RegFile_0_0_bbox               |     1|
+|18    |IBUF                                |     3|
+|19    |OBUF                                |     1|
++------+------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:01:08 . Memory (MB): peak = 1482.637 ; gain = 574.574
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:01:05 . Memory (MB): peak = 1482.637 ; gain = 560.617
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:01:09 . Memory (MB): peak = 1482.637 ; gain = 574.574
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1482.637 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1482.637 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 7258795d
+INFO: [Common 17-83] Releasing license: Synthesis
+62 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:01:21 . Memory (MB): peak = 1482.637 ; gain = 973.332
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1482.637 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/FPGA_CPU/vivado/Integration/Integration.runs/synth_1/main_wrapper.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file main_wrapper_utilization_synth.rpt -pb main_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 15 11:48:08 2024...

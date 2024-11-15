@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 15 11:21:27 2024
+--Date        : Fri Nov 15 11:40:03 2024
 --Host        : 8x8-Bit running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
@@ -16,7 +16,8 @@ entity main is
   port (
     InstrExec_CLK : in STD_LOGIC;
     InstrLoad_CLK : in STD_LOGIC;
-    Reset : in STD_LOGIC
+    Reset : in STD_LOGIC;
+    led : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
   attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=17,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=Hierarchical}";
@@ -326,6 +327,7 @@ architecture STRUCTURE of main is
   signal Pipelining_Forwarder_0_ForwardedOperand2 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_WriteBack_0_Flags_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_WriteBack_0_Is_ALU_OP_out : STD_LOGIC;
+  signal Pipelining_WriteBack_0_JMP_out : STD_LOGIC;
   signal Pipelining_WriteBack_0_RF_WE_out : STD_LOGIC;
   signal Pipelining_WriteBack_0_WriteAddress_out : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Pipelining_WriteBack_0_WriteData_out : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -338,7 +340,6 @@ architecture STRUCTURE of main is
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_Pipelining_WriteBack_0_JMP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_RegFile_0_BankID_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
@@ -348,6 +349,7 @@ begin
   InstrExec_CLK_1 <= InstrExec_CLK;
   InstrLoad_CLK_1 <= InstrLoad_CLK;
   Reset_1 <= Reset;
+  led <= Pipelining_WriteBack_0_JMP_out;
 ALU_0: component main_ALU_0_0
      port map (
       ALU_OPP(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
@@ -527,7 +529,7 @@ Pipelining_WriteBack_0: component main_Pipelining_WriteBack_0_0
       Is_ALU_OP => Pipelining_Execution_0_IS_ALU_OP_out,
       Is_ALU_OP_out => Pipelining_WriteBack_0_Is_ALU_OP_out,
       JMP => Pipelining_Execution_0_JMP_out,
-      JMP_out => NLW_Pipelining_WriteBack_0_JMP_out_UNCONNECTED,
+      JMP_out => Pipelining_WriteBack_0_JMP_out,
       RF_WE_out => Pipelining_WriteBack_0_RF_WE_out,
       Reset => Reset_1,
       WHB => Pipelining_Execution_0_WHB_out,

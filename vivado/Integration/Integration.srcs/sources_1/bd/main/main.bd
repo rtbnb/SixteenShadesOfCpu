@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB52060015A188518",
+      "boundary_crc": "0x8925DF2775D4200",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -49,6 +49,9 @@
       },
       "InstrLoad_CLK": {
         "direction": "I"
+      },
+      "led": {
+        "direction": "O"
       }
     },
     "components": {
@@ -1391,6 +1394,12 @@
         "ports": [
           "Pipelining_WriteBack_0/Is_ALU_OP_out",
           "RegFile_0/OverwriteFl"
+        ]
+      },
+      "Pipelining_WriteBack_0_JMP_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/JMP_out",
+          "led"
         ]
       },
       "Pipelining_WriteBack_0_RF_WE_out": {
