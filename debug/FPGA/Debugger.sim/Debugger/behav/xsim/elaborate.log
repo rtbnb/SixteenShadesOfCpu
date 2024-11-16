@@ -1,0 +1,24 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot DebugSim_behav xil_defaultlib.DebugSim -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
+Compiling architecture design_1_debugger_0_0_arch of entity xil_defaultlib.design_1_Debugger_0_0 [design_1_debugger_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
+Compiling architecture design_1_rx_uart_0_0_arch of entity xil_defaultlib.design_1_RX_UART_0_0 [design_1_rx_uart_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
+Compiling architecture design_1_tx_uart_0_0_arch of entity xil_defaultlib.design_1_TX_UART_0_0 [design_1_tx_uart_0_0_default]
+Compiling architecture structure of entity xil_defaultlib.design_1 [design_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.debugsim
+Built simulation snapshot DebugSim_behav

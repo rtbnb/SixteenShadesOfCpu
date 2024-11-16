@@ -1,0 +1,10 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RX_UART'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_RX_UART_0_0/sim/design_1_RX_UART_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_RX_UART_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_Debugger_0_0/sim/design_1_Debugger_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_Debugger_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_TX_UART_0_0/sim/design_1_TX_UART_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_TX_UART_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/sim/design_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1'

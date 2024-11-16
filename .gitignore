@@ -1,2 +1,5 @@
 .idea
 */**/*.pb
+
+# debug
+debug/Host/.venv/
