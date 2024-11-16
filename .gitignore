@@ -1,3 +1,6 @@
 .idea
 */**/*.pb
 **/~*.xlsx
+
+# debug
+debug/Host/.venv/

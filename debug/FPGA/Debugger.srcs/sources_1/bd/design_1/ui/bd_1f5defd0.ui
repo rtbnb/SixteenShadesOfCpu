@@ -1,0 +1,30 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-811,-635",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0 threadsafe
+#  -string -flagsOSRD
+preplace port port-id_CLK100MHZ -pg 1 -lvl 0 -x -380 -y -300 -defaultsOSRD
+preplace port port-id_rx_data_in -pg 1 -lvl 0 -x -380 -y -120 -defaultsOSRD
+preplace port port-id_tx_data_out -pg 1 -lvl 3 -x 630 -y -330 -defaultsOSRD
+preplace port port-id_b1 -pg 1 -lvl 0 -x -380 -y -390 -defaultsOSRD
+preplace portBus led -pg 1 -lvl 3 -x 630 -y -390 -defaultsOSRD
+preplace inst TX_UART_0 -pg 1 -lvl 1 -x -180 -y -320 -defaultsOSRD
+preplace inst Debugger_0 -pg 1 -lvl 2 -x 180 -y -160 -defaultsOSRD
+preplace inst RX_UART_0 -pg 1 -lvl 1 -x -180 -y -90 -defaultsOSRD
+preplace netloc CLK100MHZ_1 1 0 2 -340 -200 N
+preplace netloc TX_UART_0_tx_output 1 1 2 NJ -330 N
+preplace netloc rx_data_in_1 1 0 1 -360 -120n
+preplace netloc RX_UART_0_data_output 1 1 1 -10 -160n
+preplace netloc RX_UART_0_data_valid 1 1 1 0 -140n
+preplace netloc TX_UART_0_send_valid 1 1 1 -20 -310n
+preplace netloc Debugger_0_tx_data_valid 1 0 3 -330 -410 NJ -410 340
+preplace netloc Debugger_0_tx_data 1 0 3 -330 -240 -30J -260 330
+preplace netloc Debugger_0_led 1 2 1 350 -390n
+preplace netloc b1_1 1 0 2 -350J -400 0
+levelinfo -pg 1 -380 -180 180 630
+pagesize -pg 1 -db -bbox -sgen -520 -610 760 140
+"
+}
+0
