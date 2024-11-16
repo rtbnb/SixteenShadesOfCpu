@@ -55,7 +55,6 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module main_block_blk_mem_gen_1_0 (
   clka,
-  ena,
   wea,
   addra,
   dina,
@@ -64,8 +63,6 @@ module main_block_blk_mem_gen_1_0 (
 
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *)
 input wire clka;
-(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA EN" *)
-input wire ena;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA WE" *)
 input wire [0 : 0] wea;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *)
@@ -90,18 +87,18 @@ output wire [15 : 0] douta;
     .C_AXI_ID_WIDTH(4),
     .C_MEM_TYPE(0),
     .C_BYTE_SIZE(9),
-    .C_ALGORITHM(0),
+    .C_ALGORITHM(1),
     .C_PRIM_TYPE(1),
     .C_LOAD_INIT_FILE(0),
     .C_INIT_FILE_NAME("no_coe_file_loaded"),
     .C_INIT_FILE("NONE"),
-    .C_USE_DEFAULT_DATA(0),
-    .C_DEFAULT_DATA("0"),
+    .C_USE_DEFAULT_DATA(1),
+    .C_DEFAULT_DATA("FFFF"),
     .C_HAS_RSTA(0),
     .C_RST_PRIORITY_A("CE"),
     .C_RSTRAM_A(0),
     .C_INITA_VAL("0"),
-    .C_HAS_ENA(1),
+    .C_HAS_ENA(0),
     .C_HAS_REGCEA(0),
     .C_USE_BYTE_WEA(0),
     .C_WEA_WIDTH(1),
@@ -149,13 +146,13 @@ output wire [15 : 0] douta;
     .C_EN_SHUTDOWN_PIN(0),
     .C_EN_SAFETY_CKT(0),
     .C_DISABLE_WARN_BHV_RANGE(0),
-    .C_COUNT_36K_BRAM("8"),
-    .C_COUNT_18K_BRAM("0"),
-    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     15.988501 mW")
+    .C_COUNT_36K_BRAM("7"),
+    .C_COUNT_18K_BRAM("1"),
+    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     9.161944 mW")
   ) inst (
     .clka(clka),
     .rsta(1'D0),
-    .ena(ena),
+    .ena(1'D0),
     .regcea(1'D1),
     .wea(wea),
     .addra(addra),

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 14 22:39:07 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Nov 16 00:53:59 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -136,16 +136,16 @@
       <PARAMETERS>
         <PARAMETER NAME="C_ADDRA_WIDTH" VALUE="14"/>
         <PARAMETER NAME="C_ADDRB_WIDTH" VALUE="14"/>
-        <PARAMETER NAME="C_ALGORITHM" VALUE="0"/>
+        <PARAMETER NAME="C_ALGORITHM" VALUE="1"/>
         <PARAMETER NAME="C_AXI_ID_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_AXI_SLAVE_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_BYTE_SIZE" VALUE="9"/>
         <PARAMETER NAME="C_COMMON_CLK" VALUE="0"/>
-        <PARAMETER NAME="C_COUNT_18K_BRAM" VALUE="0"/>
-        <PARAMETER NAME="C_COUNT_36K_BRAM" VALUE="8"/>
+        <PARAMETER NAME="C_COUNT_18K_BRAM" VALUE="1"/>
+        <PARAMETER NAME="C_COUNT_36K_BRAM" VALUE="7"/>
         <PARAMETER NAME="C_CTRL_ECC_ALGO" VALUE="NONE"/>
-        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="FFFF"/>
         <PARAMETER NAME="C_DISABLE_WARN_BHV_COLL" VALUE="0"/>
         <PARAMETER NAME="C_DISABLE_WARN_BHV_RANGE" VALUE="0"/>
         <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
@@ -157,10 +157,10 @@
         <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="0"/>
         <PARAMETER NAME="C_EN_SHUTDOWN_PIN" VALUE="0"/>
         <PARAMETER NAME="C_EN_SLEEP_PIN" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     15.988501 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     9.161944 mW"/>
         <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_ENA" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_ENA" VALUE="0"/>
         <PARAMETER NAME="C_HAS_ENB" VALUE="0"/>
         <PARAMETER NAME="C_HAS_INJECTERR" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="0"/>
@@ -196,7 +196,7 @@
         <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEA" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEB" VALUE="0"/>
-        <PARAMETER NAME="C_USE_DEFAULT_DATA" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DEFAULT_DATA" VALUE="1"/>
         <PARAMETER NAME="C_USE_ECC" VALUE="0"/>
         <PARAMETER NAME="C_USE_SOFTECC" VALUE="0"/>
         <PARAMETER NAME="C_USE_URAM" VALUE="0"/>
@@ -213,7 +213,7 @@
         <PARAMETER NAME="AXI_Slave_Type" VALUE="Memory_Slave"/>
         <PARAMETER NAME="AXI_Type" VALUE="AXI4_Full"/>
         <PARAMETER NAME="Additional_Inputs_for_Power_Estimation" VALUE="false"/>
-        <PARAMETER NAME="Algorithm" VALUE="Fixed_Primitives"/>
+        <PARAMETER NAME="Algorithm" VALUE="Minimum_Area"/>
         <PARAMETER NAME="Assume_Synchronous_Clk" VALUE="false"/>
         <PARAMETER NAME="Byte_Size" VALUE="9"/>
         <PARAMETER NAME="CTRL_ECC_ALGO" VALUE="NONE"/>
@@ -229,10 +229,10 @@
         <PARAMETER NAME="EN_SHUTDOWN_PIN" VALUE="false"/>
         <PARAMETER NAME="EN_SLEEP_PIN" VALUE="false"/>
         <PARAMETER NAME="Enable_32bit_Address" VALUE="false"/>
-        <PARAMETER NAME="Enable_A" VALUE="Use_ENA_Pin"/>
+        <PARAMETER NAME="Enable_A" VALUE="Always_Enabled"/>
         <PARAMETER NAME="Enable_B" VALUE="Always_Enabled"/>
         <PARAMETER NAME="Error_Injection_Type" VALUE="Single_Bit_Error_Injection"/>
-        <PARAMETER NAME="Fill_Remaining_Memory_Locations" VALUE="false"/>
+        <PARAMETER NAME="Fill_Remaining_Memory_Locations" VALUE="true"/>
         <PARAMETER NAME="Interface_Type" VALUE="Native"/>
         <PARAMETER NAME="Load_Init_File" VALUE="false"/>
         <PARAMETER NAME="MEM_FILE" VALUE="NONE"/>
@@ -260,7 +260,7 @@
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
         <PARAMETER NAME="Register_PortB_Output_of_Memory_Core" VALUE="false"/>
         <PARAMETER NAME="Register_PortB_Output_of_Memory_Primitives" VALUE="false"/>
-        <PARAMETER NAME="Remaining_Memory_Locations" VALUE="0"/>
+        <PARAMETER NAME="Remaining_Memory_Locations" VALUE="FFFF"/>
         <PARAMETER NAME="Reset_Memory_Latch_A" VALUE="false"/>
         <PARAMETER NAME="Reset_Memory_Latch_B" VALUE="false"/>
         <PARAMETER NAME="Reset_Priority_A" VALUE="CE"/>
@@ -304,11 +304,6 @@
             <CONNECTION INSTANCE="mmu" PORT="gram_mem_dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="ena" SIGIS="undef" SIGNAME="mmu_gram_mem_oe">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu" PORT="gram_mem_oe"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" LEFT="0" NAME="wea" RIGHT="0" SIGIS="undef" SIGNAME="mmu_gram_mem_we">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu" PORT="gram_mem_we"/>
@@ -329,7 +324,6 @@
             <PORTMAP LOGICAL="CLK" PHYSICAL="clka"/>
             <PORTMAP LOGICAL="DIN" PHYSICAL="dina"/>
             <PORTMAP LOGICAL="DOUT" PHYSICAL="douta"/>
-            <PORTMAP LOGICAL="EN" PHYSICAL="ena"/>
             <PORTMAP LOGICAL="WE" PHYSICAL="wea"/>
           </PORTMAPS>
         </BUSINTERFACE>
@@ -688,11 +682,7 @@
             <CONNECTION INSTANCE="gram" PORT="douta"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="gram_mem_oe" SIGIS="undef" SIGNAME="mmu_gram_mem_oe">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gram" PORT="ena"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" NAME="gram_mem_oe" SIGIS="undef"/>
         <PORT DIR="O" NAME="gram_mem_we" SIGIS="undef" SIGNAME="mmu_gram_mem_we">
           <CONNECTIONS>
             <CONNECTION INSTANCE="gram" PORT="wea"/>

@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,000.000 ns"></ZoomEndTime>
+      <ZoomEndTime time="1,997.388 ns"></ZoomEndTime>
       <Cursor1Time time="2,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="197"></NameColumnWidth>
-      <ValueColumnWidth column_width="61"></ValueColumnWidth>
+      <NameColumnWidth column_width="196"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="48" />
+   <WVObjectSize size="51" />
    <wvobject fp_name="/mainSim/clk200mhz" type="logic">
       <obj_property name="ElementShortName">clk200mhz</obj_property>
       <obj_property name="ObjectShortName">clk200mhz</obj_property>
@@ -31,14 +31,6 @@
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_mem_ck" type="logic">
       <obj_property name="ElementShortName">gram_mem_ck</obj_property>
       <obj_property name="ObjectShortName">gram_mem_ck</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_op_state" type="other">
-      <obj_property name="ElementShortName">gram_op_state</obj_property>
-      <obj_property name="ObjectShortName">gram_op_state</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_op_s" type="logic">
-      <obj_property name="ElementShortName">gram_op_s</obj_property>
-      <obj_property name="ObjectShortName">gram_op_s</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_mem_we_s" type="logic">
       <obj_property name="ElementShortName">gram_mem_we_s</obj_property>
@@ -56,13 +48,9 @@
       <obj_property name="ElementShortName">gram_mem_din_s[15:0]</obj_property>
       <obj_property name="ObjectShortName">gram_mem_din_s[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/iram_op_state" type="other">
-      <obj_property name="ElementShortName">iram_op_state</obj_property>
-      <obj_property name="ObjectShortName">iram_op_state</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/debug_op_state" type="other">
-      <obj_property name="ElementShortName">debug_op_state</obj_property>
-      <obj_property name="ObjectShortName">debug_op_state</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/gram_op_s" type="logic">
+      <obj_property name="ElementShortName">gram_op_s</obj_property>
+      <obj_property name="ObjectShortName">gram_op_s</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu/U0/iram_op_s" type="logic">
       <obj_property name="ElementShortName">iram_op_s</obj_property>
@@ -211,5 +199,29 @@
    <wvobject fp_name="/mainSim/gram_bank" type="array">
       <obj_property name="ElementShortName">gram_bank[3:0]</obj_property>
       <obj_property name="ObjectShortName">gram_bank[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/gram/clka" type="logic">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/gram/ena" type="logic">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/gram/wea" type="array">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/gram/addra" type="array">
+      <obj_property name="ElementShortName">addra[13:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/gram/dina" type="array">
+      <obj_property name="ElementShortName">dina[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/gram/douta" type="array">
+      <obj_property name="ElementShortName">douta[15:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[15:0]</obj_property>
    </wvobject>
 </wave_config>

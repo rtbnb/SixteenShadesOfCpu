@@ -96,92 +96,65 @@ begin
     );
     
     process begin
-        clk200mhz <= '0';
-        wait for 50ns;
         clk200mhz <= '1';
+        wait for 50ns;
+        clk200mhz <= '0';
         wait for 50ns;    
     end process;
     
     process begin
-        gram_clk <= '0';
-        wait for 50ns;
         gram_clk <= '1';
         wait for 100ns;
         gram_clk <= '0';
-        wait for 50ns;
+        wait for 100ns;
     end process;
     
     process begin
-        iram_clk <= '0';
-        wait for 50ns;
         iram_clk <= '1';
         wait for 100ns;
         iram_clk <= '0';
-        wait for 50ns;
+        wait for 100ns;
     end process;
     
-    process begin  
-        gram_addr <= "UUUUUUUUUUUUUUUU";
-        gram_din <= "UUUUUUUUUUUUUUUU";
-        gram_we <= '0';
-        gram_oe <= '0';
-        
-        wait for 150ns;
-
+process begin  
         gram_addr <= "0000000000000000";
         gram_din <= "0000000000000001";
+
+--        gram_addr <= "UUUUUUUUUUUUUUUU";
+--        gram_din <= "UUUUUUUUUUUUUUUU";
         gram_we <= '1';
         gram_oe <= '1';
         
         wait for 200ns;
 
-        gram_addr <= "0000000000000001";
+        gram_addr <= "0000000000000000";
         gram_din <= "0000000000000011";
         gram_we <= '1';
-        gram_oe <= '0';
+        gram_oe <= '1';
+        
         wait for 200ns;
 
-        gram_addr <= "UUUUUUUUUUUUUUUU";
-        gram_din <= "UUUUUUUUUUUUUUUU";
-        gram_we <= '0';
-        gram_oe <= '0';
+        gram_addr <= "0000000000000000";
+        gram_din <= "0000000000000111";
+        gram_we <= '1';
+        gram_oe <= '1';
+        wait for 200ns;
+
+
+        gram_addr <= "0000000000000000";
+        gram_din <= "0000000000001111";
+--        gram_addr <= "UUUUUUUUUUUUUUUU";
+--        gram_din <= "UUUUUUUUUUUUUUUU";
+        gram_we <= '1';
+        gram_oe <= '1';
         wait for 200ns;
         
 
         gram_addr <= "0000000000000000";
-        gram_din <= "0000000000000001";
-        gram_we <= '0';
+        gram_din <= "0000000000011111";
+        gram_we <= '1';
         gram_oe <= '1';
         wait for 200ns;
-    end process;
-    
-    process begin
-        iram_addr <= "UUUUUUUUUUUUUUUU";
-        
-        wait for 150ns;
-
-        iram_addr <= "0000000000000000";
-        
-        wait for 200ns;
-
-        iram_addr <= "0000000000000001";
-        
-        wait for 200ns;
-
-        iram_addr <= "UUUUUUUUUUUUUUUU";
-        
-        wait for 200ns;
-        
-        iram_addr <= "0000000000000000";
-        
-        wait for 200ns;
-    end process;
-    
-    process begin
-        debug_enable <= '0';
-        wait for 950ns;
-        debug_enable <= '1';
-        wait for 950ns;
     end process;
 
 

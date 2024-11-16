@@ -499,19 +499,22 @@
         "inst_hier_path": "gram",
         "parameters": {
           "Algorithm": {
-            "value": "Fixed_Primitives"
+            "value": "Minimum_Area"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
           },
           "Fill_Remaining_Memory_Locations": {
-            "value": "false"
+            "value": "true"
           },
           "Load_Init_File": {
             "value": "false"
           },
-          "Primitive": {
-            "value": "8kx2"
-          },
           "Register_PortA_Output_of_Memory_Primitives": {
             "value": "false"
+          },
+          "Remaining_Memory_Locations": {
+            "value": "FFFF"
           },
           "Write_Depth_A": {
             "value": "16383"
@@ -745,12 +748,6 @@
         "ports": [
           "mmu/gram_mem_din",
           "gram/dina"
-        ]
-      },
-      "mmu_gram_mem_oe": {
-        "ports": [
-          "mmu/gram_mem_oe",
-          "gram/ena"
         ]
       },
       "mmu_gram_mem_we": {
