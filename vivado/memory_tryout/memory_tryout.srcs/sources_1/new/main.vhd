@@ -70,9 +70,7 @@ entity main is
         
         gram_mem_din: out std_logic_vector(15 downto 0) := "0000000000000000";
         gram_mem_addr: out std_logic_vector(13 downto 0) := "00000000000000";
-        gram_mem_ck: out std_logic;
-        gram_mem_we : out std_logic := '0';
-        gram_mem_oe : out std_logic := '1';
+        gram_mem_ck, gram_mem_we, gram_mem_oe: out std_logic;
         gram_mem_dout: in std_logic_vector(15 downto 0);
 --gram end
 
@@ -109,7 +107,7 @@ architecture Behavioral of main is
     signal iram_mem_we_s, iram_mem_oe_s, iram_op_s: std_logic := '0';
     
     signal gram_mem_addr_s, gram_mem_din_s, gram_dout_s: std_logic_vector(15 downto 0);
-    signal gram_mem_we_s, gram_mem_oe_s, gram_op_s: std_logic := '0';
+    signal gram_mem_we_s, gram_mem_oe_s: std_logic := '0';
     
     signal vram_mem_ck_s: std_logic;
     signal vram_mem_addr_s, vram_mem_din_s, vram_dout_s: std_logic_vector(15 downto 0);
@@ -121,240 +119,20 @@ architecture Behavioral of main is
     signal debug_op_s, debug_enable_s: std_logic := '0';
     signal debug_iram_select_s: std_logic := '0';
     
-    signal test_op_s: std_logic;
-    
-    signal gram_op_state_1: boolean := FALSE;
-    signal gram_op_state_2: boolean := FALSE;
-    signal gram_op_state_3: boolean := FALSE;
-    signal gram_op_state_4: boolean := FALSE;
-    signal gram_all_op: boolean := FALSE;
-    
-    
-    signal iram_op_state: integer range 0 to 10 := 0;
-    signal debug_op_state: integer range 0 to 10 := 0;
+    signal gram_op_s: std_logic;
     
 begin
-    with debug_enable select
-        internal_clk_s <= not debug_clk200mhz when '1',
-                          not clk200mhz when others;
-
---debug begin
-    with debug_enable select
-        debug_enable_s <= '1' when '1',
-                          '0' when others;
-
-    with debug_iram_select select
-        debug_iram_select_s <= debug_iram_select when '1',
-                               debug_iram_select when '0',
-                               '0' when others;
+    internal_clk_s <= not clk200mhz;
     
-    debug_op_s <= (debug_we or debug_oe) and debug_enable_s;
---debug end
-
---iram begin
-    iram_op_s <= not debug_enable_s;
-
-    with iram_op_state select
-        iram_mem_ck <= internal_clk_s when 1|2|3,
-                       '0' when others;
-
-    with debug_enable_s select
-        iram_mem_addr <= debug_iram_mem_addr_s(13 downto 0) when '1',
-                         iram_mem_addr_s( 13 downto 0) when others;
-                         
-    with debug_enable_s select
-        iram_mem_din <= debug_iram_mem_din_s when '1',
-                        "0000000000000000" when others;
+    gram_op_s <= gram_we or gram_oe;
     
-    with debug_enable_s select
-        iram_mem_we <= debug_iram_mem_we_s when '1',
-                       iram_mem_we_s when others;
+    gram_mem_ck <= internal_clk_s;
     
-    with iram_mem_oe_s select
-       iram_dout_s <= iram_mem_dout        when '1', 
-                     "0000000000000000" when others;
-                 
-    with iram_dout_s select
-        iram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
-                     iram_dout_s when others;                   
---iram end
-    
---gram begin
-    gram_op_s <= (gram_we or gram_oe) and not debug_enable_s;
-    gram_all_op <= gram_op_state_1 and gram_op_state_2 and gram_op_state_3 and gram_op_state_4;
-    
-    with gram_all_op select
-        gram_op_state_1 <= gram_op_state_1 when FALSE,
-                           FALSE when others;
-    with gram_all_op select
-        gram_op_state_2 <= gram_op_state_2 when FALSE,
-                           FALSE when others;
-    with gram_all_op select
-        gram_op_state_3 <= gram_op_state_3 when FALSE,
-                           FALSE when others;
-    with gram_all_op select
-        gram_op_state_4 <= gram_op_state_4 when FALSE,
-                           FALSE when others;                        
-    with gram_all_op select
-        gram_mem_we_s <= gram_mem_we_s when FALSE,
-                         '0' when TRUE;                                          
-
-    with gram_op_state_1 or gram_op_state_2 or gram_op_state_3 select
-        gram_mem_ck <= internal_clk_s when TRUE,
-                       '0' when others;
-    
---    with gram_op_state select
---        gram_mem_ck <= internal_clk_s when 1|2|3,
---                      '0' when others;          
-
-    with debug_enable_s select
-        gram_mem_we <= debug_gram_mem_we_s when '1',
-                       gram_mem_we_s when others;
-    
-    with debug_enable_s select
-        gram_mem_addr <= debug_gram_mem_addr_s( 13 downto 0) when '1', --TODO Change to debug_mem_addr_s
-                         gram_mem_addr_s( 13 downto 0) when others;
-                         
-    with debug_enable_s select
-        gram_mem_din <= debug_gram_mem_din_s when '1',
-                        gram_mem_din_s when others;   
-                        
-    with gram_mem_oe_s select
-       gram_dout_s <= gram_mem_dout        when '1', 
-                      "0000000000000000" when others;
-                 
-    with gram_dout_s select
-        gram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
-                     gram_dout_s when others;      
---gram end
- 
---vram begin    
-    vram_mem_ck <= vram_mem_ck_s;
-    vram_mem_addr <= vram_mem_addr_s;
-    vram_mem_din <= vram_mem_din_s;
-    vram_mem_we <= vram_mem_we_s;
-    
-    with vram_mem_oe_s select
-       vram_dout_s <= vram_mem_dout        when '1', 
-                     "0000000000000000" when others;
-                 
-    with vram_dout_s select
-        vram_dout <= "0000000000000000" when "XXXXXXXXXXXXXXXX",
-                     vram_dout_s when others;  
---vram end
-
---mmio begin
-
---mmio end
-
-    iram:process(internal_clk_s)
-    begin
-        if debug_enable_s='0' then
-            if rising_edge(internal_clk_s) and iram_clk='0' and iram_op_state=0 and iram_op_s='1' then
-                iram_op_state <= 1;
-                
---                iram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
-                iram_mem_addr_s <= iram_addr;
-                iram_mem_we_s <= '0';
-                iram_mem_oe_s <= '1';
-            end if;
-            
-            if falling_edge(internal_clk_s) and iram_op_state=1 then
-                iram_op_state <= 2;
-            end if;
-            
-            if rising_edge(internal_clk_s) and iram_op_state=2 then
-                iram_op_state <= 3;
-            end if;
-            
-            if falling_edge(internal_clk_s) and iram_op_state=3 then
-                iram_mem_we_s <= '0';
-                iram_op_state <= 0;
-            end if;
-            
-        end if;
-    end process;
-   
-   gram:process(internal_clk_s)
-   begin
-        if debug_enable_s='0' and rising_edge(internal_clk_s) then
-            if gram_clk='0' and not gram_all_op and gram_op_s='1' then
-                gram_op_state_1 <= TRUE;
-                
---                gram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
-                gram_mem_addr_s <= gram_addr;
-                gram_mem_din_s <= gram_din;
-                gram_mem_we_s <= gram_we;
-                gram_mem_oe_s <= gram_oe;
-            end if;
-            
-            if gram_op_state_2 then
-                gram_op_state_3 <= TRUE;
-            end if;
-        end if;    
-   end process;
-   
-    gram_2:process(internal_clk_s)
-    begin
-        if falling_edge(internal_clk_s) then
-            if gram_op_state_1 then
-                gram_op_state_2 <= TRUE;
-            end if;  
-            
-            if gram_op_state_3 then
-                gram_op_state_4 <= TRUE;
-            end if;        
-        end if;
-        
-
-   end process;
-    
-    vram_main:process(clk200mhz)
-    begin
-    
-    
-    end process;
-    
-    debug:process(internal_clk_s)
-    begin
-        if debug_enable_s='1' then        
-            if rising_edge(internal_clk_s) and debug_clk='0' and debug_op_state=0 and debug_op_s='1' then
-                debug_op_state <= 1;
-                
-                iram_mem_oe <= '1'; --this is set one time and stays set as long as the cpu runs
-                gram_mem_oe <= '1';
-                
-                if debug_iram_select_s='1' then
-                    debug_iram_mem_addr_s <= debug_addr;
-                    debug_iram_mem_din_s <= debug_din;
-                    debug_iram_mem_we_s <= debug_we;
-                    debug_iram_mem_oe_s <= debug_oe;
-                else
-                    debug_gram_mem_addr_s <= debug_addr;
-                    debug_gram_mem_din_s <= debug_din;
-                    debug_gram_mem_we_s <= debug_we;
-                    debug_gram_mem_oe_s <= debug_oe;
-                end if;
-            end if;
-            
-            if falling_edge(internal_clk_s) and debug_op_state=1 then
-                debug_op_state <= 2;
-            end if;
-            
-            if rising_edge(internal_clk_s) and debug_op_state=2 then
-                debug_op_state <= 3;
-            end if;
-            
-            if falling_edge(internal_clk_s) and debug_op_state=3 then
- --               debug_mem_we_s <= '0';
-                debug_op_state <= 0;
-            end if;
-        end if;         
-    
-    
-        --TODO Implement base process to write gram (with banks) or iram
-    end process;
-    
+    gram_mem_addr <= gram_addr(13 downto 0);
+    gram_mem_din <= gram_din;
+    gram_mem_we <= gram_we;
+    gram_mem_oe <= gram_oe;
+    gram_dout <= gram_mem_dout;
     
 
 end Behavioral;

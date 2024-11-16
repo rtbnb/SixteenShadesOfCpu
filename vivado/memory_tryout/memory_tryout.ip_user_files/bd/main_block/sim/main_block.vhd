@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 14 22:39:07 2024
+--Date        : Sat Nov 16 00:53:58 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
@@ -111,7 +111,6 @@ architecture STRUCTURE of main_block is
   component main_block_blk_mem_gen_1_0 is
   port (
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
     dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -164,7 +163,6 @@ architecture STRUCTURE of main_block is
   signal mmu_gram_mem_addr : STD_LOGIC_VECTOR ( 13 downto 0 );
   signal mmu_gram_mem_clk : STD_LOGIC;
   signal mmu_gram_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmu_gram_mem_oe : STD_LOGIC;
   signal mmu_gram_mem_we : STD_LOGIC;
   signal mmu_iram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_iram_mem_addr : STD_LOGIC_VECTOR ( 13 downto 0 );
@@ -186,6 +184,7 @@ architecture STRUCTURE of main_block is
   signal vram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal vram_clk_1 : STD_LOGIC;
   signal vram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_mmu_gram_mem_oe_UNCONNECTED : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of debug_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -227,7 +226,6 @@ gram: component main_block_blk_mem_gen_1_0
       clka => mmu_gram_mem_clk,
       dina(15 downto 0) => mmu_gram_mem_din(15 downto 0),
       douta(15 downto 0) => gram_douta(15 downto 0),
-      ena => mmu_gram_mem_oe,
       wea(0) => mmu_gram_mem_we
     );
 iram: component main_block_blk_mem_gen_0_0
@@ -270,7 +268,7 @@ mmu: component main_block_main_0_0
       gram_mem_ck => mmu_gram_mem_clk,
       gram_mem_din(15 downto 0) => mmu_gram_mem_din(15 downto 0),
       gram_mem_dout(15 downto 0) => gram_douta(15 downto 0),
-      gram_mem_oe => mmu_gram_mem_oe,
+      gram_mem_oe => NLW_mmu_gram_mem_oe_UNCONNECTED,
       gram_mem_we => mmu_gram_mem_we,
       gram_oe => gram_oe_1,
       gram_we => gram_we_1,
