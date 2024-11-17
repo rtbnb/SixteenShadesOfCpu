@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity RX_UART is
     generic (
-        CLKS_PER_BIT: integer := 10417 -- (clock Frequency) / (Baud Rate)
+        CLKS_PER_BIT: integer := 109 -- (clock Frequency) / (Baud Rate)
     );
     Port (
         clk: in std_logic;

@@ -56,10 +56,8 @@ USE ieee.numeric_std.ALL;
 ENTITY design_1_Debugger_0_0 IS
   PORT (
     clk : IN STD_LOGIC;
-    b1 : IN STD_LOGIC;
     rx_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     rx_data_valid : IN STD_LOGIC;
-    led : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     tx_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     tx_data_valid : OUT STD_LOGIC;
     tx_data_sended : IN STD_LOGIC
@@ -72,10 +70,8 @@ ARCHITECTURE design_1_Debugger_0_0_arch OF design_1_Debugger_0_0 IS
   COMPONENT Debugger IS
     PORT (
       clk : IN STD_LOGIC;
-      b1 : IN STD_LOGIC;
       rx_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       rx_data_valid : IN STD_LOGIC;
-      led : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       tx_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       tx_data_valid : OUT STD_LOGIC;
       tx_data_sended : IN STD_LOGIC
@@ -89,10 +85,8 @@ BEGIN
   U0 : Debugger
     PORT MAP (
       clk => clk,
-      b1 => b1,
       rx_data => rx_data,
       rx_data_valid => rx_data_valid,
-      led => led,
       tx_data => tx_data,
       tx_data_valid => tx_data_valid,
       tx_data_sended => tx_data_sended

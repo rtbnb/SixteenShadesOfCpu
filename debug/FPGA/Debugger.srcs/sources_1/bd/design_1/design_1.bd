@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xAE41C268186C1AB8",
+      "boundary_crc": "0xAAAB5172490B9A3C",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Debugger.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -24,14 +24,6 @@
       },
       "tx_data_out": {
         "direction": "O"
-      },
-      "led": {
-        "direction": "O",
-        "left": "3",
-        "right": "0"
-      },
-      "b1": {
-        "direction": "I"
       }
     },
     "components": {
@@ -47,7 +39,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "send_data": {
+          "data_valid": {
             "direction": "I"
           },
           "data_in": {
@@ -83,9 +75,6 @@
             "type": "clk",
             "direction": "I"
           },
-          "b1": {
-            "direction": "I"
-          },
           "rx_data": {
             "direction": "I",
             "left": "7",
@@ -93,11 +82,6 @@
           },
           "rx_data_valid": {
             "direction": "I"
-          },
-          "led": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
           },
           "tx_data": {
             "direction": "O",
@@ -146,15 +130,9 @@
       "CLK100MHZ_1": {
         "ports": [
           "CLK100MHZ",
-          "TX_UART_0/clk",
           "RX_UART_0/clk",
+          "TX_UART_0/clk",
           "Debugger_0/clk"
-        ]
-      },
-      "Debugger_0_led": {
-        "ports": [
-          "Debugger_0/led",
-          "led"
         ]
       },
       "Debugger_0_tx_data": {
@@ -166,7 +144,7 @@
       "Debugger_0_tx_data_valid": {
         "ports": [
           "Debugger_0/tx_data_valid",
-          "TX_UART_0/send_data"
+          "TX_UART_0/data_valid"
         ]
       },
       "RX_UART_0_data_output": {
@@ -191,12 +169,6 @@
         "ports": [
           "TX_UART_0/tx_output",
           "tx_data_out"
-        ]
-      },
-      "b1_1": {
-        "ports": [
-          "b1",
-          "Debugger_0/b1"
         ]
       },
       "rx_data_in_1": {

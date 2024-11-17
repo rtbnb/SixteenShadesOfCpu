@@ -83,7 +83,7 @@ ARCHITECTURE design_1_RX_UART_0_0_arch OF design_1_RX_UART_0_0 IS
 BEGIN
   U0 : RX_UART
     GENERIC MAP (
-      CLKS_PER_BIT => 10417
+      CLKS_PER_BIT => 109
     )
     PORT MAP (
       clk => clk,

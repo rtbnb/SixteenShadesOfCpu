@@ -81,7 +81,7 @@ ARCHITECTURE design_1_RX_UART_0_0_arch OF design_1_RX_UART_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF design_1_RX_UART_0_0_arch : ARCHITECTURE IS "design_1_RX_UART_0_0,RX_UART,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_1_RX_UART_0_0_arch: ARCHITECTURE IS "design_1_RX_UART_0_0,RX_UART,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=RX_UART,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=VHDL,CLKS_PER_BIT=10417}";
+  ATTRIBUTE CORE_GENERATION_INFO OF design_1_RX_UART_0_0_arch: ARCHITECTURE IS "design_1_RX_UART_0_0,RX_UART,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=RX_UART,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=VHDL,CLKS_PER_BIT=109}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF design_1_RX_UART_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -91,7 +91,7 @@ ARCHITECTURE design_1_RX_UART_0_0_arch OF design_1_RX_UART_0_0 IS
 BEGIN
   U0 : RX_UART
     GENERIC MAP (
-      CLKS_PER_BIT => 10417
+      CLKS_PER_BIT => 109
     )
     PORT MAP (
       clk => clk,

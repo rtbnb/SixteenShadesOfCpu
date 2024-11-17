@@ -58,6 +58,7 @@ if {$::dispatch::connected} {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 3
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
 
@@ -73,7 +74,7 @@ set_property ip_output_repo c:/Development/SixteenShadesOfCpu/debug/FPGA/Debugge
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib c:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+read_vhdl -library xil_defaultlib C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
 add_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.gen/sources_1/bd/design_1/design_1_ooc.xdc]
 
@@ -88,9 +89,6 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 read_xdc C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/constrs_1/new/constraints.xdc
 set_property used_in_implementation false [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/constrs_1/new/constraints.xdc]
-
-read_xdc C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/constrs_1/new/loop_signal_xdc.xdc
-set_property used_in_implementation false [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/constrs_1/new/loop_signal_xdc.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

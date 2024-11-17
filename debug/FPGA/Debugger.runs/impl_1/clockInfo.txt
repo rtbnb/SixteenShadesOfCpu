@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Sat Nov 16 23:02:45 2024
+| Date         : Sun Nov 17 18:57:53 2024
 | Host         : DESKTOP-E8CIL9E
 | Design       : design_1
 | Device       : xc7a35ti-csg324-1L-I-

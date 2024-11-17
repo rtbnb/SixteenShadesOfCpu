@@ -3,8 +3,6 @@
 
 # XDC: new/constraints.xdc
 
-# XDC: new/loop_signal_xdc.xdc
-
 # Block Designs: bd/design_1/design_1.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1 || ORIG_REF_NAME==design_1} -quiet] -quiet
 
