@@ -2,3 +2,6 @@
 */**/*.rst
 */**/*.log
 */**/*.pb
+vivado/*/*.cache/*
+vivado/*/*.runs/.jobs/*
+vivado/**/README.txt
