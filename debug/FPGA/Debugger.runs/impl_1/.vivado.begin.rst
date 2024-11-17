@@ -1,130 +1,20 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="17980" HostCore="12" HostMemory="017099665408">
+    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="3624" HostCore="12" HostMemory="017099665408">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="17296" HostCore="12" HostMemory="017099665408">
+    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="12384" HostCore="12" HostMemory="017099665408">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="21044" HostCore="12" HostMemory="017099665408">
+    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="16500" HostCore="12" HostMemory="017099665408">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="12148" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="9752" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="21532" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="23068" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="23944" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="24180" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="3448" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="10228" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="25248" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="23176" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="26028" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="26464" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="27312" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="27420" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="25936" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="11260" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="24440" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="18576" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="24700" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="26584" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="24628" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="24408" HostCore="12" HostMemory="017099665408">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="26448" HostCore="12" HostMemory="017099665408">
+    <Process Command="vivado.bat" Owner="Nico Tunkowski" Host="DESKTOP-E8CIL9E" Pid="22212" HostCore="12" HostMemory="017099665408">
     </Process>
 </ProcessHandle>

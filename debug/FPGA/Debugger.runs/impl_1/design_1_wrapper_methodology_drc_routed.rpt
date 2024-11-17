@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Sat Nov 16 23:03:03 2024
+| Date         : Sun Nov 17 18:58:11 2024
 | Host         : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 | Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -23,104 +23,23 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 18
-+-----------+------------------+-------------------------------+------------+
-| Rule      | Severity         | Description                   | Violations |
-+-----------+------------------+-------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 16         |
-| TIMING-18 | Warning          | Missing input or output delay | 2          |
-+-----------+------------------+-------------------------------+------------+
+             Violations found: 2
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| TIMING-18 | Warning  | Missing input or output delay | 2          |
++-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
-TIMING-17#1 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/Debugger_0/U0/led_s_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#2 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/Debugger_0/U0/led_s_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#3 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/Debugger_0/U0/led_s_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#4 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/Debugger_0/U0/led_s_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#5 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#6 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#7 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#8 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#9 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#10 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#11 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#12 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#13 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#14 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/FSM_onehot_next_state_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#15 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/tx_data_send_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#16 Critical Warning
-Non-clocked sequential cell  
-The clock pin design_1_i/TX_UART_0/U0/writing_data_to_uart_reg/C is not reached by a timing clock
-Related violations: <none>
-
 TIMING-18#1 Warning
 Missing input or output delay  
-An input delay is missing on b1 relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+An input delay is missing on rx_data_in relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 TIMING-18#2 Warning
 Missing input or output delay  
-An input delay is missing on rx_data_in relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+An output delay is missing on tx_data_out relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 

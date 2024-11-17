@@ -55,7 +55,7 @@ USE ieee.numeric_std.ALL;
 
 ENTITY design_1_TX_UART_0_0 IS
   PORT (
-    send_data : IN STD_LOGIC;
+    data_valid : IN STD_LOGIC;
     data_in : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     clk : IN STD_LOGIC;
     tx_output : OUT STD_LOGIC;
@@ -71,7 +71,7 @@ ARCHITECTURE design_1_TX_UART_0_0_arch OF design_1_TX_UART_0_0 IS
       CLKS_PER_BIT : INTEGER
     );
     PORT (
-      send_data : IN STD_LOGIC;
+      data_valid : IN STD_LOGIC;
       data_in : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       clk : IN STD_LOGIC;
       tx_output : OUT STD_LOGIC;
@@ -85,10 +85,10 @@ ARCHITECTURE design_1_TX_UART_0_0_arch OF design_1_TX_UART_0_0 IS
 BEGIN
   U0 : TX_UART
     GENERIC MAP (
-      CLKS_PER_BIT => 10417
+      CLKS_PER_BIT => 109
     )
     PORT MAP (
-      send_data => send_data,
+      data_valid => data_valid,
       data_in => data_in,
       clk => clk,
       tx_output => tx_output,

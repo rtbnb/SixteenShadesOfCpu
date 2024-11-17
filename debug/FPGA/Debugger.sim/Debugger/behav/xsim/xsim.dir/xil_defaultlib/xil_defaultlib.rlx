@@ -2,11 +2,11 @@
 2020.2
 May 22 2024
 19:03:11
-C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_Debugger_0_0/sim/design_1_Debugger_0_0.vhd,1731789491,vhdl,,,,design_1_debugger_0_0,,,,,,,,
-C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_RX_UART_0_0/sim/design_1_RX_UART_0_0.vhd,1731789491,vhdl,,,,design_1_rx_uart_0_0,,,,,,,,
-C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_TX_UART_0_0/sim/design_1_TX_UART_0_0.vhd,1731789491,vhdl,,,,design_1_tx_uart_0_0,,,,,,,,
-C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/sim/design_1.vhd,1731789491,vhdl,,,,design_1,,,,,,,,
-C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/Debugger/new/DebugSim.vhd,1731778023,vhdl,,,,debugsim,,,,,,,,
-C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd,1731789216,vhdl,,,,debugger,,,,,,,,
-C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd,1731789463,vhdl,,,,rx_uart,,,,,,,,
-C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd,1731777210,vhdl,,,,tx_uart,,,,,,,,
+C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_Debugger_0_0/sim/design_1_Debugger_0_0.vhd,1731864565,vhdl,,,,design_1_debugger_0_0,,,,,,,,
+C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_RX_UART_0_0/sim/design_1_RX_UART_0_0.vhd,1731864565,vhdl,,,,design_1_rx_uart_0_0,,,,,,,,
+C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/ip/design_1_TX_UART_0_0/sim/design_1_TX_UART_0_0.vhd,1731864564,vhdl,,,,design_1_tx_uart_0_0,,,,,,,,
+C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/bd/design_1/sim/design_1.vhd,1731864564,vhdl,,,,design_1,,,,,,,,
+C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/Debugger/new/DebugSim.vhd,1731865879,vhdl,,,,debugsim,,,,,,,,
+C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd,1731866104,vhdl,,,,debugger,,,,,,,,
+C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd,1731857243,vhdl,,,,rx_uart,,,,,,,,
+C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd,1731858878,vhdl,,,,tx_uart,,,,,,,,

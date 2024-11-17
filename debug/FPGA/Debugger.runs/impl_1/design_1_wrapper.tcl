@@ -97,6 +97,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -126,7 +127,6 @@ OPTRACE "add files" START { }
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/constrs_1/new/constraints.xdc
-  read_xdc C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/constrs_1/new/loop_signal_xdc.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }
