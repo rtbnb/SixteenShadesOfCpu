@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"mainSim_func_synth.vhd" \
+"../../../../../mmu.srcs/sim_1/new/mainSim.vhd" \
+
+# Do not sort compile order
+nosort

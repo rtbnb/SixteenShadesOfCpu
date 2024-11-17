@@ -3,66 +3,45 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="mainSim_behav.wdb" id="1">
+      <db_ref path="mainSim_func_impl.wdb" id="1">
          <top_modules>
-            <top_module name="glbl" />
             <top_module name="mainSim" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="500.001 ns"></ZoomEndTime>
+      <ZoomEndTime time="100.001 ns"></ZoomEndTime>
       <Cursor1Time time="60.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="160"></NameColumnWidth>
+      <NameColumnWidth column_width="156"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="32" />
+   <WVObjectSize size="27" />
    <wvobject fp_name="/mainSim/clk200mhz" type="logic">
       <obj_property name="ElementShortName">clk200mhz</obj_property>
       <obj_property name="ObjectShortName">clk200mhz</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/internal_clk_s" type="logic">
-      <obj_property name="ElementShortName">internal_clk_s</obj_property>
-      <obj_property name="ObjectShortName">internal_clk_s</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/gram_lock_s" type="logic">
       <obj_property name="ElementShortName">gram_lock_s</obj_property>
       <obj_property name="ObjectShortName">gram_lock_s</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/iram_mem_ck" type="logic">
-      <obj_property name="ElementShortName">iram_mem_ck</obj_property>
-      <obj_property name="ObjectShortName">iram_mem_ck</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/gram_mem_ck" type="logic">
-      <obj_property name="ElementShortName">gram_mem_ck</obj_property>
-      <obj_property name="ObjectShortName">gram_mem_ck</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/vrama_mem_ck" type="logic">
-      <obj_property name="ElementShortName">vrama_mem_ck</obj_property>
-      <obj_property name="ObjectShortName">vrama_mem_ck</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/gram_bank_op_s" type="logic">
-      <obj_property name="ElementShortName">gram_bank_op_s</obj_property>
-      <obj_property name="ObjectShortName">gram_bank_op_s</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/vram_bank_op_s" type="logic">
-      <obj_property name="ElementShortName">vram_bank_op_s</obj_property>
-      <obj_property name="ObjectShortName">vram_bank_op_s</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/vrama_mem_din" type="array">
-      <obj_property name="ElementShortName">vrama_mem_din[15:0]</obj_property>
-      <obj_property name="ObjectShortName">vrama_mem_din[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/gram_mem_din" type="array">
-      <obj_property name="ElementShortName">gram_mem_din[15:0]</obj_property>
-      <obj_property name="ObjectShortName">gram_mem_din[15:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/mainSim/debug_clk" type="logic">
       <obj_property name="ElementShortName">debug_clk</obj_property>
       <obj_property name="ObjectShortName">debug_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/vrama_mem_ck" type="logic">
+      <obj_property name="ElementShortName">vrama_mem_ck</obj_property>
+      <obj_property name="ObjectShortName">vrama_mem_ck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/gram_mem_ck" type="logic">
+      <obj_property name="ElementShortName">gram_mem_ck</obj_property>
+      <obj_property name="ObjectShortName">gram_mem_ck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/vramb_mem_ck" type="logic">
+      <obj_property name="ElementShortName">vramb_mem_ck</obj_property>
+      <obj_property name="ObjectShortName">vramb_mem_ck</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/debug_clk200mhz" type="logic">
       <obj_property name="ElementShortName">debug_clk200mhz</obj_property>
