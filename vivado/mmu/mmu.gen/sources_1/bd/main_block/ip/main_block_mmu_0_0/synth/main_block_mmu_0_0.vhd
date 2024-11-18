@@ -56,8 +56,12 @@ USE ieee.numeric_std.ALL;
 ENTITY main_block_mmu_0_0 IS
   PORT (
     clk200mhz : IN STD_LOGIC;
+    debug_en_lock : OUT STD_LOGIC;
+    fault : OUT STD_LOGIC;
+    cpu_sync : IN STD_LOGIC;
+    debug_sync : IN STD_LOGIC;
+    vram_sync : IN STD_LOGIC;
     debug_clk200mhz : IN STD_LOGIC;
-    debug_clk : IN STD_LOGIC;
     debug_we : IN STD_LOGIC;
     debug_enable : IN STD_LOGIC;
     debug_override_enable : IN STD_LOGIC;
@@ -65,16 +69,14 @@ ENTITY main_block_mmu_0_0 IS
     debug_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     debug_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    iram_clk : IN STD_LOGIC;
     iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    gram_clk : IN STD_LOGIC;
     gram_we : IN STD_LOGIC;
     gram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    vram_clk : IN STD_LOGIC;
+    vram_clk200mhz : IN STD_LOGIC;
     vram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     vram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     iram_mem_addr : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
@@ -112,8 +114,12 @@ ARCHITECTURE main_block_mmu_0_0_arch OF main_block_mmu_0_0 IS
   COMPONENT mmu IS
     PORT (
       clk200mhz : IN STD_LOGIC;
+      debug_en_lock : OUT STD_LOGIC;
+      fault : OUT STD_LOGIC;
+      cpu_sync : IN STD_LOGIC;
+      debug_sync : IN STD_LOGIC;
+      vram_sync : IN STD_LOGIC;
       debug_clk200mhz : IN STD_LOGIC;
-      debug_clk : IN STD_LOGIC;
       debug_we : IN STD_LOGIC;
       debug_enable : IN STD_LOGIC;
       debug_override_enable : IN STD_LOGIC;
@@ -121,16 +127,14 @@ ARCHITECTURE main_block_mmu_0_0_arch OF main_block_mmu_0_0 IS
       debug_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       debug_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      iram_clk : IN STD_LOGIC;
       iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      gram_clk : IN STD_LOGIC;
       gram_we : IN STD_LOGIC;
       gram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-      vram_clk : IN STD_LOGIC;
+      vram_clk200mhz : IN STD_LOGIC;
       vram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       vram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       iram_mem_addr : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
@@ -169,22 +173,16 @@ ARCHITECTURE main_block_mmu_0_0_arch OF main_block_mmu_0_0 IS
   ATTRIBUTE CORE_GENERATION_INFO OF main_block_mmu_0_0_arch: ARCHITECTURE IS "main_block_mmu_0_0,mmu,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=mmu,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF main_block_mmu_0_0_arch: ARCHITECTURE IS "module_ref";
-  ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_debug_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF gram_clk: SIGNAL IS "XIL_INTERFACENAME gram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_gram_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF gram_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 gram_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF iram_clk: SIGNAL IS "XIL_INTERFACENAME iram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_iram_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF iram_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 iram_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF vram_clk: SIGNAL IS "XIL_INTERFACENAME vram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_vram_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF vram_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 vram_clk CLK";
 BEGIN
   U0 : mmu
     PORT MAP (
       clk200mhz => clk200mhz,
+      debug_en_lock => debug_en_lock,
+      fault => fault,
+      cpu_sync => cpu_sync,
+      debug_sync => debug_sync,
+      vram_sync => vram_sync,
       debug_clk200mhz => debug_clk200mhz,
-      debug_clk => debug_clk,
       debug_we => debug_we,
       debug_enable => debug_enable,
       debug_override_enable => debug_override_enable,
@@ -192,16 +190,14 @@ BEGIN
       debug_din => debug_din,
       debug_bank => debug_bank,
       debug_dout => debug_dout,
-      iram_clk => iram_clk,
       iram_addr => iram_addr,
       iram_dout => iram_dout,
-      gram_clk => gram_clk,
       gram_we => gram_we,
       gram_addr => gram_addr,
       gram_din => gram_din,
       gram_dout => gram_dout,
       gram_bank => gram_bank,
-      vram_clk => vram_clk,
+      vram_clk200mhz => vram_clk200mhz,
       vram_addr => vram_addr,
       vram_dout => vram_dout,
       iram_mem_addr => iram_mem_addr,

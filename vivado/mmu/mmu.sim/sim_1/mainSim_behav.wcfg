@@ -12,29 +12,33 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="109.445 ns"></ZoomEndTime>
-      <Cursor1Time time="60.000 ns"></Cursor1Time>
+      <ZoomEndTime time="100.000 ns"></ZoomEndTime>
+      <Cursor1Time time="12.500 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="152"></NameColumnWidth>
+      <NameColumnWidth column_width="144"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="24" />
    <wvobject fp_name="/mainSim/clk200mhz" type="logic">
       <obj_property name="ElementShortName">clk200mhz</obj_property>
       <obj_property name="ObjectShortName">clk200mhz</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/gram_lock_s" type="logic">
-      <obj_property name="ElementShortName">gram_lock_s</obj_property>
-      <obj_property name="ObjectShortName">gram_lock_s</obj_property>
+   <wvobject fp_name="/mainSim/cpu_sync" type="logic">
+      <obj_property name="ElementShortName">cpu_sync</obj_property>
+      <obj_property name="ObjectShortName">cpu_sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/vram_sync" type="logic">
+      <obj_property name="ElementShortName">vram_sync</obj_property>
+      <obj_property name="ObjectShortName">vram_sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/debug_sync" type="logic">
+      <obj_property name="ElementShortName">debug_sync</obj_property>
+      <obj_property name="ObjectShortName">debug_sync</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/output_config_s" type="array">
       <obj_property name="ElementShortName">output_config_s[4:0]</obj_property>
       <obj_property name="ObjectShortName">output_config_s[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/debug_clk" type="logic">
-      <obj_property name="ElementShortName">debug_clk</obj_property>
-      <obj_property name="ObjectShortName">debug_clk</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/vrama_mem_ck" type="logic">
       <obj_property name="ElementShortName">vrama_mem_ck</obj_property>
@@ -63,18 +67,6 @@
    <wvobject fp_name="/mainSim/gram_we" type="logic">
       <obj_property name="ElementShortName">gram_we</obj_property>
       <obj_property name="ObjectShortName">gram_we</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/iram_clk" type="logic">
-      <obj_property name="ElementShortName">iram_clk</obj_property>
-      <obj_property name="ObjectShortName">iram_clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/vram_clk" type="logic">
-      <obj_property name="ElementShortName">vram_clk</obj_property>
-      <obj_property name="ObjectShortName">vram_clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/gram_clk" type="logic">
-      <obj_property name="ElementShortName">gram_clk</obj_property>
-      <obj_property name="ObjectShortName">gram_clk</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/debug_addr" type="array">
       <obj_property name="ElementShortName">debug_addr[15:0]</obj_property>
