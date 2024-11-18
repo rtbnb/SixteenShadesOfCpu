@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Mon Nov 18 02:30:08 2024
+--Date        : Mon Nov 18 13:34:30 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
@@ -19,11 +19,10 @@ entity main_block_wrapper is
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     debug_clk : in STD_LOGIC;
     debug_clk200mhz : in STD_LOGIC;
-    debug_clk_enable : in STD_LOGIC;
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_enable : in STD_LOGIC;
-    debug_iram_select : in STD_LOGIC;
+    debug_override_enable : in STD_LOGIC;
     debug_we : in STD_LOGIC;
     gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -52,7 +51,6 @@ architecture STRUCTURE of main_block_wrapper is
     debug_clk : in STD_LOGIC;
     debug_we : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
-    debug_clk_enable : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -65,7 +63,7 @@ architecture STRUCTURE of main_block_wrapper is
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     vram_clk : in STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_iram_select : in STD_LOGIC
+    debug_override_enable : in STD_LOGIC
   );
   end component main_block;
 begin
@@ -76,11 +74,10 @@ main_block_i: component main_block
       debug_bank(3 downto 0) => debug_bank(3 downto 0),
       debug_clk => debug_clk,
       debug_clk200mhz => debug_clk200mhz,
-      debug_clk_enable => debug_clk_enable,
       debug_din(15 downto 0) => debug_din(15 downto 0),
       debug_dout(15 downto 0) => debug_dout(15 downto 0),
       debug_enable => debug_enable,
-      debug_iram_select => debug_iram_select,
+      debug_override_enable => debug_override_enable,
       debug_we => debug_we,
       gram_addr(15 downto 0) => gram_addr(15 downto 0),
       gram_bank(3 downto 0) => gram_bank(3 downto 0),

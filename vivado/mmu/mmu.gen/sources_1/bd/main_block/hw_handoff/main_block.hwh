@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov 18 02:30:08 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov 18 13:34:30 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -29,7 +29,6 @@
         <CONNECTION INSTANCE="mmu_0" PORT="debug_clk200mhz"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="debug_clk_enable" SIGIS="undef"/>
     <PORT DIR="I" LEFT="15" NAME="debug_din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_debug_din">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu_0" PORT="debug_din"/>
@@ -45,7 +44,11 @@
         <CONNECTION INSTANCE="mmu_0" PORT="debug_enable"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="debug_iram_select" SIGIS="undef"/>
+    <PORT DIR="I" NAME="debug_override_enable" SIGIS="undef" SIGNAME="External_Ports_debug_override_enable">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmu_0" PORT="debug_override_enable"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" NAME="debug_we" SIGIS="undef" SIGNAME="External_Ports_debug_we">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu_0" PORT="debug_we"/>
@@ -645,7 +648,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="debug_enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="debug_override_enable" SIGIS="undef"/>
+        <PORT DIR="I" NAME="debug_override_enable" SIGIS="undef" SIGNAME="External_Ports_debug_override_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="debug_override_enable"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="debug_we" SIGIS="undef" SIGNAME="External_Ports_debug_we">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="debug_we"/>

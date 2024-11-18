@@ -124,14 +124,7 @@ begin
     vram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1))) and general_bank_s(0);
     mmio_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(0))) and general_bank_s(1);
     iram_bank_op_s <= general_bank_s(3) and general_bank_s(2) and general_bank_s(1) and general_bank_s(0);    
---iram begin
-
-    
-    with iram_comb_condition_s select
-        iram_mem_addr <= debug_addr( 13 downto 0 ) when "11",
-                         "0000000000000" when "10",
-                         iram_addr when others;
-                        
+--iram begin                   
     with iram_comb_condition_s select
         iram_mem_din <= debug_din when "11",
                         X"0000" when others;
@@ -148,10 +141,6 @@ begin
     with iram_comb_condition_s select
         iram_mem_ck <= '0' when "10",
                        general_clk_s when others;
-                       
-    with iram_comb_condition_s select
-        iram_mem_we <= (0 => debug_we) when "11",
-                       "0" when others;
                        
     with iram_comb_condition_s select
         iram_dout <= X"0000" when "11",
