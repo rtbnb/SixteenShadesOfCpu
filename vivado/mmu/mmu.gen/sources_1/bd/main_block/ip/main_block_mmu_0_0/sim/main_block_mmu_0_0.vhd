@@ -60,8 +60,7 @@ ENTITY main_block_mmu_0_0 IS
     debug_clk : IN STD_LOGIC;
     debug_we : IN STD_LOGIC;
     debug_enable : IN STD_LOGIC;
-    debug_clk_enable : IN STD_LOGIC;
-    debug_iram_select : IN STD_LOGIC;
+    debug_override_enable : IN STD_LOGIC;
     debug_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -117,8 +116,7 @@ ARCHITECTURE main_block_mmu_0_0_arch OF main_block_mmu_0_0 IS
       debug_clk : IN STD_LOGIC;
       debug_we : IN STD_LOGIC;
       debug_enable : IN STD_LOGIC;
-      debug_clk_enable : IN STD_LOGIC;
-      debug_iram_select : IN STD_LOGIC;
+      debug_override_enable : IN STD_LOGIC;
       debug_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -181,8 +179,7 @@ BEGIN
       debug_clk => debug_clk,
       debug_we => debug_we,
       debug_enable => debug_enable,
-      debug_clk_enable => debug_clk_enable,
-      debug_iram_select => debug_iram_select,
+      debug_override_enable => debug_override_enable,
       debug_addr => debug_addr,
       debug_din => debug_din,
       debug_bank => debug_bank,

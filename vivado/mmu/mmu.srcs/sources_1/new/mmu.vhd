@@ -84,8 +84,9 @@ entity mmu is
 end mmu;
 
 architecture Behavioral of mmu is
-    signal gram_bank_op_s, vram_bank_op_s, mmio_bank_op_s: std_logic;
-    signal iram_op_config_s: std_logic;
+    signal gram_bank_op_s, vram_bank_op_s, mmio_bank_op_s, iram_bank_op_s: std_logic;
+    signal iram_op_config_s, iram_debug_condition_s: std_logic;
+    signal iram_comb_condition_s: std_logic_vector( 1 downto 0 );
     
     signal output_config_s: std_logic_vector( 5 downto 0 );
     
@@ -119,7 +120,9 @@ begin
     
     
 --iram begin
-    iram_op_config_s <= debug_enable and debug_override_enable and (debug_bank(3) and debug_bank(2) and debug_bank(1) and debug_bank(0));
+    iram_debug_condition_s <= debug_enable and debug_override_enable;
+    iram_op_config_s <= iram_debug_condition_s and iram_bank_op_s;
+    iram_comb_condition_s <= iram_debug_condition_s & iram_op_config_s;
     
     with iram_op_config_s select
         iram_mem_addr <= debug_addr( 13 downto 0 ) when '1',
@@ -133,28 +136,34 @@ begin
         iram_mem_we <= ( 0 => debug_we) when '1',
                        "0" when others;             
 
-    
-    with iram_comb_config_s select
+    with iram_comb_condition_s select
         iram_mem_addr <= debug_addr( 13 downto 0 ) when "11",
                          "00000000000000" when "10",
                          iram_addr( 13 downto 0 ) when others;
-    with iram_comb_config_s select
+    
+    with iram_comb_condition_s select
         iram_mem_ck <= not debug_clk200mhz when "11",
                        '0' when "10",
                        not clk200mhz when others;
-    with iram_comb_config_s select
+                       
+    with iram_comb_condition_s select
         iram_mem_we <= (0 => debug_we) when "11",
                        "0" when others;
-    with iram_comb_config_s select
+                       
+    with iram_comb_condition_s select
         iram_dout <= X"0000" when "11",
                      iram_mem_dout when others;
 
 --iram end    
 
 --gram begin
+--TODO Build combined condition to only select gram when iram is not written to
+
+
     gram_bank_op_s <= not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1) or general_bank_s(0));
     vram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1))) and general_bank_s(0);
     mmio_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(0))) and general_bank_s(1);
+    iram_bank_op_s <= general_bank_s(3) and general_bank_s(2) and general_bank_s(1) and general_bank_s(0);
 
 --ck section-------------------------------------------------    
     with gram_bank_op_s select
