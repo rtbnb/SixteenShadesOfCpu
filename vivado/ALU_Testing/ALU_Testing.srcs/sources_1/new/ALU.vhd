@@ -78,11 +78,15 @@ begin
         "0000000000000000" &(D1 NOR D2) when "1110", -- or
         "0000000000000000" &(D1 XNOR D2) when "1111", -- XOR
         std_logic_vector(signed(D1) * signed(D2)) when "0100",
+
         (others => 'X') when others;
 
 
     aluPostOp: process(ALU_OUT_Internal)
     begin
+        if ((ALU_OPP)) = "0100" then
+
+        end if;
         CARRY_FLAG <= ALU_OUT_Internal(16);
          
          if ALU_OUT_Internal(15) = '1' then
