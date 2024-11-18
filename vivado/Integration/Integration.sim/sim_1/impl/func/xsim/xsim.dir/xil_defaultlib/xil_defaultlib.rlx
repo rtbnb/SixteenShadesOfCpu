@@ -1,0 +1,6 @@
+0.7
+2020.2
+May 22 2024
+19:03:11
+D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/impl/func/xsim/mainSim_func_impl.vhd,1731710181,vhdl,,,,alu;cu_decoder;cu_immediatemanipulator;cu_jumpcontroller;cu_jumpdestinationselector;cu_ramaddresscontroller;cu_writeselector;decoder;main;main_alu_0_0;main_alu_flag_packer_0_1;main_cu_decoder_0_0;main_cu_immediatemanipula_0_0;main_cu_jumpcontroller_0_0;main_cu_jumpdestinationse_0_0;main_cu_ramaddresscontrol_0_0;main_cu_writeselector_0_0;main_decoder_0_0;main_irom_0_1;main_pipelining_controller_0_0;main_pipelining_execution_0_0;main_pipelining_forwarder_0_0;main_pipelining_writeback_0_0;main_programcounter_0_0;main_ram_placeholder_0_0;main_regfile_0_0;main_wrapper;pipelining_controller;pipelining_executionstage;pipelining_forwarder;pipelining_writebackstage;programcounter;ram_placeholder;regfile,,,,,,,,
+D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sim_1/new/mainSim.vhd,1731708475,vhdl,,,,mainsim,,,,,,,,
