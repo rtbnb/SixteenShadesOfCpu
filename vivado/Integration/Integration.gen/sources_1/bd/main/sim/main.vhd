@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 15 23:32:25 2024
---Host        : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
+--Date        : Mon Nov 18 13:18:40 2024
+--Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -19,10 +19,10 @@ entity main is
     Reset : in STD_LOGIC;
     led : out STD_LOGIC
   );
-  attribute core_generation_info : string;
-  attribute core_generation_info of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=17,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
-  attribute hw_handoff : string;
-  attribute hw_handoff of main : entity is "main.hwdef";
+  attribute CORE_GENERATION_INFO : string;
+  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=17,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute HW_HANDOFF : string;
+  attribute HW_HANDOFF of main : entity is "main.hwdef";
 end main;
 
 architecture STRUCTURE of main is
@@ -341,10 +341,10 @@ architecture STRUCTURE of main is
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_RegFile_0_BankID_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
-  attribute x_interface_info : string;
-  attribute x_interface_info of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
-  attribute x_interface_parameter : string;
-  attribute x_interface_parameter of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO : string;
+  attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
+  attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
 begin
   InstrExec_CLK_1 <= InstrExec_CLK;
   InstrLoad_CLK_1 <= InstrLoad_CLK;

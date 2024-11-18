@@ -1,14 +1,13 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x8925DF2775D4200",
+      "boundary_crc": "0xEB2990AF8372D13B",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "None",
-      "tool_version": "2024.1",
-      "validated": "true"
+      "tool_version": "2024.1"
     },
     "design_tree": {
       "Pipelining_Controller_0": "",
@@ -27,22 +26,15 @@
       "Pipelining_WriteBack_0": "",
       "IROM_0": "",
       "RAM_Placeholder_0": "",
-      "ALU_FLAG_PACKER_0": ""
+      "ALU_FLAG_PACKER_0": "",
+      "RX_UART_0": "",
+      "TX_UART_0": "",
+      "Debugger_0": ""
     },
     "ports": {
       "Reset": {
         "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "InstrExec_CLK": {
         "direction": "I"
@@ -52,6 +44,12 @@
       },
       "led": {
         "direction": "O"
+      },
+      "TX_UART_OUT": {
+        "direction": "O"
+      },
+      "RX_UART_IN": {
+        "direction": "I"
       }
     },
     "components": {
@@ -999,6 +997,104 @@
             "right": "0"
           }
         }
+      },
+      "RX_UART_0": {
+        "vlnv": "xilinx.com:module_ref:RX_UART:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_RX_UART_0_0",
+        "xci_path": "ip\\main_RX_UART_0_0\\main_RX_UART_0_0.xci",
+        "inst_hier_path": "RX_UART_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RX_UART",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rx_serial_input": {
+            "direction": "I"
+          },
+          "data_output": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "data_valid": {
+            "direction": "O"
+          }
+        }
+      },
+      "TX_UART_0": {
+        "vlnv": "xilinx.com:module_ref:TX_UART:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_TX_UART_0_0",
+        "xci_path": "ip\\main_TX_UART_0_0\\main_TX_UART_0_0.xci",
+        "inst_hier_path": "TX_UART_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TX_UART",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "data_valid": {
+            "direction": "I"
+          },
+          "data_in": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "tx_output": {
+            "direction": "O"
+          },
+          "send_valid": {
+            "direction": "O"
+          }
+        }
+      },
+      "Debugger_0": {
+        "vlnv": "xilinx.com:module_ref:Debugger:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Debugger_0_0",
+        "xci_path": "ip\\main_Debugger_0_0\\main_Debugger_0_0.xci",
+        "inst_hier_path": "Debugger_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Debugger",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rx_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "rx_data_valid": {
+            "direction": "I"
+          },
+          "tx_data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "tx_data_valid": {
+            "direction": "O"
+          },
+          "tx_data_sended": {
+            "direction": "I"
+          }
+        }
       }
     },
     "nets": {
@@ -1166,6 +1262,18 @@
           "Pipelining_WriteBack_0/WriteData"
         ]
       },
+      "Debugger_0_tx_data": {
+        "ports": [
+          "Debugger_0/tx_data",
+          "TX_UART_0/data_in"
+        ]
+      },
+      "Debugger_0_tx_data_valid": {
+        "ports": [
+          "Debugger_0/tx_data_valid",
+          "TX_UART_0/data_valid"
+        ]
+      },
       "Decoder_0_Immediate": {
         "ports": [
           "Decoder_0/Immediate",
@@ -1224,6 +1332,13 @@
           "Pipelining_Controller_0/InstrLoad_CLK",
           "Pipelining_Execution_0/InstrLoad_CLK",
           "Pipelining_WriteBack_0/InstrLoad_CLK"
+        ]
+      },
+      "Net": {
+        "ports": [
+          "RX_UART_0/clk",
+          "Debugger_0/clk",
+          "TX_UART_0/clk"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -1433,6 +1548,24 @@
           "CU_WriteSelector_0/RAM_Out"
         ]
       },
+      "RX_UART_0_data_output": {
+        "ports": [
+          "RX_UART_0/data_output",
+          "Debugger_0/rx_data"
+        ]
+      },
+      "RX_UART_0_data_valid": {
+        "ports": [
+          "RX_UART_0/data_valid",
+          "Debugger_0/rx_data_valid"
+        ]
+      },
+      "RX_UART_IN_1": {
+        "ports": [
+          "RX_UART_IN",
+          "RX_UART_0/rx_serial_input"
+        ]
+      },
       "RegFile_0_Reg1_data": {
         "ports": [
           "RegFile_0/Reg1_data",
@@ -1458,6 +1591,18 @@
           "Pipelining_Execution_0/Reset",
           "Pipelining_WriteBack_0/Reset",
           "ProgramCounter_0/Reset"
+        ]
+      },
+      "TX_UART_0_send_valid": {
+        "ports": [
+          "TX_UART_0/send_valid",
+          "Debugger_0/tx_data_sended"
+        ]
+      },
+      "TX_UART_0_tx_output": {
+        "ports": [
+          "TX_UART_0/tx_output",
+          "TX_UART_OUT"
         ]
       }
     }
