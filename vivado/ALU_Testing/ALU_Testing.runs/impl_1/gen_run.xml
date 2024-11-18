@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1731262598">
+<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1731925555">
   <File Type="ROUTE-PWR" Name="ALU_power_routed.rpt"/>
   <File Type="PA-TCL" Name="ALU.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="ALU_power_summary_routed.pb"/>
@@ -18,14 +18,10 @@
   <File Type="BITSTR-MMI" Name="ALU.mmi"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="ALU_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-SYSDEF" Name="ALU.sysdef"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="ALU_methodology_drc_routed.pb"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="ALU.ltx"/>
-  <File Type="BOOT-PDI-FILE" Name="ALU_boot.pdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="NPI_FILE" Name="ALU.npi"/>
   <File Type="OPT-DRC" Name="ALU_drc_opted.rpt"/>
-  <File Type="RBD_FILE" Name="ALU.rbd"/>
   <File Type="OPT-HWDEF" Name="ALU.hwdef"/>
   <File Type="PLACE-IO" Name="ALU_io_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="ALU_utilization_placed.rpt"/>
@@ -59,13 +55,17 @@
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="ALU_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="ALU_bus_skew_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="ALU_bus_skew_postroute_physopted.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="ALU_methodology_drc_routed.pb"/>
   <File Type="ROUTE-DRC-RPX" Name="ALU_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="ALU_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="ALU.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="ALU_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="ALU_pld.pdi"/>
   <File Type="RCFI_FILE" Name="ALU.rcfi"/>
   <File Type="CFI_FILE" Name="ALU.cfi"/>
   <File Type="RNPI_FILE" Name="ALU.rnpi"/>
+  <File Type="NPI_FILE" Name="ALU.npi"/>
+  <File Type="RBD_FILE" Name="ALU.rbd"/>
   <File Type="ROUTE-RQS" Name="ALU_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="ALU_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
@@ -74,6 +74,13 @@
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ALU_FLAG_PACKER.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
