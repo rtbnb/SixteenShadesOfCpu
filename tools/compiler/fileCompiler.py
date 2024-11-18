@@ -90,6 +90,12 @@ class CompiledCode():
     def __init__(self, required_memory_gram: int, compiled_assembly_code:list[str]):
         self._required_memory_gram = required_memory_gram
         self._compiled_assembly_code = compiled_assembly_code
+    
+    def compiled_assembly_code(self):
+        return self._compiled_assembly_code
+    
+    def required_gram(self):
+        return self._required_memory_gram
 
 class CompiledFunction():
     def __init__(self, signature:FunctionSignature, compiled_code: CompiledCode):
@@ -97,8 +103,17 @@ class CompiledFunction():
         self._compiled_code = compiled_code
 
 
+def compile_assignment(expression_mnemonics: list[str], known_constants, known_globals, known_locals, known_functions) -> CompiledCode:
+    if not "=" in expression_mnemonics:
+        raise Exception("{} is not a valid assignment command!".format(expression_mnemonics))
+    
+    equals_index = expression_mnemonics.index("=")
+
+    
+
+
 # TODO: Add global and local variables to register write
-def decode_register_write(code_mnemonic:list[str], known_constants) -> CompiledCode:
+def compile_register_write(code_mnemonic:list[str], known_constants) -> CompiledCode:
     if code_mnemonic[0][0] != "$":
         raise Exception("{} is not a valid register write!".format(code_mnemonic))
     if not code_mnemonic[0][1:] in registers:
@@ -112,11 +127,31 @@ def decode_register_write(code_mnemonic:list[str], known_constants) -> CompiledC
     higher_byte = (value >> 8) & 0xff
     return CompiledCode(0, ["IML {}, {}".format(code_mnemonic[0], lower_byte), "IMH {}, {}".format(code_mnemonic[0], higher_byte)])
 
+def compile_gram_write(code_menmonic:list[str], known_constants, known_globals, known_locals) -> CompiledCode:
+    pass
 
 def parse_code(code_mnemonics:list[list[str]], known_functions, known_globals, known_constants, known_locals) -> CompiledCode:
 
+    compiled_commands = []
+    required_gram = 0
+
     for command in code_mnemonics:
-        
+        if command[0][0] == "$":
+            if command[0][1:] in registers:
+                compiled_command = compile_register_write(command, known_constants)
+                compiled_commands.extend(compiled_command.compiled_assembly_code())
+                required_gram += compiled_command.required_gram()
+            elif command[0] == "$(":
+                if command[2] == ")":
+                    compiled_command = compile_gram_write(command, known_constants, known_globals, known_locals)
+                    compiled_commands.extend(compiled_command.compiled_assembly_code())
+                    required_gram += compiled_command.required_gram()
+                else:
+                    raise Exception("Command {} is not a valid gram_write!".format(command))
+            else:
+                raise Exception("Command {} is not valid! '$' is used wrong!".format(command))
+                
+
 
 
 def parse_function(function_command:list[str], known_functions, known_globals, known_constants) -> CompiledFunction:
