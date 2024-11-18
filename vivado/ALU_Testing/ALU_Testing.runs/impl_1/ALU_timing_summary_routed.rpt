@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Sun Nov 10 19:22:00 2024
+| Date         : Mon Nov 18 11:31:41 2024
 | Host         : DESKTOP-NFG9C79 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file ALU_timing_summary_routed.rpt -pb ALU_timing_summary_routed.pb -rpx ALU_timing_summary_routed.rpx -warn_on_violation
 | Design       : ALU
@@ -215,566 +215,594 @@ Min Delay            23 Endpoints
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 D2[0]
+  Source:                 D2[4]
                             (input port)
   Destination:            ZERO_FLAG
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        21.501ns  (logic 7.881ns (36.655%)  route 13.620ns (63.345%))
-  Logic Levels:           19  (CARRY4=5 IBUF=1 LUT1=1 LUT5=2 LUT6=7 MUXF7=2 OBUF=1)
+  Data Path Delay:        22.290ns  (logic 7.068ns (31.711%)  route 15.221ns (68.289%))
+  Logic Levels:           18  (CARRY4=5 IBUF=1 LUT1=1 LUT2=1 LUT4=2 LUT6=7 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.656    10.892 r  ALU_OUT_OBUF[2]_inst_i_11/CO[3]
-                         net (fo=1, routed)           0.000    10.892    ALU_OUT_OBUF[2]_inst_i_11_n_0
-    SLICE_X4Y16          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    11.114 f  ALU_OUT_OBUF[11]_inst_i_23/O[0]
-                         net (fo=1, routed)           0.817    11.931    ALU_OUT_OBUF[11]_inst_i_23_n_7
-    SLICE_X3Y16          LUT5 (Prop_lut5_I4_O)        0.299    12.230 f  ALU_OUT_OBUF[5]_inst_i_7/O
-                         net (fo=1, routed)           0.000    12.230    ALU_OUT_OBUF[5]_inst_i_7_n_0
-    SLICE_X3Y16          MUXF7 (Prop_muxf7_I1_O)      0.217    12.447 f  ALU_OUT_OBUF[5]_inst_i_4/O
-                         net (fo=1, routed)           1.064    13.511    data3[5]
-    SLICE_X1Y19          LUT6 (Prop_lut6_I0_O)        0.299    13.810 f  ALU_OUT_OBUF[5]_inst_i_2/O
-                         net (fo=1, routed)           0.000    13.810    ALU_OUT_OBUF[5]_inst_i_2_n_0
-    SLICE_X1Y19          MUXF7 (Prop_muxf7_I0_O)      0.212    14.022 f  ALU_OUT_OBUF[5]_inst_i_1/O
-                         net (fo=4, routed)           1.713    15.735    ALU_OUT_OBUF[5]
-    SLICE_X0Y38          LUT6 (Prop_lut6_I4_O)        0.299    16.034 r  ZERO_FLAG_OBUF_inst_i_4/O
-                         net (fo=1, routed)           0.375    16.409    ZERO_FLAG_OBUF_inst_i_4_n_0
-    SLICE_X0Y38          LUT6 (Prop_lut6_I2_O)        0.124    16.533 r  ZERO_FLAG_OBUF_inst_i_2/O
-                         net (fo=1, routed)           0.488    17.021    ZERO_FLAG_OBUF_inst_i_2_n_0
-    SLICE_X0Y38          LUT6 (Prop_lut6_I4_O)        0.124    17.145 r  ZERO_FLAG_OBUF_inst_i_1/O
-                         net (fo=1, routed)           1.723    18.869    ZERO_FLAG_OBUF
-    L16                  OBUF (Prop_obuf_I_O)         2.632    21.501 r  ZERO_FLAG_OBUF_inst/O
-                         net (fo=0)                   0.000    21.501    ZERO_FLAG
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.671    10.558 f  ALU_OUT_OBUF[4]_inst_i_13/O[2]
+                         net (fo=1, routed)           0.808    11.366    ALU_OUT_OBUF[4]_inst_i_13_n_5
+    SLICE_X9Y19          LUT2 (Prop_lut2_I1_O)        0.330    11.696 f  ALU_OUT_OBUF[3]_inst_i_31/O
+                         net (fo=1, routed)           1.022    12.719    ALU_OUT_OBUF[3]_inst_i_31_n_0
+    SLICE_X7Y19          LUT6 (Prop_lut6_I4_O)        0.332    13.051 f  ALU_OUT_OBUF[3]_inst_i_12/O
+                         net (fo=1, routed)           0.657    13.708    ALU_OUT_OBUF[3]_inst_i_12_n_0
+    SLICE_X6Y19          LUT6 (Prop_lut6_I5_O)        0.124    13.832 f  ALU_OUT_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           1.241    15.073    ALU_OUT_OBUF[3]_inst_i_4_n_0
+    SLICE_X4Y24          LUT6 (Prop_lut6_I3_O)        0.124    15.197 f  ALU_OUT_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           1.527    16.724    ALU_OUT_OBUF[3]
+    SLICE_X1Y37          LUT4 (Prop_lut4_I3_O)        0.124    16.848 f  ZERO_FLAG_OBUF_inst_i_4/O
+                         net (fo=3, routed)           0.824    17.672    ZERO_FLAG_OBUF_inst_i_4_n_0
+    SLICE_X0Y37          LUT6 (Prop_lut6_I3_O)        0.124    17.796 r  ZERO_FLAG_OBUF_inst_i_1/O
+                         net (fo=1, routed)           1.862    19.658    ZERO_FLAG_OBUF
+    L16                  OBUF (Prop_obuf_I_O)         2.632    22.290 r  ZERO_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000    22.290    ZERO_FLAG
     L16                                                               r  ZERO_FLAG (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 D2[0]
+  Source:                 D2[4]
                             (input port)
   Destination:            NOT_ZERO_FLAG
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        21.279ns  (logic 8.008ns (37.634%)  route 13.271ns (62.366%))
-  Logic Levels:           19  (CARRY4=5 IBUF=1 LUT1=1 LUT3=1 LUT5=2 LUT6=6 MUXF7=2 OBUF=1)
+  Data Path Delay:        21.805ns  (logic 7.069ns (32.421%)  route 14.736ns (67.579%))
+  Logic Levels:           18  (CARRY4=5 IBUF=1 LUT1=1 LUT2=1 LUT4=2 LUT6=7 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.656    10.892 r  ALU_OUT_OBUF[2]_inst_i_11/CO[3]
-                         net (fo=1, routed)           0.000    10.892    ALU_OUT_OBUF[2]_inst_i_11_n_0
-    SLICE_X4Y16          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    11.205 r  ALU_OUT_OBUF[11]_inst_i_23/O[3]
-                         net (fo=1, routed)           0.602    11.807    ALU_OUT_OBUF[11]_inst_i_23_n_4
-    SLICE_X3Y17          LUT5 (Prop_lut5_I4_O)        0.306    12.113 r  ALU_OUT_OBUF[8]_inst_i_7/O
-                         net (fo=1, routed)           0.000    12.113    ALU_OUT_OBUF[8]_inst_i_7_n_0
-    SLICE_X3Y17          MUXF7 (Prop_muxf7_I1_O)      0.217    12.330 r  ALU_OUT_OBUF[8]_inst_i_4/O
-                         net (fo=1, routed)           0.814    13.144    data3[8]
-    SLICE_X2Y18          LUT6 (Prop_lut6_I0_O)        0.299    13.443 r  ALU_OUT_OBUF[8]_inst_i_2/O
-                         net (fo=1, routed)           0.000    13.443    ALU_OUT_OBUF[8]_inst_i_2_n_0
-    SLICE_X2Y18          MUXF7 (Prop_muxf7_I0_O)      0.241    13.684 r  ALU_OUT_OBUF[8]_inst_i_1/O
-                         net (fo=4, routed)           1.646    15.330    ALU_OUT_OBUF[8]
-    SLICE_X0Y37          LUT3 (Prop_lut3_I0_O)        0.298    15.628 r  ZERO_FLAG_OBUF_inst_i_3/O
-                         net (fo=2, routed)           0.679    16.307    ZERO_FLAG_OBUF_inst_i_3_n_0
-    SLICE_X0Y37          LUT6 (Prop_lut6_I2_O)        0.124    16.431 r  NOT_ZERO_FLAG_OBUF_inst_i_2/O
-                         net (fo=1, routed)           0.416    16.846    NOT_ZERO_FLAG_OBUF_inst_i_2_n_0
-    SLICE_X0Y38          LUT6 (Prop_lut6_I4_O)        0.124    16.970 r  NOT_ZERO_FLAG_OBUF_inst_i_1/O
-                         net (fo=1, routed)           1.675    18.646    NOT_ZERO_FLAG_OBUF
-    R13                  OBUF (Prop_obuf_I_O)         2.633    21.279 r  NOT_ZERO_FLAG_OBUF_inst/O
-                         net (fo=0)                   0.000    21.279    NOT_ZERO_FLAG
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.671    10.558 r  ALU_OUT_OBUF[4]_inst_i_13/O[2]
+                         net (fo=1, routed)           0.808    11.366    ALU_OUT_OBUF[4]_inst_i_13_n_5
+    SLICE_X9Y19          LUT2 (Prop_lut2_I1_O)        0.330    11.696 r  ALU_OUT_OBUF[3]_inst_i_31/O
+                         net (fo=1, routed)           1.022    12.719    ALU_OUT_OBUF[3]_inst_i_31_n_0
+    SLICE_X7Y19          LUT6 (Prop_lut6_I4_O)        0.332    13.051 r  ALU_OUT_OBUF[3]_inst_i_12/O
+                         net (fo=1, routed)           0.657    13.708    ALU_OUT_OBUF[3]_inst_i_12_n_0
+    SLICE_X6Y19          LUT6 (Prop_lut6_I5_O)        0.124    13.832 r  ALU_OUT_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           1.241    15.073    ALU_OUT_OBUF[3]_inst_i_4_n_0
+    SLICE_X4Y24          LUT6 (Prop_lut6_I3_O)        0.124    15.197 r  ALU_OUT_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           1.527    16.724    ALU_OUT_OBUF[3]
+    SLICE_X1Y37          LUT4 (Prop_lut4_I3_O)        0.124    16.848 r  ZERO_FLAG_OBUF_inst_i_4/O
+                         net (fo=3, routed)           0.519    17.366    ZERO_FLAG_OBUF_inst_i_4_n_0
+    SLICE_X0Y37          LUT6 (Prop_lut6_I2_O)        0.124    17.490 r  NOT_ZERO_FLAG_OBUF_inst_i_1/O
+                         net (fo=1, routed)           1.681    19.172    NOT_ZERO_FLAG_OBUF
+    R13                  OBUF (Prop_obuf_I_O)         2.633    21.805 r  NOT_ZERO_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000    21.805    NOT_ZERO_FLAG
     R13                                                               r  NOT_ZERO_FLAG (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 D2[0]
+  Source:                 D2[4]
                             (input port)
   Destination:            BIGGER_ZERO_FLAG
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        20.923ns  (logic 7.663ns (36.623%)  route 13.261ns (63.377%))
-  Logic Levels:           18  (CARRY4=4 IBUF=1 LUT1=1 LUT4=2 LUT5=3 LUT6=4 MUXF7=2 OBUF=1)
+  Data Path Delay:        21.777ns  (logic 7.054ns (32.392%)  route 14.723ns (67.608%))
+  Logic Levels:           18  (CARRY4=5 IBUF=1 LUT1=1 LUT2=1 LUT4=2 LUT6=7 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_O[2])
-                                                      0.671    10.907 r  ALU_OUT_OBUF[2]_inst_i_11/O[2]
-                         net (fo=1, routed)           0.496    11.403    ALU_OUT_OBUF[2]_inst_i_11_n_5
-    SLICE_X5Y15          LUT5 (Prop_lut5_I4_O)        0.302    11.705 r  ALU_OUT_OBUF[3]_inst_i_9/O
-                         net (fo=1, routed)           0.000    11.705    ALU_OUT_OBUF[3]_inst_i_9_n_0
-    SLICE_X5Y15          MUXF7 (Prop_muxf7_I1_O)      0.217    11.922 r  ALU_OUT_OBUF[3]_inst_i_4/O
-                         net (fo=1, routed)           0.968    12.890    data3[3]
-    SLICE_X3Y18          LUT6 (Prop_lut6_I0_O)        0.299    13.189 r  ALU_OUT_OBUF[3]_inst_i_2/O
-                         net (fo=1, routed)           0.000    13.189    ALU_OUT_OBUF[3]_inst_i_2_n_0
-    SLICE_X3Y18          MUXF7 (Prop_muxf7_I0_O)      0.212    13.401 r  ALU_OUT_OBUF[3]_inst_i_1/O
-                         net (fo=4, routed)           1.731    15.131    ALU_OUT_OBUF[3]
-    SLICE_X0Y36          LUT4 (Prop_lut4_I1_O)        0.299    15.430 r  BIGGER_ZERO_FLAG_OBUF_inst_i_5/O
-                         net (fo=1, routed)           0.674    16.105    BIGGER_ZERO_FLAG_OBUF_inst_i_5_n_0
-    SLICE_X0Y36          LUT5 (Prop_lut5_I4_O)        0.124    16.229 r  BIGGER_ZERO_FLAG_OBUF_inst_i_4/O
-                         net (fo=1, routed)           0.279    16.508    BIGGER_ZERO_FLAG_OBUF_inst_i_4_n_0
-    SLICE_X0Y36          LUT4 (Prop_lut4_I2_O)        0.124    16.632 r  BIGGER_ZERO_FLAG_OBUF_inst_i_1/O
-                         net (fo=1, routed)           1.674    18.306    BIGGER_ZERO_FLAG_OBUF
-    M13                  OBUF (Prop_obuf_I_O)         2.618    20.923 r  BIGGER_ZERO_FLAG_OBUF_inst/O
-                         net (fo=0)                   0.000    20.923    BIGGER_ZERO_FLAG
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.671    10.558 r  ALU_OUT_OBUF[4]_inst_i_13/O[2]
+                         net (fo=1, routed)           0.808    11.366    ALU_OUT_OBUF[4]_inst_i_13_n_5
+    SLICE_X9Y19          LUT2 (Prop_lut2_I1_O)        0.330    11.696 r  ALU_OUT_OBUF[3]_inst_i_31/O
+                         net (fo=1, routed)           1.022    12.719    ALU_OUT_OBUF[3]_inst_i_31_n_0
+    SLICE_X7Y19          LUT6 (Prop_lut6_I4_O)        0.332    13.051 r  ALU_OUT_OBUF[3]_inst_i_12/O
+                         net (fo=1, routed)           0.657    13.708    ALU_OUT_OBUF[3]_inst_i_12_n_0
+    SLICE_X6Y19          LUT6 (Prop_lut6_I5_O)        0.124    13.832 r  ALU_OUT_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           1.241    15.073    ALU_OUT_OBUF[3]_inst_i_4_n_0
+    SLICE_X4Y24          LUT6 (Prop_lut6_I3_O)        0.124    15.197 r  ALU_OUT_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           1.527    16.724    ALU_OUT_OBUF[3]
+    SLICE_X1Y37          LUT4 (Prop_lut4_I3_O)        0.124    16.848 r  ZERO_FLAG_OBUF_inst_i_4/O
+                         net (fo=3, routed)           0.527    17.374    ZERO_FLAG_OBUF_inst_i_4_n_0
+    SLICE_X0Y37          LUT6 (Prop_lut6_I3_O)        0.124    17.498 r  BIGGER_ZERO_FLAG_OBUF_inst_i_1/O
+                         net (fo=1, routed)           1.661    19.159    BIGGER_ZERO_FLAG_OBUF
+    M13                  OBUF (Prop_obuf_I_O)         2.618    21.777 r  BIGGER_ZERO_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000    21.777    BIGGER_ZERO_FLAG
     M13                                                               r  BIGGER_ZERO_FLAG (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 D2[0]
+  Source:                 D2[4]
                             (input port)
-  Destination:            ALU_OUT[14]
+  Destination:            OVERFLOW_FLAG
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        20.509ns  (logic 7.838ns (38.217%)  route 12.671ns (61.783%))
-  Logic Levels:           18  (CARRY4=7 IBUF=1 LUT1=1 LUT5=2 LUT6=4 MUXF7=2 OBUF=1)
+  Data Path Delay:        21.061ns  (logic 7.389ns (35.086%)  route 13.671ns (64.913%))
+  Logic Levels:           20  (CARRY4=8 IBUF=1 LUT1=1 LUT3=1 LUT4=2 LUT6=6 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.656    10.892 r  ALU_OUT_OBUF[2]_inst_i_11/CO[3]
-                         net (fo=1, routed)           0.000    10.892    ALU_OUT_OBUF[2]_inst_i_11_n_0
-    SLICE_X4Y16          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    11.006 r  ALU_OUT_OBUF[11]_inst_i_23/CO[3]
-                         net (fo=1, routed)           0.000    11.006    ALU_OUT_OBUF[11]_inst_i_23_n_0
-    SLICE_X4Y17          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    11.120 r  ALU_OUT_OBUF[11]_inst_i_9/CO[3]
-                         net (fo=1, routed)           0.000    11.120    ALU_OUT_OBUF[11]_inst_i_9_n_0
-    SLICE_X4Y18          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    11.454 r  CARRY_FLAG_OBUF_inst_i_12/O[1]
-                         net (fo=1, routed)           0.805    12.259    CARRY_FLAG_OBUF_inst_i_12_n_6
-    SLICE_X5Y19          LUT5 (Prop_lut5_I4_O)        0.303    12.562 r  ALU_OUT_OBUF[14]_inst_i_7/O
-                         net (fo=1, routed)           0.000    12.562    ALU_OUT_OBUF[14]_inst_i_7_n_0
-    SLICE_X5Y19          MUXF7 (Prop_muxf7_I1_O)      0.217    12.779 r  ALU_OUT_OBUF[14]_inst_i_4/O
-                         net (fo=1, routed)           0.923    13.702    data3[14]
-    SLICE_X5Y22          LUT6 (Prop_lut6_I0_O)        0.299    14.001 r  ALU_OUT_OBUF[14]_inst_i_2/O
-                         net (fo=1, routed)           0.000    14.001    ALU_OUT_OBUF[14]_inst_i_2_n_0
-    SLICE_X5Y22          MUXF7 (Prop_muxf7_I0_O)      0.212    14.213 r  ALU_OUT_OBUF[14]_inst_i_1/O
-                         net (fo=4, routed)           3.504    17.717    ALU_OUT_OBUF[14]
-    H17                  OBUF (Prop_obuf_I_O)         2.792    20.509 r  ALU_OUT_OBUF[14]_inst/O
-                         net (fo=0)                   0.000    20.509    ALU_OUT[14]
-    H17                                                               r  ALU_OUT[14] (OUT)
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656    10.543 r  ALU_OUT_OBUF[4]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.543    ALU_OUT_OBUF[4]_inst_i_13_n_0
+    SLICE_X11Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.657 r  ALU_OUT_OBUF[8]_inst_i_10/CO[3]
+                         net (fo=1, routed)           0.000    10.657    ALU_OUT_OBUF[8]_inst_i_10_n_0
+    SLICE_X11Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.771 r  ALU_OUT_OBUF[12]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.771    ALU_OUT_OBUF[12]_inst_i_13_n_0
+    SLICE_X11Y22         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    11.010 r  ALU_OUT_OBUF[14]_inst_i_32/O[2]
+                         net (fo=1, routed)           0.943    11.953    ALU_OUT_OBUF[14]_inst_i_32_n_5
+    SLICE_X10Y23         LUT3 (Prop_lut3_I2_O)        0.302    12.255 r  ALU_OUT_OBUF[15]_inst_i_9/O
+                         net (fo=1, routed)           0.670    12.925    ALU_OUT_OBUF[15]_inst_i_9_n_0
+    SLICE_X10Y23         LUT6 (Prop_lut6_I5_O)        0.124    13.049 f  ALU_OUT_OBUF[15]_inst_i_6/O
+                         net (fo=1, routed)           1.020    14.069    ALU_OUT_OBUF[15]_inst_i_6_n_0
+    SLICE_X4Y23          LUT6 (Prop_lut6_I1_O)        0.124    14.193 f  ALU_OUT_OBUF[15]_inst_i_4/O
+                         net (fo=1, routed)           1.021    15.214    ALU_OUT_OBUF[15]_inst_i_4_n_0
+    SLICE_X4Y28          LUT6 (Prop_lut6_I3_O)        0.124    15.338 r  ALU_OUT_OBUF[15]_inst_i_2/O
+                         net (fo=6, routed)           0.670    16.009    SMALLER_ZERO_FLAG_OBUF
+    SLICE_X0Y28          LUT4 (Prop_lut4_I2_O)        0.150    16.159 r  OVERFLOW_FLAG_OBUF_inst_i_1/O
+                         net (fo=1, routed)           2.067    18.225    OVERFLOW_FLAG_OBUF
+    R12                  OBUF (Prop_obuf_I_O)         2.835    21.061 r  OVERFLOW_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000    21.061    OVERFLOW_FLAG
+    R12                                                               r  OVERFLOW_FLAG (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 D2[0]
+  Source:                 D2[4]
                             (input port)
-  Destination:            ALU_OUT[12]
+  Destination:            ALU_OUT[15]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        20.037ns  (logic 7.723ns (38.541%)  route 12.315ns (61.459%))
-  Logic Levels:           17  (CARRY4=6 IBUF=1 LUT1=1 LUT5=2 LUT6=4 MUXF7=2 OBUF=1)
+  Data Path Delay:        20.996ns  (logic 7.030ns (33.485%)  route 13.965ns (66.515%))
+  Logic Levels:           19  (CARRY4=8 IBUF=1 LUT1=1 LUT3=1 LUT4=1 LUT6=6 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.656    10.892 r  ALU_OUT_OBUF[2]_inst_i_11/CO[3]
-                         net (fo=1, routed)           0.000    10.892    ALU_OUT_OBUF[2]_inst_i_11_n_0
-    SLICE_X4Y16          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    11.006 r  ALU_OUT_OBUF[11]_inst_i_23/CO[3]
-                         net (fo=1, routed)           0.000    11.006    ALU_OUT_OBUF[11]_inst_i_23_n_0
-    SLICE_X4Y17          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    11.319 r  ALU_OUT_OBUF[11]_inst_i_9/O[3]
-                         net (fo=1, routed)           0.745    12.063    ALU_OUT_OBUF[11]_inst_i_9_n_4
-    SLICE_X6Y20          LUT5 (Prop_lut5_I4_O)        0.306    12.369 r  ALU_OUT_OBUF[12]_inst_i_7/O
-                         net (fo=1, routed)           0.000    12.369    ALU_OUT_OBUF[12]_inst_i_7_n_0
-    SLICE_X6Y20          MUXF7 (Prop_muxf7_I1_O)      0.214    12.583 r  ALU_OUT_OBUF[12]_inst_i_4/O
-                         net (fo=1, routed)           0.438    13.021    data3[12]
-    SLICE_X4Y22          LUT6 (Prop_lut6_I0_O)        0.297    13.318 r  ALU_OUT_OBUF[12]_inst_i_2/O
-                         net (fo=1, routed)           0.000    13.318    ALU_OUT_OBUF[12]_inst_i_2_n_0
-    SLICE_X4Y22          MUXF7 (Prop_muxf7_I0_O)      0.212    13.530 r  ALU_OUT_OBUF[12]_inst_i_1/O
-                         net (fo=4, routed)           3.693    17.223    ALU_OUT_OBUF[12]
-    J14                  OBUF (Prop_obuf_I_O)         2.814    20.037 r  ALU_OUT_OBUF[12]_inst/O
-                         net (fo=0)                   0.000    20.037    ALU_OUT[12]
-    J14                                                               r  ALU_OUT[12] (OUT)
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656    10.543 r  ALU_OUT_OBUF[4]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.543    ALU_OUT_OBUF[4]_inst_i_13_n_0
+    SLICE_X11Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.657 r  ALU_OUT_OBUF[8]_inst_i_10/CO[3]
+                         net (fo=1, routed)           0.000    10.657    ALU_OUT_OBUF[8]_inst_i_10_n_0
+    SLICE_X11Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.771 r  ALU_OUT_OBUF[12]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.771    ALU_OUT_OBUF[12]_inst_i_13_n_0
+    SLICE_X11Y22         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    11.010 r  ALU_OUT_OBUF[14]_inst_i_32/O[2]
+                         net (fo=1, routed)           0.943    11.953    ALU_OUT_OBUF[14]_inst_i_32_n_5
+    SLICE_X10Y23         LUT3 (Prop_lut3_I2_O)        0.302    12.255 r  ALU_OUT_OBUF[15]_inst_i_9/O
+                         net (fo=1, routed)           0.670    12.925    ALU_OUT_OBUF[15]_inst_i_9_n_0
+    SLICE_X10Y23         LUT6 (Prop_lut6_I5_O)        0.124    13.049 f  ALU_OUT_OBUF[15]_inst_i_6/O
+                         net (fo=1, routed)           1.020    14.069    ALU_OUT_OBUF[15]_inst_i_6_n_0
+    SLICE_X4Y23          LUT6 (Prop_lut6_I1_O)        0.124    14.193 f  ALU_OUT_OBUF[15]_inst_i_4/O
+                         net (fo=1, routed)           1.021    15.214    ALU_OUT_OBUF[15]_inst_i_4_n_0
+    SLICE_X4Y28          LUT6 (Prop_lut6_I3_O)        0.124    15.338 r  ALU_OUT_OBUF[15]_inst_i_2/O
+                         net (fo=6, routed)           3.031    18.370    SMALLER_ZERO_FLAG_OBUF
+    J13                  OBUF (Prop_obuf_I_O)         2.626    20.996 r  ALU_OUT_OBUF[15]_inst/O
+                         net (fo=0)                   0.000    20.996    ALU_OUT[15]
+    J13                                                               r  ALU_OUT[15] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 D2[0]
+  Source:                 D2[4]
+                            (input port)
+  Destination:            ALU_OUT[3]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        20.537ns  (logic 6.836ns (33.289%)  route 13.700ns (66.711%))
+  Logic Levels:           16  (CARRY4=5 IBUF=1 LUT1=1 LUT2=1 LUT4=1 LUT6=6 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.671    10.558 r  ALU_OUT_OBUF[4]_inst_i_13/O[2]
+                         net (fo=1, routed)           0.808    11.366    ALU_OUT_OBUF[4]_inst_i_13_n_5
+    SLICE_X9Y19          LUT2 (Prop_lut2_I1_O)        0.330    11.696 r  ALU_OUT_OBUF[3]_inst_i_31/O
+                         net (fo=1, routed)           1.022    12.719    ALU_OUT_OBUF[3]_inst_i_31_n_0
+    SLICE_X7Y19          LUT6 (Prop_lut6_I4_O)        0.332    13.051 r  ALU_OUT_OBUF[3]_inst_i_12/O
+                         net (fo=1, routed)           0.657    13.708    ALU_OUT_OBUF[3]_inst_i_12_n_0
+    SLICE_X6Y19          LUT6 (Prop_lut6_I5_O)        0.124    13.832 r  ALU_OUT_OBUF[3]_inst_i_4/O
+                         net (fo=1, routed)           1.241    15.073    ALU_OUT_OBUF[3]_inst_i_4_n_0
+    SLICE_X4Y24          LUT6 (Prop_lut6_I3_O)        0.124    15.197 r  ALU_OUT_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           2.692    17.889    ALU_OUT_OBUF[3]
+    J18                  OBUF (Prop_obuf_I_O)         2.648    20.537 r  ALU_OUT_OBUF[3]_inst/O
+                         net (fo=0)                   0.000    20.537    ALU_OUT[3]
+    J18                                                               r  ALU_OUT[3] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 D2[4]
+                            (input port)
+  Destination:            SMALLER_ZERO_FLAG
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        20.220ns  (logic 7.036ns (34.796%)  route 13.184ns (65.204%))
+  Logic Levels:           19  (CARRY4=8 IBUF=1 LUT1=1 LUT3=1 LUT4=1 LUT6=6 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656    10.543 r  ALU_OUT_OBUF[4]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.543    ALU_OUT_OBUF[4]_inst_i_13_n_0
+    SLICE_X11Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.657 r  ALU_OUT_OBUF[8]_inst_i_10/CO[3]
+                         net (fo=1, routed)           0.000    10.657    ALU_OUT_OBUF[8]_inst_i_10_n_0
+    SLICE_X11Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.771 r  ALU_OUT_OBUF[12]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.771    ALU_OUT_OBUF[12]_inst_i_13_n_0
+    SLICE_X11Y22         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    11.010 r  ALU_OUT_OBUF[14]_inst_i_32/O[2]
+                         net (fo=1, routed)           0.943    11.953    ALU_OUT_OBUF[14]_inst_i_32_n_5
+    SLICE_X10Y23         LUT3 (Prop_lut3_I2_O)        0.302    12.255 r  ALU_OUT_OBUF[15]_inst_i_9/O
+                         net (fo=1, routed)           0.670    12.925    ALU_OUT_OBUF[15]_inst_i_9_n_0
+    SLICE_X10Y23         LUT6 (Prop_lut6_I5_O)        0.124    13.049 f  ALU_OUT_OBUF[15]_inst_i_6/O
+                         net (fo=1, routed)           1.020    14.069    ALU_OUT_OBUF[15]_inst_i_6_n_0
+    SLICE_X4Y23          LUT6 (Prop_lut6_I1_O)        0.124    14.193 f  ALU_OUT_OBUF[15]_inst_i_4/O
+                         net (fo=1, routed)           1.021    15.214    ALU_OUT_OBUF[15]_inst_i_4_n_0
+    SLICE_X4Y28          LUT6 (Prop_lut6_I3_O)        0.124    15.338 r  ALU_OUT_OBUF[15]_inst_i_2/O
+                         net (fo=6, routed)           2.250    17.588    SMALLER_ZERO_FLAG_OBUF
+    L18                  OBUF (Prop_obuf_I_O)         2.631    20.220 r  SMALLER_ZERO_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000    20.220    SMALLER_ZERO_FLAG
+    L18                                                               r  SMALLER_ZERO_FLAG (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 D2[4]
                             (input port)
   Destination:            ALU_OUT[5]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.975ns  (logic 7.521ns (37.653%)  route 12.454ns (62.347%))
-  Logic Levels:           16  (CARRY4=5 IBUF=1 LUT1=1 LUT5=2 LUT6=4 MUXF7=2 OBUF=1)
+  Data Path Delay:        20.191ns  (logic 6.800ns (33.679%)  route 13.391ns (66.321%))
+  Logic Levels:           17  (CARRY4=6 IBUF=1 LUT1=1 LUT2=1 LUT4=1 LUT6=6 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.656    10.892 r  ALU_OUT_OBUF[2]_inst_i_11/CO[3]
-                         net (fo=1, routed)           0.000    10.892    ALU_OUT_OBUF[2]_inst_i_11_n_0
-    SLICE_X4Y16          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    11.114 r  ALU_OUT_OBUF[11]_inst_i_23/O[0]
-                         net (fo=1, routed)           0.817    11.931    ALU_OUT_OBUF[11]_inst_i_23_n_7
-    SLICE_X3Y16          LUT5 (Prop_lut5_I4_O)        0.299    12.230 r  ALU_OUT_OBUF[5]_inst_i_7/O
-                         net (fo=1, routed)           0.000    12.230    ALU_OUT_OBUF[5]_inst_i_7_n_0
-    SLICE_X3Y16          MUXF7 (Prop_muxf7_I1_O)      0.217    12.447 r  ALU_OUT_OBUF[5]_inst_i_4/O
-                         net (fo=1, routed)           1.064    13.511    data3[5]
-    SLICE_X1Y19          LUT6 (Prop_lut6_I0_O)        0.299    13.810 r  ALU_OUT_OBUF[5]_inst_i_2/O
-                         net (fo=1, routed)           0.000    13.810    ALU_OUT_OBUF[5]_inst_i_2_n_0
-    SLICE_X1Y19          MUXF7 (Prop_muxf7_I0_O)      0.212    14.022 r  ALU_OUT_OBUF[5]_inst_i_1/O
-                         net (fo=4, routed)           3.134    17.156    ALU_OUT_OBUF[5]
-    F18                  OBUF (Prop_obuf_I_O)         2.819    19.975 r  ALU_OUT_OBUF[5]_inst/O
-                         net (fo=0)                   0.000    19.975    ALU_OUT[5]
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656    10.543 r  ALU_OUT_OBUF[4]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.543    ALU_OUT_OBUF[4]_inst_i_13_n_0
+    SLICE_X11Y20         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    10.765 r  ALU_OUT_OBUF[8]_inst_i_10/O[0]
+                         net (fo=1, routed)           0.658    11.424    ALU_OUT_OBUF[8]_inst_i_10_n_7
+    SLICE_X10Y20         LUT2 (Prop_lut2_I1_O)        0.299    11.723 r  ALU_OUT_OBUF[5]_inst_i_13/O
+                         net (fo=1, routed)           0.822    12.545    ALU_OUT_OBUF[5]_inst_i_13_n_0
+    SLICE_X9Y21          LUT6 (Prop_lut6_I4_O)        0.124    12.669 r  ALU_OUT_OBUF[5]_inst_i_9/O
+                         net (fo=1, routed)           0.520    13.189    ALU_OUT_OBUF[5]_inst_i_9_n_0
+    SLICE_X8Y21          LUT6 (Prop_lut6_I1_O)        0.124    13.313 r  ALU_OUT_OBUF[5]_inst_i_4/O
+                         net (fo=1, routed)           1.354    14.667    ALU_OUT_OBUF[5]_inst_i_4_n_0
+    SLICE_X1Y23          LUT6 (Prop_lut6_I2_O)        0.124    14.791 r  ALU_OUT_OBUF[5]_inst_i_1/O
+                         net (fo=2, routed)           2.756    17.547    ALU_OUT_OBUF[5]
+    F18                  OBUF (Prop_obuf_I_O)         2.644    20.191 r  ALU_OUT_OBUF[5]_inst/O
+                         net (fo=0)                   0.000    20.191    ALU_OUT[5]
     F18                                                               r  ALU_OUT[5] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 D2[0]
+  Source:                 D2[4]
                             (input port)
-  Destination:            ALU_OUT[7]
+  Destination:            ALU_OUT[9]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.631ns  (logic 7.547ns (38.447%)  route 12.083ns (61.553%))
-  Logic Levels:           16  (CARRY4=5 IBUF=1 LUT1=1 LUT5=2 LUT6=4 MUXF7=2 OBUF=1)
+  Data Path Delay:        20.017ns  (logic 6.806ns (34.003%)  route 13.210ns (65.997%))
+  Logic Levels:           17  (CARRY4=7 IBUF=1 LUT1=1 LUT4=1 LUT6=6 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.656    10.892 r  ALU_OUT_OBUF[2]_inst_i_11/CO[3]
-                         net (fo=1, routed)           0.000    10.892    ALU_OUT_OBUF[2]_inst_i_11_n_0
-    SLICE_X4Y16          CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    11.131 r  ALU_OUT_OBUF[11]_inst_i_23/O[2]
-                         net (fo=1, routed)           0.639    11.769    ALU_OUT_OBUF[11]_inst_i_23_n_5
-    SLICE_X5Y17          LUT5 (Prop_lut5_I4_O)        0.302    12.071 r  ALU_OUT_OBUF[7]_inst_i_9/O
-                         net (fo=1, routed)           0.000    12.071    ALU_OUT_OBUF[7]_inst_i_9_n_0
-    SLICE_X5Y17          MUXF7 (Prop_muxf7_I1_O)      0.217    12.288 r  ALU_OUT_OBUF[7]_inst_i_4/O
-                         net (fo=1, routed)           0.945    13.233    data3[7]
-    SLICE_X4Y20          LUT6 (Prop_lut6_I0_O)        0.299    13.532 r  ALU_OUT_OBUF[7]_inst_i_2/O
-                         net (fo=1, routed)           0.000    13.532    ALU_OUT_OBUF[7]_inst_i_2_n_0
-    SLICE_X4Y20          MUXF7 (Prop_muxf7_I0_O)      0.212    13.744 r  ALU_OUT_OBUF[7]_inst_i_1/O
-                         net (fo=4, routed)           3.062    16.805    ALU_OUT_OBUF[7]
-    D18                  OBUF (Prop_obuf_I_O)         2.826    19.631 r  ALU_OUT_OBUF[7]_inst/O
-                         net (fo=0)                   0.000    19.631    ALU_OUT[7]
-    D18                                                               r  ALU_OUT[7] (OUT)
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656    10.543 r  ALU_OUT_OBUF[4]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.543    ALU_OUT_OBUF[4]_inst_i_13_n_0
+    SLICE_X11Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.657 r  ALU_OUT_OBUF[8]_inst_i_10/CO[3]
+                         net (fo=1, routed)           0.000    10.657    ALU_OUT_OBUF[8]_inst_i_10_n_0
+    SLICE_X11Y21         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    10.879 r  ALU_OUT_OBUF[12]_inst_i_13/O[0]
+                         net (fo=1, routed)           0.929    11.808    ALU_OUT_OBUF[12]_inst_i_13_n_7
+    SLICE_X11Y24         LUT6 (Prop_lut6_I4_O)        0.299    12.107 r  ALU_OUT_OBUF[9]_inst_i_13/O
+                         net (fo=1, routed)           0.902    13.009    ALU_OUT_OBUF[9]_inst_i_13_n_0
+    SLICE_X8Y24          LUT6 (Prop_lut6_I2_O)        0.124    13.133 r  ALU_OUT_OBUF[9]_inst_i_6/O
+                         net (fo=1, routed)           0.757    13.889    ALU_OUT_OBUF[9]_inst_i_6_n_0
+    SLICE_X5Y24          LUT6 (Prop_lut6_I3_O)        0.124    14.013 r  ALU_OUT_OBUF[9]_inst_i_2/O
+                         net (fo=2, routed)           3.343    17.357    ALU_OUT_OBUF[9]
+    C17                  OBUF (Prop_obuf_I_O)         2.660    20.017 r  ALU_OUT_OBUF[9]_inst/O
+                         net (fo=0)                   0.000    20.017    ALU_OUT[9]
+    C17                                                               r  ALU_OUT[9] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 D2[0]
+  Source:                 D2[4]
                             (input port)
-  Destination:            ALU_OUT[8]
+  Destination:            ALU_OUT[6]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.557ns  (logic 7.660ns (39.167%)  route 11.897ns (60.833%))
-  Logic Levels:           16  (CARRY4=5 IBUF=1 LUT1=1 LUT5=2 LUT6=4 MUXF7=2 OBUF=1)
+  Data Path Delay:        19.878ns  (logic 7.154ns (35.989%)  route 12.724ns (64.011%))
+  Logic Levels:           17  (CARRY4=6 IBUF=1 LUT1=1 LUT2=1 LUT4=1 LUT6=6 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.656    10.892 r  ALU_OUT_OBUF[2]_inst_i_11/CO[3]
-                         net (fo=1, routed)           0.000    10.892    ALU_OUT_OBUF[2]_inst_i_11_n_0
-    SLICE_X4Y16          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    11.205 r  ALU_OUT_OBUF[11]_inst_i_23/O[3]
-                         net (fo=1, routed)           0.602    11.807    ALU_OUT_OBUF[11]_inst_i_23_n_4
-    SLICE_X3Y17          LUT5 (Prop_lut5_I4_O)        0.306    12.113 r  ALU_OUT_OBUF[8]_inst_i_7/O
-                         net (fo=1, routed)           0.000    12.113    ALU_OUT_OBUF[8]_inst_i_7_n_0
-    SLICE_X3Y17          MUXF7 (Prop_muxf7_I1_O)      0.217    12.330 r  ALU_OUT_OBUF[8]_inst_i_4/O
-                         net (fo=1, routed)           0.814    13.144    data3[8]
-    SLICE_X2Y18          LUT6 (Prop_lut6_I0_O)        0.299    13.443 r  ALU_OUT_OBUF[8]_inst_i_2/O
-                         net (fo=1, routed)           0.000    13.443    ALU_OUT_OBUF[8]_inst_i_2_n_0
-    SLICE_X2Y18          MUXF7 (Prop_muxf7_I0_O)      0.241    13.684 r  ALU_OUT_OBUF[8]_inst_i_1/O
-                         net (fo=4, routed)           3.042    16.726    ALU_OUT_OBUF[8]
-    E18                  OBUF (Prop_obuf_I_O)         2.831    19.557 r  ALU_OUT_OBUF[8]_inst/O
-                         net (fo=0)                   0.000    19.557    ALU_OUT[8]
-    E18                                                               r  ALU_OUT[8] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 D2[0]
-                            (input port)
-  Destination:            ALU_OUT[13]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.492ns  (logic 7.072ns (36.280%)  route 12.420ns (63.719%))
-  Logic Levels:           17  (CARRY4=7 IBUF=1 LUT1=1 LUT5=4 LUT6=3 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.656    10.892 r  ALU_OUT_OBUF[2]_inst_i_11/CO[3]
-                         net (fo=1, routed)           0.000    10.892    ALU_OUT_OBUF[2]_inst_i_11_n_0
-    SLICE_X4Y16          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    11.006 r  ALU_OUT_OBUF[11]_inst_i_23/CO[3]
-                         net (fo=1, routed)           0.000    11.006    ALU_OUT_OBUF[11]_inst_i_23_n_0
-    SLICE_X4Y17          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    11.120 r  ALU_OUT_OBUF[11]_inst_i_9/CO[3]
-                         net (fo=1, routed)           0.000    11.120    ALU_OUT_OBUF[11]_inst_i_9_n_0
-    SLICE_X4Y18          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    11.342 r  CARRY_FLAG_OBUF_inst_i_12/O[0]
-                         net (fo=1, routed)           0.803    12.144    CARRY_FLAG_OBUF_inst_i_12_n_7
-    SLICE_X5Y19          LUT5 (Prop_lut5_I4_O)        0.299    12.443 r  ALU_OUT_OBUF[13]_inst_i_5/O
-                         net (fo=1, routed)           0.823    13.266    ALU_OUT_OBUF[13]_inst_i_5_n_0
-    SLICE_X6Y20          LUT5 (Prop_lut5_I0_O)        0.124    13.390 r  ALU_OUT_OBUF[13]_inst_i_3/O
-                         net (fo=1, routed)           0.500    13.890    ALU_OUT_OBUF[13]_inst_i_3_n_0
-    SLICE_X4Y24          LUT5 (Prop_lut5_I2_O)        0.124    14.014 r  ALU_OUT_OBUF[13]_inst_i_1/O
-                         net (fo=4, routed)           2.856    16.870    ALU_OUT_OBUF[13]
-    G17                  OBUF (Prop_obuf_I_O)         2.622    19.492 r  ALU_OUT_OBUF[13]_inst/O
-                         net (fo=0)                   0.000    19.492    ALU_OUT[13]
-    G17                                                               r  ALU_OUT[13] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 D2[0]
-                            (input port)
-  Destination:            ALU_OUT[1]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.443ns  (logic 6.354ns (32.678%)  route 13.089ns (67.322%))
-  Logic Levels:           14  (CARRY4=4 IBUF=1 LUT1=1 LUT5=3 LUT6=4 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    U17                                               0.000     0.000 f  D2[0] (IN)
-                         net (fo=0)                   0.000     0.000    D2[0]
-    U17                  IBUF (Prop_ibuf_I_O)         0.970     0.970 f  D2_IBUF[0]_inst/O
-                         net (fo=88, routed)          2.362     3.331    D2_IBUF[0]
-    SLICE_X4Y19          LUT1 (Prop_lut1_I0_O)        0.124     3.455 r  ALU_OUT_OBUF[10]_inst_i_19/O
-                         net (fo=1, routed)           0.490     3.945    ALU_OUT_OBUF[10]_inst_i_19_n_0
-    SLICE_X0Y19          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.525 r  ALU_OUT_OBUF[10]_inst_i_13/CO[3]
-                         net (fo=1, routed)           0.000     4.525    ALU_OUT_OBUF[10]_inst_i_13_n_0
-    SLICE_X0Y20          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     4.639 r  CARRY_FLAG_OBUF_inst_i_38/CO[3]
-                         net (fo=1, routed)           0.000     4.639    CARRY_FLAG_OBUF_inst_i_38_n_0
-    SLICE_X0Y21          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     4.973 r  CARRY_FLAG_OBUF_inst_i_34/O[1]
-                         net (fo=2, routed)           0.989     5.962    SHIFT_LEFT2[10]
-    SLICE_X4Y21          LUT5 (Prop_lut5_I0_O)        0.303     6.265 r  CARRY_FLAG_OBUF_inst_i_72/O
-                         net (fo=1, routed)           0.806     7.071    CARRY_FLAG_OBUF_inst_i_72_n_0
-    SLICE_X5Y20          LUT6 (Prop_lut6_I4_O)        0.124     7.195 r  CARRY_FLAG_OBUF_inst_i_52/O
-                         net (fo=3, routed)           0.917     8.112    CARRY_FLAG_OBUF_inst_i_52_n_0
-    SLICE_X1Y16          LUT6 (Prop_lut6_I5_O)        0.124     8.236 r  ALU_OUT_OBUF[0]_inst_i_12/O
-                         net (fo=9, routed)           1.162     9.397    ALU_OUT_OBUF[0]_inst_i_12_n_0
-    SLICE_X5Y15          LUT6 (Prop_lut6_I0_O)        0.124     9.521 r  ALU_OUT_OBUF[2]_inst_i_28/O
-                         net (fo=1, routed)           0.714    10.236    ALU_OUT_OBUF[2]_inst_i_28_n_0
-    SLICE_X4Y15          CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.371    10.607 r  ALU_OUT_OBUF[2]_inst_i_11/O[0]
-                         net (fo=1, routed)           0.604    11.211    ALU_OUT_OBUF[2]_inst_i_11_n_7
-    SLICE_X2Y15          LUT6 (Prop_lut6_I5_O)        0.299    11.510 r  ALU_OUT_OBUF[1]_inst_i_5/O
-                         net (fo=1, routed)           0.658    12.168    ALU_OUT_OBUF[1]_inst_i_5_n_0
-    SLICE_X2Y15          LUT5 (Prop_lut5_I0_O)        0.124    12.292 r  ALU_OUT_OBUF[1]_inst_i_3/O
-                         net (fo=1, routed)           1.072    13.364    ALU_OUT_OBUF[1]_inst_i_3_n_0
-    SLICE_X0Y18          LUT5 (Prop_lut5_I2_O)        0.124    13.488 r  ALU_OUT_OBUF[1]_inst_i_1/O
-                         net (fo=4, routed)           3.316    16.804    ALU_OUT_OBUF[1]
-    J15                  OBUF (Prop_obuf_I_O)         2.639    19.443 r  ALU_OUT_OBUF[1]_inst/O
-                         net (fo=0)                   0.000    19.443    ALU_OUT[1]
-    J15                                                               r  ALU_OUT[1] (OUT)
+    R16                                               0.000     0.000 f  D2[4] (IN)
+                         net (fo=0)                   0.000     0.000    D2[4]
+    R16                  IBUF (Prop_ibuf_I_O)         0.961     0.961 f  D2_IBUF[4]_inst/O
+                         net (fo=71, routed)          2.592     3.553    D2_IBUF[4]
+    SLICE_X7Y20          LUT1 (Prop_lut1_I0_O)        0.124     3.677 r  ALU_OUT_OBUF[14]_inst_i_56/O
+                         net (fo=1, routed)           0.000     3.677    ALU_OUT_OBUF[14]_inst_i_56_n_0
+    SLICE_X7Y20          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     4.078 r  ALU_OUT_OBUF[14]_inst_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.078    ALU_OUT_OBUF[14]_inst_i_28_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.192 r  ALU_OUT_OBUF[14]_inst_i_24/CO[3]
+                         net (fo=1, routed)           0.000     4.192    ALU_OUT_OBUF[14]_inst_i_24_n_0
+    SLICE_X7Y22          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.306 r  ALU_OUT_OBUF[14]_inst_i_25/CO[3]
+                         net (fo=1, routed)           0.000     4.306    ALU_OUT_OBUF[14]_inst_i_25_n_0
+    SLICE_X7Y23          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     4.528 r  ALU_OUT_OBUF[14]_inst_i_45/O[0]
+                         net (fo=1, routed)           0.814     5.342    SHIFT_LEFT2[13]
+    SLICE_X6Y22          LUT4 (Prop_lut4_I2_O)        0.299     5.641 r  ALU_OUT_OBUF[14]_inst_i_23/O
+                         net (fo=7, routed)           0.693     6.334    ALU_OUT_OBUF[14]_inst_i_23_n_0
+    SLICE_X6Y22          LUT6 (Prop_lut6_I4_O)        0.124     6.458 f  ALU_OUT_OBUF[14]_inst_i_15/O
+                         net (fo=29, routed)          1.421     7.878    ALU_OUT_OBUF[14]_inst_i_15_n_0
+    SLICE_X10Y18         LUT6 (Prop_lut6_I5_O)        0.124     8.002 r  ALU_OUT_OBUF[8]_inst_i_29/O
+                         net (fo=15, routed)          0.887     8.890    ALU_OUT_OBUF[8]_inst_i_29_n_0
+    SLICE_X10Y19         LUT6 (Prop_lut6_I0_O)        0.124     9.014 r  ALU_OUT_OBUF[4]_inst_i_23/O
+                         net (fo=1, routed)           0.873     9.887    ALU_OUT_OBUF[4]_inst_i_23_n_0
+    SLICE_X11Y19         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.656    10.543 r  ALU_OUT_OBUF[4]_inst_i_13/CO[3]
+                         net (fo=1, routed)           0.000    10.543    ALU_OUT_OBUF[4]_inst_i_13_n_0
+    SLICE_X11Y20         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    10.877 r  ALU_OUT_OBUF[8]_inst_i_10/O[1]
+                         net (fo=1, routed)           0.521    11.398    ALU_OUT_OBUF[8]_inst_i_10_n_6
+    SLICE_X10Y20         LUT2 (Prop_lut2_I1_O)        0.332    11.730 r  ALU_OUT_OBUF[6]_inst_i_15/O
+                         net (fo=1, routed)           0.665    12.395    ALU_OUT_OBUF[6]_inst_i_15_n_0
+    SLICE_X9Y21          LUT6 (Prop_lut6_I4_O)        0.331    12.726 r  ALU_OUT_OBUF[6]_inst_i_10/O
+                         net (fo=1, routed)           0.685    13.411    ALU_OUT_OBUF[6]_inst_i_10_n_0
+    SLICE_X6Y21          LUT6 (Prop_lut6_I1_O)        0.124    13.535 r  ALU_OUT_OBUF[6]_inst_i_4/O
+                         net (fo=1, routed)           0.764    14.299    ALU_OUT_OBUF[6]_inst_i_4_n_0
+    SLICE_X4Y25          LUT6 (Prop_lut6_I2_O)        0.124    14.423 r  ALU_OUT_OBUF[6]_inst_i_1/O
+                         net (fo=2, routed)           2.809    17.232    ALU_OUT_OBUF[6]
+    G18                  OBUF (Prop_obuf_I_O)         2.645    19.878 r  ALU_OUT_OBUF[6]_inst/O
+                         net (fo=0)                   0.000    19.878    ALU_OUT[6]
+    G18                                                               r  ALU_OUT[6] (OUT)
   -------------------------------------------------------------------    -------------------
 
 
@@ -811,7 +839,7 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.429ns  (logic 1.386ns (57.045%)  route 1.043ns (42.955%))
+  Data Path Delay:        2.409ns  (logic 1.451ns (60.204%)  route 0.959ns (39.796%))
   Logic Levels:           3  (IBUF=1 LUT4=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -819,87 +847,35 @@ Slack:                    inf
     P18                                               0.000     0.000 r  D2[15] (IN)
                          net (fo=0)                   0.000     0.000    D2[15]
     P18                  IBUF (Prop_ibuf_I_O)         0.191     0.191 r  D2_IBUF[15]_inst/O
-                         net (fo=147, routed)         0.520     0.711    D2_IBUF[15]
-    SLICE_X0Y25          LUT4 (Prop_lut4_I1_O)        0.045     0.756 r  OVERFLOW_FLAG_OBUF_inst_i_1/O
-                         net (fo=1, routed)           0.523     1.279    OVERFLOW_FLAG_OBUF
-    R12                  OBUF (Prop_obuf_I_O)         1.150     2.429 r  OVERFLOW_FLAG_OBUF_inst/O
-                         net (fo=0)                   0.000     2.429    OVERFLOW_FLAG
+                         net (fo=127, routed)         0.457     0.648    D2_IBUF[15]
+    SLICE_X0Y28          LUT4 (Prop_lut4_I1_O)        0.048     0.696 r  OVERFLOW_FLAG_OBUF_inst_i_1/O
+                         net (fo=1, routed)           0.502     1.197    OVERFLOW_FLAG_OBUF
+    R12                  OBUF (Prop_obuf_I_O)         1.212     2.409 r  OVERFLOW_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000     2.409    OVERFLOW_FLAG
     R12                                                               r  OVERFLOW_FLAG (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ALU_OPP[0]
+  Source:                 D2[15]
                             (input port)
   Destination:            CARRY_FLAG
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.660ns  (logic 1.365ns (51.298%)  route 1.296ns (48.702%))
+  Data Path Delay:        2.449ns  (logic 1.371ns (55.979%)  route 1.078ns (44.021%))
   Logic Levels:           3  (IBUF=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    N17                                               0.000     0.000 r  ALU_OPP[0] (IN)
-                         net (fo=0)                   0.000     0.000    ALU_OPP[0]
-    N17                  IBUF (Prop_ibuf_I_O)         0.184     0.184 r  ALU_OPP_IBUF[0]_inst/O
-                         net (fo=38, routed)          0.714     0.899    ALU_OPP_IBUF[0]
-    SLICE_X3Y24          LUT6 (Prop_lut6_I3_O)        0.045     0.944 r  CARRY_FLAG_OBUF_inst_i_1/O
-                         net (fo=4, routed)           0.581     1.525    CARRY_FLAG_OBUF
-    L13                  OBUF (Prop_obuf_I_O)         1.135     2.660 r  CARRY_FLAG_OBUF_inst/O
-                         net (fo=0)                   0.000     2.660    CARRY_FLAG
+    P18                                               0.000     0.000 r  D2[15] (IN)
+                         net (fo=0)                   0.000     0.000    D2[15]
+    P18                  IBUF (Prop_ibuf_I_O)         0.191     0.191 r  D2_IBUF[15]_inst/O
+                         net (fo=127, routed)         0.501     0.691    D2_IBUF[15]
+    SLICE_X2Y28          LUT6 (Prop_lut6_I2_O)        0.045     0.736 r  CARRY_FLAG_OBUF_inst_i_1/O
+                         net (fo=2, routed)           0.577     1.314    CARRY_FLAG_OBUF
+    L13                  OBUF (Prop_obuf_I_O)         1.135     2.449 r  CARRY_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000     2.449    CARRY_FLAG
     L13                                                               r  CARRY_FLAG (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 D2[4]
-                            (input port)
-  Destination:            BIGGER_ZERO_FLAG
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.896ns  (logic 1.587ns (54.789%)  route 1.309ns (45.211%))
-  Logic Levels:           6  (IBUF=1 LUT4=1 LUT5=2 MUXF7=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    R16                                               0.000     0.000 r  D2[4] (IN)
-                         net (fo=0)                   0.000     0.000    D2[4]
-    R16                  IBUF (Prop_ibuf_I_O)         0.190     0.190 r  D2_IBUF[4]_inst/O
-                         net (fo=65, routed)          0.474     0.664    D2_IBUF[4]
-    SLICE_X2Y17          LUT5 (Prop_lut5_I2_O)        0.045     0.709 r  ALU_OUT_OBUF[4]_inst_i_3/O
-                         net (fo=1, routed)           0.000     0.709    ALU_OUT_OBUF[4]_inst_i_3_n_0
-    SLICE_X2Y17          MUXF7 (Prop_muxf7_I1_O)      0.064     0.773 r  ALU_OUT_OBUF[4]_inst_i_1/O
-                         net (fo=4, routed)           0.413     1.187    ALU_OUT_OBUF[4]
-    SLICE_X0Y36          LUT5 (Prop_lut5_I1_O)        0.108     1.295 r  BIGGER_ZERO_FLAG_OBUF_inst_i_4/O
-                         net (fo=1, routed)           0.097     1.392    BIGGER_ZERO_FLAG_OBUF_inst_i_4_n_0
-    SLICE_X0Y36          LUT4 (Prop_lut4_I2_O)        0.045     1.437 r  BIGGER_ZERO_FLAG_OBUF_inst_i_1/O
-                         net (fo=1, routed)           0.325     1.762    BIGGER_ZERO_FLAG_OBUF
-    M13                  OBUF (Prop_obuf_I_O)         1.135     2.896 r  BIGGER_ZERO_FLAG_OBUF_inst/O
-                         net (fo=0)                   0.000     2.896    BIGGER_ZERO_FLAG
-    M13                                                               r  BIGGER_ZERO_FLAG (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ALU_OPP[3]
-                            (input port)
-  Destination:            ALU_OUT[13]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.915ns  (logic 1.389ns (47.645%)  route 1.526ns (52.355%))
-  Logic Levels:           3  (IBUF=1 LUT5=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    T18                                               0.000     0.000 r  ALU_OPP[3] (IN)
-                         net (fo=0)                   0.000     0.000    ALU_OPP[3]
-    T18                  IBUF (Prop_ibuf_I_O)         0.205     0.205 r  ALU_OPP_IBUF[3]_inst/O
-                         net (fo=17, routed)          0.691     0.896    ALU_OPP_IBUF[3]
-    SLICE_X4Y24          LUT5 (Prop_lut5_I1_O)        0.045     0.941 r  ALU_OUT_OBUF[13]_inst_i_1/O
-                         net (fo=4, routed)           0.835     1.776    ALU_OUT_OBUF[13]
-    G17                  OBUF (Prop_obuf_I_O)         1.139     2.915 r  ALU_OUT_OBUF[13]_inst/O
-                         net (fo=0)                   0.000     2.915    ALU_OUT[13]
-    G17                                                               r  ALU_OUT[13] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -909,70 +885,45 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.927ns  (logic 1.501ns (51.278%)  route 1.426ns (48.722%))
-  Logic Levels:           3  (IBUF=1 MUXF7=1 OBUF=1)
+  Data Path Delay:        2.538ns  (logic 1.398ns (55.095%)  route 1.140ns (44.905%))
+  Logic Levels:           3  (IBUF=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    T18                                               0.000     0.000 f  ALU_OPP[3] (IN)
+                         net (fo=0)                   0.000     0.000    ALU_OPP[3]
+    T18                  IBUF (Prop_ibuf_I_O)         0.205     0.205 f  ALU_OPP_IBUF[3]_inst/O
+                         net (fo=30, routed)          0.536     0.741    ALU_OPP_IBUF[3]
+    SLICE_X4Y28          LUT6 (Prop_lut6_I4_O)        0.045     0.786 r  ALU_OUT_OBUF[15]_inst_i_2/O
+                         net (fo=6, routed)           0.604     1.389    SMALLER_ZERO_FLAG_OBUF
+    L18                  OBUF (Prop_obuf_I_O)         1.148     2.538 r  SMALLER_ZERO_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000     2.538    SMALLER_ZERO_FLAG
+    L18                                                               r  SMALLER_ZERO_FLAG (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ALU_OPP[3]
+                            (input port)
+  Destination:            BIGGER_ZERO_FLAG
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        2.685ns  (logic 1.430ns (53.243%)  route 1.255ns (46.757%))
+  Logic Levels:           4  (IBUF=1 LUT6=2 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
     T18                                               0.000     0.000 r  ALU_OPP[3] (IN)
                          net (fo=0)                   0.000     0.000    ALU_OPP[3]
     T18                  IBUF (Prop_ibuf_I_O)         0.205     0.205 r  ALU_OPP_IBUF[3]_inst/O
-                         net (fo=17, routed)          0.576     0.781    ALU_OPP_IBUF[3]
-    SLICE_X3Y24          MUXF7 (Prop_muxf7_S_O)       0.085     0.866 r  ALU_OUT_OBUF[15]_inst_i_1/O
-                         net (fo=6, routed)           0.850     1.716    SMALLER_ZERO_FLAG_OBUF
-    L18                  OBUF (Prop_obuf_I_O)         1.211     2.927 r  SMALLER_ZERO_FLAG_OBUF_inst/O
-                         net (fo=0)                   0.000     2.927    SMALLER_ZERO_FLAG
-    L18                                                               r  SMALLER_ZERO_FLAG (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 D2[4]
-                            (input port)
-  Destination:            ALU_OUT[4]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.928ns  (logic 1.518ns (51.854%)  route 1.410ns (48.146%))
-  Logic Levels:           4  (IBUF=1 LUT5=1 MUXF7=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    R16                                               0.000     0.000 r  D2[4] (IN)
-                         net (fo=0)                   0.000     0.000    D2[4]
-    R16                  IBUF (Prop_ibuf_I_O)         0.190     0.190 r  D2_IBUF[4]_inst/O
-                         net (fo=65, routed)          0.474     0.664    D2_IBUF[4]
-    SLICE_X2Y17          LUT5 (Prop_lut5_I2_O)        0.045     0.709 r  ALU_OUT_OBUF[4]_inst_i_3/O
-                         net (fo=1, routed)           0.000     0.709    ALU_OUT_OBUF[4]_inst_i_3_n_0
-    SLICE_X2Y17          MUXF7 (Prop_muxf7_I1_O)      0.064     0.773 r  ALU_OUT_OBUF[4]_inst_i_1/O
-                         net (fo=4, routed)           0.935     1.709    ALU_OUT_OBUF[4]
-    J17                  OBUF (Prop_obuf_I_O)         1.219     2.928 r  ALU_OUT_OBUF[4]_inst/O
-                         net (fo=0)                   0.000     2.928    ALU_OUT[4]
-    J17                                                               r  ALU_OUT[4] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 D1[9]
-                            (input port)
-  Destination:            ALU_OUT[9]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.976ns  (logic 1.579ns (53.048%)  route 1.397ns (46.952%))
-  Logic Levels:           4  (IBUF=1 LUT5=1 MUXF7=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    V12                                               0.000     0.000 r  D1[9] (IN)
-                         net (fo=0)                   0.000     0.000    D1[9]
-    V12                  IBUF (Prop_ibuf_I_O)         0.220     0.220 r  D1_IBUF[9]_inst/O
-                         net (fo=15, routed)          0.566     0.786    D1_IBUF[9]
-    SLICE_X3Y18          LUT5 (Prop_lut5_I4_O)        0.045     0.831 r  ALU_OUT_OBUF[9]_inst_i_3/O
-                         net (fo=1, routed)           0.000     0.831    ALU_OUT_OBUF[9]_inst_i_3_n_0
-    SLICE_X3Y18          MUXF7 (Prop_muxf7_I1_O)      0.074     0.905 r  ALU_OUT_OBUF[9]_inst_i_1/O
-                         net (fo=4, routed)           0.831     1.736    ALU_OUT_OBUF[9]
-    C17                  OBUF (Prop_obuf_I_O)         1.240     2.976 r  ALU_OUT_OBUF[9]_inst/O
-                         net (fo=0)                   0.000     2.976    ALU_OUT[9]
-    C17                                                               r  ALU_OUT[9] (OUT)
+                         net (fo=30, routed)          0.536     0.741    ALU_OPP_IBUF[3]
+    SLICE_X4Y28          LUT6 (Prop_lut6_I4_O)        0.045     0.786 f  ALU_OUT_OBUF[15]_inst_i_2/O
+                         net (fo=6, routed)           0.394     1.179    SMALLER_ZERO_FLAG_OBUF
+    SLICE_X0Y37          LUT6 (Prop_lut6_I0_O)        0.045     1.224 r  BIGGER_ZERO_FLAG_OBUF_inst_i_1/O
+                         net (fo=1, routed)           0.326     1.550    BIGGER_ZERO_FLAG_OBUF
+    M13                  OBUF (Prop_obuf_I_O)         1.135     2.685 r  BIGGER_ZERO_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000     2.685    BIGGER_ZERO_FLAG
+    M13                                                               r  BIGGER_ZERO_FLAG (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -982,22 +933,97 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.980ns  (logic 1.445ns (48.481%)  route 1.535ns (51.519%))
+  Data Path Delay:        2.693ns  (logic 1.445ns (53.651%)  route 1.248ns (46.349%))
+  Logic Levels:           4  (IBUF=1 LUT6=2 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    T18                                               0.000     0.000 f  ALU_OPP[3] (IN)
+                         net (fo=0)                   0.000     0.000    ALU_OPP[3]
+    T18                  IBUF (Prop_ibuf_I_O)         0.205     0.205 f  ALU_OPP_IBUF[3]_inst/O
+                         net (fo=30, routed)          0.536     0.741    ALU_OPP_IBUF[3]
+    SLICE_X4Y28          LUT6 (Prop_lut6_I4_O)        0.045     0.786 r  ALU_OUT_OBUF[15]_inst_i_2/O
+                         net (fo=6, routed)           0.395     1.180    SMALLER_ZERO_FLAG_OBUF
+    SLICE_X0Y37          LUT6 (Prop_lut6_I5_O)        0.045     1.225 r  NOT_ZERO_FLAG_OBUF_inst_i_1/O
+                         net (fo=1, routed)           0.317     1.543    NOT_ZERO_FLAG_OBUF
+    R13                  OBUF (Prop_obuf_I_O)         1.150     2.693 r  NOT_ZERO_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000     2.693    NOT_ZERO_FLAG
+    R13                                                               r  NOT_ZERO_FLAG (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 D2[12]
+                            (input port)
+  Destination:            ALU_OUT[12]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        2.806ns  (logic 1.436ns (51.179%)  route 1.370ns (48.821%))
   Logic Levels:           4  (IBUF=1 LUT5=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    T18                                               0.000     0.000 r  ALU_OPP[3] (IN)
+    N15                                               0.000     0.000 r  D2[12] (IN)
+                         net (fo=0)                   0.000     0.000    D2[12]
+    N15                  IBUF (Prop_ibuf_I_O)         0.191     0.191 r  D2_IBUF[12]_inst/O
+                         net (fo=8, routed)           0.466     0.656    D2_IBUF[12]
+    SLICE_X0Y26          LUT5 (Prop_lut5_I2_O)        0.045     0.701 r  ALU_OUT_OBUF[12]_inst_i_2/O
+                         net (fo=1, routed)           0.169     0.870    ALU_OUT_OBUF[12]_inst_i_2_n_0
+    SLICE_X0Y26          LUT6 (Prop_lut6_I0_O)        0.045     0.915 r  ALU_OUT_OBUF[12]_inst_i_1/O
+                         net (fo=2, routed)           0.735     1.651    ALU_OUT_OBUF[12]
+    J14                  OBUF (Prop_obuf_I_O)         1.156     2.806 r  ALU_OUT_OBUF[12]_inst/O
+                         net (fo=0)                   0.000     2.806    ALU_OUT[12]
+    J14                                                               r  ALU_OUT[12] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 D2[15]
+                            (input port)
+  Destination:            ZERO_FLAG
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        2.821ns  (logic 1.474ns (52.262%)  route 1.347ns (47.738%))
+  Logic Levels:           5  (IBUF=1 LUT4=1 LUT6=2 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    P18                                               0.000     0.000 f  D2[15] (IN)
+                         net (fo=0)                   0.000     0.000    D2[15]
+    P18                  IBUF (Prop_ibuf_I_O)         0.191     0.191 f  D2_IBUF[15]_inst/O
+                         net (fo=127, routed)         0.501     0.691    D2_IBUF[15]
+    SLICE_X2Y28          LUT6 (Prop_lut6_I2_O)        0.045     0.736 f  CARRY_FLAG_OBUF_inst_i_1/O
+                         net (fo=2, routed)           0.313     1.049    CARRY_FLAG_OBUF
+    SLICE_X0Y37          LUT4 (Prop_lut4_I3_O)        0.045     1.094 f  ZERO_FLAG_OBUF_inst_i_3/O
+                         net (fo=3, routed)           0.120     1.215    ZERO_FLAG_OBUF_inst_i_3_n_0
+    SLICE_X0Y37          LUT6 (Prop_lut6_I2_O)        0.045     1.260 r  ZERO_FLAG_OBUF_inst_i_1/O
+                         net (fo=1, routed)           0.413     1.672    ZERO_FLAG_OBUF
+    L16                  OBUF (Prop_obuf_I_O)         1.149     2.821 r  ZERO_FLAG_OBUF_inst/O
+                         net (fo=0)                   0.000     2.821    ZERO_FLAG
+    L16                                                               r  ZERO_FLAG (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ALU_OPP[3]
+                            (input port)
+  Destination:            ALU_OUT[15]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        2.849ns  (logic 1.393ns (48.894%)  route 1.456ns (51.106%))
+  Logic Levels:           3  (IBUF=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    T18                                               0.000     0.000 f  ALU_OPP[3] (IN)
                          net (fo=0)                   0.000     0.000    ALU_OPP[3]
-    T18                  IBUF (Prop_ibuf_I_O)         0.205     0.205 r  ALU_OPP_IBUF[3]_inst/O
-                         net (fo=17, routed)          0.691     0.896    ALU_OPP_IBUF[3]
-    SLICE_X4Y24          LUT5 (Prop_lut5_I1_O)        0.045     0.941 r  ALU_OUT_OBUF[13]_inst_i_1/O
-                         net (fo=4, routed)           0.518     1.459    ALU_OUT_OBUF[13]
-    SLICE_X0Y38          LUT6 (Prop_lut6_I1_O)        0.045     1.504 r  NOT_ZERO_FLAG_OBUF_inst_i_1/O
-                         net (fo=1, routed)           0.326     1.830    NOT_ZERO_FLAG_OBUF
-    R13                  OBUF (Prop_obuf_I_O)         1.150     2.980 r  NOT_ZERO_FLAG_OBUF_inst/O
-                         net (fo=0)                   0.000     2.980    NOT_ZERO_FLAG
-    R13                                                               r  NOT_ZERO_FLAG (OUT)
+    T18                  IBUF (Prop_ibuf_I_O)         0.205     0.205 f  ALU_OPP_IBUF[3]_inst/O
+                         net (fo=30, routed)          0.536     0.741    ALU_OPP_IBUF[3]
+    SLICE_X4Y28          LUT6 (Prop_lut6_I4_O)        0.045     0.786 r  ALU_OUT_OBUF[15]_inst_i_2/O
+                         net (fo=6, routed)           0.920     1.706    SMALLER_ZERO_FLAG_OBUF
+    J13                  OBUF (Prop_obuf_I_O)         1.143     2.849 r  ALU_OUT_OBUF[15]_inst/O
+                         net (fo=0)                   0.000     2.849    ALU_OUT[15]
+    J13                                                               r  ALU_OUT[15] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -1007,21 +1033,21 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.983ns  (logic 1.529ns (51.263%)  route 1.454ns (48.737%))
-  Logic Levels:           4  (IBUF=1 LUT5=1 MUXF7=1 OBUF=1)
+  Data Path Delay:        2.882ns  (logic 1.446ns (50.181%)  route 1.436ns (49.819%))
+  Logic Levels:           4  (IBUF=1 LUT6=2 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
     T15                                               0.000     0.000 r  D2[5] (IN)
                          net (fo=0)                   0.000     0.000    D2[5]
     T15                  IBUF (Prop_ibuf_I_O)         0.195     0.195 r  D2_IBUF[5]_inst/O
-                         net (fo=9, routed)           0.471     0.666    D2_IBUF[5]
-    SLICE_X1Y19          LUT5 (Prop_lut5_I2_O)        0.045     0.711 r  ALU_OUT_OBUF[5]_inst_i_3/O
-                         net (fo=1, routed)           0.000     0.711    ALU_OUT_OBUF[5]_inst_i_3_n_0
-    SLICE_X1Y19          MUXF7 (Prop_muxf7_I1_O)      0.065     0.776 r  ALU_OUT_OBUF[5]_inst_i_1/O
-                         net (fo=4, routed)           0.983     1.759    ALU_OUT_OBUF[5]
-    F18                  OBUF (Prop_obuf_I_O)         1.224     2.983 r  ALU_OUT_OBUF[5]_inst/O
-                         net (fo=0)                   0.000     2.983    ALU_OUT[5]
+                         net (fo=8, routed)           0.493     0.688    D2_IBUF[5]
+    SLICE_X1Y23          LUT6 (Prop_lut6_I2_O)        0.045     0.733 r  ALU_OUT_OBUF[5]_inst_i_6/O
+                         net (fo=1, routed)           0.135     0.868    ALU_OUT_OBUF[5]_inst_i_6_n_0
+    SLICE_X1Y23          LUT6 (Prop_lut6_I5_O)        0.045     0.913 r  ALU_OUT_OBUF[5]_inst_i_1/O
+                         net (fo=2, routed)           0.808     1.721    ALU_OUT_OBUF[5]
+    F18                  OBUF (Prop_obuf_I_O)         1.161     2.882 r  ALU_OUT_OBUF[5]_inst/O
+                         net (fo=0)                   0.000     2.882    ALU_OUT[5]
     F18                                                               r  ALU_OUT[5] (OUT)
   -------------------------------------------------------------------    -------------------
 
