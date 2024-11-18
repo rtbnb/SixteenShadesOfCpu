@@ -16,6 +16,10 @@ vhdl xil_defaultlib  \
 "../../../bd/main/ip/main_IROM_0_1/sim/main_IROM_0_1.vhd" \
 "../../../bd/main/ip/main_RAM_Placeholder_0_0/sim/main_RAM_Placeholder_0_0.vhd" \
 "../../../bd/main/ip/main_ALU_FLAG_PACKER_0_1/sim/main_ALU_FLAG_PACKER_0_1.vhd" \
+"../../../bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" \
+"../../../bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" \
+"../../../bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" \
+"../../../bd/main/ip/main_ClockDisabler_0_0/sim/main_ClockDisabler_0_0.vhd" \
 "../../../bd/main/sim/main.vhd" \
 
 # Do not sort compile order

@@ -1,9 +1,10 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim -log elaborate.log 
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -13,6 +14,8 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package unisim.vcomponents
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
 Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
 Compiling architecture main_alu_0_0_arch of entity xil_defaultlib.main_ALU_0_0 [main_alu_0_0_default]
 Compiling architecture behavioral of entity xil_defaultlib.ALU_FLAG_PACKER [alu_flag_packer_default]
@@ -30,6 +33,10 @@ Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressControll
 Compiling architecture main_cu_ramaddresscontrol_0_0_arch of entity xil_defaultlib.main_CU_RAMAddressControl_0_0 [main_cu_ramaddresscontrol_0_0_de...]
 Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
 Compiling architecture main_cu_writeselector_0_0_arch of entity xil_defaultlib.main_CU_WriteSelector_0_0 [main_cu_writeselector_0_0_defaul...]
+Compiling architecture behavioral of entity xil_defaultlib.ClockDisabler [clockdisabler_default]
+Compiling architecture main_clockdisabler_0_0_arch of entity xil_defaultlib.main_ClockDisabler_0_0 [main_clockdisabler_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
+Compiling architecture main_debugger_0_0_arch of entity xil_defaultlib.main_Debugger_0_0 [main_debugger_0_0_default]
 Compiling architecture behavioral of entity xil_defaultlib.Decoder [decoder_default]
 Compiling architecture main_decoder_0_0_arch of entity xil_defaultlib.main_Decoder_0_0 [main_decoder_0_0_default]
 Compiling architecture behavioral of entity xil_defaultlib.IROM [irom_default]
@@ -46,8 +53,17 @@ Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [progr
 Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
 Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
 Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
+Compiling architecture main_rx_uart_0_0_arch of entity xil_defaultlib.main_RX_UART_0_0 [main_rx_uart_0_0_default]
 Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]
 Compiling architecture main_regfile_0_0_arch of entity xil_defaultlib.main_RegFile_0_0 [main_regfile_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
+Compiling architecture main_tx_uart_0_0_arch of entity xil_defaultlib.main_TX_UART_0_0 [main_tx_uart_0_0_default]
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.main_clk_wiz_0_0_clk_wiz
+Compiling module xil_defaultlib.main_clk_wiz_0_0
 Compiling architecture structure of entity xil_defaultlib.main [main_default]
 Compiling architecture structure of entity xil_defaultlib.main_wrapper [main_wrapper_default]
 Compiling architecture behavioral of entity xil_defaultlib.mainsim

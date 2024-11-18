@@ -40,9 +40,14 @@ entity Debugger is
         
         tx_data: out std_logic_vector(7 downto 0);
         tx_data_valid: out std_logic;
-        tx_data_sended: in std_logic
+        tx_data_sended: in std_logic;
+        
+        -- debug clk
+        debug_clk_stop_LOW_ACTIVE: out std_logic;
         
         -- monitoring signals
+        pc_current_addr: in std_logic_vector(15 downto 0);
+        wlb_in: in std_logic
         
     );
 end Debugger;
@@ -65,12 +70,17 @@ architecture Behavioral of Debugger is
     signal tx_instruction_buffer: std_logic_vector(7 downto 0) := x"00";
     signal tx_data_buffer: std_logic_vector(15 downto 0) := x"0000";
     signal tx_addr_buffer: std_logic_vector(15 downto 0) := x"0000";
+    
+    signal debug_clk_stop: std_logic := '0';
+    signal pc_current_addr_buffer: std_logic_vector(15 downto 0) := x"FFFF";
 begin
-
+    debug_clk_stop_LOW_ACTIVE <= debug_clk_stop;
+    pc_current_addr_buffer <= pc_current_addr;
     state_machine: process(clk, state, rx_data_valid, tx_data_sended) begin
         if rising_edge(clk) then
             case state is
                 when Idle =>
+                    debug_clk_stop <= '1';
                     if (rx_data_valid = '1') then
                         rx_instruction_buffer <= rx_data;
                         state <= ReceiveInstructionDataHIGH;
@@ -95,16 +105,23 @@ begin
                 -- command processing states
                 when ProcessCommand =>
                     -- command decode
+                    debug_clk_stop <= '0';
                     case rx_instruction_buffer is
                         when x"00" =>
                             tx_instruction_buffer <= x"AA";
-                            tx_data_buffer <= x"AAAA";
-                            tx_addr_buffer <= x"AAAA";
+                            tx_data_buffer <= x"ABAB";
+                            tx_addr_buffer <= x"ABAB";
                             state <= TransmitDataInstruction;
                         when x"01" =>
                             tx_instruction_buffer <= x"BB";
+                            tx_instruction_buffer(0) <= wlb_in;
                             tx_data_buffer <= x"BBBB";
                             tx_addr_buffer <= x"BBBB";
+                            state <= TransmitDataInstruction;
+                        when x"02" =>
+                            tx_instruction_buffer <= x"03";
+                            tx_data_buffer <= pc_current_addr_buffer;
+                            tx_addr_buffer <= x"0000";
                             state <= TransmitDataInstruction;
                         when others =>
                             state <= Idle;
