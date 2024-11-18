@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Sun Nov 17 01:29:38 2024
+--Date        : Mon Nov 18 02:30:08 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
@@ -66,8 +66,7 @@ architecture STRUCTURE of main_block is
     debug_clk : in STD_LOGIC;
     debug_we : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
-    debug_clk_enable : in STD_LOGIC;
-    debug_iram_select : in STD_LOGIC;
+    debug_override_enable : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -281,11 +280,10 @@ mmu_0: component main_block_mmu_0_0
       debug_bank(3 downto 0) => debug_bank_1(3 downto 0),
       debug_clk => debug_clk_1,
       debug_clk200mhz => debug_clk200mhz_1,
-      debug_clk_enable => debug_clk_enable_1,
       debug_din(15 downto 0) => debug_din_1(15 downto 0),
       debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
       debug_enable => debug_enable_1,
-      debug_iram_select => debug_iram_select_1,
+      debug_override_enable => '0',
       debug_we => debug_we_1,
       gram_addr(15 downto 0) => gram_addr_1(15 downto 0),
       gram_bank(3 downto 0) => gram_bank_1(3 downto 0),

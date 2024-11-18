@@ -1,14 +1,13 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xDED83486B6D1903C",
+      "boundary_crc": "0xD7E12BB3D0DC0DDA",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "None",
-      "tool_version": "2024.1",
-      "validated": "true"
+      "tool_version": "2024.1"
     },
     "design_tree": {
       "vram": "",
@@ -42,24 +41,8 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_clk200mhz",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "200000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
@@ -67,24 +50,8 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_debug_clk200mhz",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "200000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
@@ -92,24 +59,8 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_debug_clk",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
@@ -117,9 +68,6 @@
         "direction": "I"
       },
       "debug_enable": {
-        "direction": "I"
-      },
-      "debug_clk_enable": {
         "direction": "I"
       },
       "debug_addr": {
@@ -141,24 +89,8 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_iram_clk",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
@@ -171,24 +103,8 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_gram_clk",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
@@ -214,24 +130,8 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_vram_clk",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
@@ -240,7 +140,7 @@
         "left": "15",
         "right": "0"
       },
-      "debug_iram_select": {
+      "debug_override_enable": {
         "direction": "I"
       }
     },
@@ -365,10 +265,7 @@
           "debug_enable": {
             "direction": "I"
           },
-          "debug_clk_enable": {
-            "direction": "I"
-          },
-          "debug_iram_select": {
+          "debug_override_enable": {
             "direction": "I"
           },
           "debug_addr": {
@@ -745,12 +642,6 @@
           "mmu_0/debug_clk"
         ]
       },
-      "debug_clk_enable_1": {
-        "ports": [
-          "debug_clk_enable",
-          "mmu_0/debug_clk_enable"
-        ]
-      },
       "debug_din_1": {
         "ports": [
           "debug_din",
@@ -763,10 +654,10 @@
           "mmu_0/debug_enable"
         ]
       },
-      "debug_iram_select_1": {
+      "debug_override_enable_1": {
         "ports": [
-          "debug_iram_select",
-          "mmu_0/debug_iram_select"
+          "debug_override_enable",
+          "mmu_0/debug_override_enable"
         ]
       },
       "debug_we_1": {

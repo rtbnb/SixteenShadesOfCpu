@@ -1,89 +1,87 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.16629",
-   "Default View_TopLeft":"-360,-286",
+   "Default View_ScaleFactor":"1.43587",
+   "Default View_TopLeft":"-465,-234",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port port-id_clk200mhz -pg 1 -lvl 0 -x -200 -y -210 -defaultsOSRD
-preplace port port-id_debug_clk200mhz -pg 1 -lvl 0 -x -200 -y -190 -defaultsOSRD
-preplace port port-id_debug_clk -pg 1 -lvl 0 -x -200 -y -170 -defaultsOSRD
-preplace port port-id_debug_we -pg 1 -lvl 0 -x -200 -y -150 -defaultsOSRD
-preplace port port-id_debug_enable -pg 1 -lvl 0 -x -200 -y -130 -defaultsOSRD
-preplace port port-id_debug_clk_enable -pg 1 -lvl 0 -x -200 -y -110 -defaultsOSRD
-preplace port port-id_iram_clk -pg 1 -lvl 0 -x -200 -y -10 -defaultsOSRD
-preplace port port-id_gram_clk -pg 1 -lvl 0 -x -200 -y 30 -defaultsOSRD
-preplace port port-id_gram_we -pg 1 -lvl 0 -x -200 -y 50 -defaultsOSRD
-preplace port port-id_vram_clk -pg 1 -lvl 0 -x -200 -y 130 -defaultsOSRD
-preplace port port-id_debug_iram_select -pg 1 -lvl 0 -x -200 -y -90 -defaultsOSRD
-preplace portBus vram_dout -pg 1 -lvl 3 -x 1160 -y -160 -defaultsOSRD
-preplace portBus gram_dout -pg 1 -lvl 3 -x 1160 -y -180 -defaultsOSRD
-preplace portBus iram_dout -pg 1 -lvl 3 -x 1160 -y -200 -defaultsOSRD
-preplace portBus debug_dout -pg 1 -lvl 3 -x 1160 -y -220 -defaultsOSRD
-preplace portBus debug_addr -pg 1 -lvl 0 -x -200 -y -70 -defaultsOSRD
-preplace portBus debug_din -pg 1 -lvl 0 -x -200 -y -50 -defaultsOSRD
-preplace portBus debug_bank -pg 1 -lvl 0 -x -200 -y -30 -defaultsOSRD
-preplace portBus iram_addr -pg 1 -lvl 0 -x -200 -y 10 -defaultsOSRD
-preplace portBus gram_addr -pg 1 -lvl 0 -x -200 -y 70 -defaultsOSRD
-preplace portBus gram_din -pg 1 -lvl 0 -x -200 -y 90 -defaultsOSRD
-preplace portBus gram_bank -pg 1 -lvl 0 -x -200 -y 110 -defaultsOSRD
-preplace portBus vram_addr -pg 1 -lvl 0 -x -200 -y 150 -defaultsOSRD
+preplace port port-id_clk200mhz -pg 1 -lvl 0 -x -200 -y -200 -defaultsOSRD
+preplace port port-id_debug_clk200mhz -pg 1 -lvl 0 -x -200 -y -180 -defaultsOSRD
+preplace port port-id_debug_clk -pg 1 -lvl 0 -x -200 -y -160 -defaultsOSRD
+preplace port port-id_debug_we -pg 1 -lvl 0 -x -200 -y -140 -defaultsOSRD
+preplace port port-id_debug_enable -pg 1 -lvl 0 -x -200 -y -120 -defaultsOSRD
+preplace port port-id_iram_clk -pg 1 -lvl 0 -x -200 -y -20 -defaultsOSRD
+preplace port port-id_gram_clk -pg 1 -lvl 0 -x -200 -y 20 -defaultsOSRD
+preplace port port-id_gram_we -pg 1 -lvl 0 -x -200 -y 40 -defaultsOSRD
+preplace port port-id_vram_clk -pg 1 -lvl 0 -x -200 -y 120 -defaultsOSRD
+preplace port port-id_debug_override_enable -pg 1 -lvl 0 -x -200 -y -100 -defaultsOSRD
+preplace portBus vram_dout -pg 1 -lvl 3 -x 1170 -y -160 -defaultsOSRD
+preplace portBus gram_dout -pg 1 -lvl 3 -x 1170 -y -180 -defaultsOSRD
+preplace portBus iram_dout -pg 1 -lvl 3 -x 1170 -y -200 -defaultsOSRD
+preplace portBus debug_dout -pg 1 -lvl 3 -x 1170 -y -220 -defaultsOSRD
+preplace portBus debug_addr -pg 1 -lvl 0 -x -200 -y -80 -defaultsOSRD
+preplace portBus debug_din -pg 1 -lvl 0 -x -200 -y -60 -defaultsOSRD
+preplace portBus debug_bank -pg 1 -lvl 0 -x -200 -y -40 -defaultsOSRD
+preplace portBus iram_addr -pg 1 -lvl 0 -x -200 -y 0 -defaultsOSRD
+preplace portBus gram_addr -pg 1 -lvl 0 -x -200 -y 60 -defaultsOSRD
+preplace portBus gram_din -pg 1 -lvl 0 -x -200 -y 80 -defaultsOSRD
+preplace portBus gram_bank -pg 1 -lvl 0 -x -200 -y 100 -defaultsOSRD
+preplace portBus vram_addr -pg 1 -lvl 0 -x -200 -y 140 -defaultsOSRD
 preplace inst vram -pg 1 -lvl 2 -x 1020 -y 800 -defaultsOSRD
 preplace inst mmu_0 -pg 1 -lvl 1 -x 480 -y 20 -defaultsOSRD
 preplace inst iram -pg 1 -lvl 2 -x 1020 -y 310 -defaultsOSRD
 preplace inst gram -pg 1 -lvl 2 -x 1020 -y 530 -defaultsOSRD
 preplace inst mmio_0 -pg 1 -lvl 2 -x 1020 -y 1050 -defaultsOSRD
-preplace netloc mmu_0_iram_mem_ck 1 1 1 860 -120n
-preplace netloc mmu_0_iram_mem_addr 1 1 1 870 -140n
-preplace netloc mmu_0_iram_mem_din 1 1 1 850 -100n
-preplace netloc mmu_0_iram_mem_we 1 1 1 840 -80n
+preplace netloc clk200mhz_1 1 0 1 N -200
+preplace netloc debug_addr_1 1 0 1 N -80
+preplace netloc debug_bank_1 1 0 1 N -40
+preplace netloc debug_clk200mhz_1 1 0 1 N -180
+preplace netloc debug_clk_1 1 0 1 N -160
+preplace netloc debug_din_1 1 0 1 N -60
+preplace netloc debug_enable_1 1 0 1 N -120
+preplace netloc debug_we_1 1 0 1 N -140
+preplace netloc gram_addr_1 1 0 1 N 60
+preplace netloc gram_bank_1 1 0 1 N 100
+preplace netloc gram_clk_1 1 0 1 N 20
+preplace netloc gram_din_1 1 0 1 N 80
+preplace netloc gram_douta 1 0 2 260 550 N
+preplace netloc gram_we_1 1 0 1 N 40
+preplace netloc iram_addr_1 1 0 1 N 0
+preplace netloc iram_clk_1 1 0 1 N -20
 preplace netloc iram_douta 1 0 2 250 330 NJ
+preplace netloc mmio_0_dout 1 0 3 290 1150 NJ 1150 1140
+preplace netloc mmu_0_debug_dout 1 1 2 N -220 NJ
+preplace netloc mmu_0_gram_dout 1 1 2 N -180 NJ
 preplace netloc mmu_0_gram_mem_addr 1 1 1 830 -60n
 preplace netloc mmu_0_gram_mem_ck 1 1 1 820 -40n
 preplace netloc mmu_0_gram_mem_din 1 1 1 810 -20n
-preplace netloc gram_douta 1 0 2 260 550 N
 preplace netloc mmu_0_gram_mem_we 1 1 1 800 0n
+preplace netloc mmu_0_iram_dout 1 1 2 N -200 NJ
+preplace netloc mmu_0_iram_mem_addr 1 1 1 870 -140n
+preplace netloc mmu_0_iram_mem_ck 1 1 1 860 -120n
+preplace netloc mmu_0_iram_mem_din 1 1 1 850 -100n
+preplace netloc mmu_0_iram_mem_we 1 1 1 840 -80n
+preplace netloc mmu_0_mmio_mem_addr 1 1 1 680 240n
+preplace netloc mmu_0_mmio_mem_ck 1 1 1 710 180n
+preplace netloc mmu_0_mmio_mem_din 1 1 1 670 260n
+preplace netloc mmu_0_mmio_mem_oe 1 1 1 690 220n
+preplace netloc mmu_0_mmio_mem_we 1 1 1 700 200n
+preplace netloc mmu_0_vram_dout 1 1 2 NJ -160 N
 preplace netloc mmu_0_vram_mem_addr 1 1 1 790 20n
 preplace netloc mmu_0_vram_mem_ck 1 1 1 780 40n
 preplace netloc mmu_0_vram_mem_din 1 1 1 770 60n
 preplace netloc mmu_0_vram_mem_we 1 1 1 760 80n
-preplace netloc vram_douta 1 0 2 270 770 NJ
-preplace netloc mmu_0_mmio_mem_ck 1 1 1 710 180n
-preplace netloc mmu_0_mmio_mem_we 1 1 1 700 200n
-preplace netloc mmu_0_mmio_mem_oe 1 1 1 690 220n
-preplace netloc mmu_0_mmio_mem_addr 1 1 1 680 240n
-preplace netloc mmu_0_mmio_mem_din 1 1 1 670 260n
-preplace netloc mmio_0_dout 1 0 3 290 1150 NJ 1150 1140
-preplace netloc mmu_0_vram_dout 1 1 2 NJ -160 N
-preplace netloc mmu_0_gram_dout 1 1 2 N -180 NJ
-preplace netloc mmu_0_iram_dout 1 1 2 N -200 NJ
-preplace netloc mmu_0_debug_dout 1 1 2 N -220 NJ
-preplace netloc clk200mhz_1 1 0 1 N -210
-preplace netloc debug_clk200mhz_1 1 0 1 N -190
-preplace netloc debug_clk_1 1 0 1 N -170
-preplace netloc debug_we_1 1 0 1 N -150
-preplace netloc debug_enable_1 1 0 1 N -130
-preplace netloc debug_clk_enable_1 1 0 1 N -110
-preplace netloc debug_addr_1 1 0 1 N -70
-preplace netloc debug_din_1 1 0 1 N -50
-preplace netloc debug_bank_1 1 0 1 N -30
-preplace netloc iram_clk_1 1 0 1 N -10
-preplace netloc iram_addr_1 1 0 1 N 10
-preplace netloc gram_clk_1 1 0 1 N 30
-preplace netloc gram_we_1 1 0 1 N 50
-preplace netloc gram_addr_1 1 0 1 N 70
-preplace netloc gram_din_1 1 0 1 N 90
-preplace netloc gram_bank_1 1 0 1 N 110
-preplace netloc vram_clk_1 1 0 1 N 130
-preplace netloc vram_addr_1 1 0 1 N 150
-preplace netloc debug_iram_select_1 1 0 1 N -90
 preplace netloc mmu_0_vramb_mem_addr 1 1 1 750 100n
 preplace netloc mmu_0_vramb_mem_ck 1 1 1 740 120n
 preplace netloc mmu_0_vramb_mem_din 1 1 1 730 140n
 preplace netloc mmu_0_vramb_mem_we 1 1 1 720 160n
+preplace netloc vram_addr_1 1 0 1 N 140
+preplace netloc vram_clk_1 1 0 1 N 120
+preplace netloc vram_douta 1 0 2 270 770 NJ
 preplace netloc vram_doutb 1 0 2 280 890 NJ
-levelinfo -pg 1 -200 480 1020 1160
-pagesize -pg 1 -db -bbox -sgen -370 -480 1320 1180
+preplace netloc debug_override_enable_1 1 0 1 N -100
+levelinfo -pg 1 -200 480 1020 1170
+pagesize -pg 1 -db -bbox -sgen -400 -480 1340 1180
 "
 }
 0
