@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Pipelining_Controller_SIM_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Pipelining_Controller_SIM" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="673.501 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="216"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/Pipelining_Controller_SIM/InstrLoad_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrLoad_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrLoad_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/InstrExec_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrExec_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrExec_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/Instruction" type="array">
+      <obj_property name="ElementShortName">Instruction[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Instruction[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/ResetStall" type="logic">
+      <obj_property name="ElementShortName">ResetStall</obj_property>
+      <obj_property name="ObjectShortName">ResetStall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/stalled" type="logic">
+      <obj_property name="ElementShortName">stalled</obj_property>
+      <obj_property name="ObjectShortName">stalled</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/CU_Decoder_Exec/instruction_name" type="array">
+      <obj_property name="ElementShortName">instruction_name[3:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction_name[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/CU_Decoder_Exec/Instruction" type="array">
+      <obj_property name="ElementShortName">Instruction[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Instruction[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/PC_Count" type="logic">
+      <obj_property name="ElementShortName">PC_Count</obj_property>
+      <obj_property name="ObjectShortName">PC_Count</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/InstructionForwardConfiguration" type="array">
+      <obj_property name="ElementShortName">InstructionForwardConfiguration[4:0]</obj_property>
+      <obj_property name="ObjectShortName">InstructionForwardConfiguration[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/InstructionToExecute" type="array">
+      <obj_property name="ElementShortName">InstructionToExecute[15:0]</obj_property>
+      <obj_property name="ObjectShortName">InstructionToExecute[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/exc_alu" type="logic">
+      <obj_property name="ElementShortName">exc_alu</obj_property>
+      <obj_property name="ObjectShortName">exc_alu</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/reg_1_reads_flags" type="other">
+      <obj_property name="ElementShortName">reg_1_reads_flags</obj_property>
+      <obj_property name="ObjectShortName">reg_1_reads_flags</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/rf_reg_1_read" type="logic">
+      <obj_property name="ElementShortName">rf_reg_1_read</obj_property>
+      <obj_property name="ObjectShortName">rf_reg_1_read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/reg_2_reads_flags" type="other">
+      <obj_property name="ElementShortName">reg_2_reads_flags</obj_property>
+      <obj_property name="ObjectShortName">reg_2_reads_flags</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/rf_reg_2_read" type="logic">
+      <obj_property name="ElementShortName">rf_reg_2_read</obj_property>
+      <obj_property name="ObjectShortName">rf_reg_2_read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Pipelining_Controller_SIM/EUT/rf_reg_2" type="array">
+      <obj_property name="ElementShortName">rf_reg_2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rf_reg_2[3:0]</obj_property>
+   </wvobject>
+</wave_config>

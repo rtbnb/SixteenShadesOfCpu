@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.sim/sim_1/synth/timing/xsim/RegFileSim_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegFile
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sim_1/new/RegFileSim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RegFileSim'

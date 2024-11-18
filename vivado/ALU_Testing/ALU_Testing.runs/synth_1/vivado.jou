@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sun Nov 10 19:16:45 2024
+# Process ID: 8376
+# Current directory: D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.runs/synth_1
+# Command line: vivado.exe -log ALU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ALU.tcl
+# Log file: D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.runs/synth_1/ALU.vds
+# Journal file: D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.runs/synth_1\vivado.jou
+# Running On        :DESKTOP-NFG9C79
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :19045
+# Processor Detail  :AMD Ryzen 3 3300U with Radeon Vega Mobile Gfx  
+# CPU Frequency     :2096 MHz
+# CPU Physical cores:4
+# CPU Logical cores :4
+# Host memory       :6352 MB
+# Swap memory       :9663 MB
+# Total Virtual     :16015 MB
+# Available Virtual :8055 MB
+#-----------------------------------------------------------
+source ALU.tcl -notrace
