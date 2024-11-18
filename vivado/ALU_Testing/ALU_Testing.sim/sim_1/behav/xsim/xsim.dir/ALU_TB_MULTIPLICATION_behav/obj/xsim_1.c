@@ -65,15 +65,9 @@ const int NumRelocateId= 6;
 
 void relocate(char *dp)
 {
-<<<<<<<< HEAD:vivado/ALU_Testing/ALU_Testing.sim/sim_1/behav/xsim/xsim.dir/ALU_TB_MULTIPLICATION_behav/obj/xsim_1.c
 	iki_relocate(dp, "xsim.dir/ALU_TB_MULTIPLICATION_behav/xsim.reloc",  (void **)funcTab, 6);
 	iki_vhdl_file_variable_register(dp + 5280);
 	iki_vhdl_file_variable_register(dp + 5336);
-========
-	iki_relocate(dp, "xsim.dir/ALU_TB_ADDING_behav/xsim.reloc",  (void **)funcTab, 6);
-	iki_vhdl_file_variable_register(dp + 5488);
-	iki_vhdl_file_variable_register(dp + 5544);
->>>>>>>> 8f4f395b (int * int works now on ALU):vivado/ALU_Testing/ALU_Testing.sim/sim_1/behav/xsim/xsim.dir/ALU_TB_ADDING_behav/obj/xsim_1.c
 
 
 	/*Populate the transaction function pointer field in the whole net structure */

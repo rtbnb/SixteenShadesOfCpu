@@ -33,9 +33,9 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity ALU is
  Port ( 
- 
+
     CLK: IN std_logic:= '0';
-    
+
     D1: IN std_logic_vector(15 downto 0 ):= (others => '0');
     D2: IN std_logic_vector(15 downto 0 ):= (others => '0');
     ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
@@ -81,7 +81,6 @@ begin
         "0000000000000000" &(D1 NOR D2) when "1110", -- or
         "0000000000000000" &(D1 XNOR D2) when "1111", -- XOR
         std_logic_vector(signed(D1) * signed(D2)) when "0100",
-
         (others => 'X') when others;
 
 
