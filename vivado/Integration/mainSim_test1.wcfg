@@ -3,25 +3,34 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="mainSim_behav.wdb" id="1">
+      <db_ref path="mainSim_time_impl.wdb" id="1">
          <top_modules>
+            <top_module name="glbl" />
             <top_module name="mainSim" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="22,272.750 ns"></ZoomStartTime>
-      <ZoomEndTime time="22,332.401 ns"></ZoomEndTime>
-      <Cursor1Time time="22,295.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="332.401 ns"></ZoomEndTime>
+      <Cursor1Time time="20.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="182"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <ValueColumnWidth column_width="86"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="33" />
+   <WVObjectSize size="35" />
    <wvobject fp_name="/mainSim/InstrExec_CLK" type="logic">
       <obj_property name="ElementShortName">InstrExec_CLK</obj_property>
       <obj_property name="ObjectShortName">InstrExec_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/InstrExec_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrExec_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrExec_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/InstrLoad_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrLoad_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrLoad_CLK</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/InstrLoad_CLK" type="logic">
       <obj_property name="ElementShortName">InstrLoad_CLK</obj_property>
@@ -111,13 +120,13 @@
       <obj_property name="ElementShortName">Reg9[15:0]</obj_property>
       <obj_property name="ObjectShortName">Reg9[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegA" type="array">
-      <obj_property name="ElementShortName">RegA[15:0]</obj_property>
-      <obj_property name="ObjectShortName">RegA[15:0]</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegA" type="logic">
+      <obj_property name="ElementShortName">RegA</obj_property>
+      <obj_property name="ObjectShortName">RegA</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegB" type="array">
-      <obj_property name="ElementShortName">RegB[15:0]</obj_property>
-      <obj_property name="ObjectShortName">RegB[15:0]</obj_property>
+      <obj_property name="ElementShortName">RegB[15:4]</obj_property>
+      <obj_property name="ObjectShortName">RegB[15:4]</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegC" type="array">
       <obj_property name="ElementShortName">RegC[15:0]</obj_property>
@@ -132,23 +141,23 @@
       <obj_property name="ObjectShortName">RegE[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegF" type="array">
-      <obj_property name="ElementShortName">RegF[15:0]</obj_property>
-      <obj_property name="ObjectShortName">RegF[15:0]</obj_property>
+      <obj_property name="ElementShortName">RegF[6:0]</obj_property>
+      <obj_property name="ObjectShortName">RegF[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/stalled" type="logic">
-      <obj_property name="ElementShortName">stalled</obj_property>
-      <obj_property name="ObjectShortName">stalled</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/WE" type="logic">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/stall_required" type="logic">
-      <obj_property name="ElementShortName">stall_required</obj_property>
-      <obj_property name="ObjectShortName">stall_required</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/ResetStall" type="logic">
-      <obj_property name="ElementShortName">ResetStall</obj_property>
-      <obj_property name="ObjectShortName">ResetStall</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/AddrWriteReg" type="array">
+      <obj_property name="ElementShortName">AddrWriteReg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AddrWriteReg[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/PC_Count" type="logic">
-      <obj_property name="ElementShortName">PC_Count</obj_property>
-      <obj_property name="ObjectShortName">PC_Count</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/WriteData" type="array">
+      <obj_property name="ElementShortName">WriteData[15:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteData[15:0]</obj_property>
    </wvobject>
 </wave_config>
