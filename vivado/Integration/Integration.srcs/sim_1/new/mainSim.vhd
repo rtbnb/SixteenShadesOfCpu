@@ -38,9 +38,9 @@ end mainSim;
 architecture Behavioral of mainSim is
     component main_wrapper is
       port (
-        InstrExec_CLK : in STD_LOGIC;
         InstrLoad_CLK : in STD_LOGIC;
-        Reset : in STD_LOGIC
+        Reset : in STD_LOGIC;
+        led : out STD_LOGIC
       );
     end component main_wrapper;
     
@@ -48,12 +48,10 @@ architecture Behavioral of mainSim is
 begin
     
     EUT : main_wrapper port map(
-        InstrExec_CLK => InstrExec_CLK,
         InstrLoad_CLK => InstrLoad_CLK,
         Reset => Reset
     );
     
-    InstrExec_CLK <= not InstrLoad_CLK;
     
     process is
     begin

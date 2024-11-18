@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1731679517">
+<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1731710051">
   <File Type="ROUTE-PWR" Name="main_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="main_wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="main_wrapper_power_summary_routed.pb"/>
@@ -56,13 +56,13 @@
   <File Type="ROUTE-BUS-SKEW-RPX" Name="main_wrapper_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="main_wrapper_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="main_wrapper_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="ProgramCounter_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="ProgramCounter_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="ProgramCounter_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="ProgramCounter_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="main_wrapper_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="main_wrapper_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="main_wrapper_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="main_wrapper_bus_skew_postroute_physopted.rpt"/>
   <File Type="BG-BIT" Name="main_wrapper.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="ProgramCounter_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="ProgramCounter_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="main_wrapper_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="main_wrapper_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-NKY" Name="main_wrapper.nky"/>
   <File Type="BITSTR-BMM" Name="main_wrapper_bd.bmm"/>
   <File Type="PDI-FILE" Name="main_wrapper.pdi"/>

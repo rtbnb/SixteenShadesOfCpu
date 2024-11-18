@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Fri Nov 15 15:07:34 2024
-| Host         : 8x8-Bit running 64-bit major release  (build 9200)
+| Date         : Fri Nov 15 23:35:03 2024
+| Host         : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file main_wrapper_control_sets_placed.rpt
 | Design       : main_wrapper
 | Device       : xc7a35ti
@@ -58,10 +58,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               5 |            2 |
-| No           | No                    | Yes                    |             177 |           61 |
+| No           | No                    | No                     |               5 |            1 |
+| No           | No                    | Yes                    |             177 |           60 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |             246 |          110 |
+| Yes          | No                    | No                     |             246 |          118 |
 | Yes          | No                    | Yes                    |              16 |            4 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -73,27 +73,27 @@ Table of Contents
 +--------------------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
 |       Clock Signal       |                   Enable Signal                  | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +--------------------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/Pipelining_WriteBack_0/U0/Is_ALU_OP_out   |                  |                3 |              6 |         2.00 |
-| ~InstrLoad_CLK_IBUF_BUFG |                                                  | Reset_IBUF       |                3 |              9 |         3.00 |
-| ~InstrLoad_CLK_IBUF_BUFG |                                                  |                  |                2 |             10 |         5.00 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg0_0                       |                  |                9 |             16 |         1.78 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg1_1                       |                  |                4 |             16 |         4.00 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg2_2                       |                  |                9 |             16 |         1.78 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegB_10                      |                  |                8 |             16 |         2.00 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg9_9                       |                  |               11 |             16 |         1.45 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegA                         |                  |                8 |             16 |         2.00 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg3_3                       |                  |                5 |             16 |         3.20 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegC_11                      |                  |                7 |             16 |         2.29 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegD_12                      |                  |               13 |             16 |         1.23 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg7_7                       |                  |                4 |             16 |         4.00 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegE_13                      |                  |                9 |             16 |         1.78 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg6_6                       |                  |                5 |             16 |         3.20 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg8_8                       |                  |                6 |             16 |         2.67 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg4_4                       |                  |                6 |             16 |         2.67 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg5_5                       |                  |                3 |             16 |         5.33 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/ProgramCounter_0/U0/InstrAddr[15]_i_1_n_0 | Reset_IBUF       |                4 |             16 |         4.00 |
-| ~InstrLoad_CLK_IBUF_BUFG | main_i/Pipelining_Execution_0/U0/RAM_Write_out   |                  |               16 |             64 |         4.00 |
-|  InstrLoad_CLK_IBUF_BUFG |                                                  | Reset_IBUF       |               58 |            168 |         2.90 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/Pipelining_WriteBack_0/U0/Is_ALU_OP_out   |                  |                1 |              6 |         6.00 |
+|  InstrExec_CLK_IBUF_BUFG |                                                  | Reset_IBUF       |                4 |              9 |         2.25 |
+|  InstrExec_CLK_IBUF_BUFG |                                                  |                  |                1 |             10 |        10.00 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg2_2                       |                  |                3 |             16 |         5.33 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg6_6                       |                  |                4 |             16 |         4.00 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg7_7                       |                  |                5 |             16 |         3.20 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg8_8                       |                  |                5 |             16 |         3.20 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegA                         |                  |                8 |             16 |         2.00 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg5_5                       |                  |                8 |             16 |         2.00 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg3_3                       |                  |                9 |             16 |         1.78 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegB_10                      |                  |                7 |             16 |         2.29 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg4_4                       |                  |                9 |             16 |         1.78 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg9_9                       |                  |                9 |             16 |         1.78 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegC_11                      |                  |                7 |             16 |         2.29 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegE_13                      |                  |               12 |             16 |         1.33 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegD_12                      |                  |               11 |             16 |         1.45 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/ProgramCounter_0/U0/InstrAddr[15]_i_1_n_0 | Reset_IBUF       |                4 |             16 |         4.00 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg1_1                       |                  |                9 |             16 |         1.78 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg0_0                       |                  |               11 |             16 |         1.45 |
+|  InstrExec_CLK_IBUF_BUFG | main_i/Pipelining_Execution_0/U0/RAM_Write_out   |                  |               16 |             64 |         4.00 |
+|  InstrLoad_CLK_IBUF_BUFG |                                                  | Reset_IBUF       |               56 |            168 |         3.00 |
 +--------------------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
 
 
