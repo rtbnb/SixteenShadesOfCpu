@@ -1,7 +1,7 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot ALU_TB_MULTIPLICATION_behav xil_defaultlib.ALU_TB_MULTIPLICATION -log elaborate.log 
+Running: D:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ALU_TB_SHIFTING_behav xil_defaultlib.ALU_TB_SHIFTING -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -13,5 +13,5 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
-Compiling architecture behavioral of entity xil_defaultlib.alu_tb_multiplication
-Built simulation snapshot ALU_TB_MULTIPLICATION_behav
+Compiling architecture behavioral of entity xil_defaultlib.alu_tb_shifting
+Built simulation snapshot ALU_TB_SHIFTING_behav
