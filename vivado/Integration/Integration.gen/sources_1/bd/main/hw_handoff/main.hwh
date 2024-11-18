@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 15 23:32:26 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov 18 13:18:40 2024" VIVADOVERSION="2024.1">
 
-  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
+  <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
   <EXTERNALPORTS>
     <PORT DIR="I" NAME="InstrExec_CLK" SIGIS="undef" SIGNAME="External_Ports_InstrExec_CLK">
