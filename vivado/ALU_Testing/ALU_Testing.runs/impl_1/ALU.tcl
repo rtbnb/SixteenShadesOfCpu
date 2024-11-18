@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.runs/impl_1/ALU.tcl"
+  variable script "D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.runs/impl_1/ALU.tcl"
   variable category "vivado_impl"
 }
 
@@ -114,13 +114,13 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.cache/wt [current_project]
-  set_property parent.project_path D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.xpr [current_project]
-  set_property ip_output_repo D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.cache/ip [current_project]
+  set_property webtalk.parent_dir D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.cache/wt [current_project]
+  set_property parent.project_path D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.xpr [current_project]
+  set_property ip_output_repo D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.runs/synth_1/ALU.dcp
+  add_files -quiet D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.runs/synth_1/ALU.dcp
 OPTRACE "read constraints: implementation" START { }
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
