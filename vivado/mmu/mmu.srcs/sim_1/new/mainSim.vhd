@@ -43,11 +43,10 @@ architecture Behavioral of mainSim is
             debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
             debug_clk : in STD_LOGIC;
             debug_clk200mhz : in STD_LOGIC;
-            debug_clk_enable : in STD_LOGIC;
             debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
             debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
             debug_enable : in STD_LOGIC;
-            debug_iram_select : in STD_LOGIC;
+            debug_override_enable : in STD_LOGIC;
             debug_we : in STD_LOGIC;
             gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
             gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -65,7 +64,7 @@ architecture Behavioral of mainSim is
     end component; 
     
     
-    signal clk200mhz, debug_clk, debug_clk200mhz, debug_clk_enable, debug_enable, debug_iram_select, debug_we, gram_we, iram_clk, vram_clk, gram_clk: STD_LOGIC;
+    signal clk200mhz, debug_clk, debug_clk200mhz, debug_enable, debug_we, gram_we, iram_clk, vram_clk, gram_clk, debug_override_enable: STD_LOGIC;
     signal debug_addr, debug_din, debug_dout, gram_addr, iram_addr, iram_dout, vram_addr, vram_dout, gram_din, gram_dout: STD_LOGIC_VECTOR( 15 downto 0 );
     signal debug_bank, gram_bank: STD_LOGIC_VECTOR( 3 downto 0 );
         
@@ -75,9 +74,8 @@ begin
         clk200mhz => clk200mhz,
         debug_clk => debug_clk,
         debug_clk200mhz => debug_clk200mhz,
-        debug_clk_enable => debug_clk_enable,
         debug_enable => debug_enable,
-        debug_iram_select => debug_iram_select,
+        debug_override_enable => debug_override_enable,
         debug_we => debug_we,
         gram_we => gram_we,
         iram_clk => iram_clk,
@@ -125,6 +123,8 @@ begin
     begin
         vram_addr <= X"0001";
         iram_addr <= X"0000";
+        debug_enable <= '0';
+        debug_override_enable <= '0';
         
         gram_bank <= "0000";
         count_s <= '0';
