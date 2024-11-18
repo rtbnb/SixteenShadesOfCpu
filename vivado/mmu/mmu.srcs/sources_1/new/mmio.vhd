@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity mmio is
     port(
-        ck, we, oe: in std_logic;
+        ck, we: in std_logic;
         addr, din: in std_logic_vector(15 downto 0);
         dout: out std_logic_vector(15 downto 0);
         
@@ -56,6 +56,8 @@ architecture Behavioral of mmio is
     signal btn0_pressed_reg_op_s, btn1_pressed_reg_op_s, btn2_pressed_reg_op_s, btn3_pressed_reg_op_s: boolean;
     signal btn0_prepReset_s: std_logic;
     
+    signal btn0_pressed_rst_s: std_logic := '0';
+    
 begin
     mmio_config_reg_s <= "0000000000000000"; 
     led0_reg_s <= "000000000000000" & led0_s;
@@ -75,7 +77,9 @@ begin
     btn1_pressed_reg_op_s <= addr = "0000000000001010";
     btn2_pressed_reg_op_s <= addr = "0000000000001011";
     btn3_pressed_reg_op_s <= addr = "0000000000001100";
-
+    
+    btn0_pressed_s <= (btn0 or btn0_pressed_s) and not btn0_pressed_rst_s;
+    
     with addr select
         dout <= mmio_config_reg_s when  "0000000000000000",
                 led0_reg_s when         "0000000000000001",
@@ -95,7 +99,24 @@ begin
     data_input:process(ck)
     begin
         if rising_edge(ck) and we='1' then
-        
+            case addr is
+                when "0000000000000001" =>
+                    led0_s <= din(0);
+                when "0000000000000010" =>
+                    led1_s <= din(0);
+                    
+                    
+                when "0000000000001001" =>
+                    btn0_pressed_rst_s <= '1';
+                
+                when others =>
+            end case;
+            
+            if btn0_pressed_rst_s='1' then
+                btn0_pressed_rst_s <= '0';
+            end if;
+            
+                   
         end if;
     end process;
     
@@ -117,13 +138,6 @@ begin
 --        end if;
 --    end process;
     
-    btn1_pressed:process(ck, btn1_pressed_reg_op_s, btn1)
-    begin
-        if (btn1 = '1')then
-            btn1_pressed_s <= '0';
-        elsif rising_edge(ck) and btn1_pressed_reg_op_s=TRUE and addr="0000000000001001" then
-            btn1_pressed_s <= '1';
-        end if;
-    end process;
+
     
 end Behavioral;

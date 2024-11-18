@@ -38,33 +38,43 @@ end mainSim;
 architecture Behavioral of mainSim is
     component main_block_wrapper
         port(
+            btn0 : in STD_LOGIC;
+            btn1 : in STD_LOGIC;
+            btn2 : in STD_LOGIC;
+            btn3 : in STD_LOGIC;
             clk200mhz : in STD_LOGIC;
+            cpu_sync : in STD_LOGIC;
             debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
             debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-            debug_clk : in STD_LOGIC;
             debug_clk200mhz : in STD_LOGIC;
             debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
             debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            debug_en_lock : out STD_LOGIC;
             debug_enable : in STD_LOGIC;
             debug_override_enable : in STD_LOGIC;
+            debug_sync : in STD_LOGIC;
             debug_we : in STD_LOGIC;
+            fault : out STD_LOGIC;
             gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
             gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-            gram_clk : in STD_LOGIC;
             gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
             gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
             gram_we : in STD_LOGIC;
             iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-            iram_clk : in STD_LOGIC;
             iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            led0 : out STD_LOGIC;
+            led1 : out STD_LOGIC;
+            led2 : out STD_LOGIC;
+            led3 : out STD_LOGIC;
             vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-            vram_clk : in STD_LOGIC;
-            vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
+            vram_clk200mhz : in STD_LOGIC;
+            vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            vram_sync : in STD_LOGIC
         );
     end component; 
     
     
-    signal clk200mhz, debug_clk, debug_clk200mhz, debug_enable, debug_we, gram_we, iram_clk, vram_clk, gram_clk, debug_override_enable: STD_LOGIC;
+    signal clk200mhz, debug_clk200mhz, debug_enable, debug_we, gram_we, debug_override_enable, btn0, btn1, btn2, btn3, led0, led1, led2, led3, debug_en_lock, cpu_sync, vram_sync, debug_sync, vram_clk200mhz: STD_LOGIC;
     signal debug_addr, debug_din, debug_dout, gram_addr, iram_addr, iram_dout, vram_addr, vram_dout, gram_din, gram_dout: STD_LOGIC_VECTOR( 15 downto 0 );
     signal debug_bank, gram_bank: STD_LOGIC_VECTOR( 3 downto 0 );
         
@@ -72,19 +82,15 @@ architecture Behavioral of mainSim is
 begin
     EUT : main_block_wrapper port map(
         clk200mhz => clk200mhz,
-        debug_clk => debug_clk,
         debug_clk200mhz => debug_clk200mhz,
         debug_enable => debug_enable,
         debug_override_enable => debug_override_enable,
         debug_we => debug_we,
         gram_we => gram_we,
-        iram_clk => iram_clk,
-        vram_clk => vram_clk,
         debug_addr => debug_addr,
         debug_din => debug_din,
         debug_dout => debug_dout,
         gram_addr => gram_addr,
-        gram_clk => gram_clk,
         iram_addr => iram_addr,
         iram_dout => iram_dout,
         vram_addr => vram_addr,
@@ -92,30 +98,47 @@ begin
         debug_bank => debug_bank,
         gram_bank => gram_bank,
         gram_din => gram_din,
-        gram_dout => gram_dout   
+        gram_dout => gram_dout,
+        btn0 => btn0,
+        btn1 => btn1,
+        btn2 => btn2,
+        btn3 => btn3,
+        led0 => led0,
+        led1 => led1,
+        led2 => led2,
+        led3 => led3,
+        debug_en_lock => debug_en_lock,
+        cpu_sync => cpu_sync, 
+        vram_sync => vram_sync, 
+        debug_sync => debug_sync,
+        vram_clk200mhz => vram_clk200mhz
     );
     
     process
     begin
         clk200mhz <= '1';
+        debug_clk200mhz <= '1';
+        vram_clk200mhz <= '1';
         
         while true loop
             wait for 2500ps;    
             clk200mhz <= not clk200mhz;
+            debug_clk200mhz <= not debug_clk200mhz;
+            vram_clk200mhz <= not vram_clk200mhz;
         end loop;
     end process;
     
     process
     begin
-        gram_clk <= '1';
-        vram_clk <= '1';
-        iram_clk <= '1';
+        cpu_sync <= '1';
+        vram_sync <= '1';
+        debug_sync <= '1';
         
         while true loop
             wait for 5ns;
-            gram_clk <= not gram_clk;
-            vram_clk <= not vram_clk;
-            iram_clk <= not iram_clk;
+            cpu_sync <= not cpu_sync;
+            vram_sync <= not vram_sync;
+            debug_sync <= not debug_sync;
         end loop;
     end process;
     
