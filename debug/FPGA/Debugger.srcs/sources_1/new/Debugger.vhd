@@ -45,22 +45,38 @@ entity Debugger is
         -- debug clk
         debug_clk_stop_LOW_ACTIVE: out std_logic;
         
-        -- monitoring signals
+        -- monitoring signals        
+        -- programm counter
         pc_current_addr: in std_logic_vector(15 downto 0);
-        wlb_in: in std_logic
+        pc_din: in std_logic_vector(15 downto 0);
+        
+        -- IRAM
+        iram_current_instruction: in std_logic_vector(15 downto 0);
+        
+        -- pipeline
+        pipeline_stalled: in std_logic;
+        pipeline_instruction_forwarding_config: in std_logic_vector(4 downto 0);
+        pipeline_current_instruction: in std_logic_vector(15 downto 0);
+        pipeline_operand_1, pipeline_operand_2: in std_logic_vector(15 downto 0);
+        pipeline_memory_addr_reg: in std_logic_vector(15 downto 0);
+        
+        -- mmu
+        mmu_debug_overwrite_enable: out std_logic
+        
+        
         
     );
 end Debugger;
 
 architecture Behavioral of Debugger is
+    -- state machine
     type state_types is (Idle,
-        ReceiveInstructionDataHIGH, ReceiveInstructionDataLOW,
+        ReceivePreCommandDecission, ReceiveInstructionDataHIGH, ReceiveInstructionDataLOW, ReceiveInstructionData2HIGH, ReceiveInstructionData2LOW,
         ProcessCommand,
-        TransmitDataInstruction, TransmitDataHIGH, TransmitDataLOW, TransmitDataAddrHIGH, TransmitDataAddrLOW, ResetTX
+        TransmitDataInstruction, TransmitDataHIGH, TransmitDataLOW, TransmitDataAddrHIGH, TransmitDataAddrLOW, ResetTX,
+        TransmitDataInstructionSHORT, TransmitDataHIGHSHORT, TransmitDataLOWSHORT
     );
     signal state: state_types := Idle;
-    signal tx_data_valid_s: std_logic := '0';
-    signal tx_data_s: std_logic_vector(7 downto 0) := "00000000";
     
     -- rx data buffer
     signal rx_instruction_buffer: std_logic_vector(7 downto 0);
@@ -81,13 +97,37 @@ begin
             case state is
                 when Idle =>
                     debug_clk_stop <= '1';
+                    -- if first byte read on rx
                     if (rx_data_valid = '1') then
                         rx_instruction_buffer <= rx_data;
-                        state <= ReceiveInstructionDataHIGH;
+                        state <= ReceivePreCommandDecission;
                     else
                         state <= Idle;
                     end if;
                 -- rx states
+                when ReceivePreCommandDecission =>
+                    case rx_instruction_data_buffer is
+                        -- general
+                        when x"00" => state <= ProcessCommand;
+                        when x"01" => state <= ProcessCommand;
+                        when x"02" => state <= ProcessCommand;
+                        -- pipeline read request
+                        when x"10" => state <= ProcessCommand;
+                        when x"11" => state <= ProcessCommand;
+                        when x"12" => state <= ProcessCommand;
+                        when x"13" => state <= ProcessCommand;
+                        when x"14" => state <= ProcessCommand;
+                        when x"15" => state <= ProcessCommand;
+                        -- divers signal request
+                        when x"20" =>
+                        when x"21" =>
+                        when x"22" =>
+                        -- memory
+                        when x"30" =>
+                        when x"31" =>
+                        -- others
+                        when others => state <= ReceiveInstructionDataHIGH;
+                    end case;
                 when ReceiveInstructionDataHIGH =>
                     if (rx_data_valid = '1') then
                         rx_instruction_data_buffer(15 downto 8) <= rx_data;
@@ -107,26 +147,15 @@ begin
                     -- command decode
                     debug_clk_stop <= '0';
                     case rx_instruction_buffer is
-                        when x"00" =>
-                            tx_instruction_buffer <= x"AA";
-                            tx_data_buffer <= x"ABAB";
-                            tx_addr_buffer <= x"ABAB";
-                            state <= TransmitDataInstruction;
-                        when x"01" =>
-                            tx_instruction_buffer <= x"BB";
-                            tx_instruction_buffer(0) <= wlb_in;
-                            tx_data_buffer <= x"BBBB";
-                            tx_addr_buffer <= x"BBBB";
-                            state <= TransmitDataInstruction;
-                        when x"02" =>
+                        when x"03" =>
                             tx_instruction_buffer <= x"03";
                             tx_data_buffer <= pc_current_addr_buffer;
-                            tx_addr_buffer <= x"0000";
                             state <= TransmitDataInstruction;
                         when others =>
                             state <= Idle;
                     end case;
                 -- tx states
+                -- long data transmission
                 when TransmitDataInstruction =>
                     tx_data <= tx_instruction_buffer;
                     tx_data_valid <= '1';
@@ -167,6 +196,30 @@ begin
                         tx_data_valid <= '0';
                         state <= TransmitDataAddrLOW;
                     end if;
+                -- short data transmission
+                when TransmitDataInstructionSHORT =>
+                    tx_data <= tx_instruction_buffer;
+                    tx_data_valid <= '1';
+                    state <= TransmitDataHIGHSHORT;
+                when TransmitDataHIGHSHORT => 
+                    if (tx_data_sended = '1') then
+                        tx_data <= tx_data_buffer(15 downto 8);
+                        tx_data_valid <= '1';
+                        state <= TransmitDataLOWSHORT;
+                    else
+                        tx_data_valid <= '0';
+                        state <= TransmitDataHIGHSHORT;
+                    end if;
+                when TransmitDataLOWSHORT=>
+                    if (tx_data_sended = '1') then
+                        tx_data <= tx_data_buffer(7 downto 0);
+                        tx_data_valid <= '1';
+                        state <= ResetTX;
+                    else
+                        tx_data_valid <= '0';
+                        state <= TransmitDataLOWSHORT;
+                    end if;
+                -- tx reset
                 when ResetTX =>
                     if (tx_data_sended = '1') then
                         state <= Idle;

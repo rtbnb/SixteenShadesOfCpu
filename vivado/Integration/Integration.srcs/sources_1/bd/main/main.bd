@@ -7,8 +7,7 @@
       "name": "main",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "None",
-      "tool_version": "2024.1",
-      "validated": "true"
+      "tool_version": "2024.1"
     },
     "design_tree": {
       "Pipelining_Controller_0": "",
@@ -39,10 +38,6 @@
         "type": "rst",
         "direction": "I",
         "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
           "POLARITY": {
             "value": "ACTIVE_HIGH"
           }
@@ -427,13 +422,7 @@
           },
           "Reset": {
             "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
-              }
-            }
+            "direction": "I"
           },
           "Operand1": {
             "direction": "I",
@@ -1134,21 +1123,7 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
+            "direction": "I"
           },
           "rx_data": {
             "direction": "I",
@@ -1172,13 +1147,13 @@
           "debug_clk_stop_LOW_ACTIVE": {
             "direction": "O"
           },
+          "wlb_in": {
+            "direction": "I"
+          },
           "pc_current_addr": {
             "direction": "I",
             "left": "15",
             "right": "0"
-          },
-          "wlb_in": {
-            "direction": "I"
           }
         }
       },
@@ -1193,19 +1168,19 @@
             "value": "166.66"
           },
           "CLKOUT1_JITTER": {
-            "value": "114.829"
+            "value": "130.958"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "200.000"
+            "value": "100.000"
           },
           "CLKOUT2_JITTER": {
-            "value": "114.829"
+            "value": "130.958"
           },
           "CLKOUT2_PHASE_ERROR": {
             "value": "98.575"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
-            "value": "200.000"
+            "value": "100.000"
           },
           "CLKOUT2_REQUESTED_PHASE": {
             "value": "180.000"
@@ -1235,10 +1210,10 @@
             "value": "10.000"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "5.000"
+            "value": "10.000"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "5"
+            "value": "10"
           },
           "MMCM_CLKOUT1_PHASE": {
             "value": "180.000"
@@ -1818,10 +1793,9 @@
       "Reset_1": {
         "ports": [
           "Reset",
-          "Pipelining_Controller_0/Reset",
-          "Pipelining_Execution_0/Reset",
-          "Pipelining_WriteBack_0/Reset",
           "ProgramCounter_0/Reset",
+          "Pipelining_Controller_0/Reset",
+          "Pipelining_WriteBack_0/Reset",
           "clk_wiz_0/reset"
         ]
       },
