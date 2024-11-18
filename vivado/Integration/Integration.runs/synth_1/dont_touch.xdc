@@ -57,4 +57,27 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_RAM_Pl
 # IP: bd/main/ip/main_ALU_FLAG_PACKER_0_1/main_ALU_FLAG_PACKER_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_ALU_FLAG_PACKER_0_1 || ORIG_REF_NAME==main_ALU_FLAG_PACKER_0_1} -quiet] -quiet
 
+# IP: bd/main/ip/main_RX_UART_0_0/main_RX_UART_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_RX_UART_0_0 || ORIG_REF_NAME==main_RX_UART_0_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_TX_UART_0_0/main_TX_UART_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_TX_UART_0_0 || ORIG_REF_NAME==main_TX_UART_0_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_Debugger_0_0/main_Debugger_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_Debugger_0_0 || ORIG_REF_NAME==main_Debugger_0_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_ClockDisabler_0_0/main_ClockDisabler_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_ClockDisabler_0_0 || ORIG_REF_NAME==main_ClockDisabler_0_0} -quiet] -quiet
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc
+
 # XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc

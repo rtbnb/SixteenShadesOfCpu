@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xEB2990AF8372D13B",
+      "boundary_crc": "0xE6936E8CBEDD2D1F",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "None",
-      "tool_version": "2024.1"
+      "tool_version": "2024.1",
+      "validated": "true"
     },
     "design_tree": {
       "Pipelining_Controller_0": "",
@@ -29,18 +30,23 @@
       "ALU_FLAG_PACKER_0": "",
       "RX_UART_0": "",
       "TX_UART_0": "",
-      "Debugger_0": ""
+      "Debugger_0": "",
+      "clk_wiz_0": "",
+      "ClockDisabler_0": ""
     },
     "ports": {
       "Reset": {
         "type": "rst",
-        "direction": "I"
-      },
-      "InstrExec_CLK": {
-        "direction": "I"
-      },
-      "InstrLoad_CLK": {
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
       },
       "led": {
         "direction": "O"
@@ -49,6 +55,9 @@
         "direction": "O"
       },
       "RX_UART_IN": {
+        "direction": "I"
+      },
+      "CLK100MHZ": {
         "direction": "I"
       }
     },
@@ -75,7 +84,13 @@
           },
           "Reset": {
             "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
           },
           "Instruction": {
             "direction": "I",
@@ -130,7 +145,13 @@
           },
           "Reset": {
             "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
           },
           "Din": {
             "direction": "I",
@@ -406,7 +427,13 @@
           },
           "Reset": {
             "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
           },
           "Operand1": {
             "direction": "I",
@@ -840,7 +867,13 @@
           },
           "Reset": {
             "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
           },
           "WriteAddress": {
             "direction": "I",
@@ -1012,7 +1045,21 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "rx_serial_input": {
             "direction": "I"
@@ -1049,7 +1096,21 @@
           },
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "tx_output": {
             "direction": "O"
@@ -1073,7 +1134,21 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "rx_data": {
             "direction": "I",
@@ -1093,6 +1168,155 @@
           },
           "tx_data_sended": {
             "direction": "I"
+          },
+          "debug_clk_stop_LOW_ACTIVE": {
+            "direction": "O"
+          },
+          "pc_current_addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "wlb_in": {
+            "direction": "I"
+          }
+        }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "ip_revision": "14",
+        "xci_name": "main_clk_wiz_0_0",
+        "xci_path": "ip\\main_clk_wiz_0_0\\main_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLKIN2_JITTER_PS": {
+            "value": "166.66"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "114.829"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "200.000"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "114.829"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "200.000"
+          },
+          "CLKOUT2_REQUESTED_PHASE": {
+            "value": "180.000"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "CLKOUT3_JITTER": {
+            "value": "130.958"
+          },
+          "CLKOUT3_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT3_USED": {
+            "value": "true"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "InstrExec_CLK"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "InstrLoad_CLK"
+          },
+          "CLK_OUT3_PORT": {
+            "value": "Debug_CLK100MHZ"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.000"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "5.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "5"
+          },
+          "MMCM_CLKOUT1_PHASE": {
+            "value": "180.000"
+          },
+          "MMCM_CLKOUT2_DIVIDE": {
+            "value": "10"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "3"
+          },
+          "RESET_PORT": {
+            "value": "reset"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_HIGH"
+          },
+          "SECONDARY_SOURCE": {
+            "value": "Single_ended_clock_capable_pin"
+          },
+          "USE_INCLK_SWITCHOVER": {
+            "value": "false"
+          }
+        }
+      },
+      "ClockDisabler_0": {
+        "vlnv": "xilinx.com:module_ref:ClockDisabler:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ClockDisabler_0_0",
+        "xci_path": "ip\\main_ClockDisabler_0_0\\main_ClockDisabler_0_0.xci",
+        "inst_hier_path": "ClockDisabler_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ClockDisabler",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrExec_CLK_in": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "InstrLoad_CLK_in": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "180.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "debug_EN_LOW_ACTIVE": {
+            "direction": "I"
+          },
+          "InstrExec_CLK_out": {
+            "direction": "O"
+          },
+          "InstrLoad_CLK_out": {
+            "direction": "O"
           }
         }
       }
@@ -1151,6 +1375,12 @@
           "ALU_FLAG_PACKER_0/ALU_FLAGS",
           "Pipelining_Forwarder_0/ExecutionFlags",
           "Pipelining_WriteBack_0/Flags"
+        ]
+      },
+      "CLK100MHZ_1": {
+        "ports": [
+          "CLK100MHZ",
+          "clk_wiz_0/clk_in1"
         ]
       },
       "CU_Decoder_0_Is_ALU_OP": {
@@ -1262,6 +1492,30 @@
           "Pipelining_WriteBack_0/WriteData"
         ]
       },
+      "ClockDisabler_0_InstrExec_CLK_out": {
+        "ports": [
+          "ClockDisabler_0/InstrExec_CLK_out",
+          "ProgramCounter_0/InstrExec_CLK",
+          "Pipelining_Controller_0/InstrExec_CLK",
+          "RegFile_0/clk",
+          "CU_JumpController_0/InstrExec_CLK",
+          "RAM_Placeholder_0/CLK"
+        ]
+      },
+      "ClockDisabler_0_InstrLoad_CLK_out": {
+        "ports": [
+          "ClockDisabler_0/InstrLoad_CLK_out",
+          "Pipelining_Controller_0/InstrLoad_CLK",
+          "Pipelining_Execution_0/InstrLoad_CLK",
+          "Pipelining_WriteBack_0/InstrLoad_CLK"
+        ]
+      },
+      "Debugger_0_debug_clk_stop_LOW_ACTIVE": {
+        "ports": [
+          "Debugger_0/debug_clk_stop_LOW_ACTIVE",
+          "ClockDisabler_0/debug_EN_LOW_ACTIVE"
+        ]
+      },
       "Debugger_0_tx_data": {
         "ports": [
           "Debugger_0/tx_data",
@@ -1313,32 +1567,8 @@
       "IROM_0_Data": {
         "ports": [
           "IROM_0/Data",
-          "Pipelining_Controller_0/Instruction"
-        ]
-      },
-      "InstrExec_CLK_1": {
-        "ports": [
-          "InstrExec_CLK",
-          "RegFile_0/clk",
-          "RAM_Placeholder_0/CLK",
-          "CU_JumpController_0/InstrExec_CLK",
-          "Pipelining_Controller_0/InstrExec_CLK",
-          "ProgramCounter_0/InstrExec_CLK"
-        ]
-      },
-      "InstrLoad_CLK_1": {
-        "ports": [
-          "InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK",
-          "Pipelining_Execution_0/InstrLoad_CLK",
-          "Pipelining_WriteBack_0/InstrLoad_CLK"
-        ]
-      },
-      "Net": {
-        "ports": [
-          "RX_UART_0/clk",
-          "Debugger_0/clk",
-          "TX_UART_0/clk"
+          "Pipelining_Controller_0/Instruction",
+          "Debugger_0/pc_current_addr"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -1466,7 +1696,8 @@
         "ports": [
           "Pipelining_Execution_0/WLB_out",
           "CU_ImmediateManipula_0/RF_WLB",
-          "Pipelining_WriteBack_0/WLB"
+          "Pipelining_WriteBack_0/WLB",
+          "Debugger_0/wlb_in"
         ]
       },
       "Pipelining_Execution_0_WriteAddress_out": {
@@ -1590,7 +1821,8 @@
           "Pipelining_Controller_0/Reset",
           "Pipelining_Execution_0/Reset",
           "Pipelining_WriteBack_0/Reset",
-          "ProgramCounter_0/Reset"
+          "ProgramCounter_0/Reset",
+          "clk_wiz_0/reset"
         ]
       },
       "TX_UART_0_send_valid": {
@@ -1603,6 +1835,26 @@
         "ports": [
           "TX_UART_0/tx_output",
           "TX_UART_OUT"
+        ]
+      },
+      "clk_wiz_0_Debug_CLK100MHZ": {
+        "ports": [
+          "clk_wiz_0/Debug_CLK100MHZ",
+          "RX_UART_0/clk",
+          "TX_UART_0/clk",
+          "Debugger_0/clk"
+        ]
+      },
+      "clk_wiz_0_InstrExec_CLK": {
+        "ports": [
+          "clk_wiz_0/InstrExec_CLK",
+          "ClockDisabler_0/InstrExec_CLK_in"
+        ]
+      },
+      "clk_wiz_0_InstrLoad_CLK": {
+        "ports": [
+          "clk_wiz_0/InstrLoad_CLK",
+          "ClockDisabler_0/InstrLoad_CLK_in"
         ]
       }
     }

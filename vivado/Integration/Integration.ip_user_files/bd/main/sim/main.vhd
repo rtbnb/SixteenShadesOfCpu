@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Mon Nov 18 13:18:15 2024
---Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
+--Date        : Mon Nov 18 17:25:55 2024
+--Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -14,13 +14,14 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity main is
   port (
-    InstrExec_CLK : in STD_LOGIC;
-    InstrLoad_CLK : in STD_LOGIC;
+    CLK100MHZ : in STD_LOGIC;
+    RX_UART_IN : in STD_LOGIC;
     Reset : in STD_LOGIC;
+    TX_UART_OUT : out STD_LOGIC;
     led : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=17,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=22,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=21,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of main : entity is "main.hwdef";
 end main;
@@ -265,6 +266,55 @@ architecture STRUCTURE of main is
     ALU_FLAGS : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_ALU_FLAG_PACKER_0_1;
+  component main_RX_UART_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    rx_serial_input : in STD_LOGIC;
+    data_output : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    data_valid : out STD_LOGIC
+  );
+  end component main_RX_UART_0_0;
+  component main_TX_UART_0_0 is
+  port (
+    data_valid : in STD_LOGIC;
+    data_in : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    clk : in STD_LOGIC;
+    tx_output : out STD_LOGIC;
+    send_valid : out STD_LOGIC
+  );
+  end component main_TX_UART_0_0;
+  component main_Debugger_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    rx_data : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    rx_data_valid : in STD_LOGIC;
+    tx_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    tx_data_valid : out STD_LOGIC;
+    tx_data_sended : in STD_LOGIC;
+    debug_clk_stop_LOW_ACTIVE : out STD_LOGIC;
+    pc_current_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    wlb_in : in STD_LOGIC
+  );
+  end component main_Debugger_0_0;
+  component main_clk_wiz_0_0 is
+  port (
+    reset : in STD_LOGIC;
+    clk_in1 : in STD_LOGIC;
+    InstrExec_CLK : out STD_LOGIC;
+    InstrLoad_CLK : out STD_LOGIC;
+    Debug_CLK100MHZ : out STD_LOGIC;
+    locked : out STD_LOGIC
+  );
+  end component main_clk_wiz_0_0;
+  component main_ClockDisabler_0_0 is
+  port (
+    InstrExec_CLK_in : in STD_LOGIC;
+    InstrLoad_CLK_in : in STD_LOGIC;
+    debug_EN_LOW_ACTIVE : in STD_LOGIC;
+    InstrExec_CLK_out : out STD_LOGIC;
+    InstrLoad_CLK_out : out STD_LOGIC
+  );
+  end component main_ClockDisabler_0_0;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ALU_0_BIGGER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_CARRY_FLAG : STD_LOGIC;
@@ -274,6 +324,7 @@ architecture STRUCTURE of main is
   signal ALU_0_SMALLER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_ZERO_FLAG : STD_LOGIC;
   signal ALU_FLAG_PACKER_0_ALU_FLAGS : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal CLK100MHZ_1 : STD_LOGIC;
   signal CU_Decoder_0_Is_ALU_OP : STD_LOGIC;
   signal CU_Decoder_0_Is_RAM_OP : STD_LOGIC;
   signal CU_Decoder_0_JMP : STD_LOGIC;
@@ -292,6 +343,11 @@ architecture STRUCTURE of main is
   signal CU_JumpDestinationSe_0_JMP_Address : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_RAMAddressControl_0_RAM_Address : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_WriteSelector_0_Write_Data : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal ClockDisabler_0_InstrExec_CLK_out : STD_LOGIC;
+  signal ClockDisabler_0_InstrLoad_CLK_out : STD_LOGIC;
+  signal Debugger_0_debug_clk_stop_LOW_ACTIVE : STD_LOGIC;
+  signal Debugger_0_tx_data : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal Debugger_0_tx_data_valid : STD_LOGIC;
   signal Decoder_0_Immediate : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Decoder_0_JMP_Condition : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal Decoder_0_Register1 : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -299,8 +355,6 @@ architecture STRUCTURE of main is
   signal Decoder_0_Use_MA : STD_LOGIC;
   signal Decoder_0_WriteBackRegister : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal IROM_0_Data : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal InstrExec_CLK_1 : STD_LOGIC;
-  signal InstrLoad_CLK_1 : STD_LOGIC;
   signal Pipelining_Controller_0_InstructionForwardConfiguration : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal Pipelining_Controller_0_InstructionToExecute : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Controller_0_Stalled : STD_LOGIC;
@@ -333,22 +387,32 @@ architecture STRUCTURE of main is
   signal Pipelining_WriteBack_0_WriteData_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ProgramCounter_0_Dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal RAM_Placeholder_0_DataOut : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal RX_UART_0_data_output : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal RX_UART_0_data_valid : STD_LOGIC;
+  signal RX_UART_IN_1 : STD_LOGIC;
   signal RegFile_0_Reg1_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal RegFile_0_Reg2_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal RegFile_0_RegMA_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Reset_1 : STD_LOGIC;
+  signal TX_UART_0_send_valid : STD_LOGIC;
+  signal TX_UART_0_tx_output : STD_LOGIC;
+  signal clk_wiz_0_Debug_CLK100MHZ : STD_LOGIC;
+  signal clk_wiz_0_InstrExec_CLK : STD_LOGIC;
+  signal clk_wiz_0_InstrLoad_CLK : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_RegFile_0_BankID_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_clk_wiz_0_locked_UNCONNECTED : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH";
 begin
-  InstrExec_CLK_1 <= InstrExec_CLK;
-  InstrLoad_CLK_1 <= InstrLoad_CLK;
+  CLK100MHZ_1 <= CLK100MHZ;
+  RX_UART_IN_1 <= RX_UART_IN;
   Reset_1 <= Reset;
+  TX_UART_OUT <= TX_UART_0_tx_output;
   led <= Pipelining_WriteBack_0_JMP_out;
 ALU_0: component main_ALU_0_0
      port map (
@@ -405,7 +469,7 @@ CU_ImmediateManipula_0: component main_CU_ImmediateManipula_0_0
 CU_JumpController_0: component main_CU_JumpController_0_0
      port map (
       Flags(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
-      InstrExec_CLK => InstrExec_CLK_1,
+      InstrExec_CLK => ClockDisabler_0_InstrExec_CLK_out,
       JMP => Pipelining_Execution_0_JMP_out,
       JMP_Address(15 downto 0) => CU_JumpDestinationSe_0_JMP_Address(15 downto 0),
       JMP_Condition(2 downto 0) => Pipelining_Execution_0_JMP_Condition_out(2 downto 0),
@@ -440,6 +504,26 @@ CU_WriteSelector_0: component main_CU_WriteSelector_0_0
       Write_Data(15 downto 0) => CU_WriteSelector_0_Write_Data(15 downto 0),
       Write_Sel(1 downto 0) => Pipelining_Execution_0_WriteDataSel_out(1 downto 0)
     );
+ClockDisabler_0: component main_ClockDisabler_0_0
+     port map (
+      InstrExec_CLK_in => clk_wiz_0_InstrExec_CLK,
+      InstrExec_CLK_out => ClockDisabler_0_InstrExec_CLK_out,
+      InstrLoad_CLK_in => clk_wiz_0_InstrLoad_CLK,
+      InstrLoad_CLK_out => ClockDisabler_0_InstrLoad_CLK_out,
+      debug_EN_LOW_ACTIVE => Debugger_0_debug_clk_stop_LOW_ACTIVE
+    );
+Debugger_0: component main_Debugger_0_0
+     port map (
+      clk => clk_wiz_0_Debug_CLK100MHZ,
+      debug_clk_stop_LOW_ACTIVE => Debugger_0_debug_clk_stop_LOW_ACTIVE,
+      pc_current_addr(15 downto 0) => IROM_0_Data(15 downto 0),
+      rx_data(7 downto 0) => RX_UART_0_data_output(7 downto 0),
+      rx_data_valid => RX_UART_0_data_valid,
+      tx_data(7 downto 0) => Debugger_0_tx_data(7 downto 0),
+      tx_data_sended => TX_UART_0_send_valid,
+      tx_data_valid => Debugger_0_tx_data_valid,
+      wlb_in => Pipelining_Execution_0_WLB_out
+    );
 Decoder_0: component main_Decoder_0_0
      port map (
       Immediate(15 downto 0) => Decoder_0_Immediate(15 downto 0),
@@ -457,8 +541,8 @@ IROM_0: component main_IROM_0_1
     );
 Pipelining_Controller_0: component main_Pipelining_Controller_0_0
      port map (
-      InstrExec_CLK => InstrExec_CLK_1,
-      InstrLoad_CLK => InstrLoad_CLK_1,
+      InstrExec_CLK => ClockDisabler_0_InstrExec_CLK_out,
+      InstrLoad_CLK => ClockDisabler_0_InstrLoad_CLK_out,
       Instruction(15 downto 0) => IROM_0_Data(15 downto 0),
       InstructionForwardConfiguration(4 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(4 downto 0),
       InstructionToExecute(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
@@ -471,7 +555,7 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       IS_ALU_OP_out => Pipelining_Execution_0_IS_ALU_OP_out,
       Immediate(15 downto 0) => Decoder_0_Immediate(15 downto 0),
       Immediate_out(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
-      InstrLoad_CLK => InstrLoad_CLK_1,
+      InstrLoad_CLK => ClockDisabler_0_InstrLoad_CLK_out,
       Is_ALU_OP => CU_Decoder_0_Is_ALU_OP,
       Is_RAM_OP => CU_Decoder_0_Is_RAM_OP,
       Is_RAM_OP_out => NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED,
@@ -525,7 +609,7 @@ Pipelining_WriteBack_0: component main_Pipelining_WriteBack_0_0
      port map (
       Flags(15 downto 0) => ALU_FLAG_PACKER_0_ALU_FLAGS(15 downto 0),
       Flags_out(15 downto 0) => Pipelining_WriteBack_0_Flags_out(15 downto 0),
-      InstrLoad_CLK => InstrLoad_CLK_1,
+      InstrLoad_CLK => ClockDisabler_0_InstrLoad_CLK_out,
       Is_ALU_OP => Pipelining_Execution_0_IS_ALU_OP_out,
       Is_ALU_OP_out => Pipelining_WriteBack_0_Is_ALU_OP_out,
       JMP => Pipelining_Execution_0_JMP_out,
@@ -543,7 +627,7 @@ ProgramCounter_0: component main_ProgramCounter_0_0
      port map (
       Din(15 downto 0) => CU_JumpController_0_PC_Next(15 downto 0),
       Dout(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
-      InstrExec_CLK => InstrExec_CLK_1,
+      InstrExec_CLK => ClockDisabler_0_InstrExec_CLK_out,
       JMP => CU_JumpController_0_PC_Load,
       Reset => Reset_1,
       Stalled => Pipelining_Controller_0_Stalled
@@ -551,11 +635,18 @@ ProgramCounter_0: component main_ProgramCounter_0_0
 RAM_Placeholder_0: component main_RAM_Placeholder_0_0
      port map (
       Address(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
-      CLK => InstrExec_CLK_1,
+      CLK => ClockDisabler_0_InstrExec_CLK_out,
       DataIn(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       DataOut(15 downto 0) => RAM_Placeholder_0_DataOut(15 downto 0),
       OE => Pipelining_Execution_0_RAM_Read_out,
       WE => Pipelining_Execution_0_RAM_Write_out
+    );
+RX_UART_0: component main_RX_UART_0_0
+     port map (
+      clk => clk_wiz_0_Debug_CLK100MHZ,
+      data_output(7 downto 0) => RX_UART_0_data_output(7 downto 0),
+      data_valid => RX_UART_0_data_valid,
+      rx_serial_input => RX_UART_IN_1
     );
 RegFile_0: component main_RegFile_0_0
      port map (
@@ -570,6 +661,23 @@ RegFile_0: component main_RegFile_0_0
       RegMA_data(15 downto 0) => RegFile_0_RegMA_data(15 downto 0),
       WE => Pipelining_WriteBack_0_RF_WE_out,
       WriteData(15 downto 0) => Pipelining_WriteBack_0_WriteData_out(15 downto 0),
-      clk => InstrExec_CLK_1
+      clk => ClockDisabler_0_InstrExec_CLK_out
+    );
+TX_UART_0: component main_TX_UART_0_0
+     port map (
+      clk => clk_wiz_0_Debug_CLK100MHZ,
+      data_in(7 downto 0) => Debugger_0_tx_data(7 downto 0),
+      data_valid => Debugger_0_tx_data_valid,
+      send_valid => TX_UART_0_send_valid,
+      tx_output => TX_UART_0_tx_output
+    );
+clk_wiz_0: component main_clk_wiz_0_0
+     port map (
+      Debug_CLK100MHZ => clk_wiz_0_Debug_CLK100MHZ,
+      InstrExec_CLK => clk_wiz_0_InstrExec_CLK,
+      InstrLoad_CLK => clk_wiz_0_InstrLoad_CLK,
+      clk_in1 => CLK100MHZ_1,
+      locked => NLW_clk_wiz_0_locked_UNCONNECTED,
+      reset => Reset_1
     );
 end STRUCTURE;

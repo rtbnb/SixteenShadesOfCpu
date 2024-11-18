@@ -38,47 +38,124 @@ end mainSim;
 architecture Behavioral of mainSim is
     component main_wrapper is
       port (
-        InstrExec_CLK: in std_logic;
-        InstrLoad_CLK : in STD_LOGIC;
         Reset : in STD_LOGIC;
-        led : out STD_LOGIC
+        led : out STD_LOGIC;
+        TX_UART_OUT : out STD_LOGIC;
+        RX_UART_IN : in STD_LOGIC;
+        CLK100MHZ : in STD_LOGIC
       );
     end component main_wrapper;
     
-    signal InstrExec_CLK, InstrLoad_CLK, Reset : STD_LOGIC;
+    signal CLK100MHZ, Reset, led, TX_UART_OUT, RX_UART_IN : STD_LOGIC;
 begin
     
     EUT : main_wrapper port map(
-        InstrLoad_CLK => InstrLoad_CLK,
-        InstrExec_CLK => InstrExec_CLK,
+        CLK100MHZ => CLK100MHZ,
+        led => led,
+        TX_UART_OUT => TX_UART_OUT,
+        RX_UART_IN => RX_UART_IN,
         Reset => Reset
     );
     
+    uart_rx: process begin
+        RX_UART_IN <= '1';
+        wait for 400ns;
+        
+        -- test debug data
+        -- start bit
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        -- data bits
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        -- stop bit
+        RX_UART_IN <= '1';
+        wait for 1090ns;
+        
+        -- start bit
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        -- data bits
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        -- stop bit
+        RX_UART_IN <= '1';
+        wait for 1090ns;
+        
+        -- start bit
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        -- data bits
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        RX_UART_IN <= '0';
+        wait for 1090ns;
+        -- stop bit
+        RX_UART_IN <= '1';
+        wait for 1090ns;
+        wait;
+    end process uart_rx;
     
-    process is
-    begin
-        InstrExec_CLK <= '0';
-        InstrLoad_CLK <= '0';
+    main: process begin
+        CLK100MHZ <= '0';
         Reset <= '0';
         wait for 10 ns;
         Reset <= '1';
         wait for 10 ns;
-        InstrLoad_CLK <= '1';
+        CLK100MHZ <= '1';
         wait for 10 ns;
-        InstrLoad_CLK <= '0';
-        InstrExec_CLK <= '1';
+        CLK100MHZ <= '0';
         wait for 10 ns;
-        InstrExec_CLK <= '0';
         Reset <= '0';
         wait for 10 ns;
         WHILE true loop
-            InstrLoad_CLK <= '1';
-            InstrExec_CLK <= '0';
+            CLK100MHZ <= '1';
             wait for 5 ns;
-            InstrLoad_CLK <= '0';
-            InstrExec_CLK <= '1';
+            CLK100MHZ <= '0';
             wait for 5 ns;
         end loop;
-    end process;
+        
+       
+    end process main;
 
 end Behavioral;
