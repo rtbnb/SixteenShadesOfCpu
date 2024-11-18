@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Mon Nov 18 13:34:30 2024
---Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
+--Date        : Mon Nov 18 17:48:25 2024
+--Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
 --Purpose     : IP block netlist
@@ -14,6 +14,10 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity main_block_wrapper is
   port (
+    btn0 : in STD_LOGIC;
+    btn1 : in STD_LOGIC;
+    btn2 : in STD_LOGIC;
+    btn3 : in STD_LOGIC;
     clk200mhz : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -33,6 +37,10 @@ entity main_block_wrapper is
     iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_clk : in STD_LOGIC;
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    led0 : out STD_LOGIC;
+    led1 : out STD_LOGIC;
+    led2 : out STD_LOGIC;
+    led3 : out STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vram_clk : in STD_LOGIC;
     vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
@@ -63,12 +71,24 @@ architecture STRUCTURE of main_block_wrapper is
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     vram_clk : in STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_override_enable : in STD_LOGIC
+    debug_override_enable : in STD_LOGIC;
+    btn0 : in STD_LOGIC;
+    btn1 : in STD_LOGIC;
+    btn2 : in STD_LOGIC;
+    btn3 : in STD_LOGIC;
+    led0 : out STD_LOGIC;
+    led1 : out STD_LOGIC;
+    led2 : out STD_LOGIC;
+    led3 : out STD_LOGIC
   );
   end component main_block;
 begin
 main_block_i: component main_block
      port map (
+      btn0 => btn0,
+      btn1 => btn1,
+      btn2 => btn2,
+      btn3 => btn3,
       clk200mhz => clk200mhz,
       debug_addr(15 downto 0) => debug_addr(15 downto 0),
       debug_bank(3 downto 0) => debug_bank(3 downto 0),
@@ -88,6 +108,10 @@ main_block_i: component main_block
       iram_addr(15 downto 0) => iram_addr(15 downto 0),
       iram_clk => iram_clk,
       iram_dout(15 downto 0) => iram_dout(15 downto 0),
+      led0 => led0,
+      led1 => led1,
+      led2 => led2,
+      led3 => led3,
       vram_addr(15 downto 0) => vram_addr(15 downto 0),
       vram_clk => vram_clk,
       vram_dout(15 downto 0) => vram_dout(15 downto 0)

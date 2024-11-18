@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD7E12BB3D0DC0DDA",
+      "boundary_crc": "0x3E9978025B1EAA65",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -239,6 +239,30 @@
       },
       "debug_override_enable": {
         "direction": "I"
+      },
+      "btn0": {
+        "direction": "I"
+      },
+      "btn1": {
+        "direction": "I"
+      },
+      "btn2": {
+        "direction": "I"
+      },
+      "btn3": {
+        "direction": "I"
+      },
+      "led0": {
+        "direction": "O"
+      },
+      "led1": {
+        "direction": "O"
+      },
+      "led2": {
+        "direction": "O"
+      },
+      "led3": {
+        "direction": "O"
       }
     },
     "components": {
@@ -704,11 +728,59 @@
             "direction": "O",
             "left": "15",
             "right": "0"
+          },
+          "led0": {
+            "direction": "O"
+          },
+          "led1": {
+            "direction": "O"
+          },
+          "led2": {
+            "direction": "O"
+          },
+          "led3": {
+            "direction": "O"
+          },
+          "btn0": {
+            "direction": "I"
+          },
+          "btn1": {
+            "direction": "I"
+          },
+          "btn2": {
+            "direction": "I"
+          },
+          "btn3": {
+            "direction": "I"
           }
         }
       }
     },
     "nets": {
+      "btn0_1": {
+        "ports": [
+          "btn0",
+          "mmio_0/btn0"
+        ]
+      },
+      "btn1_1": {
+        "ports": [
+          "btn1",
+          "mmio_0/btn1"
+        ]
+      },
+      "btn2_1": {
+        "ports": [
+          "btn2",
+          "mmio_0/btn2"
+        ]
+      },
+      "btn3_1": {
+        "ports": [
+          "btn3",
+          "mmio_0/btn3"
+        ]
+      },
       "clk200mhz_1": {
         "ports": [
           "clk200mhz",
@@ -821,6 +893,30 @@
         "ports": [
           "mmio_0/dout",
           "mmu_0/mmio_mem_dout"
+        ]
+      },
+      "mmio_0_led0": {
+        "ports": [
+          "mmio_0/led0",
+          "led0"
+        ]
+      },
+      "mmio_0_led1": {
+        "ports": [
+          "mmio_0/led1",
+          "led1"
+        ]
+      },
+      "mmio_0_led2": {
+        "ports": [
+          "mmio_0/led2",
+          "led2"
+        ]
+      },
+      "mmio_0_led3": {
+        "ports": [
+          "mmio_0/led3",
+          "led3"
         ]
       },
       "mmu_0_debug_dout": {

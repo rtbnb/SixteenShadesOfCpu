@@ -60,7 +60,15 @@ ENTITY main_block_mmio_0_0 IS
     oe : IN STD_LOGIC;
     addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    led0 : OUT STD_LOGIC;
+    led1 : OUT STD_LOGIC;
+    led2 : OUT STD_LOGIC;
+    led3 : OUT STD_LOGIC;
+    btn0 : IN STD_LOGIC;
+    btn1 : IN STD_LOGIC;
+    btn2 : IN STD_LOGIC;
+    btn3 : IN STD_LOGIC
   );
 END main_block_mmio_0_0;
 
@@ -74,7 +82,15 @@ ARCHITECTURE main_block_mmio_0_0_arch OF main_block_mmio_0_0 IS
       oe : IN STD_LOGIC;
       addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+      dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      led0 : OUT STD_LOGIC;
+      led1 : OUT STD_LOGIC;
+      led2 : OUT STD_LOGIC;
+      led3 : OUT STD_LOGIC;
+      btn0 : IN STD_LOGIC;
+      btn1 : IN STD_LOGIC;
+      btn2 : IN STD_LOGIC;
+      btn3 : IN STD_LOGIC
     );
   END COMPONENT mmio;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -93,6 +109,14 @@ BEGIN
       oe => oe,
       addr => addr,
       din => din,
-      dout => dout
+      dout => dout,
+      led0 => led0,
+      led1 => led1,
+      led2 => led2,
+      led3 => led3,
+      btn0 => btn0,
+      btn1 => btn1,
+      btn2 => btn2,
+      btn3 => btn3
     );
 END main_block_mmio_0_0_arch;

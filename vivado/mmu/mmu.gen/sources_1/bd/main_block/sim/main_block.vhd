@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Mon Nov 18 13:34:30 2024
---Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
+--Date        : Mon Nov 18 17:48:25 2024
+--Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
 --Purpose     : IP block netlist
@@ -14,6 +14,10 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity main_block is
   port (
+    btn0 : in STD_LOGIC;
+    btn1 : in STD_LOGIC;
+    btn2 : in STD_LOGIC;
+    btn3 : in STD_LOGIC;
     clk200mhz : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -33,14 +37,18 @@ entity main_block is
     iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_clk : in STD_LOGIC;
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    led0 : out STD_LOGIC;
+    led1 : out STD_LOGIC;
+    led2 : out STD_LOGIC;
+    led3 : out STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vram_clk : in STD_LOGIC;
     vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
-  attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main_block : entity is "main_block,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main_block,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=5,numReposBlks=5,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,synth_mode=None}";
-  attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of main_block : entity is "main_block.hwdef";
+  attribute core_generation_info : string;
+  attribute core_generation_info of main_block : entity is "main_block,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main_block,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=5,numReposBlks=5,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,synth_mode=None}";
+  attribute hw_handoff : string;
+  attribute hw_handoff of main_block : entity is "main_block.hwdef";
 end main_block;
 
 architecture STRUCTURE of main_block is
@@ -145,9 +153,21 @@ architecture STRUCTURE of main_block is
     oe : in STD_LOGIC;
     addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
+    dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    led0 : out STD_LOGIC;
+    led1 : out STD_LOGIC;
+    led2 : out STD_LOGIC;
+    led3 : out STD_LOGIC;
+    btn0 : in STD_LOGIC;
+    btn1 : in STD_LOGIC;
+    btn2 : in STD_LOGIC;
+    btn3 : in STD_LOGIC
   );
   end component main_block_mmio_0_0;
+  signal btn0_1 : STD_LOGIC;
+  signal btn1_1 : STD_LOGIC;
+  signal btn2_1 : STD_LOGIC;
+  signal btn3_1 : STD_LOGIC;
   signal clk200mhz_1 : STD_LOGIC;
   signal debug_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal debug_bank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -167,6 +187,10 @@ architecture STRUCTURE of main_block is
   signal iram_clk_1 : STD_LOGIC;
   signal iram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmio_0_led0 : STD_LOGIC;
+  signal mmio_0_led1 : STD_LOGIC;
+  signal mmio_0_led2 : STD_LOGIC;
+  signal mmio_0_led3 : STD_LOGIC;
   signal mmu_0_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_gram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_gram_mem_addr : STD_LOGIC_VECTOR ( 13 downto 0 );
@@ -198,21 +222,25 @@ architecture STRUCTURE of main_block is
   signal vram_doutb : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_gram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_iram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of clk200mhz : signal is "xilinx.com:signal:clock:1.0 CLK.CLK200MHZ CLK";
-  attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk200mhz : signal is "XIL_INTERFACENAME CLK.CLK200MHZ, CLK_DOMAIN main_block_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of debug_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK, CLK_DOMAIN main_block_debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_clk200mhz : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK200MHZ CLK";
-  attribute X_INTERFACE_PARAMETER of debug_clk200mhz : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK200MHZ, CLK_DOMAIN main_block_debug_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of gram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.GRAM_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of gram_clk : signal is "XIL_INTERFACENAME CLK.GRAM_CLK, CLK_DOMAIN main_block_gram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of iram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.IRAM_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of iram_clk : signal is "XIL_INTERFACENAME CLK.IRAM_CLK, CLK_DOMAIN main_block_iram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of vram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.VRAM_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of vram_clk : signal is "XIL_INTERFACENAME CLK.VRAM_CLK, CLK_DOMAIN main_block_vram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info : string;
+  attribute x_interface_info of clk200mhz : signal is "xilinx.com:signal:clock:1.0 CLK.CLK200MHZ CLK";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of clk200mhz : signal is "XIL_INTERFACENAME CLK.CLK200MHZ, CLK_DOMAIN main_block_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of debug_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK CLK";
+  attribute x_interface_parameter of debug_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK, CLK_DOMAIN main_block_debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of debug_clk200mhz : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK200MHZ CLK";
+  attribute x_interface_parameter of debug_clk200mhz : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK200MHZ, CLK_DOMAIN main_block_debug_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of gram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.GRAM_CLK CLK";
+  attribute x_interface_parameter of gram_clk : signal is "XIL_INTERFACENAME CLK.GRAM_CLK, CLK_DOMAIN main_block_gram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of iram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.IRAM_CLK CLK";
+  attribute x_interface_parameter of iram_clk : signal is "XIL_INTERFACENAME CLK.IRAM_CLK, CLK_DOMAIN main_block_iram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of vram_clk : signal is "xilinx.com:signal:clock:1.0 CLK.VRAM_CLK CLK";
+  attribute x_interface_parameter of vram_clk : signal is "XIL_INTERFACENAME CLK.VRAM_CLK, CLK_DOMAIN main_block_vram_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
+  btn0_1 <= btn0;
+  btn1_1 <= btn1;
+  btn2_1 <= btn2;
+  btn3_1 <= btn3;
   clk200mhz_1 <= clk200mhz;
   debug_addr_1(15 downto 0) <= debug_addr(15 downto 0);
   debug_bank_1(3 downto 0) <= debug_bank(3 downto 0);
@@ -232,6 +260,10 @@ begin
   iram_addr_1(15 downto 0) <= iram_addr(15 downto 0);
   iram_clk_1 <= iram_clk;
   iram_dout(15 downto 0) <= mmu_0_iram_dout(15 downto 0);
+  led0 <= mmio_0_led0;
+  led1 <= mmio_0_led1;
+  led2 <= mmio_0_led2;
+  led3 <= mmio_0_led3;
   vram_addr_1(15 downto 0) <= vram_addr(15 downto 0);
   vram_clk_1 <= vram_clk;
   vram_dout(15 downto 0) <= mmu_0_vram_dout(15 downto 0);
@@ -264,9 +296,17 @@ iram: component main_block_blk_mem_gen_1_0
 mmio_0: component main_block_mmio_0_0
      port map (
       addr(15 downto 0) => mmu_0_mmio_mem_addr(15 downto 0),
+      btn0 => btn0_1,
+      btn1 => btn1_1,
+      btn2 => btn2_1,
+      btn3 => btn3_1,
       ck => mmu_0_mmio_mem_ck,
       din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
       dout(15 downto 0) => mmio_0_dout(15 downto 0),
+      led0 => mmio_0_led0,
+      led1 => mmio_0_led1,
+      led2 => mmio_0_led2,
+      led3 => mmio_0_led3,
       oe => mmu_0_mmio_mem_oe,
       we => mmu_0_mmio_mem_we
     );

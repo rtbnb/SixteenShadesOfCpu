@@ -1,9 +1,29 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov 18 13:34:30 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov 18 17:48:26 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
   <EXTERNALPORTS>
+    <PORT DIR="I" NAME="btn0" SIGIS="undef" SIGNAME="External_Ports_btn0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_0" PORT="btn0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="btn1" SIGIS="undef" SIGNAME="External_Ports_btn1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_0" PORT="btn1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="btn2" SIGIS="undef" SIGNAME="External_Ports_btn2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_0" PORT="btn2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="btn3" SIGIS="undef" SIGNAME="External_Ports_btn3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_0" PORT="btn3"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk200mhz" SIGIS="clk" SIGNAME="External_Ports_clk200mhz">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu_0" PORT="clk200mhz"/>
@@ -97,6 +117,26 @@
     <PORT DIR="O" LEFT="15" NAME="iram_dout" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_iram_dout">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu_0" PORT="iram_dout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led0" SIGIS="undef" SIGNAME="mmio_0_led0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_0" PORT="led0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led1" SIGIS="undef" SIGNAME="mmio_0_led1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_0" PORT="led1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led2" SIGIS="undef" SIGNAME="mmio_0_led2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_0" PORT="led2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led3" SIGIS="undef" SIGNAME="mmio_0_led3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_0" PORT="led3"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="15" NAME="vram_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_vram_addr">
@@ -573,6 +613,26 @@
             <CONNECTION INSTANCE="mmu_0" PORT="mmio_mem_addr"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="btn0" SIGIS="undef" SIGNAME="External_Ports_btn0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btn0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="btn1" SIGIS="undef" SIGNAME="External_Ports_btn1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btn1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="btn2" SIGIS="undef" SIGNAME="External_Ports_btn2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btn2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="btn3" SIGIS="undef" SIGNAME="External_Ports_btn3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btn3"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="ck" SIGIS="undef" SIGNAME="mmu_0_mmio_mem_ck">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="mmio_mem_ck"/>
@@ -586,6 +646,26 @@
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="mmio_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="mmio_mem_dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led0" SIGIS="undef" SIGNAME="mmio_0_led0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led1" SIGIS="undef" SIGNAME="mmio_0_led1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led2" SIGIS="undef" SIGNAME="mmio_0_led2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led3" SIGIS="undef" SIGNAME="mmio_0_led3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led3"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="oe" SIGIS="undef" SIGNAME="mmu_0_mmio_mem_oe">
