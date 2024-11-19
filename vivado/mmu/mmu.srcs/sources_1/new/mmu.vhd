@@ -100,6 +100,7 @@ architecture Behavioral of mmu is
     signal general_addr_s, general_din_s, general_dout_s: std_logic_vector( 15 downto 0 ); 
     
     signal cpu_lock_s: std_logic := '0';
+    signal cpu_edge_cnt_s, debug_edge_cnt_s, vram_edge_cnt_s: std_logic;
 begin
     debug_en_lock <= cpu_lock_s and not debug_enable;
 

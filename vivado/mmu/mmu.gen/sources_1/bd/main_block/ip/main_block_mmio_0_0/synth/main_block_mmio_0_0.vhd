@@ -57,7 +57,6 @@ ENTITY main_block_mmio_0_0 IS
   PORT (
     ck : IN STD_LOGIC;
     we : IN STD_LOGIC;
-    oe : IN STD_LOGIC;
     addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -79,7 +78,6 @@ ARCHITECTURE main_block_mmio_0_0_arch OF main_block_mmio_0_0 IS
     PORT (
       ck : IN STD_LOGIC;
       we : IN STD_LOGIC;
-      oe : IN STD_LOGIC;
       addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -106,7 +104,6 @@ BEGIN
     PORT MAP (
       ck => ck,
       we => we,
-      oe => oe,
       addr => addr,
       din => din,
       dout => dout,
