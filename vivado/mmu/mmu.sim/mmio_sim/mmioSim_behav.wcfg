@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="100.000 ns"></ZoomEndTime>
-      <Cursor1Time time="100.000 ns"></Cursor1Time>
+      <ZoomEndTime time="100.001 ns"></ZoomEndTime>
+      <Cursor1Time time="36.712 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="168"></NameColumnWidth>
+      <NameColumnWidth column_width="164"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="16" />
    <wvobject fp_name="/mmioSim/ck" type="logic">
       <obj_property name="ElementShortName">ck</obj_property>
       <obj_property name="ObjectShortName">ck</obj_property>
@@ -54,6 +54,10 @@
    <wvobject fp_name="/mmioSim/EUT/btn0_pressed_s" type="logic">
       <obj_property name="ElementShortName">btn0_pressed_s</obj_property>
       <obj_property name="ObjectShortName">btn0_pressed_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mmioSim/EUT/btn0_pressed_rst_s" type="logic">
+      <obj_property name="ElementShortName">btn0_pressed_rst_s</obj_property>
+      <obj_property name="ObjectShortName">btn0_pressed_rst_s</obj_property>
    </wvobject>
    <wvobject fp_name="/mmioSim/btn1" type="logic">
       <obj_property name="ElementShortName">btn1</obj_property>

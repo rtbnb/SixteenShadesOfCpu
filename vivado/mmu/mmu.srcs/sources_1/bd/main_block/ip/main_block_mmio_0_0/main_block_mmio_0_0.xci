@@ -49,7 +49,8 @@
         "btn0": [ { "direction": "in" } ],
         "btn1": [ { "direction": "in" } ],
         "btn2": [ { "direction": "in" } ],
-        "btn3": [ { "direction": "in" } ]
+        "btn3": [ { "direction": "in" } ],
+        "rho": [ { "direction": "out" } ]
       }
     }
   }

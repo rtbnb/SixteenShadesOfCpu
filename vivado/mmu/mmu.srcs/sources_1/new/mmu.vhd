@@ -36,6 +36,7 @@ entity mmu is
         clk200mhz: in std_logic;
         debug_en_lock: out std_logic;
         fault: out std_logic;
+        ck_stable: in std_logic;
         
         cpu_sync, debug_sync, vram_sync: in std_logic; --The sync signal is a replacement for the old clk signals. It is used for the locks and to initiate a operation
         
@@ -100,7 +101,8 @@ architecture Behavioral of mmu is
     signal general_addr_s, general_din_s, general_dout_s: std_logic_vector( 15 downto 0 ); 
     
     signal cpu_lock_s: std_logic := '0';
-    signal cpu_edge_cnt_s, debug_edge_cnt_s, vram_edge_cnt_s: std_logic;
+    signal cpu_op_ongoing: std_logic := '0';
+    signal test_signal: std_logic_vector( 2 downto 0 );
 begin
     debug_en_lock <= cpu_lock_s and not debug_enable;
 
@@ -126,9 +128,9 @@ begin
                         
     internal_debug_override_s <= debug_enable and debug_override_enable;
     
-    gram_bank_op_s <= not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1) or general_bank_s(0));
-    vram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1))) and general_bank_s(0);
-    mmio_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(0))) and general_bank_s(1);
+    gram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1) or general_bank_s(0))) and ck_stable;
+    vram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1))) and general_bank_s(0) and ck_stable;
+    mmio_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(0))) and general_bank_s(1) and ck_stable;
     iram_bank_op_s <= general_bank_s(3) and general_bank_s(2) and general_bank_s(1) and general_bank_s(0);
     
     iram_comb_condition_s <= internal_debug_override_s & iram_bank_op_s;
@@ -166,18 +168,31 @@ begin
 
 --ck section-------------------------------------------------
     gram_ck:process(general_clk_s)
+        variable comb_op_s : std_logic_vector( 2 downto 0 );
+        variable state1_con: std_logic;
     begin
-        case gram_bank_op_s is
-            when '1' =>
+        comb_op_s := gram_bank_op_s & cpu_op_ongoing & cpu_sync;
+        test_signal <= comb_op_s;
+        
+        state1_con := gram_bank_op_s and not cpu_op_ongoing and not cpu_sync;
+        state2_con := gram_bank_op_s and cpu_op_ongoing and cpu_sync;
+        
+        
+        case comb_op_s is
+            when "100" =>
                 gram_mem_ck <= general_clk_s;
+                cpu_op_ongoing <= '1';
+            when "111" =>
+                gram_mem_ck <= general_clk_s;
+                cpu_op_ongoing <= '0';
             when others =>
                 gram_mem_ck <= '0';
         end case;    
     end process;
 
-    with gram_bank_op_s select
-        gram_mem_ck <= general_clk_s when '1',
-                       '0' when others;
+--    with gram_bank_op_s select
+--        gram_mem_ck <= general_clk_s when '1',
+--                       '0' when others;
     with vram_bank_op_s select
         vrama_mem_ck <= general_clk_s when '1',
                         '0' when others;                

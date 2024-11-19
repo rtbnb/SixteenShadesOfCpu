@@ -67,7 +67,8 @@ ENTITY main_block_mmio_0_0 IS
     btn0 : IN STD_LOGIC;
     btn1 : IN STD_LOGIC;
     btn2 : IN STD_LOGIC;
-    btn3 : IN STD_LOGIC
+    btn3 : IN STD_LOGIC;
+    rho : OUT STD_LOGIC
   );
 END main_block_mmio_0_0;
 
@@ -88,7 +89,8 @@ ARCHITECTURE main_block_mmio_0_0_arch OF main_block_mmio_0_0 IS
       btn0 : IN STD_LOGIC;
       btn1 : IN STD_LOGIC;
       btn2 : IN STD_LOGIC;
-      btn3 : IN STD_LOGIC
+      btn3 : IN STD_LOGIC;
+      rho : OUT STD_LOGIC
     );
   END COMPONENT mmio;
 BEGIN
@@ -106,6 +108,7 @@ BEGIN
       btn0 => btn0,
       btn1 => btn1,
       btn2 => btn2,
-      btn3 => btn3
+      btn3 => btn3,
+      rho => rho
     );
 END main_block_mmio_0_0_arch;

@@ -38,7 +38,8 @@ entity mmio is
         dout: out std_logic_vector(15 downto 0);
         
         led0, led1, led2, led3: out std_logic;
-        btn0, btn1, btn2, btn3: in std_logic
+        btn0, btn1, btn2, btn3: in std_logic;
+        rho: out std_logic
     );
 
 
@@ -70,10 +71,10 @@ begin
     btn1_reg_s <= "000000000000000" & btn1;
     btn2_reg_s <= "000000000000000" & btn2;
     btn3_reg_s <= "000000000000000" & btn3;
-    btn0_pressed_reg_s <= "000000000000000" & ( not btn0_pressed_s );
-    btn1_pressed_reg_s <= "000000000000000" & ( not btn1_pressed_s );
-    btn2_pressed_reg_s <= "000000000000000" & ( not btn2_pressed_s );
-    btn3_pressed_reg_s <= "000000000000000" & ( not btn3_pressed_s );
+    btn0_pressed_reg_s <= "000000000000000" & ( btn0_pressed_s );
+    btn1_pressed_reg_s <= "000000000000000" & ( btn1_pressed_s );
+    btn2_pressed_reg_s <= "000000000000000" & ( btn2_pressed_s );
+    btn3_pressed_reg_s <= "000000000000000" & ( btn3_pressed_s );
     
     btn0_pressed_reg_op_s <= addr = "0000000000001001";
     btn1_pressed_reg_op_s <= addr = "0000000000001010";

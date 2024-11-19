@@ -40,6 +40,7 @@
         "clk200mhz": [ { "direction": "in" } ],
         "debug_en_lock": [ { "direction": "out" } ],
         "fault": [ { "direction": "out" } ],
+        "ck_stable": [ { "direction": "in" } ],
         "cpu_sync": [ { "direction": "in" } ],
         "debug_sync": [ { "direction": "in" } ],
         "vram_sync": [ { "direction": "in" } ],

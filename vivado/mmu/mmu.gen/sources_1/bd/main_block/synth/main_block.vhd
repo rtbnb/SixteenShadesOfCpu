@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Tue Nov 19 09:42:23 2024
+--Date        : Tue Nov 19 16:08:27 2024
 --Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
@@ -18,19 +18,14 @@ entity main_block is
     btn1 : in STD_LOGIC;
     btn2 : in STD_LOGIC;
     btn3 : in STD_LOGIC;
-    clk200mhz : in STD_LOGIC;
-    cpu_sync : in STD_LOGIC;
+    clk100mhz_in : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    debug_clk200mhz : in STD_LOGIC;
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_en_lock : out STD_LOGIC;
     debug_enable : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
-    debug_sync : in STD_LOGIC;
     debug_we : in STD_LOGIC;
-    fault : out STD_LOGIC;
     gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -43,12 +38,10 @@ entity main_block is
     led2 : out STD_LOGIC;
     led3 : out STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    vram_clk200mhz : in STD_LOGIC;
-    vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    vram_sync : in STD_LOGIC
+    vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main_block : entity is "main_block,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main_block,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=5,numReposBlks=5,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,synth_mode=None}";
+  attribute CORE_GENERATION_INFO of main_block : entity is "main_block,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main_block,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=7,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,synth_mode=None}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of main_block : entity is "main_block.hwdef";
 end main_block;
@@ -73,6 +66,7 @@ architecture STRUCTURE of main_block is
     clk200mhz : in STD_LOGIC;
     debug_en_lock : out STD_LOGIC;
     fault : out STD_LOGIC;
+    ck_stable : in STD_LOGIC;
     cpu_sync : in STD_LOGIC;
     debug_sync : in STD_LOGIC;
     vram_sync : in STD_LOGIC;
@@ -164,22 +158,49 @@ architecture STRUCTURE of main_block is
     btn0 : in STD_LOGIC;
     btn1 : in STD_LOGIC;
     btn2 : in STD_LOGIC;
-    btn3 : in STD_LOGIC
+    btn3 : in STD_LOGIC;
+    rho : out STD_LOGIC
   );
   end component main_block_mmio_0_0;
+  component main_block_clockcontroller_0_0 is
+  port (
+    clk100mhz_in : in STD_LOGIC;
+    wizard_locked : in STD_LOGIC;
+    clk200mhz_in : in STD_LOGIC;
+    fault : in STD_LOGIC;
+    debug_en_lock : in STD_LOGIC;
+    clk100mhz : out STD_LOGIC;
+    clk100mhz_inf : out STD_LOGIC;
+    clk200mhz : out STD_LOGIC;
+    clk200mhz_inf : out STD_LOGIC;
+    ck_stable : out STD_LOGIC
+  );
+  end component main_block_clockcontroller_0_0;
+  component main_block_clk_wiz_0_0 is
+  port (
+    reset : in STD_LOGIC;
+    clk_in1 : in STD_LOGIC;
+    clk_out1 : out STD_LOGIC;
+    locked : out STD_LOGIC;
+    clk_out2 : out STD_LOGIC
+  );
+  end component main_block_clk_wiz_0_0;
   signal btn0_1 : STD_LOGIC;
   signal btn1_1 : STD_LOGIC;
   signal btn2_1 : STD_LOGIC;
   signal btn3_1 : STD_LOGIC;
-  signal clk200mhz_1 : STD_LOGIC;
-  signal cpu_sync_1 : STD_LOGIC;
+  signal clk100mhz_in_1 : STD_LOGIC;
+  signal clk_wiz_0_clk_out1 : STD_LOGIC;
+  signal clk_wiz_0_clk_out2 : STD_LOGIC;
+  signal clk_wiz_0_locked : STD_LOGIC;
+  signal clockcontroller_0_ck_stable : STD_LOGIC;
+  signal clockcontroller_0_clk100mhz : STD_LOGIC;
+  signal clockcontroller_0_clk200mhz : STD_LOGIC;
   signal debug_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal debug_bank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal debug_clk200mhz_1 : STD_LOGIC;
   signal debug_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal debug_enable_1 : STD_LOGIC;
   signal debug_override_enable_1 : STD_LOGIC;
-  signal debug_sync_1 : STD_LOGIC;
   signal debug_we_1 : STD_LOGIC;
   signal gram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal gram_bank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -221,44 +242,30 @@ architecture STRUCTURE of main_block is
   signal mmu_0_vramb_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_vramb_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
   signal vram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal vram_clk200mhz_1 : STD_LOGIC;
   signal vram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal vram_doutb : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal vram_sync_1 : STD_LOGIC;
+  signal NLW_clockcontroller_0_clk100mhz_inf_UNCONNECTED : STD_LOGIC;
+  signal NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED : STD_LOGIC;
   signal NLW_gram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_iram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_mmio_0_rho_UNCONNECTED : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of clk200mhz : signal is "xilinx.com:signal:clock:1.0 CLK.CLK200MHZ CLK";
+  attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk200mhz : signal is "XIL_INTERFACENAME CLK.CLK200MHZ, CLK_DOMAIN main_block_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of cpu_sync : signal is "xilinx.com:signal:clock:1.0 CLK.CPU_SYNC CLK";
-  attribute X_INTERFACE_PARAMETER of cpu_sync : signal is "XIL_INTERFACENAME CLK.CPU_SYNC, CLK_DOMAIN main_block_cpu_sync, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_clk200mhz : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK200MHZ CLK";
-  attribute X_INTERFACE_PARAMETER of debug_clk200mhz : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK200MHZ, CLK_DOMAIN main_block_debug_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_sync : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_SYNC CLK";
-  attribute X_INTERFACE_PARAMETER of debug_sync : signal is "XIL_INTERFACENAME CLK.DEBUG_SYNC, CLK_DOMAIN main_block_debug_sync, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of vram_clk200mhz : signal is "xilinx.com:signal:clock:1.0 CLK.VRAM_CLK200MHZ CLK";
-  attribute X_INTERFACE_PARAMETER of vram_clk200mhz : signal is "XIL_INTERFACENAME CLK.VRAM_CLK200MHZ, CLK_DOMAIN main_block_vram_clk200mhz, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of vram_sync : signal is "xilinx.com:signal:clock:1.0 CLK.VRAM_SYNC CLK";
-  attribute X_INTERFACE_PARAMETER of vram_sync : signal is "XIL_INTERFACENAME CLK.VRAM_SYNC, CLK_DOMAIN main_block_vram_sync, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_block_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
   btn0_1 <= btn0;
   btn1_1 <= btn1;
   btn2_1 <= btn2;
   btn3_1 <= btn3;
-  clk200mhz_1 <= clk200mhz;
-  cpu_sync_1 <= cpu_sync;
+  clk100mhz_in_1 <= clk100mhz_in;
   debug_addr_1(15 downto 0) <= debug_addr(15 downto 0);
   debug_bank_1(3 downto 0) <= debug_bank(3 downto 0);
-  debug_clk200mhz_1 <= debug_clk200mhz;
   debug_din_1(15 downto 0) <= debug_din(15 downto 0);
   debug_dout(15 downto 0) <= mmu_0_debug_dout(15 downto 0);
-  debug_en_lock <= mmu_0_debug_en_lock;
   debug_enable_1 <= debug_enable;
   debug_override_enable_1 <= debug_override_enable;
-  debug_sync_1 <= debug_sync;
   debug_we_1 <= debug_we;
-  fault <= mmu_0_fault;
   gram_addr_1(15 downto 0) <= gram_addr(15 downto 0);
   gram_bank_1(3 downto 0) <= gram_bank(3 downto 0);
   gram_din_1(15 downto 0) <= gram_din(15 downto 0);
@@ -271,9 +278,28 @@ begin
   led2 <= mmio_0_led2;
   led3 <= mmio_0_led3;
   vram_addr_1(15 downto 0) <= vram_addr(15 downto 0);
-  vram_clk200mhz_1 <= vram_clk200mhz;
   vram_dout(15 downto 0) <= mmu_0_vram_dout(15 downto 0);
-  vram_sync_1 <= vram_sync;
+clk_wiz_0: component main_block_clk_wiz_0_0
+     port map (
+      clk_in1 => clk100mhz_in_1,
+      clk_out1 => clk_wiz_0_clk_out1,
+      clk_out2 => clk_wiz_0_clk_out2,
+      locked => clk_wiz_0_locked,
+      reset => '0'
+    );
+clockcontroller_0: component main_block_clockcontroller_0_0
+     port map (
+      ck_stable => clockcontroller_0_ck_stable,
+      clk100mhz => clockcontroller_0_clk100mhz,
+      clk100mhz_in => clk_wiz_0_clk_out1,
+      clk100mhz_inf => NLW_clockcontroller_0_clk100mhz_inf_UNCONNECTED,
+      clk200mhz => clockcontroller_0_clk200mhz,
+      clk200mhz_in => clk_wiz_0_clk_out2,
+      clk200mhz_inf => NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED,
+      debug_en_lock => mmu_0_debug_en_lock,
+      fault => mmu_0_fault,
+      wizard_locked => clk_wiz_0_locked
+    );
 gram: component main_block_blk_mem_gen_2_0
      port map (
       addra(13 downto 0) => mmu_0_gram_mem_addr(13 downto 0),
@@ -314,21 +340,23 @@ mmio_0: component main_block_mmio_0_0
       led1 => mmio_0_led1,
       led2 => mmio_0_led2,
       led3 => mmio_0_led3,
+      rho => NLW_mmio_0_rho_UNCONNECTED,
       we => mmu_0_mmio_mem_we
     );
 mmu_0: component main_block_mmu_0_0
      port map (
-      clk200mhz => clk200mhz_1,
-      cpu_sync => cpu_sync_1,
+      ck_stable => clockcontroller_0_ck_stable,
+      clk200mhz => clockcontroller_0_clk200mhz,
+      cpu_sync => clockcontroller_0_clk100mhz,
       debug_addr(15 downto 0) => debug_addr_1(15 downto 0),
       debug_bank(3 downto 0) => debug_bank_1(3 downto 0),
-      debug_clk200mhz => debug_clk200mhz_1,
+      debug_clk200mhz => clockcontroller_0_clk200mhz,
       debug_din(15 downto 0) => debug_din_1(15 downto 0),
       debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
       debug_en_lock => mmu_0_debug_en_lock,
       debug_enable => debug_enable_1,
       debug_override_enable => debug_override_enable_1,
-      debug_sync => debug_sync_1,
+      debug_sync => clockcontroller_0_clk100mhz,
       debug_we => debug_we_1,
       fault => mmu_0_fault,
       gram_addr(15 downto 0) => gram_addr_1(15 downto 0),
@@ -355,9 +383,9 @@ mmu_0: component main_block_mmu_0_0
       mmio_mem_oe => mmu_0_mmio_mem_oe,
       mmio_mem_we => mmu_0_mmio_mem_we,
       vram_addr(15 downto 0) => vram_addr_1(15 downto 0),
-      vram_clk200mhz => vram_clk200mhz_1,
+      vram_clk200mhz => clockcontroller_0_clk200mhz,
       vram_dout(15 downto 0) => mmu_0_vram_dout(15 downto 0),
-      vram_sync => vram_sync_1,
+      vram_sync => clockcontroller_0_clk100mhz,
       vrama_mem_addr(15 downto 0) => mmu_0_vram_mem_addr(15 downto 0),
       vrama_mem_ck => mmu_0_vram_mem_ck,
       vrama_mem_din(15 downto 0) => mmu_0_vram_mem_din(15 downto 0),

@@ -6,11 +6,6 @@
 # This constraints file is not used in normal top-down synthesis (default flow
 # of Vivado)
 ################################################################################
-create_clock -name clk200mhz -period 5 [get_ports clk200mhz]
-create_clock -name debug_clk200mhz -period 5 [get_ports debug_clk200mhz]
-create_clock -name vram_sync -period 10 [get_ports vram_sync]
-create_clock -name debug_sync -period 10 [get_ports debug_sync]
-create_clock -name cpu_sync -period 10 [get_ports cpu_sync]
-create_clock -name vram_clk200mhz -period 5 [get_ports vram_clk200mhz]
+create_clock -name clk100mhz_in -period 10 [get_ports clk100mhz_in]
 
 ################################################################################

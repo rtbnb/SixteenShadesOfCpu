@@ -58,6 +58,7 @@ ENTITY main_block_mmu_0_0 IS
     clk200mhz : IN STD_LOGIC;
     debug_en_lock : OUT STD_LOGIC;
     fault : OUT STD_LOGIC;
+    ck_stable : IN STD_LOGIC;
     cpu_sync : IN STD_LOGIC;
     debug_sync : IN STD_LOGIC;
     vram_sync : IN STD_LOGIC;
@@ -116,6 +117,7 @@ ARCHITECTURE main_block_mmu_0_0_arch OF main_block_mmu_0_0 IS
       clk200mhz : IN STD_LOGIC;
       debug_en_lock : OUT STD_LOGIC;
       fault : OUT STD_LOGIC;
+      ck_stable : IN STD_LOGIC;
       cpu_sync : IN STD_LOGIC;
       debug_sync : IN STD_LOGIC;
       vram_sync : IN STD_LOGIC;
@@ -179,6 +181,7 @@ BEGIN
       clk200mhz => clk200mhz,
       debug_en_lock => debug_en_lock,
       fault => fault,
+      ck_stable => ck_stable,
       cpu_sync => cpu_sync,
       debug_sync => debug_sync,
       vram_sync => vram_sync,
