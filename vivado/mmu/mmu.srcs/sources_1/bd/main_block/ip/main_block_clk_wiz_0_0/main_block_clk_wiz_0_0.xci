@@ -67,8 +67,8 @@
         "CLK_OUT6_USE_FINE_PS_GUI": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "CLK_OUT7_USE_FINE_PS_GUI": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "PRIMARY_PORT": [ { "value": "clk_in1", "resolve_type": "user", "usage": "all" } ],
-        "CLK_OUT1_PORT": [ { "value": "clk_out1", "resolve_type": "user", "usage": "all" } ],
-        "CLK_OUT2_PORT": [ { "value": "clk_out2", "resolve_type": "user", "usage": "all" } ],
+        "CLK_OUT1_PORT": [ { "value": "clk100mhz_out", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+        "CLK_OUT2_PORT": [ { "value": "clk200mhz_out", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "CLK_OUT3_PORT": [ { "value": "clk_out3", "resolve_type": "user", "usage": "all" } ],
         "CLK_OUT4_PORT": [ { "value": "clk_out4", "resolve_type": "user", "usage": "all" } ],
         "CLK_OUT5_PORT": [ { "value": "clk_out5", "resolve_type": "user", "usage": "all" } ],
@@ -339,8 +339,8 @@
         "C_INCLK_SUM_ROW2": [ { "value": "no_secondary_input_clock ", "resolve_type": "generated", "usage": "all" } ],
         "C_OUTCLK_SUM_ROW0A": [ { "value": " Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase", "resolve_type": "generated", "usage": "all" } ],
         "C_OUTCLK_SUM_ROW0B": [ { "value": "  Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)", "resolve_type": "generated", "usage": "all" } ],
-        "C_OUTCLK_SUM_ROW1": [ { "value": "clk_out1__100.00000______0.000______50.0______130.958_____98.575", "resolve_type": "generated", "usage": "all" } ],
-        "C_OUTCLK_SUM_ROW2": [ { "value": "clk_out2__200.00000______0.000______50.0______114.829_____98.575", "resolve_type": "generated", "usage": "all" } ],
+        "C_OUTCLK_SUM_ROW1": [ { "value": "clk100mhz_out__100.00000______0.000______50.0______130.958_____98.575", "resolve_type": "generated", "usage": "all" } ],
+        "C_OUTCLK_SUM_ROW2": [ { "value": "clk200mhz_out__200.00000______0.000______50.0______114.829_____98.575", "resolve_type": "generated", "usage": "all" } ],
         "C_OUTCLK_SUM_ROW3": [ { "value": "no_CLK_OUT3_output", "resolve_type": "generated", "usage": "all" } ],
         "C_OUTCLK_SUM_ROW4": [ { "value": "no_CLK_OUT4_output", "resolve_type": "generated", "usage": "all" } ],
         "C_OUTCLK_SUM_ROW5": [ { "value": "no_CLK_OUT5_output", "resolve_type": "generated", "usage": "all" } ],
@@ -471,8 +471,8 @@
         "C_OVERRIDE_PLL": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_PRIMARY_PORT": [ { "value": "clk_in1", "resolve_type": "generated", "usage": "all" } ],
         "C_SECONDARY_PORT": [ { "value": "clk_in2", "resolve_type": "generated", "usage": "all" } ],
-        "C_CLK_OUT1_PORT": [ { "value": "clk_out1", "resolve_type": "generated", "usage": "all" } ],
-        "C_CLK_OUT2_PORT": [ { "value": "clk_out2", "resolve_type": "generated", "usage": "all" } ],
+        "C_CLK_OUT1_PORT": [ { "value": "clk100mhz_out", "resolve_type": "generated", "usage": "all" } ],
+        "C_CLK_OUT2_PORT": [ { "value": "clk200mhz_out", "resolve_type": "generated", "usage": "all" } ],
         "C_CLK_OUT3_PORT": [ { "value": "clk_out3", "resolve_type": "generated", "usage": "all" } ],
         "C_CLK_OUT4_PORT": [ { "value": "clk_out4", "resolve_type": "generated", "usage": "all" } ],
         "C_CLK_OUT5_PORT": [ { "value": "clk_out5", "resolve_type": "generated", "usage": "all" } ],
@@ -612,8 +612,8 @@
       "ports": {
         "reset": [ { "direction": "in", "driver_value": "0" } ],
         "clk_in1": [ { "direction": "in" } ],
-        "clk_out1": [ { "direction": "out" } ],
-        "clk_out2": [ { "direction": "out" } ],
+        "clk100mhz_out": [ { "direction": "out" } ],
+        "clk200mhz_out": [ { "direction": "out" } ],
         "locked": [ { "direction": "out" } ]
       },
       "interfaces": {
@@ -638,7 +638,7 @@
             "FREQ_HZ": [ { "value": "100000000", "value_src": "user_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "main_block_clk100mhz_in", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "main_block_clk100mhz_in", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_RESET": [ { "value": "", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
@@ -664,7 +664,7 @@
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
           },
           "port_maps": {
-            "CLK_OUT1": [ { "physical_name": "clk_out1" } ]
+            "CLK_OUT1": [ { "physical_name": "clk100mhz_out" } ]
           }
         },
         "clock_CLK_OUT2": {
@@ -682,7 +682,7 @@
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
           },
           "port_maps": {
-            "CLK_OUT2": [ { "physical_name": "clk_out2" } ]
+            "CLK_OUT2": [ { "physical_name": "clk200mhz_out" } ]
           }
         }
       }

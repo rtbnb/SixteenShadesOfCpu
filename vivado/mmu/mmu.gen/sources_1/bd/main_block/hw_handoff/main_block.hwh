@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov 19 16:08:28 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov 19 23:48:13 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -49,6 +49,11 @@
         <CONNECTION INSTANCE="mmu_0" PORT="debug_dout"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="debug_en" SIGIS="undef" SIGNAME="External_Ports_debug_en">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_en"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" NAME="debug_enable" SIGIS="undef" SIGNAME="External_Ports_debug_enable">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu_0" PORT="debug_enable"/>
@@ -59,9 +64,19 @@
         <CONNECTION INSTANCE="mmu_0" PORT="debug_override_enable"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="debug_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_debug_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_reset"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" NAME="debug_we" SIGIS="undef" SIGNAME="External_Ports_debug_we">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmu_0" PORT="debug_we"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="fault_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_fault_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clockcontroller_0" PORT="fault_reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="15" NAME="gram_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gram_addr">
@@ -117,6 +132,11 @@
     <PORT DIR="O" NAME="led3" SIGIS="undef" SIGNAME="mmio_0_led3">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmio_0" PORT="led3"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clk_wiz_0" PORT="reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="15" NAME="vram_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_vram_addr">
@@ -246,8 +266,8 @@
         <PARAMETER NAME="C_CLKOUT7_USED" VALUE="0"/>
         <PARAMETER NAME="C_CLKOUTPHY_MODE" VALUE="VCO"/>
         <PARAMETER NAME="C_CLK_IN_SEL_PORT" VALUE="clk_in_sel"/>
-        <PARAMETER NAME="C_CLK_OUT1_PORT" VALUE="clk_out1"/>
-        <PARAMETER NAME="C_CLK_OUT2_PORT" VALUE="clk_out2"/>
+        <PARAMETER NAME="C_CLK_OUT1_PORT" VALUE="clk100mhz_out"/>
+        <PARAMETER NAME="C_CLK_OUT2_PORT" VALUE="clk200mhz_out"/>
         <PARAMETER NAME="C_CLK_OUT3_PORT" VALUE="clk_out3"/>
         <PARAMETER NAME="C_CLK_OUT4_PORT" VALUE="clk_out4"/>
         <PARAMETER NAME="C_CLK_OUT5_PORT" VALUE="clk_out5"/>
@@ -351,8 +371,8 @@
         <PARAMETER NAME="C_OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="0"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0A" VALUE="Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0B" VALUE="Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)"/>
-        <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="clk_out1__100.00000______0.000______50.0______130.958_____98.575"/>
-        <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="clk_out2__200.00000______0.000______50.0______114.829_____98.575"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="clk100mhz_out__100.00000______0.000______50.0______130.958_____98.575"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="clk200mhz_out__200.00000______0.000______50.0______114.829_____98.575"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW3" VALUE="no_CLK_OUT3_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="no_CLK_OUT4_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
@@ -539,9 +559,9 @@
         <PARAMETER NAME="CLK_IN1_BOARD_INTERFACE" VALUE="sys_clock"/>
         <PARAMETER NAME="CLK_IN2_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="CLK_IN_SEL_PORT" VALUE="clk_in_sel"/>
-        <PARAMETER NAME="CLK_OUT1_PORT" VALUE="clk_out1"/>
+        <PARAMETER NAME="CLK_OUT1_PORT" VALUE="clk100mhz_out"/>
         <PARAMETER NAME="CLK_OUT1_USE_FINE_PS_GUI" VALUE="false"/>
-        <PARAMETER NAME="CLK_OUT2_PORT" VALUE="clk_out2"/>
+        <PARAMETER NAME="CLK_OUT2_PORT" VALUE="clk200mhz_out"/>
         <PARAMETER NAME="CLK_OUT2_USE_FINE_PS_GUI" VALUE="false"/>
         <PARAMETER NAME="CLK_OUT3_PORT" VALUE="clk_out3"/>
         <PARAMETER NAME="CLK_OUT3_USE_FINE_PS_GUI" VALUE="false"/>
@@ -714,19 +734,19 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_in1" SIGIS="clk" SIGNAME="External_Ports_clk100mhz_in">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk100mhz_in"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_out1" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk100mhz_out" SIGIS="clk" SIGNAME="clk_wiz_0_clk100mhz_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="clk100mhz_in"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="200000000" DIR="O" NAME="clk_out2" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out2">
+        <PORT CLKFREQUENCY="200000000" DIR="O" NAME="clk200mhz_out" SIGIS="clk" SIGNAME="clk_wiz_0_clk200mhz_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="clk200mhz_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_in1" SIGIS="clk" SIGNAME="External_Ports_clk100mhz_in">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk100mhz_in"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
@@ -734,7 +754,11 @@
             <CONNECTION INSTANCE="clockcontroller_0" PORT="wizard_locked"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -750,19 +774,11 @@
             <CONNECTION INSTANCE="mmu_0" PORT="ck_stable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="clk100mhz" SIGIS="undef" SIGNAME="clockcontroller_0_clk100mhz">
+        <PORT DIR="I" NAME="clk100mhz_in" SIGIS="undef" SIGNAME="clk_wiz_0_clk100mhz_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="cpu_sync"/>
-            <CONNECTION INSTANCE="mmu_0" PORT="debug_sync"/>
-            <CONNECTION INSTANCE="mmu_0" PORT="vram_sync"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk100mhz_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="clk100mhz_in" SIGIS="undef" SIGNAME="clk_wiz_0_clk_out1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="clk100mhz_inf" SIGIS="undef"/>
         <PORT DIR="O" NAME="clk200mhz" SIGIS="undef" SIGNAME="clockcontroller_0_clk200mhz">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="clk200mhz"/>
@@ -770,15 +786,32 @@
             <CONNECTION INSTANCE="mmu_0" PORT="vram_clk200mhz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="clk200mhz_in" SIGIS="undef" SIGNAME="clk_wiz_0_clk_out2">
+        <PORT DIR="I" NAME="clk200mhz_in" SIGIS="undef" SIGNAME="clk_wiz_0_clk200mhz_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out2"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk200mhz_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="clk200mhz_inf" SIGIS="undef"/>
+        <PORT DIR="I" NAME="debug_en" SIGIS="undef" SIGNAME="External_Ports_debug_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="debug_en"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="debug_en_lock" SIGIS="undef" SIGNAME="mmu_0_debug_en_lock">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="debug_en_lock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="debug_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_debug_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="debug_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="exec_clk" SIGIS="clk" SIGNAME="clockcontroller_0_exec_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="cpu_sync"/>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_sync"/>
+            <CONNECTION INSTANCE="mmu_0" PORT="vram_sync"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="fault" SIGIS="undef" SIGNAME="mmu_0_fault">
@@ -786,6 +819,12 @@
             <CONNECTION INSTANCE="mmu_0" PORT="fault"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="fault_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_fault_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="fault_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="load_clk" SIGIS="clk"/>
         <PORT DIR="I" NAME="wizard_locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz_0" PORT="locked"/>
@@ -1329,9 +1368,9 @@
             <CONNECTION INSTANCE="clockcontroller_0" PORT="clk200mhz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="cpu_sync" SIGIS="undef" SIGNAME="clockcontroller_0_clk100mhz">
+        <PORT DIR="I" NAME="cpu_sync" SIGIS="undef" SIGNAME="clockcontroller_0_exec_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clockcontroller_0" PORT="clk100mhz"/>
+            <CONNECTION INSTANCE="clockcontroller_0" PORT="exec_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="debug_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_debug_addr">
@@ -1374,9 +1413,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="debug_override_enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="debug_sync" SIGIS="undef" SIGNAME="clockcontroller_0_clk100mhz">
+        <PORT DIR="I" NAME="debug_sync" SIGIS="undef" SIGNAME="clockcontroller_0_exec_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clockcontroller_0" PORT="clk100mhz"/>
+            <CONNECTION INSTANCE="clockcontroller_0" PORT="exec_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="debug_we" SIGIS="undef" SIGNAME="External_Ports_debug_we">
@@ -1515,9 +1554,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="vram_dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="vram_sync" SIGIS="undef" SIGNAME="clockcontroller_0_clk100mhz">
+        <PORT DIR="I" NAME="vram_sync" SIGIS="undef" SIGNAME="clockcontroller_0_exec_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clockcontroller_0" PORT="clk100mhz"/>
+            <CONNECTION INSTANCE="clockcontroller_0" PORT="exec_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="vrama_mem_addr" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_vrama_mem_addr">

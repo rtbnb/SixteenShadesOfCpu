@@ -56,12 +56,15 @@ USE ieee.numeric_std.ALL;
 ENTITY main_block_clockcontroller_0_0 IS
   PORT (
     clk100mhz_in : IN STD_LOGIC;
-    wizard_locked : IN STD_LOGIC;
     clk200mhz_in : IN STD_LOGIC;
-    fault : IN STD_LOGIC;
+    wizard_locked : IN STD_LOGIC;
     debug_en_lock : IN STD_LOGIC;
-    clk100mhz : OUT STD_LOGIC;
-    clk100mhz_inf : OUT STD_LOGIC;
+    fault_reset : IN STD_LOGIC;
+    debug_reset : IN STD_LOGIC;
+    fault : IN STD_LOGIC;
+    debug_en : IN STD_LOGIC;
+    load_clk : OUT STD_LOGIC;
+    exec_clk : OUT STD_LOGIC;
     clk200mhz : OUT STD_LOGIC;
     clk200mhz_inf : OUT STD_LOGIC;
     ck_stable : OUT STD_LOGIC
@@ -74,27 +77,43 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
   COMPONENT clockcontroller IS
     PORT (
       clk100mhz_in : IN STD_LOGIC;
-      wizard_locked : IN STD_LOGIC;
       clk200mhz_in : IN STD_LOGIC;
-      fault : IN STD_LOGIC;
+      wizard_locked : IN STD_LOGIC;
       debug_en_lock : IN STD_LOGIC;
-      clk100mhz : OUT STD_LOGIC;
-      clk100mhz_inf : OUT STD_LOGIC;
+      fault_reset : IN STD_LOGIC;
+      debug_reset : IN STD_LOGIC;
+      fault : IN STD_LOGIC;
+      debug_en : IN STD_LOGIC;
+      load_clk : OUT STD_LOGIC;
+      exec_clk : OUT STD_LOGIC;
       clk200mhz : OUT STD_LOGIC;
       clk200mhz_inf : OUT STD_LOGIC;
       ck_stable : OUT STD_LOGIC
     );
   END COMPONENT clockcontroller;
+  ATTRIBUTE X_INTERFACE_INFO : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_reset: SIGNAL IS "XIL_INTERFACENAME debug_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 debug_reset RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF exec_clk: SIGNAL IS "XIL_INTERFACENAME exec_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF exec_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 exec_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF fault_reset: SIGNAL IS "XIL_INTERFACENAME fault_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF fault_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 fault_reset RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_load_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF load_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 load_clk CLK";
 BEGIN
   U0 : clockcontroller
     PORT MAP (
       clk100mhz_in => clk100mhz_in,
-      wizard_locked => wizard_locked,
       clk200mhz_in => clk200mhz_in,
-      fault => fault,
+      wizard_locked => wizard_locked,
       debug_en_lock => debug_en_lock,
-      clk100mhz => clk100mhz,
-      clk100mhz_inf => clk100mhz_inf,
+      fault_reset => fault_reset,
+      debug_reset => debug_reset,
+      fault => fault,
+      debug_en => debug_en,
+      load_clk => load_clk,
+      exec_clk => exec_clk,
       clk200mhz => clk200mhz,
       clk200mhz_inf => clk200mhz_inf,
       ck_stable => ck_stable

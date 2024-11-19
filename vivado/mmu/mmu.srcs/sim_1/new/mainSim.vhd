@@ -123,13 +123,13 @@ begin
         gram_we <= '0';
         gram_din <= X"0000";
         gram_addr <= X"0000";
-        wait for 5ns;
+        wait for 10ns;
         
         while true loop
             count_s <= not count_s;
             
             if count_s='1' then
-                gram_bank <= "0001"; 
+                gram_bank <= "0001";
             else
                 gram_bank <= "0000";
             end if;

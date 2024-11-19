@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Tue Nov 19 16:08:27 2024
---Host        : Robin_Laptop running 64-bit major release  (build 9200)
+--Date        : Tue Nov 19 23:48:12 2024
+--Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
 --Purpose     : IP block netlist
@@ -23,9 +23,12 @@ entity main_block is
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_en : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
+    debug_reset : in STD_LOGIC;
     debug_we : in STD_LOGIC;
+    fault_reset : in STD_LOGIC;
     gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -37,6 +40,7 @@ entity main_block is
     led1 : out STD_LOGIC;
     led2 : out STD_LOGIC;
     led3 : out STD_LOGIC;
+    reset : in STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
@@ -165,12 +169,15 @@ architecture STRUCTURE of main_block is
   component main_block_clockcontroller_0_0 is
   port (
     clk100mhz_in : in STD_LOGIC;
-    wizard_locked : in STD_LOGIC;
     clk200mhz_in : in STD_LOGIC;
-    fault : in STD_LOGIC;
+    wizard_locked : in STD_LOGIC;
     debug_en_lock : in STD_LOGIC;
-    clk100mhz : out STD_LOGIC;
-    clk100mhz_inf : out STD_LOGIC;
+    fault_reset : in STD_LOGIC;
+    debug_reset : in STD_LOGIC;
+    fault : in STD_LOGIC;
+    debug_en : in STD_LOGIC;
+    load_clk : out STD_LOGIC;
+    exec_clk : out STD_LOGIC;
     clk200mhz : out STD_LOGIC;
     clk200mhz_inf : out STD_LOGIC;
     ck_stable : out STD_LOGIC
@@ -180,9 +187,9 @@ architecture STRUCTURE of main_block is
   port (
     reset : in STD_LOGIC;
     clk_in1 : in STD_LOGIC;
-    clk_out1 : out STD_LOGIC;
     locked : out STD_LOGIC;
-    clk_out2 : out STD_LOGIC
+    clk100mhz_out : out STD_LOGIC;
+    clk200mhz_out : out STD_LOGIC
   );
   end component main_block_clk_wiz_0_0;
   signal btn0_1 : STD_LOGIC;
@@ -190,8 +197,8 @@ architecture STRUCTURE of main_block is
   signal btn2_1 : STD_LOGIC;
   signal btn3_1 : STD_LOGIC;
   signal clk100mhz_in_1 : STD_LOGIC;
-  signal clk_wiz_0_clk_out1 : STD_LOGIC;
-  signal clk_wiz_0_clk_out2 : STD_LOGIC;
+  signal clk_wiz_0_clk100mhz_out : STD_LOGIC;
+  signal clk_wiz_0_clk200mhz_out : STD_LOGIC;
   signal clk_wiz_0_locked : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_clk100mhz : STD_LOGIC;
@@ -199,9 +206,12 @@ architecture STRUCTURE of main_block is
   signal debug_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal debug_bank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal debug_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal debug_en_1 : STD_LOGIC;
   signal debug_enable_1 : STD_LOGIC;
   signal debug_override_enable_1 : STD_LOGIC;
+  signal debug_reset_1 : STD_LOGIC;
   signal debug_we_1 : STD_LOGIC;
+  signal fault_reset_1 : STD_LOGIC;
   signal gram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal gram_bank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal gram_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -241,11 +251,12 @@ architecture STRUCTURE of main_block is
   signal mmu_0_vramb_mem_ck : STD_LOGIC;
   signal mmu_0_vramb_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_vramb_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal reset_1 : STD_LOGIC;
   signal vram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal vram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal vram_doutb : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_clockcontroller_0_clk100mhz_inf_UNCONNECTED : STD_LOGIC;
   signal NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED : STD_LOGIC;
+  signal NLW_clockcontroller_0_load_clk_UNCONNECTED : STD_LOGIC;
   signal NLW_gram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_iram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_mmio_0_rho_UNCONNECTED : STD_LOGIC;
@@ -253,6 +264,12 @@ architecture STRUCTURE of main_block is
   attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_block_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of debug_reset : signal is "xilinx.com:signal:reset:1.0 RST.DEBUG_RESET RST";
+  attribute X_INTERFACE_PARAMETER of debug_reset : signal is "XIL_INTERFACENAME RST.DEBUG_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO of fault_reset : signal is "xilinx.com:signal:reset:1.0 RST.FAULT_RESET RST";
+  attribute X_INTERFACE_PARAMETER of fault_reset : signal is "XIL_INTERFACENAME RST.FAULT_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
+  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH";
 begin
   btn0_1 <= btn0;
   btn1_1 <= btn1;
@@ -263,9 +280,12 @@ begin
   debug_bank_1(3 downto 0) <= debug_bank(3 downto 0);
   debug_din_1(15 downto 0) <= debug_din(15 downto 0);
   debug_dout(15 downto 0) <= mmu_0_debug_dout(15 downto 0);
+  debug_en_1 <= debug_en;
   debug_enable_1 <= debug_enable;
   debug_override_enable_1 <= debug_override_enable;
+  debug_reset_1 <= debug_reset;
   debug_we_1 <= debug_we;
+  fault_reset_1 <= fault_reset;
   gram_addr_1(15 downto 0) <= gram_addr(15 downto 0);
   gram_bank_1(3 downto 0) <= gram_bank(3 downto 0);
   gram_din_1(15 downto 0) <= gram_din(15 downto 0);
@@ -277,27 +297,31 @@ begin
   led1 <= mmio_0_led1;
   led2 <= mmio_0_led2;
   led3 <= mmio_0_led3;
+  reset_1 <= reset;
   vram_addr_1(15 downto 0) <= vram_addr(15 downto 0);
   vram_dout(15 downto 0) <= mmu_0_vram_dout(15 downto 0);
 clk_wiz_0: component main_block_clk_wiz_0_0
      port map (
+      clk100mhz_out => clk_wiz_0_clk100mhz_out,
+      clk200mhz_out => clk_wiz_0_clk200mhz_out,
       clk_in1 => clk100mhz_in_1,
-      clk_out1 => clk_wiz_0_clk_out1,
-      clk_out2 => clk_wiz_0_clk_out2,
       locked => clk_wiz_0_locked,
-      reset => '0'
+      reset => reset_1
     );
 clockcontroller_0: component main_block_clockcontroller_0_0
      port map (
       ck_stable => clockcontroller_0_ck_stable,
-      clk100mhz => clockcontroller_0_clk100mhz,
-      clk100mhz_in => clk_wiz_0_clk_out1,
-      clk100mhz_inf => NLW_clockcontroller_0_clk100mhz_inf_UNCONNECTED,
+      clk100mhz_in => clk_wiz_0_clk100mhz_out,
       clk200mhz => clockcontroller_0_clk200mhz,
-      clk200mhz_in => clk_wiz_0_clk_out2,
+      clk200mhz_in => clk_wiz_0_clk200mhz_out,
       clk200mhz_inf => NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED,
+      debug_en => debug_en_1,
       debug_en_lock => mmu_0_debug_en_lock,
+      debug_reset => debug_reset_1,
+      exec_clk => clockcontroller_0_clk100mhz,
       fault => mmu_0_fault,
+      fault_reset => fault_reset_1,
+      load_clk => NLW_clockcontroller_0_load_clk_UNCONNECTED,
       wizard_locked => clk_wiz_0_locked
     );
 gram: component main_block_blk_mem_gen_2_0

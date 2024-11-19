@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Tue Nov 19 16:08:27 2024
---Host        : Robin_Laptop running 64-bit major release  (build 9200)
+--Date        : Tue Nov 19 23:48:13 2024
+--Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
 --Purpose     : IP block netlist
@@ -23,9 +23,12 @@ entity main_block_wrapper is
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_en : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
+    debug_reset : in STD_LOGIC;
     debug_we : in STD_LOGIC;
+    fault_reset : in STD_LOGIC;
     gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -37,6 +40,7 @@ entity main_block_wrapper is
     led1 : out STD_LOGIC;
     led2 : out STD_LOGIC;
     led3 : out STD_LOGIC;
+    reset : in STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
@@ -69,7 +73,11 @@ architecture STRUCTURE of main_block_wrapper is
     led1 : out STD_LOGIC;
     led2 : out STD_LOGIC;
     led3 : out STD_LOGIC;
-    clk100mhz_in : in STD_LOGIC
+    clk100mhz_in : in STD_LOGIC;
+    fault_reset : in STD_LOGIC;
+    debug_reset : in STD_LOGIC;
+    reset : in STD_LOGIC;
+    debug_en : in STD_LOGIC
   );
   end component main_block;
 begin
@@ -84,9 +92,12 @@ main_block_i: component main_block
       debug_bank(3 downto 0) => debug_bank(3 downto 0),
       debug_din(15 downto 0) => debug_din(15 downto 0),
       debug_dout(15 downto 0) => debug_dout(15 downto 0),
+      debug_en => debug_en,
       debug_enable => debug_enable,
       debug_override_enable => debug_override_enable,
+      debug_reset => debug_reset,
       debug_we => debug_we,
+      fault_reset => fault_reset,
       gram_addr(15 downto 0) => gram_addr(15 downto 0),
       gram_bank(3 downto 0) => gram_bank(3 downto 0),
       gram_din(15 downto 0) => gram_din(15 downto 0),
@@ -98,6 +109,7 @@ main_block_i: component main_block
       led1 => led1,
       led2 => led2,
       led3 => led3,
+      reset => reset,
       vram_addr(15 downto 0) => vram_addr(15 downto 0),
       vram_dout(15 downto 0) => vram_dout(15 downto 0)
     );
