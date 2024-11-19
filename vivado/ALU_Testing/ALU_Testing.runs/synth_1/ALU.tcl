@@ -83,13 +83,16 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/constrs_1/new/Const.xdc
+set_property used_in_implementation false [get_files D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/constrs_1/new/Const.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/utils_1/imports/synth_1/ALU.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top ALU -part xc7a35ticsg324-1L
+synth_design -top ALU__ALUBehavioral -part xc7a35ticsg324-1L
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
