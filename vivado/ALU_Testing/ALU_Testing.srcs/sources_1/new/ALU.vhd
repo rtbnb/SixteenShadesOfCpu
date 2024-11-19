@@ -33,6 +33,9 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity ALU is
  Port ( 
+ 
+    CLK: IN std_logic:= '0';
+    
     D1: IN std_logic_vector(15 downto 0 ):= (others => '0');
     D2: IN std_logic_vector(15 downto 0 ):= (others => '0');
     ALU_OPP: IN std_logic_vector(15 downto 0 ):= (others => '0');
@@ -47,9 +50,14 @@ entity ALU is
     RHO_FLAG: OUT STD_LOGIC:= '0';
     NOT_ZERO_FLAG: OUT STD_LOGIC:= '0'
  );
+attribute use_dsp : string;
 end ALU;
 
 architecture ALUBehavioral of ALU is
+    attribute use_dsp of ALUBehavioral: architecture is "yes";
+--attribute use_dsp : string;
+--attribute use_dsp of P_reg : signal is "no";
+
 signal D1Singend: signed(16 downto 0);
 signal D2Singend: signed(16 downto 0);
 signal ALU_OUT_Internal: std_logic_vector(31 downto 0);
