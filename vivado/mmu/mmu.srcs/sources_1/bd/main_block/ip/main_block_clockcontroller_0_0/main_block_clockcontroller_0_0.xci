@@ -1,0 +1,53 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "main_block_clockcontroller_0_0",
+    "cell_name": "clockcontroller_0",
+    "component_reference": "xilinx.com:module_ref:clockcontroller:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../../../mmu.gen/sources_1/bd/main_block/ip/main_block_clockcontroller_0_0",
+    "parameters": {
+      "component_parameters": {
+        "Component_Name": [ { "value": "main_block_clockcontroller_0_0", "resolve_type": "user", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "artix7" } ],
+        "BASE_BOARD_PART": [ { "value": "digilentinc.com:arty-a7-35:part0:1.1" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xc7a35ti" } ],
+        "NEXTGEN_VERSAL": [ { "value": "0" } ],
+        "PACKAGE": [ { "value": "csg324" } ],
+        "PREFHDL": [ { "value": "VHDL" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-1L" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "I" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../mmu.gen/sources_1/bd/main_block/ip/main_block_clockcontroller_0_0" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2024.1" } ],
+        "SYNTHESISFLOW": [ { "value": "GLOBAL" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "clk100mhz_in": [ { "direction": "in" } ],
+        "wizard_locked": [ { "direction": "in" } ],
+        "clk200mhz_in": [ { "direction": "in" } ],
+        "fault": [ { "direction": "in" } ],
+        "debug_en_lock": [ { "direction": "in" } ],
+        "clk100mhz": [ { "direction": "out" } ],
+        "clk100mhz_inf": [ { "direction": "out" } ],
+        "clk200mhz": [ { "direction": "out" } ],
+        "clk200mhz_inf": [ { "direction": "out" } ],
+        "ck_stable": [ { "direction": "out" } ]
+      }
+    }
+  }
+}

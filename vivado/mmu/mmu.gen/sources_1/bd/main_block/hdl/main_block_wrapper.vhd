@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Tue Nov 19 09:42:23 2024
+--Date        : Tue Nov 19 16:08:27 2024
 --Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
@@ -18,19 +18,14 @@ entity main_block_wrapper is
     btn1 : in STD_LOGIC;
     btn2 : in STD_LOGIC;
     btn3 : in STD_LOGIC;
-    clk200mhz : in STD_LOGIC;
-    cpu_sync : in STD_LOGIC;
+    clk100mhz_in : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    debug_clk200mhz : in STD_LOGIC;
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_en_lock : out STD_LOGIC;
     debug_enable : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
-    debug_sync : in STD_LOGIC;
     debug_we : in STD_LOGIC;
-    fault : out STD_LOGIC;
     gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -43,9 +38,7 @@ entity main_block_wrapper is
     led2 : out STD_LOGIC;
     led3 : out STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    vram_clk200mhz : in STD_LOGIC;
-    vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    vram_sync : in STD_LOGIC
+    vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
 end main_block_wrapper;
 
@@ -56,8 +49,6 @@ architecture STRUCTURE of main_block_wrapper is
     gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    clk200mhz : in STD_LOGIC;
-    debug_clk200mhz : in STD_LOGIC;
     debug_we : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -78,12 +69,7 @@ architecture STRUCTURE of main_block_wrapper is
     led1 : out STD_LOGIC;
     led2 : out STD_LOGIC;
     led3 : out STD_LOGIC;
-    debug_en_lock : out STD_LOGIC;
-    vram_sync : in STD_LOGIC;
-    debug_sync : in STD_LOGIC;
-    cpu_sync : in STD_LOGIC;
-    fault : out STD_LOGIC;
-    vram_clk200mhz : in STD_LOGIC
+    clk100mhz_in : in STD_LOGIC
   );
   end component main_block;
 begin
@@ -93,19 +79,14 @@ main_block_i: component main_block
       btn1 => btn1,
       btn2 => btn2,
       btn3 => btn3,
-      clk200mhz => clk200mhz,
-      cpu_sync => cpu_sync,
+      clk100mhz_in => clk100mhz_in,
       debug_addr(15 downto 0) => debug_addr(15 downto 0),
       debug_bank(3 downto 0) => debug_bank(3 downto 0),
-      debug_clk200mhz => debug_clk200mhz,
       debug_din(15 downto 0) => debug_din(15 downto 0),
       debug_dout(15 downto 0) => debug_dout(15 downto 0),
-      debug_en_lock => debug_en_lock,
       debug_enable => debug_enable,
       debug_override_enable => debug_override_enable,
-      debug_sync => debug_sync,
       debug_we => debug_we,
-      fault => fault,
       gram_addr(15 downto 0) => gram_addr(15 downto 0),
       gram_bank(3 downto 0) => gram_bank(3 downto 0),
       gram_din(15 downto 0) => gram_din(15 downto 0),
@@ -118,8 +99,6 @@ main_block_i: component main_block
       led2 => led2,
       led3 => led3,
       vram_addr(15 downto 0) => vram_addr(15 downto 0),
-      vram_clk200mhz => vram_clk200mhz,
-      vram_dout(15 downto 0) => vram_dout(15 downto 0),
-      vram_sync => vram_sync
+      vram_dout(15 downto 0) => vram_dout(15 downto 0)
     );
 end STRUCTURE;

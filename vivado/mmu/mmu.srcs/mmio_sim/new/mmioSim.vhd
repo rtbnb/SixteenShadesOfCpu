@@ -49,6 +49,8 @@ architecture Behavioral of mmioSim is
     
     signal ck, we, led0, led1, led2, led3, btn0, btn1, btn2, btn3: std_logic;
     signal addr, din, dout: std_logic_vector( 15 downto 0 ); 
+    
+    signal cnt_s: std_logic := '0';
 begin
     EUT : mmio port map(
         ck => ck,
@@ -80,13 +82,25 @@ begin
     
     process
     begin
+        cnt_s <= '0';
         we <= '1';
         addr <= "0000000000000001";
         din <= "0000000000000001";
         
         while true loop
             wait for 10ns;
-        
+            
+            cnt_s <= not cnt_s;
+            if cnt_s='1' then
+                we <= '1';
+                addr <= "0000000000000001";
+                din <= "0000000000000000";
+            else
+                we <= '0';
+                addr <= "0000000000001001";
+                din <= "0000000000000001";                           
+            end if;
+            
         end loop;
         
     end process;
