@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x963BCC75EE8C5DC",
+      "boundary_crc": "0x2734E04B288A49D9",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -140,6 +140,50 @@
             "value_src": "default"
           }
         }
+      },
+      "fault_reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "debug_reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "debug_en": {
+        "direction": "I"
       }
     },
     "components": {
@@ -222,13 +266,55 @@
             "direction": "I"
           },
           "cpu_sync": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_clockcontroller_0_0_exec_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "debug_sync": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_clockcontroller_0_0_exec_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "vram_sync": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_clockcontroller_0_0_exec_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "debug_clk200mhz": {
             "direction": "I"
@@ -598,9 +684,6 @@
               }
             }
           },
-          "wizard_locked": {
-            "direction": "I"
-          },
           "clk200mhz_in": {
             "direction": "I",
             "parameters": {
@@ -618,16 +701,32 @@
               }
             }
           },
-          "fault": {
+          "wizard_locked": {
             "direction": "I"
           },
           "debug_en_lock": {
             "direction": "I"
           },
-          "clk100mhz": {
+          "fault_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "debug_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "fault": {
+            "direction": "I"
+          },
+          "debug_en": {
+            "direction": "I"
+          },
+          "load_clk": {
+            "type": "clk",
             "direction": "O"
           },
-          "clk100mhz_inf": {
+          "exec_clk": {
+            "type": "clk",
             "direction": "O"
           },
           "clk200mhz": {
@@ -683,6 +782,12 @@
           },
           "CLK_IN1_BOARD_INTERFACE": {
             "value": "sys_clock"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "clk100mhz_out"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "clk200mhz_out"
           },
           "ENABLE_CLOCK_MONITOR": {
             "value": "false"
@@ -745,15 +850,15 @@
           "clk_wiz_0/clk_in1"
         ]
       },
-      "clk_wiz_0_clk_out1": {
+      "clk_wiz_0_clk100mhz_out": {
         "ports": [
-          "clk_wiz_0/clk_out1",
+          "clk_wiz_0/clk100mhz_out",
           "clockcontroller_0/clk100mhz_in"
         ]
       },
-      "clk_wiz_0_clk_out2": {
+      "clk_wiz_0_clk200mhz_out": {
         "ports": [
-          "clk_wiz_0/clk_out2",
+          "clk_wiz_0/clk200mhz_out",
           "clockcontroller_0/clk200mhz_in"
         ]
       },
@@ -771,7 +876,7 @@
       },
       "clockcontroller_0_clk100mhz": {
         "ports": [
-          "clockcontroller_0/clk100mhz",
+          "clockcontroller_0/exec_clk",
           "mmu_0/cpu_sync",
           "mmu_0/debug_sync",
           "mmu_0/vram_sync"
@@ -803,6 +908,12 @@
           "mmu_0/debug_din"
         ]
       },
+      "debug_en_1": {
+        "ports": [
+          "debug_en",
+          "clockcontroller_0/debug_en"
+        ]
+      },
       "debug_enable_1": {
         "ports": [
           "debug_enable",
@@ -815,10 +926,22 @@
           "mmu_0/debug_override_enable"
         ]
       },
+      "debug_reset_1": {
+        "ports": [
+          "debug_reset",
+          "clockcontroller_0/debug_reset"
+        ]
+      },
       "debug_we_1": {
         "ports": [
           "debug_we",
           "mmu_0/debug_we"
+        ]
+      },
+      "fault_reset_1": {
+        "ports": [
+          "fault_reset",
+          "clockcontroller_0/fault_reset"
         ]
       },
       "gram_addr_1": {
@@ -1052,6 +1175,12 @@
         "ports": [
           "mmu_0/vramb_mem_we",
           "vram/web"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "clk_wiz_0/reset"
         ]
       },
       "vram_addr_1": {

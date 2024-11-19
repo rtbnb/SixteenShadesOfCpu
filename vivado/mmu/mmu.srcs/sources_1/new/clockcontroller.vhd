@@ -33,22 +33,27 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity clockcontroller is
     port(
-        clk100mhz_in, wizard_locked, clk200mhz_in, fault, debug_en_lock: in std_logic;
-        clk100mhz, clk100mhz_inf, clk200mhz, clk200mhz_inf, ck_stable: out std_logic 
+        clk100mhz_in, clk200mhz_in, wizard_locked, debug_en_lock, fault_reset, debug_reset: in std_logic;
+        fault, debug_en: in std_logic;
+        load_clk, exec_clk, clk200mhz, clk200mhz_inf, ck_stable: out std_logic 
     );
 end clockcontroller;
 
 architecture Behavioral of clockcontroller is
 signal output_en_s: std_logic;
+signal fault_s, debug_en_s: std_logic := '0';
 begin
-    output_en_s <= wizard_locked;
+    fault_s <= (fault_s or fault) and not fault_reset;
+    debug_en_s <= (debug_en_s or debug_en) and not debug_reset;
+    
+    output_en_s <= wizard_locked and not (fault_s or debug_en_s);
     ck_stable <= wizard_locked;
 
     with output_en_s select
-        clk100mhz <= clk100mhz_in when '1',
+        load_clk <= clk100mhz_in when '1',
                      '0' when others;
     with output_en_s select
-        clk100mhz_inf <= not clk100mhz_in when '1',
+        exec_clk <= not clk100mhz_in when '1',
                      '0' when others;    
     with output_en_s select
         clk200mhz <= clk200mhz_in when '1',

@@ -11,26 +11,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="519.220 ns"></ZoomStartTime>
-      <ZoomEndTime time="557.621 ns"></ZoomEndTime>
-      <Cursor1Time time="540.100 ns"></Cursor1Time>
+      <ZoomStartTime time="523.376 ns"></ZoomStartTime>
+      <ZoomEndTime time="590.477 ns"></ZoomEndTime>
+      <Cursor1Time time="541.008 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="192"></NameColumnWidth>
-      <ValueColumnWidth column_width="71"></ValueColumnWidth>
+      <ValueColumnWidth column_width="59"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="27" />
+   <WVObjectSize size="30" />
    <wvobject fp_name="/mainSim/clk100mhz_in" type="logic">
       <obj_property name="ElementShortName">clk100mhz_in</obj_property>
       <obj_property name="ObjectShortName">clk100mhz_in</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/clk100mhz" type="logic">
-      <obj_property name="ElementShortName">clk100mhz</obj_property>
-      <obj_property name="ObjectShortName">clk100mhz</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/U0/clk100mhz_inf" type="logic">
-      <obj_property name="ElementShortName">clk100mhz_inf</obj_property>
-      <obj_property name="ObjectShortName">clk100mhz_inf</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/U0/exec_clk" type="logic">
+      <obj_property name="ElementShortName">exec_clk</obj_property>
+      <obj_property name="ObjectShortName">exec_clk</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/clk200mhz" type="logic">
       <obj_property name="ElementShortName">clk200mhz</obj_property>
@@ -60,18 +56,29 @@
       <obj_property name="ElementShortName">vramb_mem_ck</obj_property>
       <obj_property name="ObjectShortName">vramb_mem_ck</obj_property>
    </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/cpu_sync" type="logic">
+      <obj_property name="ElementShortName">cpu_sync</obj_property>
+      <obj_property name="ObjectShortName">cpu_sync</obj_property>
+   </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/cpu_op_ongoing" type="logic">
       <obj_property name="ElementShortName">cpu_op_ongoing</obj_property>
       <obj_property name="ObjectShortName">cpu_op_ongoing</obj_property>
    </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/cpu_op_stop_condition" type="logic">
+      <obj_property name="ElementShortName">cpu_op_stop_condition</obj_property>
+      <obj_property name="ObjectShortName">cpu_op_stop_condition</obj_property>
+   </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/test_signal" type="array">
       <obj_property name="ElementShortName">test_signal[2:0]</obj_property>
       <obj_property name="ObjectShortName">test_signal[2:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/debug_enable" type="logic">
       <obj_property name="ElementShortName">debug_enable</obj_property>
       <obj_property name="ObjectShortName">debug_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/debug_override_enable" type="logic">
+      <obj_property name="ElementShortName">debug_override_enable</obj_property>
+      <obj_property name="ObjectShortName">debug_override_enable</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/debug_we" type="logic">
       <obj_property name="ElementShortName">debug_we</obj_property>
@@ -128,5 +135,9 @@
    <wvobject fp_name="/mainSim/gram_bank" type="array">
       <obj_property name="ElementShortName">gram_bank[3:0]</obj_property>
       <obj_property name="ObjectShortName">gram_bank[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/cpu_lock_s" type="logic">
+      <obj_property name="ElementShortName">cpu_lock_s</obj_property>
+      <obj_property name="ObjectShortName">cpu_lock_s</obj_property>
    </wvobject>
 </wave_config>

@@ -101,7 +101,7 @@ architecture Behavioral of mmu is
     signal general_addr_s, general_din_s, general_dout_s: std_logic_vector( 15 downto 0 ); 
     
     signal cpu_lock_s: std_logic := '0';
-    signal cpu_op_ongoing: std_logic := '0';
+    signal cpu_op_ongoing, cpu_op_stop_condition: std_logic := '0';
     signal test_signal: std_logic_vector( 2 downto 0 );
 begin
     debug_en_lock <= cpu_lock_s and not debug_enable;
@@ -167,30 +167,30 @@ begin
 
 
 --ck section-------------------------------------------------
-    gram_ck:process(general_clk_s)
-        variable comb_op_s : std_logic_vector( 2 downto 0 );
-        variable state1_con, state2_con, state_con: std_logic;
+--    gram_ck:process(general_clk_s)
+--        variable comb_op_s : std_logic_vector( 2 downto 0 );
+--        variable state1_con, state2_con, state_con: std_logic;
         
-    begin
-        comb_op_s := gram_bank_op_s & cpu_op_ongoing & cpu_sync;
-        test_signal <= comb_op_s;
+--    begin
+--        comb_op_s := gram_bank_op_s & cpu_op_ongoing & cpu_sync;
+--        test_signal <= comb_op_s;
         
-        state1_con := gram_bank_op_s and not cpu_op_ongoing and not cpu_sync;
-        state2_con := gram_bank_op_s and cpu_op_ongoing and cpu_sync;
-        state_con := state1_con or state2_con;
-        if state_con='1' and general_clk_s='1' then
-           gram_mem_ck <= '1'; 
-        end if;
+--        state1_con := gram_bank_op_s and not cpu_op_ongoing and not cpu_sync;
+--        state2_con := gram_bank_op_s and cpu_op_ongoing and cpu_sync;
+--        state_con := state1_con or state2_con;
+--        if state_con='1' and general_clk_s='1' then
+--           gram_mem_ck <= '1'; 
+--        end if;
         
-        if rising_edge(general_clk_s) then
-            if state1_con='1' then
-                cpu_op_ongoing <= '1';
-            end if;
+--        if rising_edge(general_clk_s) then
+--            if state1_con='1' then
+--                cpu_op_ongoing <= '1';
+--            end if;
             
-            if state2_con='1' and cpu_op_ongoing='1' then
-                cpu_op_ongoing <= '0';
-            end if;
-        end if;
+--            if state2_con='1' and cpu_op_ongoing='1' then
+--                cpu_op_ongoing <= '0';
+--            end if;
+--        end if;
         
        
         
@@ -204,11 +204,15 @@ begin
 --            when others =>
 --                gram_mem_ck <= '0';
 --        end case;    
-    end process;
-
---    with gram_bank_op_s select
---        gram_mem_ck <= general_clk_s when '1',
---                       '0' when others;
+--    end process;
+    
+    
+    cpu_op_stop_condition <= '0';
+    cpu_op_ongoing <= (cpu_op_ongoing or (gram_bank_op_s and (not cpu_sync) and general_clk_s)) and not cpu_op_stop_condition;
+    
+    with cpu_op_ongoing select
+        gram_mem_ck <= general_clk_s when '1',
+                       '0' when others;
     with vram_bank_op_s select
         vrama_mem_ck <= general_clk_s when '1',
                         '0' when others;                
