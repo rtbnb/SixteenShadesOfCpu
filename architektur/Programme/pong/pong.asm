@@ -149,6 +149,7 @@ _code
     ALU ALU_ADD, $AO, $t5
     ALU ALU_ADD, $AO, $t1
     WRMr $t9, $AO
+    ALU ALU_ADD, $
 
 
 
