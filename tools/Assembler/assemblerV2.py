@@ -75,7 +75,7 @@ def replace_defines(lines, defines=[]):
     
     return replace_defines(defined, defines) if define_used else defined
     
-def strip_file(lines):
+def strip_file(lines: list[str]):
     stripped_lines = []
     for line in lines:
         l = line.split(";")[0].strip()
