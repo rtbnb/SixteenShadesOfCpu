@@ -59,6 +59,8 @@ architecture Behavioral of mmio is
     signal btn0_pressed_rst_s: std_logic := '0';
     
 begin
+    led0 <= led0_s;
+
     mmio_config_reg_s <= "0000000000000000"; 
     led0_reg_s <= "000000000000000" & led0_s;
     led1_reg_s <= "000000000000000" & led1_s;

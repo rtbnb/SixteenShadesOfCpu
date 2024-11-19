@@ -39,7 +39,6 @@
       "ports": {
         "ck": [ { "direction": "in" } ],
         "we": [ { "direction": "in" } ],
-        "oe": [ { "direction": "in" } ],
         "addr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
         "din": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
         "dout": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
