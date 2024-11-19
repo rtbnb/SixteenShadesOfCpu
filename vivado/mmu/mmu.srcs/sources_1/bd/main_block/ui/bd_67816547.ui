@@ -1,9 +1,9 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.903198",
-   "Default View_TopLeft":"-1413,-238",
+   "Default View_TopLeft":"-478,-297",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0 threadsafe
+   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
 preplace port port-id_clk200mhz -pg 1 -lvl 0 -x -200 -y -200 -defaultsOSRD
 preplace port port-id_debug_clk200mhz -pg 1 -lvl 0 -x -200 -y -120 -defaultsOSRD
@@ -47,12 +47,14 @@ preplace netloc btn1_1 1 0 2 NJ 1160 N
 preplace netloc btn2_1 1 0 2 NJ 1180 N
 preplace netloc btn3_1 1 0 2 NJ 1200 N
 preplace netloc clk200mhz_1 1 0 1 N -200
+preplace netloc cpu_sync_1 1 0 1 N -180
 preplace netloc debug_addr_1 1 0 1 N -40
 preplace netloc debug_bank_1 1 0 1 N 0
 preplace netloc debug_clk200mhz_1 1 0 1 N -120
 preplace netloc debug_din_1 1 0 1 N -20
 preplace netloc debug_enable_1 1 0 1 N -80
 preplace netloc debug_override_enable_1 1 0 1 N -60
+preplace netloc debug_sync_1 1 0 1 N -160
 preplace netloc debug_we_1 1 0 1 N -100
 preplace netloc gram_addr_1 1 0 1 N 60
 preplace netloc gram_bank_1 1 0 1 N 100
@@ -67,6 +69,8 @@ preplace netloc mmio_0_led1 1 2 1 N 1120
 preplace netloc mmio_0_led2 1 2 1 N 1140
 preplace netloc mmio_0_led3 1 2 1 N 1160
 preplace netloc mmu_0_debug_dout 1 1 2 N -200 NJ
+preplace netloc mmu_0_debug_en_lock 1 1 2 N -240 NJ
+preplace netloc mmu_0_fault 1 1 2 N -220 NJ
 preplace netloc mmu_0_gram_dout 1 1 2 N -160 NJ
 preplace netloc mmu_0_gram_mem_addr 1 1 1 830 -40n
 preplace netloc mmu_0_gram_mem_ck 1 1 1 820 -20n
@@ -92,16 +96,12 @@ preplace netloc mmu_0_vramb_mem_ck 1 1 1 740 140n
 preplace netloc mmu_0_vramb_mem_din 1 1 1 730 160n
 preplace netloc mmu_0_vramb_mem_we 1 1 1 720 180n
 preplace netloc vram_addr_1 1 0 1 N 140
+preplace netloc vram_clk200mhz_1 1 0 1 N 120
 preplace netloc vram_douta 1 0 2 270 780 NJ
 preplace netloc vram_doutb 1 0 2 280 900 NJ
-preplace netloc mmu_0_debug_en_lock 1 1 2 N -240 NJ
 preplace netloc vram_sync_1 1 0 1 N -140
-preplace netloc debug_sync_1 1 0 1 N -160
-preplace netloc cpu_sync_1 1 0 1 N -180
-preplace netloc mmu_0_fault 1 1 2 N -220 NJ
-preplace netloc vram_clk200mhz_1 1 0 1 N 120
 levelinfo -pg 1 -200 480 1050 1230
-pagesize -pg 1 -db -bbox -sgen -400 -490 1390 1260
+pagesize -pg 1 -db -bbox -sgen -400 -490 1400 1260
 "
 }
 0
