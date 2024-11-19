@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date             : Thu Nov  7 13:52:22 2024
-| Host             : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
+| Date             : Tue Nov 19 20:38:02 2024
+| Host             : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 | Command          : report_power -file RegFile_power_routed.rpt -pb RegFile_power_summary_routed.pb -rpx RegFile_power_routed.rpx
 | Design           : RegFile
 | Device           : xc7a35ticsg324-1L
@@ -52,13 +52,13 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      496 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      143 |     20800 |            0.69 |
+| Clocks         |    <0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      514 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      153 |     20800 |            0.74 |
 |   F7/F8 Muxes  |    <0.001 |       96 |     32600 |            0.29 |
 |   Register     |    <0.001 |      256 |     41600 |            0.62 |
 |   Others       |     0.000 |        1 |       --- |             --- |
-| Signals        |     0.001 |      349 |       --- |             --- |
+| Signals        |     0.001 |      351 |       --- |             --- |
 | I/O            |     0.013 |       99 |       210 |           47.14 |
 | Static Power   |     0.060 |          |           |                 |
 | Total          |     0.076 |          |           |                 |
