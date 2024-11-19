@@ -92,7 +92,7 @@ read_checkpoint -auto_incremental -incremental D:/Code/VHDL/SixteenShadesOfCpu/v
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top ALU -part xc7a35ticsg324-1L
+synth_design -top ALU__ALUBehavioral -part xc7a35ticsg324-1L
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

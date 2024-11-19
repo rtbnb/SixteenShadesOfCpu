@@ -116,6 +116,9 @@
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="ALU"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TopArchitecture" Val="ALUBehavioral"/>
+        <Option Name="TopRTLFile" Val="$PSRCDIR/sources_1/new/ALU.vhd"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>

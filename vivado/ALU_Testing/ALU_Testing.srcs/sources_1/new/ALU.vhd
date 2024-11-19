@@ -33,6 +33,9 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity ALU is
  Port ( 
+ 
+    CLK: IN std_logic:= '0';
+    
     D1: IN std_logic_vector(15 downto 0 ):= (others => '0');
     D2: IN std_logic_vector(15 downto 0 ):= (others => '0');
     ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
