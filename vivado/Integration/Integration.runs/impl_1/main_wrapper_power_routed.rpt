@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date             : Mon Nov 18 17:37:20 2024
+| Date             : Tue Nov 19 16:23:07 2024
 | Host             : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 | Command          : report_power -file main_wrapper_power_routed.rpt -pb main_wrapper_power_summary_routed.pb -rpx main_wrapper_power_routed.rpx
 | Design           : main_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.207        |
+| Total On-Chip Power (W)  | 0.190        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.145        |
+| Dynamic (W)              | 0.128        |
 | Device Static (W)        | 0.062        |
 | Effective TJA (C/W)      | 4.8          |
-| Max Ambient (C)          | 99.0         |
-| Junction Temperature (C) | 26.0         |
+| Max Ambient (C)          | 99.1         |
+| Junction Temperature (C) | 25.9         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,20 +52,20 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.012 |       12 |       --- |             --- |
-| Slice Logic              |     0.010 |     1787 |       --- |             --- |
-|   LUT as Logic           |     0.008 |      912 |     20800 |            4.38 |
+| Clocks                   |     0.007 |       12 |       --- |             --- |
+| Slice Logic              |     0.004 |     1803 |       --- |             --- |
+|   LUT as Logic           |     0.004 |     1031 |     20800 |            4.96 |
 |   LUT as Distributed RAM |    <0.001 |       64 |      9600 |            0.67 |
-|   CARRY4                 |    <0.001 |       31 |      8150 |            0.38 |
-|   F7/F8 Muxes            |    <0.001 |      145 |     32600 |            0.44 |
-|   Register               |    <0.001 |      545 |     41600 |            1.31 |
-|   LUT as Shift Register  |    <0.001 |        4 |      9600 |            0.04 |
-|   Others                 |     0.000 |       19 |       --- |             --- |
-| Signals                  |     0.016 |     1274 |       --- |             --- |
+|   F7/F8 Muxes            |    <0.001 |       48 |     32600 |            0.15 |
+|   Register               |    <0.001 |      579 |     41600 |            1.39 |
+|   CARRY4                 |    <0.001 |        6 |      8150 |            0.07 |
+|   Others                 |     0.000 |       20 |       --- |             --- |
+| Signals                  |     0.008 |     1595 |       --- |             --- |
 | MMCM                     |     0.106 |        1 |         5 |           20.00 |
-| I/O                      |     0.001 |        5 |       210 |            2.38 |
+| DSPs                     |     0.003 |        4 |        90 |            4.44 |
+| I/O                      |    <0.001 |        5 |       210 |            2.38 |
 | Static Power             |     0.062 |          |           |                 |
-| Total                    |     0.207 |          |           |                 |
+| Total                    |     0.190 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       0.950 |     0.046 |       0.040 |      0.006 |       NA    | Unspecified | NA         |
+| Vccint    |       0.950 |     0.030 |       0.024 |      0.006 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.070 |       0.059 |      0.011 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -134,10 +134,10 @@ Table of Contents
 | CLK100MHZ                          | CLK100MHZ                                              |            10.0 |
 | Debug_CLK100MHZ_main_clk_wiz_0_0   | main_i/clk_wiz_0/inst/Debug_CLK100MHZ_main_clk_wiz_0_0 |            10.0 |
 | Debug_CLK100MHZ_main_clk_wiz_0_0_1 | main_i/clk_wiz_0/inst/Debug_CLK100MHZ_main_clk_wiz_0_0 |            10.0 |
-| InstrExec_CLK_main_clk_wiz_0_0     | main_i/clk_wiz_0/inst/InstrExec_CLK_main_clk_wiz_0_0   |             5.0 |
-| InstrExec_CLK_main_clk_wiz_0_0_1   | main_i/clk_wiz_0/inst/InstrExec_CLK_main_clk_wiz_0_0   |             5.0 |
-| InstrLoad_CLK_main_clk_wiz_0_0     | main_i/clk_wiz_0/inst/InstrLoad_CLK_main_clk_wiz_0_0   |             5.0 |
-| InstrLoad_CLK_main_clk_wiz_0_0_1   | main_i/clk_wiz_0/inst/InstrLoad_CLK_main_clk_wiz_0_0   |             5.0 |
+| InstrExec_CLK_main_clk_wiz_0_0     | main_i/clk_wiz_0/inst/InstrExec_CLK_main_clk_wiz_0_0   |            10.0 |
+| InstrExec_CLK_main_clk_wiz_0_0_1   | main_i/clk_wiz_0/inst/InstrExec_CLK_main_clk_wiz_0_0   |            10.0 |
+| InstrLoad_CLK_main_clk_wiz_0_0     | main_i/clk_wiz_0/inst/InstrLoad_CLK_main_clk_wiz_0_0   |            10.0 |
+| InstrLoad_CLK_main_clk_wiz_0_0_1   | main_i/clk_wiz_0/inst/InstrLoad_CLK_main_clk_wiz_0_0   |            10.0 |
 | clkfbout_main_clk_wiz_0_0          | main_i/clk_wiz_0/inst/clkfbout_main_clk_wiz_0_0        |            10.0 |
 | clkfbout_main_clk_wiz_0_0_1        | main_i/clk_wiz_0/inst/clkfbout_main_clk_wiz_0_0        |            10.0 |
 | sys_clk_pin                        | CLK100MHZ                                              |            10.0 |
@@ -153,23 +153,22 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
-| main_wrapper                |     0.145 |
-|   main_i                    |     0.144 |
-|     ALU_0                   |     0.013 |
-|       U0                    |     0.013 |
-|     CU_RAMAddressControl_0  |     0.002 |
-|       U0                    |     0.002 |
-|     ClockDisabler_0         |     0.001 |
-|     Pipelining_Controller_0 |     0.002 |
-|       U0                    |     0.002 |
-|     Pipelining_Execution_0  |     0.007 |
+| main_wrapper                |     0.128 |
+|   main_i                    |     0.128 |
+|     ALU_0                   |     0.007 |
 |       U0                    |     0.007 |
-|     Pipelining_WriteBack_0  |     0.003 |
+|     CU_RAMAddressControl_0  |     0.001 |
+|       U0                    |     0.001 |
+|     Debugger_0              |     0.001 |
+|       U0                    |     0.001 |
+|     Pipelining_Controller_0 |     0.001 |
+|       U0                    |     0.001 |
+|     Pipelining_Execution_0  |     0.003 |
 |       U0                    |     0.003 |
-|     RAM_Placeholder_0       |     0.002 |
-|       U0                    |     0.002 |
-|     RegFile_0               |     0.003 |
-|       U0                    |     0.003 |
+|     Pipelining_WriteBack_0  |     0.001 |
+|       U0                    |     0.001 |
+|     RegFile_0               |     0.001 |
+|       U0                    |     0.001 |
 |     clk_wiz_0               |     0.107 |
 |       inst                  |     0.107 |
 +-----------------------------+-----------+

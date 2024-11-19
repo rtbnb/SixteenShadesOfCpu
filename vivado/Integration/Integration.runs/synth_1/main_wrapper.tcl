@@ -57,7 +57,6 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
@@ -99,7 +98,7 @@ read_vhdl -library xil_defaultlib {
   C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd
   C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd
   C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/ClockDisabler.vhd
-  c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
 }
 add_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc]
@@ -127,7 +126,7 @@ read_checkpoint -auto_incremental -incremental C:/Development/SixteenShadesOfCpu
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top main_wrapper -part xc7a35ticsg324-1L
+synth_design -top main_wrapper -part xc7a35ticsg324-1L -directive AlternateRoutability -no_lc -shreg_min_size 10
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

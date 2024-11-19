@@ -47,8 +47,7 @@ entity Debugger is
         
         -- monitoring signals        
         -- programm counter
-        pc_current_addr: in std_logic_vector(15 downto 0);
-        pc_din: in std_logic_vector(15 downto 0);
+        
         
         -- IRAM
         iram_current_instruction: in std_logic_vector(15 downto 0);
@@ -59,9 +58,44 @@ entity Debugger is
         pipeline_current_instruction: in std_logic_vector(15 downto 0);
         pipeline_operand_1, pipeline_operand_2: in std_logic_vector(15 downto 0);
         pipeline_memory_addr_reg: in std_logic_vector(15 downto 0);
+        pipeline_jmp: in std_logic;
+        
+        -- program counter
+        pc_din: in std_logic_vector(15 downto 0);
+        pc_dout: in std_logic_vector(15 downto 0);
+        pc_current_addr: in std_logic_vector(15 downto 0);
+        
+        -- ALU
+        alu_din1: in std_logic_vector(15 downto 0);  
+        alu_din2: in std_logic_vector(15 downto 0);
+        alu_out: in std_logic_vector(15 downto 0);
+        alu_flags: in std_logic_vector(15 downto 0);
+        alu_op: in std_logic_vector(15 downto 0);
+        
+        -- Register File
+        regfile_addr_reg1: in std_logic_vector(3 downto 0);
+        regfile_addr_reg2: in std_logic_vector(3 downto 0);
+        regfile_addr_write_reg: in std_logic_vector(3 downto 0);
+        regfile_write_enable: in std_logic;
+        regfile_overwrite_flag: in std_logic;
+        regfile_write_data: in std_logic_vector(15 downto 0);
+        regfile_reg1_data: in std_logic_vector(15 downto 0);
+        regfile_reg2_data: in std_logic_vector(15 downto 0);
+        regfile_regma_data: in std_logic_vector(15 downto 0);
+        regfile_bankid: in std_logic_vector(3 downto 0);
+              
         
         -- mmu
-        mmu_debug_overwrite_enable: out std_logic
+        mmu_debug_sys_clk: out std_logic;
+        mmu_debug_sync_clk: out std_logic;
+        mmu_debug_en: out std_logic;
+        mmu_debug_override_en: out std_logic;
+        mmu_debug_addr: out std_logic_vector(15 downto 0);
+        mmu_debug_din: out std_logic_vector(15 downto 0);
+        mmu_debug_bank: out std_logic_vector(3 downto 0);
+        mmu_debug_we: out std_logic;
+        mmu_debug_dout: in std_logic_vector(15 downto 0)
+        
         
         
         
@@ -72,7 +106,7 @@ architecture Behavioral of Debugger is
     -- state machine
     type state_types is (Idle,
         ReceivePreCommandDecission, ReceiveInstructionDataHIGH, ReceiveInstructionDataLOW, ReceiveInstructionData2HIGH, ReceiveInstructionData2LOW,
-        ProcessCommand,
+        HoldClock, WaitClockCycle, ProcessCommand,
         TransmitDataInstruction, TransmitDataHIGH, TransmitDataLOW, TransmitDataAddrHIGH, TransmitDataAddrLOW, ResetTX,
         TransmitDataInstructionSHORT, TransmitDataHIGHSHORT, TransmitDataLOWSHORT
     );
@@ -81,6 +115,7 @@ architecture Behavioral of Debugger is
     -- rx data buffer
     signal rx_instruction_buffer: std_logic_vector(7 downto 0);
     signal rx_instruction_data_buffer: std_logic_vector(15 downto 0);
+    signal rx_instruction_data2_buffer: std_logic_vector(15 downto 0);
     
     -- tx data buffer
     signal tx_instruction_buffer: std_logic_vector(7 downto 0) := x"00";
@@ -108,23 +143,39 @@ begin
                 when ReceivePreCommandDecission =>
                     case rx_instruction_data_buffer is
                         -- general
-                        when x"00" => state <= ProcessCommand;
-                        when x"01" => state <= ProcessCommand;
-                        when x"02" => state <= ProcessCommand;
-                        -- pipeline read request
-                        when x"10" => state <= ProcessCommand;
-                        when x"11" => state <= ProcessCommand;
-                        when x"12" => state <= ProcessCommand;
-                        when x"13" => state <= ProcessCommand;
-                        when x"14" => state <= ProcessCommand;
-                        when x"15" => state <= ProcessCommand;
-                        -- divers signal request
-                        when x"20" =>
-                        when x"21" =>
-                        when x"22" =>
+                        when x"00" => state <= HoldClock;
+                        when x"01" => state <= HoldClock;
+                        when x"02" => state <= HoldClock;
+                        when x"03" => state <= HoldClock;
+                        -- pipeline signal request
+                        when x"10" => state <= HoldClock;
+                        when x"11" => state <= HoldClock;
+                        when x"12" => state <= HoldClock;
+                        when x"13" => state <= HoldClock;
+                        when x"14" => state <= HoldClock;
+                        when x"15" => state <= HoldClock;
+                        -- program counter signal request
+                        when x"20" => state <= HoldClock;
+                        when x"21" => state <= HoldClock;
+                        when x"22" => state <= HoldClock;
                         -- memory
-                        when x"30" =>
-                        when x"31" =>
+                        -- alu signal request
+                        when x"40" => state <= HoldClock;
+                        when x"41" => state <= HoldClock;
+                        when x"42" => state <= HoldClock;
+                        when x"43" => state <= HoldClock;
+                        when x"44" => state <= HoldClock;
+                        -- regfile signal request
+                        when x"50" => state <= HoldClock;
+                        when x"51" => state <= HoldClock;
+                        when x"52" => state <= HoldClock;
+                        when x"53" => state <= HoldClock;
+                        when x"54" => state <= HoldClock;
+                        when x"55" => state <= HoldClock;
+                        when x"56" => state <= HoldClock;
+                        when x"57" => state <= HoldClock;
+                        when x"58" => state <= HoldClock;
+                        when x"59" => state <= HoldClock;
                         -- others
                         when others => state <= ReceiveInstructionDataHIGH;
                     end case;
@@ -138,19 +189,155 @@ begin
                 when ReceiveInstructionDataLOW =>
                     if (rx_data_valid = '1') then
                         rx_instruction_data_buffer(7 downto 0) <= rx_data;
-                        state <= ProcessCommand;
+                        state <= HoldClock;
                     else
                         state <= ReceiveInstructionDataLOW;
                     end if;
+                when ReceiveInstructionData2HIGH =>
+                    if (rx_data_valid = '1') then
+                        rx_instruction_data2_buffer(15 downto 8) <= rx_data;
+                        state <= ReceiveInstructionData2LOW;
+                    else
+                        state <= ReceiveInstructionData2HIGH;
+                    end if;
+                when ReceiveInstructionData2LOW =>
+                    if (rx_data_valid = '1') then
+                        rx_instruction_data2_buffer(7 downto 0) <= rx_data;
+                        state <= HoldClock;
+                    else
+                        state <= ReceiveInstructionData2LOW;
+                    end if;
                 -- command processing states
+                when HoldClock =>
+                    debug_clk_stop <= '0';
+                    state <= WaitClockCycle;
+                when WaitClockCycle =>
+                    state <= ProcessCommand;
                 when ProcessCommand =>
                     -- command decode
-                    debug_clk_stop <= '0';
                     case rx_instruction_buffer is
-                        when x"03" =>
-                            tx_instruction_buffer <= x"03";
-                            tx_data_buffer <= pc_current_addr_buffer;
-                            state <= TransmitDataInstruction;
+                        -- general
+                        when x"00" => state <= Idle;
+                        when x"01" => state <= Idle;
+                        when x"02" => state <= Idle;
+                        when x"03" => state <= Idle;
+                        -- pipeline
+                        when x"10" =>
+                            tx_instruction_buffer <= x"10";
+                            tx_data_buffer(15 downto 1) <= "000000000000000";
+                            tx_data_buffer(0) <= pipeline_stalled;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"11" =>
+                            tx_instruction_buffer <= x"11";
+                            tx_data_buffer(15 downto 5) <= "00000000000";
+                            tx_data_buffer(4 downto 0) <= pipeline_instruction_forwarding_config;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"12" =>
+                            tx_instruction_buffer <= x"12";
+                            tx_data_buffer <= pipeline_current_instruction;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"13" =>
+                            tx_instruction_buffer <= x"13";
+                            tx_data_buffer <= pipeline_operand_1;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"14" =>
+                            tx_instruction_buffer <= x"14";
+                            tx_data_buffer <= pipeline_operand_2;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"15" =>
+                            tx_instruction_buffer <= x"15";
+                            tx_data_buffer <= pipeline_memory_addr_reg;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"16" =>
+                            tx_data_buffer(15 downto 1) <= "000000000000000";
+                            tx_instruction_buffer <= x"16";
+                            tx_data_buffer(0) <= pipeline_jmp;
+                            state <= TransmitDataInstructionSHORT;
+                        -- program counter
+                        when x"20" =>
+                            tx_instruction_buffer <= x"20";
+                            tx_data_buffer <= pc_din;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"21" =>
+                            tx_instruction_buffer <= x"21";
+                            tx_data_buffer <= pc_dout;
+                            state <= TransmitDataInstructionSHORT; 
+                        when x"22" =>
+                            tx_instruction_buffer <= x"22";
+                            tx_data_buffer <= pc_current_addr;
+                            state <= TransmitDataInstructionSHORT;
+                        -- memmory
+                        when x"30" => state <= Idle;
+                        when x"31" => state <= Idle;
+                        -- alu
+                        when x"40" =>
+                            tx_instruction_buffer <= x"40";
+                            tx_data_buffer <= alu_din1;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"41" =>
+                            tx_instruction_buffer <= x"41";
+                            tx_data_buffer <= alu_din2;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"42" =>
+                            tx_instruction_buffer <= x"42";
+                            tx_data_buffer <= alu_out;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"43" =>
+                            tx_instruction_buffer <= x"43";
+                            tx_data_buffer <= alu_flags;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"44" =>
+                            tx_instruction_buffer <= x"44";
+                            tx_data_buffer <= alu_op;
+                            state <= TransmitDataInstructionSHORT;
+                        -- register file
+                        when x"50" =>
+                            tx_instruction_buffer <= x"50";
+                            tx_data_buffer(15 downto 4) <= "000000000000";
+                            tx_data_buffer(3 downto 0) <= regfile_addr_reg1;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"51" =>
+                            tx_instruction_buffer <= x"51";
+                            tx_data_buffer(15 downto 4) <= "000000000000";
+                            tx_data_buffer(3 downto 0) <= regfile_addr_reg2;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"52" =>
+                            tx_instruction_buffer <= x"52";
+                            tx_data_buffer(15 downto 4) <= "000000000000";
+                            tx_data_buffer(3 downto 0) <= regfile_addr_write_reg;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"53" =>
+                            tx_instruction_buffer <= x"53";
+                            tx_data_buffer(15 downto 1) <= "000000000000000";
+                            tx_data_buffer(0) <= regfile_write_enable;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"54" =>
+                            tx_instruction_buffer <= x"54";
+                            tx_data_buffer(15 downto 1) <= "000000000000000";
+                            tx_data_buffer(0) <= regfile_overwrite_flag;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"55" =>
+                            tx_instruction_buffer <= x"55";
+                            tx_data_buffer <= regfile_write_data;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"56" =>
+                            tx_instruction_buffer <= x"56";
+                            tx_data_buffer <= regfile_reg1_data;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"57" =>
+                            tx_instruction_buffer <= x"57";
+                            tx_data_buffer <= regfile_reg2_data;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"58" =>
+                            tx_instruction_buffer <= x"58";
+                            tx_data_buffer <= regfile_regma_data;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"59" =>
+                            tx_instruction_buffer <= x"59";
+                            tx_data_buffer(15 downto 1) <= "000000000000000";
+                            tx_data_buffer(0) <= regfile_overwrite_flag;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"5A" => state <= Idle;
                         when others =>
                             state <= Idle;
                     end case;

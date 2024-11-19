@@ -1,5 +1,9 @@
 .idea
 */**/*.pb
+<<<<<<< HEAD
+=======
+**/~*.xlsx
+>>>>>>> c8f6bb745a622cdeb6bc1098d0360c35edad09b5
 
 # debug
 debug/Host/.venv/

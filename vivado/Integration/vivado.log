@@ -3,28 +3,26 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Mon Nov 18 20:30:56 2024
-# Process ID: 18828
+# Start of session at: Tue Nov 19 07:59:37 2024
+# Process ID: 908
 # Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7620 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4860 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
 # Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/vivado.log
 # Journal file: C:/Development/SixteenShadesOfCpu/vivado/Integration\vivado.jou
-# Running On        :DESKTOP-E8CIL9E
+# Running On        :BOOK-69BD3QPCMV
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :19045
-# Processor Detail  :AMD Ryzen 5 5600X 6-Core Processor             
-# CPU Frequency     :3693 MHz
-# CPU Physical cores:6
-# CPU Logical cores :12
-# Host memory       :17099 MB
-# Swap memory       :10200 MB
-# Total Virtual     :27300 MB
-# Available Virtual :12496 MB
+# Operating System  :22631
+# Processor Detail  :Intel(R) Core(TM) Ultra 5 125H
+# CPU Frequency     :2995 MHz
+# CPU Physical cores:14
+# CPU Logical cores :18
+# Host memory       :16739 MB
+# Swap memory       :6442 MB
+# Total Virtual     :23182 MB
+# Available Virtual :13891 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
-WARNING: [Board 49-91] Board repository path 'C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
-WARNING: [Board 49-91] Board repository path 'C:/Development/Vivado/ArtyS7-RPU-SoC/Tunkowski/AppData/Roaming/Xilinx/Vivado/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.6/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.7/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
@@ -89,14 +87,12 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 availab
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-91] Board repository path 'C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
-WARNING: [Board 49-91] Board repository path 'C:/Development/Vivado/ArtyS7-RPU-SoC/Tunkowski/AppData/Roaming/Xilinx/Vivado/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
-open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:09 . Memory (MB): peak = 1522.500 ; gain = 459.184
+open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:14 . Memory (MB): peak = 1566.352 ; gain = 429.363
 update_compile_order -fileset sources_1
 open_bd_design {C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
 Reading block design file <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd>...
@@ -123,432 +119,134 @@ Adding component instance block -- xilinx.com:module_ref:Debugger:1.0 - Debugger
 Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
 Adding component instance block -- xilinx.com:module_ref:ClockDisabler:1.0 - ClockDisabler_0
 Successfully read diagram <main> from block design file <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd>
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'mainSim'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2024.1/data/xsim/xsim.ini' copied to run dir:'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'mainSim' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj mainSim_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0_clk_wiz
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
-"xvhdl --incr --relax -prj mainSim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CU_Decoder'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Decoder'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Pipelining_Controller'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/ProgramCounter.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ProgramCounter'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'RegFile'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Pipelining_Forwarder'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Pipelining_ExecutionStage'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CU_RAMAddressController'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ALU'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CU_ImmediateManipulator'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CU_JumpDestinationSelector'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/FlagUnpacker.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'FlagUnpacker'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CU_JumpController'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CU_WriteSelector'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_WriteBackStage.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Pipelining_WriteBackStage'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/new/IROM.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'IROM'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/new/RAM_Placeholder.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'RAM_Placeholder'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU_FLAG_PACKER.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ALU_FLAG_PACKER'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'RX_UART'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'TX_UART'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Debugger'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/ClockDisabler.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ClockDisabler'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Controller_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ProgramCounter_0_0/sim/main_ProgramCounter_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_ProgramCounter_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_Decoder_0_0/sim/main_CU_Decoder_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_Decoder_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Decoder_0_0/sim/main_Decoder_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Decoder_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RegFile_0_0/sim/main_RegFile_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_RegFile_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Forwarder_0_0/sim/main_Pipelining_Forwarder_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Forwarder_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Execution_0_0/sim/main_Pipelining_Execution_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Execution_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_RAMAddressControl_0_0/sim/main_CU_RAMAddressControl_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_RAMAddressControl_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_0_0/sim/main_ALU_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_ALU_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_ImmediateManipula_0_0/sim/main_CU_ImmediateManipula_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_ImmediateManipula_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpDestinationSe_0_0/sim/main_CU_JumpDestinationSe_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpDestinationSe_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpController_0_0/sim/main_CU_JumpController_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpController_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_WriteSelector_0_0/sim/main_CU_WriteSelector_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_WriteSelector_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_WriteBack_0_0/sim/main_Pipelining_WriteBack_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_WriteBack_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_IROM_0_1/sim/main_IROM_0_1.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_IROM_0_1'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RAM_Placeholder_0_0/sim/main_RAM_Placeholder_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_RAM_Placeholder_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_FLAG_PACKER_0_1/sim/main_ALU_FLAG_PACKER_0_1.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_ALU_FLAG_PACKER_0_1'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_RX_UART_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_TX_UART_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Debugger_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ClockDisabler_0_0/sim/main_ClockDisabler_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_ClockDisabler_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/sim/main.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_wrapper'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sim_1/new/mainSim.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'mainSim'
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 1600.320 ; gain = 0.000
-INFO: [USF-XSim-69] 'compile' step finished in '8' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package unisim.vcomponents
-Compiling package vl.vl_types
-Compiling module xil_defaultlib.glbl
-Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
-Compiling architecture main_alu_0_0_arch of entity xil_defaultlib.main_ALU_0_0 [main_alu_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.ALU_FLAG_PACKER [alu_flag_packer_default]
-Compiling architecture main_alu_flag_packer_0_1_arch of entity xil_defaultlib.main_ALU_FLAG_PACKER_0_1 [main_alu_flag_packer_0_1_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder [cu_decoder_default]
-Compiling architecture main_cu_decoder_0_0_arch of entity xil_defaultlib.main_CU_Decoder_0_0 [main_cu_decoder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator [cu_immediatemanipulator_default]
-Compiling architecture main_cu_immediatemanipula_0_0_arch of entity xil_defaultlib.main_CU_ImmediateManipula_0_0 [main_cu_immediatemanipula_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.FlagUnpacker [flagunpacker_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController [cu_jumpcontroller_default]
-Compiling architecture main_cu_jumpcontroller_0_0_arch of entity xil_defaultlib.main_CU_JumpController_0_0 [main_cu_jumpcontroller_0_0_defau...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector [cu_jumpdestinationselector_defau...]
-Compiling architecture main_cu_jumpdestinationse_0_0_arch of entity xil_defaultlib.main_CU_JumpDestinationSe_0_0 [main_cu_jumpdestinationse_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController [cu_ramaddresscontroller_default]
-Compiling architecture main_cu_ramaddresscontrol_0_0_arch of entity xil_defaultlib.main_CU_RAMAddressControl_0_0 [main_cu_ramaddresscontrol_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
-Compiling architecture main_cu_writeselector_0_0_arch of entity xil_defaultlib.main_CU_WriteSelector_0_0 [main_cu_writeselector_0_0_defaul...]
-Compiling architecture behavioral of entity xil_defaultlib.ClockDisabler [clockdisabler_default]
-Compiling architecture main_clockdisabler_0_0_arch of entity xil_defaultlib.main_ClockDisabler_0_0 [main_clockdisabler_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
-Compiling architecture main_debugger_0_0_arch of entity xil_defaultlib.main_Debugger_0_0 [main_debugger_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.Decoder [decoder_default]
-Compiling architecture main_decoder_0_0_arch of entity xil_defaultlib.main_Decoder_0_0 [main_decoder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.IROM [irom_default]
-Compiling architecture main_irom_0_1_arch of entity xil_defaultlib.main_IROM_0_1 [main_irom_0_1_default]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Controller [pipelining_controller_default]
-Compiling architecture main_pipelining_controller_0_0_arch of entity xil_defaultlib.main_Pipelining_Controller_0_0 [main_pipelining_controller_0_0_d...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_ExecutionStage [pipelining_executionstage_defaul...]
-Compiling architecture main_pipelining_execution_0_0_arch of entity xil_defaultlib.main_Pipelining_Execution_0_0 [main_pipelining_execution_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Forwarder [pipelining_forwarder_default]
-Compiling architecture main_pipelining_forwarder_0_0_arch of entity xil_defaultlib.main_Pipelining_Forwarder_0_0 [main_pipelining_forwarder_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_WriteBackStage [pipelining_writebackstage_defaul...]
-Compiling architecture main_pipelining_writeback_0_0_arch of entity xil_defaultlib.main_Pipelining_WriteBack_0_0 [main_pipelining_writeback_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
-Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
-Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
-Compiling architecture main_rx_uart_0_0_arch of entity xil_defaultlib.main_RX_UART_0_0 [main_rx_uart_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]
-Compiling architecture main_regfile_0_0_arch of entity xil_defaultlib.main_RegFile_0_0 [main_regfile_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
-Compiling architecture main_tx_uart_0_0_arch of entity xil_defaultlib.main_TX_UART_0_0 [main_tx_uart_0_0_default]
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.main_clk_wiz_0_0_clk_wiz
-Compiling module xil_defaultlib.main_clk_wiz_0_0
-Compiling architecture structure of entity xil_defaultlib.main [main_default]
-Compiling architecture structure of entity xil_defaultlib.main_wrapper [main_wrapper_default]
-Compiling architecture behavioral of entity xil_defaultlib.mainsim
-Built simulation snapshot mainSim_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1600.320 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "mainSim_behav -key {Behavioral:sim_1:Functional:mainSim} -tclbatch {mainSim.tcl} -protoinst "protoinst_files/main.protoinst" -view {C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
-Time resolution is 1 ps
-open_wave_config C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg
-WARNING: Simulation object /mainSim/InstrExec_CLK was not found in the design.
-WARNING: Simulation object /mainSim/EUT/main_i/InstrExec_CLK was not found in the design.
-WARNING: Simulation object /mainSim/EUT/main_i/InstrLoad_CLK was not found in the design.
-WARNING: Simulation object /mainSim/InstrLoad_CLK was not found in the design.
-source mainSim.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'mainSim_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:17 . Memory (MB): peak = 1650.410 ; gain = 50.090
-run 40 us
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/clk_wiz_0/reset}} 
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/clk_wiz_0/clk_in1}} 
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/clk_wiz_0/InstrExec_CLK}} 
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/clk_wiz_0/InstrLoad_CLK}} 
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'mainSim'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2024.1/data/xsim/xsim.ini' copied to run dir:'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'mainSim' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj mainSim_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0_clk_wiz
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0
-"xvhdl --incr --relax -prj mainSim_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'mainSim'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package unisim.vcomponents
-Compiling package vl.vl_types
-Compiling module xil_defaultlib.glbl
-Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
-Compiling architecture main_alu_0_0_arch of entity xil_defaultlib.main_ALU_0_0 [main_alu_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.ALU_FLAG_PACKER [alu_flag_packer_default]
-Compiling architecture main_alu_flag_packer_0_1_arch of entity xil_defaultlib.main_ALU_FLAG_PACKER_0_1 [main_alu_flag_packer_0_1_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder [cu_decoder_default]
-Compiling architecture main_cu_decoder_0_0_arch of entity xil_defaultlib.main_CU_Decoder_0_0 [main_cu_decoder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator [cu_immediatemanipulator_default]
-Compiling architecture main_cu_immediatemanipula_0_0_arch of entity xil_defaultlib.main_CU_ImmediateManipula_0_0 [main_cu_immediatemanipula_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.FlagUnpacker [flagunpacker_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController [cu_jumpcontroller_default]
-Compiling architecture main_cu_jumpcontroller_0_0_arch of entity xil_defaultlib.main_CU_JumpController_0_0 [main_cu_jumpcontroller_0_0_defau...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector [cu_jumpdestinationselector_defau...]
-Compiling architecture main_cu_jumpdestinationse_0_0_arch of entity xil_defaultlib.main_CU_JumpDestinationSe_0_0 [main_cu_jumpdestinationse_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController [cu_ramaddresscontroller_default]
-Compiling architecture main_cu_ramaddresscontrol_0_0_arch of entity xil_defaultlib.main_CU_RAMAddressControl_0_0 [main_cu_ramaddresscontrol_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
-Compiling architecture main_cu_writeselector_0_0_arch of entity xil_defaultlib.main_CU_WriteSelector_0_0 [main_cu_writeselector_0_0_defaul...]
-Compiling architecture behavioral of entity xil_defaultlib.ClockDisabler [clockdisabler_default]
-Compiling architecture main_clockdisabler_0_0_arch of entity xil_defaultlib.main_ClockDisabler_0_0 [main_clockdisabler_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
-Compiling architecture main_debugger_0_0_arch of entity xil_defaultlib.main_Debugger_0_0 [main_debugger_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.Decoder [decoder_default]
-Compiling architecture main_decoder_0_0_arch of entity xil_defaultlib.main_Decoder_0_0 [main_decoder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.IROM [irom_default]
-Compiling architecture main_irom_0_1_arch of entity xil_defaultlib.main_IROM_0_1 [main_irom_0_1_default]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Controller [pipelining_controller_default]
-Compiling architecture main_pipelining_controller_0_0_arch of entity xil_defaultlib.main_Pipelining_Controller_0_0 [main_pipelining_controller_0_0_d...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_ExecutionStage [pipelining_executionstage_defaul...]
-Compiling architecture main_pipelining_execution_0_0_arch of entity xil_defaultlib.main_Pipelining_Execution_0_0 [main_pipelining_execution_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Forwarder [pipelining_forwarder_default]
-Compiling architecture main_pipelining_forwarder_0_0_arch of entity xil_defaultlib.main_Pipelining_Forwarder_0_0 [main_pipelining_forwarder_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_WriteBackStage [pipelining_writebackstage_defaul...]
-Compiling architecture main_pipelining_writeback_0_0_arch of entity xil_defaultlib.main_Pipelining_WriteBack_0_0 [main_pipelining_writeback_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
-Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
-Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
-Compiling architecture main_rx_uart_0_0_arch of entity xil_defaultlib.main_RX_UART_0_0 [main_rx_uart_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]
-Compiling architecture main_regfile_0_0_arch of entity xil_defaultlib.main_RegFile_0_0 [main_regfile_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
-Compiling architecture main_tx_uart_0_0_arch of entity xil_defaultlib.main_TX_UART_0_0 [main_tx_uart_0_0_default]
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.main_clk_wiz_0_0_clk_wiz
-Compiling module xil_defaultlib.main_clk_wiz_0_0
-Compiling architecture structure of entity xil_defaultlib.main [main_default]
-Compiling architecture structure of entity xil_defaultlib.main_wrapper [main_wrapper_default]
-Compiling architecture behavioral of entity xil_defaultlib.mainsim
-Built simulation snapshot mainSim_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1662.441 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1662.441 ; gain = 0.000
-INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:12 . Memory (MB): peak = 1662.441 ; gain = 0.000
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/debug_EN_LOW_ACTIVE}} 
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/InstrLoad_CLK_in}} 
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/InstrExec_CLK_in}} 
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/InstrExec_CLK_out}} 
-current_wave_config {mainSim_test1.wcfg}
-mainSim_test1.wcfg
-add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/InstrLoad_CLK_out}} 
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'mainSim'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj mainSim_vlog.prj"
-"xvhdl --incr --relax -prj mainSim_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'mainSim'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
-INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1662.441 ; gain = 0.000
-open_bd_design {C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
-delete_bd_objs [get_bd_nets Reset_1]
-connect_bd_net [get_bd_ports Reset] [get_bd_pins ProgramCounter_0/Reset]
-connect_bd_net [get_bd_ports Reset] [get_bd_pins Pipelining_Controller_0/Reset]
-connect_bd_net [get_bd_ports Reset] [get_bd_pins Pipelining_WriteBack_0/Reset]
 update_module_reference main_Debugger_0_0
-INFO: [IP_Flow 19-5107] Inferred bus interface 'cc_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
 INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sync_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sys_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
 WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
 WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
-INFO: [IP_Flow 19-5107] Inferred bus interface 'cc_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sync_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sys_clk': FREQ_HZ bus parameter is missing for output clock interface.
 INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sync_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sys_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
 WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
 WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sync_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sys_clk': FREQ_HZ bus parameter is missing for output clock interface.
 Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
 INFO: [IP_Flow 19-3420] Updated main_Debugger_0_0 to use current project options
-WARNING: [IP_Flow 19-4698] Upgrade has added port 'cc_reset'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'wlb_in'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'alu_din1'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'alu_din2'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'alu_flags'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'alu_op'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'alu_out'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'iram_current_instruction'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_addr'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_bank'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_din'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_dout'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_en'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_override_en'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_sync_clk'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_sys_clk'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'mmu_debug_we'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pc_din'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pc_dout'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pipeline_current_instruction'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pipeline_instruction_forwarding_config'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pipeline_jmp'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pipeline_memory_addr_reg'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pipeline_operand_1'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pipeline_operand_2'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pipeline_stalled'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_addr_reg1'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_addr_reg2'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_addr_write_reg'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_bankid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_overwrite_flag'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_reg1_data'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_reg2_data'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_regma_data'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_write_data'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'regfile_write_enable'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'main_Debugger_0_0'. These changes may impact your design.
+CRITICAL WARNING: [BD 41-1167] The pin 'wlb_in' is not found on the upgraded version of the cell '/Debugger_0'. Its connection to the net 'Pipelining_Execution_0_WLB_out' has been removed.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'main_Debugger_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+connect_bd_net [get_bd_pins Debugger_0/iram_current_instruction] [get_bd_pins IROM_0/Data]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_stalled] [get_bd_pins Pipelining_Controller_0/Stalled]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_instruction_forwarding_config] [get_bd_pins Pipelining_Controller_0/InstructionForwardConfiguration]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_current_instruction] [get_bd_pins Pipelining_Controller_0/InstructionToExecute]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_operand_1] [get_bd_pins Pipelining_Forwarder_0/ForwardedOperand1]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_operand_2] [get_bd_pins Pipelining_Forwarder_0/ForwardedOperand2]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_jmp] [get_bd_pins CU_Decoder_0/JMP]
+delete_bd_objs [get_bd_nets CU_Decoder_0_JMP]
+connect_bd_net [get_bd_pins CU_Decoder_0/JMP] [get_bd_pins Pipelining_Execution_0/JMP]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_jmp] [get_bd_pins Pipelining_Execution_0/JMP_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_memory_addr_reg] [get_bd_pins Pipelining_Forwarder_0/ForwardedMA]
+connect_bd_net [get_bd_pins Debugger_0/pc_din] [get_bd_pins CU_JumpController_0/PC_Next]
+startgroup
+connect_bd_net [get_bd_pins Debugger_0/pc_dout] [get_bd_pins ProgramCounter_0/Dout]
+endgroup
+connect_bd_net [get_bd_pins Debugger_0/alu_din1] [get_bd_pins Pipelining_Execution_0/Operand1_out]
+connect_bd_net [get_bd_pins Debugger_0/alu_din2] [get_bd_pins Pipelining_Execution_0/Operand2_out]
+connect_bd_net [get_bd_pins Debugger_0/alu_out] [get_bd_pins ALU_0/ALU_OUT]
+connect_bd_net [get_bd_pins Debugger_0/alu_flags] [get_bd_pins ALU_FLAG_PACKER_0/ALU_FLAGS]
+connect_bd_net [get_bd_pins Debugger_0/alu_op] [get_bd_pins Pipelining_Execution_0/Immediate_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_addr_reg1] [get_bd_pins Decoder_0/Register1]
+update_module_reference main_Debugger_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sync_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sys_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sync_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sys_clk': FREQ_HZ bus parameter is missing for output clock interface.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sync_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sys_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sync_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sys_clk': FREQ_HZ bus parameter is missing for output clock interface.
+Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
+INFO: [IP_Flow 19-3420] Updated main_Debugger_0_0 to use current project options
+WARNING: [IP_Flow 19-4706] Upgraded port 'regfile_addr_reg1' width 4 differs from original width 16
+WARNING: [IP_Flow 19-4706] Upgraded port 'regfile_addr_reg2' width 4 differs from original width 16
+WARNING: [IP_Flow 19-4706] Upgraded port 'regfile_addr_write_reg' width 4 differs from original width 16
 WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'main_Debugger_0_0'. These changes may impact your design.
 CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'main_Debugger_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
 Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
 Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
-connect_bd_net [get_bd_pins Debugger_0/cc_reset] [get_bd_pins clk_wiz_0/reset]
+connect_bd_net [get_bd_pins Debugger_0/regfile_addr_reg2] [get_bd_pins Decoder_0/Register2]
+connect_bd_net [get_bd_pins Debugger_0/regfile_addr_write_reg] [get_bd_pins Pipelining_WriteBack_0/WriteAddress_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_write_enable] [get_bd_pins Pipelining_WriteBack_0/RF_WE_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_overwrite_flag] [get_bd_pins Pipelining_WriteBack_0/Is_ALU_OP_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_write_data] [get_bd_pins Pipelining_WriteBack_0/WriteData_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_reg1_data] [get_bd_pins RegFile_0/Reg1_data]
+connect_bd_net [get_bd_pins Debugger_0/regfile_reg2_data] [get_bd_pins RegFile_0/Reg2_data]
+connect_bd_net [get_bd_pins Debugger_0/regfile_regma_data] [get_bd_pins RegFile_0/RegMA_data]
+connect_bd_net [get_bd_pins Debugger_0/regfile_bankid] [get_bd_pins RegFile_0/BankID]
+set_property location {2 336 -1071} [get_bd_cells Debugger_0]
+set_property location {6 2304 -879} [get_bd_cells Debugger_0]
+set_property location {7 3135 -768} [get_bd_cells Debugger_0]
+set_property location {9 4238 -698} [get_bd_cells Debugger_0]
+set_property location {10 4768 -965} [get_bd_cells Debugger_0]
+set_property location {9 4113 -776} [get_bd_cells Debugger_0]
+set_property location {8 3365 -876} [get_bd_cells Debugger_0]
+set_property location {7 2808 -725} [get_bd_cells Debugger_0]
+set_property location {6 2102 -775} [get_bd_cells Debugger_0]
+set_property location {7 2725 -859} [get_bd_cells Debugger_0]
+set_property location {8 3391 -860} [get_bd_cells TX_UART_0]
+set_property location {6 1933 -707} [get_bd_cells RX_UART_0]
+set_property location {7 2784 -1273} [get_bd_cells ClockDisabler_0]
+set_property location {1 -387 -976} [get_bd_cells clk_wiz_0]
+set_property location {7 2795 -719} [get_bd_cells Debugger_0]
 reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
 export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
-generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-CRITICAL WARNING: [BD 41-1348] Reset pin /ProgramCounter_0/Reset (associated clock /ProgramCounter_0/InstrExec_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrExec_CLK_out.
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrLoad_CLK_out.
-INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
-ERROR: [BD 41-238] Port/Pin property POLARITY does not match between /clk_wiz_0/reset(ACTIVE_HIGH) and /Debugger_0/cc_reset(ACTIVE_LOW)
-ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd 
-ERROR: [Common 17-39] 'generate_target' failed due to earlier errors.
-set_property CONFIG.POLARITY ACTIVE_HIGH [get_bd_pins /Debugger_0/cc_reset]
 generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
 CRITICAL WARNING: [BD 41-1348] Reset pin /ProgramCounter_0/Reset (associated clock /ProgramCounter_0/InstrExec_CLK) is connected to asynchronous reset source /Reset.
 This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrExec_CLK_out.
@@ -558,6 +256,7 @@ INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
 CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
 Please check your design and connect them as needed: 
 /Pipelining_Execution_0/Reset
+/Debugger_0/mmu_debug_dout
 
 Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
 Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
@@ -588,249 +287,359 @@ INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
 INFO: [BD 41-1029] Generation completed for the IP Integrator block ClockDisabler_0 .
 Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
 Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
-generate_target: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1912.082 ; gain = 232.520
+generate_target: Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1962.332 ; gain = 253.859
 export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
 export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'mainSim'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2024.1/data/xsim/xsim.ini' copied to run dir:'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'mainSim' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj mainSim_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0_clk_wiz
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0
-"xvhdl --incr --relax -prj mainSim_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Debugger'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Controller_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ProgramCounter_0_0/sim/main_ProgramCounter_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_ProgramCounter_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_Decoder_0_0/sim/main_CU_Decoder_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_Decoder_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Decoder_0_0/sim/main_Decoder_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Decoder_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RegFile_0_0/sim/main_RegFile_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_RegFile_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Forwarder_0_0/sim/main_Pipelining_Forwarder_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Forwarder_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Execution_0_0/sim/main_Pipelining_Execution_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Execution_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_RAMAddressControl_0_0/sim/main_CU_RAMAddressControl_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_RAMAddressControl_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_0_0/sim/main_ALU_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_ALU_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_ImmediateManipula_0_0/sim/main_CU_ImmediateManipula_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_ImmediateManipula_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpDestinationSe_0_0/sim/main_CU_JumpDestinationSe_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpDestinationSe_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpController_0_0/sim/main_CU_JumpController_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpController_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_WriteSelector_0_0/sim/main_CU_WriteSelector_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_CU_WriteSelector_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_WriteBack_0_0/sim/main_Pipelining_WriteBack_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_WriteBack_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_IROM_0_1/sim/main_IROM_0_1.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_IROM_0_1'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RAM_Placeholder_0_0/sim/main_RAM_Placeholder_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_RAM_Placeholder_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_FLAG_PACKER_0_1/sim/main_ALU_FLAG_PACKER_0_1.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_ALU_FLAG_PACKER_0_1'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_RX_UART_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_TX_UART_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_Debugger_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ClockDisabler_0_0/sim/main_ClockDisabler_0_0.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_ClockDisabler_0_0'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/sim/main.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'main_wrapper'
-run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1929.801 ; gain = 12.523
-INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
-Vivado Simulator v2024.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package unisim.vcomponents
-Compiling package vl.vl_types
-Compiling module xil_defaultlib.glbl
-Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
-Compiling architecture main_alu_0_0_arch of entity xil_defaultlib.main_ALU_0_0 [main_alu_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.ALU_FLAG_PACKER [alu_flag_packer_default]
-Compiling architecture main_alu_flag_packer_0_1_arch of entity xil_defaultlib.main_ALU_FLAG_PACKER_0_1 [main_alu_flag_packer_0_1_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder [cu_decoder_default]
-Compiling architecture main_cu_decoder_0_0_arch of entity xil_defaultlib.main_CU_Decoder_0_0 [main_cu_decoder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator [cu_immediatemanipulator_default]
-Compiling architecture main_cu_immediatemanipula_0_0_arch of entity xil_defaultlib.main_CU_ImmediateManipula_0_0 [main_cu_immediatemanipula_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.FlagUnpacker [flagunpacker_default]
-Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController [cu_jumpcontroller_default]
-Compiling architecture main_cu_jumpcontroller_0_0_arch of entity xil_defaultlib.main_CU_JumpController_0_0 [main_cu_jumpcontroller_0_0_defau...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector [cu_jumpdestinationselector_defau...]
-Compiling architecture main_cu_jumpdestinationse_0_0_arch of entity xil_defaultlib.main_CU_JumpDestinationSe_0_0 [main_cu_jumpdestinationse_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController [cu_ramaddresscontroller_default]
-Compiling architecture main_cu_ramaddresscontrol_0_0_arch of entity xil_defaultlib.main_CU_RAMAddressControl_0_0 [main_cu_ramaddresscontrol_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
-Compiling architecture main_cu_writeselector_0_0_arch of entity xil_defaultlib.main_CU_WriteSelector_0_0 [main_cu_writeselector_0_0_defaul...]
-Compiling architecture behavioral of entity xil_defaultlib.ClockDisabler [clockdisabler_default]
-Compiling architecture main_clockdisabler_0_0_arch of entity xil_defaultlib.main_ClockDisabler_0_0 [main_clockdisabler_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
-Compiling architecture main_debugger_0_0_arch of entity xil_defaultlib.main_Debugger_0_0 [main_debugger_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.Decoder [decoder_default]
-Compiling architecture main_decoder_0_0_arch of entity xil_defaultlib.main_Decoder_0_0 [main_decoder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.IROM [irom_default]
-Compiling architecture main_irom_0_1_arch of entity xil_defaultlib.main_IROM_0_1 [main_irom_0_1_default]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Controller [pipelining_controller_default]
-Compiling architecture main_pipelining_controller_0_0_arch of entity xil_defaultlib.main_Pipelining_Controller_0_0 [main_pipelining_controller_0_0_d...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_ExecutionStage [pipelining_executionstage_defaul...]
-Compiling architecture main_pipelining_execution_0_0_arch of entity xil_defaultlib.main_Pipelining_Execution_0_0 [main_pipelining_execution_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Forwarder [pipelining_forwarder_default]
-Compiling architecture main_pipelining_forwarder_0_0_arch of entity xil_defaultlib.main_Pipelining_Forwarder_0_0 [main_pipelining_forwarder_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.Pipelining_WriteBackStage [pipelining_writebackstage_defaul...]
-Compiling architecture main_pipelining_writeback_0_0_arch of entity xil_defaultlib.main_Pipelining_WriteBack_0_0 [main_pipelining_writeback_0_0_de...]
-Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
-Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
-Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
-Compiling architecture main_rx_uart_0_0_arch of entity xil_defaultlib.main_RX_UART_0_0 [main_rx_uart_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]
-Compiling architecture main_regfile_0_0_arch of entity xil_defaultlib.main_RegFile_0_0 [main_regfile_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
-Compiling architecture main_tx_uart_0_0_arch of entity xil_defaultlib.main_TX_UART_0_0 [main_tx_uart_0_0_default]
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.main_clk_wiz_0_0_clk_wiz
-Compiling module xil_defaultlib.main_clk_wiz_0_0
-Compiling architecture structure of entity xil_defaultlib.main [main_default]
-Compiling architecture structure of entity xil_defaultlib.main_wrapper [main_wrapper_default]
-Compiling architecture behavioral of entity xil_defaultlib.mainsim
-Built simulation snapshot mainSim_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1929.801 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "mainSim_behav -key {Behavioral:sim_1:Functional:mainSim} -tclbatch {mainSim.tcl} -protoinst "protoinst_files/main.protoinst" -view {C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
-Time resolution is 1 ps
-open_wave_config C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg
-WARNING: Simulation object /mainSim/InstrExec_CLK was not found in the design.
-WARNING: Simulation object /mainSim/EUT/main_i/InstrExec_CLK was not found in the design.
-WARNING: Simulation object /mainSim/EUT/main_i/InstrLoad_CLK was not found in the design.
-WARNING: Simulation object /mainSim/InstrLoad_CLK was not found in the design.
-source mainSim.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'mainSim_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:13 . Memory (MB): peak = 1938.020 ; gain = 20.742
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp with file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.dcp
+launch_runs synth_1 -jobs 18
+[Tue Nov 19 10:50:50 2024] Launched synth_1...
+Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
 update_module_reference main_Debugger_0_0
 INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sync_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sys_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
 WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
 WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sync_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sys_clk': FREQ_HZ bus parameter is missing for output clock interface.
 INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sync_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sys_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
 WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
 WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sync_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sys_clk': FREQ_HZ bus parameter is missing for output clock interface.
 Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
 INFO: [IP_Flow 19-3420] Updated main_Debugger_0_0 to use current project options
-WARNING: [IP_Flow 19-4700] Upgrade has removed port 'cc_reset'
-WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'main_Debugger_0_0'. These changes may impact your design.
-CRITICAL WARNING: [BD 41-1167] The pin 'cc_reset' is not found on the upgraded version of the cell '/Debugger_0'. Its connection to the net 'Debugger_0_cc_reset' has been removed.
-CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'main_Debugger_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
-WARNING: [BD 41-597] NET <Debugger_0_cc_reset> has no source
 Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
-update_module_reference: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1938.020 ; gain = 0.000
-delete_bd_objs [get_bd_nets Debugger_0_cc_reset]
-connect_bd_net [get_bd_ports Reset] [get_bd_pins clk_wiz_0/reset]
-save_bd_design
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
 reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
 export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
-INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
-INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
-startgroup
-set_property -dict [list \
-  CONFIG.CLKOUT1_JITTER {130.958} \
-  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {100.000} \
-  CONFIG.CLKOUT2_JITTER {130.958} \
-  CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {100.000} \
-  CONFIG.MMCM_CLKOUT0_DIVIDE_F {10.000} \
-  CONFIG.MMCM_CLKOUT1_DIVIDE {10} \
-] [get_bd_cells clk_wiz_0]
-endgroup
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'mmu_debug_overwrite_enable' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:63]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'mmu_debug_overwrite_enable' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:63]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'is' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:63]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'is' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:63]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'is' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:61]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'is' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:61]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'end' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:120]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'else' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:123]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'if' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:125]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'process' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:212]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'end' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:120]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'else' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:123]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'if' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:125]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'process' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:212]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'else' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:112]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'if' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:114]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'process' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:209]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'else' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:112]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'if' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:114]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'process' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:209]
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'ProcessCommand' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:74]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'ProcessCommand' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:74]
-CRITICAL WARNING: [HDL 9-1206] Syntax error near 'when' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:185]
-save_bd_design
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+CRITICAL WARNING: [BD 41-1348] Reset pin /ProgramCounter_0/Reset (associated clock /ProgramCounter_0/InstrExec_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrExec_CLK_out.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrLoad_CLK_out.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/Pipelining_Execution_0/Reset
+/Debugger_0/mmu_debug_dout
+
 Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
 Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
-exit
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 18 22:23:29 2024...
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ProgramCounter_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RegFile_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Forwarder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Execution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_RAMAddressControl_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_ImmediateManipula_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpDestinationSe_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpController_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_WriteSelector_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_WriteBack_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block IROM_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RAM_Placeholder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_FLAG_PACKER_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block TX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Debugger_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ClockDisabler_0 .
+Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
+Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
+generate_target: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 1986.941 ; gain = 0.000
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs synth_1 -jobs 18
+[Tue Nov 19 10:53:09 2024] Launched synth_1...
+Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 18
+[Tue Nov 19 10:55:25 2024] Launched impl_1...
+Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35ticsg324-1L
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 2126.875 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Finished Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc:54]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc:54]
+Finished Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+Finished Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2808.945 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+open_run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:17 . Memory (MB): peak = 2819.203 ; gain = 832.262
+close_design
+close_bd_design [get_bd_designs main]
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 2849.059 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 2849.059 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2859.531 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2859.531 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.098 . Memory (MB): peak = 2859.531 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2859.531 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 2859.531 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.206 . Memory (MB): peak = 2859.531 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.207 . Memory (MB): peak = 2859.531 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2859.531 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+open_run: Time (s): cpu = 00:00:04 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.688 ; gain = 42.629
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+close_design
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.095 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.164 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.165 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+open_run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:15 . Memory (MB): peak = 4202.418 ; gain = 0.000
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35ticsg324-1L
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Finished Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc:54]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc:54]
+Finished Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+Finished Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+close_design
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35ticsg324-1L
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Finished Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc:54]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc:54]
+Finished Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+Finished Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+open_run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:14 . Memory (MB): peak = 4202.418 ; gain = 0.000
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.109 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.171 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.171 . Memory (MB): peak = 4202.418 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4202.418 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+close_design
+close_design
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.092 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+open_run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 5105.676 ; gain = 0.000
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+set_property report_strategy {Timing Closure Reports} [get_runs impl_1]
+close_design
+reset_run impl_1
+launch_runs impl_1 -jobs 18
+[Tue Nov 19 13:23:45 2024] Launched impl_1...
+Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+open_run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 5105.676 ; gain = 0.000
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+set_property strategy Performance_NetDelay_low [get_runs impl_1]
+set_property STEPS.WRITE_BITSTREAM.ARGS.BIN_FILE true [get_runs impl_1]
+set_property report_strategy {Vivado Implementation Default Reports} [get_runs impl_1]
+reset_run impl_1
+launch_runs impl_1 -jobs 18
+[Tue Nov 19 13:27:43 2024] Launched impl_1...
+Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
+close_design
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 5105.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5105.676 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 16 instances
+
+open_run: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 5105.676 ; gain = 0.000
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+set_property strategy Flow_RuntimeOptimized [get_runs impl_1]
+set_property STEPS.WRITE_BITSTREAM.ARGS.BIN_FILE true [get_runs impl_1]
+close_design
+reset_run impl_1
+launch_runs impl_1 -jobs 18
+[Tue Nov 19 14:07:33 2024] Launched impl_1...
+Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log

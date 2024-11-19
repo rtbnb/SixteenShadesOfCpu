@@ -1,26 +1,17 @@
-+================================+==================================+========================================================+
-| Launch Setup Clock             | Launch Hold Clock                | Pin                                                    |
-+================================+==================================+========================================================+
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrLoad_CLK_main_clk_wiz_0_0   | main_i/Pipelining_Execution_0/U0/operand1_s_reg[10]/D  |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrLoad_CLK_main_clk_wiz_0_0   | main_i/Pipelining_WriteBack_0/U0/write_data_s_reg[9]/D |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[13]/D         |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[14]/D         |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[15]/D         |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[9]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[10]/D         |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[11]/D         |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[12]/D         |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[5]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[8]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[6]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[7]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[4]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrLoad_CLK_main_clk_wiz_0_0   | main_i/Pipelining_WriteBack_0/U0/write_data_s_reg[0]/D |
-| InstrExec_CLK_main_clk_wiz_0_0 | Debug_CLK100MHZ_main_clk_wiz_0_0 | main_i/Debugger_0/U0/tx_data_buffer_reg[12]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[2]/D          |
-| InstrExec_CLK_main_clk_wiz_0_0 | Debug_CLK100MHZ_main_clk_wiz_0_0 | main_i/Debugger_0/U0/tx_data_buffer_reg[4]/D           |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[3]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/ProgramCounter_0/U0/InstrAddr_reg[1]/D          |
-| InstrLoad_CLK_main_clk_wiz_0_0 | Debug_CLK100MHZ_main_clk_wiz_0_0 | main_i/Debugger_0/U0/tx_instruction_buffer_reg[0]/D    |
-| InstrLoad_CLK_main_clk_wiz_0_0 | InstrExec_CLK_main_clk_wiz_0_0   | main_i/Pipelining_Controller_0/U0/stalled_s_reg/D      |
-+--------------------------------+----------------------------------+--------------------------------------------------------+
++==================================+==================================+================================================+
+| Launch Setup Clock               | Launch Hold Clock                | Pin                                            |
++==================================+==================================+================================================+
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[12]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[15]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[9]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[10]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[4]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[5]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[8]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[3]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[7]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[14]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[13]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[6]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[11]/D |
++----------------------------------+----------------------------------+------------------------------------------------+
