@@ -122,6 +122,7 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.runs/synth_1/ALU.dcp
 OPTRACE "read constraints: implementation" START { }
+  read_xdc D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/constrs_1/new/Const.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }
