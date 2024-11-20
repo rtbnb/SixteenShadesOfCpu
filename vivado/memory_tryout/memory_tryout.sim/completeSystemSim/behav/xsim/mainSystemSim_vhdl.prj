@@ -1,9 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../memory_tryout.srcs/sources_1/new/main.vhd" \
-"../../../../memory_tryout.ip_user_files/bd/main_block/ip/main_block_main_0_0/sim/main_block_main_0_0.vhd" \
-"../../../../memory_tryout.ip_user_files/bd/main_block/sim/main_block.vhd" \
-"../../../../memory_tryout.srcs/completeSystemSim/new/mainSystemSim.vhd" \
-
-# Do not sort compile order
-nosort

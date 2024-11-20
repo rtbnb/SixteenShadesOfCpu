@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../memory_tryout.srcs/sources_1/new/main.vhd" \
-"../../../../memory_tryout.srcs/memTestSim/new/initMemTestSim.vhd" \
-
-# Do not sort compile order
-nosort
