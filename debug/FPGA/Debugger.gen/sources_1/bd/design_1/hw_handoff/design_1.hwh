@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Nov 17 18:55:48 2024" VIVADOVERSION="2024.1">
+
+  <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="design_1" PACKAGE="csg324" SPEEDGRADE="-1L"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="CLK100MHZ" SIGIS="undef" SIGNAME="External_Ports_CLK100MHZ">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="RX_UART_0" PORT="clk"/>
+        <CONNECTION INSTANCE="TX_UART_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Debugger_0" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rx_data_in" SIGIS="undef" SIGNAME="External_Ports_rx_data_in">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="RX_UART_0" PORT="rx_serial_input"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_data_out" SIGIS="undef" SIGNAME="TX_UART_0_tx_output">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="TX_UART_0" PORT="tx_output"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/Debugger_0" HWVERSION="1.0" INSTANCE="Debugger_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Debugger" VLNV="xilinx.com:module_ref:Debugger:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_Debugger_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_CLK100MHZ">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="CLK100MHZ"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="rx_data" RIGHT="0" SIGIS="undef" SIGNAME="RX_UART_0_data_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RX_UART_0" PORT="data_output"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_data_valid" SIGIS="undef" SIGNAME="RX_UART_0_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RX_UART_0" PORT="data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="tx_data" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_tx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="data_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="tx_data_sended" SIGIS="undef" SIGNAME="TX_UART_0_send_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="send_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_data_valid" SIGIS="undef" SIGNAME="Debugger_0_tx_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/RX_UART_0" HWVERSION="1.0" INSTANCE="RX_UART_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RX_UART" VLNV="xilinx.com:module_ref:RX_UART:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLKS_PER_BIT" VALUE="109"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_RX_UART_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_CLK100MHZ">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="CLK100MHZ"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="data_output" RIGHT="0" SIGIS="undef" SIGNAME="RX_UART_0_data_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="rx_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="data_valid" SIGIS="undef" SIGNAME="RX_UART_0_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="rx_data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_serial_input" SIGIS="undef" SIGNAME="External_Ports_rx_data_in">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_data_in"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/TX_UART_0" HWVERSION="1.0" INSTANCE="TX_UART_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="TX_UART" VLNV="xilinx.com:module_ref:TX_UART:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLKS_PER_BIT" VALUE="109"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_TX_UART_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_CLK100MHZ">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="CLK100MHZ"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="data_in" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_tx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="data_valid" SIGIS="undef" SIGNAME="Debugger_0_tx_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="send_valid" SIGIS="undef" SIGNAME="TX_UART_0_send_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data_sended"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_output" SIGIS="undef" SIGNAME="TX_UART_0_tx_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_data_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="mainSim_time_impl.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="mainSim" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="332.401 ns"></ZoomEndTime>
+      <Cursor1Time time="20.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="182"></NameColumnWidth>
+      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="35" />
+   <wvobject fp_name="/mainSim/InstrExec_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrExec_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrExec_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/InstrExec_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrExec_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrExec_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/InstrLoad_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrLoad_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrLoad_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/InstrLoad_CLK" type="logic">
+      <obj_property name="ElementShortName">InstrLoad_CLK</obj_property>
+      <obj_property name="ObjectShortName">InstrLoad_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/ProgramCounter_0/Dout" type="array">
+      <obj_property name="ElementShortName">Dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/InstructionToExecute" type="array">
+      <obj_property name="ElementShortName">InstructionToExecute[15:0]</obj_property>
+      <obj_property name="ObjectShortName">InstructionToExecute[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Controller_0/U0/InstructionForwardConfiguration" type="array">
+      <obj_property name="ElementShortName">InstructionForwardConfiguration[4:0]</obj_property>
+      <obj_property name="ObjectShortName">InstructionForwardConfiguration[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/CU_WriteSelector_0/U0/Write_Data" type="array">
+      <obj_property name="ElementShortName">Write_Data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Write_Data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/ALU_0/ALU_OUT" type="array">
+      <obj_property name="ElementShortName">ALU_OUT[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OUT[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Forwarder_0/ForwardedOperand1" type="array">
+      <obj_property name="ElementShortName">ForwardedOperand1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ForwardedOperand1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/Pipelining_Forwarder_0/ForwardedOperand2" type="array">
+      <obj_property name="ElementShortName">ForwardedOperand2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ForwardedOperand2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/WriteData" type="array">
+      <obj_property name="ElementShortName">WriteData[15:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteData[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/AddrWriteReg" type="array">
+      <obj_property name="ElementShortName">AddrWriteReg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AddrWriteReg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/WE" type="logic">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg0" type="array">
+      <obj_property name="ElementShortName">Reg0[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg0[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg1" type="array">
+      <obj_property name="ElementShortName">Reg1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg2" type="array">
+      <obj_property name="ElementShortName">Reg2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg3" type="array">
+      <obj_property name="ElementShortName">Reg3[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg3[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg4" type="array">
+      <obj_property name="ElementShortName">Reg4[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg4[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg5" type="array">
+      <obj_property name="ElementShortName">Reg5[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg5[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg6" type="array">
+      <obj_property name="ElementShortName">Reg6[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg6[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg7" type="array">
+      <obj_property name="ElementShortName">Reg7[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg7[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg8" type="array">
+      <obj_property name="ElementShortName">Reg8[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg8[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/Reg9" type="array">
+      <obj_property name="ElementShortName">Reg9[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg9[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegA" type="logic">
+      <obj_property name="ElementShortName">RegA</obj_property>
+      <obj_property name="ObjectShortName">RegA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegB" type="array">
+      <obj_property name="ElementShortName">RegB[15:4]</obj_property>
+      <obj_property name="ObjectShortName">RegB[15:4]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegC" type="array">
+      <obj_property name="ElementShortName">RegC[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegC[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegD" type="array">
+      <obj_property name="ElementShortName">RegD[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegD[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegE" type="array">
+      <obj_property name="ElementShortName">RegE[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegE[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/U0/RegF" type="array">
+      <obj_property name="ElementShortName">RegF[6:0]</obj_property>
+      <obj_property name="ObjectShortName">RegF[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/WE" type="logic">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/AddrWriteReg" type="array">
+      <obj_property name="ElementShortName">AddrWriteReg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AddrWriteReg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_i/RegFile_0/WriteData" type="array">
+      <obj_property name="ElementShortName">WriteData[15:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteData[15:0]</obj_property>
+   </wvobject>
+</wave_config>

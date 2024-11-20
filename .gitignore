@@ -10,3 +10,8 @@ vivado/**/README.txt
 vivado/*/*.sim/*/synth/func/xsim/xsim.dir/*
 vivado/*/*.sim/*/impl/func/xsim/xsim.dir/*
 vivado/*/*.sim/*/behav/xsim/xsim.dir/*_behav/*
+*/**/*.pb
+**/~*.xlsx
+
+# debug
+debug/Host/.venv/

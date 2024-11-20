@@ -1,0 +1,1441 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Mon Nov 18 14:38:49 2024
+# Process ID: 24048
+# Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent26528 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/vivado.log
+# Journal file: C:/Development/SixteenShadesOfCpu/vivado/Integration\vivado.jou
+# Running On        :BOOK-69BD3QPCMV
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :Intel(R) Core(TM) Ultra 5 125H
+# CPU Frequency     :2995 MHz
+# CPU Physical cores:14
+# CPU Logical cores :18
+# Host memory       :16739 MB
+# Swap memory       :6442 MB
+# Total Virtual     :23182 MB
+# Available Virtual :10811 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.6/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.7/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu116/1.4/board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.5 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu116/1.5/board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu1500/1.2/board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/2.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.3 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.3/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.6/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.7/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu110/1.4/board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.0/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.3/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.4/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu128:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu128/production/1.0/board.xml as part xcvu37p-fsvh2892-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu129/production/1.0/board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu1525/1.3/board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/production/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/production/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/production/1.2/board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.2/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zc706/1.4/board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.3/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.4/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1548.629 ; gain = 458.309
+update_compile_order -fileset sources_1
+open_bd_design {C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+Reading block design file <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd>...
+Adding component instance block -- xilinx.com:module_ref:Pipelining_Controller:1.0 - Pipelining_Controller_0
+Adding component instance block -- xilinx.com:module_ref:ProgramCounter:1.0 - ProgramCounter_0
+Adding component instance block -- xilinx.com:module_ref:CU_Decoder:1.0 - CU_Decoder_0
+Adding component instance block -- xilinx.com:module_ref:Decoder:1.0 - Decoder_0
+Adding component instance block -- xilinx.com:module_ref:RegFile:1.0 - RegFile_0
+Adding component instance block -- xilinx.com:module_ref:Pipelining_Forwarder:1.0 - Pipelining_Forwarder_0
+Adding component instance block -- xilinx.com:module_ref:Pipelining_ExecutionStage:1.0 - Pipelining_Execution_0
+Adding component instance block -- xilinx.com:module_ref:CU_RAMAddressController:1.0 - CU_RAMAddressControl_0
+Adding component instance block -- xilinx.com:module_ref:ALU:1.0 - ALU_0
+Adding component instance block -- xilinx.com:module_ref:CU_ImmediateManipulator:1.0 - CU_ImmediateManipula_0
+Adding component instance block -- xilinx.com:module_ref:CU_JumpDestinationSelector:1.0 - CU_JumpDestinationSe_0
+Adding component instance block -- xilinx.com:module_ref:CU_JumpController:1.0 - CU_JumpController_0
+Adding component instance block -- xilinx.com:module_ref:CU_WriteSelector:1.0 - CU_WriteSelector_0
+Adding component instance block -- xilinx.com:module_ref:Pipelining_WriteBackStage:1.0 - Pipelining_WriteBack_0
+Adding component instance block -- xilinx.com:module_ref:IROM:1.0 - IROM_0
+Adding component instance block -- xilinx.com:module_ref:RAM_Placeholder:1.0 - RAM_Placeholder_0
+Adding component instance block -- xilinx.com:module_ref:ALU_FLAG_PACKER:1.0 - ALU_FLAG_PACKER_0
+Adding component instance block -- xilinx.com:module_ref:RX_UART:1.0 - RX_UART_0
+Adding component instance block -- xilinx.com:module_ref:TX_UART:1.0 - TX_UART_0
+Adding component instance block -- xilinx.com:module_ref:Debugger:1.0 - Debugger_0
+Successfully read diagram <main> from block design file <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd>
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ':' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:46]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near ':' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:46]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'when' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:119]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'when' [C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:119]
+update_module_reference main_Debugger_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
+INFO: [IP_Flow 19-3420] Updated main_Debugger_0_0 to use current project options
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'debug_clk_100mhz'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'pc_current_addr'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'main_Debugger_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'main_Debugger_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+WARNING: [BD 41-597] NET <Net> has no source
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
+create_bd_cell: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 2096.781 ; gain = 0.000
+endgroup
+set_property -dict [list \
+  CONFIG.CLKIN2_JITTER_PS {166.66} \
+  CONFIG.CLKOUT1_JITTER {114.829} \
+  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {200.000} \
+  CONFIG.CLKOUT2_JITTER {114.829} \
+  CONFIG.CLKOUT2_PHASE_ERROR {98.575} \
+  CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {200.000} \
+  CONFIG.CLKOUT2_REQUESTED_PHASE {90.000} \
+  CONFIG.CLKOUT2_USED {true} \
+  CONFIG.MMCM_CLKIN2_PERIOD {16.666} \
+  CONFIG.MMCM_CLKOUT0_DIVIDE_F {5.000} \
+  CONFIG.MMCM_CLKOUT1_DIVIDE {5} \
+  CONFIG.MMCM_CLKOUT1_PHASE {90.000} \
+  CONFIG.NUM_OUT_CLKS {2} \
+  CONFIG.RESET_PORT {resetn} \
+  CONFIG.RESET_TYPE {ACTIVE_LOW} \
+  CONFIG.SECONDARY_SOURCE {Single_ended_clock_capable_pin} \
+  CONFIG.USE_INCLK_SWITCHOVER {false} \
+] [get_bd_cells clk_wiz_0]
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'MMCM_CLKIN2_PERIOD' from '10.000' to '16.666' has been ignored for IP 'clk_wiz_0'
+delete_bd_objs [get_bd_nets InstrExec_CLK_1]
+connect_bd_net [get_bd_pins ProgramCounter_0/InstrExec_CLK] [get_bd_pins clk_wiz_0/clk_out1]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins Pipelining_Controller_0/InstrExec_CLK]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins RegFile_0/clk]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins RAM_Placeholder_0/CLK]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins CU_JumpController_0/InstrExec_CLK]
+delete_bd_objs [get_bd_nets InstrLoad_CLK_1]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins Pipelining_Controller_0/InstrLoad_CLK]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins Pipelining_Execution_0/InstrLoad_CLK]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins Pipelining_WriteBack_0/InstrLoad_CLK]
+set_property NAME InstrExec_CLK [get_bd_pins /clk_wiz_0/clk_out2]
+WARNING: [BD 41-1642] Cannot set the parameter 'NAME' on '/clk_wiz_0/clk_out2' - Parameter does not exist. 
+startgroup
+set_property -dict [list \
+  CONFIG.CLK_OUT1_PORT {InstrLoad_CLK} \
+  CONFIG.CLK_OUT2_PORT {InstrExec_CLK} \
+] [get_bd_cells clk_wiz_0]
+endgroup
+set_property -dict [list \
+  CONFIG.CLK_OUT1_PORT {InstrExec_CLK} \
+  CONFIG.CLK_OUT2_PORT {InstrLoad_CLK} \
+] [get_bd_cells clk_wiz_0]
+connect_bd_net [get_bd_pins clk_wiz_0/InstrLoad_CLK] [get_bd_pins Pipelining_Controller_0/InstrLoad_CLK]
+connect_bd_net [get_bd_pins clk_wiz_0/InstrExec_CLK] [get_bd_pins ProgramCounter_0/InstrExec_CLK]
+delete_bd_objs [get_bd_ports InstrExec_CLK]
+delete_bd_objs [get_bd_ports InstrLoad_CLK]
+connect_bd_net [get_bd_ports Reset] [get_bd_pins clk_wiz_0/resetn]
+create_bd_port -dir I CLK100MHZ
+connect_bd_net [get_bd_ports CLK100MHZ] [get_bd_pins clk_wiz_0/clk_in1]
+connect_bd_net [get_bd_ports CLK100MHZ] [get_bd_pins Debugger_0/clk]
+connect_bd_net [get_bd_pins Debugger_0/pc_current_addr] [get_bd_pins ProgramCounter_0/Dout]
+close [ open C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/ClockDisabler.vhd w ]
+add_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/ClockDisabler.vhd
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+save_bd_design
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+create_bd_cell -type module -reference ClockDisabler ClockDisabler_0
+WARNING: [IP_Flow 19-3571] IP 'main_ClockDisabler_0_0' is restricted:
+* Detected changes to module reference file(s).
+save_bd_design
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+update_module_reference main_Debugger_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
+INFO: [IP_Flow 19-3420] Updated main_Debugger_0_0 to use current project options
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'debug_clk_100mhz'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'debug_clk_stop_LOW_ACTIVE'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'main_Debugger_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'main_Debugger_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+connect_bd_net [get_bd_pins Debugger_0/debug_clk_stop_LOW_ACTIVE] [get_bd_pins ClockDisabler_0/debug_EN_LOW_ACTIVE]
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_out2]
+connect_bd_net [get_bd_pins clk_wiz_0/InstrLoad_CLK] [get_bd_pins ClockDisabler_0/InstrLoad_CLK_in]
+connect_bd_net [get_bd_pins ClockDisabler_0/InstrLoad_CLK_out] [get_bd_pins Pipelining_Controller_0/InstrLoad_CLK]
+connect_bd_net [get_bd_pins ClockDisabler_0/InstrLoad_CLK_out] [get_bd_pins Pipelining_Execution_0/InstrLoad_CLK]
+connect_bd_net [get_bd_pins ClockDisabler_0/InstrLoad_CLK_out] [get_bd_pins Pipelining_WriteBack_0/InstrLoad_CLK]
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_out1]
+connect_bd_net [get_bd_pins clk_wiz_0/InstrExec_CLK] [get_bd_pins ClockDisabler_0/InstrExec_CLK_in]
+connect_bd_net [get_bd_pins ClockDisabler_0/InstrExec_CLK_out] [get_bd_pins ProgramCounter_0/InstrExec_CLK]
+connect_bd_net [get_bd_pins ClockDisabler_0/InstrExec_CLK_out] [get_bd_pins Pipelining_Controller_0/InstrExec_CLK]
+connect_bd_net [get_bd_pins ClockDisabler_0/InstrExec_CLK_out] [get_bd_pins RegFile_0/clk]
+connect_bd_net [get_bd_pins ClockDisabler_0/InstrExec_CLK_out] [get_bd_pins CU_JumpController_0/InstrExec_CLK]
+connect_bd_net [get_bd_pins ClockDisabler_0/InstrExec_CLK_out] [get_bd_pins RAM_Placeholder_0/CLK]
+set_property location {2 314 -531} [get_bd_cells ClockDisabler_0]
+set_property location {2 200 -558} [get_bd_cells ClockDisabler_0]
+set_property location {3 658 -401} [get_bd_cells TX_UART_0]
+set_property location {3 672 -392} [get_bd_cells TX_UART_0]
+set_property location {1 -201 -571} [get_bd_cells clk_wiz_0]
+set_property location {1 -187 -603} [get_bd_cells clk_wiz_0]
+set_property location {1 -199 -579} [get_bd_cells clk_wiz_0]
+set_property location {1 -201 -594} [get_bd_cells clk_wiz_0]
+set_property location {1 -206 -597} [get_bd_cells clk_wiz_0]
+set_property location {1 -203 -377} [get_bd_cells RX_UART_0]
+set_property location {-410 -372} [get_bd_ports RX_UART_IN]
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+CRITICAL WARNING: [BD 41-1348] Reset pin /ProgramCounter_0/Reset (associated clock /ProgramCounter_0/InstrExec_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrExec_CLK_out.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrLoad_CLK_out.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrLoad_CLK_out.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ProgramCounter_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RegFile_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Forwarder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Execution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_RAMAddressControl_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_ImmediateManipula_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpDestinationSe_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpController_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_WriteSelector_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_WriteBack_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block IROM_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RAM_Placeholder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_FLAG_PACKER_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block TX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Debugger_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ClockDisabler_0 .
+Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
+Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-12490] The selected simulation model for 'main_ClockDisabler_0_0' IP changed to 'rtl' from '', the simulation run directory will be deleted.
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2024.1/data/xsim/xsim.ini' copied to run dir:'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'mainSim' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj mainSim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+"xvhdl --incr --relax -prj mainSim_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CU_Decoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Decoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Pipelining_Controller'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/ProgramCounter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ProgramCounter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RegFile'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Pipelining_Forwarder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Pipelining_ExecutionStage'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CU_RAMAddressController'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ALU'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CU_ImmediateManipulator'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CU_JumpDestinationSelector'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/FlagUnpacker.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'FlagUnpacker'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CU_JumpController'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CU_WriteSelector'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_WriteBackStage.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Pipelining_WriteBackStage'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/new/IROM.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'IROM'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/new/RAM_Placeholder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RAM_Placeholder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU_FLAG_PACKER.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ALU_FLAG_PACKER'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RX_UART'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'TX_UART'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Debugger'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/ClockDisabler.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ClockDisabler'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Controller_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ProgramCounter_0_0/sim/main_ProgramCounter_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ProgramCounter_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_Decoder_0_0/sim/main_CU_Decoder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_Decoder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Decoder_0_0/sim/main_Decoder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Decoder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RegFile_0_0/sim/main_RegFile_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RegFile_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Forwarder_0_0/sim/main_Pipelining_Forwarder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Forwarder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Execution_0_0/sim/main_Pipelining_Execution_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Execution_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_RAMAddressControl_0_0/sim/main_CU_RAMAddressControl_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_RAMAddressControl_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_0_0/sim/main_ALU_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ALU_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_ImmediateManipula_0_0/sim/main_CU_ImmediateManipula_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_ImmediateManipula_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpDestinationSe_0_0/sim/main_CU_JumpDestinationSe_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpDestinationSe_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpController_0_0/sim/main_CU_JumpController_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpController_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_WriteSelector_0_0/sim/main_CU_WriteSelector_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_WriteSelector_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_WriteBack_0_0/sim/main_Pipelining_WriteBack_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_WriteBack_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_IROM_0_1/sim/main_IROM_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_IROM_0_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RAM_Placeholder_0_0/sim/main_RAM_Placeholder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RAM_Placeholder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_FLAG_PACKER_0_1/sim/main_ALU_FLAG_PACKER_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ALU_FLAG_PACKER_0_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RX_UART_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_TX_UART_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Debugger_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ClockDisabler_0_0/sim/main_ClockDisabler_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ClockDisabler_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/sim/main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_wrapper'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sim_1/new/mainSim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mainSim'
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 2185.922 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '8' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
+Compiling architecture main_alu_0_0_arch of entity xil_defaultlib.main_ALU_0_0 [main_alu_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.ALU_FLAG_PACKER [alu_flag_packer_default]
+Compiling architecture main_alu_flag_packer_0_1_arch of entity xil_defaultlib.main_ALU_FLAG_PACKER_0_1 [main_alu_flag_packer_0_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder [cu_decoder_default]
+Compiling architecture main_cu_decoder_0_0_arch of entity xil_defaultlib.main_CU_Decoder_0_0 [main_cu_decoder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator [cu_immediatemanipulator_default]
+Compiling architecture main_cu_immediatemanipula_0_0_arch of entity xil_defaultlib.main_CU_ImmediateManipula_0_0 [main_cu_immediatemanipula_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.FlagUnpacker [flagunpacker_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController [cu_jumpcontroller_default]
+Compiling architecture main_cu_jumpcontroller_0_0_arch of entity xil_defaultlib.main_CU_JumpController_0_0 [main_cu_jumpcontroller_0_0_defau...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector [cu_jumpdestinationselector_defau...]
+Compiling architecture main_cu_jumpdestinationse_0_0_arch of entity xil_defaultlib.main_CU_JumpDestinationSe_0_0 [main_cu_jumpdestinationse_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController [cu_ramaddresscontroller_default]
+Compiling architecture main_cu_ramaddresscontrol_0_0_arch of entity xil_defaultlib.main_CU_RAMAddressControl_0_0 [main_cu_ramaddresscontrol_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
+Compiling architecture main_cu_writeselector_0_0_arch of entity xil_defaultlib.main_CU_WriteSelector_0_0 [main_cu_writeselector_0_0_defaul...]
+Compiling architecture behavioral of entity xil_defaultlib.ClockDisabler [clockdisabler_default]
+Compiling architecture main_clockdisabler_0_0_arch of entity xil_defaultlib.main_ClockDisabler_0_0 [main_clockdisabler_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
+Compiling architecture main_debugger_0_0_arch of entity xil_defaultlib.main_Debugger_0_0 [main_debugger_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Decoder [decoder_default]
+Compiling architecture main_decoder_0_0_arch of entity xil_defaultlib.main_Decoder_0_0 [main_decoder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.IROM [irom_default]
+Compiling architecture main_irom_0_1_arch of entity xil_defaultlib.main_IROM_0_1 [main_irom_0_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Controller [pipelining_controller_default]
+Compiling architecture main_pipelining_controller_0_0_arch of entity xil_defaultlib.main_Pipelining_Controller_0_0 [main_pipelining_controller_0_0_d...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_ExecutionStage [pipelining_executionstage_defaul...]
+Compiling architecture main_pipelining_execution_0_0_arch of entity xil_defaultlib.main_Pipelining_Execution_0_0 [main_pipelining_execution_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Forwarder [pipelining_forwarder_default]
+Compiling architecture main_pipelining_forwarder_0_0_arch of entity xil_defaultlib.main_Pipelining_Forwarder_0_0 [main_pipelining_forwarder_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_WriteBackStage [pipelining_writebackstage_defaul...]
+Compiling architecture main_pipelining_writeback_0_0_arch of entity xil_defaultlib.main_Pipelining_WriteBack_0_0 [main_pipelining_writeback_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
+Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
+Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
+Compiling architecture main_rx_uart_0_0_arch of entity xil_defaultlib.main_RX_UART_0_0 [main_rx_uart_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]
+Compiling architecture main_regfile_0_0_arch of entity xil_defaultlib.main_RegFile_0_0 [main_regfile_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
+Compiling architecture main_tx_uart_0_0_arch of entity xil_defaultlib.main_TX_UART_0_0 [main_tx_uart_0_0_default]
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.main_clk_wiz_0_0_clk_wiz
+Compiling module xil_defaultlib.main_clk_wiz_0_0
+Compiling architecture structure of entity xil_defaultlib.main [main_default]
+Compiling architecture structure of entity xil_defaultlib.main_wrapper [main_wrapper_default]
+Compiling architecture behavioral of entity xil_defaultlib.mainsim
+Built simulation snapshot mainSim_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 2185.922 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "mainSim_behav -key {Behavioral:sim_1:Functional:mainSim} -tclbatch {mainSim.tcl} -protoinst "protoinst_files/main.protoinst" -view {C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
+Time resolution is 1 ps
+open_wave_config C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg
+WARNING: Simulation object /mainSim/InstrExec_CLK was not found in the design.
+WARNING: Simulation object /mainSim/EUT/main_i/InstrExec_CLK was not found in the design.
+WARNING: Simulation object /mainSim/EUT/main_i/InstrLoad_CLK was not found in the design.
+WARNING: Simulation object /mainSim/InstrLoad_CLK was not found in the design.
+source mainSim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'mainSim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 2266.012 ; gain = 80.090
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/CLK100MHZ}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/clk_wiz_0/InstrLoad_CLK}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/clk_wiz_0/InstrExec_CLK}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/clk_wiz_0/clk_in1}} 
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2024.1/data/xsim/xsim.ini' copied to run dir:'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'mainSim' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj mainSim_vlog.prj"
+"xvhdl --incr --relax -prj mainSim_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 2266.012 ; gain = 0.000
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/Reset}} 
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+startgroup
+set_property -dict [list \
+  CONFIG.RESET_PORT {reset} \
+  CONFIG.RESET_TYPE {ACTIVE_HIGH} \
+] [get_bd_cells clk_wiz_0]
+WARNING: [BD 41-1684] Pin /clk_wiz_0/resetn is now disabled. All connections to this pin have been removed. 
+endgroup
+connect_bd_net [get_bd_ports Reset] [get_bd_pins clk_wiz_0/reset]
+set_property -dict [list CONFIG.POLARITY ACTIVE_HIGH] [get_bd_ports Reset]
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+CRITICAL WARNING: [BD 41-1348] Reset pin /ProgramCounter_0/Reset (associated clock /ProgramCounter_0/InstrExec_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrExec_CLK_out.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrLoad_CLK_out.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrLoad_CLK_out.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ProgramCounter_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RegFile_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Forwarder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Execution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_RAMAddressControl_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_ImmediateManipula_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpDestinationSe_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpController_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_WriteSelector_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_WriteBack_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block IROM_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RAM_Placeholder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_FLAG_PACKER_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block TX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Debugger_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ClockDisabler_0 .
+Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
+Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2024.1/data/xsim/xsim.ini' copied to run dir:'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'mainSim' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj mainSim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0
+"xvhdl --incr --relax -prj mainSim_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Controller_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ProgramCounter_0_0/sim/main_ProgramCounter_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ProgramCounter_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_Decoder_0_0/sim/main_CU_Decoder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_Decoder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Decoder_0_0/sim/main_Decoder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Decoder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RegFile_0_0/sim/main_RegFile_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RegFile_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Forwarder_0_0/sim/main_Pipelining_Forwarder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Forwarder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Execution_0_0/sim/main_Pipelining_Execution_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Execution_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_RAMAddressControl_0_0/sim/main_CU_RAMAddressControl_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_RAMAddressControl_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_0_0/sim/main_ALU_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ALU_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_ImmediateManipula_0_0/sim/main_CU_ImmediateManipula_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_ImmediateManipula_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpDestinationSe_0_0/sim/main_CU_JumpDestinationSe_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpDestinationSe_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpController_0_0/sim/main_CU_JumpController_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpController_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_WriteSelector_0_0/sim/main_CU_WriteSelector_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_WriteSelector_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_WriteBack_0_0/sim/main_Pipelining_WriteBack_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_WriteBack_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_IROM_0_1/sim/main_IROM_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_IROM_0_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RAM_Placeholder_0_0/sim/main_RAM_Placeholder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RAM_Placeholder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_FLAG_PACKER_0_1/sim/main_ALU_FLAG_PACKER_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ALU_FLAG_PACKER_0_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RX_UART_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_TX_UART_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Debugger_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ClockDisabler_0_0/sim/main_ClockDisabler_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ClockDisabler_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/sim/main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_wrapper'
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2271.637 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
+Compiling architecture main_alu_0_0_arch of entity xil_defaultlib.main_ALU_0_0 [main_alu_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.ALU_FLAG_PACKER [alu_flag_packer_default]
+Compiling architecture main_alu_flag_packer_0_1_arch of entity xil_defaultlib.main_ALU_FLAG_PACKER_0_1 [main_alu_flag_packer_0_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder [cu_decoder_default]
+Compiling architecture main_cu_decoder_0_0_arch of entity xil_defaultlib.main_CU_Decoder_0_0 [main_cu_decoder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator [cu_immediatemanipulator_default]
+Compiling architecture main_cu_immediatemanipula_0_0_arch of entity xil_defaultlib.main_CU_ImmediateManipula_0_0 [main_cu_immediatemanipula_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.FlagUnpacker [flagunpacker_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController [cu_jumpcontroller_default]
+Compiling architecture main_cu_jumpcontroller_0_0_arch of entity xil_defaultlib.main_CU_JumpController_0_0 [main_cu_jumpcontroller_0_0_defau...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector [cu_jumpdestinationselector_defau...]
+Compiling architecture main_cu_jumpdestinationse_0_0_arch of entity xil_defaultlib.main_CU_JumpDestinationSe_0_0 [main_cu_jumpdestinationse_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController [cu_ramaddresscontroller_default]
+Compiling architecture main_cu_ramaddresscontrol_0_0_arch of entity xil_defaultlib.main_CU_RAMAddressControl_0_0 [main_cu_ramaddresscontrol_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
+Compiling architecture main_cu_writeselector_0_0_arch of entity xil_defaultlib.main_CU_WriteSelector_0_0 [main_cu_writeselector_0_0_defaul...]
+Compiling architecture behavioral of entity xil_defaultlib.ClockDisabler [clockdisabler_default]
+Compiling architecture main_clockdisabler_0_0_arch of entity xil_defaultlib.main_ClockDisabler_0_0 [main_clockdisabler_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
+Compiling architecture main_debugger_0_0_arch of entity xil_defaultlib.main_Debugger_0_0 [main_debugger_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Decoder [decoder_default]
+Compiling architecture main_decoder_0_0_arch of entity xil_defaultlib.main_Decoder_0_0 [main_decoder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.IROM [irom_default]
+Compiling architecture main_irom_0_1_arch of entity xil_defaultlib.main_IROM_0_1 [main_irom_0_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Controller [pipelining_controller_default]
+Compiling architecture main_pipelining_controller_0_0_arch of entity xil_defaultlib.main_Pipelining_Controller_0_0 [main_pipelining_controller_0_0_d...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_ExecutionStage [pipelining_executionstage_defaul...]
+Compiling architecture main_pipelining_execution_0_0_arch of entity xil_defaultlib.main_Pipelining_Execution_0_0 [main_pipelining_execution_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Forwarder [pipelining_forwarder_default]
+Compiling architecture main_pipelining_forwarder_0_0_arch of entity xil_defaultlib.main_Pipelining_Forwarder_0_0 [main_pipelining_forwarder_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_WriteBackStage [pipelining_writebackstage_defaul...]
+Compiling architecture main_pipelining_writeback_0_0_arch of entity xil_defaultlib.main_Pipelining_WriteBack_0_0 [main_pipelining_writeback_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
+Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
+Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
+Compiling architecture main_rx_uart_0_0_arch of entity xil_defaultlib.main_RX_UART_0_0 [main_rx_uart_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]
+Compiling architecture main_regfile_0_0_arch of entity xil_defaultlib.main_RegFile_0_0 [main_regfile_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
+Compiling architecture main_tx_uart_0_0_arch of entity xil_defaultlib.main_TX_UART_0_0 [main_tx_uart_0_0_default]
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.main_clk_wiz_0_0_clk_wiz
+Compiling module xil_defaultlib.main_clk_wiz_0_0
+Compiling architecture structure of entity xil_defaultlib.main [main_default]
+Compiling architecture structure of entity xil_defaultlib.main_wrapper [main_wrapper_default]
+Compiling architecture behavioral of entity xil_defaultlib.mainsim
+Built simulation snapshot mainSim_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2271.637 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "mainSim_behav -key {Behavioral:sim_1:Functional:mainSim} -tclbatch {mainSim.tcl} -protoinst "protoinst_files/main.protoinst" -view {C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
+Time resolution is 1 ps
+open_wave_config C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg
+WARNING: Simulation object /mainSim/InstrExec_CLK was not found in the design.
+WARNING: Simulation object /mainSim/EUT/main_i/InstrExec_CLK was not found in the design.
+WARNING: Simulation object /mainSim/EUT/main_i/InstrLoad_CLK was not found in the design.
+WARNING: Simulation object /mainSim/InstrLoad_CLK was not found in the design.
+source mainSim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'mainSim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 2271.637 ; gain = 0.000
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/clk_wiz_0/InstrLoad_CLK}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/clk_wiz_0/InstrExec_CLK}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/clk_wiz_0/clk_in1}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/CLK100MHZ}} 
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj mainSim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0
+"xvhdl --incr --relax -prj mainSim_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
+Compiling architecture main_alu_0_0_arch of entity xil_defaultlib.main_ALU_0_0 [main_alu_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.ALU_FLAG_PACKER [alu_flag_packer_default]
+Compiling architecture main_alu_flag_packer_0_1_arch of entity xil_defaultlib.main_ALU_FLAG_PACKER_0_1 [main_alu_flag_packer_0_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder [cu_decoder_default]
+Compiling architecture main_cu_decoder_0_0_arch of entity xil_defaultlib.main_CU_Decoder_0_0 [main_cu_decoder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator [cu_immediatemanipulator_default]
+Compiling architecture main_cu_immediatemanipula_0_0_arch of entity xil_defaultlib.main_CU_ImmediateManipula_0_0 [main_cu_immediatemanipula_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.FlagUnpacker [flagunpacker_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController [cu_jumpcontroller_default]
+Compiling architecture main_cu_jumpcontroller_0_0_arch of entity xil_defaultlib.main_CU_JumpController_0_0 [main_cu_jumpcontroller_0_0_defau...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector [cu_jumpdestinationselector_defau...]
+Compiling architecture main_cu_jumpdestinationse_0_0_arch of entity xil_defaultlib.main_CU_JumpDestinationSe_0_0 [main_cu_jumpdestinationse_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController [cu_ramaddresscontroller_default]
+Compiling architecture main_cu_ramaddresscontrol_0_0_arch of entity xil_defaultlib.main_CU_RAMAddressControl_0_0 [main_cu_ramaddresscontrol_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
+Compiling architecture main_cu_writeselector_0_0_arch of entity xil_defaultlib.main_CU_WriteSelector_0_0 [main_cu_writeselector_0_0_defaul...]
+Compiling architecture behavioral of entity xil_defaultlib.ClockDisabler [clockdisabler_default]
+Compiling architecture main_clockdisabler_0_0_arch of entity xil_defaultlib.main_ClockDisabler_0_0 [main_clockdisabler_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
+Compiling architecture main_debugger_0_0_arch of entity xil_defaultlib.main_Debugger_0_0 [main_debugger_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Decoder [decoder_default]
+Compiling architecture main_decoder_0_0_arch of entity xil_defaultlib.main_Decoder_0_0 [main_decoder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.IROM [irom_default]
+Compiling architecture main_irom_0_1_arch of entity xil_defaultlib.main_IROM_0_1 [main_irom_0_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Controller [pipelining_controller_default]
+Compiling architecture main_pipelining_controller_0_0_arch of entity xil_defaultlib.main_Pipelining_Controller_0_0 [main_pipelining_controller_0_0_d...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_ExecutionStage [pipelining_executionstage_defaul...]
+Compiling architecture main_pipelining_execution_0_0_arch of entity xil_defaultlib.main_Pipelining_Execution_0_0 [main_pipelining_execution_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Forwarder [pipelining_forwarder_default]
+Compiling architecture main_pipelining_forwarder_0_0_arch of entity xil_defaultlib.main_Pipelining_Forwarder_0_0 [main_pipelining_forwarder_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_WriteBackStage [pipelining_writebackstage_defaul...]
+Compiling architecture main_pipelining_writeback_0_0_arch of entity xil_defaultlib.main_Pipelining_WriteBack_0_0 [main_pipelining_writeback_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
+Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
+Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
+Compiling architecture main_rx_uart_0_0_arch of entity xil_defaultlib.main_RX_UART_0_0 [main_rx_uart_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]
+Compiling architecture main_regfile_0_0_arch of entity xil_defaultlib.main_RegFile_0_0 [main_regfile_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
+Compiling architecture main_tx_uart_0_0_arch of entity xil_defaultlib.main_TX_UART_0_0 [main_tx_uart_0_0_default]
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.main_clk_wiz_0_0_clk_wiz
+Compiling module xil_defaultlib.main_clk_wiz_0_0
+Compiling architecture structure of entity xil_defaultlib.main [main_default]
+Compiling architecture structure of entity xil_defaultlib.main_wrapper [main_wrapper_default]
+Compiling architecture behavioral of entity xil_defaultlib.mainsim
+Built simulation snapshot mainSim_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2271.637 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2271.637 ; gain = 0.000
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 2271.637 ; gain = 0.000
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/Reset}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/InstrLoad_CLK_out}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/InstrExec_CLK_out}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/debug_EN_LOW_ACTIVE}} 
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj mainSim_vlog.prj"
+"xvhdl --incr --relax -prj mainSim_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 3537.250 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+update_module_reference main_ClockDisabler_0_0
+Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
+INFO: [IP_Flow 19-3420] Updated main_ClockDisabler_0_0 to use current project options
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+CRITICAL WARNING: [BD 41-1348] Reset pin /ProgramCounter_0/Reset (associated clock /ProgramCounter_0/InstrExec_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrExec_CLK_out.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrLoad_CLK_out.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ClockDisabler_0/InstrLoad_CLK_out.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ProgramCounter_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RegFile_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Forwarder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Execution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_RAMAddressControl_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_ImmediateManipula_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpDestinationSe_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpController_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_WriteSelector_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_WriteBack_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block IROM_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RAM_Placeholder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_FLAG_PACKER_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block TX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Debugger_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ClockDisabler_0 .
+Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
+Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sim_1\new\mainSim.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\ClockDisabler.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.srcs\sources_1\new\Debugger.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\hdl\main_wrapper.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'mainSim'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2024.1/data/xsim/xsim.ini' copied to run dir:'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'mainSim' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj mainSim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_clk_wiz_0_0
+"xvhdl --incr --relax -prj mainSim_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Debugger'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Controller_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ProgramCounter_0_0/sim/main_ProgramCounter_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ProgramCounter_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_Decoder_0_0/sim/main_CU_Decoder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_Decoder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Decoder_0_0/sim/main_Decoder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Decoder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RegFile_0_0/sim/main_RegFile_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RegFile_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Forwarder_0_0/sim/main_Pipelining_Forwarder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Forwarder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_Execution_0_0/sim/main_Pipelining_Execution_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_Execution_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_RAMAddressControl_0_0/sim/main_CU_RAMAddressControl_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_RAMAddressControl_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_0_0/sim/main_ALU_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ALU_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_ImmediateManipula_0_0/sim/main_CU_ImmediateManipula_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_ImmediateManipula_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpDestinationSe_0_0/sim/main_CU_JumpDestinationSe_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpDestinationSe_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_JumpController_0_0/sim/main_CU_JumpController_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_JumpController_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_CU_WriteSelector_0_0/sim/main_CU_WriteSelector_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_CU_WriteSelector_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Pipelining_WriteBack_0_0/sim/main_Pipelining_WriteBack_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Pipelining_WriteBack_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_IROM_0_1/sim/main_IROM_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_IROM_0_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RAM_Placeholder_0_0/sim/main_RAM_Placeholder_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RAM_Placeholder_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ALU_FLAG_PACKER_0_1/sim/main_ALU_FLAG_PACKER_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ALU_FLAG_PACKER_0_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_RX_UART_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_TX_UART_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_Debugger_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/ip/main_ClockDisabler_0_0/sim/main_ClockDisabler_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_ClockDisabler_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/bd/main/sim/main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_wrapper'
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 3537.250 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '6' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSim_behav xil_defaultlib.mainSim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture alubehavioral of entity xil_defaultlib.ALU [alu_default]
+Compiling architecture main_alu_0_0_arch of entity xil_defaultlib.main_ALU_0_0 [main_alu_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.ALU_FLAG_PACKER [alu_flag_packer_default]
+Compiling architecture main_alu_flag_packer_0_1_arch of entity xil_defaultlib.main_ALU_FLAG_PACKER_0_1 [main_alu_flag_packer_0_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder [cu_decoder_default]
+Compiling architecture main_cu_decoder_0_0_arch of entity xil_defaultlib.main_CU_Decoder_0_0 [main_cu_decoder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator [cu_immediatemanipulator_default]
+Compiling architecture main_cu_immediatemanipula_0_0_arch of entity xil_defaultlib.main_CU_ImmediateManipula_0_0 [main_cu_immediatemanipula_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.FlagUnpacker [flagunpacker_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController [cu_jumpcontroller_default]
+Compiling architecture main_cu_jumpcontroller_0_0_arch of entity xil_defaultlib.main_CU_JumpController_0_0 [main_cu_jumpcontroller_0_0_defau...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector [cu_jumpdestinationselector_defau...]
+Compiling architecture main_cu_jumpdestinationse_0_0_arch of entity xil_defaultlib.main_CU_JumpDestinationSe_0_0 [main_cu_jumpdestinationse_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController [cu_ramaddresscontroller_default]
+Compiling architecture main_cu_ramaddresscontrol_0_0_arch of entity xil_defaultlib.main_CU_RAMAddressControl_0_0 [main_cu_ramaddresscontrol_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
+Compiling architecture main_cu_writeselector_0_0_arch of entity xil_defaultlib.main_CU_WriteSelector_0_0 [main_cu_writeselector_0_0_defaul...]
+Compiling architecture behavioral of entity xil_defaultlib.ClockDisabler [clockdisabler_default]
+Compiling architecture main_clockdisabler_0_0_arch of entity xil_defaultlib.main_ClockDisabler_0_0 [main_clockdisabler_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Debugger [debugger_default]
+Compiling architecture main_debugger_0_0_arch of entity xil_defaultlib.main_Debugger_0_0 [main_debugger_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.Decoder [decoder_default]
+Compiling architecture main_decoder_0_0_arch of entity xil_defaultlib.main_Decoder_0_0 [main_decoder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.IROM [irom_default]
+Compiling architecture main_irom_0_1_arch of entity xil_defaultlib.main_IROM_0_1 [main_irom_0_1_default]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Controller [pipelining_controller_default]
+Compiling architecture main_pipelining_controller_0_0_arch of entity xil_defaultlib.main_Pipelining_Controller_0_0 [main_pipelining_controller_0_0_d...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_ExecutionStage [pipelining_executionstage_defaul...]
+Compiling architecture main_pipelining_execution_0_0_arch of entity xil_defaultlib.main_Pipelining_Execution_0_0 [main_pipelining_execution_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_Forwarder [pipelining_forwarder_default]
+Compiling architecture main_pipelining_forwarder_0_0_arch of entity xil_defaultlib.main_Pipelining_Forwarder_0_0 [main_pipelining_forwarder_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.Pipelining_WriteBackStage [pipelining_writebackstage_defaul...]
+Compiling architecture main_pipelining_writeback_0_0_arch of entity xil_defaultlib.main_Pipelining_WriteBack_0_0 [main_pipelining_writeback_0_0_de...]
+Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
+Compiling architecture main_programcounter_0_0_arch of entity xil_defaultlib.main_ProgramCounter_0_0 [main_programcounter_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RAM_Placeholder [ram_placeholder_default]
+Compiling architecture main_ram_placeholder_0_0_arch of entity xil_defaultlib.main_RAM_Placeholder_0_0 [main_ram_placeholder_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RX_UART [rx_uart_default]
+Compiling architecture main_rx_uart_0_0_arch of entity xil_defaultlib.main_RX_UART_0_0 [main_rx_uart_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.RegFile [regfile_default]
+Compiling architecture main_regfile_0_0_arch of entity xil_defaultlib.main_RegFile_0_0 [main_regfile_0_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.TX_UART [tx_uart_default]
+Compiling architecture main_tx_uart_0_0_arch of entity xil_defaultlib.main_TX_UART_0_0 [main_tx_uart_0_0_default]
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.main_clk_wiz_0_0_clk_wiz
+Compiling module xil_defaultlib.main_clk_wiz_0_0
+Compiling architecture structure of entity xil_defaultlib.main [main_default]
+Compiling architecture structure of entity xil_defaultlib.main_wrapper [main_wrapper_default]
+Compiling architecture behavioral of entity xil_defaultlib.mainsim
+Built simulation snapshot mainSim_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 3537.250 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "mainSim_behav -key {Behavioral:sim_1:Functional:mainSim} -tclbatch {mainSim.tcl} -protoinst "protoinst_files/main.protoinst" -view {C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/main.protoinst
+Time resolution is 1 ps
+open_wave_config C:/Development/SixteenShadesOfCpu/vivado/Integration/mainSim_test1.wcfg
+WARNING: Simulation object /mainSim/InstrExec_CLK was not found in the design.
+WARNING: Simulation object /mainSim/EUT/main_i/InstrExec_CLK was not found in the design.
+WARNING: Simulation object /mainSim/EUT/main_i/InstrLoad_CLK was not found in the design.
+WARNING: Simulation object /mainSim/InstrLoad_CLK was not found in the design.
+source mainSim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'mainSim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 3537.250 ; gain = 0.000
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/clk_wiz_0/InstrExec_CLK}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/clk_wiz_0/InstrLoad_CLK}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/InstrExec_CLK_out}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/InstrLoad_CLK_out}} 
+current_wave_config {mainSim_test1.wcfg}
+mainSim_test1.wcfg
+add_wave {{/mainSim/EUT/main_i/ClockDisabler_0/debug_EN_LOW_ACTIVE}} 
+relaunch_sim

@@ -1,0 +1,250 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sun Nov 17 16:13:18 2024
+# Process ID: 22512
+# Current directory: C:/Development/SixteenShadesOfCpu/debug/FPGA
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12952 C:\Development\SixteenShadesOfCpu\debug\FPGA\Debugger.xpr
+# Log file: C:/Development/SixteenShadesOfCpu/debug/FPGA/vivado.log
+# Journal file: C:/Development/SixteenShadesOfCpu/debug/FPGA\vivado.jou
+# Running On        :DESKTOP-E8CIL9E
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :19045
+# Processor Detail  :AMD Ryzen 5 5600X 6-Core Processor             
+# CPU Frequency     :3693 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :17099 MB
+# Swap memory       :9663 MB
+# Total Virtual     :26763 MB
+# Available Virtual :14613 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_RX_UART_0_0
+update_module_reference design_1_TX_UART_0_0
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -sync -no_script -force -quiet
+delete_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_Debugger_0_0_synth_1 design_1_RX_UART_0_0_synth_1 design_1_TX_UART_0_0_synth_1 -jobs 12
+wait_on_run design_1_Debugger_0_0_synth_1
+wait_on_run design_1_RX_UART_0_0_synth_1
+wait_on_run design_1_TX_UART_0_0_synth_1
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+create_hw_cfgmem -hw_device [get_hw_devices xc7a35t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.FILES [list "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.runs/impl_1/design_1_wrapper.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+startgroup 
+create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a35t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a35t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a35t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0];
+program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+endgroup
+close_hw_manager
+update_module_reference design_1_TX_UART_0_0
+delete_bd_objs [get_bd_nets Debugger_0_tx_data_valid]
+connect_bd_net [get_bd_pins Debugger_0/tx_data_valid] [get_bd_pins TX_UART_0/data_valid]
+set_property location {-410 -171} [get_bd_ports b1]
+set_property location {-395 -180} [get_bd_ports b1]
+set_property location {-391 -72} [get_bd_ports rx_data_in]
+set_property location {-407 -195} [get_bd_ports CLK100MHZ]
+set_property location {-394 -201} [get_bd_ports CLK100MHZ]
+set_property location {-395 -179} [get_bd_ports b1]
+set_property location {2 177 -134} [get_bd_cells Debugger_0]
+set_property location {-390 -150} [get_bd_ports b1]
+set_property location {1 -179 -80} [get_bd_cells RX_UART_0]
+set_property location {638 -155} [get_bd_ports led]
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -sync -no_script -force -quiet
+delete_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_Debugger_0_0_synth_1 design_1_RX_UART_0_0_synth_1 design_1_TX_UART_0_0_synth_1 -jobs 12
+wait_on_run design_1_Debugger_0_0_synth_1
+wait_on_run design_1_RX_UART_0_0_synth_1
+wait_on_run design_1_TX_UART_0_0_synth_1
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_module_reference design_1_Debugger_0_0
+delete_bd_objs [get_bd_nets Debugger_0_led] [get_bd_ports led]
+delete_bd_objs [get_bd_nets b1_1] [get_bd_ports b1]
+update_module_reference design_1_Debugger_0_0
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -sync -no_script -force -quiet
+delete_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_Debugger_0_0_synth_1 design_1_RX_UART_0_0_synth_1 design_1_TX_UART_0_0_synth_1 -jobs 12
+wait_on_run design_1_Debugger_0_0_synth_1
+wait_on_run design_1_RX_UART_0_0_synth_1
+wait_on_run design_1_TX_UART_0_0_synth_1
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+reset_run design_1_Debugger_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+reset_run synth_1
+reset_run design_1_Debugger_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+update_module_reference design_1_Debugger_0_0
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -sync -no_script -force -quiet
+delete_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_Debugger_0_0_synth_1 design_1_RX_UART_0_0_synth_1 design_1_TX_UART_0_0_synth_1 -jobs 12
+wait_on_run design_1_Debugger_0_0_synth_1
+wait_on_run design_1_RX_UART_0_0_synth_1
+wait_on_run design_1_TX_UART_0_0_synth_1
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+create_hw_cfgmem -hw_device [get_hw_devices xc7a35t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+close_hw_manager
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -sync -no_script -force -quiet
+delete_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_Debugger_0_0_synth_1 design_1_RX_UART_0_0_synth_1 design_1_TX_UART_0_0_synth_1 -jobs 12
+wait_on_run design_1_Debugger_0_0_synth_1
+wait_on_run design_1_RX_UART_0_0_synth_1
+wait_on_run design_1_TX_UART_0_0_synth_1
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+create_hw_cfgmem -hw_device [get_hw_devices xc7a35t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.FILES [list "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.runs/impl_1/design_1_wrapper.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+startgroup 
+create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a35t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a35t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a35t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0];
+program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+endgroup
+close_hw_manager
+launch_simulation -simset [get_filesets Debugger ]
+source DebugSim.tcl
+close_sim
+launch_simulation -simset [get_filesets Debugger ]
+source DebugSim.tcl
+run all
+close_sim
+launch_simulation -simset [get_filesets Debugger ]
+source DebugSim.tcl
+run 2 ms
+run 2 ms
+run 2 ms
+run 2 ms
+run 2 ms
+run 2 ms
+close_sim
+launch_simulation -simset [get_filesets Debugger ]
+source DebugSim.tcl
+close_sim
+launch_simulation -simset [get_filesets Debugger ]
+source DebugSim.tcl
+run 2 ms
+run 2 ms
+run 2 ms
+current_wave_config {Untitled 5}
+add_wave {{/DebugSim/EUT/Debugger_0/U0/state}} 
+relaunch_sim
+run 2 ms
+run 2 ms
+current_wave_config {Untitled 5}
+add_wave {{/DebugSim/EUT/Debugger_0/rx_data_valid}} 
+relaunch_sim
+run 2 ms
+close_sim
+launch_simulation -simset [get_filesets Debugger ]
+source DebugSim.tcl
+run 40 us
+current_wave_config {Untitled 6}
+add_wave {{/DebugSim/EUT/Debugger_0/U0/state}} 
+relaunch_sim
+run 40 us
+run 40 us
+close_sim
+launch_simulation -simset [get_filesets Debugger ]
+source DebugSim.tcl
+run 40 us
+run 40 us
+run 40 us
+close_sim
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -sync -no_script -force -quiet
+delete_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_Debugger_0_0_synth_1 design_1_RX_UART_0_0_synth_1 design_1_TX_UART_0_0_synth_1 -jobs 12
+wait_on_run design_1_Debugger_0_0_synth_1
+wait_on_run design_1_RX_UART_0_0_synth_1
+wait_on_run design_1_TX_UART_0_0_synth_1
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+create_hw_cfgmem -hw_device [get_hw_devices xc7a35t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.FILES [list "C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.runs/impl_1/design_1_wrapper.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+startgroup 
+create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a35t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a35t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a35t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0];
+program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+endgroup
+close_hw_manager
+close_bd_design [get_bd_designs design_1]

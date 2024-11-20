@@ -1,0 +1,2054 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xE6936E8CBEDD2D1F",
+      "device": "xc7a35ticsg324-1L",
+      "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
+      "name": "main",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "None",
+      "tool_version": "2024.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "Pipelining_Controller_0": "",
+      "ProgramCounter_0": "",
+      "CU_Decoder_0": "",
+      "Decoder_0": "",
+      "RegFile_0": "",
+      "Pipelining_Forwarder_0": "",
+      "Pipelining_Execution_0": "",
+      "CU_RAMAddressControl_0": "",
+      "ALU_0": "",
+      "CU_ImmediateManipula_0": "",
+      "CU_JumpDestinationSe_0": "",
+      "CU_JumpController_0": "",
+      "CU_WriteSelector_0": "",
+      "Pipelining_WriteBack_0": "",
+      "IROM_0": "",
+      "RAM_Placeholder_0": "",
+      "ALU_FLAG_PACKER_0": "",
+      "RX_UART_0": "",
+      "TX_UART_0": "",
+      "Debugger_0": "",
+      "clk_wiz_0": "",
+      "ClockDisabler_0": ""
+    },
+    "ports": {
+      "Reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "led": {
+        "direction": "O"
+      },
+      "TX_UART_OUT": {
+        "direction": "O"
+      },
+      "RX_UART_IN": {
+        "direction": "I"
+      },
+      "CLK100MHZ": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "Pipelining_Controller_0": {
+        "vlnv": "xilinx.com:module_ref:Pipelining_Controller:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Pipelining_Controller_0_0",
+        "xci_path": "ip\\main_Pipelining_Controller_0_0\\main_Pipelining_Controller_0_0.xci",
+        "inst_hier_path": "Pipelining_Controller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pipelining_Controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrLoad_CLK": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "InstrExec_CLK": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "Instruction": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ResolveStall": {
+            "direction": "I"
+          },
+          "Stalled": {
+            "direction": "O"
+          },
+          "InstructionForwardConfiguration": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "InstructionToExecute": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ProgramCounter_0": {
+        "vlnv": "xilinx.com:module_ref:ProgramCounter:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ProgramCounter_0_0",
+        "xci_path": "ip\\main_ProgramCounter_0_0\\main_ProgramCounter_0_0.xci",
+        "inst_hier_path": "ProgramCounter_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ProgramCounter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrExec_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "Stalled": {
+            "direction": "I"
+          },
+          "JMP": {
+            "direction": "I"
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "Din": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "CU_Decoder_0": {
+        "vlnv": "xilinx.com:module_ref:CU_Decoder:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_Decoder_0_0",
+        "xci_path": "ip\\main_CU_Decoder_0_0\\main_CU_Decoder_0_0.xci",
+        "inst_hier_path": "CU_Decoder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_Decoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Instruction": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Reg1Read": {
+            "direction": "O"
+          },
+          "Reg2Read": {
+            "direction": "O"
+          },
+          "RF_WHB": {
+            "direction": "O"
+          },
+          "RF_WLB": {
+            "direction": "O"
+          },
+          "Write_Data_Sel": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          },
+          "RAM_Address_Src": {
+            "direction": "O"
+          },
+          "RAM_Read": {
+            "direction": "O"
+          },
+          "RAM_Write": {
+            "direction": "O"
+          },
+          "JMP": {
+            "direction": "O"
+          },
+          "JMP_Conditional": {
+            "direction": "O"
+          },
+          "JMP_Relative": {
+            "direction": "O"
+          },
+          "JMP_DestinationSource": {
+            "direction": "O"
+          },
+          "Is_ALU_OP": {
+            "direction": "O"
+          },
+          "Is_RAM_OP": {
+            "direction": "O"
+          }
+        }
+      },
+      "Decoder_0": {
+        "vlnv": "xilinx.com:module_ref:Decoder:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Decoder_0_0",
+        "xci_path": "ip\\main_Decoder_0_0\\main_Decoder_0_0.xci",
+        "inst_hier_path": "Decoder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Decoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Instruction": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Register1": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "Register2": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "WriteBackRegister": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "Immediate": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "JMP_Condition": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "Use_MA": {
+            "direction": "O"
+          }
+        }
+      },
+      "RegFile_0": {
+        "vlnv": "xilinx.com:module_ref:RegFile:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_RegFile_0_0",
+        "xci_path": "ip\\main_RegFile_0_0\\main_RegFile_0_0.xci",
+        "inst_hier_path": "RegFile_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RegFile",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "AddrReg1": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "AddrReg2": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "AddrWriteReg": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "WriteData": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Flags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "WE": {
+            "direction": "I"
+          },
+          "OverwriteFl": {
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "Reg1_data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Reg2_data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "RegMA_data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "BankID": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "Pipelining_Forwarder_0": {
+        "vlnv": "xilinx.com:module_ref:Pipelining_Forwarder:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Pipelining_Forwarder_0_0",
+        "xci_path": "ip\\main_Pipelining_Forwarder_0_0\\main_Pipelining_Forwarder_0_0.xci",
+        "inst_hier_path": "Pipelining_Forwarder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pipelining_Forwarder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CurrentOperand1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "CurrentOperand2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "CurrentMA": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ExecutionWriteData": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ExecutionFlags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ForwardingConfiguration": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "ForwardedOperand1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ForwardedOperand2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "ForwardedMA": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "Pipelining_Execution_0": {
+        "vlnv": "xilinx.com:module_ref:Pipelining_ExecutionStage:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Pipelining_Execution_0_0",
+        "xci_path": "ip\\main_Pipelining_Execution_0_0\\main_Pipelining_Execution_0_0.xci",
+        "inst_hier_path": "Pipelining_Execution_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pipelining_ExecutionStage",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrLoad_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Operand1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Operand2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Immediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "MA": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "WriteAddress": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "WHB": {
+            "direction": "I"
+          },
+          "WLB": {
+            "direction": "I"
+          },
+          "WriteDataSel": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "RAM_Src": {
+            "direction": "I"
+          },
+          "RAM_Read": {
+            "direction": "I"
+          },
+          "RAM_Write": {
+            "direction": "I"
+          },
+          "Use_MA": {
+            "direction": "I"
+          },
+          "JMP": {
+            "direction": "I"
+          },
+          "JMP_Conditional": {
+            "direction": "I"
+          },
+          "JMP_Relative": {
+            "direction": "I"
+          },
+          "JMP_DestinationSelect": {
+            "direction": "I"
+          },
+          "JMP_Condition": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "Is_ALU_OP": {
+            "direction": "I"
+          },
+          "Is_RAM_OP": {
+            "direction": "I"
+          },
+          "Operand1_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Operand2_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Immediate_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "MA_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "WriteAddress_out": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "WHB_out": {
+            "direction": "O"
+          },
+          "WLB_out": {
+            "direction": "O"
+          },
+          "WriteDataSel_out": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          },
+          "RAM_Src_out": {
+            "direction": "O"
+          },
+          "RAM_Read_out": {
+            "direction": "O"
+          },
+          "RAM_Write_out": {
+            "direction": "O"
+          },
+          "Use_MA_out": {
+            "direction": "O"
+          },
+          "JMP_out": {
+            "direction": "O"
+          },
+          "JMP_Conditional_out": {
+            "direction": "O"
+          },
+          "JMP_Relative_out": {
+            "direction": "O"
+          },
+          "JMP_DestinationSelect_out": {
+            "direction": "O"
+          },
+          "JMP_Condition_out": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "IS_ALU_OP_out": {
+            "direction": "O"
+          },
+          "Is_RAM_OP_out": {
+            "direction": "O"
+          }
+        }
+      },
+      "CU_RAMAddressControl_0": {
+        "vlnv": "xilinx.com:module_ref:CU_RAMAddressController:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_RAMAddressControl_0_0",
+        "xci_path": "ip\\main_CU_RAMAddressControl_0_0\\main_CU_RAMAddressControl_0_0.xci",
+        "inst_hier_path": "CU_RAMAddressControl_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_RAMAddressController",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Reg2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Immediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "MA": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "RAM_Address_Src": {
+            "direction": "I"
+          },
+          "Use_MA": {
+            "direction": "I"
+          },
+          "RAM_Address": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ALU_0": {
+        "vlnv": "xilinx.com:module_ref:ALU:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ALU_0_0",
+        "xci_path": "ip\\main_ALU_0_0\\main_ALU_0_0.xci",
+        "inst_hier_path": "ALU_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ALU",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "D1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "D2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ALU_OPP": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "RHO_PIN": {
+            "direction": "I"
+          },
+          "ALU_OUT": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "CARRY_FLAG": {
+            "direction": "O"
+          },
+          "ZERO_FLAG": {
+            "direction": "O"
+          },
+          "SMALLER_ZERO_FLAG": {
+            "direction": "O"
+          },
+          "BIGGER_ZERO_FLAG": {
+            "direction": "O"
+          },
+          "OVERFLOW_FLAG": {
+            "direction": "O"
+          },
+          "RHO_FLAG": {
+            "direction": "O"
+          },
+          "NOT_ZERO_FLAG": {
+            "direction": "O"
+          }
+        }
+      },
+      "CU_ImmediateManipula_0": {
+        "vlnv": "xilinx.com:module_ref:CU_ImmediateManipulator:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_ImmediateManipula_0_0",
+        "xci_path": "ip\\main_CU_ImmediateManipula_0_0\\main_CU_ImmediateManipula_0_0.xci",
+        "inst_hier_path": "CU_ImmediateManipula_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_ImmediateManipulator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Reg1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Immediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "RF_WHB": {
+            "direction": "I"
+          },
+          "RF_WLB": {
+            "direction": "I"
+          },
+          "ManipulatedImmidiate": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "CU_JumpDestinationSe_0": {
+        "vlnv": "xilinx.com:module_ref:CU_JumpDestinationSelector:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_JumpDestinationSe_0_0",
+        "xci_path": "ip\\main_CU_JumpDestinationSe_0_0\\main_CU_JumpDestinationSe_0_0.xci",
+        "inst_hier_path": "CU_JumpDestinationSe_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_JumpDestinationSelector",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Immediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Register1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "JMP_DestinationSelect": {
+            "direction": "I"
+          },
+          "JMP_Address": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "CU_JumpController_0": {
+        "vlnv": "xilinx.com:module_ref:CU_JumpController:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_JumpController_0_0",
+        "xci_path": "ip\\main_CU_JumpController_0_0\\main_CU_JumpController_0_0.xci",
+        "inst_hier_path": "CU_JumpController_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_JumpController",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrExec_CLK": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "JMP": {
+            "direction": "I"
+          },
+          "JMP_Conditional": {
+            "direction": "I"
+          },
+          "JMP_Relative": {
+            "direction": "I"
+          },
+          "JMP_Condition": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "Flags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "JMP_Address": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PC_Current": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "PC_Load": {
+            "direction": "O"
+          },
+          "PC_Next": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "CU_WriteSelector_0": {
+        "vlnv": "xilinx.com:module_ref:CU_WriteSelector:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_WriteSelector_0_0",
+        "xci_path": "ip\\main_CU_WriteSelector_0_0\\main_CU_WriteSelector_0_0.xci",
+        "inst_hier_path": "CU_WriteSelector_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_WriteSelector",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "RAM_Out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Manipulated_Immidiate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Reg1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ALU_Out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Write_Sel": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "Write_Data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "Pipelining_WriteBack_0": {
+        "vlnv": "xilinx.com:module_ref:Pipelining_WriteBackStage:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Pipelining_WriteBack_0_0",
+        "xci_path": "ip\\main_Pipelining_WriteBack_0_0\\main_Pipelining_WriteBack_0_0.xci",
+        "inst_hier_path": "Pipelining_WriteBack_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pipelining_WriteBackStage",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrLoad_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "WriteAddress": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "WriteData": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Flags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "WHB": {
+            "direction": "I"
+          },
+          "WLB": {
+            "direction": "I"
+          },
+          "Is_ALU_OP": {
+            "direction": "I"
+          },
+          "JMP": {
+            "direction": "I"
+          },
+          "WriteAddress_out": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "WriteData_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Flags_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "RF_WE_out": {
+            "direction": "O"
+          },
+          "Is_ALU_OP_out": {
+            "direction": "O"
+          },
+          "JMP_out": {
+            "direction": "O"
+          }
+        }
+      },
+      "IROM_0": {
+        "vlnv": "xilinx.com:module_ref:IROM:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_IROM_0_1",
+        "xci_path": "ip\\main_IROM_0_1\\main_IROM_0_1.xci",
+        "inst_hier_path": "IROM_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "IROM",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Address": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "RAM_Placeholder_0": {
+        "vlnv": "xilinx.com:module_ref:RAM_Placeholder:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_RAM_Placeholder_0_0",
+        "xci_path": "ip\\main_RAM_Placeholder_0_0\\main_RAM_Placeholder_0_0.xci",
+        "inst_hier_path": "RAM_Placeholder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RAM_Placeholder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Address": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "DataIn": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "WE": {
+            "direction": "I"
+          },
+          "OE": {
+            "direction": "I"
+          },
+          "CLK": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "DataOut": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ALU_FLAG_PACKER_0": {
+        "vlnv": "xilinx.com:module_ref:ALU_FLAG_PACKER:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ALU_FLAG_PACKER_0_1",
+        "xci_path": "ip\\main_ALU_FLAG_PACKER_0_1\\main_ALU_FLAG_PACKER_0_1.xci",
+        "inst_hier_path": "ALU_FLAG_PACKER_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ALU_FLAG_PACKER",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CARRY_FLAG": {
+            "direction": "I"
+          },
+          "ZERO_FLAG": {
+            "direction": "I"
+          },
+          "SMALLER_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "BIGGER_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "OVERFLOW_FLAG": {
+            "direction": "I"
+          },
+          "RHO_FLAG": {
+            "direction": "I"
+          },
+          "NOT_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "ALU_FLAGS": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "RX_UART_0": {
+        "vlnv": "xilinx.com:module_ref:RX_UART:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_RX_UART_0_0",
+        "xci_path": "ip\\main_RX_UART_0_0\\main_RX_UART_0_0.xci",
+        "inst_hier_path": "RX_UART_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RX_UART",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rx_serial_input": {
+            "direction": "I"
+          },
+          "data_output": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "data_valid": {
+            "direction": "O"
+          }
+        }
+      },
+      "TX_UART_0": {
+        "vlnv": "xilinx.com:module_ref:TX_UART:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_TX_UART_0_0",
+        "xci_path": "ip\\main_TX_UART_0_0\\main_TX_UART_0_0.xci",
+        "inst_hier_path": "TX_UART_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TX_UART",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "data_valid": {
+            "direction": "I"
+          },
+          "data_in": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "tx_output": {
+            "direction": "O"
+          },
+          "send_valid": {
+            "direction": "O"
+          }
+        }
+      },
+      "Debugger_0": {
+        "vlnv": "xilinx.com:module_ref:Debugger:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Debugger_0_0",
+        "xci_path": "ip\\main_Debugger_0_0\\main_Debugger_0_0.xci",
+        "inst_hier_path": "Debugger_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Debugger",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rx_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "rx_data_valid": {
+            "direction": "I"
+          },
+          "tx_data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "tx_data_valid": {
+            "direction": "O"
+          },
+          "tx_data_sended": {
+            "direction": "I"
+          },
+          "debug_clk_stop_LOW_ACTIVE": {
+            "direction": "O"
+          },
+          "iram_current_instruction": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipeline_stalled": {
+            "direction": "I"
+          },
+          "pipeline_instruction_forwarding_config": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "pipeline_current_instruction": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipeline_operand_1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipeline_operand_2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipeline_memory_addr_reg": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipeline_jmp": {
+            "direction": "I"
+          },
+          "pc_din": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pc_dout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pc_current_addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu_din1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu_din2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu_out": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu_flags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "alu_op": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfile_addr_reg1": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "regfile_addr_reg2": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "regfile_addr_write_reg": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "regfile_write_enable": {
+            "direction": "I"
+          },
+          "regfile_overwrite_flag": {
+            "direction": "I"
+          },
+          "regfile_write_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfile_reg1_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfile_reg2_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfile_regma_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfile_bankid": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "mmu_debug_sys_clk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "mmu_debug_sync_clk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "mmu_debug_en": {
+            "direction": "O"
+          },
+          "mmu_debug_override_en": {
+            "direction": "O"
+          },
+          "mmu_debug_addr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmu_debug_din": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmu_debug_bank": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "mmu_debug_we": {
+            "direction": "O"
+          },
+          "mmu_debug_dout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "ip_revision": "14",
+        "xci_name": "main_clk_wiz_0_0",
+        "xci_path": "ip\\main_clk_wiz_0_0\\main_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLKIN2_JITTER_PS": {
+            "value": "166.66"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "130.958"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "100.000"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "130.958"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "100.000"
+          },
+          "CLKOUT2_REQUESTED_PHASE": {
+            "value": "180.000"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "CLKOUT3_JITTER": {
+            "value": "130.958"
+          },
+          "CLKOUT3_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT3_USED": {
+            "value": "true"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "InstrExec_CLK"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "InstrLoad_CLK"
+          },
+          "CLK_OUT3_PORT": {
+            "value": "Debug_CLK100MHZ"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.000"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "10.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "10"
+          },
+          "MMCM_CLKOUT1_PHASE": {
+            "value": "180.000"
+          },
+          "MMCM_CLKOUT2_DIVIDE": {
+            "value": "10"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "3"
+          },
+          "RESET_PORT": {
+            "value": "reset"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_HIGH"
+          },
+          "SECONDARY_SOURCE": {
+            "value": "Single_ended_clock_capable_pin"
+          },
+          "USE_INCLK_SWITCHOVER": {
+            "value": "false"
+          }
+        }
+      },
+      "ClockDisabler_0": {
+        "vlnv": "xilinx.com:module_ref:ClockDisabler:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ClockDisabler_0_0",
+        "xci_path": "ip\\main_ClockDisabler_0_0\\main_ClockDisabler_0_0.xci",
+        "inst_hier_path": "ClockDisabler_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ClockDisabler",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrExec_CLK_in": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "InstrLoad_CLK_in": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "180.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "debug_EN_LOW_ACTIVE": {
+            "direction": "I"
+          },
+          "InstrExec_CLK_out": {
+            "direction": "O"
+          },
+          "InstrLoad_CLK_out": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "ALU_0_ALU_OUT": {
+        "ports": [
+          "ALU_0/ALU_OUT",
+          "CU_WriteSelector_0/ALU_Out",
+          "Debugger_0/alu_out"
+        ]
+      },
+      "ALU_0_BIGGER_ZERO_FLAG": {
+        "ports": [
+          "ALU_0/BIGGER_ZERO_FLAG",
+          "ALU_FLAG_PACKER_0/BIGGER_ZERO_FLAG"
+        ]
+      },
+      "ALU_0_CARRY_FLAG": {
+        "ports": [
+          "ALU_0/CARRY_FLAG",
+          "ALU_FLAG_PACKER_0/CARRY_FLAG"
+        ]
+      },
+      "ALU_0_NOT_ZERO_FLAG": {
+        "ports": [
+          "ALU_0/NOT_ZERO_FLAG",
+          "ALU_FLAG_PACKER_0/NOT_ZERO_FLAG"
+        ]
+      },
+      "ALU_0_OVERFLOW_FLAG": {
+        "ports": [
+          "ALU_0/OVERFLOW_FLAG",
+          "ALU_FLAG_PACKER_0/OVERFLOW_FLAG"
+        ]
+      },
+      "ALU_0_RHO_FLAG": {
+        "ports": [
+          "ALU_0/RHO_FLAG",
+          "ALU_FLAG_PACKER_0/RHO_FLAG"
+        ]
+      },
+      "ALU_0_SMALLER_ZERO_FLAG": {
+        "ports": [
+          "ALU_0/SMALLER_ZERO_FLAG",
+          "ALU_FLAG_PACKER_0/SMALLER_ZERO_FLAG"
+        ]
+      },
+      "ALU_0_ZERO_FLAG": {
+        "ports": [
+          "ALU_0/ZERO_FLAG",
+          "ALU_FLAG_PACKER_0/ZERO_FLAG"
+        ]
+      },
+      "ALU_FLAG_PACKER_0_ALU_FLAGS": {
+        "ports": [
+          "ALU_FLAG_PACKER_0/ALU_FLAGS",
+          "Pipelining_Forwarder_0/ExecutionFlags",
+          "Pipelining_WriteBack_0/Flags",
+          "Debugger_0/alu_flags"
+        ]
+      },
+      "CLK100MHZ_1": {
+        "ports": [
+          "CLK100MHZ",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "CU_Decoder_0_Is_ALU_OP": {
+        "ports": [
+          "CU_Decoder_0/Is_ALU_OP",
+          "Pipelining_Execution_0/Is_ALU_OP"
+        ]
+      },
+      "CU_Decoder_0_Is_RAM_OP": {
+        "ports": [
+          "CU_Decoder_0/Is_RAM_OP",
+          "Pipelining_Execution_0/Is_RAM_OP"
+        ]
+      },
+      "CU_Decoder_0_JMP": {
+        "ports": [
+          "CU_Decoder_0/JMP",
+          "Pipelining_Execution_0/JMP"
+        ]
+      },
+      "CU_Decoder_0_JMP_Conditional": {
+        "ports": [
+          "CU_Decoder_0/JMP_Conditional",
+          "Pipelining_Execution_0/JMP_Conditional"
+        ]
+      },
+      "CU_Decoder_0_JMP_DestinationSource": {
+        "ports": [
+          "CU_Decoder_0/JMP_DestinationSource",
+          "Pipelining_Execution_0/JMP_DestinationSelect"
+        ]
+      },
+      "CU_Decoder_0_JMP_Relative": {
+        "ports": [
+          "CU_Decoder_0/JMP_Relative",
+          "Pipelining_Execution_0/JMP_Relative"
+        ]
+      },
+      "CU_Decoder_0_RAM_Address_Src": {
+        "ports": [
+          "CU_Decoder_0/RAM_Address_Src",
+          "Pipelining_Execution_0/RAM_Src"
+        ]
+      },
+      "CU_Decoder_0_RAM_Read": {
+        "ports": [
+          "CU_Decoder_0/RAM_Read",
+          "Pipelining_Execution_0/RAM_Read"
+        ]
+      },
+      "CU_Decoder_0_RAM_Write": {
+        "ports": [
+          "CU_Decoder_0/RAM_Write",
+          "Pipelining_Execution_0/RAM_Write"
+        ]
+      },
+      "CU_Decoder_0_RF_WHB": {
+        "ports": [
+          "CU_Decoder_0/RF_WHB",
+          "Pipelining_Execution_0/WHB"
+        ]
+      },
+      "CU_Decoder_0_RF_WLB": {
+        "ports": [
+          "CU_Decoder_0/RF_WLB",
+          "Pipelining_Execution_0/WLB"
+        ]
+      },
+      "CU_Decoder_0_Write_Data_Sel": {
+        "ports": [
+          "CU_Decoder_0/Write_Data_Sel",
+          "Pipelining_Execution_0/WriteDataSel"
+        ]
+      },
+      "CU_ImmediateManipula_0_ManipulatedImmidiate": {
+        "ports": [
+          "CU_ImmediateManipula_0/ManipulatedImmidiate",
+          "CU_WriteSelector_0/Manipulated_Immidiate"
+        ]
+      },
+      "CU_JumpController_0_PC_Load": {
+        "ports": [
+          "CU_JumpController_0/PC_Load",
+          "ProgramCounter_0/JMP"
+        ]
+      },
+      "CU_JumpController_0_PC_Next": {
+        "ports": [
+          "CU_JumpController_0/PC_Next",
+          "ProgramCounter_0/Din",
+          "Debugger_0/pc_din"
+        ]
+      },
+      "CU_JumpDestinationSe_0_JMP_Address": {
+        "ports": [
+          "CU_JumpDestinationSe_0/JMP_Address",
+          "CU_JumpController_0/JMP_Address"
+        ]
+      },
+      "CU_RAMAddressControl_0_RAM_Address": {
+        "ports": [
+          "CU_RAMAddressControl_0/RAM_Address",
+          "RAM_Placeholder_0/Address"
+        ]
+      },
+      "CU_WriteSelector_0_Write_Data": {
+        "ports": [
+          "CU_WriteSelector_0/Write_Data",
+          "Pipelining_Forwarder_0/ExecutionWriteData",
+          "Pipelining_WriteBack_0/WriteData"
+        ]
+      },
+      "ClockDisabler_0_InstrExec_CLK_out": {
+        "ports": [
+          "ClockDisabler_0/InstrExec_CLK_out",
+          "ProgramCounter_0/InstrExec_CLK",
+          "Pipelining_Controller_0/InstrExec_CLK",
+          "RegFile_0/clk",
+          "CU_JumpController_0/InstrExec_CLK",
+          "RAM_Placeholder_0/CLK"
+        ]
+      },
+      "ClockDisabler_0_InstrLoad_CLK_out": {
+        "ports": [
+          "ClockDisabler_0/InstrLoad_CLK_out",
+          "Pipelining_Controller_0/InstrLoad_CLK",
+          "Pipelining_Execution_0/InstrLoad_CLK",
+          "Pipelining_WriteBack_0/InstrLoad_CLK"
+        ]
+      },
+      "Debugger_0_debug_clk_stop_LOW_ACTIVE": {
+        "ports": [
+          "Debugger_0/debug_clk_stop_LOW_ACTIVE",
+          "ClockDisabler_0/debug_EN_LOW_ACTIVE"
+        ]
+      },
+      "Debugger_0_tx_data": {
+        "ports": [
+          "Debugger_0/tx_data",
+          "TX_UART_0/data_in"
+        ]
+      },
+      "Debugger_0_tx_data_valid": {
+        "ports": [
+          "Debugger_0/tx_data_valid",
+          "TX_UART_0/data_valid"
+        ]
+      },
+      "Decoder_0_Immediate": {
+        "ports": [
+          "Decoder_0/Immediate",
+          "Pipelining_Execution_0/Immediate"
+        ]
+      },
+      "Decoder_0_JMP_Condition": {
+        "ports": [
+          "Decoder_0/JMP_Condition",
+          "Pipelining_Execution_0/JMP_Condition"
+        ]
+      },
+      "Decoder_0_Register1": {
+        "ports": [
+          "Decoder_0/Register1",
+          "RegFile_0/AddrReg1",
+          "Debugger_0/regfile_addr_reg1"
+        ]
+      },
+      "Decoder_0_Register2": {
+        "ports": [
+          "Decoder_0/Register2",
+          "RegFile_0/AddrReg2",
+          "Debugger_0/regfile_addr_reg2"
+        ]
+      },
+      "Decoder_0_Use_MA": {
+        "ports": [
+          "Decoder_0/Use_MA",
+          "Pipelining_Execution_0/Use_MA"
+        ]
+      },
+      "Decoder_0_WriteBackRegister": {
+        "ports": [
+          "Decoder_0/WriteBackRegister",
+          "Pipelining_Execution_0/WriteAddress"
+        ]
+      },
+      "IROM_0_Data": {
+        "ports": [
+          "IROM_0/Data",
+          "Pipelining_Controller_0/Instruction",
+          "Debugger_0/iram_current_instruction",
+          "Debugger_0/pc_current_addr"
+        ]
+      },
+      "Pipelining_Controller_0_InstructionForwardConfiguration": {
+        "ports": [
+          "Pipelining_Controller_0/InstructionForwardConfiguration",
+          "Pipelining_Forwarder_0/ForwardingConfiguration",
+          "Debugger_0/pipeline_instruction_forwarding_config"
+        ]
+      },
+      "Pipelining_Controller_0_InstructionToExecute": {
+        "ports": [
+          "Pipelining_Controller_0/InstructionToExecute",
+          "CU_Decoder_0/Instruction",
+          "Decoder_0/Instruction",
+          "Debugger_0/pipeline_current_instruction"
+        ]
+      },
+      "Pipelining_Controller_0_Stalled": {
+        "ports": [
+          "Pipelining_Controller_0/Stalled",
+          "ProgramCounter_0/Stalled",
+          "Debugger_0/pipeline_stalled"
+        ]
+      },
+      "Pipelining_Execution_0_IS_ALU_OP_out": {
+        "ports": [
+          "Pipelining_Execution_0/IS_ALU_OP_out",
+          "Pipelining_WriteBack_0/Is_ALU_OP"
+        ]
+      },
+      "Pipelining_Execution_0_Immediate_out": {
+        "ports": [
+          "Pipelining_Execution_0/Immediate_out",
+          "CU_ImmediateManipula_0/Immediate",
+          "CU_RAMAddressControl_0/Immediate",
+          "CU_JumpDestinationSe_0/Immediate",
+          "Debugger_0/alu_op",
+          "ALU_0/ALU_OPP"
+        ]
+      },
+      "Pipelining_Execution_0_JMP_Condition_out": {
+        "ports": [
+          "Pipelining_Execution_0/JMP_Condition_out",
+          "CU_JumpController_0/JMP_Condition"
+        ]
+      },
+      "Pipelining_Execution_0_JMP_Conditional_out": {
+        "ports": [
+          "Pipelining_Execution_0/JMP_Conditional_out",
+          "CU_JumpController_0/JMP_Conditional"
+        ]
+      },
+      "Pipelining_Execution_0_JMP_DestinationSelect_out": {
+        "ports": [
+          "Pipelining_Execution_0/JMP_DestinationSelect_out",
+          "CU_JumpDestinationSe_0/JMP_DestinationSelect"
+        ]
+      },
+      "Pipelining_Execution_0_JMP_Relative_out": {
+        "ports": [
+          "Pipelining_Execution_0/JMP_Relative_out",
+          "CU_JumpController_0/JMP_Relative"
+        ]
+      },
+      "Pipelining_Execution_0_JMP_out": {
+        "ports": [
+          "Pipelining_Execution_0/JMP_out",
+          "CU_JumpController_0/JMP",
+          "Pipelining_WriteBack_0/JMP",
+          "Pipelining_Controller_0/ResolveStall",
+          "Debugger_0/pipeline_jmp"
+        ]
+      },
+      "Pipelining_Execution_0_MA_out": {
+        "ports": [
+          "Pipelining_Execution_0/MA_out",
+          "CU_RAMAddressControl_0/MA"
+        ]
+      },
+      "Pipelining_Execution_0_Operand1_out": {
+        "ports": [
+          "Pipelining_Execution_0/Operand1_out",
+          "CU_ImmediateManipula_0/Reg1",
+          "CU_JumpDestinationSe_0/Register1",
+          "CU_WriteSelector_0/Reg1",
+          "RAM_Placeholder_0/DataIn",
+          "Debugger_0/alu_din1",
+          "ALU_0/D1"
+        ]
+      },
+      "Pipelining_Execution_0_Operand2_out": {
+        "ports": [
+          "Pipelining_Execution_0/Operand2_out",
+          "CU_RAMAddressControl_0/Reg2",
+          "CU_JumpController_0/Flags",
+          "Debugger_0/alu_din2",
+          "ALU_0/D2"
+        ]
+      },
+      "Pipelining_Execution_0_RAM_Read_out": {
+        "ports": [
+          "Pipelining_Execution_0/RAM_Read_out",
+          "RAM_Placeholder_0/OE"
+        ]
+      },
+      "Pipelining_Execution_0_RAM_Src_out": {
+        "ports": [
+          "Pipelining_Execution_0/RAM_Src_out",
+          "CU_RAMAddressControl_0/RAM_Address_Src"
+        ]
+      },
+      "Pipelining_Execution_0_RAM_Write_out": {
+        "ports": [
+          "Pipelining_Execution_0/RAM_Write_out",
+          "RAM_Placeholder_0/WE"
+        ]
+      },
+      "Pipelining_Execution_0_Use_MA_out": {
+        "ports": [
+          "Pipelining_Execution_0/Use_MA_out",
+          "CU_RAMAddressControl_0/Use_MA"
+        ]
+      },
+      "Pipelining_Execution_0_WHB_out": {
+        "ports": [
+          "Pipelining_Execution_0/WHB_out",
+          "CU_ImmediateManipula_0/RF_WHB",
+          "Pipelining_WriteBack_0/WHB"
+        ]
+      },
+      "Pipelining_Execution_0_WLB_out": {
+        "ports": [
+          "Pipelining_Execution_0/WLB_out",
+          "CU_ImmediateManipula_0/RF_WLB",
+          "Pipelining_WriteBack_0/WLB"
+        ]
+      },
+      "Pipelining_Execution_0_WriteAddress_out": {
+        "ports": [
+          "Pipelining_Execution_0/WriteAddress_out",
+          "Pipelining_WriteBack_0/WriteAddress"
+        ]
+      },
+      "Pipelining_Execution_0_WriteDataSel_out": {
+        "ports": [
+          "Pipelining_Execution_0/WriteDataSel_out",
+          "CU_WriteSelector_0/Write_Sel"
+        ]
+      },
+      "Pipelining_Forwarder_0_ForwardedMA": {
+        "ports": [
+          "Pipelining_Forwarder_0/ForwardedMA",
+          "Pipelining_Execution_0/MA",
+          "Debugger_0/pipeline_memory_addr_reg"
+        ]
+      },
+      "Pipelining_Forwarder_0_ForwardedOperand1": {
+        "ports": [
+          "Pipelining_Forwarder_0/ForwardedOperand1",
+          "Pipelining_Execution_0/Operand1",
+          "Debugger_0/pipeline_operand_1"
+        ]
+      },
+      "Pipelining_Forwarder_0_ForwardedOperand2": {
+        "ports": [
+          "Pipelining_Forwarder_0/ForwardedOperand2",
+          "Pipelining_Execution_0/Operand2",
+          "Debugger_0/pipeline_operand_2"
+        ]
+      },
+      "Pipelining_WriteBack_0_Flags_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/Flags_out",
+          "RegFile_0/Flags"
+        ]
+      },
+      "Pipelining_WriteBack_0_Is_ALU_OP_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/Is_ALU_OP_out",
+          "RegFile_0/OverwriteFl",
+          "Debugger_0/regfile_overwrite_flag"
+        ]
+      },
+      "Pipelining_WriteBack_0_JMP_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/JMP_out",
+          "led"
+        ]
+      },
+      "Pipelining_WriteBack_0_RF_WE_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/RF_WE_out",
+          "RegFile_0/WE",
+          "Debugger_0/regfile_write_enable"
+        ]
+      },
+      "Pipelining_WriteBack_0_WriteAddress_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/WriteAddress_out",
+          "RegFile_0/AddrWriteReg",
+          "Debugger_0/regfile_addr_write_reg"
+        ]
+      },
+      "Pipelining_WriteBack_0_WriteData_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/WriteData_out",
+          "RegFile_0/WriteData",
+          "Debugger_0/regfile_write_data"
+        ]
+      },
+      "ProgramCounter_0_Dout": {
+        "ports": [
+          "ProgramCounter_0/Dout",
+          "CU_JumpController_0/PC_Current",
+          "IROM_0/Address",
+          "Debugger_0/pc_dout"
+        ]
+      },
+      "RAM_Placeholder_0_DataOut": {
+        "ports": [
+          "RAM_Placeholder_0/DataOut",
+          "CU_WriteSelector_0/RAM_Out"
+        ]
+      },
+      "RX_UART_0_data_output": {
+        "ports": [
+          "RX_UART_0/data_output",
+          "Debugger_0/rx_data"
+        ]
+      },
+      "RX_UART_0_data_valid": {
+        "ports": [
+          "RX_UART_0/data_valid",
+          "Debugger_0/rx_data_valid"
+        ]
+      },
+      "RX_UART_IN_1": {
+        "ports": [
+          "RX_UART_IN",
+          "RX_UART_0/rx_serial_input"
+        ]
+      },
+      "RegFile_0_BankID": {
+        "ports": [
+          "RegFile_0/BankID",
+          "Debugger_0/regfile_bankid"
+        ]
+      },
+      "RegFile_0_Reg1_data": {
+        "ports": [
+          "RegFile_0/Reg1_data",
+          "Pipelining_Forwarder_0/CurrentOperand1",
+          "Debugger_0/regfile_reg1_data"
+        ]
+      },
+      "RegFile_0_Reg2_data": {
+        "ports": [
+          "RegFile_0/Reg2_data",
+          "Pipelining_Forwarder_0/CurrentOperand2",
+          "Debugger_0/regfile_reg2_data"
+        ]
+      },
+      "RegFile_0_RegMA_data": {
+        "ports": [
+          "RegFile_0/RegMA_data",
+          "Pipelining_Forwarder_0/CurrentMA",
+          "Debugger_0/regfile_regma_data"
+        ]
+      },
+      "Reset_1": {
+        "ports": [
+          "Reset",
+          "ProgramCounter_0/Reset",
+          "Pipelining_Controller_0/Reset",
+          "Pipelining_WriteBack_0/Reset",
+          "clk_wiz_0/reset"
+        ]
+      },
+      "TX_UART_0_send_valid": {
+        "ports": [
+          "TX_UART_0/send_valid",
+          "Debugger_0/tx_data_sended"
+        ]
+      },
+      "TX_UART_0_tx_output": {
+        "ports": [
+          "TX_UART_0/tx_output",
+          "TX_UART_OUT"
+        ]
+      },
+      "clk_wiz_0_Debug_CLK100MHZ": {
+        "ports": [
+          "clk_wiz_0/Debug_CLK100MHZ",
+          "RX_UART_0/clk",
+          "TX_UART_0/clk",
+          "Debugger_0/clk"
+        ]
+      },
+      "clk_wiz_0_InstrExec_CLK": {
+        "ports": [
+          "clk_wiz_0/InstrExec_CLK",
+          "ClockDisabler_0/InstrExec_CLK_in",
+          "ALU_0/CLK"
+        ]
+      },
+      "clk_wiz_0_InstrLoad_CLK": {
+        "ports": [
+          "clk_wiz_0/InstrLoad_CLK",
+          "ClockDisabler_0/InstrLoad_CLK_in"
+        ]
+      }
+    }
+  }
+}

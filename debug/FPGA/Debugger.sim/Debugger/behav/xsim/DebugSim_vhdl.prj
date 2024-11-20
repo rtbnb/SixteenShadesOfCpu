@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Debugger.srcs/sources_1/new/TX_UART.vhd" \
+"../../../../Debugger.srcs/sources_1/new/Debugger.vhd" \
+"../../../../Debugger.srcs/sources_1/new/RX_UART.vhd" \
+"../../../../Debugger.ip_user_files/bd/design_1/ip/design_1_TX_UART_0_0/sim/design_1_TX_UART_0_0.vhd" \
+"../../../../Debugger.ip_user_files/bd/design_1/ip/design_1_Debugger_0_0/sim/design_1_Debugger_0_0.vhd" \
+"../../../../Debugger.ip_user_files/bd/design_1/ip/design_1_RX_UART_0_0/sim/design_1_RX_UART_0_0.vhd" \
+"../../../../Debugger.ip_user_files/bd/design_1/sim/design_1.vhd" \
+"../../../../Debugger.srcs/Debugger/new/DebugSim.vhd" \
+
+# Do not sort compile order
+nosort

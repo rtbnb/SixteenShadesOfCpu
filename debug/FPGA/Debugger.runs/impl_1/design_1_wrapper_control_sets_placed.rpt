@@ -1,0 +1,87 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Nov 17 18:57:55 2024
+| Host         : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
+| Design       : design_1_wrapper
+| Device       : xc7a35ti
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |     9 |
+|    Minimum number of control sets                        |     9 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    21 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |     9 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     3 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     1 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              25 |           11 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              44 |           10 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              14 |            4 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+--------------------------------------------------------------+----------------------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |                         Enable Signal                        |               Set/Reset Signal               | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+--------------------------------------------------------------+----------------------------------------------+------------------+----------------+--------------+
+|  CLK100MHZ_IBUF_BUFG | design_1_i/RX_UART_0/U0/current_state[3]_i_1_n_0             |                                              |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | design_1_i/TX_UART_0/U0/send_valid                           |                                              |                2 |              4 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | design_1_i/RX_UART_0/U0/clock_cnt[6]_i_2_n_0                 | design_1_i/RX_UART_0/U0/clock_cnt[6]_i_1_n_0 |                2 |              7 |         3.50 |
+|  CLK100MHZ_IBUF_BUFG | design_1_i/TX_UART_0/U0/clk_cnt                              | design_1_i/TX_UART_0/U0/clk_cnt[6]_i_1_n_0   |                2 |              7 |         3.50 |
+|  CLK100MHZ_IBUF_BUFG | design_1_i/Debugger_0/U0/rx_instruction_buffer               |                                              |                1 |              8 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | design_1_i/RX_UART_0/U0/data_output[7]_i_1_n_0               |                                              |                1 |              8 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | design_1_i/TX_UART_0/U0/tx_data                              |                                              |                1 |              8 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | design_1_i/TX_UART_0/U0/FSM_onehot_current_state[11]_i_1_n_0 |                                              |                4 |             12 |         3.00 |
+|  CLK100MHZ_IBUF_BUFG |                                                              |                                              |               11 |             25 |         2.27 |
++----------------------+--------------------------------------------------------------+----------------------------------------------+------------------+----------------+--------------+
+
+

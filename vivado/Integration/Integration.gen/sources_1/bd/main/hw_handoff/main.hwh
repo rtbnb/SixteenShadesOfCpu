@@ -1,0 +1,1998 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov 19 16:18:31 2024" VIVADOVERSION="2024.1">
+
+  <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="CLK100MHZ" SIGIS="undef" SIGNAME="External_Ports_CLK100MHZ">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_in1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="RX_UART_IN" SIGIS="undef" SIGNAME="External_Ports_RX_UART_IN">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="RX_UART_0" PORT="rx_serial_input"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_Reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ProgramCounter_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="clk_wiz_0" PORT="reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="TX_UART_OUT" SIGIS="undef" SIGNAME="TX_UART_0_tx_output">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="TX_UART_0" PORT="tx_output"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="JMP_out"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/ALU_0" HWVERSION="1.0" INSTANCE="ALU_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ALU" VLNV="xilinx.com:module_ref:ALU:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_ALU_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="3" NAME="ALU_OPP" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ALU_OUT" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ALU_OUT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="ALU_Out"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="BIGGER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_BIGGER_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="BIGGER_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="CARRY_FLAG" SIGIS="undef" SIGNAME="ALU_0_CARRY_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="CARRY_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="clk_wiz_0_InstrExec_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="InstrExec_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="D1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="D2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="NOT_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_NOT_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="NOT_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="OVERFLOW_FLAG" SIGIS="undef" SIGNAME="ALU_0_OVERFLOW_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="OVERFLOW_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RHO_FLAG" SIGIS="undef" SIGNAME="ALU_0_RHO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="RHO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RHO_PIN" SIGIS="undef"/>
+        <PORT DIR="O" NAME="SMALLER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_SMALLER_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="SMALLER_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/ALU_FLAG_PACKER_0" HWVERSION="1.0" INSTANCE="ALU_FLAG_PACKER_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ALU_FLAG_PACKER" VLNV="xilinx.com:module_ref:ALU_FLAG_PACKER:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_ALU_FLAG_PACKER_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="15" NAME="ALU_FLAGS" RIGHT="0" SIGIS="undef" SIGNAME="ALU_FLAG_PACKER_0_ALU_FLAGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ExecutionFlags"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Flags"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_flags"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="BIGGER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_BIGGER_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="BIGGER_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CARRY_FLAG" SIGIS="undef" SIGNAME="ALU_0_CARRY_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="CARRY_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="NOT_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_NOT_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="NOT_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="OVERFLOW_FLAG" SIGIS="undef" SIGNAME="ALU_0_OVERFLOW_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="OVERFLOW_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RHO_FLAG" SIGIS="undef" SIGNAME="ALU_0_RHO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="RHO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="SMALLER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_SMALLER_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="SMALLER_ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_ZERO_FLAG">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ZERO_FLAG"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_Decoder_0" HWVERSION="1.0" INSTANCE="CU_Decoder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_Decoder" VLNV="xilinx.com:module_ref:CU_Decoder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_Decoder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Instruction" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionToExecute"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Is_ALU_OP" SIGIS="undef" SIGNAME="CU_Decoder_0_Is_ALU_OP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Is_ALU_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Is_RAM_OP" SIGIS="undef" SIGNAME="CU_Decoder_0_Is_RAM_OP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Is_RAM_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_Conditional" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Conditional">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Conditional"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_DestinationSource" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_DestinationSource">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_DestinationSelect"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_Relative" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Relative">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Relative"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Address_Src" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Address_Src">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Src"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Read" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Read">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Read"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Write" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Write">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Write"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RF_WHB" SIGIS="undef" SIGNAME="CU_Decoder_0_RF_WHB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WHB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RF_WLB" SIGIS="undef" SIGNAME="CU_Decoder_0_RF_WLB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WLB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Reg1Read" SIGIS="undef"/>
+        <PORT DIR="O" NAME="Reg2Read" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="1" NAME="Write_Data_Sel" RIGHT="0" SIGIS="undef" SIGNAME="CU_Decoder_0_Write_Data_Sel">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WriteDataSel"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_ImmediateManipula_0" HWVERSION="1.0" INSTANCE="CU_ImmediateManipula_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_ImmediateManipulator" VLNV="xilinx.com:module_ref:CU_ImmediateManipulator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_ImmediateManipula_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ManipulatedImmidiate" RIGHT="0" SIGIS="undef" SIGNAME="CU_ImmediateManipula_0_ManipulatedImmidiate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Manipulated_Immidiate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RF_WHB" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WHB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WHB_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RF_WLB" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WLB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WLB_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Reg1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_JumpController_0" HWVERSION="1.0" INSTANCE="CU_JumpController_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_JumpController" VLNV="xilinx.com:module_ref:CU_JumpController:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_JumpController_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Flags" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="ClockDisabler_0_InstrExec_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrExec_CLK_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="JMP_Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpDestinationSe_0_JMP_Address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="JMP_Address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="JMP_Condition" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Condition_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Condition_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_Conditional" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Conditional_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Conditional_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_Relative" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Relative_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Relative_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="PC_Current" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="PC_Load" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Load">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="JMP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="PC_Next" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Din"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pc_din"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_JumpDestinationSe_0" HWVERSION="1.0" INSTANCE="CU_JumpDestinationSe_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_JumpDestinationSelector" VLNV="xilinx.com:module_ref:CU_JumpDestinationSelector:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_JumpDestinationSe_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="JMP_Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpDestinationSe_0_JMP_Address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP_Address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_DestinationSelect" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_DestinationSelect_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_DestinationSelect_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Register1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_RAMAddressControl_0" HWVERSION="1.0" INSTANCE="CU_RAMAddressControl_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_RAMAddressController" VLNV="xilinx.com:module_ref:CU_RAMAddressController:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_RAMAddressControl_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="MA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_MA_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="MA_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="RAM_Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_RAMAddressControl_0_RAM_Address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="Address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RAM_Address_Src" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Src_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Src_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Reg2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Use_MA" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Use_MA_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Use_MA_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CU_WriteSelector_0" HWVERSION="1.0" INSTANCE="CU_WriteSelector_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CU_WriteSelector" VLNV="xilinx.com:module_ref:CU_WriteSelector:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_CU_WriteSelector_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="ALU_Out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ALU_OUT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ALU_OUT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Manipulated_Immidiate" RIGHT="0" SIGIS="undef" SIGNAME="CU_ImmediateManipula_0_ManipulatedImmidiate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="ManipulatedImmidiate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="RAM_Out" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Placeholder_0_DataOut">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="DataOut"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Reg1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Write_Data" RIGHT="0" SIGIS="undef" SIGNAME="CU_WriteSelector_0_Write_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ExecutionWriteData"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteData"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="Write_Sel" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WriteDataSel_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WriteDataSel_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/ClockDisabler_0" HWVERSION="1.0" INSTANCE="ClockDisabler_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ClockDisabler" VLNV="xilinx.com:module_ref:ClockDisabler:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_ClockDisabler_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="InstrExec_CLK_in" SIGIS="undef" SIGNAME="clk_wiz_0_InstrExec_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="InstrExec_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="InstrExec_CLK_out" SIGIS="undef" SIGNAME="ClockDisabler_0_InstrExec_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="InstrExec_CLK"/>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrExec_CLK"/>
+            <CONNECTION INSTANCE="RegFile_0" PORT="clk"/>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="InstrExec_CLK"/>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="InstrLoad_CLK_in" SIGIS="undef" SIGNAME="clk_wiz_0_InstrLoad_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="InstrLoad_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="InstrLoad_CLK_out" SIGIS="undef" SIGNAME="ClockDisabler_0_InstrLoad_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrLoad_CLK"/>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="InstrLoad_CLK"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="InstrLoad_CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="debug_EN_LOW_ACTIVE" SIGIS="undef" SIGNAME="Debugger_0_debug_clk_stop_LOW_ACTIVE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="debug_clk_stop_LOW_ACTIVE"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Debugger_0" HWVERSION="1.0" INSTANCE="Debugger_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Debugger" VLNV="xilinx.com:module_ref:Debugger:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Debugger_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="alu_din1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_din2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_flags" RIGHT="0" SIGIS="undef" SIGNAME="ALU_FLAG_PACKER_0_ALU_FLAGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="ALU_FLAGS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_op" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ALU_OUT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ALU_OUT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_0_Debug_CLK100MHZ">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="Debug_CLK100MHZ"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="debug_clk_stop_LOW_ACTIVE" SIGIS="undef" SIGNAME="Debugger_0_debug_clk_stop_LOW_ACTIVE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="debug_EN_LOW_ACTIVE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="iram_current_instruction" RIGHT="0" SIGIS="undef" SIGNAME="IROM_0_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="IROM_0" PORT="Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="mmu_debug_addr" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="3" NAME="mmu_debug_bank" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="15" NAME="mmu_debug_din" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="15" NAME="mmu_debug_dout" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" NAME="mmu_debug_en" SIGIS="undef"/>
+        <PORT DIR="O" NAME="mmu_debug_override_en" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="mmu_debug_sync_clk" SIGIS="clk"/>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="mmu_debug_sys_clk" SIGIS="clk"/>
+        <PORT DIR="O" NAME="mmu_debug_we" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="15" NAME="pc_current_addr" RIGHT="0" SIGIS="undef" SIGNAME="IROM_0_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="IROM_0" PORT="Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pc_din" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Next"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pc_dout" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pipeline_current_instruction" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionToExecute"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="4" NAME="pipeline_instruction_forwarding_config" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionForwardConfiguration">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionForwardConfiguration"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pipeline_jmp" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pipeline_memory_addr_reg" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedMA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedMA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pipeline_operand_1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pipeline_operand_2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pipeline_stalled" SIGIS="undef" SIGNAME="Pipelining_Controller_0_Stalled">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Stalled"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="regfile_addr_reg1" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Register1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="regfile_addr_reg2" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Register2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="regfile_addr_write_reg" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteAddress_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="regfile_bankid" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_BankID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="BankID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="regfile_overwrite_flag" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Is_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Is_ALU_OP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="regfile_reg1_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg1_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Reg1_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="regfile_reg2_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg2_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Reg2_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="regfile_regma_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_RegMA_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="RegMA_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="regfile_write_data" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteData_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteData_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="regfile_write_enable" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="RF_WE_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="rx_data" RIGHT="0" SIGIS="undef" SIGNAME="RX_UART_0_data_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RX_UART_0" PORT="data_output"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_data_valid" SIGIS="undef" SIGNAME="RX_UART_0_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RX_UART_0" PORT="data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="tx_data" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_tx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="data_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="tx_data_sended" SIGIS="undef" SIGNAME="TX_UART_0_send_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="send_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_data_valid" SIGIS="undef" SIGNAME="Debugger_0_tx_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Decoder_0" HWVERSION="1.0" INSTANCE="Decoder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Decoder" VLNV="xilinx.com:module_ref:Decoder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Decoder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Immediate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Instruction" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionToExecute"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="JMP_Condition" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_JMP_Condition">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_Condition"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="Register1" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="AddrReg1"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_addr_reg1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="Register2" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="AddrReg2"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_addr_reg2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Use_MA" SIGIS="undef" SIGNAME="Decoder_0_Use_MA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Use_MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="WriteBackRegister" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_WriteBackRegister">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WriteAddress"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/IROM_0" HWVERSION="1.0" INSTANCE="IROM_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="IROM" VLNV="xilinx.com:module_ref:IROM:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_IROM_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Address" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Data" RIGHT="0" SIGIS="undef" SIGNAME="IROM_0_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Instruction"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="iram_current_instruction"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pc_current_addr"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pipelining_Controller_0" HWVERSION="1.0" INSTANCE="Pipelining_Controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pipelining_Controller" VLNV="xilinx.com:module_ref:Pipelining_Controller:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Pipelining_Controller_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="ClockDisabler_0_InstrExec_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrExec_CLK_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="ClockDisabler_0_InstrLoad_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrLoad_CLK_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Instruction" RIGHT="0" SIGIS="undef" SIGNAME="IROM_0_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="IROM_0" PORT="Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="4" NAME="InstructionForwardConfiguration" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionForwardConfiguration">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardingConfiguration"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_instruction_forwarding_config"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="InstructionToExecute" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="Instruction"/>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Instruction"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_current_instruction"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_Reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ResolveStall" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Stalled" SIGIS="undef" SIGNAME="Pipelining_Controller_0_Stalled">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Stalled"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_stalled"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pipelining_Execution_0" HWVERSION="1.0" INSTANCE="Pipelining_Execution_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pipelining_ExecutionStage" VLNV="xilinx.com:module_ref:Pipelining_ExecutionStage:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Pipelining_Execution_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="IS_ALU_OP_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_IS_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Is_ALU_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Immediate" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Immediate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Immediate"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Immediate_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="Immediate"/>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Immediate"/>
+            <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="Immediate"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_op"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="ALU_OPP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="ClockDisabler_0_InstrLoad_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrLoad_CLK_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Is_ALU_OP" SIGIS="undef" SIGNAME="CU_Decoder_0_Is_ALU_OP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="Is_ALU_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Is_RAM_OP" SIGIS="undef" SIGNAME="CU_Decoder_0_Is_RAM_OP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="Is_RAM_OP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Is_RAM_OP_out" SIGIS="undef"/>
+        <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="JMP_Condition" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_JMP_Condition">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="JMP_Condition"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="JMP_Condition_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Condition_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP_Condition"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_Conditional" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Conditional">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP_Conditional"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_Conditional_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Conditional_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP_Conditional"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_DestinationSelect" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_DestinationSource">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP_DestinationSource"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_DestinationSelect_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_DestinationSelect_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="JMP_DestinationSelect"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP_Relative" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Relative">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP_Relative"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_Relative_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_Relative_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP_Relative"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="JMP"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="JMP"/>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="ResolveStall"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_jmp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="MA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedMA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedMA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="MA_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_MA_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Operand1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Operand1_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="Reg1"/>
+            <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="Register1"/>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Reg1"/>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="DataIn"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_din1"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="D1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Operand2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Operand2_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Reg2"/>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="Flags"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_din2"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="D2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RAM_Read" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Read">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RAM_Read"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Read_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Read_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="OE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RAM_Src" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Address_Src">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RAM_Address_Src"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Src_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Src_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="RAM_Address_Src"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RAM_Write" SIGIS="undef" SIGNAME="CU_Decoder_0_RAM_Write">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RAM_Write"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RAM_Write_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Write_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Placeholder_0" PORT="WE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
+        <PORT DIR="I" NAME="Use_MA" SIGIS="undef" SIGNAME="Decoder_0_Use_MA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Use_MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Use_MA_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Use_MA_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Use_MA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WHB" SIGIS="undef" SIGNAME="CU_Decoder_0_RF_WHB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RF_WHB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="WHB_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WHB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="RF_WHB"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WHB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WLB" SIGIS="undef" SIGNAME="CU_Decoder_0_RF_WLB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="RF_WLB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="WLB_out" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WLB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="RF_WLB"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WLB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="WriteAddress" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_WriteBackRegister">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="WriteBackRegister"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="WriteAddress_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteAddress"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="WriteDataSel" RIGHT="0" SIGIS="undef" SIGNAME="CU_Decoder_0_Write_Data_Sel">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="Write_Data_Sel"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="WriteDataSel_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WriteDataSel_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Write_Sel"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pipelining_Forwarder_0" HWVERSION="1.0" INSTANCE="Pipelining_Forwarder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pipelining_Forwarder" VLNV="xilinx.com:module_ref:Pipelining_Forwarder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Pipelining_Forwarder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="CurrentMA" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_RegMA_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="RegMA_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="CurrentOperand1" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg1_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Reg1_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="CurrentOperand2" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg2_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Reg2_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="ExecutionFlags" RIGHT="0" SIGIS="undef" SIGNAME="ALU_FLAG_PACKER_0_ALU_FLAGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="ALU_FLAGS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="ExecutionWriteData" RIGHT="0" SIGIS="undef" SIGNAME="CU_WriteSelector_0_Write_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Write_Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ForwardedMA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedMA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="MA"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_memory_addr_reg"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ForwardedOperand1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_operand_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="ForwardedOperand2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_operand_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="4" NAME="ForwardingConfiguration" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionForwardConfiguration">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionForwardConfiguration"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pipelining_WriteBack_0" HWVERSION="1.0" INSTANCE="Pipelining_WriteBack_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pipelining_WriteBackStage" VLNV="xilinx.com:module_ref:Pipelining_WriteBackStage:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Pipelining_WriteBack_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Flags" RIGHT="0" SIGIS="undef" SIGNAME="ALU_FLAG_PACKER_0_ALU_FLAGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="ALU_FLAGS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Flags_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Flags_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Flags"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="ClockDisabler_0_InstrLoad_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrLoad_CLK_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Is_ALU_OP" SIGIS="undef" SIGNAME="Pipelining_Execution_0_IS_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="IS_ALU_OP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="Is_ALU_OP_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Is_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="OverwriteFl"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_overwrite_flag"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="JMP_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="RF_WE_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="WE"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_write_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_Reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WHB" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WHB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WHB_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WLB" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WLB_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WLB_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="WriteAddress" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="WriteAddress_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="WriteAddress_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="AddrWriteReg"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_addr_write_reg"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="WriteData" RIGHT="0" SIGIS="undef" SIGNAME="CU_WriteSelector_0_Write_Data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Write_Data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="WriteData_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteData_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="WriteData"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_write_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/ProgramCounter_0" HWVERSION="1.0" INSTANCE="ProgramCounter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ProgramCounter" VLNV="xilinx.com:module_ref:ProgramCounter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_ProgramCounter_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Next"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Current"/>
+            <CONNECTION INSTANCE="IROM_0" PORT="Address"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pc_dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="ClockDisabler_0_InstrExec_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrExec_CLK_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Load">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Load"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_Reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Stalled" SIGIS="undef" SIGNAME="Pipelining_Controller_0_Stalled">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Stalled"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/RAM_Placeholder_0" HWVERSION="1.0" INSTANCE="RAM_Placeholder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RAM_Placeholder" VLNV="xilinx.com:module_ref:RAM_Placeholder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_RAM_Placeholder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_RAMAddressControl_0_RAM_Address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="RAM_Address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="ClockDisabler_0_InstrExec_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrExec_CLK_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="DataIn" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="DataOut" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Placeholder_0_DataOut">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="RAM_Out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="OE" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Read_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Read_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WE" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Write_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Write_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/RX_UART_0" HWVERSION="1.0" INSTANCE="RX_UART_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RX_UART" VLNV="xilinx.com:module_ref:RX_UART:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLKS_PER_BIT" VALUE="109"/>
+        <PARAMETER NAME="Component_Name" VALUE="main_RX_UART_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_0_Debug_CLK100MHZ">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="Debug_CLK100MHZ"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="data_output" RIGHT="0" SIGIS="undef" SIGNAME="RX_UART_0_data_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="rx_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="data_valid" SIGIS="undef" SIGNAME="RX_UART_0_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="rx_data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_serial_input" SIGIS="undef" SIGNAME="External_Ports_RX_UART_IN">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="RX_UART_IN"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/RegFile_0" HWVERSION="1.0" INSTANCE="RegFile_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RegFile" VLNV="xilinx.com:module_ref:RegFile:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_RegFile_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="3" NAME="AddrReg1" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Register1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="AddrReg2" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Register2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="AddrWriteReg" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteAddress_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="BankID" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_BankID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_bankid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Flags" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Flags_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Flags_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="OverwriteFl" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Is_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Is_ALU_OP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Reg1_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg1_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentOperand1"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_reg1_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Reg2_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg2_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentOperand2"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_reg2_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="RegMA_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_RegMA_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentMA"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_regma_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="WE" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="RF_WE_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="WriteData" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteData_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteData_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="ClockDisabler_0_InstrExec_CLK_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrExec_CLK_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/TX_UART_0" HWVERSION="1.0" INSTANCE="TX_UART_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="TX_UART" VLNV="xilinx.com:module_ref:TX_UART:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLKS_PER_BIT" VALUE="109"/>
+        <PARAMETER NAME="Component_Name" VALUE="main_TX_UART_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_0_Debug_CLK100MHZ">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="Debug_CLK100MHZ"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="data_in" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_tx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="data_valid" SIGIS="undef" SIGNAME="Debugger_0_tx_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="send_valid" SIGIS="undef" SIGNAME="TX_UART_0_send_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data_sended"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_output" SIGIS="undef" SIGNAME="TX_UART_0_tx_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="TX_UART_OUT"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="14" FULLNAME="/clk_wiz_0" HWVERSION="6.0" INSTANCE="clk_wiz_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="clk_wiz" VLNV="xilinx.com:ip:clk_wiz:6.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=clk_wiz;v=v6_0;d=pg065-clk-wiz.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_AUTO_PRIMITIVE" VALUE="MMCM"/>
+        <PARAMETER NAME="C_CDDCDONE_PORT" VALUE="cddcdone"/>
+        <PARAMETER NAME="C_CDDCREQ_PORT" VALUE="cddcreq"/>
+        <PARAMETER NAME="C_CLKFBOUT_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKFBOUT_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKFB_IN_N_PORT" VALUE="clkfb_in_n"/>
+        <PARAMETER NAME="C_CLKFB_IN_PORT" VALUE="clkfb_in"/>
+        <PARAMETER NAME="C_CLKFB_IN_P_PORT" VALUE="clkfb_in_p"/>
+        <PARAMETER NAME="C_CLKFB_IN_SIGNALING" VALUE="SINGLE"/>
+        <PARAMETER NAME="C_CLKFB_OUT_N_PORT" VALUE="clkfb_out_n"/>
+        <PARAMETER NAME="C_CLKFB_OUT_PORT" VALUE="clkfb_out"/>
+        <PARAMETER NAME="C_CLKFB_OUT_P_PORT" VALUE="clkfb_out_p"/>
+        <PARAMETER NAME="C_CLKFB_STOPPED_PORT" VALUE="clkfb_stopped"/>
+        <PARAMETER NAME="C_CLKIN1_JITTER_PS" VALUE="100.0"/>
+        <PARAMETER NAME="C_CLKIN2_JITTER_PS" VALUE="166.66"/>
+        <PARAMETER NAME="C_CLKOUT0_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT0_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT0_ACTUAL_FREQ" VALUE="100.00000"/>
+        <PARAMETER NAME="C_CLKOUT1_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT1_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT1_ACTUAL_FREQ" VALUE="100.00000"/>
+        <PARAMETER NAME="C_CLKOUT1_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT1_DUTY_CYCLE" VALUE="50.0"/>
+        <PARAMETER NAME="C_CLKOUT1_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT1_OUT_FREQ" VALUE="100.00000"/>
+        <PARAMETER NAME="C_CLKOUT1_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT1_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT1_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT1_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT1_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT2_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT2_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT2_ACTUAL_FREQ" VALUE="100.00000"/>
+        <PARAMETER NAME="C_CLKOUT2_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT2_DUTY_CYCLE" VALUE="50.0"/>
+        <PARAMETER NAME="C_CLKOUT2_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT2_OUT_FREQ" VALUE="100.00000"/>
+        <PARAMETER NAME="C_CLKOUT2_PHASE" VALUE="180.000"/>
+        <PARAMETER NAME="C_CLKOUT2_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT2_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT2_REQUESTED_PHASE" VALUE="180.000"/>
+        <PARAMETER NAME="C_CLKOUT2_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT2_USED" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT3_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT3_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT3_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT3_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT3_DUTY_CYCLE" VALUE="50.0"/>
+        <PARAMETER NAME="C_CLKOUT3_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT3_OUT_FREQ" VALUE="100.00000"/>
+        <PARAMETER NAME="C_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT3_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT3_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT3_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT3_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT3_USED" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT4_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT4_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT4_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT4_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT4_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT4_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT4_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT4_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT4_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT4_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT4_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT4_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT5_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT5_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT5_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT5_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT5_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT5_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT5_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT5_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT5_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT5_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT5_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT5_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT6_1" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT6_2" VALUE="0000"/>
+        <PARAMETER NAME="C_CLKOUT6_ACTUAL_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT6_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT6_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT6_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT6_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT6_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT6_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT6_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT6_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT6_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT6_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUT7_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="C_CLKOUT7_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT7_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="C_CLKOUT7_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT7_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT7_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT7_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_CLKOUT7_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT7_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT7_USED" VALUE="0"/>
+        <PARAMETER NAME="C_CLKOUTPHY_MODE" VALUE="VCO"/>
+        <PARAMETER NAME="C_CLK_IN_SEL_PORT" VALUE="clk_in_sel"/>
+        <PARAMETER NAME="C_CLK_OUT1_PORT" VALUE="InstrExec_CLK"/>
+        <PARAMETER NAME="C_CLK_OUT2_PORT" VALUE="InstrLoad_CLK"/>
+        <PARAMETER NAME="C_CLK_OUT3_PORT" VALUE="Debug_CLK100MHZ"/>
+        <PARAMETER NAME="C_CLK_OUT4_PORT" VALUE="clk_out4"/>
+        <PARAMETER NAME="C_CLK_OUT5_PORT" VALUE="clk_out5"/>
+        <PARAMETER NAME="C_CLK_OUT6_PORT" VALUE="clk_out6"/>
+        <PARAMETER NAME="C_CLK_OUT7_PORT" VALUE="clk_out7"/>
+        <PARAMETER NAME="C_CLK_VALID_PORT" VALUE="CLK_VALID"/>
+        <PARAMETER NAME="C_CLOCK_MGR_TYPE" VALUE="NA"/>
+        <PARAMETER NAME="C_DADDR_PORT" VALUE="daddr"/>
+        <PARAMETER NAME="C_DCLK_PORT" VALUE="dclk"/>
+        <PARAMETER NAME="C_DEN_PORT" VALUE="den"/>
+        <PARAMETER NAME="C_DIN_PORT" VALUE="din"/>
+        <PARAMETER NAME="C_DIVCLK" VALUE="0000"/>
+        <PARAMETER NAME="C_DIVIDE1_AUTO" VALUE="1"/>
+        <PARAMETER NAME="C_DIVIDE2_AUTO" VALUE="1.0"/>
+        <PARAMETER NAME="C_DIVIDE3_AUTO" VALUE="1.0"/>
+        <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="0.1"/>
+        <PARAMETER NAME="C_DIVIDE5_AUTO" VALUE="0.1"/>
+        <PARAMETER NAME="C_DIVIDE6_AUTO" VALUE="0.1"/>
+        <PARAMETER NAME="C_DIVIDE7_AUTO" VALUE="0.1"/>
+        <PARAMETER NAME="C_DOUT_PORT" VALUE="dout"/>
+        <PARAMETER NAME="C_DRDY_PORT" VALUE="drdy"/>
+        <PARAMETER NAME="C_DWE_PORT" VALUE="dwe"/>
+        <PARAMETER NAME="C_D_MAX" VALUE="80.000"/>
+        <PARAMETER NAME="C_D_MIN" VALUE="1.000"/>
+        <PARAMETER NAME="C_ENABLE_CLKOUTPHY" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_CLOCK_MONITOR" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_USER_CLOCK0" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_USER_CLOCK1" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_USER_CLOCK2" VALUE="0"/>
+        <PARAMETER NAME="C_ENABLE_USER_CLOCK3" VALUE="0"/>
+        <PARAMETER NAME="C_Enable_PLL0" VALUE="0"/>
+        <PARAMETER NAME="C_Enable_PLL1" VALUE="0"/>
+        <PARAMETER NAME="C_FEEDBACK_SOURCE" VALUE="FDBK_AUTO"/>
+        <PARAMETER NAME="C_FILTER_1" VALUE="0000"/>
+        <PARAMETER NAME="C_FILTER_2" VALUE="0000"/>
+        <PARAMETER NAME="C_HAS_CDDC" VALUE="0"/>
+        <PARAMETER NAME="C_INCLK_SUM_ROW0" VALUE="Input Clock   Freq (MHz)    Input Jitter (UI)"/>
+        <PARAMETER NAME="C_INCLK_SUM_ROW1" VALUE="__primary_________100.000____________0.010"/>
+        <PARAMETER NAME="C_INCLK_SUM_ROW2" VALUE="no_secondary_input_clock"/>
+        <PARAMETER NAME="C_INPUT_CLK_STOPPED_PORT" VALUE="input_clk_stopped"/>
+        <PARAMETER NAME="C_INTERFACE_SELECTION" VALUE="0"/>
+        <PARAMETER NAME="C_IN_FREQ_UNITS" VALUE="Units_MHz"/>
+        <PARAMETER NAME="C_JITTER_SEL" VALUE="No_Jitter"/>
+        <PARAMETER NAME="C_LOCKED_PORT" VALUE="locked"/>
+        <PARAMETER NAME="C_LOCK_1" VALUE="0000"/>
+        <PARAMETER NAME="C_LOCK_2" VALUE="0000"/>
+        <PARAMETER NAME="C_LOCK_3" VALUE="0000"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV1" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV2" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV3" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV4" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV5" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV6" VALUE="false"/>
+        <PARAMETER NAME="C_MMCMBUFGCEDIV7" VALUE="false"/>
+        <PARAMETER NAME="C_MMCM_BANDWIDTH" VALUE="OPTIMIZED"/>
+        <PARAMETER NAME="C_MMCM_CLKFBOUT_MULT_F" VALUE="10.000"/>
+        <PARAMETER NAME="C_MMCM_CLKFBOUT_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKFBOUT_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKIN1_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="C_MMCM_CLKIN2_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_DIVIDE_F" VALUE="10.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_DIVIDE" VALUE="10"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_PHASE" VALUE="180.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT2_DIVIDE" VALUE="10"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT2_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT3_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_CASCADE" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT4_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT5_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT5_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT5_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT6_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT6_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT6_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT6_USE_FINE_PS" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_CLOCK_HOLD" VALUE="FALSE"/>
+        <PARAMETER NAME="C_MMCM_COMPENSATION" VALUE="ZHOLD"/>
+        <PARAMETER NAME="C_MMCM_DIVCLK_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_MMCM_NOTES" VALUE="None"/>
+        <PARAMETER NAME="C_MMCM_REF_JITTER1" VALUE="0.010"/>
+        <PARAMETER NAME="C_MMCM_REF_JITTER2" VALUE="0.010"/>
+        <PARAMETER NAME="C_MMCM_STARTUP_WAIT" VALUE="FALSE"/>
+        <PARAMETER NAME="C_M_MAX" VALUE="64.000"/>
+        <PARAMETER NAME="C_M_MIN" VALUE="2.000"/>
+        <PARAMETER NAME="C_NUM_OUT_CLKS" VALUE="3"/>
+        <PARAMETER NAME="C_OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="0"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW0A" VALUE="Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW0B" VALUE="Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="InstrExec_CLK__100.00000______0.000______50.0______130.958_____98.575"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="InstrLoad_CLK__100.00000____180.000______50.0______130.958_____98.575"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW3" VALUE="Debug_CLK100MHZ__100.00000______0.000______50.0______130.958_____98.575"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="no_CLK_OUT4_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW6" VALUE="no_CLK_OUT6_output"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW7" VALUE="no_CLK_OUT7_output"/>
+        <PARAMETER NAME="C_OVERRIDE_MMCM" VALUE="0"/>
+        <PARAMETER NAME="C_OVERRIDE_PLL" VALUE="0"/>
+        <PARAMETER NAME="C_O_MAX" VALUE="128.000"/>
+        <PARAMETER NAME="C_O_MIN" VALUE="1.000"/>
+        <PARAMETER NAME="C_PHASESHIFT_MODE" VALUE="WAVEFORM"/>
+        <PARAMETER NAME="C_PLATFORM" VALUE="UNKNOWN"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV" VALUE="false"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV1" VALUE="false"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV2" VALUE="false"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV3" VALUE="false"/>
+        <PARAMETER NAME="C_PLLBUFGCEDIV4" VALUE="false"/>
+        <PARAMETER NAME="C_PLL_BANDWIDTH" VALUE="OPTIMIZED"/>
+        <PARAMETER NAME="C_PLL_CLKFBOUT_MULT" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKFBOUT_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKIN_PERIOD" VALUE="1.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT0_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT0_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT1_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT1_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT2_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT4_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT4_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLKOUT5_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_CLKOUT5_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="C_PLL_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_PLL_CLK_FEEDBACK" VALUE="CLKFBOUT"/>
+        <PARAMETER NAME="C_PLL_COMPENSATION" VALUE="SYSTEM_SYNCHRONOUS"/>
+        <PARAMETER NAME="C_PLL_DIVCLK_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="C_PLL_NOTES" VALUE="No notes"/>
+        <PARAMETER NAME="C_PLL_REF_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="C_POWER_DOWN_PORT" VALUE="power_down"/>
+        <PARAMETER NAME="C_POWER_REG" VALUE="0000"/>
+        <PARAMETER NAME="C_PRECISION" VALUE="1"/>
+        <PARAMETER NAME="C_PRIMARY_PORT" VALUE="clk_in1"/>
+        <PARAMETER NAME="C_PRIMITIVE" VALUE="MMCM"/>
+        <PARAMETER NAME="C_PRIMTYPE_SEL" VALUE="AUTO"/>
+        <PARAMETER NAME="C_PRIM_IN_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_PRIM_IN_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="C_PRIM_IN_TIMEPERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="C_PRIM_SOURCE" VALUE="Single_ended_clock_capable_pin"/>
+        <PARAMETER NAME="C_PSCLK_PORT" VALUE="psclk"/>
+        <PARAMETER NAME="C_PSDONE_PORT" VALUE="psdone"/>
+        <PARAMETER NAME="C_PSEN_PORT" VALUE="psen"/>
+        <PARAMETER NAME="C_PSINCDEC_PORT" VALUE="psincdec"/>
+        <PARAMETER NAME="C_REF_CLK_FREQ" VALUE="100.0"/>
+        <PARAMETER NAME="C_RESET_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_RESET_PORT" VALUE="reset"/>
+        <PARAMETER NAME="C_SECONDARY_IN_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="C_SECONDARY_IN_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="C_SECONDARY_IN_TIMEPERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="C_SECONDARY_PORT" VALUE="clk_in2"/>
+        <PARAMETER NAME="C_SECONDARY_SOURCE" VALUE="Single_ended_clock_capable_pin"/>
+        <PARAMETER NAME="C_SS_MODE" VALUE="CENTER_HIGH"/>
+        <PARAMETER NAME="C_SS_MOD_PERIOD" VALUE="4000"/>
+        <PARAMETER NAME="C_SS_MOD_TIME" VALUE="0.004"/>
+        <PARAMETER NAME="C_STATUS_PORT" VALUE="STATUS"/>
+        <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="11"/>
+        <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_USER_CLK_FREQ0" VALUE="100.0"/>
+        <PARAMETER NAME="C_USER_CLK_FREQ1" VALUE="100.0"/>
+        <PARAMETER NAME="C_USER_CLK_FREQ2" VALUE="100.0"/>
+        <PARAMETER NAME="C_USER_CLK_FREQ3" VALUE="100.0"/>
+        <PARAMETER NAME="C_USE_CLKFB_STOPPED" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKOUT1_BAR" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKOUT2_BAR" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKOUT3_BAR" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLKOUT4_BAR" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLK_VALID" VALUE="0"/>
+        <PARAMETER NAME="C_USE_CLOCK_SEQUENCING" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DYN_PHASE_SHIFT" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DYN_RECONFIG" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FAST_SIMULATION" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FREEZE" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FREQ_SYNTH" VALUE="1"/>
+        <PARAMETER NAME="C_USE_INCLK_STOPPED" VALUE="0"/>
+        <PARAMETER NAME="C_USE_INCLK_SWITCHOVER" VALUE="0"/>
+        <PARAMETER NAME="C_USE_LOCKED" VALUE="1"/>
+        <PARAMETER NAME="C_USE_MAX_I_JITTER" VALUE="0"/>
+        <PARAMETER NAME="C_USE_MIN_O_JITTER" VALUE="0"/>
+        <PARAMETER NAME="C_USE_MIN_POWER" VALUE="0"/>
+        <PARAMETER NAME="C_USE_PHASE_ALIGNMENT" VALUE="1"/>
+        <PARAMETER NAME="C_USE_POWER_DOWN" VALUE="0"/>
+        <PARAMETER NAME="C_USE_RESET" VALUE="1"/>
+        <PARAMETER NAME="C_USE_SAFE_CLOCK_STARTUP" VALUE="0"/>
+        <PARAMETER NAME="C_USE_SPREAD_SPECTRUM" VALUE="0"/>
+        <PARAMETER NAME="C_USE_STATUS" VALUE="0"/>
+        <PARAMETER NAME="C_VCO_MAX" VALUE="1200.000"/>
+        <PARAMETER NAME="C_VCO_MIN" VALUE="600.000"/>
+        <PARAMETER NAME="c_component_name" VALUE="main_clk_wiz_0_0"/>
+        <PARAMETER NAME="AUTO_PRIMITIVE" VALUE="MMCM"/>
+        <PARAMETER NAME="AXI_DRP" VALUE="false"/>
+        <PARAMETER NAME="CALC_DONE" VALUE="empty"/>
+        <PARAMETER NAME="CDDCDONE_PORT" VALUE="cddcdone"/>
+        <PARAMETER NAME="CDDCREQ_PORT" VALUE="cddcreq"/>
+        <PARAMETER NAME="CLKFB_IN_N_PORT" VALUE="clkfb_in_n"/>
+        <PARAMETER NAME="CLKFB_IN_PORT" VALUE="clkfb_in"/>
+        <PARAMETER NAME="CLKFB_IN_P_PORT" VALUE="clkfb_in_p"/>
+        <PARAMETER NAME="CLKFB_IN_SIGNALING" VALUE="SINGLE"/>
+        <PARAMETER NAME="CLKFB_OUT_N_PORT" VALUE="clkfb_out_n"/>
+        <PARAMETER NAME="CLKFB_OUT_PORT" VALUE="clkfb_out"/>
+        <PARAMETER NAME="CLKFB_OUT_P_PORT" VALUE="clkfb_out_p"/>
+        <PARAMETER NAME="CLKFB_STOPPED_PORT" VALUE="clkfb_stopped"/>
+        <PARAMETER NAME="CLKIN1_JITTER_PS" VALUE="100.0"/>
+        <PARAMETER NAME="CLKIN1_UI_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="CLKIN2_JITTER_PS" VALUE="166.66"/>
+        <PARAMETER NAME="CLKIN2_UI_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="CLKOUT1_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT1_JITTER" VALUE="130.958"/>
+        <PARAMETER NAME="CLKOUT1_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT1_PHASE_ERROR" VALUE="98.575"/>
+        <PARAMETER NAME="CLKOUT1_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT1_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT1_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT1_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT1_USED" VALUE="true"/>
+        <PARAMETER NAME="CLKOUT2_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT2_JITTER" VALUE="130.958"/>
+        <PARAMETER NAME="CLKOUT2_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT2_PHASE_ERROR" VALUE="98.575"/>
+        <PARAMETER NAME="CLKOUT2_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT2_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT2_REQUESTED_PHASE" VALUE="180.000"/>
+        <PARAMETER NAME="CLKOUT2_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT2_USED" VALUE="true"/>
+        <PARAMETER NAME="CLKOUT3_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT3_JITTER" VALUE="130.958"/>
+        <PARAMETER NAME="CLKOUT3_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT3_PHASE_ERROR" VALUE="98.575"/>
+        <PARAMETER NAME="CLKOUT3_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT3_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT3_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT3_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT3_USED" VALUE="true"/>
+        <PARAMETER NAME="CLKOUT4_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT4_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT4_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT4_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT4_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT4_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT4_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT4_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT4_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT5_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT5_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT5_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT5_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT5_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT5_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT5_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT5_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT5_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT6_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT6_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT6_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT6_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT6_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT6_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT6_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT6_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT6_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT7_DRIVES" VALUE="BUFG"/>
+        <PARAMETER NAME="CLKOUT7_JITTER" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT7_MATCHED_ROUTING" VALUE="false"/>
+        <PARAMETER NAME="CLKOUT7_PHASE_ERROR" VALUE="0.0"/>
+        <PARAMETER NAME="CLKOUT7_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT7_REQUESTED_OUT_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="CLKOUT7_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT7_SEQUENCE_NUMBER" VALUE="1"/>
+        <PARAMETER NAME="CLKOUT7_USED" VALUE="false"/>
+        <PARAMETER NAME="CLKOUTPHY_REQUESTED_FREQ" VALUE="600.000"/>
+        <PARAMETER NAME="CLK_IN1_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="CLK_IN2_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="CLK_IN_SEL_PORT" VALUE="clk_in_sel"/>
+        <PARAMETER NAME="CLK_OUT1_PORT" VALUE="InstrExec_CLK"/>
+        <PARAMETER NAME="CLK_OUT1_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT2_PORT" VALUE="InstrLoad_CLK"/>
+        <PARAMETER NAME="CLK_OUT2_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT3_PORT" VALUE="Debug_CLK100MHZ"/>
+        <PARAMETER NAME="CLK_OUT3_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT4_PORT" VALUE="clk_out4"/>
+        <PARAMETER NAME="CLK_OUT4_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT5_PORT" VALUE="clk_out5"/>
+        <PARAMETER NAME="CLK_OUT5_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT6_PORT" VALUE="clk_out6"/>
+        <PARAMETER NAME="CLK_OUT6_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_OUT7_PORT" VALUE="clk_out7"/>
+        <PARAMETER NAME="CLK_OUT7_USE_FINE_PS_GUI" VALUE="false"/>
+        <PARAMETER NAME="CLK_VALID_PORT" VALUE="CLK_VALID"/>
+        <PARAMETER NAME="CLOCK_MGR_TYPE" VALUE="auto"/>
+        <PARAMETER NAME="Component_Name" VALUE="main_clk_wiz_0_0"/>
+        <PARAMETER NAME="DADDR_PORT" VALUE="daddr"/>
+        <PARAMETER NAME="DCLK_PORT" VALUE="dclk"/>
+        <PARAMETER NAME="DEN_PORT" VALUE="den"/>
+        <PARAMETER NAME="DIFF_CLK_IN1_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="DIFF_CLK_IN2_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="DIN_PORT" VALUE="din"/>
+        <PARAMETER NAME="DOUT_PORT" VALUE="dout"/>
+        <PARAMETER NAME="DRDY_PORT" VALUE="drdy"/>
+        <PARAMETER NAME="DWE_PORT" VALUE="dwe"/>
+        <PARAMETER NAME="ENABLE_CDDC" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_CLKOUTPHY" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_CLOCK_MONITOR" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_USER_CLOCK0" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_USER_CLOCK1" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_USER_CLOCK2" VALUE="false"/>
+        <PARAMETER NAME="ENABLE_USER_CLOCK3" VALUE="false"/>
+        <PARAMETER NAME="Enable_PLL0" VALUE="false"/>
+        <PARAMETER NAME="Enable_PLL1" VALUE="false"/>
+        <PARAMETER NAME="FEEDBACK_SOURCE" VALUE="FDBK_AUTO"/>
+        <PARAMETER NAME="INPUT_CLK_STOPPED_PORT" VALUE="input_clk_stopped"/>
+        <PARAMETER NAME="INPUT_MODE" VALUE="frequency"/>
+        <PARAMETER NAME="INTERFACE_SELECTION" VALUE="Enable_AXI"/>
+        <PARAMETER NAME="IN_FREQ_UNITS" VALUE="Units_MHz"/>
+        <PARAMETER NAME="IN_JITTER_UNITS" VALUE="Units_UI"/>
+        <PARAMETER NAME="JITTER_OPTIONS" VALUE="UI"/>
+        <PARAMETER NAME="JITTER_SEL" VALUE="No_Jitter"/>
+        <PARAMETER NAME="LOCKED_PORT" VALUE="locked"/>
+        <PARAMETER NAME="MMCM_BANDWIDTH" VALUE="OPTIMIZED"/>
+        <PARAMETER NAME="MMCM_CLKFBOUT_MULT_F" VALUE="10.000"/>
+        <PARAMETER NAME="MMCM_CLKFBOUT_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKFBOUT_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKIN1_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="MMCM_CLKIN2_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_DIVIDE_F" VALUE="10.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_DIVIDE" VALUE="10"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_PHASE" VALUE="180.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT2_DIVIDE" VALUE="10"/>
+        <PARAMETER NAME="MMCM_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT2_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT3_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_CASCADE" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT4_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT5_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT5_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT5_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLKOUT6_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_CLKOUT6_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT6_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="MMCM_CLKOUT6_USE_FINE_PS" VALUE="false"/>
+        <PARAMETER NAME="MMCM_CLOCK_HOLD" VALUE="false"/>
+        <PARAMETER NAME="MMCM_COMPENSATION" VALUE="ZHOLD"/>
+        <PARAMETER NAME="MMCM_DIVCLK_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="MMCM_NOTES" VALUE="None"/>
+        <PARAMETER NAME="MMCM_REF_JITTER1" VALUE="0.010"/>
+        <PARAMETER NAME="MMCM_REF_JITTER2" VALUE="0.010"/>
+        <PARAMETER NAME="MMCM_STARTUP_WAIT" VALUE="false"/>
+        <PARAMETER NAME="NUM_OUT_CLKS" VALUE="3"/>
+        <PARAMETER NAME="OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="false"/>
+        <PARAMETER NAME="OVERRIDE_MMCM" VALUE="false"/>
+        <PARAMETER NAME="OVERRIDE_PLL" VALUE="false"/>
+        <PARAMETER NAME="PHASESHIFT_MODE" VALUE="WAVEFORM"/>
+        <PARAMETER NAME="PHASE_DUTY_CONFIG" VALUE="false"/>
+        <PARAMETER NAME="PLATFORM" VALUE="UNKNOWN"/>
+        <PARAMETER NAME="PLL_BANDWIDTH" VALUE="OPTIMIZED"/>
+        <PARAMETER NAME="PLL_CLKFBOUT_MULT" VALUE="4"/>
+        <PARAMETER NAME="PLL_CLKFBOUT_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKIN_PERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="PLL_CLKOUT0_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT0_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT1_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT1_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT2_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT2_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT2_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT3_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT3_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT3_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT4_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT4_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT4_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLKOUT5_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_CLKOUT5_DUTY_CYCLE" VALUE="0.500"/>
+        <PARAMETER NAME="PLL_CLKOUT5_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="PLL_CLK_FEEDBACK" VALUE="CLKFBOUT"/>
+        <PARAMETER NAME="PLL_COMPENSATION" VALUE="SYSTEM_SYNCHRONOUS"/>
+        <PARAMETER NAME="PLL_DIVCLK_DIVIDE" VALUE="1"/>
+        <PARAMETER NAME="PLL_NOTES" VALUE="None"/>
+        <PARAMETER NAME="PLL_REF_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="POWER_DOWN_PORT" VALUE="power_down"/>
+        <PARAMETER NAME="PRECISION" VALUE="1"/>
+        <PARAMETER NAME="PRIMARY_PORT" VALUE="clk_in1"/>
+        <PARAMETER NAME="PRIMITIVE" VALUE="MMCM"/>
+        <PARAMETER NAME="PRIMTYPE_SEL" VALUE="mmcm_adv"/>
+        <PARAMETER NAME="PRIM_IN_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="PRIM_IN_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="PRIM_IN_TIMEPERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="PRIM_SOURCE" VALUE="Single_ended_clock_capable_pin"/>
+        <PARAMETER NAME="PSCLK_PORT" VALUE="psclk"/>
+        <PARAMETER NAME="PSDONE_PORT" VALUE="psdone"/>
+        <PARAMETER NAME="PSEN_PORT" VALUE="psen"/>
+        <PARAMETER NAME="PSINCDEC_PORT" VALUE="psincdec"/>
+        <PARAMETER NAME="REF_CLK_FREQ" VALUE="100.0"/>
+        <PARAMETER NAME="RELATIVE_INCLK" VALUE="REL_PRIMARY"/>
+        <PARAMETER NAME="RESET_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="RESET_PORT" VALUE="reset"/>
+        <PARAMETER NAME="RESET_TYPE" VALUE="ACTIVE_HIGH"/>
+        <PARAMETER NAME="SECONDARY_IN_FREQ" VALUE="100.000"/>
+        <PARAMETER NAME="SECONDARY_IN_JITTER" VALUE="0.010"/>
+        <PARAMETER NAME="SECONDARY_IN_TIMEPERIOD" VALUE="10.000"/>
+        <PARAMETER NAME="SECONDARY_PORT" VALUE="clk_in2"/>
+        <PARAMETER NAME="SECONDARY_SOURCE" VALUE="Single_ended_clock_capable_pin"/>
+        <PARAMETER NAME="SS_MODE" VALUE="CENTER_HIGH"/>
+        <PARAMETER NAME="SS_MOD_FREQ" VALUE="250"/>
+        <PARAMETER NAME="SS_MOD_TIME" VALUE="0.004"/>
+        <PARAMETER NAME="STATUS_PORT" VALUE="STATUS"/>
+        <PARAMETER NAME="SUMMARY_STRINGS" VALUE="empty"/>
+        <PARAMETER NAME="USER_CLK_FREQ0" VALUE="100.0"/>
+        <PARAMETER NAME="USER_CLK_FREQ1" VALUE="100.0"/>
+        <PARAMETER NAME="USER_CLK_FREQ2" VALUE="100.0"/>
+        <PARAMETER NAME="USER_CLK_FREQ3" VALUE="100.0"/>
+        <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
+        <PARAMETER NAME="USE_CLKFB_STOPPED" VALUE="false"/>
+        <PARAMETER NAME="USE_CLK_VALID" VALUE="false"/>
+        <PARAMETER NAME="USE_CLOCK_SEQUENCING" VALUE="false"/>
+        <PARAMETER NAME="USE_DYN_PHASE_SHIFT" VALUE="false"/>
+        <PARAMETER NAME="USE_DYN_RECONFIG" VALUE="false"/>
+        <PARAMETER NAME="USE_FREEZE" VALUE="false"/>
+        <PARAMETER NAME="USE_FREQ_SYNTH" VALUE="true"/>
+        <PARAMETER NAME="USE_INCLK_STOPPED" VALUE="false"/>
+        <PARAMETER NAME="USE_INCLK_SWITCHOVER" VALUE="false"/>
+        <PARAMETER NAME="USE_LOCKED" VALUE="true"/>
+        <PARAMETER NAME="USE_MAX_I_JITTER" VALUE="false"/>
+        <PARAMETER NAME="USE_MIN_O_JITTER" VALUE="false"/>
+        <PARAMETER NAME="USE_MIN_POWER" VALUE="false"/>
+        <PARAMETER NAME="USE_PHASE_ALIGNMENT" VALUE="true"/>
+        <PARAMETER NAME="USE_POWER_DOWN" VALUE="false"/>
+        <PARAMETER NAME="USE_RESET" VALUE="true"/>
+        <PARAMETER NAME="USE_SAFE_CLOCK_STARTUP" VALUE="false"/>
+        <PARAMETER NAME="USE_SPREAD_SPECTRUM" VALUE="false"/>
+        <PARAMETER NAME="USE_STATUS" VALUE="false"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="Debug_CLK100MHZ" SIGIS="clk" SIGNAME="clk_wiz_0_Debug_CLK100MHZ">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RX_UART_0" PORT="clk"/>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="clk_wiz_0_InstrExec_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrExec_CLK_in"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="CLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="clk_wiz_0_InstrLoad_CLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ClockDisabler_0" PORT="InstrLoad_CLK_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_in1" SIGIS="clk" SIGNAME="External_Ports_CLK100MHZ">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="CLK100MHZ"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="locked" SIGIS="undef"/>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_Reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

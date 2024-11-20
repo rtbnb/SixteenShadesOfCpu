@@ -1,0 +1,112 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Tue Nov 19 16:21:00 2024
+| Host         : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file main_wrapper_control_sets_placed.rpt
+| Design       : main_wrapper
+| Device       : xc7a35ti
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    34 |
+|    Minimum number of control sets                        |    34 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    37 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    34 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     3 |
+| >= 8 to < 10       |     6 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    22 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              93 |           56 |
+| No           | No                    | Yes                    |             114 |           59 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |             333 |          178 |
+| Yes          | No                    | Yes                    |              16 |           11 |
+| Yes          | Yes                   | No                     |              15 |            8 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------------------------------+-------------------------------------------------------------+------------------------------------------+------------------+----------------+--------------+
+|                  Clock Signal                  |                        Enable Signal                        |             Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------------------------+-------------------------------------------------------------+------------------------------------------+------------------+----------------+--------------+
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/TX_UART_0/U0/tx_data_out                             | main_i/TX_UART_0/U0/tx_data_out0         |                1 |              1 |         1.00 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/RX_UART_0/U0/current_state[3]_i_1_n_0                |                                          |                2 |              4 |         2.00 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/Pipelining_WriteBack_0/U0/Is_ALU_OP_out              |                                          |                1 |              6 |         6.00 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/TX_UART_0/U0/clk_cnt                                 | main_i/TX_UART_0/U0/clk_cnt[6]_i_1_n_0   |                3 |              7 |         2.33 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/RX_UART_0/U0/clock_cnt[6]_i_2_n_0                    | main_i/RX_UART_0/U0/clock_cnt[6]_i_1_n_0 |                4 |              7 |         1.75 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/TX_UART_0/U0/tx_data[7]_i_1_n_0                      |                                          |                2 |              8 |         4.00 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/Debugger_0/U0/rx_instruction_data_buffer[7]_i_1_n_0  |                                          |                3 |              8 |         2.67 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/Debugger_0/U0/rx_instruction_data_buffer[15]_i_1_n_0 |                                          |                2 |              8 |         4.00 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/Debugger_0/U0/rx_instruction_buffer[7]_i_1_n_0       |                                          |                1 |              8 |         8.00 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/Debugger_0/U0/tx_data[7]_i_1_n_0                     |                                          |                2 |              8 |         4.00 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/RX_UART_0/U0/data_output[7]_i_1_n_0                  |                                          |                1 |              8 |         8.00 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/TX_UART_0/U0/FSM_onehot_current_state[11]_i_1_n_0    |                                          |                6 |             12 |         2.00 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/RegA                                    |                                          |                8 |             16 |         2.00 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg2_2                                  |                                          |                9 |             16 |         1.78 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg0_0                                  |                                          |                9 |             16 |         1.78 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg1_1                                  |                                          |               10 |             16 |         1.60 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/ProgramCounter_0/U0/InstrAddr[15]_i_1_n_0            | Reset_IBUF                               |               11 |             16 |         1.45 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg5_5                                  |                                          |                9 |             16 |         1.78 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg4_4                                  |                                          |               10 |             16 |         1.60 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg6_6                                  |                                          |               10 |             16 |         1.60 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg8_8                                  |                                          |                9 |             16 |         1.78 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/RegB_10                                 |                                          |               11 |             16 |         1.45 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/RegE_13                                 |                                          |                8 |             16 |         2.00 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/RegC_11                                 |                                          |                8 |             16 |         2.00 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg3_3                                  |                                          |               10 |             16 |         1.60 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/RegD_12                                 |                                          |                9 |             16 |         1.78 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg7_7                                  |                                          |               12 |             16 |         1.33 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/RegFile_0/U0/Reg9_9                                  |                                          |                9 |             16 |         1.78 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         |                                                             |                                          |                8 |             18 |         2.25 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG |                                                             | Reset_IBUF                               |                9 |             21 |         2.33 |
+|  main_i/clk_wiz_0/inst/Debug_CLK100MHZ         | main_i/Debugger_0/U0/tx_instruction_buffer_0                |                                          |               17 |             23 |         1.35 |
+|  main_i/ClockDisabler_0/InstrExec_CLK_out_BUFG | main_i/Pipelining_Execution_0/U0/RAM_Write_out              |                                          |               16 |             64 |         4.00 |
+|  main_i/ClockDisabler_0/InstrLoad_CLK_out_BUFG |                                                             |                                          |               48 |             75 |         1.56 |
+|  main_i/ClockDisabler_0/InstrLoad_CLK_out_BUFG |                                                             | Reset_IBUF                               |               50 |             93 |         1.86 |
++------------------------------------------------+-------------------------------------------------------------+------------------------------------------+------------------+----------------+--------------+
+
+

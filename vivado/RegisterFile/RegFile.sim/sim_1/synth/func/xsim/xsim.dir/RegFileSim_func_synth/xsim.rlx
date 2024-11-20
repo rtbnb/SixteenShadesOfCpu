@@ -1,0 +1,12 @@
+
+{ 
+    crc :  6089357616894936991  , 
+    ccp_crc :  0  , 
+    cmdline : " --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot RegFileSim_func_synth xil_defaultlib.RegFileSim" , 
+    buildDate : "May 22 2024" , 
+    buildTime : "19:03:11" , 
+    linkCmd : "C:\\Xilinx\\Vivado\\2024.1\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/RegFileSim_func_synth/xsimk.exe\"   \"xsim.dir/RegFileSim_func_synth/obj/xsim_0.win64.obj\" \"xsim.dir/RegFileSim_func_synth/obj/xsim_1.win64.obj\" -L\"C:\\Xilinx\\Vivado\\2024.1\\lib\\win64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

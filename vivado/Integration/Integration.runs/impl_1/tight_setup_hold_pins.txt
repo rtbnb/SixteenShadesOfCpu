@@ -1,0 +1,17 @@
++==================================+==================================+================================================+
+| Launch Setup Clock               | Launch Hold Clock                | Pin                                            |
++==================================+==================================+================================================+
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[12]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[15]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[9]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[10]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[4]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[5]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[8]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[3]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[7]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[14]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[13]/D |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[6]/D  |
+| InstrLoad_CLK_main_clk_wiz_0_0_1 | InstrExec_CLK_main_clk_wiz_0_0_1 | main_i/ProgramCounter_0/U0/InstrAddr_reg[11]/D |
++----------------------------------+----------------------------------+------------------------------------------------+

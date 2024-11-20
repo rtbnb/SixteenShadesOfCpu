@@ -1,0 +1,182 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xAAAB5172490B9A3C",
+      "device": "xc7a35ticsg324-1L",
+      "gen_directory": "../../../../Debugger.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "TX_UART_0": "",
+      "Debugger_0": "",
+      "RX_UART_0": ""
+    },
+    "ports": {
+      "CLK100MHZ": {
+        "direction": "I"
+      },
+      "rx_data_in": {
+        "direction": "I"
+      },
+      "tx_data_out": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "TX_UART_0": {
+        "vlnv": "xilinx.com:module_ref:TX_UART:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_TX_UART_0_0",
+        "xci_path": "ip\\design_1_TX_UART_0_0\\design_1_TX_UART_0_0.xci",
+        "inst_hier_path": "TX_UART_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TX_UART",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "data_valid": {
+            "direction": "I"
+          },
+          "data_in": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "tx_output": {
+            "direction": "O"
+          },
+          "send_valid": {
+            "direction": "O"
+          }
+        }
+      },
+      "Debugger_0": {
+        "vlnv": "xilinx.com:module_ref:Debugger:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_Debugger_0_0",
+        "xci_path": "ip\\design_1_Debugger_0_0\\design_1_Debugger_0_0.xci",
+        "inst_hier_path": "Debugger_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Debugger",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rx_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "rx_data_valid": {
+            "direction": "I"
+          },
+          "tx_data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "tx_data_valid": {
+            "direction": "O"
+          },
+          "tx_data_sended": {
+            "direction": "I"
+          }
+        }
+      },
+      "RX_UART_0": {
+        "vlnv": "xilinx.com:module_ref:RX_UART:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_RX_UART_0_0",
+        "xci_path": "ip\\design_1_RX_UART_0_0\\design_1_RX_UART_0_0.xci",
+        "inst_hier_path": "RX_UART_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RX_UART",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rx_serial_input": {
+            "direction": "I"
+          },
+          "data_output": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "data_valid": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "CLK100MHZ_1": {
+        "ports": [
+          "CLK100MHZ",
+          "RX_UART_0/clk",
+          "TX_UART_0/clk",
+          "Debugger_0/clk"
+        ]
+      },
+      "Debugger_0_tx_data": {
+        "ports": [
+          "Debugger_0/tx_data",
+          "TX_UART_0/data_in"
+        ]
+      },
+      "Debugger_0_tx_data_valid": {
+        "ports": [
+          "Debugger_0/tx_data_valid",
+          "TX_UART_0/data_valid"
+        ]
+      },
+      "RX_UART_0_data_output": {
+        "ports": [
+          "RX_UART_0/data_output",
+          "Debugger_0/rx_data"
+        ]
+      },
+      "RX_UART_0_data_valid": {
+        "ports": [
+          "RX_UART_0/data_valid",
+          "Debugger_0/rx_data_valid"
+        ]
+      },
+      "TX_UART_0_send_valid": {
+        "ports": [
+          "TX_UART_0/send_valid",
+          "Debugger_0/tx_data_sended"
+        ]
+      },
+      "TX_UART_0_tx_output": {
+        "ports": [
+          "TX_UART_0/tx_output",
+          "tx_data_out"
+        ]
+      },
+      "rx_data_in_1": {
+        "ports": [
+          "rx_data_in",
+          "RX_UART_0/rx_serial_input"
+        ]
+      }
+    }
+  }
+}

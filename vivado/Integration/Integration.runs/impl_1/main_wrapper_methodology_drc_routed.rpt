@@ -1,0 +1,309 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Tue Nov 19 16:23:06 2024
+| Host         : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
+| Command      : report_methodology -file main_wrapper_methodology_drc_routed.rpt -pb main_wrapper_methodology_drc_routed.pb -rpx main_wrapper_methodology_drc_routed.rpx
+| Design       : main_wrapper
+| Device       : xc7a35ticsg324-1L
+| Speed File   : -1L
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 54
++-----------+------------------+------------------------------------------------------------------+------------+
+| Rule      | Severity         | Description                                                      | Violations |
++-----------+------------------+------------------------------------------------------------------+------------+
+| TIMING-6  | Critical Warning | No common primary clock between related clocks                   | 14         |
+| TIMING-14 | Critical Warning | LUT on the clock tree                                            | 2          |
+| TIMING-16 | Warning          | Large setup violation                                            | 30         |
+| TIMING-18 | Warning          | Missing input or output delay                                    | 4          |
+| TIMING-56 | Warning          | Missing logically or physically excluded clock groups constraint | 4          |
++-----------+------------------+------------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks Debug_CLK100MHZ_main_clk_wiz_0_0 and Debug_CLK100MHZ_main_clk_wiz_0_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks Debug_CLK100MHZ_main_clk_wiz_0_0] -to [get_clocks Debug_CLK100MHZ_main_clk_wiz_0_0_1]
+Related violations: <none>
+
+TIMING-6#2 Critical Warning
+No common primary clock between related clocks  
+The clocks Debug_CLK100MHZ_main_clk_wiz_0_0_1 and Debug_CLK100MHZ_main_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks Debug_CLK100MHZ_main_clk_wiz_0_0_1] -to [get_clocks Debug_CLK100MHZ_main_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-6#3 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrExec_CLK_main_clk_wiz_0_0 and Debug_CLK100MHZ_main_clk_wiz_0_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrExec_CLK_main_clk_wiz_0_0] -to [get_clocks Debug_CLK100MHZ_main_clk_wiz_0_0_1]
+Related violations: <none>
+
+TIMING-6#4 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrExec_CLK_main_clk_wiz_0_0 and InstrExec_CLK_main_clk_wiz_0_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrExec_CLK_main_clk_wiz_0_0] -to [get_clocks InstrExec_CLK_main_clk_wiz_0_0_1]
+Related violations: <none>
+
+TIMING-6#5 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrExec_CLK_main_clk_wiz_0_0 and InstrLoad_CLK_main_clk_wiz_0_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrExec_CLK_main_clk_wiz_0_0] -to [get_clocks InstrLoad_CLK_main_clk_wiz_0_0_1]
+Related violations: <none>
+
+TIMING-6#6 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrExec_CLK_main_clk_wiz_0_0_1 and Debug_CLK100MHZ_main_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrExec_CLK_main_clk_wiz_0_0_1] -to [get_clocks Debug_CLK100MHZ_main_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-6#7 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrExec_CLK_main_clk_wiz_0_0_1 and InstrExec_CLK_main_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrExec_CLK_main_clk_wiz_0_0_1] -to [get_clocks InstrExec_CLK_main_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-6#8 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrExec_CLK_main_clk_wiz_0_0_1 and InstrLoad_CLK_main_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrExec_CLK_main_clk_wiz_0_0_1] -to [get_clocks InstrLoad_CLK_main_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-6#9 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrLoad_CLK_main_clk_wiz_0_0 and Debug_CLK100MHZ_main_clk_wiz_0_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrLoad_CLK_main_clk_wiz_0_0] -to [get_clocks Debug_CLK100MHZ_main_clk_wiz_0_0_1]
+Related violations: <none>
+
+TIMING-6#10 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrLoad_CLK_main_clk_wiz_0_0 and InstrExec_CLK_main_clk_wiz_0_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrLoad_CLK_main_clk_wiz_0_0] -to [get_clocks InstrExec_CLK_main_clk_wiz_0_0_1]
+Related violations: <none>
+
+TIMING-6#11 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrLoad_CLK_main_clk_wiz_0_0 and InstrLoad_CLK_main_clk_wiz_0_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrLoad_CLK_main_clk_wiz_0_0] -to [get_clocks InstrLoad_CLK_main_clk_wiz_0_0_1]
+Related violations: <none>
+
+TIMING-6#12 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrLoad_CLK_main_clk_wiz_0_0_1 and Debug_CLK100MHZ_main_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrLoad_CLK_main_clk_wiz_0_0_1] -to [get_clocks Debug_CLK100MHZ_main_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-6#13 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrLoad_CLK_main_clk_wiz_0_0_1 and InstrExec_CLK_main_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrLoad_CLK_main_clk_wiz_0_0_1] -to [get_clocks InstrExec_CLK_main_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-6#14 Critical Warning
+No common primary clock between related clocks  
+The clocks InstrLoad_CLK_main_clk_wiz_0_0_1 and InstrLoad_CLK_main_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks InstrLoad_CLK_main_clk_wiz_0_0_1] -to [get_clocks InstrLoad_CLK_main_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-14#1 Critical Warning
+LUT on the clock tree  
+The LUT main_i/ClockDisabler_0/InstrExec_CLK_out_INST_0 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#2 Critical Warning
+LUT on the clock tree  
+The LUT main_i/ClockDisabler_0/InstrLoad_CLK_out_INST_0 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -1.021 ns between main_i/RegFile_0/U0/RegD_reg[7]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0) and main_i/Pipelining_Execution_0/U0/operand1_s_reg[7]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -1.029 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[0]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/ProgramCounter_0/U0/InstrAddr_reg[15]/CE (clocked by InstrExec_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -1.090 ns between main_i/RegFile_0/U0/Reg7_reg[4]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0) and main_i/Pipelining_Execution_0/U0/operand1_s_reg[4]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -1.093 ns between main_i/RegFile_0/U0/Reg2_reg[15]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0) and main_i/Pipelining_Execution_0/U0/operand2_s_reg[15]_replica_3/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -1.099 ns between main_i/RegFile_0/U0/Reg2_reg[15]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0) and main_i/Pipelining_Execution_0/U0/operand2_s_reg[15]_replica_2/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -1.109 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[0]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/ProgramCounter_0/U0/InstrAddr_reg[13]/CE (clocked by InstrExec_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -1.134 ns between main_i/RegFile_0/U0/Reg9_reg[12]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0_1) and main_i/Pipelining_Execution_0/U0/operand1_s_reg[12]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -1.136 ns between main_i/RegFile_0/U0/RegA_reg[10]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0_1) and main_i/Pipelining_Execution_0/U0/operand1_s_reg[10]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -1.251 ns between main_i/RegFile_0/U0/Reg4_reg[7]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0) and main_i/Pipelining_Execution_0/U0/operand2_s_reg[7]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -1.317 ns between main_i/RegFile_0/U0/Reg5_reg[1]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0_1) and main_i/Pipelining_Execution_0/U0/operand1_s_reg[1]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -1.330 ns between main_i/RegFile_0/U0/Reg2_reg[15]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0) and main_i/Pipelining_Execution_0/U0/operand2_s_reg[15]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -1.353 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Pipelining_Execution_0/U0/operand2_s_reg[1]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#13 Warning
+Large setup violation  
+There is a large setup violation of -1.368 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Pipelining_Execution_0/U0/operand2_s_reg[1]_replica/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#14 Warning
+Large setup violation  
+There is a large setup violation of -1.408 ns between main_i/RegFile_0/U0/Reg5_reg[0]/C (clocked by InstrExec_CLK_main_clk_wiz_0_0) and main_i/Pipelining_Execution_0/U0/operand1_s_reg[0]/D (clocked by InstrLoad_CLK_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#15 Warning
+Large setup violation  
+There is a large setup violation of -7.479 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[2]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#16 Warning
+Large setup violation  
+There is a large setup violation of -7.491 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[14]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#17 Warning
+Large setup violation  
+There is a large setup violation of -7.598 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[13]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#18 Warning
+Large setup violation  
+There is a large setup violation of -7.613 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[15]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#19 Warning
+Large setup violation  
+There is a large setup violation of -7.734 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[0]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#20 Warning
+Large setup violation  
+There is a large setup violation of -7.777 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[11]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#21 Warning
+Large setup violation  
+There is a large setup violation of -7.821 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[12]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#22 Warning
+Large setup violation  
+There is a large setup violation of -7.830 ns between main_i/Pipelining_Execution_0/U0/operand1_s_reg[15]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0) and main_i/Debugger_0/U0/tx_data_buffer_reg[7]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#23 Warning
+Large setup violation  
+There is a large setup violation of -7.858 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[8]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#24 Warning
+Large setup violation  
+There is a large setup violation of -7.863 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[10]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#25 Warning
+Large setup violation  
+There is a large setup violation of -7.883 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[4]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#26 Warning
+Large setup violation  
+There is a large setup violation of -7.893 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[9]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#27 Warning
+Large setup violation  
+There is a large setup violation of -7.961 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[5]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#28 Warning
+Large setup violation  
+There is a large setup violation of -8.264 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[1]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#29 Warning
+Large setup violation  
+There is a large setup violation of -8.345 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[6]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#30 Warning
+Large setup violation  
+There is a large setup violation of -8.352 ns between main_i/Pipelining_Execution_0/U0/operand2_s_reg[4]/C (clocked by InstrLoad_CLK_main_clk_wiz_0_0_1) and main_i/Debugger_0/U0/tx_data_buffer_reg[3]/D (clocked by Debug_CLK100MHZ_main_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on RX_UART_IN relative to the rising and/or falling clock edge(s) of CLK100MHZ, sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on Reset relative to the rising and/or falling clock edge(s) of CLK100MHZ, sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on TX_UART_OUT relative to the rising and/or falling clock edge(s) of CLK100MHZ, sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on led relative to the rising and/or falling clock edge(s) of CLK100MHZ, sys_clk_pin.
+Related violations: <none>
+
+TIMING-56#1 Warning
+Missing logically or physically excluded clock groups constraint  
+Multiple clocks are user generated or auto-derived on the source pin main_i/clk_wiz_0/inst/mmcm_adv_inst/CLKFBOUT but are not logically or physically exclusive with respect to one another. To have the static timing analysis match the behavior in hardware, there cannot be multiple clocks generated on the same pin and when such situation occurs, the clocks should be defined as physically or logically exclusive. The list of clocks generated on the source pin is: clkfbout_main_clk_wiz_0_0, clkfbout_main_clk_wiz_0_0_1
+Related violations: <none>
+
+TIMING-56#2 Warning
+Missing logically or physically excluded clock groups constraint  
+Multiple clocks are user generated or auto-derived on the source pin main_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0 but are not logically or physically exclusive with respect to one another. To have the static timing analysis match the behavior in hardware, there cannot be multiple clocks generated on the same pin and when such situation occurs, the clocks should be defined as physically or logically exclusive. The list of clocks generated on the source pin is: InstrExec_CLK_main_clk_wiz_0_0, InstrExec_CLK_main_clk_wiz_0_0_1
+Related violations: <none>
+
+TIMING-56#3 Warning
+Missing logically or physically excluded clock groups constraint  
+Multiple clocks are user generated or auto-derived on the source pin main_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0B but are not logically or physically exclusive with respect to one another. To have the static timing analysis match the behavior in hardware, there cannot be multiple clocks generated on the same pin and when such situation occurs, the clocks should be defined as physically or logically exclusive. The list of clocks generated on the source pin is: InstrLoad_CLK_main_clk_wiz_0_0, InstrLoad_CLK_main_clk_wiz_0_0_1
+Related violations: <none>
+
+TIMING-56#4 Warning
+Missing logically or physically excluded clock groups constraint  
+Multiple clocks are user generated or auto-derived on the source pin main_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT2 but are not logically or physically exclusive with respect to one another. To have the static timing analysis match the behavior in hardware, there cannot be multiple clocks generated on the same pin and when such situation occurs, the clocks should be defined as physically or logically exclusive. The list of clocks generated on the source pin is: Debug_CLK100MHZ_main_clk_wiz_0_0, Debug_CLK100MHZ_main_clk_wiz_0_0_1
+Related violations: <none>
+
+
