@@ -1438,6 +1438,9 @@
           "Operating_Mode_B": {
             "value": "READ_FIRST"
           },
+          "Primitive": {
+            "value": "4kx4"
+          },
           "Register_PortA_Output_of_Memory_Primitives": {
             "value": "false"
           },
@@ -1479,6 +1482,9 @@
           },
           "Operating_Mode_B": {
             "value": "READ_FIRST"
+          },
+          "Primitive": {
+            "value": "4kx4"
           },
           "Read_Width_A": {
             "value": "16"
@@ -1524,6 +1530,9 @@
           },
           "Operating_Mode_B": {
             "value": "READ_FIRST"
+          },
+          "Primitive": {
+            "value": "4kx4"
           },
           "Register_PortA_Output_of_Memory_Primitives": {
             "value": "false"

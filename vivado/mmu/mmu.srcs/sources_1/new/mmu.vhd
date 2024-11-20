@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -71,13 +71,13 @@ entity mmu is
         
         vrama_mem_addr: out std_logic_vector ( 15 downto 0 );
         vrama_mem_ck: out std_logic;
-        vrama_mem_din: out std_logic_vector ( 15 downto 0 );
+        vrama_mem_din: out std_logic_vector ( 11 downto 0 );
         vrama_mem_we: out std_logic_vector( 0 downto 0 );
         vrama_mem_dout: in std_logic_vector( 15 downto 0 );
         
         vramb_mem_addr: out std_logic_vector ( 15 downto 0 );
         vramb_mem_ck: out std_logic;
-        vramb_mem_din: out std_logic_vector ( 15 downto 0 );
+        vramb_mem_din: out std_logic_vector ( 11 downto 0 );
         vramb_mem_we: out std_logic_vector( 0 downto 0 );
         vramb_mem_dout: in std_logic_vector( 15 downto 0 );    
     
@@ -208,7 +208,9 @@ begin
     
     
     cpu_op_stop_condition <= '0';
-    cpu_op_ongoing <= (cpu_op_ongoing or (gram_bank_op_s and (not cpu_sync) and general_clk_s)) and not cpu_op_stop_condition;
+    --cpu_op_ongoing <= (cpu_op_ongoing or (gram_bank_op_s and (not cpu_sync) and general_clk_s)) and not cpu_op_stop_condition;
+    cpu_op_ongoing <= gram_bank_op_s;
+    
     
     with cpu_op_ongoing select
         gram_mem_ck <= general_clk_s when '1',
@@ -250,8 +252,8 @@ begin
         gram_mem_din <= general_din_s when '1',
                         X"0000" when others;
     with vram_bank_op_s select
-        vrama_mem_din <= general_din_s when '1',
-                        X"0000" when others;
+        vrama_mem_din <= general_din_s( 11 downto 0 ) when '1',
+                        "000000000000" when others;
     with mmio_bank_op_s select
         mmio_mem_din <= general_din_s when '1',
                         X"0000" when others;             
@@ -260,8 +262,8 @@ begin
     with output_config_s select --TODO This needs to be fixed to also work with the general output
         gram_dout <= gram_mem_dout when "00000",
                      gram_mem_dout when "00001",
-                     vrama_mem_dout when "00010",
-                     vrama_mem_dout when "00011",
+                     std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "00010",
+                     std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "00011",
                      mmio_mem_dout when "00100",
                      mmio_mem_dout when "00101",
                      X"0000" when others;
@@ -269,8 +271,8 @@ begin
     with output_config_s select
         debug_dout <= gram_mem_dout when "00000",
                       gram_mem_dout when "00001",
-                      vrama_mem_dout when "00010",
-                      vrama_mem_dout when "00011",
+                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "00010",
+                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "00011",
                       mmio_mem_dout when "00100",
                       mmio_mem_dout when "00101",
                       iram_mem_dout when "11111",
@@ -286,7 +288,7 @@ begin
         vramb_mem_ck <= not debug_clk200mhz when '1',
                         not vram_clk200mhz when others;
                         
-    vram_dout <= vramb_mem_dout;
+    vram_dout <= std_logic_vector(resize(signed(vramb_mem_dout), vram_dout'length));
 --vram end
 
 
