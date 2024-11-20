@@ -48,6 +48,8 @@
 %define PEDAL_WIDTH 4
 %define PEDAL_HEIGHT 22
 
+%define BALL_SIZE 3
+
 %define PEDAL_1_X 4
 %define PEDAL_2_X 192
 
@@ -267,18 +269,46 @@ _code
 
 .draw_ball
 	
+    IML $BI, GRAM_Bank
+    IML $t2, SCREEN_WIDTH
+    IMH $t2, 0
 	RDMi $t0, bx
 	RDMi $t1, by
+    IML $BI, VRAM_Bank
+    IML $t3, BALL_SIZE
+    IMH $t3, 0
+    IML $t6, 1
+    IMH $t6, 0
+    IML $t7, 0
+    IMH $t7, 0
+    ; white
+    IMl $t8, 0xf
+    IMH $t8, 0x0f
+    ;y
+    CR $t5, $t3
+    ;x
+    CR $t4, $t3
+    ALU ALU_SUB, $t5, $t6
+    CR $t5, $AO
+    ALU ALU_SUB, $t4, $t6
+    CR $t4, $AO
+    ALU ALU_ADD, $t1, $t5
+    ALU ALU_MUL, $AO, $t2
+    ALU ALU_ADD, $AO, $t0
+    ALU ALU_ADD, $AO, $t4
+    WRMr $t8, $AO
+    ALU ALU_ADD, $t4, $t7
+    JC JC_NotZero, -8
+    ALU ALU_ADD, $t5, $t7
+    JC JC_NotZero, -13
 	
-	ALU ALU_ADD, $t0, $t1
-	
-	
-	JA render_after_draw_wall
+	JA render_after_draw_ball
 
 
 .render
     JA clear_vga
 .render_after_clear
+    IML $BI, GRAM_Bank
     IML $MA, 0
     IMH $MA, 0
     RDMi $t0, p1scoreLSD
@@ -290,18 +320,20 @@ _code
 	IMH $t3, render_after_score1lsd[1]
 	JA draw_character
 .render_after_score1lsd
-    RDMi $t0, p2scoreLSD
+    IML $BI, GRAM_Bank
 	IML $t2, SCORE_Y
 	IML $t2, 0
     IML $t1, SCORE_2_LSD
 	IMH $t1, 0
+    RDMi $t0, p2scoreLSD
 	IML $t3, render_after_score2lsd[0]
 	IMH $t3, render_after_score2lsd[1]
 	JA draw_character
 .render_after_score2lsd
-    RDMi $t0, p1scoreMSD
+    IML $BI, GRAM_Bank
 	IML $t1, 0
 	IMH $t1, 0
+    RDMi $t0, p1scoreMSD
 	ALU ALU_ADD, $t0, $t1
 	JC JC_Zero, +8
 	IML $t2, SCORE_Y
@@ -312,9 +344,10 @@ _code
 	IMH $t3, render_after_score1msd[1]
 	JA draw_character
 .render_after_score1msd
-    RDMi $t0, p2scoreMSD
+    IML $BI, GRAM_Bank
 	IML $t1, 0
 	IMH $t1, 0
+    RDMi $t0, p2scoreMSD
 	ALU ALU_ADD, $t0, $t1
 	JC JC_Zero, +8
 	IML $t2, SCORE_Y
@@ -327,25 +360,38 @@ _code
 .render_after_score2msd
 	JA draw_ball
 .render_after_draw_ball
-
+    JA draw_pedal1
+.render_after_draw_pedal1
+    JA draw_pedal2
+.render_after_draw_pedal2
     JA main_after_render
 
 .main
     JA render
 .main_after_render
-
-
-
-uint16_t p1x = 4;
-uint16_t p1y = 64;
-
-uint16_t p2x = 192;
-uint16_t p2y = 64;
-
-uint16_t bx = 100;
-uint16_t by = 75;
-
-uint16_t vx = 1;
-uint16_t vy = 1;
-
+    IML $BI, MMIO_Bank
+    IML $t0, 0
+    IMH $t0, 0
+    RDMi $t1, MMIO_Player1_UpButton
+    RDMi $t2, MMIO_Player1_DownButton
+    RDMi $t3, MMIO_Player2_UpButton
+    RDMi $t4, MMIO_Player2_DownButton
+    IML $BI, GRAM_Bank
+    IML $t5, 2
+    IMH $t5, 0
+    ALU ALU_ADD, $t2, $t0
+    JC JC_Zero, +1 
+    WRMr $t5, p1v
+    ALU ALU_ADD, $t4, $t0
+    JC JC_Zero, +1 
+    WRMr $t5, p2v
+    IML $t5, -2
+    IML $t5, 0xff
+    ALU ALU_ADD, $t1, $t0
+    JC JC_Zero, +1 
+    WRMr $t5, p1v
+    ALU ALU_ADD, $t3, $t0
+    JC JC_Zero, +1 
+    WRMr $t5, p2v
+    
 
