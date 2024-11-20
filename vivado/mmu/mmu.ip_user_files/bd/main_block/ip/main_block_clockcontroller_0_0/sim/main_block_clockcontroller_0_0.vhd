@@ -65,6 +65,7 @@ ENTITY main_block_clockcontroller_0_0 IS
     debug_en : IN STD_LOGIC;
     load_clk : OUT STD_LOGIC;
     exec_clk : OUT STD_LOGIC;
+    debug_clk : OUT STD_LOGIC;
     clk200mhz : OUT STD_LOGIC;
     clk200mhz_inf : OUT STD_LOGIC;
     ck_stable : OUT STD_LOGIC
@@ -86,6 +87,7 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
       debug_en : IN STD_LOGIC;
       load_clk : OUT STD_LOGIC;
       exec_clk : OUT STD_LOGIC;
+      debug_clk : OUT STD_LOGIC;
       clk200mhz : OUT STD_LOGIC;
       clk200mhz_inf : OUT STD_LOGIC;
       ck_stable : OUT STD_LOGIC
@@ -93,6 +95,8 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
   END COMPONENT clockcontroller;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, ASSOCIATED_RESET debug_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF debug_reset: SIGNAL IS "XIL_INTERFACENAME debug_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 debug_reset RST";
   ATTRIBUTE X_INTERFACE_PARAMETER OF exec_clk: SIGNAL IS "XIL_INTERFACENAME exec_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
@@ -114,6 +118,7 @@ BEGIN
       debug_en => debug_en,
       load_clk => load_clk,
       exec_clk => exec_clk,
+      debug_clk => debug_clk,
       clk200mhz => clk200mhz,
       clk200mhz_inf => clk200mhz_inf,
       ck_stable => ck_stable
