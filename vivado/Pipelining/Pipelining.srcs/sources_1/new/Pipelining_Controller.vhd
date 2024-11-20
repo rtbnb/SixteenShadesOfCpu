@@ -88,8 +88,11 @@ architecture Behavioral of Pipelining_Controller is
     constant MA : STD_LOGIC_VECTOR(3 downto 0) := X"a";
     constant FL : STD_LOGIC_VECTOR(3 downto 0) := X"f";
     
+    signal taking_data : boolean := false;
+    
     signal input_forward, rf_forward, execution_forward, write_back_forward, output_forward : STD_LOGIC_VECTOR(4 downto 0);
 begin
+
     
     CU_Decoder_RF : CU_Decoder port map(
         Instruction => rf_read_buffer,
@@ -120,6 +123,15 @@ begin
     
     InstructionToExecute <= output_buffer;
     
+    process(InstrExec_CLK, Reset) is
+    begin
+        if (Reset = '1') then
+            taking_data <= false;
+        elsif rising_edge(InstrExec_CLK) then
+            taking_data <= true;
+        end if;
+    end process;
+    
     instruction_fetch_shift_register : process(InstrLoad_CLK, Reset) is
     begin
     if (Reset = '1') then
@@ -127,7 +139,7 @@ begin
         execution_buffer <= X"0000";
         write_back_buffer <= X"0000";
         output_buffer <= X"0000";
-    elsif (rising_edge(InstrLoad_CLK)) then
+    elsif (rising_edge(InstrLoad_CLK) and taking_data) then
         output_buffer <= write_back_buffer;
         write_back_buffer <= execution_buffer;
         execution_buffer <= rf_read_buffer;

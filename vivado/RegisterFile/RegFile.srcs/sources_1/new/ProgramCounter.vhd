@@ -35,6 +35,7 @@ use ieee.numeric_std.all;
 entity ProgramCounter is
     Port ( 
     InstrExec_CLK : in STD_LOGIC;
+    InstrLoad_CLK : in STD_LOGIC;
     Stalled : in STD_LOGIC;
     JMP : in STD_LOGIC;
     Reset : in STD_LOGIC;
@@ -46,8 +47,9 @@ end ProgramCounter;
 
 architecture Behavioral of ProgramCounter is
     signal InstrAddr: std_logic_vector(15 downto 0) := (others => '0');
+    signal program_counter_register : std_logic_vector(15 downto 0) := (others => '0');
 begin
-    Dout <= InstrAddr;
+    Dout <= program_counter_register;
     pc_p: process(InstrExec_CLK, Stalled, JMP, Reset) is
     begin
     if (Reset = '1') then
@@ -60,5 +62,14 @@ begin
         end if;
     end if;
     end process pc_p;
+    
+    process(InstrLoad_CLK) is
+    begin
+        if rising_edge(InstrLoad_CLK) then
+            program_counter_register <= InstrAddr;
+        end if;
+    end process;
+    
+    
 
 end Behavioral;
