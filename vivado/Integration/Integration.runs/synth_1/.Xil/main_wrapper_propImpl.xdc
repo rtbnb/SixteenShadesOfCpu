@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc rfile:../../../Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc id:1 order:EARLY scoped_inst:main_i/clk_wiz_0/inst} [current_design]
-set_property SRC_FILE_INFO {cfile:C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc rfile:../../../Integration.srcs/constrs_1/new/main.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc rfile:../../../Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc id:1 order:EARLY scoped_inst:main_i/clk_wiz_0/inst} [current_design]
+set_property SRC_FILE_INFO {cfile:O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc rfile:../../../Integration.srcs/constrs_1/new/main.xdc id:2} [current_design]
 current_instance main_i/clk_wiz_0/inst
 set_property src_info {type:SCOPED_XDC file:1 line:54 export:INPUT save:INPUT read:READ} [current_design]
 set_input_jitter [get_clocks -of_objects [get_ports clk_in1]] 0.100
