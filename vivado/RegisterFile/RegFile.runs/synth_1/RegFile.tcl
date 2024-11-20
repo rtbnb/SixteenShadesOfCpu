@@ -56,8 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
 
@@ -68,8 +66,6 @@ set_property webtalk.parent_dir C:/Development/SixteenShadesOfCpu/vivado/Registe
 set_property parent.project_path C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part_repo_paths {C:/Users/nicot/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store} [current_project]
-set_property board_part digilentinc.com:arty-a7-35:part0:1.1 [current_project]
 set_property ip_output_repo c:/Development/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }

@@ -133,8 +133,7 @@ begin
                     when "1110" =>
                         RegE <= WriteData;
                     when "1111" =>
-                        -- RegF <= WriteData;
-                        null;
+                        RegF <= WriteData;
                     when others =>
                         null;
                 end case;
