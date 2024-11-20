@@ -57,11 +57,11 @@
 %define CHAR_HEIGHT 10
 %define CHAR_BYTE_SIZE 50
 
-%define CHARACTERS_BEGIN 0x8000
+%define CHARACTERS_BEGIN_VRAM 0x8000
 %define CHARACTERS_BEGIN_LSB 0x00
 %define CHARACTERS_BEGIN_MSB 0x80
 
-_vram[CHARACTERS_BEGIN]:
+_vram[CHARACTERS_BEGIN_VRAM]:
     0x0fff, 0x0fff, 0x0fff, 0x0fff, 0x0fff,
     0x0fff, 0x0000, 0x0000, 0x0000, 0x0fff,
     0x0fff, 0x0000, 0x0000, 0x0000, 0x0fff,
@@ -173,21 +173,23 @@ _vram[CHARACTERS_BEGIN]:
     0x0000, 0x0000, 0x0000, 0x0000, 0x0fff
 
 _gram:
-    p1y: 64,
-    p1v: 0,
-    p1scoreLSD: 0,
-    p1scoreMSD: 0,
-    p2y: 64,
-    p2v: 0,
-    p2scoreLSD: 0,
-    p2scoreMSD: 0,
-    bx: 10,
-    by: 75,
-    bvx: 1,
-    bvy: 1,
+    p1y: 64
+    p1v: 0
+    p1scoreLSD: 0
+    p1scoreMSD: 0
+    p2y: 64
+    p2v: 0
+    p2scoreLSD: 0
+    p2scoreMSD: 0
+    bx: 10
+    by: 75
+    bvx: 1
+    bvy: 1
     paused: 1
 
-_code
+_code:
+    JA main
+
 .clear_vga
     ; Algorithm: index = SCREEN_WIDTH * SCREEN_HEIGHT; while(index != 0) {index--; vram[index] = 0;}
     IML $BI, VRAM_Bank
@@ -394,4 +396,48 @@ _code
     JC JC_Zero, +1 
     WRMr $t5, p2v
     
+    RDMi $t1, p1v
+    RDMI $t2, p1y
+    ALU ALU_ADD, $t1, $t2
+    WRMi $AO, p1y
+    JC JC_Smaller, +2
+    JA main_after_p1y_0
+    WRMi $t0, p1y
+    JA main_after_p1y
+.main_after_p1y_0
+    CR $t2, $AO
+    IML $t3, SCREEN_HEIGHT
+    IMH $t3, 0
+    IML $t4, PEDAL_HEIGHT
+    IMH $t4, 0
+    ALU ALU_SUB, $t3, $t4
+    CR $t5, $AO
+    ALU ALU_SUB, $AO, $t2
+    JC JC_Smaller, +2
+    JA main_after_p1y
+    WRMi $t5, p1y
+.main_after_p1y
+    
+    RDMi $t1, p2v
+    RDMI $t2, p2y
+    ALU ALU_ADD, $t1, $t2
+    WRMi $AO, p2y
+    JC JC_Smaller, +2
+    JA main_after_p2y_0
+    WRMi $t0, p2y
+    JA main_after_p2y
+.main_after_p2y_0
+    CR $t2, $AO
+    IML $t3, SCREEN_HEIGHT
+    IMH $t3, 0
+    IML $t4, PEDAL_HEIGHT
+    IMH $t4, 0
+    ALU ALU_SUB, $t3, $t4
+    CR $t5, $AO
+    ALU ALU_SUB, $AO, $t2
+    JC JC_Smaller, +2
+    JA main_after_p2y
+    WRMi $t5, p2y
+.main_after_p2y
 
+    JA .main

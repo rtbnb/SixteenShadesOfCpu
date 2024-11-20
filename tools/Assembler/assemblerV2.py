@@ -5,7 +5,7 @@ class ArgumentType(Enum):
     REGISTER = 0,
     NUMBER = 1
 
-registers = ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "MA", "S0", "S1", "S2", "AO", "FL"]
+registers = ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "MA", "BI", "S1", "S2", "AO", "FL"]
 
 class Argument():
     def __init__(self, argument_index_asm, argument_type, argument_begin_bit, argument_length_bits):
@@ -37,7 +37,8 @@ class Argument():
                 return current_binary | ((int(argument, 16 if "0x" in argument else 2 if "0b" in argument else 10) & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
             
 
-asm_file = "architektur/TestProgramme/ClearVGA_Test.asm"
+asm_file = "architektur/Programme/pong/pong.asm"
+asm_file_name = ".".join(asm_file.split(".")[0:-1])
 
 instructions = {
     #      OP-Code Arguments
@@ -47,8 +48,8 @@ instructions = {
     "WRMi": [3, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
     "IML": [4, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
     "IMH": [5, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
-    "RDMr": [6, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.NUMBER, 0, 1)]],
-    "WRMr": [7, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.NUMBER, 0, 1)]],
+    "RDMr": [6, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4)]],
+    "WRMr": [7, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4)]],
     "JC": [8, [Argument(0, ArgumentType.NUMBER, 9, 3), Argument(1, ArgumentType.NUMBER, 0, 9)]],
     "JR": [9, [Argument(0, ArgumentType.REGISTER, 8, 4)]],
     "JA": [10, [Argument(0, ArgumentType.NUMBER, 0, 12)]],
@@ -83,6 +84,25 @@ def strip_file(lines: list[str]):
             stripped_lines.append(l)
     return stripped_lines
 
+def parse_int(raw:str) -> int:
+    if "0x" in raw:
+        data = int(raw, 16)
+    elif "0b" in raw:
+        data = int(raw, 2)
+    else:
+        data = int(raw, 10)
+    return data
+
+def parse_data_region(raw_data: str, region_begin: int, save_path: str) -> None:
+    split_data = raw_data.split(",")
+    int_data = [parse_int(data.strip()) for data in split_data]
+    byted_data = []
+    for d in int_data:
+        byted_data.extend([(d >> 8) & 0xff, d & 0xff])
+    with open(save_path, "wb") as f:
+        f.write(bytes(region_begin * 2))
+        f.write(bytes(byted_data))
+
 if __name__ == "__main__":
     file_content = ""
     with open(asm_file, "r") as file:
@@ -93,6 +113,46 @@ if __name__ == "__main__":
 
     file_content = replace_defines(file_content)
     print("\n".join(file_content))
+
+    regions = []
+    for l in range(len(file_content)):
+        line = file_content[l]
+        if line[0] == "_":
+            if line[-1] != ":":
+                raise Exception("Region Assignment {} is missing ':'".format(line))
+            regions.append([line[1:-1], l+1])
+            if len(regions) > 1:
+                regions[-2].append(l)
+    
+    regions[-1].append(len(regions))
+
+    known_variables = {}
+
+    for region in regions:
+        region_type = region[0].split("[")[0]
+        if region_type == "vram":
+            region_begin = 0
+            if "[" in region[0]:
+                begin_str = region[0].split("[")[1].split("]")[0]
+                region_begin = parse_int(begin_str)
+            region_save_path = asm_file_name + "_" + region_type + ".bin"
+            parse_data_region("".join(file_content[region[1]:region[2]]), region_begin, region_save_path)
+        elif region_type == "gram":
+            raw_variables = file_content[region[1]:region[2]]
+            variable_initial_values = []
+            for r in range(len(raw_variables)):
+                raw_variable = raw_variables[r]
+                name = raw_variable.split(":")[0].strip()
+                initial_value = raw_variable.split(":")[1].strip()
+                known_variables[name] = r
+                variable_initial_values.append(initial_value)
+            region_save_path = asm_file_name + "_" + region_type + ".bin"            
+            parse_data_region(",".join(variable_initial_values), 0, region_save_path)
+    
+    print(known_variables)
+
+
+    exit()
     
     for line in file_content:
         if line == "":
