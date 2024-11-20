@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Wed Nov 20 16:03:24 2024
---Host        : 8x8-Bit running 64-bit major release  (build 9200)
+--Date        : Wed Nov 20 17:06:50 2024
+--Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -436,7 +436,6 @@ architecture STRUCTURE of main is
   signal Pipelining_Execution_0_JMP_DestinationSelect_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_Relative_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_out : STD_LOGIC;
-  signal Pipelining_Execution_0_MA_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Operand1_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Operand2_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_RAM_BankID_out : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -502,6 +501,7 @@ architecture STRUCTURE of main is
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED : STD_LOGIC;
+  signal NLW_Pipelining_Execution_0_MA_out_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED : STD_LOGIC;
   signal NLW_clockcontroller_0_debug_clk_UNCONNECTED : STD_LOGIC;
   signal NLW_gram_bram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -599,7 +599,7 @@ CU_JumpDestinationSe_0: component main_CU_JumpDestinationSe_0_0
 CU_RAMAddressControl_0: component main_CU_RAMAddressControl_0_0
      port map (
       Immediate(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
-      MA(15 downto 0) => Pipelining_Execution_0_MA_out(15 downto 0),
+      MA(15 downto 0) => B"0000000000000000",
       RAM_Address(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
       RAM_Address_Src => Pipelining_Execution_0_RAM_Src_out,
       Reg2(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
@@ -655,7 +655,7 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       JMP_Relative_out => Pipelining_Execution_0_JMP_Relative_out,
       JMP_out => Pipelining_Execution_0_JMP_out,
       MA(15 downto 0) => Pipelining_Forwarder_0_ForwardedMA(15 downto 0),
-      MA_out(15 downto 0) => Pipelining_Execution_0_MA_out(15 downto 0),
+      MA_out(15 downto 0) => NLW_Pipelining_Execution_0_MA_out_UNCONNECTED(15 downto 0),
       Operand1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
       Operand1_out(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       Operand2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),

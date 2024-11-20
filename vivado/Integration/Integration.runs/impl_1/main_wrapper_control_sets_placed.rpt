@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Fri Nov 15 23:35:03 2024
-| Host         : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
+| Date         : Wed Nov 20 17:09:08 2024
+| Host         : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file main_wrapper_control_sets_placed.rpt
 | Design       : main_wrapper
 | Device       : xc7a35ti
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    21 |
-|    Minimum number of control sets                        |    21 |
+| Total control sets                                       |    26 |
+|    Minimum number of control sets                        |    26 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    12 |
+| Unused register locations in slices containing registers |    48 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    21 |
-| >= 0 to < 4        |     0 |
-| >= 4 to < 6        |     0 |
+| Total control sets |    26 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     1 |
-| >= 8 to < 10       |     1 |
+| >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
-| >= 14 to < 16      |     0 |
-| >= 16              |    18 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    19 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,42 +58,47 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               5 |            1 |
-| No           | No                    | Yes                    |             177 |           60 |
+| No           | No                    | No                     |              52 |           26 |
+| No           | No                    | Yes                    |             118 |           67 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |             246 |          118 |
-| Yes          | No                    | Yes                    |              16 |            4 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |             246 |          170 |
+| Yes          | No                    | Yes                    |              78 |           43 |
+| Yes          | Yes                   | No                     |              10 |           10 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+--------------------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
-|       Clock Signal       |                   Enable Signal                  | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
-+--------------------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
-|  InstrExec_CLK_IBUF_BUFG | main_i/Pipelining_WriteBack_0/U0/Is_ALU_OP_out   |                  |                1 |              6 |         6.00 |
-|  InstrExec_CLK_IBUF_BUFG |                                                  | Reset_IBUF       |                4 |              9 |         2.25 |
-|  InstrExec_CLK_IBUF_BUFG |                                                  |                  |                1 |             10 |        10.00 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg2_2                       |                  |                3 |             16 |         5.33 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg6_6                       |                  |                4 |             16 |         4.00 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg7_7                       |                  |                5 |             16 |         3.20 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg8_8                       |                  |                5 |             16 |         3.20 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegA                         |                  |                8 |             16 |         2.00 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg5_5                       |                  |                8 |             16 |         2.00 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg3_3                       |                  |                9 |             16 |         1.78 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegB_10                      |                  |                7 |             16 |         2.29 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg4_4                       |                  |                9 |             16 |         1.78 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg9_9                       |                  |                9 |             16 |         1.78 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegC_11                      |                  |                7 |             16 |         2.29 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegE_13                      |                  |               12 |             16 |         1.33 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/RegD_12                      |                  |               11 |             16 |         1.45 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/ProgramCounter_0/U0/InstrAddr[15]_i_1_n_0 | Reset_IBUF       |                4 |             16 |         4.00 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg1_1                       |                  |                9 |             16 |         1.78 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/RegFile_0/U0/Reg0_0                       |                  |               11 |             16 |         1.45 |
-|  InstrExec_CLK_IBUF_BUFG | main_i/Pipelining_Execution_0/U0/RAM_Write_out   |                  |               16 |             64 |         4.00 |
-|  InstrLoad_CLK_IBUF_BUFG |                                                  | Reset_IBUF       |               56 |            168 |         3.00 |
-+--------------------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
++-----------------------------------------+--------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
+|               Clock Signal              |                   Enable Signal                  |           Set/Reset Signal           | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------------------+--------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
+| ~main_i/clockcontroller_0/clk200mhz     |                                                  |                                      |                1 |              1 |         1.00 |
+|  main_i/mmu_0/vrama_mem_ck_BUFG         |                                                  |                                      |                2 |              2 |         1.00 |
+|  main_i/mmu_0/mmio_mem_ck               |                                                  |                                      |                3 |              3 |         1.00 |
+| ~main_i/mmu_0/U0/cpu_lock_s             |                                                  |                                      |                1 |              4 |         4.00 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/RegF[6]_i_1_n_0              |                                      |                4 |              6 |         1.50 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/RegF[6]_i_1_n_0              | main_i/RegFile_0/U0/RegF[15]_i_1_n_0 |               10 |             10 |         1.00 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/ProgramCounter_0/U0/InstrAddr[13]_i_1_n_0 | Reset_IBUF                           |                7 |             14 |         2.00 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg2_5                       |                                      |                9 |             16 |         1.78 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg3_8                       |                                      |               10 |             16 |         1.60 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg4_2                       |                                      |               10 |             16 |         1.60 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg5_7                       |                                      |               13 |             16 |         1.23 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg8_1                       |                                      |               11 |             16 |         1.45 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/RegA                         |                                      |               10 |             16 |         1.60 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg7_6                       |                                      |               13 |             16 |         1.23 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg6_4                       |                                      |               12 |             16 |         1.33 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/RegB_11                      |                                      |               10 |             16 |         1.60 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/RegE_13                      |                                      |               10 |             16 |         1.60 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/RegD_12                      |                                      |               13 |             16 |         1.23 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg9_10                      |                                      |               12 |             16 |         1.33 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/RegC_0                       |                                      |               10 |             16 |         1.60 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg0_3                       |                                      |               11 |             16 |         1.45 |
+|  main_i/clockcontroller_0/exec_clk_BUFG | main_i/RegFile_0/U0/Reg1_9                       |                                      |               12 |             16 |         1.33 |
+|  main_i/clockcontroller_0/exec_clk_BUFG |                                                  | Reset_IBUF                           |                7 |             18 |         2.57 |
+|  main_i/clockcontroller_0/load_clk_BUFG |                                                  |                                      |               19 |             42 |         2.21 |
+|  main_i/clockcontroller_0/load_clk_BUFG | main_i/Pipelining_Controller_0/U0/taking_data    | Reset_IBUF                           |               36 |             64 |         1.78 |
+|  main_i/clockcontroller_0/load_clk_BUFG |                                                  | Reset_IBUF                           |               60 |            100 |         1.67 |
++-----------------------------------------+--------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
 
 
