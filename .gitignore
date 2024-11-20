@@ -1,9 +1,17 @@
 .idea
+*/**/*.rst
+*/**/*.log
 */**/*.pb
-<<<<<<< HEAD
-=======
+vivado/*/*.cache/*
+vivado/*/*.runs/.jobs/*
+vivado/*/*.runs/impl_1/*
+vivado/*/*.runs/synth_1/*
+vivado/**/README.txt
+vivado/*/*.sim/*/synth/func/xsim/xsim.dir/*
+vivado/*/*.sim/*/impl/func/xsim/xsim.dir/*
+vivado/*/*.sim/*/behav/xsim/xsim.dir/*_behav/*
+*/**/*.pb
 **/~*.xlsx
->>>>>>> c8f6bb745a622cdeb6bc1098d0360c35edad09b5
 
 # debug
 debug/Host/.venv/
