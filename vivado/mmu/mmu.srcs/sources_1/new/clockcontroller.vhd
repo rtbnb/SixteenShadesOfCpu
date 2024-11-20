@@ -35,7 +35,7 @@ entity clockcontroller is
     port(
         clk100mhz_in, clk200mhz_in, wizard_locked, debug_en_lock, fault_reset, debug_reset: in std_logic;
         fault, debug_en: in std_logic;
-        load_clk, exec_clk, clk200mhz, clk200mhz_inf, ck_stable: out std_logic 
+        load_clk, exec_clk, debug_clk, clk200mhz, clk200mhz_inf, ck_stable: out std_logic 
     );
 end clockcontroller;
 
@@ -48,7 +48,11 @@ begin
     
     output_en_s <= wizard_locked and not (fault_s or debug_en_s);
     ck_stable <= wizard_locked;
-
+    
+    with wizard_locked select
+        debug_clk <= clk100mhz_in when '1',
+                     '0' when others;
+    
     with output_en_s select
         load_clk <= clk100mhz_in when '1',
                      '0' when others;

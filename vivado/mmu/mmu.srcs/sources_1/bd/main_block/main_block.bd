@@ -729,6 +729,16 @@
             "type": "clk",
             "direction": "O"
           },
+          "debug_clk": {
+            "type": "clk",
+            "direction": "O",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "debug_reset",
+                "value_src": "constant"
+              }
+            }
+          },
           "clk200mhz": {
             "direction": "O"
           },

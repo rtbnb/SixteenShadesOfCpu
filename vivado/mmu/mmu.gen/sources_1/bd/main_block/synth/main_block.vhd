@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Tue Nov 19 23:48:12 2024
---Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
+--Date        : Wed Nov 20 09:34:20 2024
+--Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
 --Purpose     : IP block netlist
@@ -178,6 +178,7 @@ architecture STRUCTURE of main_block is
     debug_en : in STD_LOGIC;
     load_clk : out STD_LOGIC;
     exec_clk : out STD_LOGIC;
+    debug_clk : out STD_LOGIC;
     clk200mhz : out STD_LOGIC;
     clk200mhz_inf : out STD_LOGIC;
     ck_stable : out STD_LOGIC
@@ -187,9 +188,9 @@ architecture STRUCTURE of main_block is
   port (
     reset : in STD_LOGIC;
     clk_in1 : in STD_LOGIC;
-    locked : out STD_LOGIC;
     clk100mhz_out : out STD_LOGIC;
-    clk200mhz_out : out STD_LOGIC
+    clk200mhz_out : out STD_LOGIC;
+    locked : out STD_LOGIC
   );
   end component main_block_clk_wiz_0_0;
   signal btn0_1 : STD_LOGIC;
@@ -256,6 +257,7 @@ architecture STRUCTURE of main_block is
   signal vram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal vram_doutb : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED : STD_LOGIC;
+  signal NLW_clockcontroller_0_debug_clk_UNCONNECTED : STD_LOGIC;
   signal NLW_clockcontroller_0_load_clk_UNCONNECTED : STD_LOGIC;
   signal NLW_gram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_iram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -315,6 +317,7 @@ clockcontroller_0: component main_block_clockcontroller_0_0
       clk200mhz => clockcontroller_0_clk200mhz,
       clk200mhz_in => clk_wiz_0_clk200mhz_out,
       clk200mhz_inf => NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED,
+      debug_clk => NLW_clockcontroller_0_debug_clk_UNCONNECTED,
       debug_en => debug_en_1,
       debug_en_lock => mmu_0_debug_en_lock,
       debug_reset => debug_reset_1,

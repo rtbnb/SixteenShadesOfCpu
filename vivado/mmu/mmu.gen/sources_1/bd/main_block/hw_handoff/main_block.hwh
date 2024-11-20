@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov 19 23:48:13 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov 20 09:34:20 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main_block" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -792,6 +792,7 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="clk200mhz_inf" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="debug_clk" SIGIS="clk"/>
         <PORT DIR="I" NAME="debug_en" SIGIS="undef" SIGNAME="External_Ports_debug_en">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="debug_en"/>
