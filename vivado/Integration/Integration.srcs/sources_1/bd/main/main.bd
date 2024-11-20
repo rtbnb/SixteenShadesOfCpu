@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x2F4EF8AFB5311C0D",
+      "boundary_crc": "0xF4AB3CD507B0AB6D",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -24,8 +24,6 @@
       "CU_JumpController_0": "",
       "CU_WriteSelector_0": "",
       "Pipelining_WriteBack_0": "",
-      "IROM_0": "",
-      "RAM_Placeholder_0": "",
       "ALU_FLAG_PACKER_0": "",
       "clockcontroller_0": "",
       "mmu_0": "",
@@ -38,12 +36,6 @@
     "ports": {
       "Reset": {
         "type": "rst",
-        "direction": "I"
-      },
-      "InstrExec_CLK": {
-        "direction": "I"
-      },
-      "InstrLoad_CLK": {
         "direction": "I"
       },
       "led": {
@@ -74,11 +66,23 @@
         "ports": {
           "InstrLoad_CLK": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_load_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "InstrExec_CLK": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_exec_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "Reset": {
             "type": "rst",
@@ -123,9 +127,19 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "Reset",
-                "value_src": "constant"
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_exec_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "InstrLoad_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_load_clk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -306,7 +320,13 @@
           },
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_exec_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "Reg1_data": {
             "direction": "O",
@@ -408,6 +428,10 @@
               "ASSOCIATED_RESET": {
                 "value": "Reset",
                 "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_load_clk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -459,6 +483,11 @@
           },
           "RAM_Write": {
             "direction": "I"
+          },
+          "RAM_BankID": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
           },
           "Use_MA": {
             "direction": "I"
@@ -530,6 +559,11 @@
           },
           "RAM_Write_out": {
             "direction": "O"
+          },
+          "RAM_BankID_out": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
           },
           "Use_MA_out": {
             "direction": "O"
@@ -738,7 +772,13 @@
         "ports": {
           "InstrExec_CLK": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_exec_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "JMP": {
             "direction": "I"
@@ -842,6 +882,10 @@
               "ASSOCIATED_RESET": {
                 "value": "Reset",
                 "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_load_clk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -902,69 +946,6 @@
           }
         }
       },
-      "IROM_0": {
-        "vlnv": "xilinx.com:module_ref:IROM:1.0",
-        "ip_revision": "1",
-        "xci_name": "main_IROM_0_1",
-        "xci_path": "ip\\main_IROM_0_1\\main_IROM_0_1.xci",
-        "inst_hier_path": "IROM_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "IROM",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Address": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "Data": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "RAM_Placeholder_0": {
-        "vlnv": "xilinx.com:module_ref:RAM_Placeholder:1.0",
-        "ip_revision": "1",
-        "xci_name": "main_RAM_Placeholder_0_0",
-        "xci_path": "ip\\main_RAM_Placeholder_0_0\\main_RAM_Placeholder_0_0.xci",
-        "inst_hier_path": "RAM_Placeholder_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "RAM_Placeholder",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "Address": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "DataIn": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "WE": {
-            "direction": "I"
-          },
-          "OE": {
-            "direction": "I"
-          },
-          "CLK": {
-            "type": "clk",
-            "direction": "I"
-          },
-          "DataOut": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
       "ALU_FLAG_PACKER_0": {
         "vlnv": "xilinx.com:module_ref:ALU_FLAG_PACKER:1.0",
         "ip_revision": "1",
@@ -1018,10 +999,38 @@
         },
         "ports": {
           "clk100mhz_in": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "clk200mhz_in": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "wizard_locked": {
             "direction": "I"
@@ -1097,7 +1106,21 @@
             "direction": "I"
           },
           "cpu_sync": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_exec_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "debug_sync": {
             "direction": "I"
@@ -1684,7 +1707,7 @@
       "CU_RAMAddressControl_0_RAM_Address": {
         "ports": [
           "CU_RAMAddressControl_0/RAM_Address",
-          "RAM_Placeholder_0/Address"
+          "mmu_0/gram_addr"
         ]
       },
       "CU_WriteSelector_0_Write_Data": {
@@ -1730,27 +1753,12 @@
           "Pipelining_Execution_0/WriteAddress"
         ]
       },
-      "IROM_0_Data": {
-        "ports": [
-          "IROM_0/Data",
-          "Pipelining_Controller_0/Instruction"
-        ]
-      },
-      "InstrExec_CLK_1": {
-        "ports": [
-          "InstrExec_CLK",
-          "CU_JumpController_0/InstrExec_CLK",
-          "Pipelining_Controller_0/InstrExec_CLK",
-          "ProgramCounter_0/InstrExec_CLK",
-          "RAM_Placeholder_0/CLK",
-          "RegFile_0/clk"
-        ]
-      },
       "InstrLoad_CLK_1": {
         "ports": [
-          "InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK",
+          "clockcontroller_0/load_clk",
           "Pipelining_Execution_0/InstrLoad_CLK",
+          "ProgramCounter_0/InstrLoad_CLK",
+          "Pipelining_Controller_0/InstrLoad_CLK",
           "Pipelining_WriteBack_0/InstrLoad_CLK"
         ]
       },
@@ -1763,8 +1771,8 @@
       "Pipelining_Controller_0_InstructionToExecute": {
         "ports": [
           "Pipelining_Controller_0/InstructionToExecute",
-          "Decoder_0/Instruction",
-          "CU_Decoder_0/Instruction"
+          "CU_Decoder_0/Instruction",
+          "Decoder_0/Instruction"
         ]
       },
       "Pipelining_Controller_0_Stalled": {
@@ -1816,14 +1824,7 @@
         "ports": [
           "Pipelining_Execution_0/JMP_out",
           "CU_JumpController_0/JMP",
-          "Pipelining_Controller_0/ResolveStall",
           "Pipelining_WriteBack_0/JMP"
-        ]
-      },
-      "Pipelining_Execution_0_MA_out": {
-        "ports": [
-          "Pipelining_Execution_0/MA_out",
-          "CU_RAMAddressControl_0/MA"
         ]
       },
       "Pipelining_Execution_0_Operand1_out": {
@@ -1833,7 +1834,7 @@
           "CU_ImmediateManipula_0/Reg1",
           "CU_JumpDestinationSe_0/Register1",
           "CU_WriteSelector_0/Reg1",
-          "RAM_Placeholder_0/DataIn"
+          "mmu_0/gram_din"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -1844,10 +1845,10 @@
           "CU_RAMAddressControl_0/Reg2"
         ]
       },
-      "Pipelining_Execution_0_RAM_Read_out": {
+      "Pipelining_Execution_0_RAM_BankID_out": {
         "ports": [
-          "Pipelining_Execution_0/RAM_Read_out",
-          "RAM_Placeholder_0/OE"
+          "Pipelining_Execution_0/RAM_BankID_out",
+          "mmu_0/gram_bank"
         ]
       },
       "Pipelining_Execution_0_RAM_Src_out": {
@@ -1859,13 +1860,7 @@
       "Pipelining_Execution_0_RAM_Write_out": {
         "ports": [
           "Pipelining_Execution_0/RAM_Write_out",
-          "RAM_Placeholder_0/WE"
-        ]
-      },
-      "Pipelining_Execution_0_Use_MA_out": {
-        "ports": [
-          "Pipelining_Execution_0/Use_MA_out",
-          "CU_RAMAddressControl_0/Use_MA"
+          "mmu_0/gram_we"
         ]
       },
       "Pipelining_Execution_0_WHB_out": {
@@ -1927,7 +1922,8 @@
       "Pipelining_WriteBack_0_JMP_out": {
         "ports": [
           "Pipelining_WriteBack_0/JMP_out",
-          "led"
+          "led",
+          "Pipelining_Controller_0/ResolveStall"
         ]
       },
       "Pipelining_WriteBack_0_RF_WE_out": {
@@ -1952,13 +1948,13 @@
         "ports": [
           "ProgramCounter_0/Dout",
           "CU_JumpController_0/PC_Current",
-          "IROM_0/Address"
+          "mmu_0/iram_addr"
         ]
       },
-      "RAM_Placeholder_0_DataOut": {
+      "RegFile_0_BankID": {
         "ports": [
-          "RAM_Placeholder_0/DataOut",
-          "CU_WriteSelector_0/RAM_Out"
+          "RegFile_0/BankID",
+          "Pipelining_Execution_0/RAM_BankID"
         ]
       },
       "RegFile_0_Reg1_data": {
@@ -1982,10 +1978,10 @@
       "Reset_1": {
         "ports": [
           "Reset",
-          "Pipelining_Controller_0/Reset",
           "Pipelining_Execution_0/Reset",
-          "Pipelining_WriteBack_0/Reset",
-          "ProgramCounter_0/Reset"
+          "ProgramCounter_0/Reset",
+          "Pipelining_Controller_0/Reset",
+          "Pipelining_WriteBack_0/Reset"
         ]
       },
       "clk100mhz_in_1": {
@@ -2027,6 +2023,10 @@
       "clockcontroller_0_exec_clk": {
         "ports": [
           "clockcontroller_0/exec_clk",
+          "ProgramCounter_0/InstrExec_CLK",
+          "CU_JumpController_0/InstrExec_CLK",
+          "Pipelining_Controller_0/InstrExec_CLK",
+          "RegFile_0/clk",
           "mmu_0/cpu_sync"
         ]
       },
@@ -2060,6 +2060,12 @@
           "clockcontroller_0/fault"
         ]
       },
+      "mmu_0_gram_dout": {
+        "ports": [
+          "mmu_0/gram_dout",
+          "CU_WriteSelector_0/RAM_Out"
+        ]
+      },
       "mmu_0_gram_mem_addr": {
         "ports": [
           "mmu_0/gram_mem_addr",
@@ -2082,6 +2088,12 @@
         "ports": [
           "mmu_0/gram_mem_we",
           "gram_bram/wea"
+        ]
+      },
+      "mmu_0_iram_dout": {
+        "ports": [
+          "mmu_0/iram_dout",
+          "Pipelining_Controller_0/Instruction"
         ]
       },
       "mmu_0_iram_mem_addr": {
