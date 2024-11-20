@@ -1,0 +1,10 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/AMD/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_8 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mainSystemSim_behav xil_defaultlib.mainSystemSim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3353] formal port 'clk_ref_i' has no actual or default value [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.ip_user_files/bd/main_block/sim/main_block.vhd:19]
+ERROR: [VRFC 10-3353] formal port 'sys_clk_i' has no actual or default value [C:/Entwicklung/SixteenShadesOfCpu/vivado/memory_tryout/memory_tryout.ip_user_files/bd/main_block/sim/main_block.vhd:27]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
