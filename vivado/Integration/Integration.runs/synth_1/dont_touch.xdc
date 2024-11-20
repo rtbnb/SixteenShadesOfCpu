@@ -48,13 +48,42 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_CU_Wri
 # IP: bd/main/ip/main_Pipelining_WriteBack_0_0/main_Pipelining_WriteBack_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_Pipelining_WriteBack_0_0 || ORIG_REF_NAME==main_Pipelining_WriteBack_0_0} -quiet] -quiet
 
-# IP: bd/main/ip/main_IROM_0_1/main_IROM_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_IROM_0_1 || ORIG_REF_NAME==main_IROM_0_1} -quiet] -quiet
-
-# IP: bd/main/ip/main_RAM_Placeholder_0_0/main_RAM_Placeholder_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_RAM_Placeholder_0_0 || ORIG_REF_NAME==main_RAM_Placeholder_0_0} -quiet] -quiet
-
 # IP: bd/main/ip/main_ALU_FLAG_PACKER_0_1/main_ALU_FLAG_PACKER_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_ALU_FLAG_PACKER_0_1 || ORIG_REF_NAME==main_ALU_FLAG_PACKER_0_1} -quiet] -quiet
 
-# XDC: d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc
+# IP: bd/main/ip/main_clockcontroller_0_0/main_clockcontroller_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_clockcontroller_0_0 || ORIG_REF_NAME==main_clockcontroller_0_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_mmu_0_0/main_mmu_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_mmu_0_0 || ORIG_REF_NAME==main_mmu_0_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_mmio_0_0/main_mmio_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_mmio_0_0 || ORIG_REF_NAME==main_mmio_0_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_blk_mem_gen_0_0 || ORIG_REF_NAME==main_blk_mem_gen_0_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_blk_mem_gen_1_0/main_blk_mem_gen_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_blk_mem_gen_1_0 || ORIG_REF_NAME==main_blk_mem_gen_1_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_blk_mem_gen_2_0/main_blk_mem_gen_2_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_blk_mem_gen_2_0 || ORIG_REF_NAME==main_blk_mem_gen_2_0} -quiet] -quiet
+
+# IP: bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] -quiet
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_1_0/main_blk_mem_gen_1_0_ooc.xdc
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_2_0/main_blk_mem_gen_2_0_ooc.xdc
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc
+set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc
+
+# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov 20 16:03:34 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov 20 17:06:50 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -358,11 +358,7 @@
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="MA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_MA_out">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="MA_out"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="MA" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="RAM_Address" RIGHT="0" SIGIS="undef" SIGNAME="CU_RAMAddressControl_0_RAM_Address">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="gram_addr"/>
@@ -616,11 +612,7 @@
             <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedMA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="MA_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_MA_out">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="MA"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="MA_out" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="15" NAME="Operand1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand1"/>
