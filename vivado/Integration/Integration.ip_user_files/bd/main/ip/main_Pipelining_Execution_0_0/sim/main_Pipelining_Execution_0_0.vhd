@@ -68,6 +68,7 @@ ENTITY main_Pipelining_Execution_0_0 IS
     RAM_Src : IN STD_LOGIC;
     RAM_Read : IN STD_LOGIC;
     RAM_Write : IN STD_LOGIC;
+    RAM_BankID : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     Use_MA : IN STD_LOGIC;
     JMP : IN STD_LOGIC;
     JMP_Conditional : IN STD_LOGIC;
@@ -87,6 +88,7 @@ ENTITY main_Pipelining_Execution_0_0 IS
     RAM_Src_out : OUT STD_LOGIC;
     RAM_Read_out : OUT STD_LOGIC;
     RAM_Write_out : OUT STD_LOGIC;
+    RAM_BankID_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     Use_MA_out : OUT STD_LOGIC;
     JMP_out : OUT STD_LOGIC;
     JMP_Conditional_out : OUT STD_LOGIC;
@@ -116,6 +118,7 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
       RAM_Src : IN STD_LOGIC;
       RAM_Read : IN STD_LOGIC;
       RAM_Write : IN STD_LOGIC;
+      RAM_BankID : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       Use_MA : IN STD_LOGIC;
       JMP : IN STD_LOGIC;
       JMP_Conditional : IN STD_LOGIC;
@@ -135,6 +138,7 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
       RAM_Src_out : OUT STD_LOGIC;
       RAM_Read_out : OUT STD_LOGIC;
       RAM_Write_out : OUT STD_LOGIC;
+      RAM_BankID_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       Use_MA_out : OUT STD_LOGIC;
       JMP_out : OUT STD_LOGIC;
       JMP_Conditional_out : OUT STD_LOGIC;
@@ -147,7 +151,7 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
   END COMPONENT Pipelining_ExecutionStage;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrLoad_CLK: SIGNAL IS "XIL_INTERFACENAME InstrLoad_CLK, ASSOCIATED_RESET Reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrLoad_CLK: SIGNAL IS "XIL_INTERFACENAME InstrLoad_CLK, ASSOCIATED_RESET Reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF InstrLoad_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrLoad_CLK CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF Reset: SIGNAL IS "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF Reset: SIGNAL IS "xilinx.com:signal:reset:1.0 Reset RST";
@@ -167,6 +171,7 @@ BEGIN
       RAM_Src => RAM_Src,
       RAM_Read => RAM_Read,
       RAM_Write => RAM_Write,
+      RAM_BankID => RAM_BankID,
       Use_MA => Use_MA,
       JMP => JMP,
       JMP_Conditional => JMP_Conditional,
@@ -186,6 +191,7 @@ BEGIN
       RAM_Src_out => RAM_Src_out,
       RAM_Read_out => RAM_Read_out,
       RAM_Write_out => RAM_Write_out,
+      RAM_BankID_out => RAM_BankID_out,
       Use_MA_out => Use_MA_out,
       JMP_out => JMP_out,
       JMP_Conditional_out => JMP_Conditional_out,

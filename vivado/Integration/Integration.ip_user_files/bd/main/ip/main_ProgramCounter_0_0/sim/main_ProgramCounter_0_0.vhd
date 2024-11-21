@@ -56,6 +56,7 @@ USE ieee.numeric_std.ALL;
 ENTITY main_ProgramCounter_0_0 IS
   PORT (
     InstrExec_CLK : IN STD_LOGIC;
+    InstrLoad_CLK : IN STD_LOGIC;
     Stalled : IN STD_LOGIC;
     JMP : IN STD_LOGIC;
     Reset : IN STD_LOGIC;
@@ -70,6 +71,7 @@ ARCHITECTURE main_ProgramCounter_0_0_arch OF main_ProgramCounter_0_0 IS
   COMPONENT ProgramCounter IS
     PORT (
       InstrExec_CLK : IN STD_LOGIC;
+      InstrLoad_CLK : IN STD_LOGIC;
       Stalled : IN STD_LOGIC;
       JMP : IN STD_LOGIC;
       Reset : IN STD_LOGIC;
@@ -79,14 +81,17 @@ ARCHITECTURE main_ProgramCounter_0_0_arch OF main_ProgramCounter_0_0 IS
   END COMPONENT ProgramCounter;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrExec_CLK: SIGNAL IS "XIL_INTERFACENAME InstrExec_CLK, ASSOCIATED_RESET Reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrExec_CLK: SIGNAL IS "XIL_INTERFACENAME InstrExec_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF InstrExec_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrExec_CLK CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrLoad_CLK: SIGNAL IS "XIL_INTERFACENAME InstrLoad_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF InstrLoad_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrLoad_CLK CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF Reset: SIGNAL IS "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF Reset: SIGNAL IS "xilinx.com:signal:reset:1.0 Reset RST";
 BEGIN
   U0 : ProgramCounter
     PORT MAP (
       InstrExec_CLK => InstrExec_CLK,
+      InstrLoad_CLK => InstrLoad_CLK,
       Stalled => Stalled,
       JMP => JMP,
       Reset => Reset,

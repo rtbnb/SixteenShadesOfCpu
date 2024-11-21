@@ -88,13 +88,22 @@ architecture Behavioral of Pipelining_Controller is
     constant MA : STD_LOGIC_VECTOR(3 downto 0) := X"a";
     constant FL : STD_LOGIC_VECTOR(3 downto 0) := X"f";
     
+    signal taking_data : boolean := false;
+    
     signal input_forward, rf_forward, execution_forward, write_back_forward, output_forward : STD_LOGIC_VECTOR(4 downto 0);
+    
+    signal ram_stall: std_logic;
+    signal ram_stall_reset: std_logic;
+    signal jmp_stalled: std_logic;
+    signal ram_stalled: std_logic;
 begin
+
     
     CU_Decoder_RF : CU_Decoder port map(
         Instruction => rf_read_buffer,
         Reg1Read => rf_reg_1_read,
         Reg2Read => rf_reg_2_read,
+        RAM_Read => ram_stall,
         JMP => rf_jmp
     );
     
@@ -109,6 +118,7 @@ begin
         Instruction => execution_buffer,
         RF_WHB => exc_rf_whb,
         RF_WLB => exc_rf_wlb,
+        RAM_Read => ram_stall_reset,
         Is_ALU_OP => exc_alu
     );
     
@@ -120,6 +130,15 @@ begin
     
     InstructionToExecute <= output_buffer;
     
+    process(InstrExec_CLK, Reset) is
+    begin
+        if (Reset = '1') then
+            taking_data <= false;
+        elsif rising_edge(InstrExec_CLK) then
+            taking_data <= true;
+        end if;
+    end process;
+    
     instruction_fetch_shift_register : process(InstrLoad_CLK, Reset) is
     begin
     if (Reset = '1') then
@@ -127,7 +146,7 @@ begin
         execution_buffer <= X"0000";
         write_back_buffer <= X"0000";
         output_buffer <= X"0000";
-    elsif (rising_edge(InstrLoad_CLK)) then
+    elsif (rising_edge(InstrLoad_CLK) and taking_data) then
         output_buffer <= write_back_buffer;
         write_back_buffer <= execution_buffer;
         execution_buffer <= rf_read_buffer;
@@ -143,19 +162,35 @@ begin
     staller : process(InstrExec_CLK, Reset, stall_required) is
     begin
     if (Reset = '1') then
-        stalled_s <= '0';
+        jmp_stalled <= '0';
     elsif (rising_edge(InstrExec_CLK)) then
         if (stall_required = '1') then
-            stalled_s <= '1';
+            jmp_stalled <= '1';
         elsif (ResolveStall = '1') then
-            stalled_s <= '0';
+            jmp_stalled <= '0';
         else
-            stalled_s <= stalled_s;
+            jmp_stalled <= jmp_stalled;
         end if;
     end if;
     end process staller;
     
-    stalled <= stalled_s;
+    staller2 : process(InstrExec_CLK, Reset, ram_stall) is
+    begin
+    if (Reset = '1') then
+        ram_stalled <= '0';
+    elsif (rising_edge(InstrExec_CLK)) then
+        if (ram_stall = '1') then
+            ram_stalled <= '1';
+        elsif (ram_stall_reset = '1') then
+            ram_stalled <= '0';
+        else
+            ram_stalled <= ram_stalled;
+        end if;
+    end if;
+    end process staller2;
+    
+    stalled_s <= ram_stalled or jmp_stalled;
+    stalled <= stalled_s ;
     
     
     reg_1_reads_flags <= (rf_reg_1_read = '1') and (rf_reg_1 = FL);

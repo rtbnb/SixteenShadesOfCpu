@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 15 23:32:25 2024
---Host        : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
+--Date        : Thu Nov 21 09:02:30 2024
+--Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -14,13 +14,12 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity main is
   port (
-    InstrExec_CLK : in STD_LOGIC;
-    InstrLoad_CLK : in STD_LOGIC;
     Reset : in STD_LOGIC;
+    clk100mhz_in : in STD_LOGIC;
     led : out STD_LOGIC
   );
   attribute core_generation_info : string;
-  attribute core_generation_info of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=17,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute core_generation_info of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=22,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=18,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
   attribute hw_handoff : string;
   attribute hw_handoff of main : entity is "main.hwdef";
 end main;
@@ -41,6 +40,7 @@ architecture STRUCTURE of main is
   component main_ProgramCounter_0_0 is
   port (
     InstrExec_CLK : in STD_LOGIC;
+    InstrLoad_CLK : in STD_LOGIC;
     Stalled : in STD_LOGIC;
     JMP : in STD_LOGIC;
     Reset : in STD_LOGIC;
@@ -122,6 +122,7 @@ architecture STRUCTURE of main is
     RAM_Src : in STD_LOGIC;
     RAM_Read : in STD_LOGIC;
     RAM_Write : in STD_LOGIC;
+    RAM_BankID : in STD_LOGIC_VECTOR ( 3 downto 0 );
     Use_MA : in STD_LOGIC;
     JMP : in STD_LOGIC;
     JMP_Conditional : in STD_LOGIC;
@@ -141,6 +142,7 @@ architecture STRUCTURE of main is
     RAM_Src_out : out STD_LOGIC;
     RAM_Read_out : out STD_LOGIC;
     RAM_Write_out : out STD_LOGIC;
+    RAM_BankID_out : out STD_LOGIC_VECTOR ( 3 downto 0 );
     Use_MA_out : out STD_LOGIC;
     JMP_out : out STD_LOGIC;
     JMP_Conditional_out : out STD_LOGIC;
@@ -237,22 +239,6 @@ architecture STRUCTURE of main is
     JMP_out : out STD_LOGIC
   );
   end component main_Pipelining_WriteBack_0_0;
-  component main_IROM_0_1 is
-  port (
-    Address : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    Data : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component main_IROM_0_1;
-  component main_RAM_Placeholder_0_0 is
-  port (
-    Address : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    DataIn : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    WE : in STD_LOGIC;
-    OE : in STD_LOGIC;
-    CLK : in STD_LOGIC;
-    DataOut : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component main_RAM_Placeholder_0_0;
   component main_ALU_FLAG_PACKER_0_1 is
   port (
     CARRY_FLAG : in STD_LOGIC;
@@ -265,6 +251,148 @@ architecture STRUCTURE of main is
     ALU_FLAGS : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_ALU_FLAG_PACKER_0_1;
+  component main_clockcontroller_0_0 is
+  port (
+    clk100mhz_in : in STD_LOGIC;
+    clk200mhz_in : in STD_LOGIC;
+    wizard_locked : in STD_LOGIC;
+    debug_en_lock : in STD_LOGIC;
+    fault_reset : in STD_LOGIC;
+    debug_reset : in STD_LOGIC;
+    fault : in STD_LOGIC;
+    debug_en : in STD_LOGIC;
+    load_clk : out STD_LOGIC;
+    exec_clk : out STD_LOGIC;
+    debug_clk : out STD_LOGIC;
+    clk200mhz : out STD_LOGIC;
+    clk200mhz_inf : out STD_LOGIC;
+    ck_stable : out STD_LOGIC
+  );
+  end component main_clockcontroller_0_0;
+  component main_mmu_0_0 is
+  port (
+    clk200mhz : in STD_LOGIC;
+    debug_en_lock : out STD_LOGIC;
+    fault : out STD_LOGIC;
+    ck_stable : in STD_LOGIC;
+    cpu_sync : in STD_LOGIC;
+    debug_sync : in STD_LOGIC;
+    vram_sync : in STD_LOGIC;
+    debug_clk200mhz : in STD_LOGIC;
+    debug_we : in STD_LOGIC;
+    debug_enable : in STD_LOGIC;
+    debug_override_enable : in STD_LOGIC;
+    debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_we : in STD_LOGIC;
+    gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    vram_clk200mhz : in STD_LOGIC;
+    vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    iram_mem_addr : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    iram_mem_ck : out STD_LOGIC;
+    iram_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    iram_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
+    iram_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_mem_addr : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    gram_mem_ck : out STD_LOGIC;
+    gram_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
+    gram_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    vrama_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    vrama_mem_ck : out STD_LOGIC;
+    vrama_mem_din : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    vrama_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
+    vrama_mem_dout : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    vramb_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    vramb_mem_ck : out STD_LOGIC;
+    vramb_mem_din : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    vramb_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
+    vramb_mem_dout : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    mmio_mem_ck : out STD_LOGIC;
+    mmio_mem_we : out STD_LOGIC;
+    mmio_mem_oe : out STD_LOGIC;
+    mmio_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    mmio_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    mmio_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component main_mmu_0_0;
+  component main_mmio_0_0 is
+  port (
+    ck : in STD_LOGIC;
+    we : in STD_LOGIC;
+    addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    led0 : out STD_LOGIC;
+    led1 : out STD_LOGIC;
+    led2 : out STD_LOGIC;
+    led3 : out STD_LOGIC;
+    btn0 : in STD_LOGIC;
+    btn1 : in STD_LOGIC;
+    btn2 : in STD_LOGIC;
+    btn3 : in STD_LOGIC;
+    rho : out STD_LOGIC
+  );
+  end component main_mmio_0_0;
+  component main_blk_mem_gen_0_0 is
+  port (
+    clka : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
+    addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    douta : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    clkb : in STD_LOGIC;
+    enb : in STD_LOGIC;
+    web : in STD_LOGIC_VECTOR ( 0 to 0 );
+    addrb : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    dinb : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 11 downto 0 )
+  );
+  end component main_blk_mem_gen_0_0;
+  component main_blk_mem_gen_1_0 is
+  port (
+    clka : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    clkb : in STD_LOGIC;
+    web : in STD_LOGIC_VECTOR ( 0 to 0 );
+    addrb : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component main_blk_mem_gen_1_0;
+  component main_blk_mem_gen_2_0 is
+  port (
+    clka : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    clkb : in STD_LOGIC;
+    web : in STD_LOGIC_VECTOR ( 0 to 0 );
+    addrb : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component main_blk_mem_gen_2_0;
+  component main_clk_wiz_0_0 is
+  port (
+    clk_in1 : in STD_LOGIC;
+    clk100mhz : out STD_LOGIC;
+    clk200mhz : out STD_LOGIC;
+    locked : out STD_LOGIC
+  );
+  end component main_clk_wiz_0_0;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ALU_0_BIGGER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_CARRY_FLAG : STD_LOGIC;
@@ -298,8 +426,6 @@ architecture STRUCTURE of main is
   signal Decoder_0_Register2 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Decoder_0_Use_MA : STD_LOGIC;
   signal Decoder_0_WriteBackRegister : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal IROM_0_Data : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal InstrExec_CLK_1 : STD_LOGIC;
   signal InstrLoad_CLK_1 : STD_LOGIC;
   signal Pipelining_Controller_0_InstructionForwardConfiguration : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal Pipelining_Controller_0_InstructionToExecute : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -311,13 +437,11 @@ architecture STRUCTURE of main is
   signal Pipelining_Execution_0_JMP_DestinationSelect_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_Relative_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_out : STD_LOGIC;
-  signal Pipelining_Execution_0_MA_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Operand1_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Operand2_out : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal Pipelining_Execution_0_RAM_Read_out : STD_LOGIC;
+  signal Pipelining_Execution_0_RAM_BankID_out : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Pipelining_Execution_0_RAM_Src_out : STD_LOGIC;
   signal Pipelining_Execution_0_RAM_Write_out : STD_LOGIC;
-  signal Pipelining_Execution_0_Use_MA_out : STD_LOGIC;
   signal Pipelining_Execution_0_WHB_out : STD_LOGIC;
   signal Pipelining_Execution_0_WLB_out : STD_LOGIC;
   signal Pipelining_Execution_0_WriteAddress_out : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -332,23 +456,74 @@ architecture STRUCTURE of main is
   signal Pipelining_WriteBack_0_WriteAddress_out : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Pipelining_WriteBack_0_WriteData_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ProgramCounter_0_Dout : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal RAM_Placeholder_0_DataOut : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal RegFile_0_BankID : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal RegFile_0_Reg1_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal RegFile_0_Reg2_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal RegFile_0_RegMA_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Reset_1 : STD_LOGIC;
+  signal clk100mhz_in_1 : STD_LOGIC;
+  signal clk_wiz_0_clk100mhz : STD_LOGIC;
+  signal clk_wiz_0_clk200mhz : STD_LOGIC;
+  signal clk_wiz_0_locked : STD_LOGIC;
+  signal clockcontroller_0_ck_stable : STD_LOGIC;
+  signal clockcontroller_0_clk200mhz : STD_LOGIC;
+  signal clockcontroller_0_exec_clk : STD_LOGIC;
+  signal gram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal iram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_debug_en_lock : STD_LOGIC;
+  signal mmu_0_fault : STD_LOGIC;
+  signal mmu_0_gram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_gram_mem_addr : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal mmu_0_gram_mem_ck : STD_LOGIC;
+  signal mmu_0_gram_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_gram_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal mmu_0_iram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_iram_mem_addr : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal mmu_0_iram_mem_ck : STD_LOGIC;
+  signal mmu_0_iram_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_iram_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal mmu_0_mmio_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_mmio_mem_ck : STD_LOGIC;
+  signal mmu_0_mmio_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_mmio_mem_we : STD_LOGIC;
+  signal mmu_0_vrama_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_vrama_mem_ck : STD_LOGIC;
+  signal mmu_0_vrama_mem_din : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal mmu_0_vrama_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal mmu_0_vramb_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_vramb_mem_ck : STD_LOGIC;
+  signal mmu_0_vramb_mem_din : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal mmu_0_vramb_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal vram_bram_douta : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal vram_bram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_RegFile_0_BankID_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED : STD_LOGIC;
+  signal NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED : STD_LOGIC;
+  signal NLW_Pipelining_Execution_0_MA_out_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED : STD_LOGIC;
+  signal NLW_clockcontroller_0_debug_clk_UNCONNECTED : STD_LOGIC;
+  signal NLW_gram_bram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_iram_bram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_mmio_0_led0_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led1_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led2_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led3_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_rho_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmu_0_mmio_mem_oe_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmu_0_debug_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_mmu_0_vram_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute x_interface_info : string;
   attribute x_interface_info of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
   attribute x_interface_parameter : string;
   attribute x_interface_parameter of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute x_interface_info of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
+  attribute x_interface_parameter of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
-  InstrExec_CLK_1 <= InstrExec_CLK;
-  InstrLoad_CLK_1 <= InstrLoad_CLK;
   Reset_1 <= Reset;
+  clk100mhz_in_1 <= clk100mhz_in;
   led <= Pipelining_WriteBack_0_JMP_out;
 ALU_0: component main_ALU_0_0
      port map (
@@ -405,7 +580,7 @@ CU_ImmediateManipula_0: component main_CU_ImmediateManipula_0_0
 CU_JumpController_0: component main_CU_JumpController_0_0
      port map (
       Flags(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
-      InstrExec_CLK => InstrExec_CLK_1,
+      InstrExec_CLK => clockcontroller_0_exec_clk,
       JMP => Pipelining_Execution_0_JMP_out,
       JMP_Address(15 downto 0) => CU_JumpDestinationSe_0_JMP_Address(15 downto 0),
       JMP_Condition(2 downto 0) => Pipelining_Execution_0_JMP_Condition_out(2 downto 0),
@@ -425,17 +600,17 @@ CU_JumpDestinationSe_0: component main_CU_JumpDestinationSe_0_0
 CU_RAMAddressControl_0: component main_CU_RAMAddressControl_0_0
      port map (
       Immediate(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
-      MA(15 downto 0) => Pipelining_Execution_0_MA_out(15 downto 0),
+      MA(15 downto 0) => B"0000000000000000",
       RAM_Address(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
       RAM_Address_Src => Pipelining_Execution_0_RAM_Src_out,
       Reg2(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
-      Use_MA => Pipelining_Execution_0_Use_MA_out
+      Use_MA => '0'
     );
 CU_WriteSelector_0: component main_CU_WriteSelector_0_0
      port map (
       ALU_Out(15 downto 0) => ALU_0_ALU_OUT(15 downto 0),
       Manipulated_Immidiate(15 downto 0) => CU_ImmediateManipula_0_ManipulatedImmidiate(15 downto 0),
-      RAM_Out(15 downto 0) => RAM_Placeholder_0_DataOut(15 downto 0),
+      RAM_Out(15 downto 0) => mmu_0_gram_dout(15 downto 0),
       Reg1(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       Write_Data(15 downto 0) => CU_WriteSelector_0_Write_Data(15 downto 0),
       Write_Sel(1 downto 0) => Pipelining_Execution_0_WriteDataSel_out(1 downto 0)
@@ -450,20 +625,15 @@ Decoder_0: component main_Decoder_0_0
       Use_MA => Decoder_0_Use_MA,
       WriteBackRegister(3 downto 0) => Decoder_0_WriteBackRegister(3 downto 0)
     );
-IROM_0: component main_IROM_0_1
-     port map (
-      Address(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
-      Data(15 downto 0) => IROM_0_Data(15 downto 0)
-    );
 Pipelining_Controller_0: component main_Pipelining_Controller_0_0
      port map (
-      InstrExec_CLK => InstrExec_CLK_1,
+      InstrExec_CLK => clockcontroller_0_exec_clk,
       InstrLoad_CLK => InstrLoad_CLK_1,
-      Instruction(15 downto 0) => IROM_0_Data(15 downto 0),
+      Instruction(15 downto 0) => mmu_0_iram_dout(15 downto 0),
       InstructionForwardConfiguration(4 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(4 downto 0),
       InstructionToExecute(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
       Reset => Reset_1,
-      ResolveStall => Pipelining_Execution_0_JMP_out,
+      ResolveStall => Pipelining_WriteBack_0_JMP_out,
       Stalled => Pipelining_Controller_0_Stalled
     );
 Pipelining_Execution_0: component main_Pipelining_Execution_0_0
@@ -486,20 +656,22 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       JMP_Relative_out => Pipelining_Execution_0_JMP_Relative_out,
       JMP_out => Pipelining_Execution_0_JMP_out,
       MA(15 downto 0) => Pipelining_Forwarder_0_ForwardedMA(15 downto 0),
-      MA_out(15 downto 0) => Pipelining_Execution_0_MA_out(15 downto 0),
+      MA_out(15 downto 0) => NLW_Pipelining_Execution_0_MA_out_UNCONNECTED(15 downto 0),
       Operand1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
       Operand1_out(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       Operand2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),
       Operand2_out(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
+      RAM_BankID(3 downto 0) => RegFile_0_BankID(3 downto 0),
+      RAM_BankID_out(3 downto 0) => Pipelining_Execution_0_RAM_BankID_out(3 downto 0),
       RAM_Read => CU_Decoder_0_RAM_Read,
-      RAM_Read_out => Pipelining_Execution_0_RAM_Read_out,
+      RAM_Read_out => NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED,
       RAM_Src => CU_Decoder_0_RAM_Address_Src,
       RAM_Src_out => Pipelining_Execution_0_RAM_Src_out,
       RAM_Write => CU_Decoder_0_RAM_Write,
       RAM_Write_out => Pipelining_Execution_0_RAM_Write_out,
       Reset => Reset_1,
       Use_MA => Decoder_0_Use_MA,
-      Use_MA_out => Pipelining_Execution_0_Use_MA_out,
+      Use_MA_out => NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED,
       WHB => CU_Decoder_0_RF_WHB,
       WHB_out => Pipelining_Execution_0_WHB_out,
       WLB => CU_Decoder_0_RF_WLB,
@@ -543,26 +715,18 @@ ProgramCounter_0: component main_ProgramCounter_0_0
      port map (
       Din(15 downto 0) => CU_JumpController_0_PC_Next(15 downto 0),
       Dout(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
-      InstrExec_CLK => InstrExec_CLK_1,
+      InstrExec_CLK => clockcontroller_0_exec_clk,
+      InstrLoad_CLK => InstrLoad_CLK_1,
       JMP => CU_JumpController_0_PC_Load,
       Reset => Reset_1,
       Stalled => Pipelining_Controller_0_Stalled
-    );
-RAM_Placeholder_0: component main_RAM_Placeholder_0_0
-     port map (
-      Address(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
-      CLK => InstrExec_CLK_1,
-      DataIn(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
-      DataOut(15 downto 0) => RAM_Placeholder_0_DataOut(15 downto 0),
-      OE => Pipelining_Execution_0_RAM_Read_out,
-      WE => Pipelining_Execution_0_RAM_Write_out
     );
 RegFile_0: component main_RegFile_0_0
      port map (
       AddrReg1(3 downto 0) => Decoder_0_Register1(3 downto 0),
       AddrReg2(3 downto 0) => Decoder_0_Register2(3 downto 0),
       AddrWriteReg(3 downto 0) => Pipelining_WriteBack_0_WriteAddress_out(3 downto 0),
-      BankID(3 downto 0) => NLW_RegFile_0_BankID_UNCONNECTED(3 downto 0),
+      BankID(3 downto 0) => RegFile_0_BankID(3 downto 0),
       Flags(15 downto 0) => Pipelining_WriteBack_0_Flags_out(15 downto 0),
       OverwriteFl => Pipelining_WriteBack_0_Is_ALU_OP_out,
       Reg1_data(15 downto 0) => RegFile_0_Reg1_data(15 downto 0),
@@ -570,6 +734,141 @@ RegFile_0: component main_RegFile_0_0
       RegMA_data(15 downto 0) => RegFile_0_RegMA_data(15 downto 0),
       WE => Pipelining_WriteBack_0_RF_WE_out,
       WriteData(15 downto 0) => Pipelining_WriteBack_0_WriteData_out(15 downto 0),
-      clk => InstrExec_CLK_1
+      clk => clockcontroller_0_exec_clk
+    );
+clk_wiz_0: component main_clk_wiz_0_0
+     port map (
+      clk100mhz => clk_wiz_0_clk100mhz,
+      clk200mhz => clk_wiz_0_clk200mhz,
+      clk_in1 => clk100mhz_in_1,
+      locked => clk_wiz_0_locked
+    );
+clockcontroller_0: component main_clockcontroller_0_0
+     port map (
+      ck_stable => clockcontroller_0_ck_stable,
+      clk100mhz_in => clk_wiz_0_clk100mhz,
+      clk200mhz => clockcontroller_0_clk200mhz,
+      clk200mhz_in => clk_wiz_0_clk200mhz,
+      clk200mhz_inf => NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED,
+      debug_clk => NLW_clockcontroller_0_debug_clk_UNCONNECTED,
+      debug_en => '0',
+      debug_en_lock => mmu_0_debug_en_lock,
+      debug_reset => '0',
+      exec_clk => clockcontroller_0_exec_clk,
+      fault => mmu_0_fault,
+      fault_reset => '0',
+      load_clk => InstrLoad_CLK_1,
+      wizard_locked => clk_wiz_0_locked
+    );
+gram_bram: component main_blk_mem_gen_1_0
+     port map (
+      addra(13 downto 0) => mmu_0_gram_mem_addr(13 downto 0),
+      addrb(13 downto 0) => B"00000000000000",
+      clka => mmu_0_gram_mem_ck,
+      clkb => '0',
+      dina(15 downto 0) => mmu_0_gram_mem_din(15 downto 0),
+      dinb(15 downto 0) => B"0000000000001000",
+      douta(15 downto 0) => gram_bram_douta(15 downto 0),
+      doutb(15 downto 0) => NLW_gram_bram_doutb_UNCONNECTED(15 downto 0),
+      wea(0) => mmu_0_gram_mem_we(0),
+      web(0) => '0'
+    );
+iram_bram: component main_blk_mem_gen_2_0
+     port map (
+      addra(13 downto 0) => mmu_0_iram_mem_addr(13 downto 0),
+      addrb(13 downto 0) => B"00000000000000",
+      clka => mmu_0_iram_mem_ck,
+      clkb => '0',
+      dina(15 downto 0) => mmu_0_iram_mem_din(15 downto 0),
+      dinb(15 downto 0) => B"0000000000001000",
+      douta(15 downto 0) => iram_bram_douta(15 downto 0),
+      doutb(15 downto 0) => NLW_iram_bram_doutb_UNCONNECTED(15 downto 0),
+      wea(0) => mmu_0_iram_mem_we(0),
+      web(0) => '0'
+    );
+mmio_0: component main_mmio_0_0
+     port map (
+      addr(15 downto 0) => mmu_0_mmio_mem_addr(15 downto 0),
+      btn0 => '0',
+      btn1 => '0',
+      btn2 => '0',
+      btn3 => '0',
+      ck => mmu_0_mmio_mem_ck,
+      din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
+      dout(15 downto 0) => mmio_0_dout(15 downto 0),
+      led0 => NLW_mmio_0_led0_UNCONNECTED,
+      led1 => NLW_mmio_0_led1_UNCONNECTED,
+      led2 => NLW_mmio_0_led2_UNCONNECTED,
+      led3 => NLW_mmio_0_led3_UNCONNECTED,
+      rho => NLW_mmio_0_rho_UNCONNECTED,
+      we => mmu_0_mmio_mem_we
+    );
+mmu_0: component main_mmu_0_0
+     port map (
+      ck_stable => clockcontroller_0_ck_stable,
+      clk200mhz => clockcontroller_0_clk200mhz,
+      cpu_sync => clockcontroller_0_exec_clk,
+      debug_addr(15 downto 0) => B"0000000000000000",
+      debug_bank(3 downto 0) => B"0000",
+      debug_clk200mhz => '0',
+      debug_din(15 downto 0) => B"0000000000000000",
+      debug_dout(15 downto 0) => NLW_mmu_0_debug_dout_UNCONNECTED(15 downto 0),
+      debug_en_lock => mmu_0_debug_en_lock,
+      debug_enable => '0',
+      debug_override_enable => '0',
+      debug_sync => '0',
+      debug_we => '0',
+      fault => mmu_0_fault,
+      gram_addr(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
+      gram_bank(3 downto 0) => Pipelining_Execution_0_RAM_BankID_out(3 downto 0),
+      gram_din(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
+      gram_dout(15 downto 0) => mmu_0_gram_dout(15 downto 0),
+      gram_mem_addr(13 downto 0) => mmu_0_gram_mem_addr(13 downto 0),
+      gram_mem_ck => mmu_0_gram_mem_ck,
+      gram_mem_din(15 downto 0) => mmu_0_gram_mem_din(15 downto 0),
+      gram_mem_dout(15 downto 0) => gram_bram_douta(15 downto 0),
+      gram_mem_we(0) => mmu_0_gram_mem_we(0),
+      gram_we => Pipelining_Execution_0_RAM_Write_out,
+      iram_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
+      iram_dout(15 downto 0) => mmu_0_iram_dout(15 downto 0),
+      iram_mem_addr(13 downto 0) => mmu_0_iram_mem_addr(13 downto 0),
+      iram_mem_ck => mmu_0_iram_mem_ck,
+      iram_mem_din(15 downto 0) => mmu_0_iram_mem_din(15 downto 0),
+      iram_mem_dout(15 downto 0) => iram_bram_douta(15 downto 0),
+      iram_mem_we(0) => mmu_0_iram_mem_we(0),
+      mmio_mem_addr(15 downto 0) => mmu_0_mmio_mem_addr(15 downto 0),
+      mmio_mem_ck => mmu_0_mmio_mem_ck,
+      mmio_mem_din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
+      mmio_mem_dout(15 downto 0) => mmio_0_dout(15 downto 0),
+      mmio_mem_oe => NLW_mmu_0_mmio_mem_oe_UNCONNECTED,
+      mmio_mem_we => mmu_0_mmio_mem_we,
+      vram_addr(15 downto 0) => B"0000000000000000",
+      vram_clk200mhz => '0',
+      vram_dout(15 downto 0) => NLW_mmu_0_vram_dout_UNCONNECTED(15 downto 0),
+      vram_sync => '0',
+      vrama_mem_addr(15 downto 0) => mmu_0_vrama_mem_addr(15 downto 0),
+      vrama_mem_ck => mmu_0_vrama_mem_ck,
+      vrama_mem_din(11 downto 0) => mmu_0_vrama_mem_din(11 downto 0),
+      vrama_mem_dout(11 downto 0) => vram_bram_douta(11 downto 0),
+      vrama_mem_we(0) => mmu_0_vrama_mem_we(0),
+      vramb_mem_addr(15 downto 0) => mmu_0_vramb_mem_addr(15 downto 0),
+      vramb_mem_ck => mmu_0_vramb_mem_ck,
+      vramb_mem_din(11 downto 0) => mmu_0_vramb_mem_din(11 downto 0),
+      vramb_mem_dout(11 downto 0) => vram_bram_doutb(11 downto 0),
+      vramb_mem_we(0) => mmu_0_vramb_mem_we(0)
+    );
+vram_bram: component main_blk_mem_gen_0_0
+     port map (
+      addra(15 downto 0) => mmu_0_vrama_mem_addr(15 downto 0),
+      addrb(15 downto 0) => mmu_0_vramb_mem_addr(15 downto 0),
+      clka => mmu_0_vrama_mem_ck,
+      clkb => mmu_0_vramb_mem_ck,
+      dina(11 downto 0) => mmu_0_vrama_mem_din(11 downto 0),
+      dinb(11 downto 0) => mmu_0_vramb_mem_din(11 downto 0),
+      douta(11 downto 0) => vram_bram_douta(11 downto 0),
+      doutb(11 downto 0) => vram_bram_doutb(11 downto 0),
+      enb => '0',
+      wea(0) => mmu_0_vrama_mem_we(0),
+      web(0) => mmu_0_vramb_mem_we(0)
     );
 end STRUCTURE;

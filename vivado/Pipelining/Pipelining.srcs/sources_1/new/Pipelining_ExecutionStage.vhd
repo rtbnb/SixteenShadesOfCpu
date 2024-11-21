@@ -45,6 +45,7 @@ entity Pipelining_ExecutionStage is
            RAM_Src : in STD_LOGIC;
            RAM_Read : in STD_LOGIC;
            RAM_Write : in STD_LOGIC;
+           RAM_BankID : in STD_LOGIC_VECTOR (3 downto 0);
            Use_MA : in STD_LOGIC;
            JMP : in STD_LOGIC;
            JMP_Conditional : in STD_LOGIC;
@@ -64,6 +65,7 @@ entity Pipelining_ExecutionStage is
            RAM_Src_out : out STD_LOGIC;
            RAM_Read_out : out STD_LOGIC;
            RAM_Write_out : out STD_LOGIC;
+           RAM_BankID_out : out STD_LOGIC_VECTOR (3 downto 0);
            Use_MA_out : out STD_LOGIC;
            JMP_out : out STD_LOGIC;
            JMP_Conditional_out : out STD_LOGIC;
@@ -79,6 +81,7 @@ architecture Behavioral of Pipelining_ExecutionStage is
     signal whb_s, wlb_s, ram_src_s, ram_read_s, ram_write_s, use_ma_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s : STD_LOGIC;
     signal write_data_select_s : STD_LOGIC_VECTOR(1 downto 0);
     signal jmp_condition_s : STD_LOGIC_VECTOR(2 downto 0);
+    signal bank_id_s : STD_LOGIC_VECTOR (3 downto 0);
 begin
 
     latcher:process(InstrLoad_CLK, Reset) is
@@ -95,6 +98,7 @@ begin
         ram_src_s <= '0';
         ram_read_s <= '0';
         ram_write_s <= '0';
+        bank_id_s <= "0000";
         use_ma_s <= '0';
         jmp_s <= '0';
         jmp_conditional_s <= '0';
@@ -115,6 +119,7 @@ begin
         ram_src_s <= RAM_Src;
         ram_read_s <= RAM_Read;
         ram_write_s <= RAM_Write;
+        bank_id_s <= RAM_BankID;
         use_ma_s <= Use_MA;
         jmp_s <= JMP;
         jmp_conditional_s <= JMP_Conditional;
@@ -137,6 +142,7 @@ begin
     RAM_Src_out <= ram_src_s;
     RAM_Read_out <= ram_read_s;
     RAM_Write_out <= ram_write_s;
+    RAM_BankID_out <= bank_id_s;
     Use_MA_out <= use_ma_s;
     JMP_out <= jmp_s;
     JMP_Conditional_out <= jmp_conditional_s;

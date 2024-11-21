@@ -81,7 +81,8 @@ begin
     btn2_pressed_reg_op_s <= addr = "0000000000001011";
     btn3_pressed_reg_op_s <= addr = "0000000000001100";
     
-    btn0_pressed_s <= (btn0 or btn0_pressed_s) and not btn0_pressed_rst_s;
+    --btn0_pressed_s <= (btn0 or btn0_pressed_s) and not btn0_pressed_rst_s;
+    btn0_pressed_s <= '0';
     
     with addr select
         dout <= mmio_config_reg_s when  "0000000000000000",
