@@ -42,8 +42,8 @@ entity Debugger is
         tx_data_valid: out std_logic;
         tx_data_sended: in std_logic;
         
-        -- debug clk
-        debug_clk_stop_LOW_ACTIVE: out std_logic;
+        -- debug enable
+        debug_enable: out std_logic := '0';
         
         -- monitoring signals        
         -- programm counter
@@ -86,14 +86,13 @@ entity Debugger is
               
         
         -- mmu
-        mmu_debug_sys_clk: out std_logic;
-        mmu_debug_sync_clk: out std_logic;
-        mmu_debug_en: out std_logic;
-        mmu_debug_override_en: out std_logic;
-        mmu_debug_addr: out std_logic_vector(15 downto 0);
-        mmu_debug_din: out std_logic_vector(15 downto 0);
-        mmu_debug_bank: out std_logic_vector(3 downto 0);
-        mmu_debug_we: out std_logic;
+        mmu_debug_sys_clk: out std_logic := '0';
+        mmu_debug_en: out std_logic := '0';
+        mmu_debug_override_en: out std_logic := '0';
+        mmu_debug_addr: out std_logic_vector(15 downto 0) := x"0000";
+        mmu_debug_din: out std_logic_vector(15 downto 0) := x"0000";
+        mmu_debug_bank: out std_logic_vector(3 downto 0) := x"0";
+        mmu_debug_we: out std_logic := '0';
         mmu_debug_dout: in std_logic_vector(15 downto 0)
         
         
@@ -108,7 +107,8 @@ architecture Behavioral of Debugger is
         ReceivePreCommandDecission, ReceiveInstructionDataHIGH, ReceiveInstructionDataLOW, ReceiveInstructionData2HIGH, ReceiveInstructionData2LOW,
         HoldClock, WaitClockCycle, ProcessCommand,
         TransmitDataInstruction, TransmitDataHIGH, TransmitDataLOW, TransmitDataAddrHIGH, TransmitDataAddrLOW, ResetTX,
-        TransmitDataInstructionSHORT, TransmitDataHIGHSHORT, TransmitDataLOWSHORT
+        TransmitDataInstructionSHORT, TransmitDataHIGHSHORT, TransmitDataLOWSHORT,
+        ResetMMUDebug
     );
     signal state: state_types := Idle;
     
@@ -122,16 +122,13 @@ architecture Behavioral of Debugger is
     signal tx_data_buffer: std_logic_vector(15 downto 0) := x"0000";
     signal tx_addr_buffer: std_logic_vector(15 downto 0) := x"0000";
     
-    signal debug_clk_stop: std_logic := '0';
     signal pc_current_addr_buffer: std_logic_vector(15 downto 0) := x"FFFF";
 begin
-    debug_clk_stop_LOW_ACTIVE <= debug_clk_stop;
     pc_current_addr_buffer <= pc_current_addr;
     state_machine: process(clk, state, rx_data_valid, tx_data_sended) begin
         if rising_edge(clk) then
             case state is
                 when Idle =>
-                    debug_clk_stop <= '1';
                     -- if first byte read on rx
                     if (rx_data_valid = '1') then
                         rx_instruction_buffer <= rx_data;
@@ -159,6 +156,8 @@ begin
                         when x"21" => state <= HoldClock;
                         when x"22" => state <= HoldClock;
                         -- memory
+                        when x"30" => state <= ReceiveInstructionDataHIGH;
+                        when x"31" => state <= ReceiveInstructionDataHIGH;
                         -- alu signal request
                         when x"40" => state <= HoldClock;
                         when x"41" => state <= HoldClock;
@@ -209,7 +208,7 @@ begin
                     end if;
                 -- command processing states
                 when HoldClock =>
-                    debug_clk_stop <= '0';
+                    debug_enable <= '1';
                     state <= WaitClockCycle;
                 when WaitClockCycle =>
                     state <= ProcessCommand;
@@ -267,8 +266,17 @@ begin
                             tx_data_buffer <= pc_current_addr;
                             state <= TransmitDataInstructionSHORT;
                         -- memmory
-                        when x"30" => state <= Idle;
-                        when x"31" => state <= Idle;
+                        when x"30" =>
+                            mmu_debug_en <= '1';
+                            state <= Idle;
+                        when x"31" =>
+                            mmu_debug_addr <= rx_instruction_data_buffer;
+                            mmu_debug_din <= rx_instruction_data2_buffer;
+                            mmu_debug_bank <= "1111";
+                            mmu_debug_override_en <= '1';
+                            mmu_debug_we <= '1';
+                            mmu_debug_sys_clk <= '1';
+                            state <= ResetMMUDebug;
                         -- alu
                         when x"40" =>
                             tx_instruction_buffer <= x"40";
@@ -415,6 +423,13 @@ begin
                         tx_data_valid <= '0';
                         state <= ResetTX;
                     end if;
+                
+                -- signal resets
+                when ResetMMUDebug =>
+                    mmu_debug_override_en <= '0';
+                    mmu_debug_we <= '0';
+                    mmu_debug_sys_clk <= '0';
+                    state <= Idle;
                     
                     
                 when others =>
