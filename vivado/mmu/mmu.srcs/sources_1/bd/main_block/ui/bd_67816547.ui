@@ -1,111 +1,99 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.41722",
-   "Default View_TopLeft":"-504,-648",
+   "Default View_TopLeft":"216,-205",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port port-id_debug_we -pg 1 -lvl 0 -x -320 -y -90 -defaultsOSRD
-preplace port port-id_debug_enable -pg 1 -lvl 0 -x -320 -y -70 -defaultsOSRD
-preplace port port-id_gram_we -pg 1 -lvl 0 -x -320 -y 50 -defaultsOSRD
-preplace port port-id_debug_override_enable -pg 1 -lvl 0 -x -320 -y -50 -defaultsOSRD
-preplace port port-id_btn0 -pg 1 -lvl 0 -x -320 -y 1130 -defaultsOSRD
-preplace port port-id_btn1 -pg 1 -lvl 0 -x -320 -y 1150 -defaultsOSRD
-preplace port port-id_btn2 -pg 1 -lvl 0 -x -320 -y 1170 -defaultsOSRD
-preplace port port-id_btn3 -pg 1 -lvl 0 -x -320 -y 1190 -defaultsOSRD
-preplace port port-id_led0 -pg 1 -lvl 5 -x 1240 -y 1100 -defaultsOSRD
-preplace port port-id_led1 -pg 1 -lvl 5 -x 1240 -y 1120 -defaultsOSRD
-preplace port port-id_led2 -pg 1 -lvl 5 -x 1240 -y 1140 -defaultsOSRD
-preplace port port-id_led3 -pg 1 -lvl 5 -x 1240 -y 1160 -defaultsOSRD
-preplace port port-id_clk100mhz_in -pg 1 -lvl 0 -x -320 -y -430 -defaultsOSRD
-preplace port port-id_fault_reset -pg 1 -lvl 0 -x -320 -y -630 -defaultsOSRD
-preplace port port-id_debug_reset -pg 1 -lvl 0 -x -320 -y -610 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x -320 -y -590 -defaultsOSRD
-preplace port port-id_debug_en -pg 1 -lvl 0 -x -320 -y -570 -defaultsOSRD
-preplace portBus vram_dout -pg 1 -lvl 5 -x 1240 -y -140 -defaultsOSRD
-preplace portBus gram_dout -pg 1 -lvl 5 -x 1240 -y -160 -defaultsOSRD
-preplace portBus iram_dout -pg 1 -lvl 5 -x 1240 -y -180 -defaultsOSRD
-preplace portBus debug_dout -pg 1 -lvl 5 -x 1240 -y -200 -defaultsOSRD
-preplace portBus debug_addr -pg 1 -lvl 0 -x -320 -y -30 -defaultsOSRD
-preplace portBus debug_din -pg 1 -lvl 0 -x -320 -y -10 -defaultsOSRD
-preplace portBus debug_bank -pg 1 -lvl 0 -x -320 -y 10 -defaultsOSRD
-preplace portBus iram_addr -pg 1 -lvl 0 -x -320 -y 30 -defaultsOSRD
-preplace portBus gram_addr -pg 1 -lvl 0 -x -320 -y 70 -defaultsOSRD
-preplace portBus gram_din -pg 1 -lvl 0 -x -320 -y 90 -defaultsOSRD
-preplace portBus gram_bank -pg 1 -lvl 0 -x -320 -y 110 -defaultsOSRD
-preplace portBus vram_addr -pg 1 -lvl 0 -x -320 -y 150 -defaultsOSRD
-preplace inst vram -pg 1 -lvl 4 -x 1090 -y 810 -defaultsOSRD
-preplace inst mmu_0 -pg 1 -lvl 3 -x 570 -y 20 -defaultsOSRD
-preplace inst iram -pg 1 -lvl 4 -x 1090 -y 320 -defaultsOSRD
-preplace inst gram -pg 1 -lvl 4 -x 1090 -y 540 -defaultsOSRD
-preplace inst mmio_0 -pg 1 -lvl 4 -x 1090 -y 1120 -defaultsOSRD
+preplace port port-id_debug_we -pg 1 -lvl 0 -x -330 -y -90 -defaultsOSRD
+preplace port port-id_debug_enable -pg 1 -lvl 0 -x -330 -y -70 -defaultsOSRD
+preplace port port-id_gram_we -pg 1 -lvl 0 -x -330 -y 50 -defaultsOSRD
+preplace port port-id_debug_override_enable -pg 1 -lvl 0 -x -330 -y -50 -defaultsOSRD
+preplace port port-id_btn0 -pg 1 -lvl 0 -x -330 -y 720 -defaultsOSRD
+preplace port port-id_btn1 -pg 1 -lvl 0 -x -330 -y 740 -defaultsOSRD
+preplace port port-id_btn2 -pg 1 -lvl 0 -x -330 -y 760 -defaultsOSRD
+preplace port port-id_btn3 -pg 1 -lvl 0 -x -330 -y 780 -defaultsOSRD
+preplace port port-id_led0 -pg 1 -lvl 5 -x 1270 -y 680 -defaultsOSRD
+preplace port port-id_led1 -pg 1 -lvl 5 -x 1270 -y 700 -defaultsOSRD
+preplace port port-id_led2 -pg 1 -lvl 5 -x 1270 -y 720 -defaultsOSRD
+preplace port port-id_led3 -pg 1 -lvl 5 -x 1270 -y 740 -defaultsOSRD
+preplace port port-id_clk100mhz_in -pg 1 -lvl 0 -x -330 -y -430 -defaultsOSRD
+preplace port port-id_fault_reset -pg 1 -lvl 0 -x -330 -y -630 -defaultsOSRD
+preplace port port-id_debug_reset -pg 1 -lvl 0 -x -330 -y -610 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x -330 -y -590 -defaultsOSRD
+preplace port port-id_debug_en -pg 1 -lvl 0 -x -330 -y -570 -defaultsOSRD
+preplace portBus vram_dout -pg 1 -lvl 5 -x 1270 -y -140 -defaultsOSRD
+preplace portBus gram_dout -pg 1 -lvl 5 -x 1270 -y -160 -defaultsOSRD
+preplace portBus iram_dout -pg 1 -lvl 5 -x 1270 -y -180 -defaultsOSRD
+preplace portBus debug_dout -pg 1 -lvl 5 -x 1270 -y -200 -defaultsOSRD
+preplace portBus debug_addr -pg 1 -lvl 0 -x -330 -y -30 -defaultsOSRD
+preplace portBus debug_din -pg 1 -lvl 0 -x -330 -y -10 -defaultsOSRD
+preplace portBus debug_bank -pg 1 -lvl 0 -x -330 -y 10 -defaultsOSRD
+preplace portBus iram_addr -pg 1 -lvl 0 -x -330 -y 30 -defaultsOSRD
+preplace portBus gram_addr -pg 1 -lvl 0 -x -330 -y 70 -defaultsOSRD
+preplace portBus gram_din -pg 1 -lvl 0 -x -330 -y 90 -defaultsOSRD
+preplace portBus gram_bank -pg 1 -lvl 0 -x -330 -y 110 -defaultsOSRD
+preplace portBus vram_addr -pg 1 -lvl 0 -x -330 -y 150 -defaultsOSRD
+preplace inst vram -pg 1 -lvl 4 -x 1090 -y 430 -defaultsOSRD
+preplace inst mmu_0 -pg 1 -lvl 3 -x 590 -y 20 -defaultsOSRD
+preplace inst mmio_0 -pg 1 -lvl 4 -x 1090 -y 710 -defaultsOSRD
 preplace inst clockcontroller_0 -pg 1 -lvl 2 -x 150 -y -450 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x -190 -y -440 -defaultsOSRD
-preplace netloc btn0_1 1 0 4 NJ 1130 N 1130 N 1130 N
-preplace netloc btn1_1 1 0 4 NJ 1150 N 1150 N 1150 N
-preplace netloc btn2_1 1 0 4 NJ 1170 N 1170 N 1170 N
-preplace netloc btn3_1 1 0 4 NJ 1190 N 1190 N 1190 N
+preplace netloc btn0_1 1 0 4 NJ 720 N 720 N 720 N
+preplace netloc btn1_1 1 0 4 NJ 740 N 740 N 740 N
+preplace netloc btn2_1 1 0 4 NJ 760 N 760 N 760 N
+preplace netloc btn3_1 1 0 4 NJ 780 N 780 N 780 N
 preplace netloc clk100mhz_in_1 1 0 1 N -430
 preplace netloc clk_wiz_0_clk100mhz_out 1 1 1 -60 -520n
 preplace netloc clk_wiz_0_clk200mhz_out 1 1 1 -40 -500n
 preplace netloc clk_wiz_0_locked 1 1 1 -70 -480n
-preplace netloc clockcontroller_0_ck_stable 1 2 1 330 -400n
-preplace netloc clockcontroller_0_clk100mhz 1 2 1 340 -480n
-preplace netloc clockcontroller_0_clk200mhz 1 2 1 320 -440n
-preplace netloc debug_addr_1 1 0 3 N -30 N -30 N
-preplace netloc debug_bank_1 1 0 3 N 10 N 10 N
-preplace netloc debug_din_1 1 0 3 N -10 N -10 N
+preplace netloc clockcontroller_0_ck_stable 1 2 1 370 -400n
+preplace netloc clockcontroller_0_clk100mhz 1 2 1 380 -480n
+preplace netloc clockcontroller_0_clk200mhz 1 2 1 360 -440n
+preplace netloc debug_addr_1 1 0 3 -310 -40 N -40 380
+preplace netloc debug_bank_1 1 0 3 N 10 N 10 350
+preplace netloc debug_din_1 1 0 3 N -10 N -10 370
 preplace netloc debug_en_1 1 0 2 NJ -570 -80
-preplace netloc debug_enable_1 1 0 3 N -70 N -70 N
-preplace netloc debug_override_enable_1 1 0 3 N -50 N -50 N
+preplace netloc debug_enable_1 1 0 3 N -70 N -70 340
+preplace netloc debug_override_enable_1 1 0 3 -300 -30 N -30 N
 preplace netloc debug_reset_1 1 0 2 NJ -610 -50
-preplace netloc debug_we_1 1 0 3 N -90 N -90 N
+preplace netloc debug_we_1 1 0 3 N -90 N -90 350
 preplace netloc fault_reset_1 1 0 2 NJ -630 -30
-preplace netloc gram_addr_1 1 0 3 N 70 N 70 N
-preplace netloc gram_bank_1 1 0 3 N 110 N 110 N
-preplace netloc gram_din_1 1 0 3 N 90 N 90 N
-preplace netloc gram_douta 1 2 2 350 560 N
-preplace netloc gram_we_1 1 0 3 N 50 N 50 N
-preplace netloc iram_addr_1 1 0 3 N 30 N 30 N
-preplace netloc iram_douta 1 2 2 340 340 NJ
-preplace netloc mmio_0_dout 1 2 3 380 980 NJ 980 1210
-preplace netloc mmio_0_led0 1 4 1 1210 1090n
-preplace netloc mmio_0_led1 1 4 1 1210 1110n
-preplace netloc mmio_0_led2 1 4 1 1210 1130n
-preplace netloc mmio_0_led3 1 4 1 1210 1150n
-preplace netloc mmu_0_debug_dout 1 3 2 N -200 NJ
-preplace netloc mmu_0_debug_en_lock 1 1 3 0 -580 NJ -580 770
-preplace netloc mmu_0_fault 1 1 3 0 -320 NJ -320 760
-preplace netloc mmu_0_gram_dout 1 3 2 N -160 NJ
-preplace netloc mmu_0_gram_mem_addr 1 3 1 920 -40n
-preplace netloc mmu_0_gram_mem_ck 1 3 1 910 -20n
-preplace netloc mmu_0_gram_mem_din 1 3 1 900 0n
-preplace netloc mmu_0_gram_mem_we 1 3 1 890 20n
-preplace netloc mmu_0_iram_dout 1 3 2 N -180 NJ
-preplace netloc mmu_0_iram_mem_addr 1 3 1 960 -120n
-preplace netloc mmu_0_iram_mem_ck 1 3 1 950 -100n
-preplace netloc mmu_0_iram_mem_din 1 3 1 940 -80n
-preplace netloc mmu_0_iram_mem_we 1 3 1 930 -60n
-preplace netloc mmu_0_mmio_mem_addr 1 3 1 780 260n
-preplace netloc mmu_0_mmio_mem_ck 1 3 1 800 200n
-preplace netloc mmu_0_mmio_mem_din 1 3 1 770 280n
-preplace netloc mmu_0_mmio_mem_oe 1 3 1 N 240
-preplace netloc mmu_0_mmio_mem_we 1 3 1 790 220n
-preplace netloc mmu_0_vram_dout 1 3 2 NJ -140 N
-preplace netloc mmu_0_vram_mem_addr 1 3 1 880 40n
-preplace netloc mmu_0_vram_mem_ck 1 3 1 870 60n
-preplace netloc mmu_0_vram_mem_din 1 3 1 860 80n
-preplace netloc mmu_0_vram_mem_we 1 3 1 850 100n
-preplace netloc mmu_0_vramb_mem_addr 1 3 1 840 120n
-preplace netloc mmu_0_vramb_mem_ck 1 3 1 830 140n
-preplace netloc mmu_0_vramb_mem_din 1 3 1 820 160n
-preplace netloc mmu_0_vramb_mem_we 1 3 1 810 180n
+preplace netloc gram_addr_1 1 0 3 N 70 N 70 320
+preplace netloc gram_bank_1 1 0 3 N 110 N 110 300
+preplace netloc gram_din_1 1 0 3 N 90 N 90 310
+preplace netloc gram_we_1 1 0 3 N 50 N 50 330
+preplace netloc iram_addr_1 1 0 3 N 30 N 30 340
+preplace netloc mmio_0_dout 1 2 3 400 840 NJ 840 1210
+preplace netloc mmio_0_led0 1 4 1 N 680
+preplace netloc mmio_0_led1 1 4 1 N 700
+preplace netloc mmio_0_led2 1 4 1 N 720
+preplace netloc mmio_0_led3 1 4 1 N 740
+preplace netloc mmu_0_debug_dout 1 3 2 800 -200 NJ
+preplace netloc mmu_0_debug_en_lock 1 1 3 0 -580 NJ -580 790
+preplace netloc mmu_0_fault 1 1 3 0 -320 NJ -320 780
+preplace netloc mmu_0_gram_dout 1 3 2 900 -160 NJ
+preplace netloc mmu_0_iram_dout 1 3 2 890 -180 NJ
+preplace netloc mmu_0_mmio_mem_addr 1 3 1 800 180n
+preplace netloc mmu_0_mmio_mem_ck 1 3 1 820 120n
+preplace netloc mmu_0_mmio_mem_din 1 3 1 790 200n
+preplace netloc mmu_0_mmio_mem_oe 1 3 1 N 160
+preplace netloc mmu_0_mmio_mem_we 1 3 1 810 140n
+preplace netloc mmu_0_vram_dout 1 3 2 NJ -60 1210
+preplace netloc mmu_0_vram_mem_addr 1 3 1 900 -40n
+preplace netloc mmu_0_vram_mem_ck 1 3 1 890 -20n
+preplace netloc mmu_0_vram_mem_din 1 3 1 880 0n
+preplace netloc mmu_0_vram_mem_we 1 3 1 870 20n
+preplace netloc mmu_0_vramb_mem_addr 1 3 1 860 40n
+preplace netloc mmu_0_vramb_mem_ck 1 3 1 850 60n
+preplace netloc mmu_0_vramb_mem_din 1 3 1 840 80n
+preplace netloc mmu_0_vramb_mem_we 1 3 1 830 100n
 preplace netloc reset_1 1 0 1 -300 -590n
-preplace netloc vram_addr_1 1 0 3 N 150 N 150 N
-preplace netloc vram_douta 1 2 2 360 780 NJ
-preplace netloc vram_doutb 1 2 2 370 900 NJ
-levelinfo -pg 1 -320 -190 150 570 1090 1240
-pagesize -pg 1 -db -bbox -sgen -520 -650 1410 1260
+preplace netloc vram_addr_1 1 0 3 N 150 N 150 300
+preplace netloc vram_douta 1 2 2 380 400 NJ
+preplace netloc vram_doutb 1 2 2 390 520 NJ
+levelinfo -pg 1 -330 -190 150 590 1090 1270
+pagesize -pg 1 -db -bbox -sgen -530 -650 1430 1260
 "
 }
 0

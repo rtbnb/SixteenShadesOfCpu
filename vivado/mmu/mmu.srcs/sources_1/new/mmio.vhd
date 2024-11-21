@@ -47,6 +47,8 @@ entity mmio is
 end mmio;
 
 architecture Behavioral of mmio is
+    signal mmio_config_s, rho_mask_s: std_logic_vector( 15 downto 0 );
+
     signal led0_s, led1_s, led2_s, led3_s: std_logic;
     signal mmio_config_reg_s, led0_reg_s, led1_reg_s, led2_reg_s, led3_reg_s: std_logic_vector( 15 downto 0 );
     signal btn0_s, btn1_s, btn2_s, btn3_s: std_logic;
@@ -58,6 +60,10 @@ architecture Behavioral of mmio is
     signal btn0_prepReset_s: std_logic;
     
     signal btn0_pressed_rst_s: std_logic := '0';
+    
+    signal tim1_prescaler, tim1_max_count: std_logic_vector( 15 downto 0 );
+    signal tim2_prescaler, tim2_max_count: std_logic_vector( 15 downto 0 );
+    signal tim1_reset_s, tim1_start_s, tim1_triggerd_s: std_logic; 
     
 begin
     led0 <= led0_s;

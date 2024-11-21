@@ -42,6 +42,7 @@ end clockcontroller;
 architecture Behavioral of clockcontroller is
 signal output_en_s: std_logic;
 signal fault_s, debug_en_s: std_logic := '0';
+
 begin
     fault_s <= (fault_s or fault) and not fault_reset;
     debug_en_s <= (debug_en_s or debug_en) and not debug_reset;
