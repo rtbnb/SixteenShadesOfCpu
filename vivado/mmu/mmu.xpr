@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="67" Path="C:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.xpr">
+<Project Product="Vivado" Version="7" Minor="67" Path="O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="4319a6a6d4af4145b1c57538bfa12ad5"/>
@@ -67,13 +67,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="98"/>
-    <Option Name="WTModelSimExportSim" Val="98"/>
-    <Option Name="WTQuestaExportSim" Val="98"/>
+    <Option Name="WTXSimExportSim" Val="110"/>
+    <Option Name="WTModelSimExportSim" Val="110"/>
+    <Option Name="WTQuestaExportSim" Val="110"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="98"/>
-    <Option Name="WTRivieraExportSim" Val="98"/>
-    <Option Name="WTActivehdlExportSim" Val="98"/>
+    <Option Name="WTVcsExportSim" Val="110"/>
+    <Option Name="WTRivieraExportSim" Val="110"/>
+    <Option Name="WTActivehdlExportSim" Val="110"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x2734E04B288A49D9",
+      "boundary_crc": "0x99C15EC16B5BA23",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -18,11 +18,6 @@
       "clk_wiz_0": ""
     },
     "ports": {
-      "vram_dout": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
-      },
       "gram_dout": {
         "direction": "O",
         "left": "15",
@@ -37,58 +32,6 @@
         "direction": "O",
         "left": "15",
         "right": "0"
-      },
-      "debug_we": {
-        "direction": "I"
-      },
-      "debug_enable": {
-        "direction": "I"
-      },
-      "debug_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "debug_din": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "debug_bank": {
-        "direction": "I",
-        "left": "3",
-        "right": "0"
-      },
-      "iram_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "gram_we": {
-        "direction": "I"
-      },
-      "gram_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "gram_din": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "gram_bank": {
-        "direction": "I",
-        "left": "3",
-        "right": "0"
-      },
-      "vram_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "debug_override_enable": {
-        "direction": "I"
       },
       "btn0": {
         "direction": "I"
@@ -182,6 +125,156 @@
       },
       "debug_en": {
         "direction": "I"
+      },
+      "gpu_dout": {
+        "direction": "O",
+        "left": "11",
+        "right": "0"
+      },
+      "vga_dout": {
+        "direction": "O",
+        "left": "11",
+        "right": "0"
+      },
+      "gram_addr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "gram_din": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "gram_bank": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "gram_we": {
+        "direction": "I"
+      },
+      "iram_addr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "debug_enable": {
+        "direction": "I"
+      },
+      "debug_override_enable": {
+        "direction": "I"
+      },
+      "debug_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_debug_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "debug_addr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "debug_din": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "debug_bank": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "debug_we": {
+        "direction": "I"
+      },
+      "gpu_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_gpu_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "gpu_addr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "gpu_din": {
+        "direction": "I",
+        "left": "11",
+        "right": "0"
+      },
+      "gpu_we": {
+        "direction": "I"
+      },
+      "vga_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_vga_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "vga_addr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
       }
     },
     "components": {
@@ -232,7 +325,7 @@
             "value": "65535"
           },
           "Write_Width_A": {
-            "value": "16"
+            "value": "12"
           },
           "use_bram_block": {
             "value": "Stand_Alone"
@@ -251,80 +344,71 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clk200mhz": {
-            "direction": "I"
-          },
-          "debug_en_lock": {
-            "direction": "O"
-          },
-          "fault": {
-            "direction": "O"
-          },
           "ck_stable": {
             "direction": "I"
           },
-          "cpu_sync": {
+          "exec_clk": {
+            "type": "clk",
             "direction": "I",
             "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "default_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
               "CLK_DOMAIN": {
                 "value": "main_block_clockcontroller_0_0_exec_clk",
                 "value_src": "default_prop"
               }
             }
           },
-          "debug_sync": {
+          "gram_addr": {
             "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "default_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_block_clockcontroller_0_0_exec_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "left": "15",
+            "right": "0"
           },
-          "vram_sync": {
+          "gram_din": {
             "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "default_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_block_clockcontroller_0_0_exec_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "left": "15",
+            "right": "0"
           },
-          "debug_clk200mhz": {
+          "gram_bank": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "gram_we": {
             "direction": "I"
           },
-          "debug_we": {
-            "direction": "I"
+          "gram_dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "iram_addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "iram_dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           },
           "debug_enable": {
             "direction": "I"
           },
           "debug_override_enable": {
             "direction": "I"
+          },
+          "debug_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_debug_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "debug_addr": {
             "direction": "I",
@@ -341,55 +425,68 @@
             "left": "3",
             "right": "0"
           },
+          "debug_we": {
+            "direction": "I"
+          },
           "debug_dout": {
             "direction": "O",
             "left": "15",
             "right": "0"
           },
-          "iram_addr": {
+          "gpu_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_gpu_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "gpu_addr": {
             "direction": "I",
             "left": "15",
             "right": "0"
           },
-          "iram_dout": {
-            "direction": "O",
-            "left": "15",
+          "gpu_din": {
+            "direction": "I",
+            "left": "11",
             "right": "0"
           },
-          "gram_we": {
+          "gpu_we": {
             "direction": "I"
           },
-          "gram_addr": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "gram_din": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "gram_dout": {
+          "gpu_dout": {
             "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "vga_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_vga_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "vga_addr": {
+            "direction": "I",
             "left": "15",
             "right": "0"
           },
-          "gram_bank": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "vram_clk200mhz": {
-            "direction": "I"
-          },
-          "vram_addr": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "vram_dout": {
+          "vga_dout": {
             "direction": "O",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "vrama_mem_addr": {
@@ -412,7 +509,7 @@
           },
           "vrama_mem_dout": {
             "direction": "I",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "vramb_mem_addr": {
@@ -435,16 +532,13 @@
           },
           "vramb_mem_dout": {
             "direction": "I",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "mmio_mem_ck": {
             "direction": "O"
           },
           "mmio_mem_we": {
-            "direction": "O"
-          },
-          "mmio_mem_oe": {
             "direction": "O"
           },
           "mmio_mem_addr": {
@@ -555,11 +649,11 @@
               }
             }
           },
-          "clk200mhz_in": {
+          "clk50mhz_in": {
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "200000000",
+                "value": "50000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -575,18 +669,12 @@
           "wizard_locked": {
             "direction": "I"
           },
-          "debug_en_lock": {
-            "direction": "I"
-          },
           "fault_reset": {
             "type": "rst",
             "direction": "I"
           },
           "debug_reset": {
             "type": "rst",
-            "direction": "I"
-          },
-          "fault": {
             "direction": "I"
           },
           "debug_en": {
@@ -610,12 +698,6 @@
               }
             }
           },
-          "clk200mhz": {
-            "direction": "O"
-          },
-          "clk200mhz_inf": {
-            "direction": "O"
-          },
           "ck_stable": {
             "direction": "O"
           }
@@ -635,13 +717,13 @@
             "value": "BUFG"
           },
           "CLKOUT2_JITTER": {
-            "value": "114.829"
+            "value": "151.636"
           },
           "CLKOUT2_PHASE_ERROR": {
             "value": "98.575"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
-            "value": "200.000"
+            "value": "50.000"
           },
           "CLKOUT2_USED": {
             "value": "true"
@@ -668,7 +750,7 @@
             "value": "clk100mhz_out"
           },
           "CLK_OUT2_PORT": {
-            "value": "clk200mhz_out"
+            "value": "clk50mhz_out"
           },
           "ENABLE_CLOCK_MONITOR": {
             "value": "false"
@@ -686,7 +768,7 @@
             "value": "10.000"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "5"
+            "value": "20"
           },
           "MMCM_COMPENSATION": {
             "value": "ZHOLD"
@@ -696,6 +778,9 @@
           },
           "PRIMITIVE": {
             "value": "MMCM"
+          },
+          "USE_RESET": {
+            "value": "false"
           }
         }
       }
@@ -737,10 +822,10 @@
           "clockcontroller_0/clk100mhz_in"
         ]
       },
-      "clk_wiz_0_clk200mhz_out": {
+      "clk_wiz_0_clk50mhz_out": {
         "ports": [
-          "clk_wiz_0/clk200mhz_out",
-          "clockcontroller_0/clk200mhz_in"
+          "clk_wiz_0/clk50mhz_out",
+          "clockcontroller_0/clk50mhz_in"
         ]
       },
       "clk_wiz_0_locked": {
@@ -758,17 +843,7 @@
       "clockcontroller_0_clk100mhz": {
         "ports": [
           "clockcontroller_0/exec_clk",
-          "mmu_0/cpu_sync",
-          "mmu_0/debug_sync",
-          "mmu_0/vram_sync"
-        ]
-      },
-      "clockcontroller_0_clk200mhz": {
-        "ports": [
-          "clockcontroller_0/clk200mhz",
-          "mmu_0/clk200mhz",
-          "mmu_0/debug_clk200mhz",
-          "mmu_0/vram_clk200mhz"
+          "mmu_0/exec_clk"
         ]
       },
       "debug_addr_1": {
@@ -781,6 +856,12 @@
         "ports": [
           "debug_bank",
           "mmu_0/debug_bank"
+        ]
+      },
+      "debug_clk_1": {
+        "ports": [
+          "debug_clk",
+          "mmu_0/debug_clk"
         ]
       },
       "debug_din_1": {
@@ -823,6 +904,30 @@
         "ports": [
           "fault_reset",
           "clockcontroller_0/fault_reset"
+        ]
+      },
+      "gpu_addr_1": {
+        "ports": [
+          "gpu_addr",
+          "mmu_0/gpu_addr"
+        ]
+      },
+      "gpu_clk_1": {
+        "ports": [
+          "gpu_clk",
+          "mmu_0/gpu_clk"
+        ]
+      },
+      "gpu_din_1": {
+        "ports": [
+          "gpu_din",
+          "mmu_0/gpu_din"
+        ]
+      },
+      "gpu_we_1": {
+        "ports": [
+          "gpu_we",
+          "mmu_0/gpu_we"
         ]
       },
       "gram_addr_1": {
@@ -891,16 +996,10 @@
           "debug_dout"
         ]
       },
-      "mmu_0_debug_en_lock": {
+      "mmu_0_gpu_dout": {
         "ports": [
-          "mmu_0/debug_en_lock",
-          "clockcontroller_0/debug_en_lock"
-        ]
-      },
-      "mmu_0_fault": {
-        "ports": [
-          "mmu_0/fault",
-          "clockcontroller_0/fault"
+          "mmu_0/gpu_dout",
+          "gpu_dout"
         ]
       },
       "mmu_0_gram_dout": {
@@ -933,21 +1032,16 @@
           "mmio_0/din"
         ]
       },
-      "mmu_0_mmio_mem_oe": {
-        "ports": [
-          "mmu_0/mmio_mem_oe"
-        ]
-      },
       "mmu_0_mmio_mem_we": {
         "ports": [
           "mmu_0/mmio_mem_we",
           "mmio_0/we"
         ]
       },
-      "mmu_0_vram_dout": {
+      "mmu_0_vga_dout": {
         "ports": [
-          "mmu_0/vram_dout",
-          "vram_dout"
+          "mmu_0/vga_dout",
+          "vga_dout"
         ]
       },
       "mmu_0_vram_mem_addr": {
@@ -998,16 +1092,16 @@
           "vram/web"
         ]
       },
-      "reset_1": {
+      "vga_addr_1": {
         "ports": [
-          "reset",
-          "clk_wiz_0/reset"
+          "vga_addr",
+          "mmu_0/vga_addr"
         ]
       },
-      "vram_addr_1": {
+      "vga_clk_1": {
         "ports": [
-          "vram_addr",
-          "mmu_0/vram_addr"
+          "vga_clk",
+          "mmu_0/vga_clk"
         ]
       },
       "vram_douta": {
