@@ -1770,9 +1770,25 @@
             "left": "3",
             "right": "0"
           },
-          "mmu_debug_sys_clk": {
-            "type": "clk",
+          "mmu_debug_sys_clk200mhz": {
             "direction": "O"
+          },
+          "mmu_debug_sync_clk100mhz": {
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_Debugger_0_0_mmu_debug_sync_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "mmu_debug_en": {
             "direction": "O"
@@ -2079,10 +2095,10 @@
           "mmu_0/debug_override_enable"
         ]
       },
-      "Debugger_0_mmu_debug_sys_clk": {
+      "Debugger_0_mmu_debug_sync_clk100mhz": {
         "ports": [
-          "Debugger_0/mmu_debug_sys_clk",
-          "mmu_0/debug_clk200mhz"
+          "Debugger_0/mmu_debug_sync_clk100mhz",
+          "mmu_0/debug_sync"
         ]
       },
       "Debugger_0_mmu_debug_we": {
@@ -2478,7 +2494,7 @@
       "external_mmu_sync_clk_1": {
         "ports": [
           "external_mmu_sync_clk",
-          "mmu_0/debug_sync"
+          "mmu_0/debug_clk200mhz"
         ]
       },
       "gram_bram_douta": {

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 21 18:57:53 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 21 21:24:37 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -29,7 +29,7 @@
     </PORT>
     <PORT DIR="I" NAME="external_mmu_sync_clk" SIGIS="undef" SIGNAME="External_Ports_external_mmu_sync_clk">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="mmu_0" PORT="debug_sync"/>
+        <CONNECTION INSTANCE="mmu_0" PORT="debug_clk200mhz"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="led" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_JMP_out">
@@ -508,11 +508,12 @@
             <CONNECTION INSTANCE="mmu_0" PORT="debug_override_enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="mmu_debug_sys_clk" SIGIS="clk" SIGNAME="Debugger_0_mmu_debug_sys_clk">
+        <PORT DIR="O" NAME="mmu_debug_sync_clk100mhz" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_sync_clk100mhz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="debug_clk200mhz"/>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_sync"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" NAME="mmu_debug_sys_clk200mhz" SIGIS="undef"/>
         <PORT DIR="O" NAME="mmu_debug_we" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_we">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="debug_we"/>
@@ -2461,9 +2462,9 @@
             <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_bank"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="debug_clk200mhz" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_sys_clk">
+        <PORT DIR="I" NAME="debug_clk200mhz" SIGIS="undef" SIGNAME="External_Ports_external_mmu_sync_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_sys_clk"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="external_mmu_sync_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="debug_din" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_din">
@@ -2491,9 +2492,9 @@
             <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_override_en"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="debug_sync" SIGIS="undef" SIGNAME="External_Ports_external_mmu_sync_clk">
+        <PORT DIR="I" NAME="debug_sync" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_sync_clk100mhz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="external_mmu_sync_clk"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_sync_clk100mhz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="debug_we" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_we">
