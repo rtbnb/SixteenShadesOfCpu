@@ -107,7 +107,7 @@ output wire [11 : 0] doutb;
     .C_MEM_TYPE(2),
     .C_BYTE_SIZE(9),
     .C_ALGORITHM(0),
-    .C_PRIM_TYPE(1),
+    .C_PRIM_TYPE(2),
     .C_LOAD_INIT_FILE(0),
     .C_INIT_FILE_NAME("no_coe_file_loaded"),
     .C_INIT_FILE("NONE"),
@@ -167,7 +167,7 @@ output wire [11 : 0] doutb;
     .C_DISABLE_WARN_BHV_RANGE(0),
     .C_COUNT_36K_BRAM("24"),
     .C_COUNT_18K_BRAM("0"),
-    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     29.87085 mW")
+    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     15.247784 mW")
   ) inst (
     .clka(clka),
     .rsta(1'D0),

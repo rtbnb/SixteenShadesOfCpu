@@ -95,15 +95,18 @@ read_vhdl -library xil_defaultlib {
   C:/Development/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd
   C:/Development/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmu.vhd
   C:/Development/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmio.vhd
+  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd
+  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd
+  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd
   C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
 }
 add_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_1_0/main_blk_mem_gen_1_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_2_0/main_blk_mem_gen_2_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_gram_bram_0/main_gram_bram_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_iram_bram_0/main_iram_bram_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc]
 
 OPTRACE "Adding files" END { }

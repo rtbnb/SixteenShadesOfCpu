@@ -1,0 +1,141 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "main_Debugger_0_0",
+    "cell_name": "Debugger_0",
+    "component_reference": "xilinx.com:module_ref:Debugger:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../../../Integration.gen/sources_1/bd/main/ip/main_Debugger_0_0",
+    "parameters": {
+      "component_parameters": {
+        "Component_Name": [ { "value": "main_Debugger_0_0", "resolve_type": "user", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "artix7" } ],
+        "BASE_BOARD_PART": [ { "value": "digilentinc.com:arty-a7-35:part0:1.1" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xc7a35ti" } ],
+        "NEXTGEN_VERSAL": [ { "value": "0" } ],
+        "PACKAGE": [ { "value": "csg324" } ],
+        "PREFHDL": [ { "value": "VHDL" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-1L" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "I" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../Integration.gen/sources_1/bd/main/ip/main_Debugger_0_0" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2024.1" } ],
+        "SYNTHESISFLOW": [ { "value": "GLOBAL" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "clk": [ { "direction": "in" } ],
+        "rx_data": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "rx_data_valid": [ { "direction": "in" } ],
+        "tx_data": [ { "direction": "out", "size_left": "7", "size_right": "0" } ],
+        "tx_data_valid": [ { "direction": "out" } ],
+        "tx_data_sended": [ { "direction": "in" } ],
+        "debug_clk_stop_LOW_ACTIVE": [ { "direction": "out" } ],
+        "iram_current_instruction": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pipeline_stalled": [ { "direction": "in" } ],
+        "pipeline_instruction_forwarding_config": [ { "direction": "in", "size_left": "4", "size_right": "0" } ],
+        "pipeline_current_instruction": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pipeline_operand_1": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pipeline_operand_2": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pipeline_memory_addr_reg": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pipeline_jmp": [ { "direction": "in" } ],
+        "pc_din": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pc_dout": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pc_current_addr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "alu_din1": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "alu_din2": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "alu_out": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "alu_flags": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "alu_op": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "regfile_addr_reg1": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
+        "regfile_addr_reg2": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
+        "regfile_addr_write_reg": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
+        "regfile_write_enable": [ { "direction": "in" } ],
+        "regfile_overwrite_flag": [ { "direction": "in" } ],
+        "regfile_write_data": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "regfile_reg1_data": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "regfile_reg2_data": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "regfile_regma_data": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "regfile_bankid": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
+        "mmu_debug_sys_clk": [ { "direction": "out" } ],
+        "mmu_debug_sync_clk": [ { "direction": "out" } ],
+        "mmu_debug_en": [ { "direction": "out" } ],
+        "mmu_debug_override_en": [ { "direction": "out" } ],
+        "mmu_debug_addr": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "mmu_debug_din": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "mmu_debug_bank": [ { "direction": "out", "size_left": "3", "size_right": "0" } ],
+        "mmu_debug_we": [ { "direction": "out" } ],
+        "mmu_debug_dout": [ { "direction": "in", "size_left": "15", "size_right": "0" } ]
+      },
+      "interfaces": {
+        "clk": {
+          "vlnv": "xilinx.com:signal:clock:1.0",
+          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "FREQ_HZ": [ { "value": "100000000", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "main_clockcontroller_0_0_debug_clk", "value_src": "default_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_RESET": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "CLK": [ { "physical_name": "clk" } ]
+          }
+        },
+        "mmu_debug_sync_clk": {
+          "vlnv": "xilinx.com:signal:clock:1.0",
+          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+          "mode": "master",
+          "parameters": {
+            "FREQ_HZ": [ { "value": "100000000", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "main_Debugger_0_0_mmu_debug_sync_clk", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_RESET": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "CLK": [ { "physical_name": "mmu_debug_sync_clk" } ]
+          }
+        },
+        "mmu_debug_sys_clk": {
+          "vlnv": "xilinx.com:signal:clock:1.0",
+          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+          "mode": "master",
+          "parameters": {
+            "FREQ_HZ": [ { "value": "100000000", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "main_Debugger_0_0_mmu_debug_sys_clk", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_RESET": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "CLK": [ { "physical_name": "mmu_debug_sys_clk" } ]
+          }
+        }
+      }
+    }
+  }
+}

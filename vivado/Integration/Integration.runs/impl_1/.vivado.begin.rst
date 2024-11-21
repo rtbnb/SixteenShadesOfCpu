@@ -1,25 +1,10 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nicot" Host="BOOK-69BD3QPCMV" Pid="1680" HostCore="18" HostMemory="016739667968">
+    <Process Command="vivado.bat" Owner="nicot" Host="BOOK-69BD3QPCMV" Pid="19568" HostCore="18" HostMemory="016739667968">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nicot" Host="BOOK-69BD3QPCMV" Pid="20268" HostCore="18" HostMemory="016739667968">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nicot" Host="BOOK-69BD3QPCMV" Pid="32432" HostCore="18" HostMemory="016739667968">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nicot" Host="BOOK-69BD3QPCMV" Pid="21940" HostCore="18" HostMemory="016739667968">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nicot" Host="BOOK-69BD3QPCMV" Pid="30984" HostCore="18" HostMemory="016739667968">
+    <Process Command="vivado.bat" Owner="nicot" Host="BOOK-69BD3QPCMV" Pid="21128" HostCore="18" HostMemory="016739667968">
     </Process>
 </ProcessHandle>

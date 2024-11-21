@@ -3,10 +3,10 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Nov 21 07:57:01 2024
-# Process ID: 30660
+# Start of session at: Thu Nov 21 10:00:55 2024
+# Process ID: 15048
 # Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent25044 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8804 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
 # Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/vivado.log
 # Journal file: C:/Development/SixteenShadesOfCpu/vivado/Integration\vivado.jou
 # Running On        :BOOK-69BD3QPCMV
@@ -17,9 +17,9 @@
 # CPU Physical cores:14
 # CPU Logical cores :18
 # Host memory       :16739 MB
-# Swap memory       :6442 MB
-# Total Virtual     :23182 MB
-# Available Virtual :5773 MB
+# Swap memory       :6710 MB
+# Total Virtual     :23450 MB
+# Available Virtual :11810 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
@@ -87,86 +87,285 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 availab
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [BD 41-2576] File 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ip/main_blk_mem_gen_1_0/main_blk_mem_gen_1_0.xci' referenced by design 'main' could not be found.
+WARNING: [BD 41-2576] File 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ip/main_blk_mem_gen_2_0/main_blk_mem_gen_2_0.xci' referenced by design 'main' could not be found.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
-open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1565.707 ; gain = 149.000
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:28 . Memory (MB): peak = 1559.828 ; gain = 461.488
+open_bd_design {C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+Reading block design file <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd>...
+Adding component instance block -- xilinx.com:module_ref:Pipelining_Controller:1.0 - Pipelining_Controller_0
+Adding component instance block -- xilinx.com:module_ref:ProgramCounter:1.0 - ProgramCounter_0
+Adding component instance block -- xilinx.com:module_ref:CU_Decoder:1.0 - CU_Decoder_0
+Adding component instance block -- xilinx.com:module_ref:Decoder:1.0 - Decoder_0
+Adding component instance block -- xilinx.com:module_ref:RegFile:1.0 - RegFile_0
+Adding component instance block -- xilinx.com:module_ref:Pipelining_Forwarder:1.0 - Pipelining_Forwarder_0
+Adding component instance block -- xilinx.com:module_ref:Pipelining_ExecutionStage:1.0 - Pipelining_Execution_0
+Adding component instance block -- xilinx.com:module_ref:CU_RAMAddressController:1.0 - CU_RAMAddressControl_0
+Adding component instance block -- xilinx.com:module_ref:ALU:1.0 - ALU_0
+Adding component instance block -- xilinx.com:module_ref:CU_ImmediateManipulator:1.0 - CU_ImmediateManipula_0
+Adding component instance block -- xilinx.com:module_ref:CU_JumpDestinationSelector:1.0 - CU_JumpDestinationSe_0
+Adding component instance block -- xilinx.com:module_ref:CU_JumpController:1.0 - CU_JumpController_0
+Adding component instance block -- xilinx.com:module_ref:CU_WriteSelector:1.0 - CU_WriteSelector_0
+Adding component instance block -- xilinx.com:module_ref:Pipelining_WriteBackStage:1.0 - Pipelining_WriteBack_0
+Adding component instance block -- xilinx.com:module_ref:ALU_FLAG_PACKER:1.0 - ALU_FLAG_PACKER_0
+Adding component instance block -- xilinx.com:module_ref:clockcontroller:1.0 - clockcontroller_0
+Adding component instance block -- xilinx.com:module_ref:mmu:1.0 - mmu_0
+Adding component instance block -- xilinx.com:module_ref:mmio:1.0 - mmio_0
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.4 - vram_bram
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.4 - gram_bram
+INFO: [BD 41-434] Could not find an IP with XCI file by name: main_blk_mem_gen_1_0 
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.4 - iram_bram
+INFO: [BD 41-434] Could not find an IP with XCI file by name: main_blk_mem_gen_2_0 
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <gram_mem_dout> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <iram_mem_dout> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <gram_mem_addr> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <gram_mem_ck> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <gram_mem_din> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <gram_mem_we> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <iram_mem_addr> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <iram_mem_ck> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <iram_mem_din> in cell <mmu_0> while setting up net connections during loading of BD file.
+CRITICAL WARNING: [BD 41-2162] Unable to find pin <iram_mem_we> in cell <mmu_0> while setting up net connections during loading of BD file.
+Successfully read diagram <main> from block design file <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd>
+INFO: [BD 41-433] 
+Design successfully migrated to use XCI files...
+open_bd_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1722.605 ; gain = 93.160
+report_ip_status -name ip_status 
+update_module_reference [get_ips  {main_CU_RAMAddressControl_0_0 main_mmu_0_0 main_Pipelining_WriteBack_0_0 main_CU_JumpController_0_0 main_CU_Decoder_0_0 main_ALU_0_0 main_CU_WriteSelector_0_0 main_CU_ImmediateManipula_0_0 main_ProgramCounter_0_0 main_RegFile_0_0 main_mmio_0_0 main_Pipelining_Execution_0_0 main_ALU_FLAG_PACKER_0_1 main_CU_JumpDestinationSe_0_0 main_Pipelining_Forwarder_0_0 main_clockcontroller_0_0 main_Decoder_0_0}]
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrExec_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrExec_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrExec_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'InstrLoad_CLK': Added interface parameter 'ASSOCIATED_RESET' with value 'Reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'InstrLoad_CLK': Added interface parameter 'ASSOCIATED_RESET' with value 'Reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrExec_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrExec_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrExec_CLK' has no FREQ_HZ parameter.
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'debug_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'fault_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'debug_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'exec_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'load_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'debug_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'debug_reset'.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'debug_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'exec_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'load_clk': FREQ_HZ bus parameter is missing for output clock interface.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrExec_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrExec_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrExec_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'InstrLoad_CLK': Added interface parameter 'ASSOCIATED_RESET' with value 'Reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'InstrLoad_CLK': Added interface parameter 'ASSOCIATED_RESET' with value 'Reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrExec_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrExec_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrExec_CLK' has no FREQ_HZ parameter.
+WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'debug_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'fault_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'debug_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'exec_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'load_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'debug_clk': Added interface parameter 'ASSOCIATED_RESET' with value 'debug_reset'.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'debug_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'exec_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'load_clk': FREQ_HZ bus parameter is missing for output clock interface.
+Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
+INFO: [IP_Flow 19-3420] Updated main_ALU_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_ALU_FLAG_PACKER_0_1 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_CU_Decoder_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_CU_ImmediateManipula_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_CU_JumpController_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_CU_JumpDestinationSe_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_CU_RAMAddressControl_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_CU_WriteSelector_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_Decoder_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_Pipelining_Execution_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_Pipelining_Forwarder_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_Pipelining_WriteBack_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_ProgramCounter_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_RegFile_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_clockcontroller_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_mmio_0_0 to use current project options
+INFO: [IP_Flow 19-3420] Updated main_mmu_0_0 to use current project options
+WARNING: [IP_Flow 19-4706] Upgraded port 'vrama_mem_dout' width 16 differs from original width 12
+WARNING: [IP_Flow 19-4706] Upgraded port 'vramb_mem_dout' width 16 differs from original width 12
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'main_mmu_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'main_mmu_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_addr> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_ck> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_din> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_we> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_addr> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_ck> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_din> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_we> has no source
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+upgrade_ip: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1774.730 ; gain = 38.691
+update_module_reference: Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1774.730 ; gain = 40.891
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
+WARNING: [BD 41-2180] Resetting the memory initialization file of </gram_bram> to default.
+WARNING: [BD 41-2180] Resetting the memory initialization file of </iram_bram> to default.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/CU_RAMAddressControl_0/MA
+/CU_RAMAddressControl_0/Use_MA
+/clockcontroller_0/fault_reset
+/clockcontroller_0/debug_reset
+/clockcontroller_0/debug_en
+/mmu_0/debug_sync
+/mmu_0/vram_sync
+/mmu_0/debug_clk200mhz
+/mmu_0/debug_we
+/mmu_0/debug_enable
+/mmu_0/debug_override_enable
+/mmu_0/debug_addr
+/mmu_0/debug_din
+/mmu_0/debug_bank
+/mmu_0/vram_clk200mhz
+/mmu_0/vram_addr
+/mmio_0/btn0
+/mmio_0/btn1
+/mmio_0/btn2
+/mmio_0/btn3
+/gram_bram/clka
+/gram_bram/wea
+/gram_bram/addra
+/gram_bram/dina
+/iram_bram/clka
+/iram_bram/wea
+/iram_bram/addra
+/iram_bram/dina
+
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_addr> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_ck> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_din> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_we> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_addr> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_ck> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_din> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_we> has no source
+Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_addr is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_ck is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_din is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_we is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_addr is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_ck is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_din is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_we is NULL! Connection will be grounded!
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/mmu_0/vrama_mem_dout'(16) to pin '/vram_bram/douta'(12) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/mmu_0/vramb_mem_dout'(16) to pin '/vram_bram/doutb'(12) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_addr is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_ck is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_din is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_we is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_addr is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_ck is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_din is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_we is NULL! Connection will be grounded!
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/mmu_0/vrama_mem_dout'(16) to pin '/vram_bram/douta'(12) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/mmu_0/vramb_mem_dout'(16) to pin '/vram_bram/doutb'(12) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
+VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ProgramCounter_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Decoder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RegFile_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Forwarder_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Execution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_RAMAddressControl_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_ImmediateManipula_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpDestinationSe_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpController_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_WriteSelector_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_WriteBack_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_FLAG_PACKER_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clockcontroller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mmu_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mmio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block vram_bram .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block gram_bram .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block iram_bram .
+Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
+Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
+generate_target: Time (s): cpu = 00:00:03 ; elapsed = 00:00:23 . Memory (MB): peak = 2054.129 ; gain = 257.016
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
 update_compile_order -fileset sources_1
-WARNING: [Common 17-9] Error reading message records.
-open_run impl_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp with file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.dcp
+launch_runs impl_1 -jobs 18
+[Thu Nov 21 10:04:32 2024] Launched synth_1...
+Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
+[Thu Nov 21 10:04:32 2024] Launched impl_1...
+Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
+close_bd_design [get_bd_designs main]
+Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35ticsg324-1L
 INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
 INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1974.293 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 63 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2179.355 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2024.1
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2065.000 ; gain = 0.000
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-INFO: [Designutils 20-5722] Start Reading Physical Databases.
-Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2661.547 ; gain = 0.000
-Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2661.547 ; gain = 0.000
-Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 2661.547 ; gain = 0.000
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2661.547 ; gain = 0.000
-Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 2661.547 ; gain = 0.000
-Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.147 . Memory (MB): peak = 2661.547 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.148 . Memory (MB): peak = 2661.547 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2661.547 ; gain = 0.000
+Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Finished Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc:54]
+INFO: [Timing 38-2] Deriving generated clocks [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc:54]
+Finished Parsing XDC File [c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+Finished Parsing XDC File [C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2777.105 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-open_run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:14 . Memory (MB): peak = 2787.410 ; gain = 1147.320
-CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
-set_property -name {STEPS.OPT_DESIGN.ARGS.MORE OPTIONS} -value {-muxf_remap -carry_remap -dsp_register_opt -aggressive_remap -resynth_remap -resynth_seq_area} -objects [get_runs impl_1]
-reset_run impl_1
-launch_runs impl_1 -jobs 18
-[Thu Nov 21 08:15:11 2024] Launched impl_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
-close_design
-set_property STEPS.OPT_DESIGN.ARGS.DIRECTIVE Default [get_runs impl_1]
-reset_run impl_1
-launch_runs impl_1 -jobs 18
-[Thu Nov 21 08:16:16 2024] Launched impl_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
-open_run impl_1
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.029 . Memory (MB): peak = 4372.371 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 63 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2024.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 4372.371 ; gain = 0.000
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-INFO: [Designutils 20-5722] Start Reading Physical Databases.
-Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4372.371 ; gain = 0.000
-Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 4372.371 ; gain = 0.000
-Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.077 . Memory (MB): peak = 4372.371 ; gain = 0.000
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4372.371 ; gain = 0.000
-Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 4372.371 ; gain = 0.000
-Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.118 . Memory (MB): peak = 4372.371 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.118 . Memory (MB): peak = 4372.371 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4372.371 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 4372.371 ; gain = 0.000
-CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
-close_design
+open_run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 2893.320 ; gain = 816.605
 open_bd_design {C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
 Reading block design file <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd>...
 Adding component instance block -- xilinx.com:module_ref:Pipelining_Controller:1.0 - Pipelining_Controller_0
@@ -192,235 +391,114 @@ Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.4 - gram_bram
 Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.4 - iram_bram
 Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
 Successfully read diagram <main> from block design file <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd>
-open_bd_design: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 4933.211 ; gain = 0.000
-startgroup
-set_property -dict [list \
-  CONFIG.CLKOUT1_JITTER {175.402} \
-  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25.000} \
-  CONFIG.CLKOUT2_JITTER {151.636} \
-  CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {50.000} \
-  CONFIG.MMCM_CLKOUT0_DIVIDE_F {40.000} \
-  CONFIG.MMCM_CLKOUT1_DIVIDE {20} \
-] [get_bd_cells clk_wiz_0]
-endgroup
+add_files -norecurse {C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd}
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference Debugger Debugger_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sync_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'mmu_debug_sys_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sync_clk': FREQ_HZ bus parameter is missing for output clock interface.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'mmu_debug_sys_clk': FREQ_HZ bus parameter is missing for output clock interface.
+set_property location {9 3302 -1201} [get_bd_cells Debugger_0]
+set_property location {8 3352 -816} [get_bd_cells Debugger_0]
+set_property location {9 3979 -979} [get_bd_cells Debugger_0]
+create_bd_cell -type module -reference RX_UART RX_UART_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+set_property location {8 3218 -1226} [get_bd_cells RX_UART_0]
+create_bd_cell -type module -reference TX_UART TX_UART_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-11770] Clock interface 'clk' has no FREQ_HZ parameter.
+set_property location {10 4541 -1216} [get_bd_cells TX_UART_0]
+connect_bd_net [get_bd_pins Debugger_0/rx_data] [get_bd_pins RX_UART_0/data_output]
+connect_bd_net [get_bd_pins Debugger_0/rx_data_valid] [get_bd_pins RX_UART_0/data_valid]
+set_property location {8 3337 -1253} [get_bd_cells RX_UART_0]
+connect_bd_net [get_bd_pins RX_UART_0/clk] [get_bd_pins Debugger_0/clk]
+connect_bd_net [get_bd_pins clockcontroller_0/debug_clk] [get_bd_pins RX_UART_0/clk]
+connect_bd_net [get_bd_pins TX_UART_0/clk] [get_bd_pins clockcontroller_0/debug_clk]
+connect_bd_net [get_bd_pins Debugger_0/tx_data] [get_bd_pins TX_UART_0/data_in]
+connect_bd_net [get_bd_pins TX_UART_0/data_valid] [get_bd_pins Debugger_0/tx_data_valid]
+connect_bd_net [get_bd_pins Debugger_0/tx_data_sended] [get_bd_pins TX_UART_0/send_valid]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_stalled] [get_bd_pins Pipelining_Controller_0/Stalled]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_instruction_forwarding_config] [get_bd_pins Pipelining_Controller_0/InstructionForwardConfiguration]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_current_instruction] [get_bd_pins Pipelining_Controller_0/InstructionToExecute]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_operand_1] [get_bd_pins Pipelining_Forwarder_0/ForwardedOperand1]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_operand_2] [get_bd_pins Pipelining_Forwarder_0/ForwardedOperand2]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_memory_addr_reg] [get_bd_pins RegFile_0/RegMA_data]
+undo
+INFO: [Common 17-17] undo 'connect_bd_net [get_bd_pins Debugger_0/pipeline_memory_addr_reg] [get_bd_pins RegFile_0/RegMA_data]'
+connect_bd_net [get_bd_pins Debugger_0/pipeline_memory_addr_reg] [get_bd_pins Pipelining_Forwarder_0/ForwardedMA]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_jmp] [get_bd_pins CU_Decoder_0/JMP]
 save_bd_design
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_addr> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_ck> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_din> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_we> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_addr> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_ck> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_din> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_we> has no source
 Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
 Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp with file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.dcp
-reset_run impl_1
-launch_runs impl_1 -jobs 18
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
-CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
-Please check your design and connect them as needed: 
-/CU_RAMAddressControl_0/MA
-/CU_RAMAddressControl_0/Use_MA
-/clockcontroller_0/fault_reset
-/clockcontroller_0/debug_reset
-/clockcontroller_0/debug_en
-/mmu_0/debug_sync
-/mmu_0/vram_sync
-/mmu_0/debug_clk200mhz
-/mmu_0/debug_we
-/mmu_0/debug_enable
-/mmu_0/debug_override_enable
-/mmu_0/debug_addr
-/mmu_0/debug_din
-/mmu_0/debug_bank
-/mmu_0/vram_clk200mhz
-/mmu_0/vram_addr
-/mmio_0/btn0
-/mmio_0/btn1
-/mmio_0/btn2
-/mmio_0/btn3
-
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
-INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
-Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
-Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
-[Thu Nov 21 08:30:13 2024] Launched synth_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
-[Thu Nov 21 08:30:13 2024] Launched impl_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
-open_run impl_1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 4933.211 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 63 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2024.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4933.211 ; gain = 0.000
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-INFO: [Designutils 20-5722] Start Reading Physical Databases.
-Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.064 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.102 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.102 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4933.211 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 4933.211 ; gain = 0.000
-close_design
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmu_0_0\synth\main_mmu_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [c:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.gen\sources_1\bd\main\ip\main_mmio_0_0\synth\main_mmio_0_0.vhd:]
-startgroup
-set_property -dict [list \
-  CONFIG.CLKOUT1_JITTER {151.636} \
-  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50.000} \
-  CONFIG.CLKOUT2_JITTER {130.958} \
-  CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {100.000} \
-  CONFIG.MMCM_CLKOUT0_DIVIDE_F {20.000} \
-  CONFIG.MMCM_CLKOUT1_DIVIDE {10} \
-] [get_bd_cells clk_wiz_0]
-endgroup
-update_module_reference main_Pipelining_Controller_0_0
-INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrExec_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-WARNING: [IP_Flow 19-5661] Bus Interface 'InstrExec_CLK' does not have any bus interfaces associated with it.
-WARNING: [IP_Flow 19-11770] Clock interface 'InstrExec_CLK' has no FREQ_HZ parameter.
-WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
-WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
-INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrExec_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-WARNING: [IP_Flow 19-5661] Bus Interface 'InstrExec_CLK' does not have any bus interfaces associated with it.
-WARNING: [IP_Flow 19-11770] Clock interface 'InstrExec_CLK' has no FREQ_HZ parameter.
-WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
-WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
-Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
-INFO: [IP_Flow 19-3420] Updated main_Pipelining_Controller_0_0 to use current project options
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+update_compile_order -fileset sources_1
+connect_bd_net [get_bd_pins Debugger_0/pc_din] [get_bd_pins CU_JumpController_0/PC_Next]
+connect_bd_net [get_bd_pins Debugger_0/pc_dout] [get_bd_pins ProgramCounter_0/Dout]
+connect_bd_net [get_bd_pins Debugger_0/pc_current_addr] [get_bd_pins ProgramCounter_0/Dout]
+connect_bd_net [get_bd_pins Debugger_0/alu_din1] [get_bd_pins Pipelining_Execution_0/Operand1_out]
+connect_bd_net [get_bd_pins Debugger_0/alu_din2] [get_bd_pins Pipelining_Execution_0/Operand2_out]
+connect_bd_net [get_bd_pins Debugger_0/alu_out] [get_bd_pins ALU_0/ALU_OUT]
+connect_bd_net [get_bd_pins Debugger_0/alu_op] [get_bd_pins Pipelining_Execution_0/Immediate_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_addr_reg1] [get_bd_pins Decoder_0/Register1]
+connect_bd_net [get_bd_pins Debugger_0/alu_flags] [get_bd_pins ALU_FLAG_PACKER_0/ALU_FLAGS]
+connect_bd_net [get_bd_pins Debugger_0/regfile_addr_reg2] [get_bd_pins Decoder_0/Register2]
+connect_bd_net [get_bd_pins Debugger_0/regfile_addr_write_reg] [get_bd_pins Pipelining_WriteBack_0/WriteAddress_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_write_enable] [get_bd_pins Decoder_0/Register2]
+undo
+INFO: [Common 17-17] undo 'connect_bd_net [get_bd_pins Debugger_0/regfile_write_enable] [get_bd_pins Decoder_0/Register2]'
+connect_bd_net [get_bd_pins Debugger_0/regfile_write_enable] [get_bd_pins Pipelining_WriteBack_0/RF_WE_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_overwrite_flag] [get_bd_pins Pipelining_WriteBack_0/Is_ALU_OP_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_write_data] [get_bd_pins Pipelining_WriteBack_0/WriteData_out]
+connect_bd_net [get_bd_pins Debugger_0/regfile_reg1_data] [get_bd_pins RegFile_0/Reg1_data]
+connect_bd_net [get_bd_pins Debugger_0/regfile_reg2_data] [get_bd_pins RegFile_0/Reg2_data]
+connect_bd_net [get_bd_pins Debugger_0/regfile_regma_data] [get_bd_pins RegFile_0/RegMA_data]
+connect_bd_net [get_bd_pins Debugger_0/regfile_bankid] [get_bd_pins RegFile_0/BankID]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_dout] [get_bd_pins mmu_0/debug_dout]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_sys_clk] [get_bd_pins mmu_0/debug_clk200mhz]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_sync_clk] [get_bd_pins mmu_0/debug_sync]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_en] [get_bd_pins mmu_0/debug_we]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_override_en] [get_bd_pins mmu_0/debug_override_enable]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_addr] [get_bd_pins mmu_0/debug_addr]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_din] [get_bd_pins mmu_0/debug_din]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_bank] [get_bd_pins mmu_0/debug_bank]
+delete_bd_objs [get_bd_nets Debugger_0_mmu_debug_en]
+connect_bd_net [get_bd_pins Debugger_0/mmu_debug_en] [get_bd_pins mmu_0/debug_enable]
+connect_bd_net [get_bd_pins mmu_0/debug_we] [get_bd_pins Debugger_0/mmu_debug_we]
+set_property location {9 4141 -798} [get_bd_cells Debugger_0]
+set_property location {9 3917 -916} [get_bd_cells Debugger_0]
+set_property location {9 4010 -1038} [get_bd_cells Debugger_0]
+set_property location {9 4067 -993} [get_bd_cells Debugger_0]
+set_property location {9 4063 -956} [get_bd_cells Debugger_0]
+set_property location {9 4053 -952} [get_bd_cells Debugger_0]
+set_property location {9 4072 -942} [get_bd_cells Debugger_0]
+set_property location {9 4068 -939} [get_bd_cells Debugger_0]
+set_property location {9 4074 -935} [get_bd_cells Debugger_0]
+set_property location {9 4077 -938} [get_bd_cells Debugger_0]
+set_property location {9 4076 -958} [get_bd_cells Debugger_0]
+set_property location {9 4081 -952} [get_bd_cells Debugger_0]
+set_property location {9 4078 -975} [get_bd_cells Debugger_0]
+set_property location {9 4079 -972} [get_bd_cells Debugger_0]
+create_bd_port -dir I RX_UART_IN
+create_bd_port -dir I TX_UART_OUT
+connect_bd_net [get_bd_ports RX_UART_IN] [get_bd_pins RX_UART_0/rx_serial_input]
+delete_bd_objs [get_bd_ports TX_UART_OUT]
+create_bd_port -dir O TX_UART_OUT
+connect_bd_net [get_bd_ports TX_UART_OUT] [get_bd_pins TX_UART_0/tx_output]
 reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+reset_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2927.340 ; gain = 0.000
 export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
 generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
 CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
@@ -435,25 +513,54 @@ Please check your design and connect them as needed:
 /clockcontroller_0/fault_reset
 /clockcontroller_0/debug_reset
 /clockcontroller_0/debug_en
-/mmu_0/debug_sync
 /mmu_0/vram_sync
-/mmu_0/debug_clk200mhz
-/mmu_0/debug_we
-/mmu_0/debug_enable
-/mmu_0/debug_override_enable
-/mmu_0/debug_addr
-/mmu_0/debug_din
-/mmu_0/debug_bank
 /mmu_0/vram_clk200mhz
 /mmu_0/vram_addr
 /mmio_0/btn0
 /mmio_0/btn1
 /mmio_0/btn2
 /mmio_0/btn3
+/gram_bram/clka
+/gram_bram/wea
+/gram_bram/addra
+/gram_bram/dina
+/iram_bram/clka
+/iram_bram/wea
+/iram_bram/addra
+/iram_bram/dina
+/Debugger_0/iram_current_instruction
 
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_addr> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_ck> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_din> has no source
+WARNING: [BD 41-597] NET <mmu_0_gram_mem_we> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_addr> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_ck> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_din> has no source
+WARNING: [BD 41-597] NET <mmu_0_iram_mem_we> has no source
 Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
 Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_addr is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_ck is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_din is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_we is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_addr is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_ck is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_din is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_we is NULL! Connection will be grounded!
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/mmu_0/vrama_mem_dout'(16) to pin '/vram_bram/douta'(12) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/mmu_0/vramb_mem_dout'(16) to pin '/vram_bram/doutb'(12) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
 VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_addr is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_ck is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_din is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_gram_mem_we is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_addr is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_ck is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_din is NULL! Connection will be grounded!
+WARNING: [BD 41-166] Source port for the net:mmu_0_iram_mem_we is NULL! Connection will be grounded!
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/mmu_0/vrama_mem_dout'(16) to pin '/vram_bram/douta'(12) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/mmu_0/vramb_mem_dout'(16) to pin '/vram_bram/doutb'(12) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
 VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
 VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
 INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Controller_0 .
@@ -475,529 +582,24 @@ INFO: [BD 41-1029] Generation completed for the IP Integrator block clockcontrol
 INFO: [BD 41-1029] Generation completed for the IP Integrator block mmu_0 .
 INFO: [BD 41-1029] Generation completed for the IP Integrator block mmio_0 .
 INFO: [BD 41-1029] Generation completed for the IP Integrator block vram_bram .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
 INFO: [BD 41-1029] Generation completed for the IP Integrator block gram_bram .
 INFO: [BD 41-1029] Generation completed for the IP Integrator block iram_bram .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Debugger_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block RX_UART_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block TX_UART_0 .
 Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
 Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
-generate_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 4933.211 ; gain = 0.000
+generate_target: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 2937.273 ; gain = 9.934
 export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
 export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
 reset_run synth_1
 INFO: [Project 1-1161] Replacing file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp with file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.dcp
 launch_runs impl_1 -jobs 18
-[Thu Nov 21 08:41:35 2024] Launched synth_1...
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Thu Nov 21 10:43:19 2024] Launched synth_1...
 Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
-[Thu Nov 21 08:41:35 2024] Launched impl_1...
+[Thu Nov 21 10:43:19 2024] Launched impl_1...
 Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-update_module_reference main_Pipelining_Controller_0_0
-INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrExec_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-WARNING: [IP_Flow 19-5661] Bus Interface 'InstrExec_CLK' does not have any bus interfaces associated with it.
-WARNING: [IP_Flow 19-11770] Clock interface 'InstrExec_CLK' has no FREQ_HZ parameter.
-WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
-WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
-INFO: [IP_Flow 19-5107] Inferred bus interface 'Reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrExec_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-INFO: [IP_Flow 19-5107] Inferred bus interface 'InstrLoad_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
-WARNING: [IP_Flow 19-5661] Bus Interface 'InstrExec_CLK' does not have any bus interfaces associated with it.
-WARNING: [IP_Flow 19-11770] Clock interface 'InstrExec_CLK' has no FREQ_HZ parameter.
-WARNING: [IP_Flow 19-5661] Bus Interface 'InstrLoad_CLK' does not have any bus interfaces associated with it.
-WARNING: [IP_Flow 19-11770] Clock interface 'InstrLoad_CLK' has no FREQ_HZ parameter.
-Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
-INFO: [IP_Flow 19-3420] Updated main_Pipelining_Controller_0_0 to use current project options
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-update_module_reference: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 4933.211 ; gain = 0.000
-reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
-generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
-CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
-Please check your design and connect them as needed: 
-/CU_RAMAddressControl_0/MA
-/CU_RAMAddressControl_0/Use_MA
-/clockcontroller_0/fault_reset
-/clockcontroller_0/debug_reset
-/clockcontroller_0/debug_en
-/mmu_0/debug_sync
-/mmu_0/vram_sync
-/mmu_0/debug_clk200mhz
-/mmu_0/debug_we
-/mmu_0/debug_enable
-/mmu_0/debug_override_enable
-/mmu_0/debug_addr
-/mmu_0/debug_din
-/mmu_0/debug_bank
-/mmu_0/vram_clk200mhz
-/mmu_0/vram_addr
-/mmio_0/btn0
-/mmio_0/btn1
-/mmio_0/btn2
-/mmio_0/btn3
-
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
-INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Controller_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block ProgramCounter_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_Decoder_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block Decoder_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block RegFile_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Forwarder_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_Execution_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_RAMAddressControl_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_ImmediateManipula_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpDestinationSe_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_JumpController_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block CU_WriteSelector_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block Pipelining_WriteBack_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block ALU_FLAG_PACKER_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block clockcontroller_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block mmu_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block mmio_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block vram_bram .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block gram_bram .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block iram_bram .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
-Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
-Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
-generate_target: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 4933.211 ; gain = 0.000
-export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-reset_run synth_1
-launch_runs impl_1 -jobs 18
-[Thu Nov 21 08:43:17 2024] Launched synth_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
-[Thu Nov 21 08:43:17 2024] Launched impl_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
-open_run impl_1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 4933.211 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 63 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2024.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4933.211 ; gain = 0.000
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-INFO: [Designutils 20-5722] Start Reading Physical Databases.
-Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.075 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.118 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.119 . Memory (MB): peak = 4933.211 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4933.211 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 4933.211 ; gain = 0.000
-CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-ERROR: [Common 17-180] Spawn failed: No error
-open_bd_design {C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-startgroup
-set_property CONFIG.Write_Width_A {12} [get_bd_cells vram_bram]
-endgroup
-report_ip_status -name ip_status 
-update_module_reference [get_ips  {main_mmu_0_0 main_mmio_0_0}]
-Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
-INFO: [IP_Flow 19-3420] Updated main_mmio_0_0 to use current project options
-INFO: [IP_Flow 19-3420] Updated main_mmu_0_0 to use current project options
-WARNING: [IP_Flow 19-4706] Upgraded port 'vrama_mem_din' width 12 differs from original width 16
-WARNING: [IP_Flow 19-4706] Upgraded port 'vrama_mem_dout' width 12 differs from original width 16
-WARNING: [IP_Flow 19-4706] Upgraded port 'vramb_mem_din' width 12 differs from original width 16
-WARNING: [IP_Flow 19-4706] Upgraded port 'vramb_mem_dout' width 12 differs from original width 16
-WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'main_mmu_0_0'. These changes may impact your design.
-CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'main_mmu_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
-generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
-CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
-Please check your design and connect them as needed: 
-/CU_RAMAddressControl_0/MA
-/CU_RAMAddressControl_0/Use_MA
-/clockcontroller_0/fault_reset
-/clockcontroller_0/debug_reset
-/clockcontroller_0/debug_en
-/mmu_0/debug_sync
-/mmu_0/vram_sync
-/mmu_0/debug_clk200mhz
-/mmu_0/debug_we
-/mmu_0/debug_enable
-/mmu_0/debug_override_enable
-/mmu_0/debug_addr
-/mmu_0/debug_din
-/mmu_0/debug_bank
-/mmu_0/vram_clk200mhz
-/mmu_0/vram_addr
-/mmio_0/btn0
-/mmio_0/btn1
-/mmio_0/btn2
-/mmio_0/btn3
-
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
-INFO: [BD 41-1029] Generation completed for the IP Integrator block mmu_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block mmio_0 .
-INFO: [BD 41-1029] Generation completed for the IP Integrator block vram_bram .
-Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
-Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
-export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-ERROR: [Common 17-180] Spawn failed: No error
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp with file C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.dcp
-launch_runs impl_1 -jobs 18
-[Thu Nov 21 08:59:03 2024] Launched synth_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
-[Thu Nov 21 08:59:03 2024] Launched impl_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-ERROR: [Common 17-180] Spawn failed: No error
-report_ip_status -name ip_status 
-update_module_reference [get_ips  main_mmu_0_0]
-Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
-INFO: [IP_Flow 19-3420] Updated main_mmu_0_0 to use current project options
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-Wrote  : <C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/ui/bd_791abab9.ui> 
-generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
-CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
-Please check your design and connect them as needed: 
-/CU_RAMAddressControl_0/MA
-/CU_RAMAddressControl_0/Use_MA
-/clockcontroller_0/fault_reset
-/clockcontroller_0/debug_reset
-/clockcontroller_0/debug_en
-/mmu_0/debug_sync
-/mmu_0/vram_sync
-/mmu_0/debug_clk200mhz
-/mmu_0/debug_we
-/mmu_0/debug_enable
-/mmu_0/debug_override_enable
-/mmu_0/debug_addr
-/mmu_0/debug_din
-/mmu_0/debug_bank
-/mmu_0/vram_clk200mhz
-/mmu_0/vram_addr
-/mmio_0/btn0
-/mmio_0/btn1
-/mmio_0/btn2
-/mmio_0/btn3
-
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
-INFO: [BD 41-1029] Generation completed for the IP Integrator block mmu_0 .
-Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
-Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
-export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-reset_run synth_1
-launch_runs impl_1 -jobs 18
-[Thu Nov 21 09:00:38 2024] Launched synth_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
-[Thu Nov 21 09:00:38 2024] Launched impl_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
-report_ip_status -name ip_status 
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-report_ip_status -name ip_status 
-update_module_reference [get_ips  main_mmu_0_0]
-Upgrading 'C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd'
-INFO: [IP_Flow 19-3420] Updated main_mmu_0_0 to use current project options
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_Execution_0/Reset (associated clock /Pipelining_Execution_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-CRITICAL WARNING: [BD 41-1348] Reset pin /Pipelining_WriteBack_0/Reset (associated clock /Pipelining_WriteBack_0/InstrLoad_CLK) is connected to asynchronous reset source /Reset.
-This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /clockcontroller_0/load_clk.
-INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
-CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
-Please check your design and connect them as needed: 
-/CU_RAMAddressControl_0/MA
-/CU_RAMAddressControl_0/Use_MA
-/clockcontroller_0/fault_reset
-/clockcontroller_0/debug_reset
-/clockcontroller_0/debug_en
-/mmu_0/debug_sync
-/mmu_0/vram_sync
-/mmu_0/debug_clk200mhz
-/mmu_0/debug_we
-/mmu_0/debug_enable
-/mmu_0/debug_override_enable
-/mmu_0/debug_addr
-/mmu_0/debug_din
-/mmu_0/debug_bank
-/mmu_0/vram_clk200mhz
-/mmu_0/vram_addr
-/mmio_0/btn0
-/mmio_0/btn1
-/mmio_0/btn2
-/mmio_0/btn3
-
-Wrote  : <C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.srcs\sources_1\bd\main\main.bd> 
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/sim/main.vhd
-VHDL Output written to : c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
-INFO: [BD 41-1029] Generation completed for the IP Integrator block mmu_0 .
-Exporting to file c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hw_handoff/main.hwh
-Generated Hardware Definition File c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.hwdef
-export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\ControlUnit\ControlUnit.srcs\sources_1\new\CU_Decoder.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\Pipelining\Pipelining.srcs\sources_1\new\Pipelining_Controller.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmio.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Development\SixteenShadesOfCpu\vivado\mmu\mmu.srcs\sources_1\new\mmu.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-ERROR: [Common 17-180] Spawn failed: No error
-reset_run synth_1
-launch_runs impl_1 -jobs 18
-[Thu Nov 21 09:02:39 2024] Launched synth_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/runme.log
-[Thu Nov 21 09:02:39 2024] Launched impl_1...
-Run output will be captured here: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/runme.log
-refresh_design
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 5866.375 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2024.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 5866.375 ; gain = 0.000
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-INFO: [Designutils 20-5722] Start Reading Physical Databases.
-Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 5866.375 ; gain = 0.000
-Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 5866.375 ; gain = 0.000
-Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.065 . Memory (MB): peak = 5866.375 ; gain = 0.000
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5866.375 ; gain = 0.000
-Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 5866.375 ; gain = 0.000
-Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.107 . Memory (MB): peak = 5866.375 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.107 . Memory (MB): peak = 5866.375 ; gain = 0.000
-CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
 exit
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 21 09:23:11 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 21 10:47:27 2024...
