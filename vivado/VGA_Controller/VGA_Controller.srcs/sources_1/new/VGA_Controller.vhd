@@ -54,7 +54,7 @@ architecture Behavioral of VGA_Controller is
     signal h_counter_s : integer range 0 to 264 := 0;
     signal v_counter_s : integer range 0 to 628 := 0;
     signal x_pixel_s : integer range 0 to 199 := 0;
-    signal y_pixel_s : integer range 0 to 149 := 0;
+    signal y_pixel_s : integer range 0 to 150 := 0;
     signal pixel_address_s : integer range 0 to 30000 := 0;
     signal frame_counter_s : integer range 0 to 60 := 0;
     signal rgb_s : std_logic_vector(11 downto 0);
@@ -65,8 +65,10 @@ architecture Behavioral of VGA_Controller is
     signal draw_line : lineMemory;
     signal fetch_line : lineMemory;
     
-    signal fetch_counter : integer := 0;
+    signal fetch_counter : integer range 0 to 150 := 0;
     signal was_last_time : boolean := false;
+    signal fetched_y_coord : unsigned(15 downto 0) := X"0000";
+    signal memory_read_buffer_s : std_logic_vector(11 downto 0) := X"000";
 begin
 
     divider:process(InstrExec_CLK) is
@@ -113,7 +115,7 @@ begin
     v_sync <= v_sync_s;
     
     x_pixel_s <= 199 when h_counter_s > 199 else h_counter_s;
-    y_pixel_s <= integer(599 when v_counter_s > 599 else v_counter_s) / 4;
+    y_pixel_s <= integer(600 when v_counter_s > 600 else v_counter_s) / 4;
     
     pixel_address_s <= y_pixel_s * 200 + x_pixel_s; 
     
@@ -128,11 +130,11 @@ begin
     rgb_s <= draw_line(x_pixel_s);
     
 
-    fetch_sync_s <= TO_UNSIGNED(v_counter_s, 2)(0);
+    fetch_sync_s <= TO_UNSIGNED(v_counter_s, 2)(1);
     
     draw_line_setter: process(fetch_sync_s) is
     begin
-    if rising_edge(fetch_sync_s) then
+    if falling_edge(fetch_sync_s) then
         draw_line <= fetch_line;
     end if;
     end process draw_line_setter;
@@ -144,6 +146,11 @@ begin
         if to_unsigned(v_counter_s, 2) = "00" then
             if not was_last_time then
                 fetch_counter <= 0;
+                if y_pixel_s < 150 then
+                    fetched_y_coord <= fetched_y_coord + X"00C8";
+                else
+                    fetched_y_coord <= X"0000"; 
+                end if;
             else 
                 fetch_counter <= fetch_counter + 1;
             end if;            
@@ -153,12 +160,24 @@ begin
     fetcher: process(InstrExec_CLK) is
     begin
     if falling_edge(InstrExec_CLK) then
-            VRAM_Addr <= std_logic_vector(to_unsigned(fetch_counter, 16));
-            if fetch_counter >= 2 then
-                if fetch_counter - 2 < 200 then
-                    fetch_line(fetch_counter - 2) <= VRAM_Data(11 downto 0);
+            --fetched_y_coord := y_pixel_s + 1;
+            --if fetched_y_coord > 149 then
+            --    fetched_y_coord := 0;
+            --end if;
+            
+            VRAM_Addr <= std_logic_vector(fetched_y_coord + to_unsigned(fetch_counter, 16));
+            if fetch_counter >= 3 then
+                if fetch_counter - 3 < 200 then
+                    --memory_read_buffer_s <= VRAM_Data(11 downto 0);
+                    --fetch_line(fetch_counter - 3) <= memory_read_buffer_s;
+                    fetch_line(fetch_counter - 3) <= VRAM_Data(11 downto 0);
                 end if;
-            end if;        
+            end if;      
+            --if fetch_counter >= 3 then
+            --    if fetch_counter - 3 < 200 then
+            --        fetch_line(fetch_counter - 3) <= memory_read_buffer_s;
+            --    end if;
+            --end if;  
     end if;
     end process fetcher;
     
