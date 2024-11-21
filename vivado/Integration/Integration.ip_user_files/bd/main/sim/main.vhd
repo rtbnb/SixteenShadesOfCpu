@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 21 10:30:41 2024
---Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
+--Date        : Thu Nov 21 18:57:50 2024
+--Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -18,6 +18,7 @@ entity main is
     Reset : in STD_LOGIC;
     TX_UART_OUT : out STD_LOGIC;
     clk100mhz_in : in STD_LOGIC;
+    external_mmu_sync_clk : in STD_LOGIC;
     led : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
@@ -393,7 +394,7 @@ architecture STRUCTURE of main is
     tx_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
     tx_data_valid : out STD_LOGIC;
     tx_data_sended : in STD_LOGIC;
-    debug_clk_stop_LOW_ACTIVE : out STD_LOGIC;
+    debug_enable : out STD_LOGIC;
     iram_current_instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pipeline_stalled : in STD_LOGIC;
     pipeline_instruction_forwarding_config : in STD_LOGIC_VECTOR ( 4 downto 0 );
@@ -421,7 +422,6 @@ architecture STRUCTURE of main is
     regfile_regma_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
     regfile_bankid : in STD_LOGIC_VECTOR ( 3 downto 0 );
     mmu_debug_sys_clk : out STD_LOGIC;
-    mmu_debug_sync_clk : out STD_LOGIC;
     mmu_debug_en : out STD_LOGIC;
     mmu_debug_override_en : out STD_LOGIC;
     mmu_debug_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -475,12 +475,11 @@ architecture STRUCTURE of main is
   signal CU_JumpDestinationSe_0_JMP_Address : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_RAMAddressControl_0_RAM_Address : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_WriteSelector_0_Write_Data : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal Debugger_0_debug_enable : STD_LOGIC;
   signal Debugger_0_mmu_debug_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Debugger_0_mmu_debug_bank : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Debugger_0_mmu_debug_din : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal Debugger_0_mmu_debug_en : STD_LOGIC;
   signal Debugger_0_mmu_debug_override_en : STD_LOGIC;
-  signal Debugger_0_mmu_debug_sync_clk : STD_LOGIC;
   signal Debugger_0_mmu_debug_sys_clk : STD_LOGIC;
   signal Debugger_0_mmu_debug_we : STD_LOGIC;
   signal Debugger_0_tx_data : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -539,6 +538,7 @@ architecture STRUCTURE of main is
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_clk200mhz : STD_LOGIC;
   signal clockcontroller_0_exec_clk : STD_LOGIC;
+  signal external_mmu_sync_clk_1 : STD_LOGIC;
   signal gram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal iram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -563,7 +563,7 @@ architecture STRUCTURE of main is
   signal vram_bram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
-  signal NLW_Debugger_0_debug_clk_stop_LOW_ACTIVE_UNCONNECTED : STD_LOGIC;
+  signal NLW_Debugger_0_mmu_debug_en_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED : STD_LOGIC;
@@ -597,6 +597,7 @@ begin
   Reset_1 <= Reset;
   TX_UART_OUT <= TX_UART_0_tx_output;
   clk100mhz_in_1 <= clk100mhz_in;
+  external_mmu_sync_clk_1 <= external_mmu_sync_clk;
   led <= Pipelining_WriteBack_0_JMP_out;
 ALU_0: component main_ALU_0_0
      port map (
@@ -696,15 +697,14 @@ Debugger_0: component main_Debugger_0_0
       alu_op(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
       alu_out(15 downto 0) => ALU_0_ALU_OUT(15 downto 0),
       clk => Net,
-      debug_clk_stop_LOW_ACTIVE => NLW_Debugger_0_debug_clk_stop_LOW_ACTIVE_UNCONNECTED,
+      debug_enable => Debugger_0_debug_enable,
       iram_current_instruction(15 downto 0) => B"0000000000000000",
       mmu_debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
       mmu_debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
       mmu_debug_din(15 downto 0) => Debugger_0_mmu_debug_din(15 downto 0),
       mmu_debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
-      mmu_debug_en => Debugger_0_mmu_debug_en,
+      mmu_debug_en => NLW_Debugger_0_mmu_debug_en_UNCONNECTED,
       mmu_debug_override_en => Debugger_0_mmu_debug_override_en,
-      mmu_debug_sync_clk => Debugger_0_mmu_debug_sync_clk,
       mmu_debug_sys_clk => Debugger_0_mmu_debug_sys_clk,
       mmu_debug_we => Debugger_0_mmu_debug_we,
       pc_current_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
@@ -884,7 +884,7 @@ clockcontroller_0: component main_clockcontroller_0_0
       clk200mhz_in => clk_wiz_0_clk200mhz,
       clk200mhz_inf => NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED,
       debug_clk => Net,
-      debug_en => '0',
+      debug_en => Debugger_0_debug_enable,
       debug_en_lock => mmu_0_debug_en_lock,
       debug_reset => '0',
       exec_clk => clockcontroller_0_exec_clk,
@@ -947,9 +947,9 @@ mmu_0: component main_mmu_0_0
       debug_din(15 downto 0) => Debugger_0_mmu_debug_din(15 downto 0),
       debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
       debug_en_lock => mmu_0_debug_en_lock,
-      debug_enable => Debugger_0_mmu_debug_en,
+      debug_enable => Debugger_0_debug_enable,
       debug_override_enable => Debugger_0_mmu_debug_override_en,
-      debug_sync => Debugger_0_mmu_debug_sync_clk,
+      debug_sync => external_mmu_sync_clk_1,
       debug_we => Debugger_0_mmu_debug_we,
       fault => mmu_0_fault,
       gram_addr(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),

@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Thu Nov 21 10:44:53 2024
-| Host         : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
+| Date         : Thu Nov 21 18:59:11 2024
+| Host         : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 | Command      : report_utilization -file main_wrapper_utilization_synth.rpt -pb main_wrapper_utilization_synth.pb
 | Design       : main_wrapper
 | Device       : xc7a35ticsg324-1L
@@ -34,8 +34,8 @@ Table of Contents
 | Slice LUTs*             |  159 |     0 |          0 |     20800 |  0.76 |
 |   LUT as Logic          |  159 |     0 |          0 |     20800 |  0.76 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         |  155 |     0 |          0 |     41600 |  0.37 |
-|   Register as Flip Flop |  155 |     0 |          0 |     41600 |  0.37 |
+| Slice Registers         |  164 |     0 |          0 |     41600 |  0.39 |
+|   Register as Flip Flop |  164 |     0 |          0 |     41600 |  0.39 |
 |   Register as Latch     |    0 |     0 |          0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
@@ -60,7 +60,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |          Yes |           - |          Set |
 | 20    |          Yes |           - |        Reset |
 | 8     |          Yes |         Set |            - |
-| 127   |          Yes |       Reset |            - |
+| 136   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,13 +149,13 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       |  127 |        Flop & Latch |
-| LUT6       |   55 |                 LUT |
-| LUT4       |   42 |                 LUT |
-| LUT5       |   34 |                 LUT |
+| FDRE       |  136 |        Flop & Latch |
+| LUT6       |   59 |                 LUT |
+| LUT4       |   32 |                 LUT |
+| LUT5       |   31 |                 LUT |
 | FDCE       |   20 |        Flop & Latch |
-| LUT2       |   14 |                 LUT |
-| LUT3       |   13 |                 LUT |
+| LUT2       |   19 |                 LUT |
+| LUT3       |   17 |                 LUT |
 | FDSE       |    8 |        Flop & Latch |
 | IBUF       |    3 |                  IO |
 | BUFG       |    3 |               Clock |

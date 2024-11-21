@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x1BEB66617DF37D2C",
+      "boundary_crc": "0xB655C9304C244BEB",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -85,6 +85,23 @@
       },
       "TX_UART_OUT": {
         "direction": "O"
+      },
+      "external_mmu_sync_clk": {
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_Debugger_0_0_mmu_debug_sync_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default_prop"
+          }
+        }
       }
     },
     "components": {
@@ -1628,7 +1645,7 @@
           "tx_data_sended": {
             "direction": "I"
           },
-          "debug_clk_stop_LOW_ACTIVE": {
+          "debug_enable": {
             "direction": "O"
           },
           "iram_current_instruction": {
@@ -1754,10 +1771,6 @@
             "right": "0"
           },
           "mmu_debug_sys_clk": {
-            "type": "clk",
-            "direction": "O"
-          },
-          "mmu_debug_sync_clk": {
             "type": "clk",
             "direction": "O"
           },
@@ -2035,6 +2048,13 @@
           "Pipelining_WriteBack_0/WriteData"
         ]
       },
+      "Debugger_0_debug_enable": {
+        "ports": [
+          "Debugger_0/debug_enable",
+          "clockcontroller_0/debug_en",
+          "mmu_0/debug_enable"
+        ]
+      },
       "Debugger_0_mmu_debug_addr": {
         "ports": [
           "Debugger_0/mmu_debug_addr",
@@ -2053,22 +2073,10 @@
           "mmu_0/debug_din"
         ]
       },
-      "Debugger_0_mmu_debug_en": {
-        "ports": [
-          "Debugger_0/mmu_debug_en",
-          "mmu_0/debug_enable"
-        ]
-      },
       "Debugger_0_mmu_debug_override_en": {
         "ports": [
           "Debugger_0/mmu_debug_override_en",
           "mmu_0/debug_override_enable"
-        ]
-      },
-      "Debugger_0_mmu_debug_sync_clk": {
-        "ports": [
-          "Debugger_0/mmu_debug_sync_clk",
-          "mmu_0/debug_sync"
         ]
       },
       "Debugger_0_mmu_debug_sys_clk": {
@@ -2146,8 +2154,8 @@
         "ports": [
           "clockcontroller_0/debug_clk",
           "RX_UART_0/clk",
-          "Debugger_0/clk",
-          "TX_UART_0/clk"
+          "TX_UART_0/clk",
+          "Debugger_0/clk"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -2465,6 +2473,12 @@
           "ProgramCounter_0/InstrExec_CLK",
           "RegFile_0/clk",
           "mmu_0/cpu_sync"
+        ]
+      },
+      "external_mmu_sync_clk_1": {
+        "ports": [
+          "external_mmu_sync_clk",
+          "mmu_0/debug_sync"
         ]
       },
       "gram_bram_douta": {
