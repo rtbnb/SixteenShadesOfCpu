@@ -162,7 +162,7 @@ set rc [catch {
 OPTRACE "read constraints: opt_design" START { }
 OPTRACE "read constraints: opt_design" END { }
 OPTRACE "opt_design" START { }
-  opt_design -directive Explore
+  opt_design -muxf_remap -carry_remap -dsp_register_opt -aggressive_remap -resynth_remap -resynth_seq_area
 OPTRACE "opt_design" END { }
 OPTRACE "read constraints: opt_design_post" START { }
 OPTRACE "read constraints: opt_design_post" END { }

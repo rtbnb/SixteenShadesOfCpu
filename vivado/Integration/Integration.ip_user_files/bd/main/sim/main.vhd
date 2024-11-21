@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Wed Nov 20 16:03:25 2024
---Host        : 8x8-Bit running 64-bit major release  (build 9200)
+--Date        : Thu Nov 21 09:02:30 2024
+--Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -18,10 +18,10 @@ entity main is
     clk100mhz_in : in STD_LOGIC;
     led : out STD_LOGIC
   );
-  attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=22,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=18,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
-  attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of main : entity is "main.hwdef";
+  attribute core_generation_info : string;
+  attribute core_generation_info of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=22,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=18,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute hw_handoff : string;
+  attribute hw_handoff of main : entity is "main.hwdef";
 end main;
 
 architecture STRUCTURE of main is
@@ -308,14 +308,14 @@ architecture STRUCTURE of main is
     gram_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vrama_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     vrama_mem_ck : out STD_LOGIC;
-    vrama_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    vrama_mem_din : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vrama_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
-    vrama_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    vrama_mem_dout : in STD_LOGIC_VECTOR ( 11 downto 0 );
     vramb_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     vramb_mem_ck : out STD_LOGIC;
-    vramb_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    vramb_mem_din : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vramb_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
-    vramb_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    vramb_mem_dout : in STD_LOGIC_VECTOR ( 11 downto 0 );
     mmio_mem_ck : out STD_LOGIC;
     mmio_mem_we : out STD_LOGIC;
     mmio_mem_oe : out STD_LOGIC;
@@ -347,13 +347,14 @@ architecture STRUCTURE of main is
     clka : in STD_LOGIC;
     wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    douta : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clkb : in STD_LOGIC;
+    enb : in STD_LOGIC;
     web : in STD_LOGIC_VECTOR ( 0 to 0 );
     addrb : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    doutb : out STD_LOGIC_VECTOR ( 15 downto 0 )
+    dinb : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   end component main_blk_mem_gen_0_0;
   component main_blk_mem_gen_1_0 is
@@ -436,7 +437,6 @@ architecture STRUCTURE of main is
   signal Pipelining_Execution_0_JMP_DestinationSelect_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_Relative_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_out : STD_LOGIC;
-  signal Pipelining_Execution_0_MA_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Operand1_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Operand2_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_RAM_BankID_out : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -489,19 +489,20 @@ architecture STRUCTURE of main is
   signal mmu_0_mmio_mem_we : STD_LOGIC;
   signal mmu_0_vrama_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_vrama_mem_ck : STD_LOGIC;
-  signal mmu_0_vrama_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_vrama_mem_din : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal mmu_0_vrama_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
   signal mmu_0_vramb_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_vramb_mem_ck : STD_LOGIC;
-  signal mmu_0_vramb_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_vramb_mem_din : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal mmu_0_vramb_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal vram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal vram_bram_doutb : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal vram_bram_douta : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal vram_bram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED : STD_LOGIC;
+  signal NLW_Pipelining_Execution_0_MA_out_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED : STD_LOGIC;
   signal NLW_clockcontroller_0_debug_clk_UNCONNECTED : STD_LOGIC;
   signal NLW_gram_bram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -514,12 +515,12 @@ architecture STRUCTURE of main is
   signal NLW_mmu_0_mmio_mem_oe_UNCONNECTED : STD_LOGIC;
   signal NLW_mmu_0_debug_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_mmu_0_vram_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
-  attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
-  attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
-  attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info : string;
+  attribute x_interface_info of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute x_interface_info of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
+  attribute x_interface_parameter of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
   Reset_1 <= Reset;
   clk100mhz_in_1 <= clk100mhz_in;
@@ -599,7 +600,7 @@ CU_JumpDestinationSe_0: component main_CU_JumpDestinationSe_0_0
 CU_RAMAddressControl_0: component main_CU_RAMAddressControl_0_0
      port map (
       Immediate(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
-      MA(15 downto 0) => Pipelining_Execution_0_MA_out(15 downto 0),
+      MA(15 downto 0) => B"0000000000000000",
       RAM_Address(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
       RAM_Address_Src => Pipelining_Execution_0_RAM_Src_out,
       Reg2(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
@@ -655,7 +656,7 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       JMP_Relative_out => Pipelining_Execution_0_JMP_Relative_out,
       JMP_out => Pipelining_Execution_0_JMP_out,
       MA(15 downto 0) => Pipelining_Forwarder_0_ForwardedMA(15 downto 0),
-      MA_out(15 downto 0) => Pipelining_Execution_0_MA_out(15 downto 0),
+      MA_out(15 downto 0) => NLW_Pipelining_Execution_0_MA_out_UNCONNECTED(15 downto 0),
       Operand1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
       Operand1_out(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       Operand2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),
@@ -847,13 +848,13 @@ mmu_0: component main_mmu_0_0
       vram_sync => '0',
       vrama_mem_addr(15 downto 0) => mmu_0_vrama_mem_addr(15 downto 0),
       vrama_mem_ck => mmu_0_vrama_mem_ck,
-      vrama_mem_din(15 downto 0) => mmu_0_vrama_mem_din(15 downto 0),
-      vrama_mem_dout(15 downto 0) => vram_bram_douta(15 downto 0),
+      vrama_mem_din(11 downto 0) => mmu_0_vrama_mem_din(11 downto 0),
+      vrama_mem_dout(11 downto 0) => vram_bram_douta(11 downto 0),
       vrama_mem_we(0) => mmu_0_vrama_mem_we(0),
       vramb_mem_addr(15 downto 0) => mmu_0_vramb_mem_addr(15 downto 0),
       vramb_mem_ck => mmu_0_vramb_mem_ck,
-      vramb_mem_din(15 downto 0) => mmu_0_vramb_mem_din(15 downto 0),
-      vramb_mem_dout(15 downto 0) => vram_bram_doutb(15 downto 0),
+      vramb_mem_din(11 downto 0) => mmu_0_vramb_mem_din(11 downto 0),
+      vramb_mem_dout(11 downto 0) => vram_bram_doutb(11 downto 0),
       vramb_mem_we(0) => mmu_0_vramb_mem_we(0)
     );
 vram_bram: component main_blk_mem_gen_0_0
@@ -862,10 +863,11 @@ vram_bram: component main_blk_mem_gen_0_0
       addrb(15 downto 0) => mmu_0_vramb_mem_addr(15 downto 0),
       clka => mmu_0_vrama_mem_ck,
       clkb => mmu_0_vramb_mem_ck,
-      dina(15 downto 0) => mmu_0_vrama_mem_din(15 downto 0),
-      dinb(15 downto 0) => mmu_0_vramb_mem_din(15 downto 0),
-      douta(15 downto 0) => vram_bram_douta(15 downto 0),
-      doutb(15 downto 0) => vram_bram_doutb(15 downto 0),
+      dina(11 downto 0) => mmu_0_vrama_mem_din(11 downto 0),
+      dinb(11 downto 0) => mmu_0_vramb_mem_din(11 downto 0),
+      douta(11 downto 0) => vram_bram_douta(11 downto 0),
+      doutb(11 downto 0) => vram_bram_doutb(11 downto 0),
+      enb => '0',
       wea(0) => mmu_0_vrama_mem_we(0),
       web(0) => mmu_0_vramb_mem_we(0)
     );

@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Nov 20 17:27:45 2024
+# Process ID: 25892
+# Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10772 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/vivado.log
+# Journal file: C:/Development/SixteenShadesOfCpu/vivado/Integration\vivado.jou
+# Running On        :BOOK-69BD3QPCMV
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :Intel(R) Core(TM) Ultra 5 125H
+# CPU Frequency     :2995 MHz
+# CPU Physical cores:14
+# CPU Logical cores :18
+# Host memory       :16739 MB
+# Swap memory       :6442 MB
+# Total Virtual     :23182 MB
+# Available Virtual :5186 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+launch_runs impl_1 -to_step write_bitstream -jobs 18
+wait_on_run impl_1

@@ -1,12 +1,12 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.717936",
-   "Default View_TopLeft":"-547,-1054",
+   "Default View_ScaleFactor":"1.16629",
+   "Default View_TopLeft":"3825,852",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
 preplace port port-id_Reset -pg 1 -lvl 0 -x -410 -y -260 -defaultsOSRD
-preplace port port-id_led -pg 1 -lvl 15 -x 5800 -y -320 -defaultsOSRD
+preplace port port-id_led -pg 1 -lvl 15 -x 5820 -y -320 -defaultsOSRD
 preplace port port-id_clk100mhz_in -pg 1 -lvl 0 -x -410 -y -430 -defaultsOSRD
 preplace inst Pipelining_Controller_0 -pg 1 -lvl 5 -x 1170 -y -30 -defaultsOSRD
 preplace inst ProgramCounter_0 -pg 1 -lvl 3 -x 500 -y -10 -defaultsOSRD
@@ -21,7 +21,7 @@ preplace inst CU_ImmediateManipula_0 -pg 1 -lvl 11 -x 4160 -y -100 -defaultsOSRD
 preplace inst CU_JumpDestinationSe_0 -pg 1 -lvl 10 -x 3650 -y 310 -defaultsOSRD
 preplace inst CU_JumpController_0 -pg 1 -lvl 11 -x 4160 -y 390 -defaultsOSRD
 preplace inst CU_WriteSelector_0 -pg 1 -lvl 13 -x 5150 -y 10 -defaultsOSRD
-preplace inst Pipelining_WriteBack_0 -pg 1 -lvl 14 -x 5550 -y 130 -defaultsOSRD
+preplace inst Pipelining_WriteBack_0 -pg 1 -lvl 14 -x 5570 -y 130 -defaultsOSRD
 preplace inst ALU_FLAG_PACKER_0 -pg 1 -lvl 12 -x 4740 -y 100 -defaultsOSRD
 preplace inst clockcontroller_0 -pg 1 -lvl 2 -x 140 -y -90 -defaultsOSRD
 preplace inst mmu_0 -pg 1 -lvl 11 -x 4160 -y 970 -defaultsOSRD
@@ -86,12 +86,12 @@ preplace netloc Pipelining_Execution_0_WriteDataSel_out 1 9 4 3350 -280 NJ -280 
 preplace netloc Pipelining_Forwarder_0_ForwardedMA 1 8 1 2900 20n
 preplace netloc Pipelining_Forwarder_0_ForwardedOperand1 1 8 1 2920 -20n
 preplace netloc Pipelining_Forwarder_0_ForwardedOperand2 1 8 1 2910 0n
-preplace netloc Pipelining_WriteBack_0_Flags_out 1 6 9 1920 -290 NJ -290 NJ -290 NJ -290 NJ -290 NJ -290 NJ -290 NJ -290 5730
-preplace netloc Pipelining_WriteBack_0_Is_ALU_OP_out 1 6 9 1900 -320 NJ -320 NJ -320 NJ -320 NJ -320 NJ -320 NJ -320 NJ -320 5760
-preplace netloc Pipelining_WriteBack_0_JMP_out 1 4 11 950 -240 N -240 1850 -250 N -250 N -250 N -250 N -250 N -250 N -250 N -250 5770
-preplace netloc Pipelining_WriteBack_0_RF_WE_out 1 6 9 1910 -240 NJ -240 NJ -240 NJ -240 NJ -240 NJ -240 NJ -240 NJ -240 5750
-preplace netloc Pipelining_WriteBack_0_WriteAddress_out 1 6 9 1930 -230 NJ -230 NJ -230 NJ -230 NJ -230 NJ -230 NJ -230 NJ -230 5720
-preplace netloc Pipelining_WriteBack_0_WriteData_out 1 6 9 1940 -220 NJ -220 NJ -220 NJ -220 NJ -220 NJ -220 NJ -220 NJ -220 5740
+preplace netloc Pipelining_WriteBack_0_Flags_out 1 6 9 1920 -290 NJ -290 NJ -290 NJ -290 NJ -290 NJ -290 NJ -290 NJ -290 5750
+preplace netloc Pipelining_WriteBack_0_Is_ALU_OP_out 1 6 9 1900 -320 NJ -320 NJ -320 NJ -320 NJ -320 NJ -320 NJ -320 NJ -320 5780
+preplace netloc Pipelining_WriteBack_0_JMP_out 1 4 11 950 -240 N -240 1850 -250 N -250 N -250 N -250 N -250 N -250 N -250 N -250 5790
+preplace netloc Pipelining_WriteBack_0_RF_WE_out 1 6 9 1910 -240 NJ -240 NJ -240 NJ -240 NJ -240 NJ -240 NJ -240 NJ -240 5770
+preplace netloc Pipelining_WriteBack_0_WriteAddress_out 1 6 9 1930 -230 NJ -230 NJ -230 NJ -230 NJ -230 NJ -230 NJ -230 NJ -230 5740
+preplace netloc Pipelining_WriteBack_0_WriteData_out 1 6 9 1940 -220 NJ -220 NJ -220 NJ -220 NJ -220 NJ -220 NJ -220 NJ -220 5760
 preplace netloc ProgramCounter_0_Dout 1 3 8 630 130 N 130 1390 140 1830 180 N 180 2830 70 N 70 3840
 preplace netloc RegFile_0_BankID 1 7 2 2300J 130 2870
 preplace netloc RegFile_0_Reg1_data 1 7 1 N -50
@@ -134,8 +134,8 @@ preplace netloc mmu_0_vramb_mem_din 1 11 1 4410 1110n
 preplace netloc mmu_0_vramb_mem_we 1 11 1 4400 1130n
 preplace netloc vram_bram_douta 1 10 2 3870 1440 N
 preplace netloc vram_bram_doutb 1 10 2 3860 1560 N
-levelinfo -pg 1 -410 -280 140 500 760 1170 1650 2110 2540 3150 3650 4160 4740 5150 5550 5800
-pagesize -pg 1 -db -bbox -sgen -560 -450 5870 2410
+levelinfo -pg 1 -410 -280 140 500 760 1170 1650 2110 2540 3150 3650 4160 4740 5150 5570 5820
+pagesize -pg 1 -db -bbox -sgen -560 -450 5890 2410
 "
 }
 {
