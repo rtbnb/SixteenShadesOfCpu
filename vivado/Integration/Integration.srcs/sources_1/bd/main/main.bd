@@ -1029,7 +1029,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "50000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1046,7 +1046,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "200000000",
+                "value": "100000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1289,7 +1289,7 @@
           },
           "vrama_mem_din": {
             "direction": "O",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "vrama_mem_we": {
@@ -1299,7 +1299,7 @@
           },
           "vrama_mem_dout": {
             "direction": "I",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "vramb_mem_addr": {
@@ -1312,7 +1312,7 @@
           },
           "vramb_mem_din": {
             "direction": "O",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "vramb_mem_we": {
@@ -1322,7 +1322,7 @@
           },
           "vramb_mem_dout": {
             "direction": "I",
-            "left": "15",
+            "left": "11",
             "right": "0"
           },
           "mmio_mem_ck": {
@@ -1427,7 +1427,7 @@
             "value": "Always_Enabled"
           },
           "Enable_B": {
-            "value": "Always_Enabled"
+            "value": "Use_ENB_Pin"
           },
           "Memory_Type": {
             "value": "True_Dual_Port_RAM"
@@ -1448,7 +1448,7 @@
             "value": "65535"
           },
           "Write_Width_A": {
-            "value": "16"
+            "value": "12"
           },
           "use_bram_block": {
             "value": "Stand_Alone"
@@ -1549,14 +1549,20 @@
         "xci_path": "ip\\main_clk_wiz_0_0\\main_clk_wiz_0_0.xci",
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "151.636"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "50.000"
+          },
           "CLKOUT2_JITTER": {
-            "value": "114.829"
+            "value": "130.958"
           },
           "CLKOUT2_PHASE_ERROR": {
             "value": "98.575"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
-            "value": "200.000"
+            "value": "100.000"
           },
           "CLKOUT2_USED": {
             "value": "true"
@@ -1567,8 +1573,11 @@
           "CLK_OUT2_PORT": {
             "value": "clk200mhz"
           },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "20.000"
+          },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "5"
+            "value": "10"
           },
           "NUM_OUT_CLKS": {
             "value": "2"
@@ -1785,8 +1794,8 @@
           "clockcontroller_0/load_clk",
           "Pipelining_Execution_0/InstrLoad_CLK",
           "ProgramCounter_0/InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK",
-          "Pipelining_WriteBack_0/InstrLoad_CLK"
+          "Pipelining_WriteBack_0/InstrLoad_CLK",
+          "Pipelining_Controller_0/InstrLoad_CLK"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -2007,8 +2016,8 @@
           "Reset",
           "Pipelining_Execution_0/Reset",
           "ProgramCounter_0/Reset",
-          "Pipelining_Controller_0/Reset",
-          "Pipelining_WriteBack_0/Reset"
+          "Pipelining_WriteBack_0/Reset",
+          "Pipelining_Controller_0/Reset"
         ]
       },
       "clk100mhz_in_1": {
@@ -2052,8 +2061,8 @@
           "clockcontroller_0/exec_clk",
           "ProgramCounter_0/InstrExec_CLK",
           "CU_JumpController_0/InstrExec_CLK",
-          "Pipelining_Controller_0/InstrExec_CLK",
           "RegFile_0/clk",
+          "Pipelining_Controller_0/InstrExec_CLK",
           "mmu_0/cpu_sync"
         ]
       },

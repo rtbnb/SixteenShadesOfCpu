@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date             : Wed Nov 20 17:14:03 2024
+| Date             : Thu Nov 21 09:07:15 2024
 | Host             : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 | Command          : report_power -file main_wrapper_power_routed.rpt -pb main_wrapper_power_summary_routed.pb -rpx main_wrapper_power_routed.rpx
 | Design           : main_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.290        |
+| Total On-Chip Power (W)  | 0.220        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.227        |
+| Dynamic (W)              | 0.158        |
 | Device Static (W)        | 0.063        |
 | Effective TJA (C/W)      | 4.8          |
-| Max Ambient (C)          | 98.6         |
-| Junction Temperature (C) | 26.4         |
+| Max Ambient (C)          | 98.9         |
+| Junction Temperature (C) | 26.1         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.014 |       10 |       --- |             --- |
-| Slice Logic    |     0.004 |     1661 |       --- |             --- |
-|   LUT as Logic |     0.004 |      965 |     20800 |            4.64 |
-|   Register     |    <0.001 |      504 |     41600 |            1.21 |
+| Clocks         |     0.006 |       10 |       --- |             --- |
+| Slice Logic    |     0.001 |     1485 |       --- |             --- |
+|   LUT as Logic |     0.001 |      818 |     20800 |            3.93 |
 |   CARRY4       |    <0.001 |       14 |      8150 |            0.17 |
-|   Others       |     0.000 |      154 |       --- |             --- |
-| Signals        |     0.009 |     1466 |       --- |             --- |
-| Block RAM      |     0.092 |       48 |        50 |           96.00 |
+|   Register     |    <0.001 |      476 |     41600 |            1.14 |
+|   Others       |     0.000 |       98 |       --- |             --- |
+| Signals        |     0.002 |     1345 |       --- |             --- |
+| Block RAM      |     0.042 |       40 |        50 |           80.00 |
 | MMCM           |     0.106 |        1 |         5 |           20.00 |
-| I/O            |     0.001 |        3 |       210 |            1.43 |
+| I/O            |    <0.001 |        3 |       210 |            1.43 |
 | Static Power   |     0.063 |          |           |                 |
-| Total          |     0.290 |          |           |                 |
+| Total          |     0.220 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       0.950 |     0.125 |       0.118 |      0.007 |       NA    | Unspecified | NA         |
+| Vccint    |       0.950 |     0.057 |       0.051 |      0.007 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.070 |       0.059 |      0.011 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -82,7 +82,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       0.950 |     0.009 |       0.008 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       0.950 |     0.004 |       0.004 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
@@ -130,10 +130,10 @@ Table of Contents
 | Clock                        | Domain                                           | Constraint (ns) |
 +------------------------------+--------------------------------------------------+-----------------+
 | clk100mhz_in                 | clk100mhz_in                                     |            10.0 |
-| clk100mhz_main_clk_wiz_0_0   | main_i/clk_wiz_0/inst/clk100mhz_main_clk_wiz_0_0 |            10.0 |
-| clk100mhz_main_clk_wiz_0_0_1 | main_i/clk_wiz_0/inst/clk100mhz_main_clk_wiz_0_0 |            10.0 |
-| clk200mhz_main_clk_wiz_0_0   | main_i/clk_wiz_0/inst/clk200mhz_main_clk_wiz_0_0 |             5.0 |
-| clk200mhz_main_clk_wiz_0_0_1 | main_i/clk_wiz_0/inst/clk200mhz_main_clk_wiz_0_0 |             5.0 |
+| clk100mhz_main_clk_wiz_0_0   | main_i/clk_wiz_0/inst/clk100mhz_main_clk_wiz_0_0 |            20.0 |
+| clk100mhz_main_clk_wiz_0_0_1 | main_i/clk_wiz_0/inst/clk100mhz_main_clk_wiz_0_0 |            20.0 |
+| clk200mhz_main_clk_wiz_0_0   | main_i/clk_wiz_0/inst/clk200mhz_main_clk_wiz_0_0 |            10.0 |
+| clk200mhz_main_clk_wiz_0_0_1 | main_i/clk_wiz_0/inst/clk200mhz_main_clk_wiz_0_0 |            10.0 |
 | clkfbout_main_clk_wiz_0_0    | main_i/clk_wiz_0/inst/clkfbout_main_clk_wiz_0_0  |            10.0 |
 | clkfbout_main_clk_wiz_0_0_1  | main_i/clk_wiz_0/inst/clkfbout_main_clk_wiz_0_0  |            10.0 |
 | sys_clk_pin                  | clk100mhz_in                                     |            10.0 |
@@ -146,33 +146,23 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-----------------------------+-----------+
-| Name                        | Power (W) |
-+-----------------------------+-----------+
-| main_wrapper                |     0.227 |
-|   main_i                    |     0.226 |
-|     ALU_0                   |     0.004 |
-|       U0                    |     0.004 |
-|     Pipelining_Controller_0 |     0.003 |
-|       U0                    |     0.003 |
-|     Pipelining_Execution_0  |     0.003 |
-|       U0                    |     0.003 |
-|     Pipelining_WriteBack_0  |     0.001 |
-|       U0                    |     0.001 |
-|     ProgramCounter_0        |     0.002 |
-|       U0                    |     0.002 |
-|     RegFile_0               |     0.005 |
-|       U0                    |     0.005 |
-|     clk_wiz_0               |     0.107 |
-|       inst                  |     0.107 |
-|     clockcontroller_0       |     0.001 |
-|     gram_bram               |     0.031 |
-|       U0                    |     0.031 |
-|     iram_bram               |     0.032 |
-|       U0                    |     0.032 |
-|     mmu_0                   |     0.002 |
-|     vram_bram               |     0.033 |
-|       U0                    |     0.033 |
-+-----------------------------+-----------+
++---------------+-----------+
+| Name          | Power (W) |
++---------------+-----------+
+| main_wrapper  |     0.158 |
+|   main_i      |     0.157 |
+|     ALU_0     |     0.001 |
+|       U0      |     0.001 |
+|     RegFile_0 |     0.001 |
+|       U0      |     0.001 |
+|     clk_wiz_0 |     0.106 |
+|       inst    |     0.106 |
+|     gram_bram |     0.016 |
+|       U0      |     0.016 |
+|     iram_bram |     0.016 |
+|       U0      |     0.016 |
+|     vram_bram |     0.013 |
+|       U0      |     0.013 |
++---------------+-----------+
 
 

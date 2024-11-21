@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Nov 20 17:07:54 2024
-# Process ID: 17296
+# Start of session at: Thu Nov 21 09:03:40 2024
+# Process ID: 15992
 # Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1
 # Command line: vivado.exe -log main_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source main_wrapper.tcl -notrace
 # Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/main_wrapper.vdi
@@ -17,8 +17,8 @@
 # CPU Physical cores:14
 # CPU Logical cores :18
 # Host memory       :16739 MB
-# Swap memory       :9273 MB
-# Total Virtual     :26013 MB
-# Available Virtual :5292 MB
+# Swap memory       :9756 MB
+# Total Virtual     :26495 MB
+# Available Virtual :5330 MB
 #-----------------------------------------------------------
 source main_wrapper.tcl -notrace

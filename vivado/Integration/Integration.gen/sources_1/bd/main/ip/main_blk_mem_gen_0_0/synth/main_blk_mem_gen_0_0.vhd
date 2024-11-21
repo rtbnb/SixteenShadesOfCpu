@@ -61,13 +61,14 @@ ENTITY main_blk_mem_gen_0_0 IS
     clka : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     addra : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    douta : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     clkb : IN STD_LOGIC;
+    enb : IN STD_LOGIC;
     web : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     addrb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    dinb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    doutb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    dinb : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    doutb : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
   );
 END main_blk_mem_gen_0_0;
 
@@ -159,16 +160,16 @@ ARCHITECTURE main_blk_mem_gen_0_0_arch OF main_blk_mem_gen_0_0 IS
       regcea : IN STD_LOGIC;
       wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       addra : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      douta : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      dina : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+      douta : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       clkb : IN STD_LOGIC;
       rstb : IN STD_LOGIC;
       enb : IN STD_LOGIC;
       regceb : IN STD_LOGIC;
       web : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       addrb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      dinb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      doutb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      dinb : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+      doutb : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       injectsbiterr : IN STD_LOGIC;
       injectdbiterr : IN STD_LOGIC;
       eccpipece : IN STD_LOGIC;
@@ -189,7 +190,7 @@ ARCHITECTURE main_blk_mem_gen_0_0_arch OF main_blk_mem_gen_0_0 IS
       s_axi_awburst : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_awvalid : IN STD_LOGIC;
       s_axi_awready : OUT STD_LOGIC;
-      s_axi_wdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      s_axi_wdata : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
       s_axi_wstrb : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       s_axi_wlast : IN STD_LOGIC;
       s_axi_wvalid : IN STD_LOGIC;
@@ -206,7 +207,7 @@ ARCHITECTURE main_blk_mem_gen_0_0_arch OF main_blk_mem_gen_0_0 IS
       s_axi_arvalid : IN STD_LOGIC;
       s_axi_arready : OUT STD_LOGIC;
       s_axi_rid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-      s_axi_rdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      s_axi_rdata : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_rlast : OUT STD_LOGIC;
       s_axi_rvalid : OUT STD_LOGIC;
@@ -224,9 +225,9 @@ ARCHITECTURE main_blk_mem_gen_0_0_arch OF main_blk_mem_gen_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE OF main_blk_mem_gen_0_0_arch : ARCHITECTURE IS "main_blk_mem_gen_0_0,blk_mem_gen_v8_4_8,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
   ATTRIBUTE CORE_GENERATION_INFO OF main_blk_mem_gen_0_0_arch: ARCHITECTURE IS "main_blk_mem_gen_0_0,blk_mem_gen_v8_4_8,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=blk_mem_gen,x_ipVersion=8.4,x_ipCoreRevision=8,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_FAMILY=artix7,C_XDEVICEFAMILY=artix7,C_ELABORATION_DIR=./,C_INTERFACE_TYPE=0,C_AXI_TYPE=1,C_AXI_SLAVE_TYPE=0,C_USE_BRAM_BLOCK=0,C_ENABLE_32BIT_ADDRESS=0,C_CTRL_ECC_ALGO=NONE,C_HAS_AXI_ID=0,C_AXI_ID_WIDTH=4,C_MEM_TYPE=2,C_BYTE_SIZE=9,C_ALGORITHM=0,C_PRIM_TYPE=1,C_LOAD_INIT_FILE=0,C_INIT_FILE_NAME=n" & 
-"o_coe_file_loaded,C_INIT_FILE=NONE,C_USE_DEFAULT_DATA=0,C_DEFAULT_DATA=0,C_HAS_RSTA=0,C_RST_PRIORITY_A=CE,C_RSTRAM_A=0,C_INITA_VAL=0,C_HAS_ENA=0,C_HAS_REGCEA=0,C_USE_BYTE_WEA=0,C_WEA_WIDTH=1,C_WRITE_MODE_A=READ_FIRST,C_WRITE_WIDTH_A=16,C_READ_WIDTH_A=16,C_WRITE_DEPTH_A=65535,C_READ_DEPTH_A=65535,C_ADDRA_WIDTH=16,C_HAS_RSTB=0,C_RST_PRIORITY_B=CE,C_RSTRAM_B=0,C_INITB_VAL=0,C_HAS_ENB=0,C_HAS_REGCEB=0,C_USE_BYTE_WEB=0,C_WEB_WIDTH=1,C_WRITE_MODE_B=READ_FIRST,C_WRITE_WIDTH_B=16,C_READ_WIDTH_B=16,C_WRI" & 
+"o_coe_file_loaded,C_INIT_FILE=NONE,C_USE_DEFAULT_DATA=0,C_DEFAULT_DATA=0,C_HAS_RSTA=0,C_RST_PRIORITY_A=CE,C_RSTRAM_A=0,C_INITA_VAL=0,C_HAS_ENA=0,C_HAS_REGCEA=0,C_USE_BYTE_WEA=0,C_WEA_WIDTH=1,C_WRITE_MODE_A=READ_FIRST,C_WRITE_WIDTH_A=12,C_READ_WIDTH_A=12,C_WRITE_DEPTH_A=65535,C_READ_DEPTH_A=65535,C_ADDRA_WIDTH=16,C_HAS_RSTB=0,C_RST_PRIORITY_B=CE,C_RSTRAM_B=0,C_INITB_VAL=0,C_HAS_ENB=1,C_HAS_REGCEB=0,C_USE_BYTE_WEB=0,C_WEB_WIDTH=1,C_WRITE_MODE_B=READ_FIRST,C_WRITE_WIDTH_B=12,C_READ_WIDTH_B=12,C_WRI" & 
 "TE_DEPTH_B=65535,C_READ_DEPTH_B=65535,C_ADDRB_WIDTH=16,C_HAS_MEM_OUTPUT_REGS_A=0,C_HAS_MEM_OUTPUT_REGS_B=0,C_HAS_MUX_OUTPUT_REGS_A=0,C_HAS_MUX_OUTPUT_REGS_B=0,C_MUX_PIPELINE_STAGES=0,C_HAS_SOFTECC_INPUT_REGS_A=0,C_HAS_SOFTECC_OUTPUT_REGS_B=0,C_USE_SOFTECC=0,C_USE_ECC=0,C_EN_ECC_PIPE=0,C_READ_LATENCY_A=1,C_READ_LATENCY_B=1,C_HAS_INJECTERR=0,C_SIM_COLLISION_CHECK=ALL,C_COMMON_CLK=0,C_DISABLE_WARN_BHV_COLL=0,C_EN_SLEEP_PIN=0,C_USE_URAM=0,C_EN_RDADDRA_CHG=0,C_EN_RDADDRB_CHG=0,C_EN_DEEPSLEEP_PIN=0,C_" & 
-"EN_SHUTDOWN_PIN=0,C_EN_SAFETY_CKT=0,C_DISABLE_WARN_BHV_RANGE=0,C_COUNT_36K_BRAM=32,C_COUNT_18K_BRAM=0,C_EST_POWER_SUMMARY=Estimated Power for IP     _     39.827796 mW}";
+"EN_SHUTDOWN_PIN=0,C_EN_SAFETY_CKT=0,C_DISABLE_WARN_BHV_RANGE=0,C_COUNT_36K_BRAM=24,C_COUNT_18K_BRAM=0,C_EST_POWER_SUMMARY=Estimated Power for IP     _     29.87085 mW}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF addra: SIGNAL IS "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR";
@@ -239,6 +240,7 @@ ARCHITECTURE main_blk_mem_gen_0_0_arch OF main_blk_mem_gen_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF dinb: SIGNAL IS "xilinx.com:interface:bram:1.0 BRAM_PORTB DIN";
   ATTRIBUTE X_INTERFACE_INFO OF douta: SIGNAL IS "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT";
   ATTRIBUTE X_INTERFACE_INFO OF doutb: SIGNAL IS "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT";
+  ATTRIBUTE X_INTERFACE_INFO OF enb: SIGNAL IS "xilinx.com:interface:bram:1.0 BRAM_PORTB EN";
   ATTRIBUTE X_INTERFACE_INFO OF wea: SIGNAL IS "xilinx.com:interface:bram:1.0 BRAM_PORTA WE";
   ATTRIBUTE X_INTERFACE_INFO OF web: SIGNAL IS "xilinx.com:interface:bram:1.0 BRAM_PORTB WE";
 BEGIN
@@ -273,8 +275,8 @@ BEGIN
       C_USE_BYTE_WEA => 0,
       C_WEA_WIDTH => 1,
       C_WRITE_MODE_A => "READ_FIRST",
-      C_WRITE_WIDTH_A => 16,
-      C_READ_WIDTH_A => 16,
+      C_WRITE_WIDTH_A => 12,
+      C_READ_WIDTH_A => 12,
       C_WRITE_DEPTH_A => 65535,
       C_READ_DEPTH_A => 65535,
       C_ADDRA_WIDTH => 16,
@@ -282,13 +284,13 @@ BEGIN
       C_RST_PRIORITY_B => "CE",
       C_RSTRAM_B => 0,
       C_INITB_VAL => "0",
-      C_HAS_ENB => 0,
+      C_HAS_ENB => 1,
       C_HAS_REGCEB => 0,
       C_USE_BYTE_WEB => 0,
       C_WEB_WIDTH => 1,
       C_WRITE_MODE_B => "READ_FIRST",
-      C_WRITE_WIDTH_B => 16,
-      C_READ_WIDTH_B => 16,
+      C_WRITE_WIDTH_B => 12,
+      C_READ_WIDTH_B => 12,
       C_WRITE_DEPTH_B => 65535,
       C_READ_DEPTH_B => 65535,
       C_ADDRB_WIDTH => 16,
@@ -316,9 +318,9 @@ BEGIN
       C_EN_SHUTDOWN_PIN => 0,
       C_EN_SAFETY_CKT => 0,
       C_DISABLE_WARN_BHV_RANGE => 0,
-      C_COUNT_36K_BRAM => "32",
+      C_COUNT_36K_BRAM => "24",
       C_COUNT_18K_BRAM => "0",
-      C_EST_POWER_SUMMARY => "Estimated Power for IP     :     39.827796 mW"
+      C_EST_POWER_SUMMARY => "Estimated Power for IP     :     29.87085 mW"
     )
     PORT MAP (
       clka => clka,
@@ -331,7 +333,7 @@ BEGIN
       douta => douta,
       clkb => clkb,
       rstb => '0',
-      enb => '0',
+      enb => enb,
       regceb => '1',
       web => web,
       addrb => addrb,
@@ -351,7 +353,7 @@ BEGIN
       s_axi_awsize => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 3)),
       s_axi_awburst => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 2)),
       s_axi_awvalid => '0',
-      s_axi_wdata => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 16)),
+      s_axi_wdata => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 12)),
       s_axi_wstrb => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
       s_axi_wlast => '0',
       s_axi_wvalid => '0',

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1732118810">
+<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1732176158">
   <File Type="ROUTE-PWR" Name="main_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="main_wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="main_wrapper_power_summary_routed.pb"/>
@@ -264,7 +264,7 @@
     </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design">
-      <Option Id="Directive">0</Option>
+      <Option Id="MoreOptsStr"><![CDATA[-muxf_remap -carry_remap -dsp_register_opt -aggressive_remap -resynth_remap -resynth_seq_area]]></Option>
     </Step>
     <Step Id="power_opt_design"/>
     <Step Id="place_design">
