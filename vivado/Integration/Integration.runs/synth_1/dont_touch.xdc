@@ -63,27 +63,17 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_mmio_0
 # IP: bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_blk_mem_gen_0_0 || ORIG_REF_NAME==main_blk_mem_gen_0_0} -quiet] -quiet
 
-# IP: bd/main/ip/main_blk_mem_gen_1_0/main_blk_mem_gen_1_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_blk_mem_gen_1_0 || ORIG_REF_NAME==main_blk_mem_gen_1_0} -quiet] -quiet
-
-# IP: bd/main/ip/main_blk_mem_gen_2_0/main_blk_mem_gen_2_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_blk_mem_gen_2_0 || ORIG_REF_NAME==main_blk_mem_gen_2_0} -quiet] -quiet
-
 # IP: bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] -quiet
 
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
 
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_1_0/main_blk_mem_gen_1_0_ooc.xdc
-
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_2_0/main_blk_mem_gen_2_0_ooc.xdc
-
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc
 
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc
