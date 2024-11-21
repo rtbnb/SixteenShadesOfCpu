@@ -86,7 +86,8 @@ entity Debugger is
               
         
         -- mmu
-        mmu_debug_sys_clk: out std_logic := '0';
+        mmu_debug_sys_clk200mhz: out std_logic := '0';
+        mmu_debug_sync_clk100mhz: out std_logic := '0';
         mmu_debug_en: out std_logic := '0';
         mmu_debug_override_en: out std_logic := '0';
         mmu_debug_addr: out std_logic_vector(15 downto 0) := x"0000";
@@ -188,7 +189,7 @@ begin
                 when ReceiveInstructionDataLOW =>
                     if (rx_data_valid = '1') then
                         rx_instruction_data_buffer(7 downto 0) <= rx_data;
-                        state <= HoldClock;
+                        state <= ReceiveInstructionData2HIGH;
                     else
                         state <= ReceiveInstructionDataLOW;
                     end if;
@@ -275,7 +276,7 @@ begin
                             mmu_debug_bank <= "1111";
                             mmu_debug_override_en <= '1';
                             mmu_debug_we <= '1';
-                            mmu_debug_sys_clk <= '1';
+                            mmu_debug_sync_clk100mhz <= '1';
                             state <= ResetMMUDebug;
                         -- alu
                         when x"40" =>
@@ -428,7 +429,7 @@ begin
                 when ResetMMUDebug =>
                     mmu_debug_override_en <= '0';
                     mmu_debug_we <= '0';
-                    mmu_debug_sys_clk <= '0';
+                    mmu_debug_sync_clk100mhz <= '0';
                     state <= Idle;
                     
                     

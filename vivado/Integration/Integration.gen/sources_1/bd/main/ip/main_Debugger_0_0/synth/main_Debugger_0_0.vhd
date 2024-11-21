@@ -88,7 +88,8 @@ ENTITY main_Debugger_0_0 IS
     regfile_reg2_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_regma_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    mmu_debug_sys_clk : OUT STD_LOGIC;
+    mmu_debug_sys_clk200mhz : OUT STD_LOGIC;
+    mmu_debug_sync_clk100mhz : OUT STD_LOGIC;
     mmu_debug_en : OUT STD_LOGIC;
     mmu_debug_override_en : OUT STD_LOGIC;
     mmu_debug_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -137,7 +138,8 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       regfile_reg2_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_regma_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-      mmu_debug_sys_clk : OUT STD_LOGIC;
+      mmu_debug_sys_clk200mhz : OUT STD_LOGIC;
+      mmu_debug_sync_clk100mhz : OUT STD_LOGIC;
       mmu_debug_en : OUT STD_LOGIC;
       mmu_debug_override_en : OUT STD_LOGIC;
       mmu_debug_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -159,8 +161,6 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF mmu_debug_sys_clk: SIGNAL IS "XIL_INTERFACENAME mmu_debug_sys_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_Debugger_0_0_mmu_debug_sys_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF mmu_debug_sys_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 mmu_debug_sys_clk CLK";
 BEGIN
   U0 : Debugger
     PORT MAP (
@@ -197,7 +197,8 @@ BEGIN
       regfile_reg2_data => regfile_reg2_data,
       regfile_regma_data => regfile_regma_data,
       regfile_bankid => regfile_bankid,
-      mmu_debug_sys_clk => mmu_debug_sys_clk,
+      mmu_debug_sys_clk200mhz => mmu_debug_sys_clk200mhz,
+      mmu_debug_sync_clk100mhz => mmu_debug_sync_clk100mhz,
       mmu_debug_en => mmu_debug_en,
       mmu_debug_override_en => mmu_debug_override_en,
       mmu_debug_addr => mmu_debug_addr,

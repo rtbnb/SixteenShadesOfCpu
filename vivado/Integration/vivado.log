@@ -3,10 +3,10 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Nov 21 20:19:58 2024
-# Process ID: 6876
+# Start of session at: Thu Nov 21 21:10:02 2024
+# Process ID: 12356
 # Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22712 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9876 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
 # Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/vivado.log
 # Journal file: C:/Development/SixteenShadesOfCpu/vivado/Integration\vivado.jou
 # Running On        :DESKTOP-E8CIL9E
@@ -19,7 +19,7 @@
 # Host memory       :17099 MB
 # Swap memory       :10737 MB
 # Total Virtual     :27837 MB
-# Available Virtual :12353 MB
+# Available Virtual :11085 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
@@ -62,10 +62,8 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-91] Board repository path 'C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
-WARNING: [Board 49-91] Board repository path 'C:/Development/Vivado/ArtyS7-RPU-SoC/Tunkowski/AppData/Roaming/Xilinx/Vivado/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
@@ -91,9 +89,11 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 availab
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-91] Board repository path 'C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
+WARNING: [Board 49-91] Board repository path 'C:/Development/Vivado/ArtyS7-RPU-SoC/Tunkowski/AppData/Roaming/Xilinx/Vivado/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
-open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:09 . Memory (MB): peak = 1526.957 ; gain = 469.922
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 1526.945 ; gain = 463.703
