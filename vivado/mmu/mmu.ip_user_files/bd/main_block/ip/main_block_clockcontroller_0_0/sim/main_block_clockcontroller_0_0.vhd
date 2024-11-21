@@ -56,18 +56,14 @@ USE ieee.numeric_std.ALL;
 ENTITY main_block_clockcontroller_0_0 IS
   PORT (
     clk100mhz_in : IN STD_LOGIC;
-    clk200mhz_in : IN STD_LOGIC;
+    clk50mhz_in : IN STD_LOGIC;
     wizard_locked : IN STD_LOGIC;
-    debug_en_lock : IN STD_LOGIC;
     fault_reset : IN STD_LOGIC;
     debug_reset : IN STD_LOGIC;
-    fault : IN STD_LOGIC;
     debug_en : IN STD_LOGIC;
     load_clk : OUT STD_LOGIC;
     exec_clk : OUT STD_LOGIC;
     debug_clk : OUT STD_LOGIC;
-    clk200mhz : OUT STD_LOGIC;
-    clk200mhz_inf : OUT STD_LOGIC;
     ck_stable : OUT STD_LOGIC
   );
 END main_block_clockcontroller_0_0;
@@ -78,18 +74,14 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
   COMPONENT clockcontroller IS
     PORT (
       clk100mhz_in : IN STD_LOGIC;
-      clk200mhz_in : IN STD_LOGIC;
+      clk50mhz_in : IN STD_LOGIC;
       wizard_locked : IN STD_LOGIC;
-      debug_en_lock : IN STD_LOGIC;
       fault_reset : IN STD_LOGIC;
       debug_reset : IN STD_LOGIC;
-      fault : IN STD_LOGIC;
       debug_en : IN STD_LOGIC;
       load_clk : OUT STD_LOGIC;
       exec_clk : OUT STD_LOGIC;
       debug_clk : OUT STD_LOGIC;
-      clk200mhz : OUT STD_LOGIC;
-      clk200mhz_inf : OUT STD_LOGIC;
       ck_stable : OUT STD_LOGIC
     );
   END COMPONENT clockcontroller;
@@ -109,18 +101,14 @@ BEGIN
   U0 : clockcontroller
     PORT MAP (
       clk100mhz_in => clk100mhz_in,
-      clk200mhz_in => clk200mhz_in,
+      clk50mhz_in => clk50mhz_in,
       wizard_locked => wizard_locked,
-      debug_en_lock => debug_en_lock,
       fault_reset => fault_reset,
       debug_reset => debug_reset,
-      fault => fault,
       debug_en => debug_en,
       load_clk => load_clk,
       exec_clk => exec_clk,
       debug_clk => debug_clk,
-      clk200mhz => clk200mhz,
-      clk200mhz_inf => clk200mhz_inf,
       ck_stable => ck_stable
     );
 END main_block_clockcontroller_0_0_arch;

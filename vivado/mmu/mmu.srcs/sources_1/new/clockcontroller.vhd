@@ -33,9 +33,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity clockcontroller is
     port(
-        clk100mhz_in, clk200mhz_in, wizard_locked, debug_en_lock, fault_reset, debug_reset: in std_logic;
-        fault, debug_en: in std_logic;
-        load_clk, exec_clk, debug_clk, clk200mhz, clk200mhz_inf, ck_stable: out std_logic 
+        clk100mhz_in, clk50mhz_in, wizard_locked, fault_reset, debug_reset: in std_logic;
+        debug_en: in std_logic;
+        load_clk, exec_clk, debug_clk, ck_stable: out std_logic 
     );
 end clockcontroller;
 
@@ -44,14 +44,11 @@ signal output_en_s: std_logic;
 signal fault_s, debug_en_s: std_logic := '0';
 
 begin
-    fault_s <= (fault_s or fault) and not fault_reset;
-    debug_en_s <= (debug_en_s or debug_en) and not debug_reset;
-    
-    output_en_s <= wizard_locked and not (fault_s or debug_en_s);
+    output_en_s <= wizard_locked;
     ck_stable <= wizard_locked;
     
     with wizard_locked select
-        debug_clk <= clk100mhz_in when '1',
+        debug_clk <= clk50mhz_in when '1',
                      '0' when others;
     
     with output_en_s select
@@ -60,13 +57,7 @@ begin
     with output_en_s select
         exec_clk <= not clk100mhz_in when '1',
                      '0' when others;    
-    with output_en_s select
-        clk200mhz <= clk200mhz_in when '1',
-                     '0' when others;
-    with output_en_s select
-        clk200mhz_inf <= not clk200mhz_in when '1',
-                     '0' when others;
-    
+    --TODO Implement debug begin and end logic
     
     
 end Behavioral;

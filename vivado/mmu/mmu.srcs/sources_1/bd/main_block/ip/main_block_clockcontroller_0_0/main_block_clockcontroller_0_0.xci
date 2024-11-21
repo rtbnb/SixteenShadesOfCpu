@@ -38,18 +38,14 @@
     "boundary": {
       "ports": {
         "clk100mhz_in": [ { "direction": "in" } ],
-        "clk200mhz_in": [ { "direction": "in" } ],
+        "clk50mhz_in": [ { "direction": "in" } ],
         "wizard_locked": [ { "direction": "in" } ],
-        "debug_en_lock": [ { "direction": "in" } ],
         "fault_reset": [ { "direction": "in" } ],
         "debug_reset": [ { "direction": "in" } ],
-        "fault": [ { "direction": "in" } ],
         "debug_en": [ { "direction": "in" } ],
         "load_clk": [ { "direction": "out" } ],
         "exec_clk": [ { "direction": "out" } ],
         "debug_clk": [ { "direction": "out" } ],
-        "clk200mhz": [ { "direction": "out" } ],
-        "clk200mhz_inf": [ { "direction": "out" } ],
         "ck_stable": [ { "direction": "out" } ]
       },
       "interfaces": {
