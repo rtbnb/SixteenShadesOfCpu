@@ -38,9 +38,9 @@ entity mmu is
         fault: out std_logic;
         ck_stable: in std_logic;
         
-        cpu_sync, debug_sync, vram_sync: in std_logic; --The sync signal is a replacement for the old clk signals. It is used for the locks and to initiate a operation
+        exec_clk, debug_clk, vga_clk, gpu_clk: in std_logic; --The sync signal is a replacement for the old clk signals. It is used for the locks and to initiate a operation
         
-        debug_clk200mhz, debug_we, debug_enable, debug_override_enable: std_logic;
+        debug_we, debug_enable, debug_override_enable: std_logic;
         debug_addr, debug_din: in std_logic_vector( 15 downto 0 );
         debug_bank: in std_logic_vector( 3 downto 0 );
         debug_dout: out std_logic_vector( 15 downto 0 );
@@ -76,7 +76,7 @@ entity mmu is
 end mmu;
 
 architecture Behavioral of mmu is
-	type ram_type is array (13 downto 0) of std_logic_vector(15 downto 0);
+	type ram_type is array (2047 downto 0) of std_logic_vector(15 downto 0);
 	signal iram : ram_type;	
 	attribute iram_ram_style : string;
     attribute iram_ram_style of iram : signal is "distributed"; 
@@ -84,6 +84,8 @@ architecture Behavioral of mmu is
     signal gram : ram_type;
     attribute gram_ram_style : string;
     attribute gram_ram_style of iram : signal is "distributed"; 
+    
+    signal cpu_sync_s: std_logic;
     
     signal general_cpu_sync_s: std_logic;
     

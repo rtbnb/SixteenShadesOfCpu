@@ -80,24 +80,14 @@ ENTITY main_block_mmu_0_0 IS
     vram_clk200mhz : IN STD_LOGIC;
     vram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     vram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    iram_mem_addr : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
-    iram_mem_ck : OUT STD_LOGIC;
-    iram_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    iram_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-    iram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    gram_mem_addr : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
-    gram_mem_ck : OUT STD_LOGIC;
-    gram_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    gram_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-    gram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     vrama_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     vrama_mem_ck : OUT STD_LOGIC;
-    vrama_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    vrama_mem_din : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     vrama_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     vrama_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     vramb_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     vramb_mem_ck : OUT STD_LOGIC;
-    vramb_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    vramb_mem_din : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     vramb_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     vramb_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmio_mem_ck : OUT STD_LOGIC;
@@ -139,24 +129,14 @@ ARCHITECTURE main_block_mmu_0_0_arch OF main_block_mmu_0_0 IS
       vram_clk200mhz : IN STD_LOGIC;
       vram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       vram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      iram_mem_addr : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
-      iram_mem_ck : OUT STD_LOGIC;
-      iram_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      iram_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      iram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      gram_mem_addr : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
-      gram_mem_ck : OUT STD_LOGIC;
-      gram_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      gram_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      gram_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       vrama_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       vrama_mem_ck : OUT STD_LOGIC;
-      vrama_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      vrama_mem_din : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       vrama_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       vrama_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       vramb_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       vramb_mem_ck : OUT STD_LOGIC;
-      vramb_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      vramb_mem_din : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       vramb_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       vramb_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmio_mem_ck : OUT STD_LOGIC;
@@ -203,16 +183,6 @@ BEGIN
       vram_clk200mhz => vram_clk200mhz,
       vram_addr => vram_addr,
       vram_dout => vram_dout,
-      iram_mem_addr => iram_mem_addr,
-      iram_mem_ck => iram_mem_ck,
-      iram_mem_din => iram_mem_din,
-      iram_mem_we => iram_mem_we,
-      iram_mem_dout => iram_mem_dout,
-      gram_mem_addr => gram_mem_addr,
-      gram_mem_ck => gram_mem_ck,
-      gram_mem_din => gram_mem_din,
-      gram_mem_we => gram_mem_we,
-      gram_mem_dout => gram_mem_dout,
       vrama_mem_addr => vrama_mem_addr,
       vrama_mem_ck => vrama_mem_ck,
       vrama_mem_din => vrama_mem_din,
