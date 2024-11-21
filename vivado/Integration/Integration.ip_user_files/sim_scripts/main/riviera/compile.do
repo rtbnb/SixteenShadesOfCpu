@@ -44,12 +44,15 @@ vlog -work blk_mem_gen_v8_4_8  -incr -v2k5 "+incdir+../../../../Integration.gen/
 
 vlog -work xil_defaultlib  -incr -v2k5 "+incdir+../../../../Integration.gen/sources_1/bd/main/ipshared/3242" -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
 "../../../bd/main/ip/main_blk_mem_gen_0_0/sim/main_blk_mem_gen_0_0.v" \
-"../../../bd/main/ip/main_blk_mem_gen_1_0/sim/main_blk_mem_gen_1_0.v" \
-"../../../bd/main/ip/main_blk_mem_gen_2_0/sim/main_blk_mem_gen_2_0.v" \
 "../../../bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" \
+"../../../bd/main/ip/main_gram_bram_0/sim/main_gram_bram_0.v" \
+"../../../bd/main/ip/main_iram_bram_0/sim/main_iram_bram_0.v" \
 
 vcom -work xil_defaultlib -93  -incr \
+"../../../bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" \
+"../../../bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" \
+"../../../bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" \
 "../../../bd/main/sim/main.vhd" \
 
 vlog -work xil_defaultlib \

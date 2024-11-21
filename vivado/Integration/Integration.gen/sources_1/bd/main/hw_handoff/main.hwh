@@ -1,15 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 21 09:02:31 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 21 10:30:49 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.1" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
   <EXTERNALPORTS>
+    <PORT DIR="I" NAME="RX_UART_IN" SIGIS="undef" SIGNAME="External_Ports_RX_UART_IN">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="RX_UART_0" PORT="rx_serial_input"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Reset"/>
-        <CONNECTION INSTANCE="ProgramCounter_0" PORT="Reset"/>
-        <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Reset"/>
         <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="ProgramCounter_0" PORT="Reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="TX_UART_OUT" SIGIS="undef" SIGNAME="TX_UART_0_tx_output">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="TX_UART_0" PORT="tx_output"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk100mhz_in" SIGIS="clk" SIGNAME="External_Ports_clk100mhz_in">
@@ -42,6 +52,7 @@
         <PORT DIR="O" LEFT="15" NAME="ALU_OUT" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ALU_OUT">
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="ALU_Out"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="BIGGER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_BIGGER_ZERO_FLAG">
@@ -104,6 +115,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ExecutionFlags"/>
             <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Flags"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_flags"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="BIGGER_ZERO_FLAG" SIGIS="undef" SIGNAME="ALU_0_BIGGER_ZERO_FLAG">
@@ -169,6 +181,7 @@
         <PORT DIR="O" NAME="JMP" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="JMP"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_jmp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="JMP_Conditional" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP_Conditional">
@@ -311,6 +324,7 @@
         <PORT DIR="O" LEFT="15" NAME="PC_Next" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ProgramCounter_0" PORT="Din"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pc_din"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -419,6 +433,218 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Debugger_0" HWVERSION="1.0" INSTANCE="Debugger_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Debugger" VLNV="xilinx.com:module_ref:Debugger:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="main_Debugger_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="alu_din1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand1_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_din2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Operand2_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_flags" RIGHT="0" SIGIS="undef" SIGNAME="ALU_FLAG_PACKER_0_ALU_FLAGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_FLAG_PACKER_0" PORT="ALU_FLAGS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_op" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Execution_0_Immediate_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Immediate_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="alu_out" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_ALU_OUT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="ALU_OUT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="debug_clk_stop_LOW_ACTIVE" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="15" NAME="iram_current_instruction" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="15" NAME="mmu_debug_addr" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="mmu_debug_bank" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_bank">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_bank"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="mmu_debug_din" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_din">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_din"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="mmu_debug_dout" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_debug_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mmu_debug_en" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mmu_debug_override_en" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_override_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_override_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="mmu_debug_sync_clk" SIGIS="clk" SIGNAME="Debugger_0_mmu_debug_sync_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_sync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="mmu_debug_sys_clk" SIGIS="clk" SIGNAME="Debugger_0_mmu_debug_sys_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_clk200mhz"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mmu_debug_we" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_we">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_we"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pc_current_addr" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pc_din" RIGHT="0" SIGIS="undef" SIGNAME="CU_JumpController_0_PC_Next">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Next"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pc_dout" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pipeline_current_instruction" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionToExecute"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="4" NAME="pipeline_instruction_forwarding_config" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionForwardConfiguration">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstructionForwardConfiguration"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pipeline_jmp" SIGIS="undef" SIGNAME="CU_Decoder_0_JMP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_Decoder_0" PORT="JMP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pipeline_memory_addr_reg" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedMA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedMA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pipeline_operand_1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="pipeline_operand_2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardedOperand2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pipeline_stalled" SIGIS="undef" SIGNAME="Pipelining_Controller_0_Stalled">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Stalled"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="regfile_addr_reg1" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Register1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="regfile_addr_reg2" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Decoder_0" PORT="Register2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="regfile_addr_write_reg" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteAddress_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteAddress_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="regfile_bankid" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_BankID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="BankID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="regfile_overwrite_flag" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Is_ALU_OP_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Is_ALU_OP_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="regfile_reg1_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg1_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Reg1_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="regfile_reg2_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg2_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="Reg2_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="regfile_regma_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_RegMA_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RegFile_0" PORT="RegMA_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="regfile_write_data" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteData_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="WriteData_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="regfile_write_enable" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="RF_WE_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="rx_data" RIGHT="0" SIGIS="undef" SIGNAME="RX_UART_0_data_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RX_UART_0" PORT="data_output"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_data_valid" SIGIS="undef" SIGNAME="RX_UART_0_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RX_UART_0" PORT="data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="tx_data" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_tx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="data_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="tx_data_sended" SIGIS="undef" SIGNAME="TX_UART_0_send_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="send_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_data_valid" SIGIS="undef" SIGNAME="Debugger_0_tx_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/Decoder_0" HWVERSION="1.0" INSTANCE="Decoder_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Decoder" VLNV="xilinx.com:module_ref:Decoder:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -444,11 +670,13 @@
         <PORT DIR="O" LEFT="3" NAME="Register1" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RegFile_0" PORT="AddrReg1"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_addr_reg1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="Register2" RIGHT="0" SIGIS="undef" SIGNAME="Decoder_0_Register2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RegFile_0" PORT="AddrReg2"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_addr_reg2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="Use_MA" SIGIS="undef" SIGNAME="Decoder_0_Use_MA">
@@ -489,12 +717,14 @@
         <PORT DIR="O" LEFT="4" NAME="InstructionForwardConfiguration" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionForwardConfiguration">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="ForwardingConfiguration"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_instruction_forwarding_config"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="InstructionToExecute" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionToExecute">
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_Decoder_0" PORT="Instruction"/>
             <CONNECTION INSTANCE="Decoder_0" PORT="Instruction"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_current_instruction"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
@@ -510,6 +740,7 @@
         <PORT DIR="O" NAME="Stalled" SIGIS="undef" SIGNAME="Pipelining_Controller_0_Stalled">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ProgramCounter_0" PORT="Stalled"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_stalled"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -538,6 +769,7 @@
             <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="Immediate"/>
             <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="Immediate"/>
             <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Immediate"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_op"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="clockcontroller_0_load_clk">
@@ -625,6 +857,7 @@
             <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="Register1"/>
             <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Reg1"/>
             <CONNECTION INSTANCE="mmu_0" PORT="gram_din"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_din1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="Operand2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
@@ -637,6 +870,7 @@
             <CONNECTION INSTANCE="ALU_0" PORT="D2"/>
             <CONNECTION INSTANCE="CU_JumpController_0" PORT="Flags"/>
             <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Reg2"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_din2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="3" NAME="RAM_BankID" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_BankID">
@@ -766,16 +1000,19 @@
         <PORT DIR="O" LEFT="15" NAME="ForwardedMA" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedMA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="MA"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_memory_addr_reg"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="ForwardedOperand1" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand1"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_operand_1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="ForwardedOperand2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Operand2"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_operand_2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="4" NAME="ForwardingConfiguration" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Controller_0_InstructionForwardConfiguration">
@@ -816,6 +1053,7 @@
         <PORT DIR="O" NAME="Is_ALU_OP_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Is_ALU_OP_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RegFile_0" PORT="OverwriteFl"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_overwrite_flag"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="JMP" SIGIS="undef" SIGNAME="Pipelining_Execution_0_JMP_out">
@@ -832,6 +1070,7 @@
         <PORT DIR="O" NAME="RF_WE_out" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RegFile_0" PORT="WE"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_write_enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
@@ -857,6 +1096,7 @@
         <PORT DIR="O" LEFT="3" NAME="WriteAddress_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteAddress_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RegFile_0" PORT="AddrWriteReg"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_addr_write_reg"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="WriteData" RIGHT="0" SIGIS="undef" SIGNAME="CU_WriteSelector_0_Write_Data">
@@ -867,6 +1107,7 @@
         <PORT DIR="O" LEFT="15" NAME="WriteData_out" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_WriteData_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RegFile_0" PORT="WriteData"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_write_data"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -888,6 +1129,8 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Current"/>
             <CONNECTION INSTANCE="mmu_0" PORT="iram_addr"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pc_dout"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="pc_current_addr"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="clockcontroller_0_exec_clk">
@@ -918,6 +1161,37 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/RX_UART_0" HWVERSION="1.0" INSTANCE="RX_UART_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RX_UART" VLNV="xilinx.com:module_ref:RX_UART:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLKS_PER_BIT" VALUE="109"/>
+        <PARAMETER NAME="Component_Name" VALUE="main_RX_UART_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="data_output" RIGHT="0" SIGIS="undef" SIGNAME="RX_UART_0_data_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="rx_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="data_valid" SIGIS="undef" SIGNAME="RX_UART_0_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="rx_data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rx_serial_input" SIGIS="undef" SIGNAME="External_Ports_RX_UART_IN">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="RX_UART_IN"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/RegFile_0" HWVERSION="1.0" INSTANCE="RegFile_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RegFile" VLNV="xilinx.com:module_ref:RegFile:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -943,6 +1217,7 @@
         <PORT DIR="O" LEFT="3" NAME="BankID" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_BankID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_BankID"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_bankid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="Flags" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_Flags_out">
@@ -958,16 +1233,19 @@
         <PORT DIR="O" LEFT="15" NAME="Reg1_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg1_data">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentOperand1"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_reg1_data"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="Reg2_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_Reg2_data">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentOperand2"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_reg2_data"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="RegMA_data" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_RegMA_data">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Forwarder_0" PORT="CurrentMA"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="regfile_regma_data"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="WE" SIGIS="undef" SIGNAME="Pipelining_WriteBack_0_RF_WE_out">
@@ -983,6 +1261,42 @@
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_exec_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="exec_clk"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/TX_UART_0" HWVERSION="1.0" INSTANCE="TX_UART_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="TX_UART" VLNV="xilinx.com:module_ref:TX_UART:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLKS_PER_BIT" VALUE="109"/>
+        <PARAMETER NAME="Component_Name" VALUE="main_TX_UART_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="data_in" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_tx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="data_valid" SIGIS="undef" SIGNAME="Debugger_0_tx_data_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="send_valid" SIGIS="undef" SIGNAME="TX_UART_0_send_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="tx_data_sended"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx_output" SIGIS="undef" SIGNAME="TX_UART_0_tx_output">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="TX_UART_OUT"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1619,7 +1933,13 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="clk200mhz_inf" SIGIS="undef"/>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="debug_clk" SIGIS="clk"/>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="debug_clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RX_UART_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="clk"/>
+            <CONNECTION INSTANCE="TX_UART_0" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="debug_en" SIGIS="undef"/>
         <PORT DIR="I" NAME="debug_en_lock" SIGIS="undef" SIGNAME="mmu_0_debug_en_lock">
           <CONNECTIONS>
@@ -1629,10 +1949,10 @@
         <PORT DIR="I" NAME="debug_reset" POLARITY="ACTIVE_LOW" SIGIS="rst"/>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="exec_clk" SIGIS="clk" SIGNAME="clockcontroller_0_exec_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ProgramCounter_0" PORT="InstrExec_CLK"/>
-            <CONNECTION INSTANCE="CU_JumpController_0" PORT="InstrExec_CLK"/>
-            <CONNECTION INSTANCE="RegFile_0" PORT="clk"/>
             <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrExec_CLK"/>
+            <CONNECTION INSTANCE="CU_JumpController_0" PORT="InstrExec_CLK"/>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="InstrExec_CLK"/>
+            <CONNECTION INSTANCE="RegFile_0" PORT="clk"/>
             <CONNECTION INSTANCE="mmu_0" PORT="cpu_sync"/>
           </CONNECTIONS>
         </PORT>
@@ -1644,10 +1964,10 @@
         <PORT DIR="I" NAME="fault_reset" POLARITY="ACTIVE_LOW" SIGIS="rst"/>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="load_clk" SIGIS="clk" SIGNAME="clockcontroller_0_load_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="InstrLoad_CLK"/>
-            <CONNECTION INSTANCE="ProgramCounter_0" PORT="InstrLoad_CLK"/>
-            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="InstrLoad_CLK"/>
             <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrLoad_CLK"/>
+            <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="InstrLoad_CLK"/>
+            <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="InstrLoad_CLK"/>
+            <CONNECTION INSTANCE="ProgramCounter_0" PORT="InstrLoad_CLK"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="wizard_locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
@@ -1686,7 +2006,7 @@
         <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="0"/>
         <PARAMETER NAME="C_EN_SHUTDOWN_PIN" VALUE="0"/>
         <PARAMETER NAME="C_EN_SLEEP_PIN" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     39.8278 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     20.330378 mW"/>
         <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
         <PARAMETER NAME="C_HAS_ENA" VALUE="0"/>
@@ -1710,7 +2030,7 @@
         <PARAMETER NAME="C_LOAD_INIT_FILE" VALUE="0"/>
         <PARAMETER NAME="C_MEM_TYPE" VALUE="2"/>
         <PARAMETER NAME="C_MUX_PIPELINE_STAGES" VALUE="0"/>
-        <PARAMETER NAME="C_PRIM_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_PRIM_TYPE" VALUE="2"/>
         <PARAMETER NAME="C_READ_DEPTH_A" VALUE="16383"/>
         <PARAMETER NAME="C_READ_DEPTH_B" VALUE="16383"/>
         <PARAMETER NAME="C_READ_LATENCY_A" VALUE="1"/>
@@ -1748,7 +2068,7 @@
         <PARAMETER NAME="CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="Coe_File" VALUE="no_coe_file_loaded"/>
         <PARAMETER NAME="Collision_Warnings" VALUE="ALL"/>
-        <PARAMETER NAME="Component_Name" VALUE="main_blk_mem_gen_1_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="main_gram_bram_0"/>
         <PARAMETER NAME="Disable_Collision_Warnings" VALUE="false"/>
         <PARAMETER NAME="Disable_Out_of_Range_Warnings" VALUE="false"/>
         <PARAMETER NAME="ECC" VALUE="false"/>
@@ -1778,7 +2098,7 @@
         <PARAMETER NAME="Port_B_Clock" VALUE="100"/>
         <PARAMETER NAME="Port_B_Enable_Rate" VALUE="100"/>
         <PARAMETER NAME="Port_B_Write_Rate" VALUE="50"/>
-        <PARAMETER NAME="Primitive" VALUE="8kx2"/>
+        <PARAMETER NAME="Primitive" VALUE="4kx4"/>
         <PARAMETER NAME="RD_ADDR_CHNG_A" VALUE="false"/>
         <PARAMETER NAME="RD_ADDR_CHNG_B" VALUE="false"/>
         <PARAMETER NAME="READ_LATENCY_A" VALUE="1"/>
@@ -1813,35 +2133,15 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="13" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_gram_mem_addr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="gram_mem_addr"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" LEFT="13" NAME="addra" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="13" NAME="addrb" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" NAME="clka" SIGIS="clk" SIGNAME="mmu_0_gram_mem_ck">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="gram_mem_ck"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" NAME="clka" SIGIS="clk"/>
         <PORT DIR="I" NAME="clkb" SIGIS="clk"/>
-        <PORT DIR="I" LEFT="15" NAME="dina" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_gram_mem_din">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="gram_mem_din"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="dina" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="15" NAME="dinb" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="15" NAME="douta" RIGHT="0" SIGIS="undef" SIGNAME="gram_bram_douta">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="gram_mem_dout"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="douta" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="doutb" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="0" NAME="wea" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_gram_mem_we">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="gram_mem_we"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="wea" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="web" RIGHT="0" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES>
@@ -1907,7 +2207,7 @@
         <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="0"/>
         <PARAMETER NAME="C_EN_SHUTDOWN_PIN" VALUE="0"/>
         <PARAMETER NAME="C_EN_SLEEP_PIN" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     39.8278 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     20.330378 mW"/>
         <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
         <PARAMETER NAME="C_HAS_ENA" VALUE="0"/>
@@ -1931,7 +2231,7 @@
         <PARAMETER NAME="C_LOAD_INIT_FILE" VALUE="0"/>
         <PARAMETER NAME="C_MEM_TYPE" VALUE="2"/>
         <PARAMETER NAME="C_MUX_PIPELINE_STAGES" VALUE="0"/>
-        <PARAMETER NAME="C_PRIM_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_PRIM_TYPE" VALUE="2"/>
         <PARAMETER NAME="C_READ_DEPTH_A" VALUE="16383"/>
         <PARAMETER NAME="C_READ_DEPTH_B" VALUE="16383"/>
         <PARAMETER NAME="C_READ_LATENCY_A" VALUE="1"/>
@@ -1969,7 +2269,7 @@
         <PARAMETER NAME="CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="Coe_File" VALUE="no_coe_file_loaded"/>
         <PARAMETER NAME="Collision_Warnings" VALUE="ALL"/>
-        <PARAMETER NAME="Component_Name" VALUE="main_blk_mem_gen_2_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="main_iram_bram_0"/>
         <PARAMETER NAME="Disable_Collision_Warnings" VALUE="false"/>
         <PARAMETER NAME="Disable_Out_of_Range_Warnings" VALUE="false"/>
         <PARAMETER NAME="ECC" VALUE="false"/>
@@ -1999,7 +2299,7 @@
         <PARAMETER NAME="Port_B_Clock" VALUE="100"/>
         <PARAMETER NAME="Port_B_Enable_Rate" VALUE="100"/>
         <PARAMETER NAME="Port_B_Write_Rate" VALUE="50"/>
-        <PARAMETER NAME="Primitive" VALUE="8kx2"/>
+        <PARAMETER NAME="Primitive" VALUE="4kx4"/>
         <PARAMETER NAME="RD_ADDR_CHNG_A" VALUE="false"/>
         <PARAMETER NAME="RD_ADDR_CHNG_B" VALUE="false"/>
         <PARAMETER NAME="READ_LATENCY_A" VALUE="1"/>
@@ -2034,35 +2334,15 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="13" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_iram_mem_addr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="iram_mem_addr"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" LEFT="13" NAME="addra" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="13" NAME="addrb" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" NAME="clka" SIGIS="clk" SIGNAME="mmu_0_iram_mem_ck">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="iram_mem_ck"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" NAME="clka" SIGIS="clk"/>
         <PORT DIR="I" NAME="clkb" SIGIS="clk"/>
-        <PORT DIR="I" LEFT="15" NAME="dina" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_iram_mem_din">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="iram_mem_din"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="dina" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="15" NAME="dinb" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="15" NAME="douta" RIGHT="0" SIGIS="undef" SIGNAME="iram_bram_douta">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="iram_mem_dout"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="douta" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="doutb" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="0" NAME="wea" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_iram_mem_we">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="mmu_0" PORT="iram_mem_we"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="wea" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="web" RIGHT="0" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES>
@@ -2166,20 +2446,56 @@
             <CONNECTION INSTANCE="clockcontroller_0" PORT="exec_clk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="debug_addr" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="3" NAME="debug_bank" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" NAME="debug_clk200mhz" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="15" NAME="debug_din" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="15" NAME="debug_dout" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="15" NAME="debug_addr" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="debug_bank" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_bank">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_bank"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="debug_clk200mhz" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_sys_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_sys_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="debug_din" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_din">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_din"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="debug_dout" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_debug_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_dout"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="debug_en_lock" SIGIS="undef" SIGNAME="mmu_0_debug_en_lock">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_en_lock"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="debug_enable" SIGIS="undef"/>
-        <PORT DIR="I" NAME="debug_override_enable" SIGIS="undef"/>
-        <PORT DIR="I" NAME="debug_sync" SIGIS="undef"/>
-        <PORT DIR="I" NAME="debug_we" SIGIS="undef"/>
+        <PORT DIR="I" NAME="debug_enable" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="debug_override_enable" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_override_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_override_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="debug_sync" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_sync_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_sync_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="debug_we" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_we">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_we"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="fault" SIGIS="undef" SIGNAME="mmu_0_fault">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="fault"/>
@@ -2205,31 +2521,6 @@
             <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="RAM_Out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="13" NAME="gram_mem_addr" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_gram_mem_addr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gram_bram" PORT="addra"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="gram_mem_ck" SIGIS="undef" SIGNAME="mmu_0_gram_mem_ck">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gram_bram" PORT="clka"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="gram_mem_din" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_gram_mem_din">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gram_bram" PORT="dina"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="gram_mem_dout" RIGHT="0" SIGIS="undef" SIGNAME="gram_bram_douta">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gram_bram" PORT="douta"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="gram_mem_we" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_gram_mem_we">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="gram_bram" PORT="wea"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="gram_we" SIGIS="undef" SIGNAME="Pipelining_Execution_0_RAM_Write_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="RAM_Write_out"/>
@@ -2243,31 +2534,6 @@
         <PORT DIR="O" LEFT="15" NAME="iram_dout" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_iram_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Instruction"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="13" NAME="iram_mem_addr" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_iram_mem_addr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="iram_bram" PORT="addra"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="iram_mem_ck" SIGIS="undef" SIGNAME="mmu_0_iram_mem_ck">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="iram_bram" PORT="clka"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="iram_mem_din" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_iram_mem_din">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="iram_bram" PORT="dina"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="iram_mem_dout" RIGHT="0" SIGIS="undef" SIGNAME="iram_bram_douta">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="iram_bram" PORT="douta"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="iram_mem_we" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_iram_mem_we">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="iram_bram" PORT="wea"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="mmio_mem_addr" RIGHT="0" SIGIS="undef" SIGNAME="mmu_0_mmio_mem_addr">
@@ -2315,7 +2581,7 @@
             <CONNECTION INSTANCE="vram_bram" PORT="dina"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="11" NAME="vrama_mem_dout" RIGHT="0" SIGIS="undef" SIGNAME="vram_bram_douta">
+        <PORT DIR="I" LEFT="15" NAME="vrama_mem_dout" RIGHT="0" SIGIS="undef" SIGNAME="vram_bram_douta">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vram_bram" PORT="douta"/>
           </CONNECTIONS>
@@ -2340,7 +2606,7 @@
             <CONNECTION INSTANCE="vram_bram" PORT="dinb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="11" NAME="vramb_mem_dout" RIGHT="0" SIGIS="undef" SIGNAME="vram_bram_doutb">
+        <PORT DIR="I" LEFT="15" NAME="vramb_mem_dout" RIGHT="0" SIGIS="undef" SIGNAME="vram_bram_doutb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="vram_bram" PORT="doutb"/>
           </CONNECTIONS>
@@ -2381,7 +2647,7 @@
         <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="0"/>
         <PARAMETER NAME="C_EN_SHUTDOWN_PIN" VALUE="0"/>
         <PARAMETER NAME="C_EN_SLEEP_PIN" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     29.87085 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     15.247784 mW"/>
         <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
         <PARAMETER NAME="C_HAS_ENA" VALUE="0"/>
@@ -2405,7 +2671,7 @@
         <PARAMETER NAME="C_LOAD_INIT_FILE" VALUE="0"/>
         <PARAMETER NAME="C_MEM_TYPE" VALUE="2"/>
         <PARAMETER NAME="C_MUX_PIPELINE_STAGES" VALUE="0"/>
-        <PARAMETER NAME="C_PRIM_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_PRIM_TYPE" VALUE="2"/>
         <PARAMETER NAME="C_READ_DEPTH_A" VALUE="65535"/>
         <PARAMETER NAME="C_READ_DEPTH_B" VALUE="65535"/>
         <PARAMETER NAME="C_READ_LATENCY_A" VALUE="1"/>
@@ -2473,7 +2739,7 @@
         <PARAMETER NAME="Port_B_Clock" VALUE="100"/>
         <PARAMETER NAME="Port_B_Enable_Rate" VALUE="100"/>
         <PARAMETER NAME="Port_B_Write_Rate" VALUE="50"/>
-        <PARAMETER NAME="Primitive" VALUE="8kx2"/>
+        <PARAMETER NAME="Primitive" VALUE="4kx4"/>
         <PARAMETER NAME="RD_ADDR_CHNG_A" VALUE="false"/>
         <PARAMETER NAME="RD_ADDR_CHNG_B" VALUE="false"/>
         <PARAMETER NAME="READ_LATENCY_A" VALUE="1"/>
