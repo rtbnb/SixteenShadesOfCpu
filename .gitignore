@@ -1,14 +1,1 @@
 .idea
-*/**/*.rst
-*/**/*.log
-*/**/*.pb
-vivado/*/*.cache/*
-vivado/*/*.runs/.jobs/*
-vivado/*/*.runs/impl_1/*
-vivado/*/*.runs/synth_1/*
-vivado/**/README.txt
-vivado/*/*.sim/*/synth/func/xsim/xsim.dir/*
-vivado/*/*.sim/*/impl/func/xsim/xsim.dir/*
-vivado/*/*.sim/*/behav/xsim/xsim.dir/*_behav/*
-
-.venv/

@@ -1,0 +1,31 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Fri Nov 22 12:55:09 2024
+| Host         : 8x8-Bit running 64-bit major release  (build 9200)
+| Command      : report_high_fanout_nets -file opt_report_high_fanout_nets_0.rpt
+| Design       : TestBlockDesign_wrapper
+| Device       : xc7a35ti
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+High Fan-out Nets Information
+
+1. Summary
+----------
+
++---------------------------------------------------------------------------------------------------------------------------+--------+-------------+
+| Net Name                                                                                                                  | Fanout | Driver Type |
++---------------------------------------------------------------------------------------------------------------------------+--------+-------------+
+| TestBlockDesign_i/VGA_Controller_0/U0/v_counter_s_reg[1]                                                                  |   2409 | FDRE        |
+| TestBlockDesign_i/VGA_Controller_0/U0/h_counter_s_reg[0]                                                                  |    610 | FDRE        |
+| TestBlockDesign_i/VGA_Controller_0/U0/h_counter_s_reg[1]                                                                  |    609 | FDRE        |
+| TestBlockDesign_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/douta[5]  |    200 | LUT3        |
+| TestBlockDesign_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/douta[7]  |    200 | LUT3        |
+| TestBlockDesign_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/douta[6]  |    200 | LUT3        |
+| TestBlockDesign_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/douta[4]  |    200 | LUT3        |
+| TestBlockDesign_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/douta[11] |    200 | LUT3        |
+| TestBlockDesign_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/douta[1]  |    200 | LUT3        |
+| TestBlockDesign_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/douta[3]  |    200 | LUT3        |
++---------------------------------------------------------------------------------------------------------------------------+--------+-------------+
+
+
