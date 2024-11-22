@@ -61,12 +61,13 @@ ENTITY main_block_clockcontroller_0_0 IS
     wizard_locked : IN STD_LOGIC;
     fault_reset : IN STD_LOGIC;
     debug_reset : IN STD_LOGIC;
-    debug_en : IN STD_LOGIC;
+    debug_enable : IN STD_LOGIC;
     debug_mock_clk : IN STD_LOGIC;
     load_clk : OUT STD_LOGIC;
     exec_clk : OUT STD_LOGIC;
     debug_clk : OUT STD_LOGIC;
-    ck_stable : OUT STD_LOGIC
+    ck_stable : OUT STD_LOGIC;
+    test_state : INOUT STD_LOGIC_VECTOR(3 DOWNTO 0)
   );
 END main_block_clockcontroller_0_0;
 
@@ -81,12 +82,13 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
       wizard_locked : IN STD_LOGIC;
       fault_reset : IN STD_LOGIC;
       debug_reset : IN STD_LOGIC;
-      debug_en : IN STD_LOGIC;
+      debug_enable : IN STD_LOGIC;
       debug_mock_clk : IN STD_LOGIC;
       load_clk : OUT STD_LOGIC;
       exec_clk : OUT STD_LOGIC;
       debug_clk : OUT STD_LOGIC;
-      ck_stable : OUT STD_LOGIC
+      ck_stable : OUT STD_LOGIC;
+      test_state : INOUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
   END COMPONENT clockcontroller;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -95,7 +97,7 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
   ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF debug_guard_clk: SIGNAL IS "XIL_INTERFACENAME debug_guard_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 90.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_guard_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_guard_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_mock_clk: SIGNAL IS "XIL_INTERFACENAME debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_debug_mock_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_mock_clk: SIGNAL IS "XIL_INTERFACENAME debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_debug_mock_clk_1, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_mock_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_mock_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF debug_reset: SIGNAL IS "XIL_INTERFACENAME debug_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 debug_reset RST";
@@ -114,11 +116,12 @@ BEGIN
       wizard_locked => wizard_locked,
       fault_reset => fault_reset,
       debug_reset => debug_reset,
-      debug_en => debug_en,
+      debug_enable => debug_enable,
       debug_mock_clk => debug_mock_clk,
       load_clk => load_clk,
       exec_clk => exec_clk,
       debug_clk => debug_clk,
-      ck_stable => ck_stable
+      ck_stable => ck_stable,
+      test_state => test_state
     );
 END main_block_clockcontroller_0_0_arch;

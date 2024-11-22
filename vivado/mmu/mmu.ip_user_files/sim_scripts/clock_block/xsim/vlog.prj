@@ -1,0 +1,8 @@
+verilog xil_defaultlib --include "../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242" \
+"../../../bd/clock_block/ip/clock_block_clk_wiz_0_0/clock_block_clk_wiz_0_0_clk_wiz.v" \
+"../../../bd/clock_block/ip/clock_block_clk_wiz_0_0/clock_block_clk_wiz_0_0.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
