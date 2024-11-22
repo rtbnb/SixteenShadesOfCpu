@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 22 12:33:30 2024
---Host        : Robin_Laptop running 64-bit major release  (build 9200)
+--Date        : Fri Nov 22 23:36:34 2024
+--Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
 --Purpose     : IP block netlist
@@ -24,9 +24,8 @@ entity main_block_wrapper is
     debug_clk : in STD_LOGIC;
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_en : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
-    debug_mock_clk : in STD_LOGIC;
+    debug_mock_clk_1 : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
     debug_we : in STD_LOGIC;
@@ -47,7 +46,6 @@ entity main_block_wrapper is
     led1 : out STD_LOGIC;
     led2 : out STD_LOGIC;
     led3 : out STD_LOGIC;
-    reset : in STD_LOGIC;
     vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vga_clk : in STD_LOGIC;
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 )
@@ -71,8 +69,6 @@ architecture STRUCTURE of main_block_wrapper is
     clk100mhz_in : in STD_LOGIC;
     fault_reset : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    debug_en : in STD_LOGIC;
     gpu_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
     gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -93,7 +89,7 @@ architecture STRUCTURE of main_block_wrapper is
     gpu_we : in STD_LOGIC;
     vga_clk : in STD_LOGIC;
     vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_mock_clk : in STD_LOGIC
+    debug_mock_clk_1 : in STD_LOGIC
   );
   end component main_block;
 begin
@@ -109,9 +105,8 @@ main_block_i: component main_block
       debug_clk => debug_clk,
       debug_din(15 downto 0) => debug_din(15 downto 0),
       debug_dout(15 downto 0) => debug_dout(15 downto 0),
-      debug_en => debug_en,
       debug_enable => debug_enable,
-      debug_mock_clk => debug_mock_clk,
+      debug_mock_clk_1 => debug_mock_clk_1,
       debug_override_enable => debug_override_enable,
       debug_reset => debug_reset,
       debug_we => debug_we,
@@ -132,7 +127,6 @@ main_block_i: component main_block
       led1 => led1,
       led2 => led2,
       led3 => led3,
-      reset => reset,
       vga_addr(15 downto 0) => vga_addr(15 downto 0),
       vga_clk => vga_clk,
       vga_dout(11 downto 0) => vga_dout(11 downto 0)

@@ -1,7 +1,7 @@
 {
 	"version": "1.0",
 	"modules": {
-		"main_block": {
+		"clock_block": {
 			"proto_instances": {
 			}
 		}

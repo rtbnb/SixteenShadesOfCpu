@@ -86,7 +86,7 @@ architecture Behavioral of mmu is
     
     signal gram : ram_type;
     attribute gram_ram_style : string;
-    attribute gram_ram_style of iram : signal is "distributed"; 
+    attribute gram_ram_style of gram : signal is "distributed"; 
     
     signal gram_we_s, gram_clk_s: std_logic;
     signal gram_dout_s, gram_din_s: std_logic_vector( 15 downto 0 );
