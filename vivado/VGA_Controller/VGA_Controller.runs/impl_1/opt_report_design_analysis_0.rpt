@@ -1,0 +1,29 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Fri Nov 22 12:55:10 2024
+| Host         : 8x8-Bit running 64-bit major release  (build 9200)
+| Command      : report_design_analysis -logic_level_distribution -file opt_report_design_analysis_0.rpt
+| Design       : TestBlockDesign_wrapper
+| Device       : xc7a35ti
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Design Analysis
+
+Table of Contents
+-----------------
+1. Logic Level Distribution
+
+1. Logic Level Distribution
+---------------------------
+
++-----------------+-------------+------+
+| End Point Clock | Requirement |   2  |
++-----------------+-------------+------+
+| sys_clk_pin     | 5.000ns     | 1000 |
++-----------------+-------------+------+
+* Columns represent the logic levels per end point clock
+** Distribution is for top worst 1000 paths
+
+
