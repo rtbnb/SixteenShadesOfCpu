@@ -1,11 +1,7 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../ALU_Testing.srcs/sources_1/new/ALU.vhd" \
-<<<<<<<< HEAD:vivado/ALU_Testing/ALU_Testing.sim/sim_1/behav/xsim/ALU_TB_MULTIPLICATION_vhdl.prj
 "../../../../ALU_Testing.srcs/sim_1/new/ALU_TB_MULTIPLICATION.vhd" \
-========
-"../../../../ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd" \
->>>>>>>> 8f4f395b (int * int works now on ALU):vivado/ALU_Testing/ALU_Testing.sim/sim_1/behav/xsim/ALU_TB_SHIFTING_vhdl.prj
 
 # Do not sort compile order
 nosort
