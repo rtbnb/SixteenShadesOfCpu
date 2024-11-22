@@ -35,7 +35,7 @@ entity ALU is
  Port ( 
     D1: IN std_logic_vector(15 downto 0 ):= (others => '0');
     D2: IN std_logic_vector(15 downto 0 ):= (others => '0');
-    ALU_OPP: IN std_logic_vector(15 downto 0 ):= (others => '0');
+    ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
     RHO_PIN: IN std_logic:= '0';
     ALU_OUT: OUT std_logic_vector(15 downto 0 ):= (others => '0');
     --ALU_FLAGS: OUT std_logic_vector(15 downto 0) := (others => '0')
@@ -83,9 +83,6 @@ begin
 
     aluPostOp: process(ALU_OUT_Internal)
     begin
-        if ((ALU_OPP)) = "0100" then
-
-        end if;
         CARRY_FLAG <= ALU_OUT_Internal(16);
          
          if ALU_OUT_Internal(15) = '1' then
