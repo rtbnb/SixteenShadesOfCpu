@@ -3,31 +3,29 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Nov 21 21:32:09 2024
-# Process ID: 1176
-# Current directory: D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1
+# Start of session at: Fri Nov 22 12:39:10 2024
+# Process ID: 24492
+# Current directory: D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1
 # Command line: vivado.exe -log TestBlockDesign_VGA_Controller_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TestBlockDesign_VGA_Controller_0_0.tcl
-# Log file: D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1/TestBlockDesign_VGA_Controller_0_0.vds
-# Journal file: D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1\vivado.jou
-# Running On        :DESKTOP-7KK7962
+# Log file: D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1/TestBlockDesign_VGA_Controller_0_0.vds
+# Journal file: D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1\vivado.jou
+# Running On        :8x8-Bit
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :19045
-# Processor Detail  :AMD Ryzen 7 3700X 8-Core Processor             
-# CPU Frequency     :3600 MHz
-# CPU Physical cores:8
-# CPU Logical cores :16
-# Host memory       :34276 MB
-# Swap memory       :5100 MB
-# Total Virtual     :39376 MB
-# Available Virtual :10645 MB
+# Operating System  :22631
+# Processor Detail  :Intel(R) Core(TM) m3-8100Y CPU @ 1.10GHz
+# CPU Frequency     :1608 MHz
+# CPU Physical cores:2
+# CPU Logical cores :4
+# Host memory       :8453 MB
+# Swap memory       :12731 MB
+# Total Virtual     :21185 MB
+# Available Virtual :4102 MB
 #-----------------------------------------------------------
 source TestBlockDesign_VGA_Controller_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 518.277 ; gain = 201.383
+create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 494.016 ; gain = 202.977
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/programme/Xilinx/Vivado/2024.1/data/ip'.
-WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
-Current IP cache path is d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.cache/ip 
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Vivado/2024.1/data/ip'.
 Command: synth_design -top TestBlockDesign_VGA_Controller_0_0 -part xc7a35ticsg324-1L -incremental_mode off -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
@@ -36,63 +34,63 @@ INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
 INFO: [Device 21-9227] Part: xc7a35ticsg324-1L does not have CEAM library.
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 21144
+INFO: [Synth 8-7075] Helper process launched with PID 19036
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1381.875 ; gain = 447.867
+Starting RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:35 . Memory (MB): peak = 1355.590 ; gain = 447.023
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'TestBlockDesign_VGA_Controller_0_0' [d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/synth/TestBlockDesign_VGA_Controller_0_0.vhd:71]
-INFO: [Synth 8-3491] module 'VGA_Controller' declared at 'D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:34' bound to instance 'U0' of component 'VGA_Controller' [d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/synth/TestBlockDesign_VGA_Controller_0_0.vhd:103]
-INFO: [Synth 8-638] synthesizing module 'VGA_Controller' [D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:47]
-INFO: [Synth 8-256] done synthesizing module 'VGA_Controller' (0#1) [D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:47]
-INFO: [Synth 8-256] done synthesizing module 'TestBlockDesign_VGA_Controller_0_0' (0#1) [d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/synth/TestBlockDesign_VGA_Controller_0_0.vhd:71]
-WARNING: [Synth 8-6014] Unused sequential element frame_counter_s_reg was removed.  [D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:98]
+INFO: [Synth 8-638] synthesizing module 'TestBlockDesign_VGA_Controller_0_0' [d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/synth/TestBlockDesign_VGA_Controller_0_0.vhd:71]
+INFO: [Synth 8-3491] module 'VGA_Controller' declared at 'D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:34' bound to instance 'U0' of component 'VGA_Controller' [d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/synth/TestBlockDesign_VGA_Controller_0_0.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'VGA_Controller' [D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'VGA_Controller' (0#1) [D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'TestBlockDesign_VGA_Controller_0_0' (0#1) [d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/synth/TestBlockDesign_VGA_Controller_0_0.vhd:71]
+WARNING: [Synth 8-6014] Unused sequential element frame_counter_s_reg was removed.  [D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:98]
 WARNING: [Synth 8-7129] Port VRAM_Data[15] in module VGA_Controller is either unconnected or has no load
 WARNING: [Synth 8-7129] Port VRAM_Data[14] in module VGA_Controller is either unconnected or has no load
 WARNING: [Synth 8-7129] Port VRAM_Data[13] in module VGA_Controller is either unconnected or has no load
 WARNING: [Synth 8-7129] Port VRAM_Data[12] in module VGA_Controller is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1534.188 ; gain = 600.180
+Finished RTL Elaboration : Time (s): cpu = 00:00:32 ; elapsed = 00:00:59 . Memory (MB): peak = 1507.805 ; gain = 599.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1534.188 ; gain = 600.180
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:01:01 . Memory (MB): peak = 1507.805 ; gain = 599.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1534.188 ; gain = 600.180
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:33 ; elapsed = 00:01:01 . Memory (MB): peak = 1507.805 ; gain = 599.238
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.066 . Memory (MB): peak = 1534.188 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.503 . Memory (MB): peak = 1507.805 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1635.410 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1607.586 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.114 . Memory (MB): peak = 1640.789 ; gain = 5.379
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.483 . Memory (MB): peak = 1612.594 ; gain = 5.008
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Constraint Validation : Time (s): cpu = 00:00:54 ; elapsed = 00:01:43 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:54 ; elapsed = 00:01:43 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:54 ; elapsed = 00:01:43 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:56 ; elapsed = 00:01:49 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -137,25 +135,25 @@ WARNING: [Synth 8-7129] Port VRAM_Data[14] in module VGA_Controller is either un
 WARNING: [Synth 8-7129] Port VRAM_Data[13] in module VGA_Controller is either unconnected or has no load
 WARNING: [Synth 8-7129] Port VRAM_Data[12] in module VGA_Controller is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:19 ; elapsed = 00:02:31 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:31 ; elapsed = 00:02:53 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Timing Optimization : Time (s): cpu = 00:01:32 ; elapsed = 00:02:54 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Technology Mapping : Time (s): cpu = 00:01:33 ; elapsed = 00:02:56 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -173,37 +171,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished IO Insertion : Time (s): cpu = 00:01:43 ; elapsed = 00:03:15 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:43 ; elapsed = 00:03:15 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:43 ; elapsed = 00:03:15 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:43 ; elapsed = 00:03:15 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:43 ; elapsed = 00:03:16 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:43 ; elapsed = 00:03:16 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -221,38 +219,38 @@ Report Cell Usage:
 +------+-------+------+
 |1     |CARRY4 |     8|
 |2     |LUT1   |     7|
-|3     |LUT2   |    15|
-|4     |LUT3   |   184|
-|5     |LUT4   |    11|
-|6     |LUT5   |    31|
-|7     |LUT6   |   726|
+|3     |LUT2   |    13|
+|4     |LUT3   |   186|
+|5     |LUT4   |    22|
+|6     |LUT5   |    53|
+|7     |LUT6   |   699|
 |8     |MUXF7  |   324|
 |9     |MUXF8  |   144|
-|10    |FDRE   |  4866|
+|10    |FDRE   |  4865|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:43 ; elapsed = 00:03:16 . Memory (MB): peak = 1612.594 ; gain = 704.027
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 1640.789 ; gain = 600.180
-Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1640.789 ; gain = 706.781
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:04 ; elapsed = 00:03:02 . Memory (MB): peak = 1612.594 ; gain = 599.238
+Synthesis Optimization Complete : Time (s): cpu = 00:01:43 ; elapsed = 00:03:16 . Memory (MB): peak = 1612.594 ; gain = 704.027
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1640.789 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.185 . Memory (MB): peak = 1612.594 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 476 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'TestBlockDesign_VGA_Controller_0_0' is not ideal for floorplanning, since the cellview 'VGA_Controller' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1640.789 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1612.594 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 70bcab4b
+Synth Design complete | Checksum: b75b0ff4
 INFO: [Common 17-83] Releasing license: Synthesis
-24 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+24 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1640.789 ; gain = 1106.676
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1640.789 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1/TestBlockDesign_VGA_Controller_0_0.dcp' has been generated.
+synth_design: Time (s): cpu = 00:01:53 ; elapsed = 00:03:40 . Memory (MB): peak = 1612.594 ; gain = 1102.750
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1612.594 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1/TestBlockDesign_VGA_Controller_0_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file TestBlockDesign_VGA_Controller_0_0_utilization_synth.rpt -pb TestBlockDesign_VGA_Controller_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 21 21:33:13 2024...
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 22 12:43:45 2024...

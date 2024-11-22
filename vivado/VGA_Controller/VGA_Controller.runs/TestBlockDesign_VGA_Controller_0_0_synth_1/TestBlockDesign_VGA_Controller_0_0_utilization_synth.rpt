@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Thu Nov 21 21:33:12 2024
-| Host         : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
+| Date         : Fri Nov 22 12:43:42 2024
+| Host         : 8x8-Bit running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TestBlockDesign_VGA_Controller_0_0_utilization_synth.rpt -pb TestBlockDesign_VGA_Controller_0_0_utilization_synth.pb
 | Design       : TestBlockDesign_VGA_Controller_0_0
 | Device       : xc7a35ticsg324-1L
@@ -34,8 +34,8 @@ Table of Contents
 | Slice LUTs*             |  959 |     0 |          0 |     20800 |  4.61 |
 |   LUT as Logic          |  959 |     0 |          0 |     20800 |  4.61 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         | 4866 |     0 |          0 |     41600 | 11.70 |
-|   Register as Flip Flop | 4866 |     0 |          0 |     41600 | 11.70 |
+| Slice Registers         | 4865 |     0 |          0 |     41600 | 11.69 |
+|   Register as Flip Flop | 4865 |     0 |          0 |     41600 | 11.69 |
 |   Register as Latch     |    0 |     0 |          0 |     41600 |  0.00 |
 | F7 Muxes                |  324 |     0 |          0 |     16300 |  1.99 |
 | F8 Muxes                |  144 |     0 |          0 |      8150 |  1.77 |
@@ -60,7 +60,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 4866  |          Yes |       Reset |            - |
+| 4865  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,14 +149,14 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 4866 |        Flop & Latch |
-| LUT6     |  726 |                 LUT |
+| FDRE     | 4865 |        Flop & Latch |
+| LUT6     |  699 |                 LUT |
 | MUXF7    |  324 |               MuxFx |
-| LUT3     |  184 |                 LUT |
+| LUT3     |  186 |                 LUT |
 | MUXF8    |  144 |               MuxFx |
-| LUT5     |   31 |                 LUT |
-| LUT2     |   15 |                 LUT |
-| LUT4     |   11 |                 LUT |
+| LUT5     |   53 |                 LUT |
+| LUT4     |   22 |                 LUT |
+| LUT2     |   13 |                 LUT |
 | CARRY4   |    8 |          CarryLogic |
 | LUT1     |    7 |                 LUT |
 +----------+------+---------------------+

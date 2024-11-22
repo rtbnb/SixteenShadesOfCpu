@@ -10,10 +10,10 @@ vmap xil_defaultlib questa_lib/msim/xil_defaultlib
 vmap blk_mem_gen_v8_4_8 questa_lib/msim/blk_mem_gen_v8_4_8
 
 vlog -work xpm  -incr -mfcu  -sv \
-"D:/programme/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"D:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm  -93  \
-"D:/programme/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
+"D:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xil_defaultlib  -93  \
 "../../../bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/sim/TestBlockDesign_VGA_Controller_0_0.vhd" \

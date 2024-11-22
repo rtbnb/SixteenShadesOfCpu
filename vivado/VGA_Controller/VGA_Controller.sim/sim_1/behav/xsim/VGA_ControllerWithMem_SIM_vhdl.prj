@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd" \
+"../../../../VGA_Controller.ip_user_files/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/sim/TestBlockDesign_VGA_Controller_0_0.vhd" \
+"../../../../VGA_Controller.ip_user_files/bd/TestBlockDesign/sim/TestBlockDesign.vhd" \
+"../../../../VGA_Controller.gen/sources_1/bd/TestBlockDesign/hdl/TestBlockDesign_wrapper.vhd" \
+"../../../../VGA_Controller.srcs/sim_1/new/VGA_ControllerWithMem_SIM.vhd" \
+
+# Do not sort compile order
+nosort
