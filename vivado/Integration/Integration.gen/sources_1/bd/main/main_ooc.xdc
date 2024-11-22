@@ -7,5 +7,7 @@
 # of Vivado)
 ################################################################################
 create_clock -name clk100mhz_in -period 10 [get_ports clk100mhz_in]
+create_clock -name debug_clk -period 10 [get_ports debug_clk]
+create_clock -name debug_mock_clk -period 10 [get_ports debug_mock_clk]
 
 ################################################################################

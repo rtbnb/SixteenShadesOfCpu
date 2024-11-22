@@ -10,11 +10,11 @@ vmap xil_defaultlib modelsim_lib/msim/xil_defaultlib
 vmap blk_mem_gen_v8_4_8 modelsim_lib/msim/blk_mem_gen_v8_4_8
 
 vlog -work xpm  -incr -mfcu  -sv "+incdir+../../../../Integration.gen/sources_1/bd/main/ipshared/3242" \
-"C:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"C:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"D:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"D:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm  -93  \
-"C:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
+"D:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xil_defaultlib  -93  \
 "../../../bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" \
@@ -41,8 +41,6 @@ vlog -work blk_mem_gen_v8_4_8  -incr -mfcu  "+incdir+../../../../Integration.gen
 
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Integration.gen/sources_1/bd/main/ipshared/3242" \
 "../../../bd/main/ip/main_blk_mem_gen_0_0/sim/main_blk_mem_gen_0_0.v" \
-"../../../bd/main/ip/main_gram_bram_0/sim/main_gram_bram_0.v" \
-"../../../bd/main/ip/main_iram_bram_0/sim/main_iram_bram_0.v" \
 "../../../bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" \
 
@@ -50,6 +48,9 @@ vcom -work xil_defaultlib  -93  \
 "../../../bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" \
 "../../../bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" \
 "../../../bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" \
+"../../../bd/main/ip/main_VGA_CPU_Bridge_0_0/sim/main_VGA_CPU_Bridge_0_0.vhd" \
+"../../../bd/main/ip/main_GPU_0_0/sim/main_GPU_0_0.vhd" \
+"../../../bd/main/ip/main_VGA_Controller_0_0/sim/main_VGA_Controller_0_0.vhd" \
 "../../../bd/main/sim/main.vhd" \
 
 vlog -work xil_defaultlib \

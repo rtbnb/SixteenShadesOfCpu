@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 21 21:21:10 2024
---Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
+--Date        : Fri Nov 22 15:41:24 2024
+--Host        : 8x8-Bit running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -17,12 +17,22 @@ entity main is
     RX_UART_IN : in STD_LOGIC;
     Reset : in STD_LOGIC;
     TX_UART_OUT : out STD_LOGIC;
+    b : out STD_LOGIC_VECTOR ( 3 downto 0 );
     clk100mhz_in : in STD_LOGIC;
+    debug_clk : in STD_LOGIC;
+    debug_mock_clk : in STD_LOGIC;
+    debug_reset : in STD_LOGIC;
     external_mmu_sync_clk : in STD_LOGIC;
-    led : out STD_LOGIC
+    fault_reset : in STD_LOGIC;
+    g : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    h_sync : out STD_LOGIC;
+    ioe : out STD_LOGIC;
+    led : out STD_LOGIC;
+    r : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    v_sync : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=25,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=21,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=26,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of main : entity is "main.hwdef";
 end main;
@@ -170,7 +180,7 @@ architecture STRUCTURE of main is
   port (
     D1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     D2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    ALU_OPP : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    ALU_OPP : in STD_LOGIC_VECTOR ( 3 downto 0 );
     RHO_PIN : in STD_LOGIC;
     ALU_OUT : out STD_LOGIC_VECTOR ( 15 downto 0 );
     CARRY_FLAG : out STD_LOGIC;
@@ -257,61 +267,58 @@ architecture STRUCTURE of main is
   component main_clockcontroller_0_0 is
   port (
     clk100mhz_in : in STD_LOGIC;
-    clk200mhz_in : in STD_LOGIC;
+    clk50mhz_in : in STD_LOGIC;
+    debug_guard_clk : in STD_LOGIC;
     wizard_locked : in STD_LOGIC;
-    debug_en_lock : in STD_LOGIC;
     fault_reset : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
-    fault : in STD_LOGIC;
     debug_en : in STD_LOGIC;
+    debug_mock_clk : in STD_LOGIC;
     load_clk : out STD_LOGIC;
     exec_clk : out STD_LOGIC;
     debug_clk : out STD_LOGIC;
-    clk200mhz : out STD_LOGIC;
-    clk200mhz_inf : out STD_LOGIC;
     ck_stable : out STD_LOGIC
   );
   end component main_clockcontroller_0_0;
   component main_mmu_0_0 is
   port (
-    clk200mhz : in STD_LOGIC;
-    debug_en_lock : out STD_LOGIC;
-    fault : out STD_LOGIC;
     ck_stable : in STD_LOGIC;
-    cpu_sync : in STD_LOGIC;
-    debug_sync : in STD_LOGIC;
-    vram_sync : in STD_LOGIC;
-    debug_clk200mhz : in STD_LOGIC;
-    debug_we : in STD_LOGIC;
+    exec_clk : in STD_LOGIC;
+    gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    gram_we : in STD_LOGIC;
+    gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_enable : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
+    debug_clk : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    debug_we : in STD_LOGIC;
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_we : in STD_LOGIC;
-    gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    vram_clk200mhz : in STD_LOGIC;
-    vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpu_clk : in STD_LOGIC;
+    gpu_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpu_din : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    gpu_we : in STD_LOGIC;
+    gpu_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    vga_clk : in STD_LOGIC;
+    vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vrama_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     vrama_mem_ck : out STD_LOGIC;
     vrama_mem_din : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vrama_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
-    vrama_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    vrama_mem_dout : in STD_LOGIC_VECTOR ( 11 downto 0 );
     vramb_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     vramb_mem_ck : out STD_LOGIC;
     vramb_mem_din : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vramb_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
-    vramb_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    vramb_mem_dout : in STD_LOGIC_VECTOR ( 11 downto 0 );
     mmio_mem_ck : out STD_LOGIC;
     mmio_mem_we : out STD_LOGIC;
-    mmio_mem_oe : out STD_LOGIC;
     mmio_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     mmio_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
     mmio_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 )
@@ -319,7 +326,7 @@ architecture STRUCTURE of main is
   end component main_mmu_0_0;
   component main_mmio_0_0 is
   port (
-    ck : in STD_LOGIC;
+    clk : in STD_LOGIC;
     we : in STD_LOGIC;
     addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     din : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -350,40 +357,13 @@ architecture STRUCTURE of main is
     doutb : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   end component main_blk_mem_gen_0_0;
-  component main_gram_bram_0 is
-  port (
-    clka : in STD_LOGIC;
-    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    clkb : in STD_LOGIC;
-    web : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addrb : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    doutb : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component main_gram_bram_0;
-  component main_iram_bram_0 is
-  port (
-    clka : in STD_LOGIC;
-    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    clkb : in STD_LOGIC;
-    web : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addrb : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    doutb : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component main_iram_bram_0;
   component main_clk_wiz_0_0 is
   port (
     clk_in1 : in STD_LOGIC;
     clk100mhz : out STD_LOGIC;
-    clk200mhz : out STD_LOGIC;
-    locked : out STD_LOGIC
+    locked : out STD_LOGIC;
+    clk50mhz : out STD_LOGIC;
+    debug_guard_clk : out STD_LOGIC
   );
   end component main_clk_wiz_0_0;
   component main_Debugger_0_0 is
@@ -449,6 +429,49 @@ architecture STRUCTURE of main is
     send_valid : out STD_LOGIC
   );
   end component main_TX_UART_0_0;
+  component main_VGA_CPU_Bridge_0_0 is
+  port (
+    InstrExec_CLK : in STD_LOGIC;
+    Reset : in STD_LOGIC;
+    IsGPU_OP : in STD_LOGIC;
+    Immediate_In : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    Reg1_In : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    Reg2_In : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    IsGPU_OP_out : out STD_LOGIC;
+    GPU_Command_out : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    Arg1_out : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    Arg2_out : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component main_VGA_CPU_Bridge_0_0;
+  component main_GPU_0_0 is
+  port (
+    InstrLoad_CLK : in STD_LOGIC;
+    InstrExec_CLK : in STD_LOGIC;
+    Reset : in STD_LOGIC;
+    Bridge_IsGPU_OP : in STD_LOGIC;
+    Bridge_Command : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    Bridge_Arg1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    Bridge_Arg2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    VRAM_CLK : out STD_LOGIC;
+    VRAM_WE : out STD_LOGIC_VECTOR ( 0 to 0 );
+    VRAM_Addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    VRAM_Dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component main_GPU_0_0;
+  component main_VGA_Controller_0_0 is
+  port (
+    InstrExec_CLK : in STD_LOGIC;
+    r : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    g : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    b : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    ioe : out STD_LOGIC;
+    h_sync : out STD_LOGIC;
+    v_sync : out STD_LOGIC;
+    VRAM_Addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    VRAM_Data : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    VRAM_Clk : out STD_LOGIC
+  );
+  end component main_VGA_Controller_0_0;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ALU_0_BIGGER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_CARRY_FLAG : STD_LOGIC;
@@ -481,6 +504,7 @@ architecture STRUCTURE of main is
   signal Debugger_0_mmu_debug_bank : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Debugger_0_mmu_debug_din : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Debugger_0_mmu_debug_override_en : STD_LOGIC;
+  signal Debugger_0_mmu_debug_sync_clk100mhz : STD_LOGIC;
   signal Debugger_0_mmu_debug_we : STD_LOGIC;
   signal Debugger_0_tx_data : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal Debugger_0_tx_data_valid : STD_LOGIC;
@@ -490,6 +514,10 @@ architecture STRUCTURE of main is
   signal Decoder_0_Register2 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Decoder_0_Use_MA : STD_LOGIC;
   signal Decoder_0_WriteBackRegister : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal GPU_0_VRAM_Addr : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal GPU_0_VRAM_CLK : STD_LOGIC;
+  signal GPU_0_VRAM_Dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal GPU_0_VRAM_WE : STD_LOGIC_VECTOR ( 0 to 0 );
   signal InstrLoad_CLK_1 : STD_LOGIC;
   signal Net : STD_LOGIC;
   signal Pipelining_Controller_0_InstructionForwardConfiguration : STD_LOGIC_VECTOR ( 4 downto 0 );
@@ -531,26 +559,39 @@ architecture STRUCTURE of main is
   signal Reset_1 : STD_LOGIC;
   signal TX_UART_0_send_valid : STD_LOGIC;
   signal TX_UART_0_tx_output : STD_LOGIC;
+  signal VGA_CPU_Bridge_0_Arg1_out : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal VGA_CPU_Bridge_0_Arg2_out : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal VGA_CPU_Bridge_0_GPU_Command_out : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal VGA_CPU_Bridge_0_IsGPU_OP_out : STD_LOGIC;
+  signal VGA_Controller_0_VRAM_Addr : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal VGA_Controller_0_VRAM_Clk : STD_LOGIC;
+  signal VGA_Controller_0_b : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal VGA_Controller_0_g : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal VGA_Controller_0_h_sync : STD_LOGIC;
+  signal VGA_Controller_0_ioe : STD_LOGIC;
+  signal VGA_Controller_0_r : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal VGA_Controller_0_v_sync : STD_LOGIC;
   signal clk100mhz_in_1 : STD_LOGIC;
   signal clk_wiz_0_clk100mhz : STD_LOGIC;
-  signal clk_wiz_0_clk200mhz : STD_LOGIC;
+  signal clk_wiz_0_clk50mhz : STD_LOGIC;
+  signal clk_wiz_0_debug_guard_clk : STD_LOGIC;
   signal clk_wiz_0_locked : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
-  signal clockcontroller_0_clk200mhz : STD_LOGIC;
   signal clockcontroller_0_exec_clk : STD_LOGIC;
+  signal debug_clk_1 : STD_LOGIC;
+  signal debug_mock_clk_1 : STD_LOGIC;
+  signal debug_reset_1 : STD_LOGIC;
   signal external_mmu_sync_clk_1 : STD_LOGIC;
-  signal gram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal iram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal fault_reset_1 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmu_0_debug_en_lock : STD_LOGIC;
-  signal mmu_0_fault : STD_LOGIC;
   signal mmu_0_gram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_iram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_mmio_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_mmio_mem_ck : STD_LOGIC;
   signal mmu_0_mmio_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_mmio_mem_we : STD_LOGIC;
+  signal mmu_0_vga_dout : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal mmu_0_vrama_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_vrama_mem_ck : STD_LOGIC;
   signal mmu_0_vrama_mem_din : STD_LOGIC_VECTOR ( 11 downto 0 );
@@ -564,47 +605,51 @@ architecture STRUCTURE of main is
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
   signal NLW_Debugger_0_mmu_debug_en_UNCONNECTED : STD_LOGIC;
-  signal NLW_Debugger_0_mmu_debug_sync_clk100mhz_UNCONNECTED : STD_LOGIC;
   signal NLW_Debugger_0_mmu_debug_sys_clk200mhz_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_MA_out_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED : STD_LOGIC;
-  signal NLW_gram_bram_clka_UNCONNECTED : STD_LOGIC;
-  signal NLW_gram_bram_addra_UNCONNECTED : STD_LOGIC_VECTOR ( 13 downto 0 );
-  signal NLW_gram_bram_dina_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_gram_bram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_gram_bram_wea_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_iram_bram_clka_UNCONNECTED : STD_LOGIC;
-  signal NLW_iram_bram_addra_UNCONNECTED : STD_LOGIC_VECTOR ( 13 downto 0 );
-  signal NLW_iram_bram_dina_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_iram_bram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_iram_bram_wea_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_mmio_0_led0_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led1_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led2_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led3_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_rho_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmu_0_debug_clk200mhz_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmu_0_mmio_mem_oe_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmu_0_vram_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_mmu_0_gpu_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
   attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of debug_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK CLK";
+  attribute X_INTERFACE_PARAMETER of debug_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK, CLK_DOMAIN main_debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of debug_mock_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_MOCK_CLK CLK";
+  attribute X_INTERFACE_PARAMETER of debug_mock_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_MOCK_CLK, CLK_DOMAIN main_debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of debug_reset : signal is "xilinx.com:signal:reset:1.0 RST.DEBUG_RESET RST";
+  attribute X_INTERFACE_PARAMETER of debug_reset : signal is "XIL_INTERFACENAME RST.DEBUG_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO of fault_reset : signal is "xilinx.com:signal:reset:1.0 RST.FAULT_RESET RST";
+  attribute X_INTERFACE_PARAMETER of fault_reset : signal is "XIL_INTERFACENAME RST.FAULT_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
 begin
   RX_UART_IN_1 <= RX_UART_IN;
   Reset_1 <= Reset;
   TX_UART_OUT <= TX_UART_0_tx_output;
+  b(3 downto 0) <= VGA_Controller_0_b(3 downto 0);
   clk100mhz_in_1 <= clk100mhz_in;
+  debug_clk_1 <= debug_clk;
+  debug_mock_clk_1 <= debug_mock_clk;
+  debug_reset_1 <= debug_reset;
   external_mmu_sync_clk_1 <= external_mmu_sync_clk;
+  fault_reset_1 <= fault_reset;
+  g(3 downto 0) <= VGA_Controller_0_g(3 downto 0);
+  h_sync <= VGA_Controller_0_h_sync;
+  ioe <= VGA_Controller_0_ioe;
   led <= Pipelining_WriteBack_0_JMP_out;
+  r(3 downto 0) <= VGA_Controller_0_r(3 downto 0);
+  v_sync <= VGA_Controller_0_v_sync;
 ALU_0: component main_ALU_0_0
      port map (
-      ALU_OPP(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
+      ALU_OPP(3 downto 0) => Pipelining_Execution_0_Immediate_out(3 downto 0),
       ALU_OUT(15 downto 0) => ALU_0_ALU_OUT(15 downto 0),
       BIGGER_ZERO_FLAG => ALU_0_BIGGER_ZERO_FLAG,
       CARRY_FLAG => ALU_0_CARRY_FLAG,
@@ -708,7 +753,7 @@ Debugger_0: component main_Debugger_0_0
       mmu_debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
       mmu_debug_en => NLW_Debugger_0_mmu_debug_en_UNCONNECTED,
       mmu_debug_override_en => Debugger_0_mmu_debug_override_en,
-      mmu_debug_sync_clk100mhz => NLW_Debugger_0_mmu_debug_sync_clk100mhz_UNCONNECTED,
+      mmu_debug_sync_clk100mhz => Debugger_0_mmu_debug_sync_clk100mhz,
       mmu_debug_sys_clk200mhz => NLW_Debugger_0_mmu_debug_sys_clk200mhz_UNCONNECTED,
       mmu_debug_we => Debugger_0_mmu_debug_we,
       pc_current_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
@@ -746,6 +791,20 @@ Decoder_0: component main_Decoder_0_0
       Register2(3 downto 0) => Decoder_0_Register2(3 downto 0),
       Use_MA => Decoder_0_Use_MA,
       WriteBackRegister(3 downto 0) => Decoder_0_WriteBackRegister(3 downto 0)
+    );
+GPU_0: component main_GPU_0_0
+     port map (
+      Bridge_Arg1(15 downto 0) => VGA_CPU_Bridge_0_Arg1_out(15 downto 0),
+      Bridge_Arg2(15 downto 0) => VGA_CPU_Bridge_0_Arg2_out(15 downto 0),
+      Bridge_Command(3 downto 0) => VGA_CPU_Bridge_0_GPU_Command_out(3 downto 0),
+      Bridge_IsGPU_OP => VGA_CPU_Bridge_0_IsGPU_OP_out,
+      InstrExec_CLK => clockcontroller_0_exec_clk,
+      InstrLoad_CLK => InstrLoad_CLK_1,
+      Reset => Reset_1,
+      VRAM_Addr(15 downto 0) => GPU_0_VRAM_Addr(15 downto 0),
+      VRAM_CLK => GPU_0_VRAM_CLK,
+      VRAM_Dout(15 downto 0) => GPU_0_VRAM_Dout(15 downto 0),
+      VRAM_WE(0) => GPU_0_VRAM_WE(0)
     );
 Pipelining_Controller_0: component main_Pipelining_Controller_0_0
      port map (
@@ -873,55 +932,55 @@ TX_UART_0: component main_TX_UART_0_0
       send_valid => TX_UART_0_send_valid,
       tx_output => TX_UART_0_tx_output
     );
+VGA_CPU_Bridge_0: component main_VGA_CPU_Bridge_0_0
+     port map (
+      Arg1_out(15 downto 0) => VGA_CPU_Bridge_0_Arg1_out(15 downto 0),
+      Arg2_out(15 downto 0) => VGA_CPU_Bridge_0_Arg2_out(15 downto 0),
+      GPU_Command_out(3 downto 0) => VGA_CPU_Bridge_0_GPU_Command_out(3 downto 0),
+      Immediate_In(15 downto 0) => B"0000000000000000",
+      InstrExec_CLK => clockcontroller_0_exec_clk,
+      IsGPU_OP => '0',
+      IsGPU_OP_out => VGA_CPU_Bridge_0_IsGPU_OP_out,
+      Reg1_In(15 downto 0) => B"0000000000000000",
+      Reg2_In(15 downto 0) => B"0000000000000000",
+      Reset => Reset_1
+    );
+VGA_Controller_0: component main_VGA_Controller_0_0
+     port map (
+      InstrExec_CLK => clockcontroller_0_exec_clk,
+      VRAM_Addr(15 downto 0) => VGA_Controller_0_VRAM_Addr(15 downto 0),
+      VRAM_Clk => VGA_Controller_0_VRAM_Clk,
+      VRAM_Data(15 downto 12) => B"0000",
+      VRAM_Data(11 downto 0) => mmu_0_vga_dout(11 downto 0),
+      b(3 downto 0) => VGA_Controller_0_b(3 downto 0),
+      g(3 downto 0) => VGA_Controller_0_g(3 downto 0),
+      h_sync => VGA_Controller_0_h_sync,
+      ioe => VGA_Controller_0_ioe,
+      r(3 downto 0) => VGA_Controller_0_r(3 downto 0),
+      v_sync => VGA_Controller_0_v_sync
+    );
 clk_wiz_0: component main_clk_wiz_0_0
      port map (
       clk100mhz => clk_wiz_0_clk100mhz,
-      clk200mhz => clk_wiz_0_clk200mhz,
+      clk50mhz => clk_wiz_0_clk50mhz,
       clk_in1 => clk100mhz_in_1,
+      debug_guard_clk => clk_wiz_0_debug_guard_clk,
       locked => clk_wiz_0_locked
     );
 clockcontroller_0: component main_clockcontroller_0_0
      port map (
       ck_stable => clockcontroller_0_ck_stable,
       clk100mhz_in => clk_wiz_0_clk100mhz,
-      clk200mhz => clockcontroller_0_clk200mhz,
-      clk200mhz_in => clk_wiz_0_clk200mhz,
-      clk200mhz_inf => NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED,
+      clk50mhz_in => clk_wiz_0_clk50mhz,
       debug_clk => Net,
       debug_en => Debugger_0_debug_enable,
-      debug_en_lock => mmu_0_debug_en_lock,
-      debug_reset => '0',
+      debug_guard_clk => clk_wiz_0_debug_guard_clk,
+      debug_mock_clk => debug_mock_clk_1,
+      debug_reset => debug_reset_1,
       exec_clk => clockcontroller_0_exec_clk,
-      fault => mmu_0_fault,
-      fault_reset => '0',
+      fault_reset => fault_reset_1,
       load_clk => InstrLoad_CLK_1,
       wizard_locked => clk_wiz_0_locked
-    );
-gram_bram: component main_gram_bram_0
-     port map (
-      addra(13 downto 0) => NLW_gram_bram_addra_UNCONNECTED(13 downto 0),
-      addrb(13 downto 0) => B"00000000000000",
-      clka => NLW_gram_bram_clka_UNCONNECTED,
-      clkb => '0',
-      dina(15 downto 0) => NLW_gram_bram_dina_UNCONNECTED(15 downto 0),
-      dinb(15 downto 0) => B"0000000000001000",
-      douta(15 downto 0) => gram_bram_douta(15 downto 0),
-      doutb(15 downto 0) => NLW_gram_bram_doutb_UNCONNECTED(15 downto 0),
-      wea(0) => NLW_gram_bram_wea_UNCONNECTED(0),
-      web(0) => '0'
-    );
-iram_bram: component main_iram_bram_0
-     port map (
-      addra(13 downto 0) => NLW_iram_bram_addra_UNCONNECTED(13 downto 0),
-      addrb(13 downto 0) => B"00000000000000",
-      clka => NLW_iram_bram_clka_UNCONNECTED,
-      clkb => '0',
-      dina(15 downto 0) => NLW_iram_bram_dina_UNCONNECTED(15 downto 0),
-      dinb(15 downto 0) => B"0000000000001000",
-      douta(15 downto 0) => iram_bram_douta(15 downto 0),
-      doutb(15 downto 0) => NLW_iram_bram_doutb_UNCONNECTED(15 downto 0),
-      wea(0) => NLW_iram_bram_wea_UNCONNECTED(0),
-      web(0) => '0'
     );
 mmio_0: component main_mmio_0_0
      port map (
@@ -930,7 +989,7 @@ mmio_0: component main_mmio_0_0
       btn1 => '0',
       btn2 => '0',
       btn3 => '0',
-      ck => mmu_0_mmio_mem_ck,
+      clk => mmu_0_mmio_mem_ck,
       din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
       dout(15 downto 0) => mmio_0_dout(15 downto 0),
       led0 => NLW_mmio_0_led0_UNCONNECTED,
@@ -943,19 +1002,20 @@ mmio_0: component main_mmio_0_0
 mmu_0: component main_mmu_0_0
      port map (
       ck_stable => clockcontroller_0_ck_stable,
-      clk200mhz => clockcontroller_0_clk200mhz,
-      cpu_sync => clockcontroller_0_exec_clk,
       debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
       debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
-      debug_clk200mhz => NLW_mmu_0_debug_clk200mhz_UNCONNECTED,
+      debug_clk => debug_clk_1,
       debug_din(15 downto 0) => Debugger_0_mmu_debug_din(15 downto 0),
       debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
-      debug_en_lock => mmu_0_debug_en_lock,
       debug_enable => Debugger_0_debug_enable,
       debug_override_enable => Debugger_0_mmu_debug_override_en,
-      debug_sync => external_mmu_sync_clk_1,
       debug_we => Debugger_0_mmu_debug_we,
-      fault => mmu_0_fault,
+      exec_clk => clockcontroller_0_exec_clk,
+      gpu_addr(15 downto 0) => GPU_0_VRAM_Addr(15 downto 0),
+      gpu_clk => GPU_0_VRAM_CLK,
+      gpu_din(11 downto 0) => GPU_0_VRAM_Dout(11 downto 0),
+      gpu_dout(11 downto 0) => NLW_mmu_0_gpu_dout_UNCONNECTED(11 downto 0),
+      gpu_we => GPU_0_VRAM_WE(0),
       gram_addr(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
       gram_bank(3 downto 0) => Pipelining_Execution_0_RAM_BankID_out(3 downto 0),
       gram_din(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
@@ -967,22 +1027,18 @@ mmu_0: component main_mmu_0_0
       mmio_mem_ck => mmu_0_mmio_mem_ck,
       mmio_mem_din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
       mmio_mem_dout(15 downto 0) => mmio_0_dout(15 downto 0),
-      mmio_mem_oe => NLW_mmu_0_mmio_mem_oe_UNCONNECTED,
       mmio_mem_we => mmu_0_mmio_mem_we,
-      vram_addr(15 downto 0) => B"0000000000000000",
-      vram_clk200mhz => '0',
-      vram_dout(15 downto 0) => NLW_mmu_0_vram_dout_UNCONNECTED(15 downto 0),
-      vram_sync => '0',
+      vga_addr(15 downto 0) => VGA_Controller_0_VRAM_Addr(15 downto 0),
+      vga_clk => VGA_Controller_0_VRAM_Clk,
+      vga_dout(11 downto 0) => mmu_0_vga_dout(11 downto 0),
       vrama_mem_addr(15 downto 0) => mmu_0_vrama_mem_addr(15 downto 0),
       vrama_mem_ck => mmu_0_vrama_mem_ck,
       vrama_mem_din(11 downto 0) => mmu_0_vrama_mem_din(11 downto 0),
-      vrama_mem_dout(15 downto 12) => B"0000",
       vrama_mem_dout(11 downto 0) => vram_bram_douta(11 downto 0),
       vrama_mem_we(0) => mmu_0_vrama_mem_we(0),
       vramb_mem_addr(15 downto 0) => mmu_0_vramb_mem_addr(15 downto 0),
       vramb_mem_ck => mmu_0_vramb_mem_ck,
       vramb_mem_din(11 downto 0) => mmu_0_vramb_mem_din(11 downto 0),
-      vramb_mem_dout(15 downto 12) => B"0000",
       vramb_mem_dout(11 downto 0) => vram_bram_doutb(11 downto 0),
       vramb_mem_we(0) => mmu_0_vramb_mem_we(0)
     );

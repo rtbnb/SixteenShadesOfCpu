@@ -53,8 +53,9 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk100mhz__50.00000______0.000______50.0______151.636_____98.575
-// clk200mhz__100.00000______0.000______50.0______130.958_____98.575
+// clk100mhz__100.00000______0.000______50.0______130.958_____98.575
+// clk50mhz__50.00000______0.000______50.0______151.636_____98.575
+// debug_guard_clk__100.00000_____90.000______50.0______130.958_____98.575
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -63,13 +64,14 @@
 
 `timescale 1ps/1ps
 
-(* CORE_GENERATION_INFO = "main_clk_wiz_0_0,clk_wiz_v6_0_14_0_0,{component_name=main_clk_wiz_0_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=2,clkin1_period=10.000,clkin2_period=10.000,use_power_down=false,use_reset=false,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
+(* CORE_GENERATION_INFO = "main_clk_wiz_0_0,clk_wiz_v6_0_14_0_0,{component_name=main_clk_wiz_0_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=3,clkin1_period=10.000,clkin2_period=10.000,use_power_down=false,use_reset=false,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
 
 module main_clk_wiz_0_0 
  (
   // Clock out ports
   output        clk100mhz,
-  output        clk200mhz,
+  output        clk50mhz,
+  output        debug_guard_clk,
   // Status and control signals
   output        locked,
  // Clock in ports
@@ -80,7 +82,8 @@ module main_clk_wiz_0_0
   (
   // Clock out ports  
   .clk100mhz(clk100mhz),
-  .clk200mhz(clk200mhz),
+  .clk50mhz(clk50mhz),
+  .debug_guard_clk(debug_guard_clk),
   // Status and control signals               
   .locked(locked),
  // Clock in ports
