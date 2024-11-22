@@ -46,15 +46,11 @@ def tx(ser: serial.Serial, debugWindow: DebugWindow):
     # input for debug command
     while(1):
         try:
-            for command_list in DebugWindow.get_command_queue():
-                for command in command_list:
-                    ser.write(command)
-            command = input()
-            print(f"command is: {command} int: {int(command, base=16)}")
-
-            byte_command = bytes([int(command, base=16)])
-            print("command: ".join(hex(n) for n in byte_command))
-            ser.write(byte_command)
+            q = debugWindow.get_command_queue()
+            if not q.empty():
+                command = q.get()
+                ser.write(command)
+                print(f"sended command: {command.hex()}")
         except KeyboardInterrupt:
             break
 
