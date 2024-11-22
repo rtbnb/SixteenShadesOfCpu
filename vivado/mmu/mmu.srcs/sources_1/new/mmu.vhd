@@ -33,50 +33,53 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity mmu is
     port(
-        clk200mhz: in std_logic;
-        debug_en_lock: out std_logic;
-        fault: out std_logic;
-        ck_stable: in std_logic;
+        ck_stable: in std_logic; 
+        exec_clk: in std_logic;
         
-        cpu_sync, debug_sync, vram_sync: in std_logic; --The sync signal is a replacement for the old clk signals. It is used for the locks and to initiate a operation
+        gram_addr, gram_din : in std_logic_vector( 15 downto 0 );
+        gram_bank: in std_logic_vector( 3 downto 0 );
+        gram_we: in std_logic;        
+        gram_dout: out std_logic_vector( 15 downto 0 );
         
-        debug_clk200mhz, debug_we, debug_enable, debug_override_enable: std_logic;
-        debug_addr, debug_din: in std_logic_vector( 15 downto 0 );
-        debug_bank: in std_logic_vector( 3 downto 0 );
-        debug_dout: out std_logic_vector( 15 downto 0 );
-         
         iram_addr: in std_logic_vector( 15 downto 0 );
         iram_dout: out std_logic_vector( 15 downto 0 );
-
-        gram_we: in std_logic;
-        gram_addr, gram_din : in std_logic_vector( 15 downto 0 );
-        gram_dout: out std_logic_vector( 15 downto 0 );
-        gram_bank: in std_logic_vector( 3 downto 0 );
-
-        vram_clk200mhz: in std_logic;
-        vram_addr: in std_logic_vector( 15 downto 0 );
-        vram_dout: out std_logic_vector( 15 downto 0 );
+        
+        debug_enable, debug_override_enable, debug_clk: in std_logic;
+        debug_addr, debug_din: in std_logic_vector( 15 downto 0 );
+        debug_bank: in std_logic_vector( 3 downto 0 );
+        debug_we : in std_logic;
+        debug_dout: out std_logic_vector(  15 downto 0 );
+        
+        gpu_clk: in std_logic;
+        gpu_addr: in std_logic_vector( 15 downto 0 );
+        gpu_din: in std_logic_vector( 11 downto 0 );
+        gpu_we: in std_logic;
+        gpu_dout: out std_logic_vector( 11 downto 0 );
+        
+        vga_clk: in std_logic;
+        vga_addr: in std_logic_vector( 15 downto 0 );
+        vga_dout: out std_logic_vector( 11 downto 0 );
         
         vrama_mem_addr: out std_logic_vector ( 15 downto 0 );
         vrama_mem_ck: out std_logic;
         vrama_mem_din: out std_logic_vector ( 11 downto 0 );
         vrama_mem_we: out std_logic_vector( 0 downto 0 );
-        vrama_mem_dout: in std_logic_vector( 15 downto 0 );
+        vrama_mem_dout: in std_logic_vector( 11 downto 0 );
         
         vramb_mem_addr: out std_logic_vector ( 15 downto 0 );
         vramb_mem_ck: out std_logic;
         vramb_mem_din: out std_logic_vector ( 11 downto 0 );
         vramb_mem_we: out std_logic_vector( 0 downto 0 );
-        vramb_mem_dout: in std_logic_vector( 15 downto 0 );    
+        vramb_mem_dout: in std_logic_vector( 11 downto 0 );    
     
-        mmio_mem_ck, mmio_mem_we, mmio_mem_oe: out std_logic;
+        mmio_mem_ck, mmio_mem_we: out std_logic;
         mmio_mem_addr, mmio_mem_din: out std_logic_vector( 15 downto 0 );
         mmio_mem_dout: in std_logic_vector( 15 downto 0 )
     );
 end mmu;
 
 architecture Behavioral of mmu is
-	type ram_type is array (13 downto 0) of std_logic_vector(15 downto 0);
+	type ram_type is array (8191 downto 0) of std_logic_vector(15 downto 0);
 	signal iram : ram_type;	
 	attribute iram_ram_style : string;
     attribute iram_ram_style of iram : signal is "distributed"; 
@@ -85,17 +88,15 @@ architecture Behavioral of mmu is
     attribute gram_ram_style : string;
     attribute gram_ram_style of iram : signal is "distributed"; 
     
-    signal general_cpu_sync_s: std_logic;
-    
-    signal gram_we_s, gram_ck_s: std_logic;
+    signal gram_we_s, gram_clk_s: std_logic;
     signal gram_dout_s, gram_din_s: std_logic_vector( 15 downto 0 );
-    signal gram_addr_s: std_logic_vector( 13 downto 0 );
+    signal gram_addr_s: std_logic_vector( 15 downto 0 );
     
-    signal iram_we_s, iram_ck_s: std_logic;
+    signal iram_we_s, iram_clk_s: std_logic;
     signal iram_dout_s, iram_din_s: std_logic_vector( 15 downto 0 );
-    signal iram_addr_s: std_logic_vector( 13 downto 0 );
+    signal iram_addr_s: std_logic_vector( 15 downto 0 );
 
-    signal iram_comb_condition_s: std_logic_vector( 1 downto 0 );
+    signal iram_comb_condition_s, gram_comb_condition_s, mmio_comb_condition_s, vram_comb_condition_s: std_logic_vector( 1 downto 0 );
     
     signal gram_bank_op_s, vram_bank_op_s, mmio_bank_op_s, iram_bank_op_s: std_logic;
     signal internal_debug_override_s: std_logic;
@@ -103,49 +104,24 @@ architecture Behavioral of mmu is
     signal output_config_s: std_logic_vector( 4 downto 0 );
     
     signal general_bank_s: std_logic_vector( 3 downto 0 );
-    signal general_we_s: std_logic_vector( 0 downto 0 );
-    signal general_clk_s: std_logic;
-    signal general_addr_s, general_din_s, general_dout_s: std_logic_vector( 15 downto 0 ); 
-    
-    signal cpu_lock_s: std_logic := '0';
-    signal cpu_op_ongoing, cpu_op_stop_condition: std_logic := '0';
-    signal test_signal: std_logic_vector( 2 downto 0 );
 begin
-    debug_en_lock <= cpu_lock_s and not debug_enable;
-
-    with debug_override_enable and debug_enable select
-        general_clk_s <= not debug_clk200mhz when '1',
-                         not clk200mhz when others;
-                         
-    with debug_override_enable and debug_enable select
-        general_cpu_sync_s <= debug_sync when '1',
-                              cpu_sync when others;
-                         
-    with debug_override_enable and debug_enable select
-        general_we_s <= (0 => debug_we) when '1',
-                        (0 => gram_we) when others;
+    internal_debug_override_s <= debug_enable and debug_override_enable;
                         
-    with debug_override_enable and debug_enable select
+    with internal_debug_override_s select
         general_bank_s <= debug_bank when '1',
                           gram_bank when others;  
-                          
-    with debug_override_enable and debug_enable select
-        general_addr_s <= debug_addr when '1',
-                          gram_addr when others;
-                          
-    with debug_override_enable and debug_enable select
-        general_din_s <= debug_din when '1',
-                         gram_din when others;
-                        
-    internal_debug_override_s <= debug_enable and debug_override_enable;
     
     gram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1) or general_bank_s(0))) and ck_stable;
-    vram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1))) and general_bank_s(0) and ck_stable;
-    mmio_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(0))) and general_bank_s(1) and ck_stable;
-    iram_bank_op_s <= general_bank_s(3) and general_bank_s(2) and general_bank_s(1) and general_bank_s(0);
+    mmio_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1))) and general_bank_s(0) and ck_stable;
+    vram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(0))) and general_bank_s(1) and ck_stable;
+    iram_bank_op_s <= general_bank_s(3) and general_bank_s(2) and general_bank_s(1) and general_bank_s(0) and ck_stable;
+    
     
     iram_comb_condition_s <= internal_debug_override_s & iram_bank_op_s;
-        
+    gram_comb_condition_s <= internal_debug_override_s & gram_bank_op_s;
+    mmio_comb_condition_s <= internal_debug_override_s & mmio_bank_op_s;
+    vram_comb_condition_s <= internal_debug_override_s & vram_bank_op_s;
+    
 --iram begin                   
     with iram_comb_condition_s select
         iram_din_s <= debug_din when "11",
@@ -156,180 +132,137 @@ begin
                        '0' when others;             
 
     with iram_comb_condition_s select
-        iram_addr_s <= debug_addr( 13 downto 0 ) when "11",
-                         "00000000000000" when "10",
-                         iram_addr( 13 downto 0 ) when others;
+        iram_addr_s <= debug_addr when "11",
+                       "0000000000000000" when "10",
+                       iram_addr when others;
     
     with iram_comb_condition_s select
-        iram_ck_s <= '0' when "10",
-                     general_cpu_sync_s when others;
+        iram_clk_s <= debug_clk when "11", 
+                      '0' when "10",
+                      exec_clk when others;
                        
     with iram_comb_condition_s select
         iram_dout <= X"0000" when "11",
                      X"0000" when "10",
                      iram_dout_s when others;
-
 --iram end    
 
 --gram begin
---TODO Build combined condition to only select gram when iram is not written to
-
-
-
-
---ck section-------------------------------------------------
---    gram_ck:process(general_clk_s)
---        variable comb_op_s : std_logic_vector( 2 downto 0 );
---        variable state1_con, state2_con, state_con: std_logic;
-        
---    begin
---        comb_op_s := gram_bank_op_s & cpu_op_ongoing & cpu_sync;
---        test_signal <= comb_op_s;
-        
---        state1_con := gram_bank_op_s and not cpu_op_ongoing and not cpu_sync;
---        state2_con := gram_bank_op_s and cpu_op_ongoing and cpu_sync;
---        state_con := state1_con or state2_con;
---        if state_con='1' and general_clk_s='1' then
---           gram_mem_ck <= '1'; 
---        end if;
-        
---        if rising_edge(general_clk_s) then
---            if state1_con='1' then
---                cpu_op_ongoing <= '1';
---            end if;
-            
---            if state2_con='1' and cpu_op_ongoing='1' then
---                cpu_op_ongoing <= '0';
---            end if;
---        end if;
-        
-       
-        
---        case comb_op_s is
---            when "100" =>
---                gram_mem_ck <= general_clk_s;
---                cpu_op_ongoing <= '1';
---            when "111" =>
---                gram_mem_ck <= general_clk_s;
---                cpu_op_ongoing <= '0';
---            when others =>
---                gram_mem_ck <= '0';
---        end case;    
---    end process;
-    
-    
-    cpu_op_stop_condition <= '0';
-    --cpu_op_ongoing <= (cpu_op_ongoing or (gram_bank_op_s and (not cpu_sync) and general_clk_s)) and not cpu_op_stop_condition;
-    cpu_op_ongoing <= gram_bank_op_s;
-    
-    
-    with cpu_op_ongoing select
-        gram_ck_s <= general_cpu_sync_s when '1',
-                       '0' when others;
-    with vram_bank_op_s select
-        vrama_mem_ck <= general_clk_s when '1',
-                        '0' when others;                
-    with mmio_bank_op_s select
-        mmio_mem_ck <= general_clk_s when '1',
-                       '0' when others;                        
--------------------------------------------------------------
-
---we section-------------------------------------------------
-    with gram_bank_op_s select
-        gram_we_s <= general_we_s(0) when '1',
-                       '0' when others;
-    with vram_bank_op_s select
-        vrama_mem_we <= general_we_s when '1',
-                        "0" when others;    
-    with mmio_bank_op_s select
-        mmio_mem_we <= general_we_s(0) when '1',
-                       '0' when others;
--------------------------------------------------------------                
-
---addr section-----------------------------------------------
-    with gram_bank_op_s select
-        gram_addr_s <= general_addr_s( 13 downto 0 ) when '1',
-                         "00000000000000" when others;
-    with vram_bank_op_s select
-        vrama_mem_addr <= general_addr_s when '1',
-                          X"0000" when others;
-    with mmio_bank_op_s select
-        mmio_mem_addr <= general_addr_s when '1',
-                         X"0000" when others;                                                
--------------------------------------------------------------
-
---din section------------------------------------------------
-    with gram_bank_op_s select
-        gram_din_s <= general_din_s when '1',
-                        X"0000" when others;
-    with vram_bank_op_s select
-        vrama_mem_din <= general_din_s( 11 downto 0 ) when '1',
-                        "000000000000" when others;
-    with mmio_bank_op_s select
-        mmio_mem_din <= general_din_s when '1',
-                        X"0000" when others;             
--------------------------------------------------------------
-   
-    with output_config_s select --TODO This needs to be fixed to also work with the general output
-        gram_dout <= gram_dout_s when "00000",
-                     gram_dout_s when "00001",
-                     std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "00010",
-                     std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "00011",
-                     mmio_mem_dout when "00100",
-                     mmio_mem_dout when "00101",
-                     X"0000" when others;
-    
-    with output_config_s select
-        debug_dout <= gram_dout_s when "00000",
-                      gram_dout_s when "00001",
-                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "00010",
-                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "00011",
-                      mmio_mem_dout when "00100",
-                      mmio_mem_dout when "00101",
-                      iram_dout_s when "11111",
-                      X"0000" when others;                     
+    with gram_comb_condition_s select
+        gram_clk_s <= debug_clk when "11",
+                      exec_clk when "01",
+                      '0' when others;
+                       
+    with gram_comb_condition_s select
+        gram_we_s <= debug_we when "11",
+                     gram_we when "01",
+                     '0' when others;
+                       
+    with gram_comb_condition_s select
+        gram_addr_s <= debug_addr when "11",
+                       gram_addr when "01",
+                       X"0000" when others;
+                         
+    with gram_comb_condition_s select
+        gram_din_s <= debug_din when "11",
+                      gram_din when "01",
+                      X"0000" when others; 
 --gram end
 
+--mmio begin
+    with mmio_comb_condition_s select
+        mmio_mem_ck <= debug_clk when "11",
+                       exec_clk when "01",
+                       '0' when others; 
+                       
+    with mmio_comb_condition_s select
+        mmio_mem_we <= debug_we when "11",
+                       gram_we when "01",
+                       '0' when others;      
+                       
+    with mmio_comb_condition_s select
+        mmio_mem_addr <= debug_addr when "11",
+                         gram_addr when "01",
+                         X"0000" when others;           
+                         
+    with mmio_comb_condition_s select
+        mmio_mem_din <= debug_din when "11",
+                        gram_din when "01",
+                        X"0000" when others;      
+--mmio end
 
---vram begin
-    vramb_mem_addr <= vram_addr;
-    vramb_mem_we <= "0";
-    
-    with debug_override_enable and debug_enable select
-        vramb_mem_ck <= not debug_clk200mhz when '1',
-                        not vram_clk200mhz when others;
-                        
-    vram_dout <= std_logic_vector(resize(signed(vramb_mem_dout), vram_dout'length));
---vram end
+--vrama begin
+        with vram_comb_condition_s select
+            vrama_mem_ck <= debug_clk when "11",
+                            '0' when "01",
+                            gpu_clk when others;   
+                            
+        with vram_comb_condition_s select
+            vrama_mem_addr <= debug_addr when "11",
+                              X"0000" when "10",
+                              gpu_addr when others; 
+                              
+        with vram_comb_condition_s select
+            vrama_mem_din <= debug_din( 11 downto 0 ) when "11",
+                             X"000" when "10",
+                             gpu_din when others;                 
+        
+        with vram_comb_condition_s select
+            vrama_mem_we <= ( 0 => debug_we ) when "11",
+                            "0" when "10",
+                            ( 0 => gpu_we ) when others; 
+                      
+        with vram_comb_condition_s select
+            gpu_dout <= X"000" when "10",
+                        X"000" when "11",
+                        vrama_mem_dout when others;                 
+--vrama end
 
-
-------------------------------------------------------------
--- This Process is only affected by the normal gram config
--- The process doesnt do anything when debug is enabled to not deactivate debug when data is written
---
-------------------------------------------------------------
-    cpu_lock:process(clk200mhz)
-    begin
-        if falling_edge(clk200mhz) then
-            cpu_lock_s <= gram_we and (not cpu_sync);
-        end if;
-    end process;
+--vramb begin
+        with ck_stable select
+            vramb_mem_ck <= vga_clk when '1',
+                            '0' when others;    
+                            
+        with ck_stable select
+            vramb_mem_addr <= vga_addr when '1',
+                              X"0000" when others; 
+        
+        with ck_stable select
+            vga_dout <= vramb_mem_dout when '1',
+                        "000000000000" when others;
+             
+        vramb_mem_din <= "000000000000";
+        vramb_mem_we <= "0";    
+--vramb end
+   
+    with output_config_s select
+        gram_dout <= gram_dout_s when "01000",
+                     mmio_mem_dout when "00100",   
+                     X"0000" when others;
+                     
+    with output_config_s select               
+        debug_dout <= gram_dout_s when "11000",
+                      mmio_mem_dout when "10100",
+                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "10010",
+                      iram_dout_s when "10001",
+                      X"0000" when others;                                      
+--gram end
 
 ------------------------------------------------------------
 -- This Process is needed to relief timing concerns.
 -- This Process holds the old comb_bank_s value until the process for the new value is finished. By this it is guaranteed that the value can be safely read be the client 
 --
 ------------------------------------------------------------
-    output_bank_update:process(cpu_lock_s)
+    output_bank_update:process(exec_clk)
     begin
-        if falling_edge(cpu_lock_s) then
-            output_config_s <= general_bank_s & internal_debug_override_s;
+        if rising_edge(exec_clk) then
+            output_config_s <= internal_debug_override_s & gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
         end if;
     end process;
     
-    iram_lutram:process(iram_ck_s)
+    iram_lutram:process(iram_clk_s)
 	begin
-	   if rising_edge(iram_ck_s) then
+	   if rising_edge(iram_clk_s) then
             if (iram_we_s = '1') then
 				iram(to_integer(unsigned(iram_addr_s))) <= iram_din_s;
 			end if;
@@ -337,9 +270,9 @@ begin
 	end process;
 	iram_dout_s <= iram(to_integer(unsigned(iram_addr_s)));
 	
-    gram_lutram:process(gram_ck_s)
+    gram_lutram:process(gram_clk_s)
 	begin
-	   if rising_edge(gram_ck_s) then
+	   if rising_edge(gram_clk_s) then
             if (gram_we_s = '1') then
 				gram(to_integer(unsigned(gram_addr_s))) <= gram_din_s;
 			end if;
