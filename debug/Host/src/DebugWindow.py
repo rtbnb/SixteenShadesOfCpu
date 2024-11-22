@@ -65,14 +65,6 @@ class DebugWindow(QtWidgets.QWidget):
         button_22.clicked.connect(lambda: self.command_button_pushed(b"\x22"))
         self.CommandSendButtonList.append(button_22)
 
-        button_30 = QtWidgets.QPushButton(text="Request Idle")
-        button_30.clicked.connect(lambda: self.command_button_pushed(b"\x30"))
-        self.CommandSendButtonList.append(button_30)
-
-        button_31 = QtWidgets.QPushButton(text="Request Idle")
-        button_31.clicked.connect(lambda: self.command_button_pushed(b"\x31"))
-        self.CommandSendButtonList.append(button_31)
-
         button_40 = QtWidgets.QPushButton(text="Request alu_din1")
         button_40.clicked.connect(lambda: self.command_button_pushed(b"\x40"))
         self.CommandSendButtonList.append(button_40)
@@ -141,14 +133,60 @@ class DebugWindow(QtWidgets.QWidget):
         
         # general commands
         button_request_all = QtWidgets.QPushButton(text="Request all Data")
-        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x20", b"\x21", b"\x22", b"\x30", b"\x31", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x58", b"\x59"]))
+        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x20", b"\x21", b"\x22", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x58", b"\x59"]))
         self.layout.addWidget(button_request_all, 1, 2, 1, 1)
+
+        # memory write
+        textfield_memory_data = QtWidgets.QLineEdit()
+        textfield_memory_addr = QtWidgets.QLineEdit()
+        iram_write_button = QtWidgets.QPushButton(text="Write to IRAM")
+        iram_write_button.clicked.connect(lambda: self.button_pushed_write_iram(textfield_memory_data, textfield_memory_addr))
+        self.layout.addWidget(textfield_memory_data, 1, 3, 1, 1)
+        self.layout.addWidget(textfield_memory_addr, 1, 4, 1, 1)
+        self.layout.addWidget(iram_write_button, 1, 5, 1, 1)
+
+        # bin file
+        bin_file_button = QtWidgets.QPushButton(text="Select bin file")
+        bin_file_button.clicked.connect(lambda: self.button_select_bin_file())
+        self.layout.addWidget(bin_file_button, 1, 6, 1, 1)
+    
+    def button_pushed_write_iram(self, textfield_memory_data, textfield_memory_addr):
+        data = textfield_memory_data.text()
+        addr = textfield_memory_addr.text()
+        if len(data) == 0 or len(addr) == 0:
+            return
+        data = int(data, 16)
+        addr = int(addr, 16)
+        data = data.to_bytes(2, 'big')
+        addr = addr.to_bytes(2, 'big')
+        print(data)
+        print(addr)
+        self.add_command_to_queue([b"\x60", addr[0], addr[1], data[0], data[1]])
+    
+    def button_select_bin_file(self):
+        fileName = QtWidgets.QFileDialog.getOpenFileName(self,
+        self.tr("Open Image"), "", self.tr("Bin Files (*.bin)"))
+        with open(fileName[0], 'rb') as f:
+            data = f.read()
+            #print(data)
+            addr_counter = 0
+            for i in range(0, len(data), 2):
+                addr_bytes = addr_counter.to_bytes(2, 'big')
+                #print("Bytes: ")
+                #print(type(addr_bytes))
+                #print(type(addr_bytes[0:1]))
+                #print([b"\x31", addr_bytes[0], addr_bytes[1], data[i], data[i+1]])
+                #print("End Bytes")
+                self.add_command_to_queue([b"\x31", addr_bytes[0:1], addr_bytes[1:2], data[i:i+1], data[i+1:i+2]])
+                addr_counter += 1
+
+        print(fileName)
 
     def get_command_queue(self):
         return self.command_queue
 
-    def add_command_to_queue(self, command):
-        self.command_queue.put(command)
+    def add_command_to_queue(self, command_list: list):
+        self.command_queue.put(command_list)
 
     def populate_table(self):
         self.table.setRowCount(len(self.data))
@@ -180,6 +218,7 @@ def print_queue(debugWindow: DebugWindow):
         if not q.empty():
             command_list = q.get()
             for c in command_list:
+                #print(type(c))
                 print(f"sended command: {c.hex()}")
 
 if __name__ == '__main__':
