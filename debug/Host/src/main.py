@@ -78,12 +78,16 @@ def main():
     #listening_thread = threading.Thread(target=rx, args=[fpga_serial, widget])
     #listening_thread.start()
     tx_thread = threading.Thread(target=tx, args=[fpga_serial, widget])
+    #listening_thread = threading.Thread(target=rx, args=[fpga_serial, widget])
+    #listening_thread.start()
+    tx_thread = threading.Thread(target=tx, args=[fpga_serial, widget])
     tx_thread.start()
     app.exec()
 
     
     
     fpga_serial.close()
+    #listening_thread.join()
     #listening_thread.join()
     tx_thread.join()
 

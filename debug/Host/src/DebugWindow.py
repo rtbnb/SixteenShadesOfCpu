@@ -2,6 +2,7 @@ from PySide6 import QtCore, QtWidgets, QtGui
 import sys
 from Datapool import Datapool
 from queue import Queue
+from queue import Queue
 
 
 class DebugWindow(QtWidgets.QWidget):
@@ -9,16 +10,19 @@ class DebugWindow(QtWidgets.QWidget):
         super().__init__()
         self.data = data.get_dict()
         self.command_queue = command_queue
+        self.command_queue = command_queue
         self.initUI()
 
     def initUI(self):
         self.setWindowTitle('Debug Window')
+        self.layout = QtWidgets.QGridLayout(self)
         self.layout = QtWidgets.QGridLayout(self)
 
         self.table = QtWidgets.QTableWidget(self)
         self.table.setColumnCount(4)
         self.table.setColumnWidth(2, 150)
         self.table.setHorizontalHeaderLabels(['Key', 'Name', 'Binary', 'Hex'])
+        self.layout.addWidget(self.table, 0, 0, len(self.data) + 1, 1)
         self.layout.addWidget(self.table, 0, 0, len(self.data) + 1, 1)
 
         self.populate_table()
