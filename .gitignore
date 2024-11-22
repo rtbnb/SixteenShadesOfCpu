@@ -12,3 +12,4 @@ vivado/*/*.sim/*/impl/func/xsim/xsim.dir/*
 vivado/*/*.sim/*/behav/xsim/xsim.dir/*_behav/*
 
 .venv/
+__pycache__/
