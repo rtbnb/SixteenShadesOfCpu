@@ -130,7 +130,7 @@ class DebugWindow(QtWidgets.QWidget):
         for button in self.CommandSendButtonList:
             self.layout.addWidget(button, i, 1, 1, 1)
             i += 1
-        
+
         # general commands
         button_request_all = QtWidgets.QPushButton(text="Request all Data")
         button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x20", b"\x21", b"\x22", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x58", b"\x59"]))
@@ -149,7 +149,7 @@ class DebugWindow(QtWidgets.QWidget):
         bin_file_button = QtWidgets.QPushButton(text="Select bin file")
         bin_file_button.clicked.connect(lambda: self.button_select_bin_file())
         self.layout.addWidget(bin_file_button, 1, 6, 1, 1)
-    
+
     def button_pushed_write_iram(self, textfield_memory_data, textfield_memory_addr):
         data = textfield_memory_data.text()
         addr = textfield_memory_addr.text()
@@ -162,7 +162,7 @@ class DebugWindow(QtWidgets.QWidget):
         print(data)
         print(addr)
         self.add_command_to_queue([b"\x60", addr[0], addr[1], data[0], data[1]])
-    
+
     def button_select_bin_file(self):
         fileName = QtWidgets.QFileDialog.getOpenFileName(self,
         self.tr("Open Image"), "", self.tr("Bin Files (*.bin)"))
@@ -203,7 +203,7 @@ class DebugWindow(QtWidgets.QWidget):
     def update_table(self, datapool: Datapool):
         self.data = datapool.get_dict()
         self.populate_table()
-    
+
     # uart commands
     def command_button_pushed(self, command):
         command_list = [command]
@@ -224,14 +224,14 @@ def print_queue(debugWindow: DebugWindow):
 if __name__ == '__main__':
     from main import rx_data_datapool  # Import the data from main.py
     import threading
-    
+
     app = QtWidgets.QApplication([])
     widget = DebugWindow(rx_data_datapool, Queue())
     widget.resize(800, 600)
     widget.show()
-    
+
     read_t = threading.Thread(target=print_queue, args=[widget])
-    read_t.start()    
+    read_t.start()
     app.exec()
 
     read_t.join()
