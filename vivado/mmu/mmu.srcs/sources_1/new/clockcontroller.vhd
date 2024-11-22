@@ -33,18 +33,24 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity clockcontroller is
     port(
-        clk100mhz_in, clk50mhz_in, wizard_locked, fault_reset, debug_reset: in std_logic;
-        debug_en: in std_logic;
-        load_clk, exec_clk, debug_clk, ck_stable: out std_logic 
+        clk100mhz_in, clk50mhz_in, debug_guard_clk, wizard_locked, fault_reset, debug_reset: in std_logic;
+        debug_en, debug_mock_clk: in std_logic;
+        load_clk, exec_clk: out std_logic; 
+        debug_clk: out std_logic; 
+        ck_stable: out std_logic 
     );
 end clockcontroller;
 
 architecture Behavioral of clockcontroller is
-signal output_en_s: std_logic;
-signal fault_s, debug_en_s: std_logic := '0';
+    attribute port100mhz_attr: string;
+    attribute port100mhz_attr of load_clk : signal is "FREQ_HZ=100000000";
+    
+    signal output_en_s: std_logic_vector( 1 downto 0 );
+    signal fault_s: std_logic := '0';
+    signal debug_en_s: std_logic := '1';
 
 begin
-    output_en_s <= wizard_locked;
+    output_en_s <= wizard_locked & debug_en_s;
     ck_stable <= wizard_locked;
     
     with wizard_locked select
@@ -52,12 +58,20 @@ begin
                      '0' when others;
     
     with output_en_s select
-        load_clk <= clk100mhz_in when '1',
-                     '0' when others;
+        load_clk <= clk100mhz_in when "10",
+                    debug_mock_clk when "11",
+                    '0' when others;
     with output_en_s select
-        exec_clk <= not clk100mhz_in when '1',
-                     '0' when others;    
+        exec_clk <= not clk100mhz_in when "10",
+                    not debug_mock_clk when "11",
+                    '0' when others;    
     --TODO Implement debug begin and end logic
     
+    debug_state:process(clk100mhz_in)
+    begin
+        if clk100mhz_in='0' and debug_guard_clk='0' and debug_reset='1' then
+            debug_en_s <= '0';    
+        end if;
+    end process;
     
 end Behavioral;

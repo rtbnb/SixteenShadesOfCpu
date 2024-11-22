@@ -55,6 +55,7 @@
 //----------------------------------------------------------------------------
 // clk100mhz_out__100.00000______0.000______50.0______130.958_____98.575
 // clk50mhz_out__50.00000______0.000______50.0______151.636_____98.575
+// debug_guard_clk__100.00000_____90.000______50.0______130.958_____98.575
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -69,6 +70,7 @@ module main_block_clk_wiz_0_0_clk_wiz
   // Clock out ports
   output        clk100mhz_out,
   output        clk50mhz_out,
+  output        debug_guard_clk,
   // Status and control signals
   output        locked,
   input         clk_in1
@@ -93,7 +95,7 @@ wire clk_in2_main_block_clk_wiz_0_0;
 
   wire        clk100mhz_out_main_block_clk_wiz_0_0;
   wire        clk50mhz_out_main_block_clk_wiz_0_0;
-  wire        clk_out3_main_block_clk_wiz_0_0;
+  wire        debug_guard_clk_main_block_clk_wiz_0_0;
   wire        clk_out4_main_block_clk_wiz_0_0;
   wire        clk_out5_main_block_clk_wiz_0_0;
   wire        clk_out6_main_block_clk_wiz_0_0;
@@ -108,7 +110,6 @@ wire clk_in2_main_block_clk_wiz_0_0;
   wire        clkfboutb_unused;
     wire clkout0b_unused;
    wire clkout1b_unused;
-   wire clkout2_unused;
    wire clkout2b_unused;
    wire clkout3_unused;
    wire clkout3b_unused;
@@ -135,6 +136,10 @@ wire clk_in2_main_block_clk_wiz_0_0;
     .CLKOUT1_PHASE        (0.000),
     .CLKOUT1_DUTY_CYCLE   (0.500),
     .CLKOUT1_USE_FINE_PS  ("FALSE"),
+    .CLKOUT2_DIVIDE       (10),
+    .CLKOUT2_PHASE        (90.000),
+    .CLKOUT2_DUTY_CYCLE   (0.500),
+    .CLKOUT2_USE_FINE_PS  ("FALSE"),
     .CLKIN1_PERIOD        (10.000))
   mmcm_adv_inst
     // Output clocks
@@ -145,7 +150,7 @@ wire clk_in2_main_block_clk_wiz_0_0;
     .CLKOUT0B            (clkout0b_unused),
     .CLKOUT1             (clk50mhz_out_main_block_clk_wiz_0_0),
     .CLKOUT1B            (clkout1b_unused),
-    .CLKOUT2             (clkout2_unused),
+    .CLKOUT2             (debug_guard_clk_main_block_clk_wiz_0_0),
     .CLKOUT2B            (clkout2b_unused),
     .CLKOUT3             (clkout3_unused),
     .CLKOUT3B            (clkout3b_unused),
@@ -201,6 +206,10 @@ wire clk_in2_main_block_clk_wiz_0_0;
   BUFG clkout2_buf
    (.O   (clk50mhz_out),
     .I   (clk50mhz_out_main_block_clk_wiz_0_0));
+
+  BUFG clkout3_buf
+   (.O   (debug_guard_clk),
+    .I   (debug_guard_clk_main_block_clk_wiz_0_0));
 
 
 
