@@ -343,8 +343,8 @@ begin
                             state <= TransmitDataInstructionSHORT;
                         when x"59" =>
                             tx_instruction_buffer <= x"59";
-                            tx_data_buffer(15 downto 1) <= "000000000000000";
-                            tx_data_buffer(0) <= regfile_overwrite_flag;
+                            tx_data_buffer(15 downto 4) <= "000000000000";
+                            tx_data_buffer(3 downto 0) <= regfile_bankid;
                             state <= TransmitDataInstructionSHORT;
                         when x"5A" => state <= Idle;
                         when others =>
