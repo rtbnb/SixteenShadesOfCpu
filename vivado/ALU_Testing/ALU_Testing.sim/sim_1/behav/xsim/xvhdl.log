@@ -1,2 +1,4 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/VHDL/SixteenShadesOfCpu/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_OR.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ALU_TB_OR'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ALU'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_MULTIPLICATION.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ALU_TB_MULTIPLICATION'

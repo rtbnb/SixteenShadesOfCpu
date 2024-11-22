@@ -35,7 +35,7 @@ entity ALU is
  Port ( 
     D1: IN std_logic_vector(15 downto 0 ):= (others => '0');
     D2: IN std_logic_vector(15 downto 0 ):= (others => '0');
-    ALU_OPP: IN std_logic_vector(15 downto 0 ):= (others => '0');
+    ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
     RHO_PIN: IN std_logic:= '0';
     ALU_OUT: OUT std_logic_vector(15 downto 0 ):= (others => '0');
     --ALU_FLAGS: OUT std_logic_vector(15 downto 0) := (others => '0')
@@ -47,34 +47,40 @@ entity ALU is
     RHO_FLAG: OUT STD_LOGIC:= '0';
     NOT_ZERO_FLAG: OUT STD_LOGIC:= '0'
  );
+attribute use_dsp : string;
 end ALU;
 
 architecture ALUBehavioral of ALU is
+    attribute use_dsp of ALUBehavioral: architecture is "yes";
+--attribute use_dsp : string;
+--attribute use_dsp of P_reg : signal is "no";
+
 signal D1Singend: signed(16 downto 0);
 signal D2Singend: signed(16 downto 0);
-signal ALU_OUT_Internal: std_logic_vector(16 downto 0);
+signal ALU_OUT_Internal: std_logic_vector(31 downto 0);
 
 begin
     
     D1Singend <=resize(signed(D1), 17);
     D2Singend <=resize(signed(D2), 17);
     
-    with ((ALU_OPP(3 downto 0))) select AlU_OUT_Internal <= 
-        std_logic_vector(D1Singend+D2Singend) when "0000", --addtion
-        std_logic_vector(D1Singend-D2Singend) when "0001", -- subtraction
-        std_logic_vector(shift_left(D1Singend, to_integer(D2Singend))) when "0010", --shift left
-        std_logic_vector(shift_right(D1Singend, to_integer(D2Singend))) when "0011", --shift right
-        '0' & D1 when "1000", -- identity
-        '0' &(D1 AND D2) when "1001", -- and
-        '0' &(D1 OR D2) when "1010", -- or
-        '0' &(D1 XOR D2) when "1011", -- XOR
-        '0' & (not D1) when "1100", -- identity
-        '0' &(D1 NAND D2) when "1101", -- nand
-        '0' &(D1 NOR D2) when "1110", -- or
-        '0' &(D1 XNOR D2) when "1111", -- XOR
-        
+    with ((ALU_OPP)) select AlU_OUT_Internal <=
+        "000000000000000" & std_logic_vector(D1Singend+D2Singend) when "0000", --addtion
+        "000000000000000" & std_logic_vector(D1Singend-D2Singend) when "0001", -- subtraction
+        "000000000000000" & std_logic_vector(shift_left(D1Singend, to_integer(D2Singend))) when "0010", --shift left
+        "000000000000000" & std_logic_vector(shift_right(D1Singend, to_integer(D2Singend))) when "0011", --shift right
+        "0000000000000000" & D1 when "1000", -- identity
+        "0000000000000000" &(D1 AND D2) when "1001", -- and
+        "0000000000000000" &(D1 OR D2) when "1010", -- or
+        "0000000000000000" &(D1 XOR D2) when "1011", -- XOR
+        "0000000000000000" & (not D1) when "1100", -- identity
+        "0000000000000000" &(D1 NAND D2) when "1101", -- nand
+        "0000000000000000" &(D1 NOR D2) when "1110", -- or
+        "0000000000000000" &(D1 XNOR D2) when "1111", -- XOR
+        std_logic_vector(signed(D1) * signed(D2)) when "0100",
         (others => 'X') when others;
-    
+
+
     aluPostOp: process(ALU_OUT_Internal)
     begin
         CARRY_FLAG <= ALU_OUT_Internal(16);
@@ -94,7 +100,7 @@ begin
             ZERO_FLAG <= '0';
          end if;
          
-         if ALU_OUT_Internal = "00000000000000000" then
+         if ALU_OUT_Internal (16 downto 0) = "00000000000000000" then
             BIGGER_ZERO_FLAG <= '0';
             SMALLER_ZERO_FLAG <= '0';
             NOT_ZERO_FLAG <= '0';
