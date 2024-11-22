@@ -143,7 +143,7 @@
             "value": "Fixed_Primitives"
           },
           "Coe_File": {
-            "value": "../../../../../../../../../test/SixteenShadesOfCpu/architektur/TestProgramme/cyberpunk_compiled.coe"
+            "value": "../../../../../../../../tools/hex2coe/Debug.coe"
           },
           "Enable_A": {
             "value": "Always_Enabled"
@@ -153,6 +153,9 @@
           },
           "Load_Init_File": {
             "value": "true"
+          },
+          "Operating_Mode_A": {
+            "value": "READ_FIRST"
           },
           "Register_PortA_Output_of_Memory_Primitives": {
             "value": "true"

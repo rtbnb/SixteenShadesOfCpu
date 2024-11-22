@@ -1491,11 +1491,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 21 16:53:45 UTC 2024</spirit:value>
+            <spirit:value>Fri Nov 22 06:58:31 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f26d68e9</spirit:value>
+            <spirit:value>9:99b7f482</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1509,11 +1509,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 21 20:33:30 UTC 2024</spirit:value>
+            <spirit:value>Fri Nov 22 11:38:45 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f31848ef</spirit:value>
+            <spirit:value>9:45fb85e4</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1524,7 +1524,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f31848ef</spirit:value>
+            <spirit:value>9:9ef6f45c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1540,11 +1540,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 21 20:31:48 UTC 2024</spirit:value>
+            <spirit:value>Fri Nov 22 11:38:42 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f26d68e9</spirit:value>
+            <spirit:value>9:99b7f482</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1560,11 +1560,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 21 16:53:45 UTC 2024</spirit:value>
+            <spirit:value>Fri Nov 22 06:58:31 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f31848ef</spirit:value>
+            <spirit:value>9:9ef6f45c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1580,11 +1580,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 21 20:31:48 UTC 2024</spirit:value>
+            <spirit:value>Fri Nov 22 11:38:41 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f31848ef</spirit:value>
+            <spirit:value>9:9ef6f45c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3200,7 +3200,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_WRITE_MODE_A</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_WRITE_MODE_A">WRITE_FIRST</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_WRITE_MODE_A">READ_FIRST</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_WRITE_WIDTH_A</spirit:name>
@@ -3384,7 +3384,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_EST_POWER_SUMMARY</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_EST_POWER_SUMMARY">Estimated Power for IP     :     13.812527 mW</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_EST_POWER_SUMMARY">Estimated Power for IP     :     14.935425 mW</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -3686,7 +3686,7 @@
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PARAM_ENABLEMENT.PRIM_type_to_Implement">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PARAM_ENABLEMENT.PRIM_type_to_Implement">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -3913,7 +3913,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Operating_Mode_A</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Operating_Mode_A" spirit:choiceRef="choice_pairs_07c32259" spirit:order="30">WRITE_FIRST</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Operating_Mode_A" spirit:choiceRef="choice_pairs_07c32259" spirit:order="30">READ_FIRST</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -4089,7 +4089,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Coe_File</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Coe_File" spirit:order="46">../../../../../../../../../test/SixteenShadesOfCpu/architektur/TestProgramme/cyberpunk_compiled.coe</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Coe_File" spirit:order="46">../../../../../../../../tools/hex2coe/Debug.coe</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -4418,6 +4418,7 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Fill_Remaining_Memory_Locations" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Load_Init_File" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.MEM_FILE" xilinx:valueSource="ip_propagated"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Operating_Mode_A" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Register_PortA_Output_of_Memory_Primitives" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Remaining_Memory_Locations" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Write_Depth_A" xilinx:valueSource="user"/>

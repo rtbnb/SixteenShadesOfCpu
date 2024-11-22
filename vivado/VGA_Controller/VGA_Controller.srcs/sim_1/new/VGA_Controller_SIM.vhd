@@ -59,10 +59,7 @@ begin
         VRAM_Data => VRAM_Data
     );
     
-    process is
-    begin
-        InstrExec_CLK <= not InstrExec_CLK;
-        wait for 5 ns;
-    end process;
+    InstrExec_CLK <= not InstrExec_CLK after 5 ns;
+    
 
 end Behavioral;

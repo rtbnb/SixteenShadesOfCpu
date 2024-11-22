@@ -13,10 +13,10 @@ vmap xil_defaultlib activehdl/xil_defaultlib
 vmap blk_mem_gen_v8_4_8 activehdl/blk_mem_gen_v8_4_8
 
 vlog -work xpm  -sv2k12 -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
-"D:/programme/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"D:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -93  \
-"D:/programme/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
+"D:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xil_defaultlib -93  \
 "../../../bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/sim/TestBlockDesign_VGA_Controller_0_0.vhd" \

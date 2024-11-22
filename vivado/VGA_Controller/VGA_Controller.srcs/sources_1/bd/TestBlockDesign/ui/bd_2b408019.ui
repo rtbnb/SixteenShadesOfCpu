@@ -1,31 +1,31 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-503,-388",
+   "Default View_ScaleFactor":"1.28877",
+   "Default View_TopLeft":"225,92",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0 threadsafe
+   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
 preplace port port-id_InstrExec_CLK -pg 1 -lvl 0 -x 0 -y -110 -defaultsOSRD
-preplace port port-id_ioe -pg 1 -lvl 3 -x 910 -y -170 -defaultsOSRD
-preplace port port-id_h_sync -pg 1 -lvl 3 -x 910 -y -190 -defaultsOSRD
-preplace port port-id_v_sync -pg 1 -lvl 3 -x 910 -y -210 -defaultsOSRD
-preplace portBus r -pg 1 -lvl 3 -x 910 -y -110 -defaultsOSRD
-preplace portBus g -pg 1 -lvl 3 -x 910 -y -130 -defaultsOSRD
-preplace portBus b -pg 1 -lvl 3 -x 910 -y -150 -defaultsOSRD
+preplace port port-id_ioe -pg 1 -lvl 3 -x 940 -y -200 -defaultsOSRD
+preplace port port-id_h_sync -pg 1 -lvl 3 -x 940 -y -230 -defaultsOSRD
+preplace port port-id_v_sync -pg 1 -lvl 3 -x 940 -y -260 -defaultsOSRD
+preplace portBus r -pg 1 -lvl 3 -x 940 -y -110 -defaultsOSRD
+preplace portBus g -pg 1 -lvl 3 -x 940 -y -140 -defaultsOSRD
+preplace portBus b -pg 1 -lvl 3 -x 940 -y -170 -defaultsOSRD
 preplace inst VGA_Controller_0 -pg 1 -lvl 1 -x 420 -y 0 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -x 790 -y 240 -defaultsOSRD
+preplace netloc InstrExec_CLK_1 1 0 1 20 -110n
 preplace netloc VGA_Controller_0_VRAM_Addr 1 1 1 620 50n
 preplace netloc VGA_Controller_0_VRAM_Clk 1 1 1 580 70n
-preplace netloc blk_mem_gen_0_douta 1 0 2 260 270 N
-preplace netloc InstrExec_CLK_1 1 0 1 20 -110n
+preplace netloc VGA_Controller_0_b 1 1 2 610 -170 NJ
+preplace netloc VGA_Controller_0_g 1 1 2 620 -140 NJ
+preplace netloc VGA_Controller_0_h_sync 1 1 2 590 -230 NJ
+preplace netloc VGA_Controller_0_ioe 1 1 2 600 -200 NJ
 preplace netloc VGA_Controller_0_r 1 1 2 NJ -70 890
-preplace netloc VGA_Controller_0_g 1 1 2 620 -130 NJ
-preplace netloc VGA_Controller_0_b 1 1 2 610 -150 NJ
-preplace netloc VGA_Controller_0_ioe 1 1 2 600 -170 NJ
-preplace netloc VGA_Controller_0_h_sync 1 1 2 590 -190 NJ
-preplace netloc VGA_Controller_0_v_sync 1 1 2 580 -210 NJ
-levelinfo -pg 1 0 420 790 910
-pagesize -pg 1 -db -bbox -sgen -150 -400 1010 350
+preplace netloc VGA_Controller_0_v_sync 1 1 2 580 -260 NJ
+preplace netloc blk_mem_gen_0_douta 1 0 2 260 270 N
+levelinfo -pg 1 0 420 790 940
+pagesize -pg 1 -db -bbox -sgen -150 -400 1040 350
 "
 }
-
+0

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1/TestBlockDesign_VGA_Controller_0_0.tcl"
+  variable script "D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1/TestBlockDesign_VGA_Controller_0_0.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,31 +56,29 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "TestBlockDesign_VGA_Controller_0_0_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
-set_param ips.modRefOverrideMrefDirPath d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/mref
+set_param ips.modRefOverrideMrefDirPath d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/mref
 create_project -in_memory -part xc7a35ticsg324-1L
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.cache/wt [current_project]
-set_property parent.project_path D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.xpr [current_project]
+set_property webtalk.parent_dir D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.cache/wt [current_project]
+set_property parent.project_path D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part_repo_paths {C:/Users/lukas/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:arty-a7-35:part0:1.1 [current_project]
 update_ip_catalog
-set_property ip_output_repo d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.cache/ip [current_project]
+set_property ip_output_repo d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd
-read_ip -quiet d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0.xci
+read_vhdl -library xil_defaultlib D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd
+read_ip -quiet D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -113,45 +111,45 @@ generate_parallel_reports -reports { "report_utilization -file TestBlockDesign_V
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  file copy -force D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1/TestBlockDesign_VGA_Controller_0_0.dcp d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0.dcp
+  file copy -force D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.runs/TestBlockDesign_VGA_Controller_0_0_synth_1/TestBlockDesign_VGA_Controller_0_0.dcp d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_stub.v
+  write_verilog -force -mode synth_stub d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_stub.vhdl
+  write_vhdl -force -mode synth_stub d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_sim_netlist.v
+  write_verilog -force -mode funcsim d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
-if {[file isdir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.ip_user_files/ip/TestBlockDesign_VGA_Controller_0_0]} {
+if {[file isdir D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.ip_user_files/ip/TestBlockDesign_VGA_Controller_0_0]} {
   catch { 
-    file copy -force d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_stub.v D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.ip_user_files/ip/TestBlockDesign_VGA_Controller_0_0
+    file copy -force d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_stub.v D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.ip_user_files/ip/TestBlockDesign_VGA_Controller_0_0
   }
 }
 
-if {[file isdir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.ip_user_files/ip/TestBlockDesign_VGA_Controller_0_0]} {
+if {[file isdir D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.ip_user_files/ip/TestBlockDesign_VGA_Controller_0_0]} {
   catch { 
-    file copy -force d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_stub.vhdl D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.ip_user_files/ip/TestBlockDesign_VGA_Controller_0_0
+    file copy -force d:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.gen/sources_1/bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/TestBlockDesign_VGA_Controller_0_0_stub.vhdl D:/FPGA_CPU/vivado/VGA_Controller/VGA_Controller.ip_user_files/ip/TestBlockDesign_VGA_Controller_0_0
   }
 }
 file delete __synthesis_is_running__

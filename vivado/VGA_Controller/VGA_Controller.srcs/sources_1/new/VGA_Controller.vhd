@@ -166,11 +166,11 @@ begin
             --end if;
             
             VRAM_Addr <= std_logic_vector(fetched_y_coord + to_unsigned(fetch_counter, 16));
-            if fetch_counter >= 3 then
-                if fetch_counter - 3 < 200 then
+            if fetch_counter >= 2 then
+                if fetch_counter - 2 < 200 then
                     --memory_read_buffer_s <= VRAM_Data(11 downto 0);
                     --fetch_line(fetch_counter - 3) <= memory_read_buffer_s;
-                    fetch_line(fetch_counter - 3) <= VRAM_Data(11 downto 0);
+                    fetch_line(fetch_counter - 2) <= VRAM_Data(11 downto 0);
                 end if;
             end if;      
             --if fetch_counter >= 3 then
