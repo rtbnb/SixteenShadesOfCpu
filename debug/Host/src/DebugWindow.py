@@ -168,18 +168,19 @@ class DebugWindow(QtWidgets.QWidget):
     
     # uart commands
     def command_button_pushed(self, command):
-        self.add_command_to_queue(command)
+        command_list = [command]
+        self.add_command_to_queue(command_list)
 
     def command_list_button_pushed(self, command_list):
-        for command in command_list:
-            self.add_command_to_queue(command)
+        self.add_command_to_queue(command_list)
 
 def print_queue(debugWindow: DebugWindow):
     while(1):
         q = debugWindow.get_command_queue()
         if not q.empty():
-            command = q.get()
-            print(f"sended command: {command.hex()}")
+            command_list = q.get()
+            for c in command_list:
+                print(f"sended command: {c.hex()}")
 
 if __name__ == '__main__':
     from main import rx_data_datapool  # Import the data from main.py

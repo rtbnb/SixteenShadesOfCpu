@@ -42,15 +42,27 @@ def rx(ser: serial.Serial, debugWindow: DebugWindow):
         rx_data = ser.read()
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
 
+def rx_non_blocking(ser: serial.Serial, debugWindow: DebugWindow):
+    rx_Data = 0
+    byte_counter = 0
+    command_instruction: bytes = 0
+    while ser.in_waiting > 0:
+        rx_data = ser.read()
+        (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+
 def tx(ser: serial.Serial, debugWindow: DebugWindow):
     # input for debug command
     while(1):
         try:
             q = debugWindow.get_command_queue()
             if not q.empty():
-                command = q.get()
-                ser.write(command)
-                print(f"sended command: {command.hex()}")
+                command_list = q.get()
+                for command in command_list:
+                    ser.write(command)
+                    print(f"sended command: {command.hex()}")
+                print("Waiting for response...")
+                rx_non_blocking(ser, debugWindow)
+                print("Response received")
         except KeyboardInterrupt:
             break
 
@@ -63,8 +75,8 @@ def main():
     widget.resize(800, 600)
     widget.show()
 
-    listening_thread = threading.Thread(target=rx, args=[fpga_serial, widget])
-    listening_thread.start()
+    #listening_thread = threading.Thread(target=rx, args=[fpga_serial, widget])
+    #listening_thread.start()
     tx_thread = threading.Thread(target=tx, args=[fpga_serial, widget])
     tx_thread.start()
     app.exec()
@@ -72,7 +84,7 @@ def main():
     
     
     fpga_serial.close()
-    listening_thread.join()
+    #listening_thread.join()
     tx_thread.join()
 
 if __name__ == '__main__':
