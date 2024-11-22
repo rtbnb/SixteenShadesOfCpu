@@ -31,7 +31,7 @@
         "Use_Byte_Write_Enable": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "Byte_Size": [ { "value": "9", "resolve_type": "user", "enabled": false, "usage": "all" } ],
         "Algorithm": [ { "value": "Fixed_Primitives", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
-        "Primitive": [ { "value": "8kx2", "resolve_type": "user", "usage": "all" } ],
+        "Primitive": [ { "value": "4kx4", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "Assume_Synchronous_Clk": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "Write_Width_A": [ { "value": "12", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Write_Depth_A": [ { "value": "65535", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -96,7 +96,7 @@
         "C_MEM_TYPE": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_BYTE_SIZE": [ { "value": "9", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_ALGORITHM": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_PRIM_TYPE": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_PRIM_TYPE": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_LOAD_INIT_FILE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_INIT_FILE_NAME": [ { "value": "no_coe_file_loaded", "resolve_type": "generated", "usage": "all" } ],
         "C_INIT_FILE": [ { "value": "NONE", "resolve_type": "generated", "usage": "all" } ],
@@ -156,7 +156,7 @@
         "C_DISABLE_WARN_BHV_RANGE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_COUNT_36K_BRAM": [ { "value": "24", "resolve_type": "generated", "usage": "all" } ],
         "C_COUNT_18K_BRAM": [ { "value": "0", "resolve_type": "generated", "usage": "all" } ],
-        "C_EST_POWER_SUMMARY": [ { "value": "Estimated Power for IP     :     29.87085 mW", "resolve_type": "generated", "usage": "all" } ]
+        "C_EST_POWER_SUMMARY": [ { "value": "Estimated Power for IP     :     15.247784 mW", "resolve_type": "generated", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "artix7" } ],

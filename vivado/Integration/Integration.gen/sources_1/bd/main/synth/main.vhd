@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 21 09:02:30 2024
---Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
+--Date        : Thu Nov 21 21:24:37 2024
+--Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -14,14 +14,17 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity main is
   port (
+    RX_UART_IN : in STD_LOGIC;
     Reset : in STD_LOGIC;
+    TX_UART_OUT : out STD_LOGIC;
     clk100mhz_in : in STD_LOGIC;
+    external_mmu_sync_clk : in STD_LOGIC;
     led : out STD_LOGIC
   );
-  attribute core_generation_info : string;
-  attribute core_generation_info of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=22,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=18,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
-  attribute hw_handoff : string;
-  attribute hw_handoff of main : entity is "main.hwdef";
+  attribute CORE_GENERATION_INFO : string;
+  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=25,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=21,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute HW_HANDOFF : string;
+  attribute HW_HANDOFF of main : entity is "main.hwdef";
 end main;
 
 architecture STRUCTURE of main is
@@ -296,26 +299,16 @@ architecture STRUCTURE of main is
     vram_clk200mhz : in STD_LOGIC;
     vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    iram_mem_addr : out STD_LOGIC_VECTOR ( 13 downto 0 );
-    iram_mem_ck : out STD_LOGIC;
-    iram_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    iram_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
-    iram_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_mem_addr : out STD_LOGIC_VECTOR ( 13 downto 0 );
-    gram_mem_ck : out STD_LOGIC;
-    gram_mem_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
-    gram_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vrama_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     vrama_mem_ck : out STD_LOGIC;
     vrama_mem_din : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vrama_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
-    vrama_mem_dout : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    vrama_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vramb_mem_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     vramb_mem_ck : out STD_LOGIC;
     vramb_mem_din : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vramb_mem_we : out STD_LOGIC_VECTOR ( 0 to 0 );
-    vramb_mem_dout : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    vramb_mem_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
     mmio_mem_ck : out STD_LOGIC;
     mmio_mem_we : out STD_LOGIC;
     mmio_mem_oe : out STD_LOGIC;
@@ -357,7 +350,7 @@ architecture STRUCTURE of main is
     doutb : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   end component main_blk_mem_gen_0_0;
-  component main_blk_mem_gen_1_0 is
+  component main_gram_bram_0 is
   port (
     clka : in STD_LOGIC;
     wea : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -370,8 +363,8 @@ architecture STRUCTURE of main is
     dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
     doutb : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
-  end component main_blk_mem_gen_1_0;
-  component main_blk_mem_gen_2_0 is
+  end component main_gram_bram_0;
+  component main_iram_bram_0 is
   port (
     clka : in STD_LOGIC;
     wea : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -384,7 +377,7 @@ architecture STRUCTURE of main is
     dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
     doutb : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
-  end component main_blk_mem_gen_2_0;
+  end component main_iram_bram_0;
   component main_clk_wiz_0_0 is
   port (
     clk_in1 : in STD_LOGIC;
@@ -393,6 +386,69 @@ architecture STRUCTURE of main is
     locked : out STD_LOGIC
   );
   end component main_clk_wiz_0_0;
+  component main_Debugger_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    rx_data : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    rx_data_valid : in STD_LOGIC;
+    tx_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    tx_data_valid : out STD_LOGIC;
+    tx_data_sended : in STD_LOGIC;
+    debug_enable : out STD_LOGIC;
+    iram_current_instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pipeline_stalled : in STD_LOGIC;
+    pipeline_instruction_forwarding_config : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    pipeline_current_instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pipeline_operand_1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pipeline_operand_2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pipeline_memory_addr_reg : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pipeline_jmp : in STD_LOGIC;
+    pc_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pc_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pc_current_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    alu_din1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    alu_din2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    alu_out : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    alu_flags : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    alu_op : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    regfile_addr_reg1 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    regfile_addr_reg2 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    regfile_addr_write_reg : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    regfile_write_enable : in STD_LOGIC;
+    regfile_overwrite_flag : in STD_LOGIC;
+    regfile_write_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    regfile_reg1_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    regfile_reg2_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    regfile_regma_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    regfile_bankid : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    mmu_debug_sys_clk200mhz : out STD_LOGIC;
+    mmu_debug_sync_clk100mhz : out STD_LOGIC;
+    mmu_debug_en : out STD_LOGIC;
+    mmu_debug_override_en : out STD_LOGIC;
+    mmu_debug_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    mmu_debug_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    mmu_debug_bank : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    mmu_debug_we : out STD_LOGIC;
+    mmu_debug_dout : in STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component main_Debugger_0_0;
+  component main_RX_UART_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    rx_serial_input : in STD_LOGIC;
+    data_output : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    data_valid : out STD_LOGIC
+  );
+  end component main_RX_UART_0_0;
+  component main_TX_UART_0_0 is
+  port (
+    data_valid : in STD_LOGIC;
+    data_in : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    clk : in STD_LOGIC;
+    tx_output : out STD_LOGIC;
+    send_valid : out STD_LOGIC
+  );
+  end component main_TX_UART_0_0;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ALU_0_BIGGER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_CARRY_FLAG : STD_LOGIC;
@@ -420,6 +476,15 @@ architecture STRUCTURE of main is
   signal CU_JumpDestinationSe_0_JMP_Address : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_RAMAddressControl_0_RAM_Address : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_WriteSelector_0_Write_Data : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal Debugger_0_debug_enable : STD_LOGIC;
+  signal Debugger_0_mmu_debug_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal Debugger_0_mmu_debug_bank : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal Debugger_0_mmu_debug_din : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal Debugger_0_mmu_debug_override_en : STD_LOGIC;
+  signal Debugger_0_mmu_debug_sync_clk100mhz : STD_LOGIC;
+  signal Debugger_0_mmu_debug_we : STD_LOGIC;
+  signal Debugger_0_tx_data : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal Debugger_0_tx_data_valid : STD_LOGIC;
   signal Decoder_0_Immediate : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Decoder_0_JMP_Condition : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal Decoder_0_Register1 : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -427,6 +492,7 @@ architecture STRUCTURE of main is
   signal Decoder_0_Use_MA : STD_LOGIC;
   signal Decoder_0_WriteBackRegister : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal InstrLoad_CLK_1 : STD_LOGIC;
+  signal Net : STD_LOGIC;
   signal Pipelining_Controller_0_InstructionForwardConfiguration : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal Pipelining_Controller_0_InstructionToExecute : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Controller_0_Stalled : STD_LOGIC;
@@ -456,11 +522,16 @@ architecture STRUCTURE of main is
   signal Pipelining_WriteBack_0_WriteAddress_out : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Pipelining_WriteBack_0_WriteData_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ProgramCounter_0_Dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal RX_UART_0_data_output : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal RX_UART_0_data_valid : STD_LOGIC;
+  signal RX_UART_IN_1 : STD_LOGIC;
   signal RegFile_0_BankID : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal RegFile_0_Reg1_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal RegFile_0_Reg2_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal RegFile_0_RegMA_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Reset_1 : STD_LOGIC;
+  signal TX_UART_0_send_valid : STD_LOGIC;
+  signal TX_UART_0_tx_output : STD_LOGIC;
   signal clk100mhz_in_1 : STD_LOGIC;
   signal clk_wiz_0_clk100mhz : STD_LOGIC;
   signal clk_wiz_0_clk200mhz : STD_LOGIC;
@@ -468,21 +539,15 @@ architecture STRUCTURE of main is
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_clk200mhz : STD_LOGIC;
   signal clockcontroller_0_exec_clk : STD_LOGIC;
+  signal external_mmu_sync_clk_1 : STD_LOGIC;
   signal gram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal iram_bram_douta : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmu_0_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_debug_en_lock : STD_LOGIC;
   signal mmu_0_fault : STD_LOGIC;
   signal mmu_0_gram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmu_0_gram_mem_addr : STD_LOGIC_VECTOR ( 13 downto 0 );
-  signal mmu_0_gram_mem_ck : STD_LOGIC;
-  signal mmu_0_gram_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmu_0_gram_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
   signal mmu_0_iram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmu_0_iram_mem_addr : STD_LOGIC_VECTOR ( 13 downto 0 );
-  signal mmu_0_iram_mem_ck : STD_LOGIC;
-  signal mmu_0_iram_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmu_0_iram_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
   signal mmu_0_mmio_mem_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_mmio_mem_ck : STD_LOGIC;
   signal mmu_0_mmio_mem_din : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -499,31 +564,42 @@ architecture STRUCTURE of main is
   signal vram_bram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
+  signal NLW_Debugger_0_mmu_debug_en_UNCONNECTED : STD_LOGIC;
+  signal NLW_Debugger_0_mmu_debug_sys_clk200mhz_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_MA_out_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED : STD_LOGIC;
-  signal NLW_clockcontroller_0_debug_clk_UNCONNECTED : STD_LOGIC;
+  signal NLW_gram_bram_clka_UNCONNECTED : STD_LOGIC;
+  signal NLW_gram_bram_addra_UNCONNECTED : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal NLW_gram_bram_dina_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_gram_bram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_gram_bram_wea_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_iram_bram_clka_UNCONNECTED : STD_LOGIC;
+  signal NLW_iram_bram_addra_UNCONNECTED : STD_LOGIC_VECTOR ( 13 downto 0 );
+  signal NLW_iram_bram_dina_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_iram_bram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_iram_bram_wea_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_mmio_0_led0_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led1_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led2_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led3_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_rho_UNCONNECTED : STD_LOGIC;
   signal NLW_mmu_0_mmio_mem_oe_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmu_0_debug_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_mmu_0_vram_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  attribute x_interface_info : string;
-  attribute x_interface_info of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
-  attribute x_interface_parameter : string;
-  attribute x_interface_parameter of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
-  attribute x_interface_info of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
-  attribute x_interface_parameter of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO : string;
+  attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
+  attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
+  attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
+  RX_UART_IN_1 <= RX_UART_IN;
   Reset_1 <= Reset;
+  TX_UART_OUT <= TX_UART_0_tx_output;
   clk100mhz_in_1 <= clk100mhz_in;
+  external_mmu_sync_clk_1 <= external_mmu_sync_clk;
   led <= Pipelining_WriteBack_0_JMP_out;
 ALU_0: component main_ALU_0_0
      port map (
@@ -614,6 +690,51 @@ CU_WriteSelector_0: component main_CU_WriteSelector_0_0
       Reg1(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       Write_Data(15 downto 0) => CU_WriteSelector_0_Write_Data(15 downto 0),
       Write_Sel(1 downto 0) => Pipelining_Execution_0_WriteDataSel_out(1 downto 0)
+    );
+Debugger_0: component main_Debugger_0_0
+     port map (
+      alu_din1(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
+      alu_din2(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
+      alu_flags(15 downto 0) => ALU_FLAG_PACKER_0_ALU_FLAGS(15 downto 0),
+      alu_op(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
+      alu_out(15 downto 0) => ALU_0_ALU_OUT(15 downto 0),
+      clk => Net,
+      debug_enable => Debugger_0_debug_enable,
+      iram_current_instruction(15 downto 0) => B"0000000000000000",
+      mmu_debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
+      mmu_debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
+      mmu_debug_din(15 downto 0) => Debugger_0_mmu_debug_din(15 downto 0),
+      mmu_debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
+      mmu_debug_en => NLW_Debugger_0_mmu_debug_en_UNCONNECTED,
+      mmu_debug_override_en => Debugger_0_mmu_debug_override_en,
+      mmu_debug_sync_clk100mhz => Debugger_0_mmu_debug_sync_clk100mhz,
+      mmu_debug_sys_clk200mhz => NLW_Debugger_0_mmu_debug_sys_clk200mhz_UNCONNECTED,
+      mmu_debug_we => Debugger_0_mmu_debug_we,
+      pc_current_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
+      pc_din(15 downto 0) => CU_JumpController_0_PC_Next(15 downto 0),
+      pc_dout(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
+      pipeline_current_instruction(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
+      pipeline_instruction_forwarding_config(4 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(4 downto 0),
+      pipeline_jmp => CU_Decoder_0_JMP,
+      pipeline_memory_addr_reg(15 downto 0) => Pipelining_Forwarder_0_ForwardedMA(15 downto 0),
+      pipeline_operand_1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
+      pipeline_operand_2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),
+      pipeline_stalled => Pipelining_Controller_0_Stalled,
+      regfile_addr_reg1(3 downto 0) => Decoder_0_Register1(3 downto 0),
+      regfile_addr_reg2(3 downto 0) => Decoder_0_Register2(3 downto 0),
+      regfile_addr_write_reg(3 downto 0) => Pipelining_WriteBack_0_WriteAddress_out(3 downto 0),
+      regfile_bankid(3 downto 0) => RegFile_0_BankID(3 downto 0),
+      regfile_overwrite_flag => Pipelining_WriteBack_0_Is_ALU_OP_out,
+      regfile_reg1_data(15 downto 0) => RegFile_0_Reg1_data(15 downto 0),
+      regfile_reg2_data(15 downto 0) => RegFile_0_Reg2_data(15 downto 0),
+      regfile_regma_data(15 downto 0) => RegFile_0_RegMA_data(15 downto 0),
+      regfile_write_data(15 downto 0) => Pipelining_WriteBack_0_WriteData_out(15 downto 0),
+      regfile_write_enable => Pipelining_WriteBack_0_RF_WE_out,
+      rx_data(7 downto 0) => RX_UART_0_data_output(7 downto 0),
+      rx_data_valid => RX_UART_0_data_valid,
+      tx_data(7 downto 0) => Debugger_0_tx_data(7 downto 0),
+      tx_data_sended => TX_UART_0_send_valid,
+      tx_data_valid => Debugger_0_tx_data_valid
     );
 Decoder_0: component main_Decoder_0_0
      port map (
@@ -721,6 +842,13 @@ ProgramCounter_0: component main_ProgramCounter_0_0
       Reset => Reset_1,
       Stalled => Pipelining_Controller_0_Stalled
     );
+RX_UART_0: component main_RX_UART_0_0
+     port map (
+      clk => Net,
+      data_output(7 downto 0) => RX_UART_0_data_output(7 downto 0),
+      data_valid => RX_UART_0_data_valid,
+      rx_serial_input => RX_UART_IN_1
+    );
 RegFile_0: component main_RegFile_0_0
      port map (
       AddrReg1(3 downto 0) => Decoder_0_Register1(3 downto 0),
@@ -736,6 +864,14 @@ RegFile_0: component main_RegFile_0_0
       WriteData(15 downto 0) => Pipelining_WriteBack_0_WriteData_out(15 downto 0),
       clk => clockcontroller_0_exec_clk
     );
+TX_UART_0: component main_TX_UART_0_0
+     port map (
+      clk => Net,
+      data_in(7 downto 0) => Debugger_0_tx_data(7 downto 0),
+      data_valid => Debugger_0_tx_data_valid,
+      send_valid => TX_UART_0_send_valid,
+      tx_output => TX_UART_0_tx_output
+    );
 clk_wiz_0: component main_clk_wiz_0_0
      port map (
       clk100mhz => clk_wiz_0_clk100mhz,
@@ -750,8 +886,8 @@ clockcontroller_0: component main_clockcontroller_0_0
       clk200mhz => clockcontroller_0_clk200mhz,
       clk200mhz_in => clk_wiz_0_clk200mhz,
       clk200mhz_inf => NLW_clockcontroller_0_clk200mhz_inf_UNCONNECTED,
-      debug_clk => NLW_clockcontroller_0_debug_clk_UNCONNECTED,
-      debug_en => '0',
+      debug_clk => Net,
+      debug_en => Debugger_0_debug_enable,
       debug_en_lock => mmu_0_debug_en_lock,
       debug_reset => '0',
       exec_clk => clockcontroller_0_exec_clk,
@@ -760,30 +896,30 @@ clockcontroller_0: component main_clockcontroller_0_0
       load_clk => InstrLoad_CLK_1,
       wizard_locked => clk_wiz_0_locked
     );
-gram_bram: component main_blk_mem_gen_1_0
+gram_bram: component main_gram_bram_0
      port map (
-      addra(13 downto 0) => mmu_0_gram_mem_addr(13 downto 0),
+      addra(13 downto 0) => NLW_gram_bram_addra_UNCONNECTED(13 downto 0),
       addrb(13 downto 0) => B"00000000000000",
-      clka => mmu_0_gram_mem_ck,
+      clka => NLW_gram_bram_clka_UNCONNECTED,
       clkb => '0',
-      dina(15 downto 0) => mmu_0_gram_mem_din(15 downto 0),
+      dina(15 downto 0) => NLW_gram_bram_dina_UNCONNECTED(15 downto 0),
       dinb(15 downto 0) => B"0000000000001000",
       douta(15 downto 0) => gram_bram_douta(15 downto 0),
       doutb(15 downto 0) => NLW_gram_bram_doutb_UNCONNECTED(15 downto 0),
-      wea(0) => mmu_0_gram_mem_we(0),
+      wea(0) => NLW_gram_bram_wea_UNCONNECTED(0),
       web(0) => '0'
     );
-iram_bram: component main_blk_mem_gen_2_0
+iram_bram: component main_iram_bram_0
      port map (
-      addra(13 downto 0) => mmu_0_iram_mem_addr(13 downto 0),
+      addra(13 downto 0) => NLW_iram_bram_addra_UNCONNECTED(13 downto 0),
       addrb(13 downto 0) => B"00000000000000",
-      clka => mmu_0_iram_mem_ck,
+      clka => NLW_iram_bram_clka_UNCONNECTED,
       clkb => '0',
-      dina(15 downto 0) => mmu_0_iram_mem_din(15 downto 0),
+      dina(15 downto 0) => NLW_iram_bram_dina_UNCONNECTED(15 downto 0),
       dinb(15 downto 0) => B"0000000000001000",
       douta(15 downto 0) => iram_bram_douta(15 downto 0),
       doutb(15 downto 0) => NLW_iram_bram_doutb_UNCONNECTED(15 downto 0),
-      wea(0) => mmu_0_iram_mem_we(0),
+      wea(0) => NLW_iram_bram_wea_UNCONNECTED(0),
       web(0) => '0'
     );
 mmio_0: component main_mmio_0_0
@@ -808,34 +944,24 @@ mmu_0: component main_mmu_0_0
       ck_stable => clockcontroller_0_ck_stable,
       clk200mhz => clockcontroller_0_clk200mhz,
       cpu_sync => clockcontroller_0_exec_clk,
-      debug_addr(15 downto 0) => B"0000000000000000",
-      debug_bank(3 downto 0) => B"0000",
-      debug_clk200mhz => '0',
-      debug_din(15 downto 0) => B"0000000000000000",
-      debug_dout(15 downto 0) => NLW_mmu_0_debug_dout_UNCONNECTED(15 downto 0),
+      debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
+      debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
+      debug_clk200mhz => external_mmu_sync_clk_1,
+      debug_din(15 downto 0) => Debugger_0_mmu_debug_din(15 downto 0),
+      debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
       debug_en_lock => mmu_0_debug_en_lock,
-      debug_enable => '0',
-      debug_override_enable => '0',
-      debug_sync => '0',
-      debug_we => '0',
+      debug_enable => Debugger_0_debug_enable,
+      debug_override_enable => Debugger_0_mmu_debug_override_en,
+      debug_sync => Debugger_0_mmu_debug_sync_clk100mhz,
+      debug_we => Debugger_0_mmu_debug_we,
       fault => mmu_0_fault,
       gram_addr(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
       gram_bank(3 downto 0) => Pipelining_Execution_0_RAM_BankID_out(3 downto 0),
       gram_din(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       gram_dout(15 downto 0) => mmu_0_gram_dout(15 downto 0),
-      gram_mem_addr(13 downto 0) => mmu_0_gram_mem_addr(13 downto 0),
-      gram_mem_ck => mmu_0_gram_mem_ck,
-      gram_mem_din(15 downto 0) => mmu_0_gram_mem_din(15 downto 0),
-      gram_mem_dout(15 downto 0) => gram_bram_douta(15 downto 0),
-      gram_mem_we(0) => mmu_0_gram_mem_we(0),
       gram_we => Pipelining_Execution_0_RAM_Write_out,
       iram_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
       iram_dout(15 downto 0) => mmu_0_iram_dout(15 downto 0),
-      iram_mem_addr(13 downto 0) => mmu_0_iram_mem_addr(13 downto 0),
-      iram_mem_ck => mmu_0_iram_mem_ck,
-      iram_mem_din(15 downto 0) => mmu_0_iram_mem_din(15 downto 0),
-      iram_mem_dout(15 downto 0) => iram_bram_douta(15 downto 0),
-      iram_mem_we(0) => mmu_0_iram_mem_we(0),
       mmio_mem_addr(15 downto 0) => mmu_0_mmio_mem_addr(15 downto 0),
       mmio_mem_ck => mmu_0_mmio_mem_ck,
       mmio_mem_din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
@@ -849,11 +975,13 @@ mmu_0: component main_mmu_0_0
       vrama_mem_addr(15 downto 0) => mmu_0_vrama_mem_addr(15 downto 0),
       vrama_mem_ck => mmu_0_vrama_mem_ck,
       vrama_mem_din(11 downto 0) => mmu_0_vrama_mem_din(11 downto 0),
+      vrama_mem_dout(15 downto 12) => B"0000",
       vrama_mem_dout(11 downto 0) => vram_bram_douta(11 downto 0),
       vrama_mem_we(0) => mmu_0_vrama_mem_we(0),
       vramb_mem_addr(15 downto 0) => mmu_0_vramb_mem_addr(15 downto 0),
       vramb_mem_ck => mmu_0_vramb_mem_ck,
       vramb_mem_din(11 downto 0) => mmu_0_vramb_mem_din(11 downto 0),
+      vramb_mem_dout(15 downto 12) => B"0000",
       vramb_mem_dout(11 downto 0) => vram_bram_doutb(11 downto 0),
       vramb_mem_we(0) => mmu_0_vramb_mem_we(0)
     );

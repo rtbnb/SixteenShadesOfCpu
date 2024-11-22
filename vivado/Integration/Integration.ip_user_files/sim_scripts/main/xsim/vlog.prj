@@ -1,5 +1,7 @@
 verilog xil_defaultlib --include "../../../../Integration.gen/sources_1/bd/main/ipshared/3242" \
 "../../../bd/main/ip/main_blk_mem_gen_0_0/sim/main_blk_mem_gen_0_0.v" \
+"../../../bd/main/ip/main_gram_bram_0/sim/main_gram_bram_0.v" \
+"../../../bd/main/ip/main_iram_bram_0/sim/main_iram_bram_0.v" \
 "../../../bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" \
 

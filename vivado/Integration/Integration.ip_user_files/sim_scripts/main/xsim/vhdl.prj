@@ -17,6 +17,9 @@ vhdl xil_defaultlib  \
 "../../../bd/main/ip/main_clockcontroller_0_0/sim/main_clockcontroller_0_0.vhd" \
 "../../../bd/main/ip/main_mmu_0_0/sim/main_mmu_0_0.vhd" \
 "../../../bd/main/ip/main_mmio_0_0/sim/main_mmio_0_0.vhd" \
+"../../../bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" \
+"../../../bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" \
+"../../../bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" \
 "../../../bd/main/sim/main.vhd" \
 
 # Do not sort compile order

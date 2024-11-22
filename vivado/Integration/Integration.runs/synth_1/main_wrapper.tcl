@@ -56,7 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
 
@@ -69,8 +68,6 @@ set_property parent.project_path C:/Development/SixteenShadesOfCpu/vivado/Integr
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part_repo_paths {C:/Users/nicot/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store} [current_project]
-set_property board_part digilentinc.com:arty-a7-35:part0:1.1 [current_project]
 set_property ip_output_repo c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -95,12 +92,15 @@ read_vhdl -library xil_defaultlib {
   C:/Development/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd
   C:/Development/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmu.vhd
   C:/Development/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmio.vhd
+  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd
+  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd
+  C:/Development/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd
   C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
 }
 add_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_1_0/main_blk_mem_gen_1_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_2_0/main_blk_mem_gen_2_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_gram_bram_0/main_gram_bram_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_iram_bram_0/main_iram_bram_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc]
