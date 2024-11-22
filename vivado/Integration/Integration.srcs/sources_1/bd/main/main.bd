@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB57B39CDE0C3100E",
+      "boundary_crc": "0x625889331B80AEE6",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -87,9 +87,6 @@
       "TX_UART_OUT": {
         "direction": "O"
       },
-      "external_mmu_sync_clk": {
-        "direction": "I"
-      },
       "r": {
         "direction": "O",
         "left": "3",
@@ -113,31 +110,6 @@
       },
       "v_sync": {
         "direction": "O"
-      },
-      "debug_clk": {
-        "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_debug_clk",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
       },
       "fault_reset": {
         "type": "rst",
@@ -1311,10 +1283,6 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "user_prop"
-              },
               "CLK_DOMAIN": {
                 "value": "main_debug_clk",
                 "value_src": "default_prop"
@@ -1805,21 +1773,7 @@
             "direction": "O"
           },
           "mmu_debug_sync_clk100mhz": {
-            "direction": "O",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "default_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_Debugger_0_0_mmu_debug_sync_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "O"
           },
           "mmu_debug_en": {
             "direction": "O"
@@ -2333,7 +2287,8 @@
       },
       "Debugger_0_mmu_debug_sync_clk100mhz": {
         "ports": [
-          "Debugger_0/mmu_debug_sync_clk100mhz"
+          "Debugger_0/mmu_debug_sync_clk100mhz",
+          "mmu_0/debug_clk"
         ]
       },
       "Debugger_0_mmu_debug_we": {
@@ -2468,8 +2423,8 @@
           "CU_ImmediateManipula_0/Immediate",
           "CU_JumpDestinationSe_0/Immediate",
           "CU_RAMAddressControl_0/Immediate",
-          "Debugger_0/alu_op",
-          "ALU_0/ALU_OPP"
+          "ALU_0/ALU_OPP",
+          "Debugger_0/alu_op"
         ]
       },
       "Pipelining_Execution_0_JMP_Condition_out": {
@@ -2509,9 +2464,9 @@
           "CU_ImmediateManipula_0/Reg1",
           "CU_JumpDestinationSe_0/Register1",
           "CU_WriteSelector_0/Reg1",
-          "Debugger_0/alu_din1",
           "ALU_0/D1",
-          "mmu_0/gram_din"
+          "mmu_0/gram_din",
+          "Debugger_0/alu_din1"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -2519,8 +2474,8 @@
           "Pipelining_Execution_0/Operand2_out",
           "CU_JumpController_0/Flags",
           "CU_RAMAddressControl_0/Reg2",
-          "Debugger_0/alu_din2",
-          "ALU_0/D2"
+          "ALU_0/D2",
+          "Debugger_0/alu_din2"
         ]
       },
       "Pipelining_Execution_0_RAM_BankID_out": {
@@ -2633,9 +2588,9 @@
         "ports": [
           "ProgramCounter_0/Dout",
           "CU_JumpController_0/PC_Current",
+          "mmu_0/iram_addr",
           "Debugger_0/pc_dout",
-          "Debugger_0/pc_current_addr",
-          "mmu_0/iram_addr"
+          "Debugger_0/pc_current_addr"
         ]
       },
       "RX_UART_0_data_output": {
@@ -2828,12 +2783,6 @@
           "mmu_0/exec_clk"
         ]
       },
-      "debug_clk_1": {
-        "ports": [
-          "debug_clk",
-          "mmu_0/debug_clk"
-        ]
-      },
       "debug_mock_clk_1": {
         "ports": [
           "debug_mock_clk",
@@ -2844,11 +2793,6 @@
         "ports": [
           "debug_reset",
           "clockcontroller_0/debug_reset"
-        ]
-      },
-      "external_mmu_sync_clk_1": {
-        "ports": [
-          "external_mmu_sync_clk"
         ]
       },
       "fault_reset_1": {

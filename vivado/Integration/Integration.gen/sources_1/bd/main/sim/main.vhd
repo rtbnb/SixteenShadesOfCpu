@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 22 15:41:24 2024
---Host        : 8x8-Bit running 64-bit major release  (build 9200)
+--Date        : Fri Nov 22 16:13:04 2024
+--Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -19,10 +19,8 @@ entity main is
     TX_UART_OUT : out STD_LOGIC;
     b : out STD_LOGIC_VECTOR ( 3 downto 0 );
     clk100mhz_in : in STD_LOGIC;
-    debug_clk : in STD_LOGIC;
     debug_mock_clk : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
-    external_mmu_sync_clk : in STD_LOGIC;
     fault_reset : in STD_LOGIC;
     g : out STD_LOGIC_VECTOR ( 3 downto 0 );
     h_sync : out STD_LOGIC;
@@ -361,9 +359,9 @@ architecture STRUCTURE of main is
   port (
     clk_in1 : in STD_LOGIC;
     clk100mhz : out STD_LOGIC;
-    locked : out STD_LOGIC;
     clk50mhz : out STD_LOGIC;
-    debug_guard_clk : out STD_LOGIC
+    debug_guard_clk : out STD_LOGIC;
+    locked : out STD_LOGIC
   );
   end component main_clk_wiz_0_0;
   component main_Debugger_0_0 is
@@ -578,10 +576,8 @@ architecture STRUCTURE of main is
   signal clk_wiz_0_locked : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_exec_clk : STD_LOGIC;
-  signal debug_clk_1 : STD_LOGIC;
   signal debug_mock_clk_1 : STD_LOGIC;
   signal debug_reset_1 : STD_LOGIC;
-  signal external_mmu_sync_clk_1 : STD_LOGIC;
   signal fault_reset_1 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -622,8 +618,6 @@ architecture STRUCTURE of main is
   attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
   attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of debug_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK, CLK_DOMAIN main_debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of debug_mock_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_MOCK_CLK CLK";
   attribute X_INTERFACE_PARAMETER of debug_mock_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_MOCK_CLK, CLK_DOMAIN main_debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of debug_reset : signal is "xilinx.com:signal:reset:1.0 RST.DEBUG_RESET RST";
@@ -636,10 +630,8 @@ begin
   TX_UART_OUT <= TX_UART_0_tx_output;
   b(3 downto 0) <= VGA_Controller_0_b(3 downto 0);
   clk100mhz_in_1 <= clk100mhz_in;
-  debug_clk_1 <= debug_clk;
   debug_mock_clk_1 <= debug_mock_clk;
   debug_reset_1 <= debug_reset;
-  external_mmu_sync_clk_1 <= external_mmu_sync_clk;
   fault_reset_1 <= fault_reset;
   g(3 downto 0) <= VGA_Controller_0_g(3 downto 0);
   h_sync <= VGA_Controller_0_h_sync;
@@ -1004,7 +996,7 @@ mmu_0: component main_mmu_0_0
       ck_stable => clockcontroller_0_ck_stable,
       debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
       debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
-      debug_clk => debug_clk_1,
+      debug_clk => Debugger_0_mmu_debug_sync_clk100mhz,
       debug_din(15 downto 0) => Debugger_0_mmu_debug_din(15 downto 0),
       debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
       debug_enable => Debugger_0_debug_enable,

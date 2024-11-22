@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 22 15:41:30 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 22 16:13:04 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -34,11 +34,6 @@
         <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_in1"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="debug_clk" SIGIS="clk" SIGNAME="External_Ports_debug_clk">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mmu_0" PORT="debug_clk"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="debug_mock_clk" SIGIS="clk" SIGNAME="External_Ports_debug_mock_clk">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_mock_clk"/>
@@ -49,7 +44,6 @@
         <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_reset"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="external_mmu_sync_clk" SIGIS="undef"/>
     <PORT DIR="I" NAME="fault_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_fault_reset">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clockcontroller_0" PORT="fault_reset"/>
@@ -556,7 +550,11 @@
             <CONNECTION INSTANCE="mmu_0" PORT="debug_override_enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="mmu_debug_sync_clk100mhz" SIGIS="undef"/>
+        <PORT DIR="O" NAME="mmu_debug_sync_clk100mhz" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_sync_clk100mhz">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmu_0" PORT="debug_clk"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="mmu_debug_sys_clk200mhz" SIGIS="undef"/>
         <PORT DIR="O" NAME="mmu_debug_we" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_we">
           <CONNECTIONS>
@@ -879,8 +877,8 @@
             <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="Immediate"/>
             <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="Immediate"/>
             <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Immediate"/>
-            <CONNECTION INSTANCE="Debugger_0" PORT="alu_op"/>
             <CONNECTION INSTANCE="ALU_0" PORT="ALU_OPP"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_op"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrLoad_CLK" SIGIS="clk" SIGNAME="clockcontroller_0_load_clk">
@@ -966,9 +964,9 @@
             <CONNECTION INSTANCE="CU_ImmediateManipula_0" PORT="Reg1"/>
             <CONNECTION INSTANCE="CU_JumpDestinationSe_0" PORT="Register1"/>
             <CONNECTION INSTANCE="CU_WriteSelector_0" PORT="Reg1"/>
-            <CONNECTION INSTANCE="Debugger_0" PORT="alu_din1"/>
             <CONNECTION INSTANCE="ALU_0" PORT="D1"/>
             <CONNECTION INSTANCE="mmu_0" PORT="gram_din"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_din1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="Operand2" RIGHT="0" SIGIS="undef" SIGNAME="Pipelining_Forwarder_0_ForwardedOperand2">
@@ -980,8 +978,8 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_JumpController_0" PORT="Flags"/>
             <CONNECTION INSTANCE="CU_RAMAddressControl_0" PORT="Reg2"/>
-            <CONNECTION INSTANCE="Debugger_0" PORT="alu_din2"/>
             <CONNECTION INSTANCE="ALU_0" PORT="D2"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="alu_din2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="3" NAME="RAM_BankID" RIGHT="0" SIGIS="undef" SIGNAME="RegFile_0_BankID">
@@ -1239,9 +1237,9 @@
         <PORT DIR="O" LEFT="15" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="ProgramCounter_0_Dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_JumpController_0" PORT="PC_Current"/>
+            <CONNECTION INSTANCE="mmu_0" PORT="iram_addr"/>
             <CONNECTION INSTANCE="Debugger_0" PORT="pc_dout"/>
             <CONNECTION INSTANCE="Debugger_0" PORT="pc_current_addr"/>
-            <CONNECTION INSTANCE="mmu_0" PORT="iram_addr"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="InstrExec_CLK" SIGIS="clk" SIGNAME="clockcontroller_0_exec_clk">
@@ -2274,9 +2272,9 @@
             <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_bank"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="debug_clk" SIGIS="clk" SIGNAME="External_Ports_debug_clk">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="debug_clk" SIGIS="clk" SIGNAME="Debugger_0_mmu_debug_sync_clk100mhz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="debug_clk"/>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_sync_clk100mhz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="debug_din" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_din">
