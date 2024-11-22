@@ -55,44 +55,43 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_mmu_0_0 IS
   PORT (
-    clk200mhz : IN STD_LOGIC;
-    debug_en_lock : OUT STD_LOGIC;
-    fault : OUT STD_LOGIC;
     ck_stable : IN STD_LOGIC;
-    cpu_sync : IN STD_LOGIC;
-    debug_sync : IN STD_LOGIC;
-    vram_sync : IN STD_LOGIC;
-    debug_clk200mhz : IN STD_LOGIC;
-    debug_we : IN STD_LOGIC;
+    exec_clk : IN STD_LOGIC;
+    gram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    gram_we : IN STD_LOGIC;
+    gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_enable : IN STD_LOGIC;
     debug_override_enable : IN STD_LOGIC;
+    debug_clk : IN STD_LOGIC;
     debug_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    debug_we : IN STD_LOGIC;
     debug_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    gram_we : IN STD_LOGIC;
-    gram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    vram_clk200mhz : IN STD_LOGIC;
-    vram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    vram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    gpu_clk : IN STD_LOGIC;
+    gpu_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    gpu_din : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    gpu_we : IN STD_LOGIC;
+    gpu_dout : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+    vga_clk : IN STD_LOGIC;
+    vga_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    vga_dout : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     vrama_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     vrama_mem_ck : OUT STD_LOGIC;
     vrama_mem_din : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     vrama_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-    vrama_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    vrama_mem_dout : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     vramb_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     vramb_mem_ck : OUT STD_LOGIC;
     vramb_mem_din : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     vramb_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-    vramb_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    vramb_mem_dout : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     mmio_mem_ck : OUT STD_LOGIC;
     mmio_mem_we : OUT STD_LOGIC;
-    mmio_mem_oe : OUT STD_LOGIC;
     mmio_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmio_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmio_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
@@ -104,77 +103,86 @@ ARCHITECTURE main_mmu_0_0_arch OF main_mmu_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_mmu_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT mmu IS
     PORT (
-      clk200mhz : IN STD_LOGIC;
-      debug_en_lock : OUT STD_LOGIC;
-      fault : OUT STD_LOGIC;
       ck_stable : IN STD_LOGIC;
-      cpu_sync : IN STD_LOGIC;
-      debug_sync : IN STD_LOGIC;
-      vram_sync : IN STD_LOGIC;
-      debug_clk200mhz : IN STD_LOGIC;
-      debug_we : IN STD_LOGIC;
+      exec_clk : IN STD_LOGIC;
+      gram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      gram_we : IN STD_LOGIC;
+      gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_enable : IN STD_LOGIC;
       debug_override_enable : IN STD_LOGIC;
+      debug_clk : IN STD_LOGIC;
       debug_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      debug_we : IN STD_LOGIC;
       debug_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      gram_we : IN STD_LOGIC;
-      gram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-      vram_clk200mhz : IN STD_LOGIC;
-      vram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      vram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      gpu_clk : IN STD_LOGIC;
+      gpu_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      gpu_din : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+      gpu_we : IN STD_LOGIC;
+      gpu_dout : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+      vga_clk : IN STD_LOGIC;
+      vga_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      vga_dout : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       vrama_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       vrama_mem_ck : OUT STD_LOGIC;
       vrama_mem_din : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       vrama_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      vrama_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      vrama_mem_dout : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
       vramb_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       vramb_mem_ck : OUT STD_LOGIC;
       vramb_mem_din : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       vramb_mem_we : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      vramb_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      vramb_mem_dout : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
       mmio_mem_ck : OUT STD_LOGIC;
       mmio_mem_we : OUT STD_LOGIC;
-      mmio_mem_oe : OUT STD_LOGIC;
       mmio_mem_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmio_mem_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmio_mem_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT mmu;
+  ATTRIBUTE X_INTERFACE_INFO : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_debug_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF exec_clk: SIGNAL IS "XIL_INTERFACENAME exec_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF exec_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 exec_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF gpu_clk: SIGNAL IS "XIL_INTERFACENAME gpu_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_GPU_0_0_VRAM_CLK, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF gpu_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 gpu_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF vga_clk: SIGNAL IS "XIL_INTERFACENAME vga_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_VGA_Controller_0_0_VRAM_Clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF vga_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 vga_clk CLK";
 BEGIN
   U0 : mmu
     PORT MAP (
-      clk200mhz => clk200mhz,
-      debug_en_lock => debug_en_lock,
-      fault => fault,
       ck_stable => ck_stable,
-      cpu_sync => cpu_sync,
-      debug_sync => debug_sync,
-      vram_sync => vram_sync,
-      debug_clk200mhz => debug_clk200mhz,
-      debug_we => debug_we,
+      exec_clk => exec_clk,
+      gram_addr => gram_addr,
+      gram_din => gram_din,
+      gram_bank => gram_bank,
+      gram_we => gram_we,
+      gram_dout => gram_dout,
+      iram_addr => iram_addr,
+      iram_dout => iram_dout,
       debug_enable => debug_enable,
       debug_override_enable => debug_override_enable,
+      debug_clk => debug_clk,
       debug_addr => debug_addr,
       debug_din => debug_din,
       debug_bank => debug_bank,
+      debug_we => debug_we,
       debug_dout => debug_dout,
-      iram_addr => iram_addr,
-      iram_dout => iram_dout,
-      gram_we => gram_we,
-      gram_addr => gram_addr,
-      gram_din => gram_din,
-      gram_dout => gram_dout,
-      gram_bank => gram_bank,
-      vram_clk200mhz => vram_clk200mhz,
-      vram_addr => vram_addr,
-      vram_dout => vram_dout,
+      gpu_clk => gpu_clk,
+      gpu_addr => gpu_addr,
+      gpu_din => gpu_din,
+      gpu_we => gpu_we,
+      gpu_dout => gpu_dout,
+      vga_clk => vga_clk,
+      vga_addr => vga_addr,
+      vga_dout => vga_dout,
       vrama_mem_addr => vrama_mem_addr,
       vrama_mem_ck => vrama_mem_ck,
       vrama_mem_din => vrama_mem_din,
@@ -187,7 +195,6 @@ BEGIN
       vramb_mem_dout => vramb_mem_dout,
       mmio_mem_ck => mmio_mem_ck,
       mmio_mem_we => mmio_mem_we,
-      mmio_mem_oe => mmio_mem_oe,
       mmio_mem_addr => mmio_mem_addr,
       mmio_mem_din => mmio_mem_din,
       mmio_mem_dout => mmio_mem_dout

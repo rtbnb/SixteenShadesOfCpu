@@ -20,6 +20,9 @@ vhdl xil_defaultlib  \
 "../../../bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" \
 "../../../bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" \
 "../../../bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" \
+"../../../bd/main/ip/main_VGA_CPU_Bridge_0_0/sim/main_VGA_CPU_Bridge_0_0.vhd" \
+"../../../bd/main/ip/main_GPU_0_0/sim/main_GPU_0_0.vhd" \
+"../../../bd/main/ip/main_VGA_Controller_0_0/sim/main_VGA_Controller_0_0.vhd" \
 "../../../bd/main/sim/main.vhd" \
 
 # Do not sort compile order
