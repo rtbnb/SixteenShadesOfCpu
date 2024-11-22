@@ -97,7 +97,7 @@ begin
                       "01" WHEN is_imh or is_iml ELSE 
                       "10" WHEN is_cr ELSE 
                       "11" WHEN is_rdmi or is_rdmr ELSE
-                      "00";
+                      "10";
     -- '0': Reg2 is used as RAM Address
     -- '1': Immediate is used as RAM Address                  
     RAM_Address_Src <= '1' WHEN is_rdmi or is_wrmi ELSE '0';

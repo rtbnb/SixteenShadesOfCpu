@@ -63,12 +63,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_mmio_0
 # IP: bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_blk_mem_gen_0_0 || ORIG_REF_NAME==main_blk_mem_gen_0_0} -quiet] -quiet
 
-# IP: bd/main/ip/main_gram_bram_0/main_gram_bram_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_gram_bram_0 || ORIG_REF_NAME==main_gram_bram_0} -quiet] -quiet
-
-# IP: bd/main/ip/main_iram_bram_0/main_iram_bram_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_iram_bram_0 || ORIG_REF_NAME==main_iram_bram_0} -quiet] -quiet
-
 # IP: bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] -quiet
 
@@ -81,18 +75,23 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_RX_UAR
 # IP: bd/main/ip/main_TX_UART_0_0/main_TX_UART_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_TX_UART_0_0 || ORIG_REF_NAME==main_TX_UART_0_0} -quiet] -quiet
 
-# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
+# IP: bd/main/ip/main_VGA_CPU_Bridge_0_0/main_VGA_CPU_Bridge_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_VGA_CPU_Bridge_0_0 || ORIG_REF_NAME==main_VGA_CPU_Bridge_0_0} -quiet] -quiet
 
-# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_gram_bram_0/main_gram_bram_0_ooc.xdc
+# IP: bd/main/ip/main_GPU_0_0/main_GPU_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_GPU_0_0 || ORIG_REF_NAME==main_GPU_0_0} -quiet] -quiet
 
-# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_iram_bram_0/main_iram_bram_0_ooc.xdc
+# IP: bd/main/ip/main_VGA_Controller_0_0/main_VGA_Controller_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_VGA_Controller_0_0 || ORIG_REF_NAME==main_VGA_Controller_0_0} -quiet] -quiet
 
-# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
+
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
-# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==main_clk_wiz_0_0 || ORIG_REF_NAME==main_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
-# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc
 
-# XDC: c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc
+# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc

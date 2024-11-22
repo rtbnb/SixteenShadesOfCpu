@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 22 15:41:24 2024
---Host        : 8x8-Bit running 64-bit major release  (build 9200)
+--Date        : Fri Nov 22 16:39:06 2024
+--Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -361,9 +361,9 @@ architecture STRUCTURE of main is
   port (
     clk_in1 : in STD_LOGIC;
     clk100mhz : out STD_LOGIC;
-    locked : out STD_LOGIC;
     clk50mhz : out STD_LOGIC;
-    debug_guard_clk : out STD_LOGIC
+    debug_guard_clk : out STD_LOGIC;
+    locked : out STD_LOGIC
   );
   end component main_clk_wiz_0_0;
   component main_Debugger_0_0 is

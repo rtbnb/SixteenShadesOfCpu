@@ -70,7 +70,9 @@ begin
     debug_state:process(clk100mhz_in)
     begin
         if clk100mhz_in='0' and debug_guard_clk='0' and debug_reset='1' then
-            debug_en_s <= '0';    
+            debug_en_s <= '0';
+        elsif clk100mhz_in='0' and debug_guard_clk='0' and debug_en='1' then
+            debug_en_s <= '1';    
         end if;
     end process;
     
