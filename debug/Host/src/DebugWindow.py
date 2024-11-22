@@ -138,6 +138,11 @@ class DebugWindow(QtWidgets.QWidget):
         for button in self.CommandSendButtonList:
             self.layout.addWidget(button, i, 1, 1, 1)
             i += 1
+        
+        # general commands
+        button_request_all = QtWidgets.QPushButton(text="Request all Data")
+        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x20", b"\x21", b"\x22", b"\x30", b"\x31", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x58", b"\x59"]))
+        self.layout.addWidget(button_request_all, 1, 2, 1, 1)
 
     def get_command_queue(self):
         return self.command_queue
@@ -165,10 +170,28 @@ class DebugWindow(QtWidgets.QWidget):
     def command_button_pushed(self, command):
         self.add_command_to_queue(command)
 
+    def command_list_button_pushed(self, command_list):
+        for command in command_list:
+            self.add_command_to_queue(command)
+
+def print_queue(debugWindow: DebugWindow):
+    while(1):
+        q = debugWindow.get_command_queue()
+        if not q.empty():
+            command = q.get()
+            print(f"sended command: {command.hex()}")
+
 if __name__ == '__main__':
     from main import rx_data_datapool  # Import the data from main.py
+    import threading
+    
     app = QtWidgets.QApplication([])
     widget = DebugWindow(rx_data_datapool, Queue())
     widget.resize(800, 600)
     widget.show()
-    sys.exit(app.exec_())
+    
+    read_t = threading.Thread(target=print_queue, args=[widget])
+    read_t.start()    
+    app.exec()
+
+    read_t.join()
