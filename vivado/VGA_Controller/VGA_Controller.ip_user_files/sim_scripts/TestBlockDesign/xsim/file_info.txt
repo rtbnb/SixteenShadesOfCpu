@@ -1,0 +1,4 @@
+TestBlockDesign_VGA_Controller_0_0.vhd,vhdl,xil_defaultlib,../../../bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/sim/TestBlockDesign_VGA_Controller_0_0.vhd,
+TestBlockDesign_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/TestBlockDesign/ip/TestBlockDesign_blk_mem_gen_0_0/sim/TestBlockDesign_blk_mem_gen_0_0.v,
+TestBlockDesign.vhd,vhdl,xil_defaultlib,../../../bd/TestBlockDesign/sim/TestBlockDesign.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

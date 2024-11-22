@@ -1,0 +1,241 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x44087914D3F644A5",
+      "device": "xc7a35ticsg324-1L",
+      "gen_directory": "../../../../VGA_Controller.gen/sources_1/bd/TestBlockDesign",
+      "name": "TestBlockDesign",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "VGA_Controller_0": "",
+      "blk_mem_gen_0": ""
+    },
+    "ports": {
+      "InstrExec_CLK": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "TestBlockDesign_InstrExec_CLK",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "r": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "g": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "b": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "ioe": {
+        "direction": "O"
+      },
+      "h_sync": {
+        "direction": "O"
+      },
+      "v_sync": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "VGA_Controller_0": {
+        "vlnv": "xilinx.com:module_ref:VGA_Controller:1.0",
+        "ip_revision": "1",
+        "xci_name": "TestBlockDesign_VGA_Controller_0_0",
+        "xci_path": "ip\\TestBlockDesign_VGA_Controller_0_0\\TestBlockDesign_VGA_Controller_0_0.xci",
+        "inst_hier_path": "VGA_Controller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "VGA_Controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrExec_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "TestBlockDesign_InstrExec_CLK",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "r": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "g": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "b": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "ioe": {
+            "direction": "O"
+          },
+          "h_sync": {
+            "direction": "O"
+          },
+          "v_sync": {
+            "direction": "O"
+          },
+          "VRAM_Addr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "VRAM_Data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "VRAM_Clk": {
+            "type": "clk",
+            "direction": "O"
+          }
+        }
+      },
+      "blk_mem_gen_0": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "ip_revision": "8",
+        "xci_name": "TestBlockDesign_blk_mem_gen_0_0",
+        "xci_path": "ip\\TestBlockDesign_blk_mem_gen_0_0\\TestBlockDesign_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "blk_mem_gen_0",
+        "parameters": {
+          "Algorithm": {
+            "value": "Fixed_Primitives"
+          },
+          "Coe_File": {
+            "value": "../../../../../../../../tools/hex2coe/Debug.coe"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Load_Init_File": {
+            "value": "true"
+          },
+          "Operating_Mode_A": {
+            "value": "READ_FIRST"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "true"
+          },
+          "Remaining_Memory_Locations": {
+            "value": "f80"
+          },
+          "Write_Depth_A": {
+            "value": "32768"
+          },
+          "Write_Width_A": {
+            "value": "12"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      }
+    },
+    "nets": {
+      "InstrExec_CLK_1": {
+        "ports": [
+          "InstrExec_CLK",
+          "VGA_Controller_0/InstrExec_CLK"
+        ]
+      },
+      "VGA_Controller_0_VRAM_Addr": {
+        "ports": [
+          "VGA_Controller_0/VRAM_Addr",
+          "blk_mem_gen_0/addra"
+        ]
+      },
+      "VGA_Controller_0_VRAM_Clk": {
+        "ports": [
+          "VGA_Controller_0/VRAM_Clk",
+          "blk_mem_gen_0/clka"
+        ]
+      },
+      "VGA_Controller_0_b": {
+        "ports": [
+          "VGA_Controller_0/b",
+          "b"
+        ]
+      },
+      "VGA_Controller_0_g": {
+        "ports": [
+          "VGA_Controller_0/g",
+          "g"
+        ]
+      },
+      "VGA_Controller_0_h_sync": {
+        "ports": [
+          "VGA_Controller_0/h_sync",
+          "h_sync"
+        ]
+      },
+      "VGA_Controller_0_ioe": {
+        "ports": [
+          "VGA_Controller_0/ioe",
+          "ioe"
+        ]
+      },
+      "VGA_Controller_0_r": {
+        "ports": [
+          "VGA_Controller_0/r",
+          "r"
+        ]
+      },
+      "VGA_Controller_0_v_sync": {
+        "ports": [
+          "VGA_Controller_0/v_sync",
+          "v_sync"
+        ]
+      },
+      "blk_mem_gen_0_douta": {
+        "ports": [
+          "blk_mem_gen_0/douta",
+          "VGA_Controller_0/VRAM_Data"
+        ]
+      }
+    }
+  }
+}
