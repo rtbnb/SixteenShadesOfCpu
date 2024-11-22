@@ -42,7 +42,7 @@ def rx(ser: serial.Serial, debugWindow: DebugWindow):
         rx_data = ser.read()
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
 
-def rx_non_blocking(ser: serial.Serial, debugWindow: DebugWindow):
+def rx_no_loop(ser: serial.Serial, debugWindow: DebugWindow):
     rx_Data = 0
     byte_counter = 0
     command_instruction: bytes = 0
@@ -61,7 +61,7 @@ def tx(ser: serial.Serial, debugWindow: DebugWindow):
                     ser.write(command)
                     print(f"sended command: {command.hex()}")
                 print("Waiting for response...")
-                rx_non_blocking(ser, debugWindow)
+                rx_no_loop(ser, debugWindow)
                 print("Response received")
         except KeyboardInterrupt:
             break
