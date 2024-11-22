@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 21 23:04:28 2024
---Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
+--Date        : Fri Nov 22 12:33:30 2024
+--Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
 --Purpose     : IP block netlist
@@ -26,6 +26,7 @@ entity main_block_wrapper is
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_en : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
+    debug_mock_clk : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
     debug_we : in STD_LOGIC;
@@ -91,7 +92,8 @@ architecture STRUCTURE of main_block_wrapper is
     gpu_din : in STD_LOGIC_VECTOR ( 11 downto 0 );
     gpu_we : in STD_LOGIC;
     vga_clk : in STD_LOGIC;
-    vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_mock_clk : in STD_LOGIC
   );
   end component main_block;
 begin
@@ -109,6 +111,7 @@ main_block_i: component main_block
       debug_dout(15 downto 0) => debug_dout(15 downto 0),
       debug_en => debug_en,
       debug_enable => debug_enable,
+      debug_mock_clk => debug_mock_clk,
       debug_override_enable => debug_override_enable,
       debug_reset => debug_reset,
       debug_we => debug_we,

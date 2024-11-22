@@ -45,14 +45,21 @@ architecture Behavioral of mainSim is
             clk100mhz_in : in STD_LOGIC;
             debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
             debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+            debug_clk : in STD_LOGIC;
             debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
             debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
             debug_en : in STD_LOGIC;
             debug_enable : in STD_LOGIC;
+            debug_mock_clk : in STD_LOGIC;
             debug_override_enable : in STD_LOGIC;
             debug_reset : in STD_LOGIC;
             debug_we : in STD_LOGIC;
             fault_reset : in STD_LOGIC;
+            gpu_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            gpu_clk : in STD_LOGIC;
+            gpu_din : in STD_LOGIC_VECTOR ( 11 downto 0 );
+            gpu_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
+            gpu_we : in STD_LOGIC;
             gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
             gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
             gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -65,15 +72,19 @@ architecture Behavioral of mainSim is
             led2 : out STD_LOGIC;
             led3 : out STD_LOGIC;
             reset : in STD_LOGIC;
-            vram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-            vram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
+            vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+            vga_clk : in STD_LOGIC;
+            vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 )
         );
     end component; 
     
     
-    signal clk100mhz_in, debug_enable, fault_reset, debug_reset, reset, debug_we, gram_we, debug_override_enable, btn0, btn1, btn2, btn3, led0, led1, led2, led3: STD_LOGIC;
-    signal debug_addr, debug_din, debug_dout, gram_addr, iram_addr, iram_dout, vram_addr, vram_dout, gram_din, gram_dout: STD_LOGIC_VECTOR( 15 downto 0 );
+    signal clk100mhz_in, debug_mock_clk, gpu_clk, debug_clk, debug_enable, fault_reset, debug_reset, reset, debug_we, gram_we, debug_override_enable, btn0, btn1, btn2, btn3, led0, led1, led2, led3: STD_LOGIC;
+    signal debug_addr, debug_din, debug_dout, gram_addr, iram_addr, iram_dout, gram_din, gram_dout: STD_LOGIC_VECTOR( 15 downto 0 );
     signal debug_bank, gram_bank: STD_LOGIC_VECTOR( 3 downto 0 );
+    signal gpu_addr, vga_addr: STD_LOGIC_VECTOR( 15 downto 0 );
+    signal gpu_din, gpu_dout, vga_dout: STD_LOGIC_VECTOR( 11 downto 0 );
+    signal gpu_we, vga_clk: STD_LOGIC;
         
     signal count_s: std_logic;
 begin
@@ -90,8 +101,6 @@ begin
         gram_addr => gram_addr,
         iram_addr => iram_addr,
         iram_dout => iram_dout,
-        vram_addr => vram_addr,
-        vram_dout => vram_dout,
         debug_bank => debug_bank,
         gram_bank => gram_bank,
         gram_din => gram_din,
@@ -106,7 +115,17 @@ begin
         led3 => led3,
         debug_reset => debug_reset,
         fault_reset => fault_reset,
-        reset => reset
+        reset => reset,
+        gpu_addr => gpu_addr,
+        debug_clk => debug_clk,
+        debug_mock_clk => debug_mock_clk,
+        gpu_clk => gpu_clk,
+        gpu_din => gpu_din,
+        gpu_dout => gpu_dout,
+        gpu_we => gpu_we,
+        vga_addr => vga_addr,
+        vga_clk => vga_clk,
+        vga_dout => vga_dout
     );
     
     process
@@ -121,7 +140,16 @@ begin
     
     process
     begin
-        vram_addr <= X"0001";
+        debug_mock_clk <= '1';
+        
+        while true loop
+            wait for 10ns;
+            debug_mock_clk <= not debug_mock_clk;
+        end loop;
+    end process;
+    
+    process
+    begin
         iram_addr <= X"0000";
         debug_enable <= '0';
         debug_reset <= '0';

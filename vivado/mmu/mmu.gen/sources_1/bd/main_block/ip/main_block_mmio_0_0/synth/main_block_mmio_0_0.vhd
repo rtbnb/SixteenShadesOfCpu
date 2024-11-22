@@ -55,7 +55,7 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_block_mmio_0_0 IS
   PORT (
-    ck : IN STD_LOGIC;
+    clk : IN STD_LOGIC;
     we : IN STD_LOGIC;
     addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -77,7 +77,7 @@ ARCHITECTURE main_block_mmio_0_0_arch OF main_block_mmio_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_block_mmio_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT mmio IS
     PORT (
-      ck : IN STD_LOGIC;
+      clk : IN STD_LOGIC;
       we : IN STD_LOGIC;
       addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -101,10 +101,14 @@ ARCHITECTURE main_block_mmio_0_0_arch OF main_block_mmio_0_0 IS
   ATTRIBUTE CORE_GENERATION_INFO OF main_block_mmio_0_0_arch: ARCHITECTURE IS "main_block_mmio_0_0,mmio,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=mmio,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF main_block_mmio_0_0_arch: ARCHITECTURE IS "module_ref";
+  ATTRIBUTE X_INTERFACE_INFO : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
 BEGIN
   U0 : mmio
     PORT MAP (
-      ck => ck,
+      clk => clk,
       we => we,
       addr => addr,
       din => din,

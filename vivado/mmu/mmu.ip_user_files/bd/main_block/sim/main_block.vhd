@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 21 23:04:28 2024
---Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
+--Date        : Fri Nov 22 12:33:30 2024
+--Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
 --Purpose     : IP block netlist
@@ -26,6 +26,7 @@ entity main_block is
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_en : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
+    debug_mock_clk : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
     debug_we : in STD_LOGIC;
@@ -118,7 +119,7 @@ architecture STRUCTURE of main_block is
   end component main_block_mmu_0_0;
   component main_block_mmio_0_0 is
   port (
-    ck : in STD_LOGIC;
+    clk : in STD_LOGIC;
     we : in STD_LOGIC;
     addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     din : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -138,10 +139,12 @@ architecture STRUCTURE of main_block is
   port (
     clk100mhz_in : in STD_LOGIC;
     clk50mhz_in : in STD_LOGIC;
+    debug_guard_clk : in STD_LOGIC;
     wizard_locked : in STD_LOGIC;
     fault_reset : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
     debug_en : in STD_LOGIC;
+    debug_mock_clk : in STD_LOGIC;
     load_clk : out STD_LOGIC;
     exec_clk : out STD_LOGIC;
     debug_clk : out STD_LOGIC;
@@ -152,8 +155,9 @@ architecture STRUCTURE of main_block is
   port (
     clk_in1 : in STD_LOGIC;
     clk100mhz_out : out STD_LOGIC;
+    clk50mhz_out : out STD_LOGIC;
     locked : out STD_LOGIC;
-    clk50mhz_out : out STD_LOGIC
+    debug_guard_clk : out STD_LOGIC
   );
   end component main_block_clk_wiz_0_0;
   signal btn0_1 : STD_LOGIC;
@@ -163,6 +167,7 @@ architecture STRUCTURE of main_block is
   signal clk100mhz_in_1 : STD_LOGIC;
   signal clk_wiz_0_clk100mhz_out : STD_LOGIC;
   signal clk_wiz_0_clk50mhz_out : STD_LOGIC;
+  signal clk_wiz_0_debug_guard_clk : STD_LOGIC;
   signal clk_wiz_0_locked : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_clk100mhz : STD_LOGIC;
@@ -172,6 +177,7 @@ architecture STRUCTURE of main_block is
   signal debug_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal debug_en_1 : STD_LOGIC;
   signal debug_enable_1 : STD_LOGIC;
+  signal debug_mock_clk_1 : STD_LOGIC;
   signal debug_override_enable_1 : STD_LOGIC;
   signal debug_reset_1 : STD_LOGIC;
   signal debug_we_1 : STD_LOGIC;
@@ -220,6 +226,8 @@ architecture STRUCTURE of main_block is
   attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_block_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of debug_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK CLK";
   attribute X_INTERFACE_PARAMETER of debug_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK, CLK_DOMAIN main_block_debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of debug_mock_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_MOCK_CLK CLK";
+  attribute X_INTERFACE_PARAMETER of debug_mock_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_MOCK_CLK, CLK_DOMAIN main_block_debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of debug_reset : signal is "xilinx.com:signal:reset:1.0 RST.DEBUG_RESET RST";
   attribute X_INTERFACE_PARAMETER of debug_reset : signal is "XIL_INTERFACENAME RST.DEBUG_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of fault_reset : signal is "xilinx.com:signal:reset:1.0 RST.FAULT_RESET RST";
@@ -243,6 +251,7 @@ begin
   debug_dout(15 downto 0) <= mmu_0_debug_dout(15 downto 0);
   debug_en_1 <= debug_en;
   debug_enable_1 <= debug_enable;
+  debug_mock_clk_1 <= debug_mock_clk;
   debug_override_enable_1 <= debug_override_enable;
   debug_reset_1 <= debug_reset;
   debug_we_1 <= debug_we;
@@ -271,6 +280,7 @@ clk_wiz_0: component main_block_clk_wiz_0_0
       clk100mhz_out => clk_wiz_0_clk100mhz_out,
       clk50mhz_out => clk_wiz_0_clk50mhz_out,
       clk_in1 => clk100mhz_in_1,
+      debug_guard_clk => clk_wiz_0_debug_guard_clk,
       locked => clk_wiz_0_locked
     );
 clockcontroller_0: component main_block_clockcontroller_0_0
@@ -280,6 +290,8 @@ clockcontroller_0: component main_block_clockcontroller_0_0
       clk50mhz_in => clk_wiz_0_clk50mhz_out,
       debug_clk => NLW_clockcontroller_0_debug_clk_UNCONNECTED,
       debug_en => debug_en_1,
+      debug_guard_clk => clk_wiz_0_debug_guard_clk,
+      debug_mock_clk => debug_mock_clk_1,
       debug_reset => debug_reset_1,
       exec_clk => clockcontroller_0_clk100mhz,
       fault_reset => fault_reset_1,
@@ -293,7 +305,7 @@ mmio_0: component main_block_mmio_0_0
       btn1 => btn1_1,
       btn2 => btn2_1,
       btn3 => btn3_1,
-      ck => mmu_0_mmio_mem_ck,
+      clk => mmu_0_mmio_mem_ck,
       din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
       dout(15 downto 0) => mmio_0_dout(15 downto 0),
       led0 => mmio_0_led0,
