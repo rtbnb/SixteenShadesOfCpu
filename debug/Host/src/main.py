@@ -1,6 +1,7 @@
 import serial
 import threading
 import Datapool
+from queue import Queue
 
 from PySide6 import QtCore, QtWidgets, QtGui
 import sys
@@ -41,10 +42,13 @@ def rx(ser: serial.Serial, debugWindow: DebugWindow):
         rx_data = ser.read()
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
 
-def tx(ser: serial.Serial):
+def tx(ser: serial.Serial, debugWindow: DebugWindow):
     # input for debug command
     while(1):
         try:
+            for command_list in DebugWindow.get_command_queue():
+                for command in command_list:
+                    ser.write(command)
             command = input()
             print(f"command is: {command} int: {int(command, base=16)}")
 
@@ -65,7 +69,7 @@ def main():
 
     listening_thread = threading.Thread(target=rx, args=[fpga_serial, widget])
     listening_thread.start()
-    tx_thread = threading.Thread(target=tx, args=[fpga_serial])
+    tx_thread = threading.Thread(target=tx, args=[fpga_serial, widget])
     tx_thread.start()
     app.exec()
 
