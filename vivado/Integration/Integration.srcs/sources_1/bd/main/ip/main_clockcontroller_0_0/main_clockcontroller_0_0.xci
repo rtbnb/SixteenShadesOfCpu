@@ -43,7 +43,7 @@
         "wizard_locked": [ { "direction": "in" } ],
         "fault_reset": [ { "direction": "in" } ],
         "debug_reset": [ { "direction": "in" } ],
-        "debug_en": [ { "direction": "in" } ],
+        "debug_enable": [ { "direction": "in" } ],
         "debug_mock_clk": [ { "direction": "in" } ],
         "load_clk": [ { "direction": "out" } ],
         "exec_clk": [ { "direction": "out" } ],
