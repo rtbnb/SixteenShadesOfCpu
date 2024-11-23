@@ -1,0 +1,8 @@
+xpm_cdc.sv,systemverilog,xpm,S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"
+xpm_memory.sv,systemverilog,xpm,S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"
+xpm_VCOMP.vhd,vhdl,xpm,S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"
+clock_block_clk_wiz_0_0_clk_wiz.v,verilog,xil_defaultlib,../../../bd/clock_block/ip/clock_block_clk_wiz_0_0/clock_block_clk_wiz_0_0_clk_wiz.v,incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"
+clock_block_clk_wiz_0_0.v,verilog,xil_defaultlib,../../../bd/clock_block/ip/clock_block_clk_wiz_0_0/clock_block_clk_wiz_0_0.v,incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"
+clock_block_clockcontroller_0_0.vhd,vhdl,xil_defaultlib,../../../bd/clock_block/ip/clock_block_clockcontroller_0_0/sim/clock_block_clockcontroller_0_0.vhd,incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"
+clock_block.vhd,vhdl,xil_defaultlib,../../../bd/clock_block/sim/clock_block.vhd,incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"incdir="../../../../mmu.gen/sources_1/bd/clock_block/ipshared/3242"
+glbl.v,Verilog,xil_defaultlib,glbl.v

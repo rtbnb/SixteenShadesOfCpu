@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -34,10 +34,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity clockcontroller is
     port(
         clk100mhz_in, clk50mhz_in, debug_guard_clk, wizard_locked, fault_reset, debug_reset: in std_logic;
-        debug_en, debug_mock_clk: in std_logic;
+        debug_enable, debug_mock_clk: in std_logic;
         load_clk, exec_clk: out std_logic; 
         debug_clk: out std_logic; 
-        ck_stable: out std_logic 
+        ck_stable: out std_logic
     );
 end clockcontroller;
 
@@ -48,31 +48,39 @@ architecture Behavioral of clockcontroller is
     signal output_en_s: std_logic_vector( 1 downto 0 );
     signal fault_s: std_logic := '0';
     signal debug_en_s: std_logic := '1';
-
+    
+    signal exec_clk_s: std_logic;
 begin
     output_en_s <= wizard_locked & debug_en_s;
     ck_stable <= wizard_locked;
     
     with wizard_locked select
         debug_clk <= clk50mhz_in when '1',
+                     '0' when '0',
                      '0' when others;
     
     with output_en_s select
         load_clk <= clk100mhz_in when "10",
                     debug_mock_clk when "11",
+                    '0' when "00",
+                    '0' when "01",
                     '0' when others;
     with output_en_s select
-        exec_clk <= not clk100mhz_in when "10",
+        exec_clk_s <= not clk100mhz_in when "10",
                     not debug_mock_clk when "11",
+                    '0' when "00",
+                    '0' when "01",
                     '0' when others;    
-    --TODO Implement debug begin and end logic
+    exec_clk <= exec_clk_s;
     
     debug_state:process(clk100mhz_in)
     begin
-        if clk100mhz_in='0' and debug_guard_clk='0' and debug_reset='1' then
-            debug_en_s <= '0';
-        elsif clk100mhz_in='0' and debug_guard_clk='0' and debug_en='1' then
-            debug_en_s <= '1';    
+        if rising_edge(clk100mhz_in) then
+            if debug_guard_clk='0' and debug_enable='0' and debug_reset='1' and wizard_locked='1' then
+                debug_en_s <= '0';
+            elsif debug_guard_clk='0' and debug_enable='1' then
+                debug_en_s <= '1';
+            end if;
         end if;
     end process;
     

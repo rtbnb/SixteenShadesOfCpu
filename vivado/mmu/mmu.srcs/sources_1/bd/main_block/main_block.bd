@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x6A5EE9587385D2B",
+      "boundary_crc": "0x414BCD2F317E2D22",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -109,22 +109,6 @@
             "value_src": "default"
           }
         }
-      },
-      "reset": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_HIGH"
-          }
-        }
-      },
-      "debug_en": {
-        "direction": "I"
       },
       "gpu_dout": {
         "direction": "O",
@@ -276,12 +260,12 @@
         "left": "15",
         "right": "0"
       },
-      "debug_mock_clk": {
+      "debug_mock_clk_1": {
         "type": "clk",
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "main_block_debug_mock_clk",
+            "value": "main_block_debug_mock_clk_1",
             "value_src": "default"
           },
           "FREQ_HZ": {
@@ -721,7 +705,7 @@
             "type": "rst",
             "direction": "I"
           },
-          "debug_en": {
+          "debug_enable": {
             "direction": "I"
           },
           "debug_mock_clk": {
@@ -733,7 +717,7 @@
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
-                "value": "main_block_debug_mock_clk",
+                "value": "main_block_debug_mock_clk_1",
                 "value_src": "default_prop"
               }
             }
@@ -955,21 +939,16 @@
           "mmu_0/debug_din"
         ]
       },
-      "debug_en_1": {
-        "ports": [
-          "debug_en",
-          "clockcontroller_0/debug_en"
-        ]
-      },
       "debug_enable_1": {
         "ports": [
           "debug_enable",
-          "mmu_0/debug_enable"
+          "mmu_0/debug_enable",
+          "clockcontroller_0/debug_enable"
         ]
       },
-      "debug_mock_clk_1": {
+      "debug_mock_clk_1_1": {
         "ports": [
-          "debug_mock_clk",
+          "debug_mock_clk_1",
           "clockcontroller_0/debug_mock_clk"
         ]
       },

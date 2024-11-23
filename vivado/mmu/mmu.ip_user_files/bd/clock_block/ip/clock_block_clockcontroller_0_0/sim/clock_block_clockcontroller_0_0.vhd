@@ -53,7 +53,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY main_block_clockcontroller_0_0 IS
+ENTITY clock_block_clockcontroller_0_0 IS
   PORT (
     clk100mhz_in : IN STD_LOGIC;
     clk50mhz_in : IN STD_LOGIC;
@@ -61,18 +61,18 @@ ENTITY main_block_clockcontroller_0_0 IS
     wizard_locked : IN STD_LOGIC;
     fault_reset : IN STD_LOGIC;
     debug_reset : IN STD_LOGIC;
-    debug_en : IN STD_LOGIC;
+    debug_enable : IN STD_LOGIC;
     debug_mock_clk : IN STD_LOGIC;
     load_clk : OUT STD_LOGIC;
     exec_clk : OUT STD_LOGIC;
     debug_clk : OUT STD_LOGIC;
     ck_stable : OUT STD_LOGIC
   );
-END main_block_clockcontroller_0_0;
+END clock_block_clockcontroller_0_0;
 
-ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0_0 IS
+ARCHITECTURE clock_block_clockcontroller_0_0_arch OF clock_block_clockcontroller_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_block_clockcontroller_0_0_arch: ARCHITECTURE IS "yes";
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF clock_block_clockcontroller_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT clockcontroller IS
     PORT (
       clk100mhz_in : IN STD_LOGIC;
@@ -81,7 +81,7 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
       wizard_locked : IN STD_LOGIC;
       fault_reset : IN STD_LOGIC;
       debug_reset : IN STD_LOGIC;
-      debug_en : IN STD_LOGIC;
+      debug_enable : IN STD_LOGIC;
       debug_mock_clk : IN STD_LOGIC;
       load_clk : OUT STD_LOGIC;
       exec_clk : OUT STD_LOGIC;
@@ -89,29 +89,21 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
       ck_stable : OUT STD_LOGIC
     );
   END COMPONENT clockcontroller;
-  ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF main_block_clockcontroller_0_0_arch: ARCHITECTURE IS "clockcontroller,Vivado 2024.1";
-  ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF main_block_clockcontroller_0_0_arch : ARCHITECTURE IS "main_block_clockcontroller_0_0,clockcontroller,{}";
-  ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF main_block_clockcontroller_0_0_arch: ARCHITECTURE IS "main_block_clockcontroller_0_0,clockcontroller,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=clockcontroller,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
-  ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF main_block_clockcontroller_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, ASSOCIATED_RESET debug_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, ASSOCIATED_RESET debug_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN clock_block_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF debug_guard_clk: SIGNAL IS "XIL_INTERFACENAME debug_guard_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 90.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_guard_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_guard_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_mock_clk: SIGNAL IS "XIL_INTERFACENAME debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_debug_mock_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_mock_clk: SIGNAL IS "XIL_INTERFACENAME debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN clock_block_debug_mock_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_mock_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_mock_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF debug_reset: SIGNAL IS "XIL_INTERFACENAME debug_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 debug_reset RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF exec_clk: SIGNAL IS "XIL_INTERFACENAME exec_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF exec_clk: SIGNAL IS "XIL_INTERFACENAME exec_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN clock_block_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF exec_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 exec_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF fault_reset: SIGNAL IS "XIL_INTERFACENAME fault_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF fault_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 fault_reset RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_load_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN clock_block_clockcontroller_0_0_load_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF load_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 load_clk CLK";
 BEGIN
   U0 : clockcontroller
@@ -122,11 +114,11 @@ BEGIN
       wizard_locked => wizard_locked,
       fault_reset => fault_reset,
       debug_reset => debug_reset,
-      debug_en => debug_en,
+      debug_enable => debug_enable,
       debug_mock_clk => debug_mock_clk,
       load_clk => load_clk,
       exec_clk => exec_clk,
       debug_clk => debug_clk,
       ck_stable => ck_stable
     );
-END main_block_clockcontroller_0_0_arch;
+END clock_block_clockcontroller_0_0_arch;

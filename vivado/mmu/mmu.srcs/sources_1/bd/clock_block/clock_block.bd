@@ -1,0 +1,275 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xF540AD4020677816",
+      "device": "xc7a35ticsg324-1L",
+      "gen_directory": "../../../../mmu.gen/sources_1/bd/clock_block",
+      "name": "clock_block",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.1"
+    },
+    "design_tree": {
+      "clk_wiz_0": "",
+      "clockcontroller_0": ""
+    },
+    "ports": {
+      "clk100mhz_in": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          }
+        }
+      },
+      "fault_reset": {
+        "type": "rst",
+        "direction": "I"
+      },
+      "debug_reset": {
+        "type": "rst",
+        "direction": "I"
+      },
+      "debug_en": {
+        "direction": "I"
+      },
+      "debug_mock_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          }
+        }
+      },
+      "load_clk": {
+        "type": "clk",
+        "direction": "O"
+      },
+      "exec_clk": {
+        "type": "clk",
+        "direction": "O"
+      },
+      "debug_clk": {
+        "type": "clk",
+        "direction": "O"
+      },
+      "ck_stable": {
+        "direction": "O"
+      },
+      "test_state": {
+        "direction": "IO",
+        "left": "3",
+        "right": "0"
+      }
+    },
+    "components": {
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "ip_revision": "14",
+        "xci_name": "clock_block_clk_wiz_0_0",
+        "xci_path": "ip\\clock_block_clk_wiz_0_0\\clock_block_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLKOUT2_JITTER": {
+            "value": "151.636"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "50.000"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "CLKOUT3_JITTER": {
+            "value": "130.958"
+          },
+          "CLKOUT3_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT3_REQUESTED_PHASE": {
+            "value": "90.000"
+          },
+          "CLKOUT3_USED": {
+            "value": "true"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "clk100mhz"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "clk50mhz"
+          },
+          "CLK_OUT3_PORT": {
+            "value": "debug_guard_clk"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "20"
+          },
+          "MMCM_CLKOUT2_DIVIDE": {
+            "value": "10"
+          },
+          "MMCM_CLKOUT2_PHASE": {
+            "value": "90.000"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "3"
+          },
+          "USE_RESET": {
+            "value": "false"
+          }
+        }
+      },
+      "clockcontroller_0": {
+        "vlnv": "xilinx.com:module_ref:clockcontroller:1.0",
+        "ip_revision": "1",
+        "xci_name": "clock_block_clockcontroller_0_0",
+        "xci_path": "ip\\clock_block_clockcontroller_0_0\\clock_block_clockcontroller_0_0.xci",
+        "inst_hier_path": "clockcontroller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "clockcontroller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk100mhz_in": {
+            "direction": "I"
+          },
+          "clk50mhz_in": {
+            "direction": "I"
+          },
+          "debug_guard_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "wizard_locked": {
+            "direction": "I"
+          },
+          "fault_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "debug_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "debug_enable": {
+            "direction": "I"
+          },
+          "debug_mock_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "load_clk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "exec_clk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "debug_clk": {
+            "type": "clk",
+            "direction": "O",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "debug_reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "ck_stable": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Net": {
+        "ports": [
+          "test_state"
+        ]
+      },
+      "clk100mhz_in_1": {
+        "ports": [
+          "clk100mhz_in",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "clk_wiz_0_clk100mhz": {
+        "ports": [
+          "clk_wiz_0/clk100mhz",
+          "clockcontroller_0/clk100mhz_in"
+        ]
+      },
+      "clk_wiz_0_clk50mhz": {
+        "ports": [
+          "clk_wiz_0/clk50mhz",
+          "clockcontroller_0/clk50mhz_in"
+        ]
+      },
+      "clk_wiz_0_debug_guard_clk": {
+        "ports": [
+          "clk_wiz_0/debug_guard_clk",
+          "clockcontroller_0/debug_guard_clk"
+        ]
+      },
+      "clk_wiz_0_locked": {
+        "ports": [
+          "clk_wiz_0/locked",
+          "clockcontroller_0/wizard_locked"
+        ]
+      },
+      "clockcontroller_0_ck_stable": {
+        "ports": [
+          "clockcontroller_0/ck_stable",
+          "ck_stable"
+        ]
+      },
+      "clockcontroller_0_debug_clk": {
+        "ports": [
+          "clockcontroller_0/debug_clk",
+          "debug_clk"
+        ]
+      },
+      "clockcontroller_0_exec_clk": {
+        "ports": [
+          "clockcontroller_0/exec_clk",
+          "exec_clk"
+        ]
+      },
+      "clockcontroller_0_load_clk": {
+        "ports": [
+          "clockcontroller_0/load_clk",
+          "load_clk"
+        ]
+      },
+      "debug_en_1": {
+        "ports": [
+          "debug_en",
+          "clockcontroller_0/debug_enable"
+        ]
+      },
+      "debug_mock_clk_1": {
+        "ports": [
+          "debug_mock_clk",
+          "clockcontroller_0/debug_mock_clk"
+        ]
+      },
+      "debug_reset_1": {
+        "ports": [
+          "debug_reset",
+          "clockcontroller_0/debug_reset"
+        ]
+      },
+      "fault_reset_1": {
+        "ports": [
+          "fault_reset",
+          "clockcontroller_0/fault_reset"
+        ]
+      }
+    }
+  }
+}
