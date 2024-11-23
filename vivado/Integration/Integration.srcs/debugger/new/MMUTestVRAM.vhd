@@ -31,16 +31,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity DebuggerIRAMWriteSim is
+entity MMUTestVRAM is
     generic (
-        rx_instruction: std_logic_vector(7 downto 0) := x"31";
+        rx_instruction: std_logic_vector(7 downto 0) := x"33";
         rx_address: std_logic_vector(15 downto 0) := x"0000";
-        rx_data: std_logic_vector(15 downto 0) := x"40F0"
+        rx_data: std_logic_vector(15 downto 0) := x"0001"
     );
   --Port ();
-end DebuggerIRAMWriteSim;
+end MMUTestVRAM;
 
-architecture Behavioral of DebuggerIRAMWriteSim is
+architecture Behavioral of MMUTestVRAM is
     component main_wrapper is port (
         RX_UART_IN : in STD_LOGIC;
         Reset : in STD_LOGIC;
@@ -213,7 +213,7 @@ begin
         RX_UART_IN <= '1';
         wait for 15000ns;
         
-        -- request iram
+        -- request vram
         RX_UART_IN <= '0';
         wait for 1100ns;
         -- instruction data
@@ -270,13 +270,13 @@ begin
         wait for 1100ns;
         RX_UART_IN <= '0';
         wait for 1100ns;
-        RX_UART_IN <= '1';
+        RX_UART_IN <= '0';
+        wait for 1100ns;
+        RX_UART_IN <= '0';
         wait for 1100ns;
         RX_UART_IN <= '1';
         wait for 1100ns;
-        RX_UART_IN <= '1';
-        wait for 1100ns;
-        RX_UART_IN <= '1';
+        RX_UART_IN <= '0';
         wait for 1100ns;
         -- reset
         RX_UART_IN <= '1';
@@ -326,6 +326,7 @@ begin
         -- reset
         RX_UART_IN <= '1';
         wait for 5000ns;
+        
         
         wait;
        

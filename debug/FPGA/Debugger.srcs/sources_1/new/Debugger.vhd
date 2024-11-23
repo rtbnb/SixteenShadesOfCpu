@@ -44,6 +44,9 @@ entity Debugger is
         
         -- debug enable
         debug_enable: out std_logic := '0';
+        cc_debug_mock_clk: out std_logic := '0';
+        cc_debug_reset: out std_logic := '0';
+        load_clk: in std_logic;
         
         -- monitoring signals
         -- pipeline
@@ -80,19 +83,14 @@ entity Debugger is
               
         
         -- mmu
-        mmu_debug_sys_clk200mhz: out std_logic := '0';
-        mmu_debug_sync_clk100mhz: out std_logic := '0';
-        mmu_debug_en: out std_logic := '0';
+        mmu_debug_clk: out std_logic := '0';
         mmu_debug_override_en: out std_logic := '0';
         mmu_debug_addr: out std_logic_vector(15 downto 0) := x"0000";
         mmu_debug_din: out std_logic_vector(15 downto 0) := x"0000";
         mmu_debug_bank: out std_logic_vector(3 downto 0) := x"0";
         mmu_debug_we: out std_logic := '0';
         mmu_debug_dout: in std_logic_vector(15 downto 0)
-        
-        
-        
-        
+
     );
 end Debugger;
 
@@ -105,7 +103,10 @@ architecture Behavioral of Debugger is
         TransmitDataInstructionSHORT, TransmitDataHIGHSHORT, TransmitDataLOWSHORT,
         TransmitInstructionOnly,
         ClockMMUDebug, ResetMMUDebug,
-        MMUFetchIRAMClock, MMUFetchIRAMWriteToTX, MMUFetchIRAMReset
+        MMUFetchIRAMClock, MMUFetchIRAMWriteToTX, MMUFetchIRAMReset,
+        MMUFetchGRAMClock, MMUFetchGRAMWriteToTX, MMUFetchGRAMReset,
+        ClockOneCycleHigh, ClockOneCycleLow,
+        ClockResume, ClockResumeAck
     );
     signal state: state_types := Idle;
     
@@ -188,7 +189,9 @@ begin
                         -- memory
                         when x"30" => state <= ReceiveInstructionDataHIGH;
                         when x"31" => state <= ReceiveInstructionDataHIGH;
-                        when x"32" => state <= ReceiveInstructionData2HIGH;
+                        when x"32" => state <= ReceiveInstructionDataHIGH;
+                        when x"33" => state <= ReceiveInstructionDataHIGH;
+                        when x"34" => state <= ReceiveInstructionDataHIGH;
                         -- alu signal request
                         when x"40" => state <= HoldClock;
                         when x"41" => state <= HoldClock;
@@ -274,10 +277,15 @@ begin
                     -- command decode
                     case rx_instruction_buffer is
                         -- general
-                        when x"00" => state <= Idle;
-                        when x"01" => state <= Idle;
-                        when x"02" => state <= Idle;
-                        when x"03" => state <= Idle;
+                        when x"00" => -- hold clk
+                            tx_instruction_buffer <= x"00";
+                            state <= TransmitInstructionOnly;
+                        when x"01" => -- count one cycle
+                            state <= ClockOneCycleHigh;
+                        when x"02" => -- resume clk
+                            cc_debug_reset <= '1';
+                            debug_enable <= '0';
+                            state <= ClockResumeAck;
                         -- pipeline
                         when x"10" =>
                             tx_instruction_buffer <= x"10";
@@ -325,8 +333,14 @@ begin
                             state <= TransmitDataInstructionSHORT;
                         -- memmory
                         when x"30" =>
-                            mmu_debug_en <= '1';
-                            state <= Idle;
+                            mmu_debug_addr <= rx_instruction_data_buffer;
+                            mmu_debug_din <= rx_instruction_data2_buffer;
+                            mmu_debug_bank <= "0000";
+                            mmu_debug_override_en <= '1';
+                            mmu_debug_we <= '1';
+                            -- send acknoledge
+                            tx_instruction_buffer <= x"30";
+                            state <= ClockMMUDebug;
                         when x"31" =>
                             mmu_debug_addr <= rx_instruction_data_buffer;
                             mmu_debug_din <= rx_instruction_data2_buffer;
@@ -338,10 +352,28 @@ begin
                             state <= ClockMMUDebug;
                         when x"32" =>
                             mmu_debug_addr <= rx_instruction_data2_buffer;
-                            mmu_debug_bank <= "1111";
+                            mmu_debug_bank <= rx_instruction_data_buffer(3 downto 0);
                             mmu_debug_override_en <= '1';
                             mmu_debug_we <= '0';
                             state <= MMUFetchIRAMClock;
+                        when x"33" =>
+                            mmu_debug_addr <= rx_instruction_data_buffer;
+                            mmu_debug_din <= rx_instruction_data2_buffer;
+                            mmu_debug_bank <= "0010";
+                            mmu_debug_override_en <= '1';
+                            mmu_debug_we <= '1';
+                            -- send acknoledge
+                            tx_instruction_buffer <= x"33";
+                            state <= ClockMMUDebug;
+                        when x"34" =>
+                            mmu_debug_addr <= rx_instruction_data_buffer;
+                            mmu_debug_din <= rx_instruction_data2_buffer;
+                            mmu_debug_bank <= "0001";
+                            mmu_debug_override_en <= '1';
+                            mmu_debug_we <= '1';
+                            -- send acknoledge
+                            tx_instruction_buffer <= x"34";
+                            state <= ClockMMUDebug;
                         -- alu
                         when x"40" =>
                             tx_instruction_buffer <= x"40";
@@ -414,6 +446,23 @@ begin
                         when others =>
                             state <= Idle;
                     end case;
+                -- general clock
+                when ClockOneCycleHigh =>
+                    cc_debug_mock_clk <= '1';
+                    state <= ClockOneCycleLow;
+                when ClockOneCycleLow =>
+                    cc_debug_mock_clk <= '0';
+                    tx_instruction_buffer <= x"01";
+                    state <= TransmitInstructionOnly;
+                when ClockResumeAck =>
+                    if (load_clk = '1') then
+                        cc_debug_reset <= '0';
+                        tx_instruction_buffer <= x"02";
+                        state <= TransmitInstructionOnly;
+                    else
+                        state <= ClockResumeAck;
+                    end if;
+                    
                 -- tx states
                 -- long data transmission
                 when TransmitDataInstruction =>
@@ -497,15 +546,16 @@ begin
                 
                 -- mmu
                 when ClockMMUDebug =>
-                    mmu_debug_sync_clk100mhz <= '1';
+                    mmu_debug_clk <= '1';
                     state <= ResetMMUDebug;
                 when ResetMMUDebug =>
                     mmu_debug_override_en <= '0';
                     mmu_debug_we <= '0';
-                    mmu_debug_sync_clk100mhz <= '0';
+                    mmu_debug_clk <= '0';
                     state <= TransmitInstructionOnly;
+                -- IRAM
                 when MMUFetchIRAMClock =>
-                    mmu_debug_sync_clk100mhz <= '1';
+                    mmu_debug_clk <= '1';
                     mmu_debug_dout_s <= mmu_debug_dout;
                     state <= MMUFetchIRAMWriteToTX;
                 when MMUFetchIRAMWriteToTX =>
@@ -515,7 +565,7 @@ begin
                     state <= MMUFetchIRAMReset;
                 when MMUFetchIRAMReset =>
                     mmu_debug_override_en <= '0';
-                    mmu_debug_sync_clk100mhz <= '0';
+                    mmu_debug_clk <= '0';
                     state <= TransmitDataInstruction;
                     
                     
