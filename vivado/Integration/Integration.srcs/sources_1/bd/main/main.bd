@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x625889331B80AEE6",
+      "boundary_crc": "0x1AF7A34CD9C87892",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -161,6 +161,23 @@
           "PHASE": {
             "value": "0.0",
             "value_src": "default"
+          }
+        }
+      },
+      "wait_clk_hold": {
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_Debugger_0_0_wait_state_hold_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default_prop"
           }
         }
       }
@@ -1207,6 +1224,9 @@
               "ASSOCIATED_RESET": {
                 "value": "debug_reset",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "50000000"
               }
             }
           },
@@ -1281,13 +1301,7 @@
           },
           "debug_clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "main_debug_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "debug_addr": {
             "direction": "I",
@@ -1619,6 +1633,10 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "user_prop"
+              },
               "CLK_DOMAIN": {
                 "value": "main_clockcontroller_0_0_debug_clk",
                 "value_src": "default_prop"
@@ -1646,11 +1664,6 @@
           },
           "debug_enable": {
             "direction": "O"
-          },
-          "iram_current_instruction": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
           },
           "pipeline_stalled": {
             "direction": "I"
@@ -1822,6 +1835,9 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000"
+              },
               "CLK_DOMAIN": {
                 "value": "main_clockcontroller_0_0_debug_clk",
                 "value_src": "default_prop"
@@ -1865,6 +1881,9 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000"
+              },
               "CLK_DOMAIN": {
                 "value": "main_clockcontroller_0_0_debug_clk",
                 "value_src": "default_prop"
@@ -2307,6 +2326,11 @@
         "ports": [
           "Debugger_0/tx_data_valid",
           "TX_UART_0/data_valid"
+        ]
+      },
+      "Debugger_0_wait_state_hold_clk": {
+        "ports": [
+          "wait_clk_hold"
         ]
       },
       "Decoder_0_Immediate": {

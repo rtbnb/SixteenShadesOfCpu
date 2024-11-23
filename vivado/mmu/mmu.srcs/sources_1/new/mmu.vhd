@@ -253,12 +253,12 @@ begin
 -- This Process holds the old comb_bank_s value until the process for the new value is finished. By this it is guaranteed that the value can be safely read be the client 
 --
 ------------------------------------------------------------
-    output_bank_update:process(exec_clk)
-    begin
-        if rising_edge(exec_clk) then
-            output_config_s <= internal_debug_override_s & gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
-        end if;
-    end process;
+    --output_bank_update:process(exec_clk)
+    --begin
+        --if rising_edge(exec_clk) then
+    output_config_s <= internal_debug_override_s & gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
+        --end if;
+    --end process;
     
     iram_lutram:process(iram_clk_s)
 	begin

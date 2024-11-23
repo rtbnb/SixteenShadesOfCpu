@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 22 16:13:04 2024
---Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
+--Date        : Sat Nov 23 13:26:57 2024
+--Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -27,7 +27,8 @@ entity main is
     ioe : out STD_LOGIC;
     led : out STD_LOGIC;
     r : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    v_sync : out STD_LOGIC
+    v_sync : out STD_LOGIC;
+    wait_clk_hold : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
   attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=26,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
@@ -373,7 +374,6 @@ architecture STRUCTURE of main is
     tx_data_valid : out STD_LOGIC;
     tx_data_sended : in STD_LOGIC;
     debug_enable : out STD_LOGIC;
-    iram_current_instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pipeline_stalled : in STD_LOGIC;
     pipeline_instruction_forwarding_config : in STD_LOGIC_VECTOR ( 4 downto 0 );
     pipeline_current_instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -738,7 +738,6 @@ Debugger_0: component main_Debugger_0_0
       alu_out(15 downto 0) => ALU_0_ALU_OUT(15 downto 0),
       clk => Net,
       debug_enable => Debugger_0_debug_enable,
-      iram_current_instruction(15 downto 0) => B"0000000000000000",
       mmu_debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
       mmu_debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
       mmu_debug_din(15 downto 0) => Debugger_0_mmu_debug_din(15 downto 0),

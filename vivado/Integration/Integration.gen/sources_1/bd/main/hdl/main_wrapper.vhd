@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 22 16:13:04 2024
---Host        : BOOK-69BD3QPCMV running 64-bit major release  (build 9200)
+--Date        : Sat Nov 23 13:26:57 2024
+--Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 --Command     : generate_target main_wrapper.bd
 --Design      : main_wrapper
 --Purpose     : IP block netlist
@@ -27,7 +27,8 @@ entity main_wrapper is
     ioe : out STD_LOGIC;
     led : out STD_LOGIC;
     r : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    v_sync : out STD_LOGIC
+    v_sync : out STD_LOGIC;
+    wait_clk_hold : out STD_LOGIC
   );
 end main_wrapper;
 
@@ -47,7 +48,8 @@ architecture STRUCTURE of main_wrapper is
     v_sync : out STD_LOGIC;
     fault_reset : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
-    debug_mock_clk : in STD_LOGIC
+    debug_mock_clk : in STD_LOGIC;
+    wait_clk_hold : out STD_LOGIC
   );
   end component main;
 begin
@@ -66,6 +68,7 @@ main_i: component main
       ioe => ioe,
       led => led,
       r(3 downto 0) => r(3 downto 0),
-      v_sync => v_sync
+      v_sync => v_sync,
+      wait_clk_hold => wait_clk_hold
     );
 end STRUCTURE;

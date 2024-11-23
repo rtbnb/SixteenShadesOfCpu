@@ -8,15 +8,15 @@
     "gen_directory": "../../../../../../Integration.gen/sources_1/bd/main/ip/main_RX_UART_0_0",
     "parameters": {
       "component_parameters": {
-        "CLKS_PER_BIT": [ { "value": "109", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "CLKS_PER_BIT": [ { "value": "55", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "main_RX_UART_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
-        "CLKS_PER_BIT": [ { "value": "109", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+        "CLKS_PER_BIT": [ { "value": "55", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "artix7" } ],
-        "BASE_BOARD_PART": [ { "value": "digilentinc.com:arty-a7-35:part0:1.1" } ],
+        "BASE_BOARD_PART": [ { "value": "" } ],
         "BOARD_CONNECTIONS": [ { "value": "" } ],
         "DEVICE": [ { "value": "xc7a35ti" } ],
         "NEXTGEN_VERSAL": [ { "value": "0" } ],
@@ -52,7 +52,7 @@
           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
           "mode": "slave",
           "parameters": {
-            "FREQ_HZ": [ { "value": "100000000", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_HZ": [ { "value": "50000000", "value_src": "user", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
             "CLK_DOMAIN": [ { "value": "main_clockcontroller_0_0_debug_clk", "value_src": "default_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],

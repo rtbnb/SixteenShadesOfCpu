@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 22 16:13:04 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Nov 23 13:26:58 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -79,6 +79,7 @@
         <CONNECTION INSTANCE="VGA_Controller_0" PORT="v_sync"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="O" NAME="wait_clk_hold" SIGIS="undef"/>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
@@ -512,7 +513,7 @@
             <CONNECTION INSTANCE="ALU_0" PORT="ALU_OUT"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_clk"/>
           </CONNECTIONS>
@@ -523,7 +524,6 @@
             <CONNECTION INSTANCE="mmu_0" PORT="debug_enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="iram_current_instruction" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="mmu_debug_addr" RIGHT="0" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_addr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="debug_addr"/>
@@ -1273,12 +1273,12 @@
     <MODULE COREREVISION="1" FULLNAME="/RX_UART_0" HWVERSION="1.0" INSTANCE="RX_UART_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="RX_UART" VLNV="xilinx.com:module_ref:RX_UART:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="CLKS_PER_BIT" VALUE="109"/>
+        <PARAMETER NAME="CLKS_PER_BIT" VALUE="55"/>
         <PARAMETER NAME="Component_Name" VALUE="main_RX_UART_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_clk"/>
           </CONNECTIONS>
@@ -1378,12 +1378,12 @@
     <MODULE COREREVISION="1" FULLNAME="/TX_UART_0" HWVERSION="1.0" INSTANCE="TX_UART_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="TX_UART" VLNV="xilinx.com:module_ref:TX_UART:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="CLKS_PER_BIT" VALUE="109"/>
+        <PARAMETER NAME="CLKS_PER_BIT" VALUE="55"/>
         <PARAMETER NAME="Component_Name" VALUE="main_TX_UART_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_clk"/>
           </CONNECTIONS>
@@ -2145,7 +2145,7 @@
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk50mhz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="debug_clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
+        <PORT CLKFREQUENCY="50000000" DIR="O" NAME="debug_clk" SIGIS="clk" SIGNAME="clockcontroller_0_debug_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RX_UART_0" PORT="clk"/>
             <CONNECTION INSTANCE="TX_UART_0" PORT="clk"/>
