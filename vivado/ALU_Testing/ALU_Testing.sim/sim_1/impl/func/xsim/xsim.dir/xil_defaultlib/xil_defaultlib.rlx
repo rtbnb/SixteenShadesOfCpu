@@ -2,6 +2,8 @@
 2020.2
 May 22 2024
 19:03:11
-D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.sim/sim_1/impl/func/xsim/ALU_TB_MULTIPLICATION_func_impl.vhd,1731926462,vhdl,,,,alu,,,,,,,,
+D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.sim/sim_1/impl/func/xsim/ALU_TB_MULTIPLICATION_func_impl.vhd,1732380346,vhdl,,,,alu,,,,,,,,
 D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_ADDING.vhd,1731851235,vhdl,,,,alu_tb_adding,,,,,,,,
-D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_MULTIPLICATION.vhd,1731924909,vhdl,,,,alu_tb_multiplication,,,,,,,,
+D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_AND.vhd,1731851235,vhdl,,,,alu_tb_and,,,,,,,,
+D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_MULTIPLICATION.vhd,1732113448,vhdl,,,,alu_tb_multiplication,,,,,,,,
+D:/Code/VHDL/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd,1732298941,vhdl,,,,alu_tb_shifting,,,,,,,,
