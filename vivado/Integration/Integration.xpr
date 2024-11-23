@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="67" Path="O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.xpr">
+<Project Product="Vivado" Version="7" Minor="67" Path="C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="71a83c23edd948ca9b553402d6fc8f8b"/>
@@ -60,20 +60,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="arty-a7-35"/>
-    <Option Name="WTXSimLaunchSim" Val="95"/>
+    <Option Name="WTXSimLaunchSim" Val="140"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="38"/>
-    <Option Name="WTModelSimExportSim" Val="38"/>
-    <Option Name="WTQuestaExportSim" Val="38"/>
+    <Option Name="WTXSimExportSim" Val="45"/>
+    <Option Name="WTModelSimExportSim" Val="45"/>
+    <Option Name="WTQuestaExportSim" Val="45"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="38"/>
-    <Option Name="WTRivieraExportSim" Val="38"/>
-    <Option Name="WTActivehdlExportSim" Val="38"/>
+    <Option Name="WTVcsExportSim" Val="45"/>
+    <Option Name="WTRivieraExportSim" Val="45"/>
+    <Option Name="WTActivehdlExportSim" Val="45"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -330,6 +330,7 @@
       </Config>
     </FileSet>
     <FileSet Name="debugger" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/debugger" RelGenDir="$PGENDIR/debugger">
+      <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/debugger/DebuggerIRAMWriteSim.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>

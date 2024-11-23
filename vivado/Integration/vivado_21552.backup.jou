@@ -1,0 +1,54 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sat Nov 23 17:11:02 2024
+# Process ID: 21552
+# Current directory: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8016 C:\Development\rebase_2\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Log file: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/vivado.log
+# Journal file: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration\vivado.jou
+# Running On        :DESKTOP-E8CIL9E
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :19045
+# Processor Detail  :AMD Ryzen 5 5600X 6-Core Processor             
+# CPU Frequency     :3693 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :17099 MB
+# Swap memory       :11274 MB
+# Total Virtual     :28373 MB
+# Available Virtual :9273 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+close_bd_design [get_bd_designs main]
+launch_simulation -simset [get_filesets debugger ]
+source DebuggerIRAMWriteSim.tcl
+run 44 us
+run 44 us
+run 44 us
+run 44 us
+current_wave_config {Untitled 1}
+add_wave {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/mmu_debug_sync_clk100mhz}} {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/mmu_debug_en}} {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/mmu_debug_override_en}} {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/mmu_debug_addr}} {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/mmu_debug_din}} {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/mmu_debug_bank}} {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/mmu_debug_we}} {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/mmu_debug_dout}} 
+current_wave_config {Untitled 1}
+add_wave {{/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/tx_data_buffer}} 
+relaunch_sim
+run 44 us
+run 44 us
+run 44 us
+run 44 us
+relaunch_sim
+run 44 us
+run 44 us
+run 44 us
+run 44 us
+relaunch_sim
+run 44 us
+run 44 us
+run 44 us
+run 44 us
+relaunch_sim

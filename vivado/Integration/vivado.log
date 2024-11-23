@@ -3,12 +3,12 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sat Nov 23 13:16:04 2024
-# Process ID: 19044
-# Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15584 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
-# Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/vivado.log
-# Journal file: C:/Development/SixteenShadesOfCpu/vivado/Integration\vivado.jou
+# Start of session at: Sat Nov 23 17:45:41 2024
+# Process ID: 23984
+# Current directory: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16036 C:\Development\rebase_2\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Log file: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/vivado.log
+# Journal file: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration\vivado.jou
 # Running On        :DESKTOP-E8CIL9E
 # Platform          :Windows Server 2016 or Windows 10
 # Operating System  :19045
@@ -19,15 +19,10 @@
 # Host memory       :17099 MB
 # Swap memory       :11274 MB
 # Total Virtual     :28373 MB
-# Available Virtual :15725 MB
+# Available Virtual :9091 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
-WARNING: [Board 49-91] Board repository path 'C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
-WARNING: [Board 49-91] Board repository path 'C:/Development/Vivado/ArtyS7-RPU-SoC/Tunkowski/AppData/Roaming/Xilinx/Vivado/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
-CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Development/SixteenShadesOfCpu_backup/debug/FPGA/Debugger.srcs/sim_1/new/DebuggerIRAMWriteSim.vhd'.
-Scanning sources...
-Finished scanning sources
+open_project C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
 WARNING: [Board 49-91] Board repository path 'C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
 WARNING: [Board 49-91] Board repository path 'C:/Development/Vivado/ArtyS7-RPU-SoC/Tunkowski/AppData/Roaming/Xilinx/Vivado/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
@@ -94,7 +89,11 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 availab
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-91] Board repository path 'C:/Development/SixteenShadesOfCpu/vivado/RegisterFile/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
+WARNING: [Board 49-91] Board repository path 'C:/Development/Vivado/ArtyS7-RPU-SoC/Tunkowski/AppData/Roaming/Xilinx/Vivado/Tunkowski/AppData/Roaming/Xilinx/Vivado/2024.1/xhub/board_store/xilinx_board_store' does not exist, it will not be used to search board files.
+Scanning sources...
+Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
-open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 1548.031 ; gain = 493.094
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 1526.020 ; gain = 454.273
