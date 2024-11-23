@@ -83,7 +83,7 @@ ARCHITECTURE main_TX_UART_0_0_arch OF main_TX_UART_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF main_TX_UART_0_0_arch : ARCHITECTURE IS "main_TX_UART_0_0,TX_UART,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF main_TX_UART_0_0_arch: ARCHITECTURE IS "main_TX_UART_0_0,TX_UART,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=TX_UART,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,CLKS_PER_BIT=109}";
+  ATTRIBUTE CORE_GENERATION_INFO OF main_TX_UART_0_0_arch: ARCHITECTURE IS "main_TX_UART_0_0,TX_UART,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=TX_UART,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,CLKS_PER_BIT=55}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF main_TX_UART_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -93,7 +93,7 @@ ARCHITECTURE main_TX_UART_0_0_arch OF main_TX_UART_0_0 IS
 BEGIN
   U0 : TX_UART
     GENERIC MAP (
-      CLKS_PER_BIT => 109
+      CLKS_PER_BIT => 55
     )
     PORT MAP (
       data_valid => data_valid,
