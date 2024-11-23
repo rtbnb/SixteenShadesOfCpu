@@ -224,30 +224,30 @@ begin
        
         --Testing shifting 1 to the 2x right
         wait for 10 ns;
-        D1 <= "0000000000000001";
+        D1 <= "0100000000000000";
         D2 <= "0000000000000010";
         RHO_PIN <= '0'; 
         ALU_OPP <= "0011"; 
         wait for 10 ns;
-        assert ALU_OUT = "0000000000000000"
+        assert ALU_OUT = "0001000000000000"
             report "shifting 2 to the right operation Failed: wrong ALU_OUT"
             severity failure;
         assert CARRY_FLAG = '0'
             report "shifting 2 to the right operation Failed: wrong CARRY_FLAG"
             severity failure;
-        assert ZERO_FLAG = '1'
+        assert ZERO_FLAG = '0'
             report "shifting 2 to the right operation Failed: wrong ZERO_FLAG"
             severity failure;
         assert SMALLER_ZERO_FLAG = '0'
             report "shifting 2 to the right operation Failed: wrong SMALLER_ZERO_FLAG"
             severity failure;
-        assert BIGGER_ZERO_FLAG = '0'
+        assert BIGGER_ZERO_FLAG = '1'
             report "shifting 2 to the right operation Failed: wrong BIGGER_ZERO_FLAG"
             severity failure;
         assert RHO_FLAG = '0'
             report "shifting 2 to the right operation Failed: wrong RHO_FLAG"
             severity failure;
-        assert NOT_ZERO_FLAG = '0'
+        assert NOT_ZERO_FLAG = '1'
             report "shifting 2 to the right operation Failed: wrong NOT_ZERO_FLAG"
             severity failure;
         assert OVERFLOW_FLAG = '0'
