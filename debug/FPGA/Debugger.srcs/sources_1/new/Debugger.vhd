@@ -105,7 +105,7 @@ architecture Behavioral of Debugger is
         TransmitDataInstructionSHORT, TransmitDataHIGHSHORT, TransmitDataLOWSHORT,
         TransmitInstructionOnly,
         ClockMMUDebug, ResetMMUDebug,
-        MMUFetchIRAMClock, MMUFetchIRAMWriteToTX
+        MMUFetchIRAMClock, MMUFetchIRAMWriteToTX, MMUFetchIRAMReset
     );
     signal state: state_types := Idle;
     
@@ -268,7 +268,7 @@ begin
                     regfile_reg2_data_s <= regfile_reg2_data;
                     regfile_regma_data_s <= regfile_regma_data;
                     regfile_bankid_s <= regfile_bankid;
-                    mmu_debug_dout_s <= mmu_debug_dout;
+                    --mmu_debug_dout_s <= mmu_debug_dout;
                     state <= ProcessCommand;
                 when ProcessCommand =>
                     -- command decode
@@ -506,11 +506,14 @@ begin
                     state <= TransmitInstructionOnly;
                 when MMUFetchIRAMClock =>
                     mmu_debug_sync_clk100mhz <= '1';
+                    mmu_debug_dout_s <= mmu_debug_dout;
                     state <= MMUFetchIRAMWriteToTX;
                 when MMUFetchIRAMWriteToTX =>
                     tx_instruction_buffer <= x"32";
                     tx_data_buffer <= mmu_debug_dout_s;
                     tx_addr_buffer <= rx_instruction_data2_buffer;
+                    state <= MMUFetchIRAMReset;
+                when MMUFetchIRAMReset =>
                     mmu_debug_override_en <= '0';
                     mmu_debug_sync_clk100mhz <= '0';
                     state <= TransmitDataInstruction;
