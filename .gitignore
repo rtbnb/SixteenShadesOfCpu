@@ -13,6 +13,9 @@ vivado/*/*.sim/*/behav/xsim/xsim.dir/*_behav/*
 vivado/*/*.gen/*/bd/*/synth
 vivado/*/*.gen/*/bd/*/sim
 vivado/*/*.gen/*/bd/*/hw_handoff
+vivado/Integration/Integration.cache/wt/project.wpc
+vivado/Integration/Integration.cache/wt/xsim.wdf
+vivado/Integration/Integration.gen/sources_1/bd
 
 .venv/
 __pycache__/
