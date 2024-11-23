@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 22 23:54:40 2024
+--Date        : Sat Nov 23 15:06:57 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target clock_block.bd
 --Design      : clock_block
@@ -54,8 +54,7 @@ architecture STRUCTURE of clock_block is
     load_clk : out STD_LOGIC;
     exec_clk : out STD_LOGIC;
     debug_clk : out STD_LOGIC;
-    ck_stable : out STD_LOGIC;
-    test_state : inout STD_LOGIC_VECTOR ( 3 downto 0 )
+    ck_stable : out STD_LOGIC
   );
   end component clock_block_clockcontroller_0_0;
   signal Net : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -119,7 +118,6 @@ clockcontroller_0: component clock_block_clockcontroller_0_0
       exec_clk => clockcontroller_0_exec_clk,
       fault_reset => fault_reset_1,
       load_clk => clockcontroller_0_load_clk,
-      test_state(3 downto 0) => test_state(3 downto 0),
       wizard_locked => clk_wiz_0_locked
     );
 end STRUCTURE;

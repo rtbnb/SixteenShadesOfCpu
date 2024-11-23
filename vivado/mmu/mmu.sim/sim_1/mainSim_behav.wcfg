@@ -11,38 +11,42 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="495.918 ns"></ZoomStartTime>
-      <ZoomEndTime time="740.817 ns"></ZoomEndTime>
-      <Cursor1Time time="600.000 ns"></Cursor1Time>
+      <ZoomStartTime time="504.950 ns"></ZoomStartTime>
+      <ZoomEndTime time="620.751 ns"></ZoomEndTime>
+      <Cursor1Time time="555.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="189"></NameColumnWidth>
+      <NameColumnWidth column_width="177"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="29" />
+   <WVObjectSize size="26" />
    <wvobject fp_name="/mainSim/clk100mhz_in" type="logic">
       <obj_property name="ElementShortName">clk100mhz_in</obj_property>
       <obj_property name="ObjectShortName">clk100mhz_in</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/vrama_mem_ck" type="logic">
-      <obj_property name="ElementShortName">vrama_mem_ck</obj_property>
-      <obj_property name="ObjectShortName">vrama_mem_ck</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/clk50mhz_in" type="logic">
+      <obj_property name="ElementShortName">clk50mhz_in</obj_property>
+      <obj_property name="ObjectShortName">clk50mhz_in</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/U0/exec_clk" type="logic">
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/load_clk" type="logic">
+      <obj_property name="ElementShortName">load_clk</obj_property>
+      <obj_property name="ObjectShortName">load_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/exec_clk" type="logic">
       <obj_property name="ElementShortName">exec_clk</obj_property>
       <obj_property name="ObjectShortName">exec_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/clk200mhz" type="logic">
-      <obj_property name="ElementShortName">clk200mhz</obj_property>
-      <obj_property name="ObjectShortName">clk200mhz</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/general_clk_s" type="logic">
-      <obj_property name="ElementShortName">general_clk_s</obj_property>
-      <obj_property name="ObjectShortName">general_clk_s</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/debug_clk" type="logic">
+      <obj_property name="ElementShortName">debug_clk</obj_property>
+      <obj_property name="ObjectShortName">debug_clk</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/wizard_locked" type="logic">
       <obj_property name="ElementShortName">wizard_locked</obj_property>
       <obj_property name="ObjectShortName">wizard_locked</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/U0/debug_en_s" type="logic">
+      <obj_property name="ElementShortName">debug_en_s</obj_property>
+      <obj_property name="ObjectShortName">debug_en_s</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/output_config_s" type="array">
       <obj_property name="ElementShortName">output_config_s[4:0]</obj_property>
@@ -51,22 +55,6 @@
    <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/vramb_mem_ck" type="logic">
       <obj_property name="ElementShortName">vramb_mem_ck</obj_property>
       <obj_property name="ObjectShortName">vramb_mem_ck</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/cpu_sync" type="logic">
-      <obj_property name="ElementShortName">cpu_sync</obj_property>
-      <obj_property name="ObjectShortName">cpu_sync</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/cpu_op_ongoing" type="logic">
-      <obj_property name="ElementShortName">cpu_op_ongoing</obj_property>
-      <obj_property name="ObjectShortName">cpu_op_ongoing</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/cpu_op_stop_condition" type="logic">
-      <obj_property name="ElementShortName">cpu_op_stop_condition</obj_property>
-      <obj_property name="ObjectShortName">cpu_op_stop_condition</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/test_signal" type="array">
-      <obj_property name="ElementShortName">test_signal[2:0]</obj_property>
-      <obj_property name="ObjectShortName">test_signal[2:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/debug_enable" type="logic">
       <obj_property name="ElementShortName">debug_enable</obj_property>
@@ -108,14 +96,6 @@
       <obj_property name="ElementShortName">iram_dout[15:0]</obj_property>
       <obj_property name="ObjectShortName">iram_dout[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/vram_addr" type="array">
-      <obj_property name="ElementShortName">vram_addr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">vram_addr[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/vram_dout" type="array">
-      <obj_property name="ElementShortName">vram_dout[15:0]</obj_property>
-      <obj_property name="ObjectShortName">vram_dout[15:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/mainSim/gram_din" type="array">
       <obj_property name="ElementShortName">gram_din[15:0]</obj_property>
       <obj_property name="ObjectShortName">gram_din[15:0]</obj_property>
@@ -132,8 +112,16 @@
       <obj_property name="ElementShortName">gram_bank[3:0]</obj_property>
       <obj_property name="ObjectShortName">gram_bank[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/cpu_lock_s" type="logic">
-      <obj_property name="ElementShortName">cpu_lock_s</obj_property>
-      <obj_property name="ObjectShortName">cpu_lock_s</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/gram_clk_s" type="logic">
+      <obj_property name="ElementShortName">gram_clk_s</obj_property>
+      <obj_property name="ObjectShortName">gram_clk_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/iram_clk_s" type="logic">
+      <obj_property name="ElementShortName">iram_clk_s</obj_property>
+      <obj_property name="ObjectShortName">iram_clk_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/mmio_mem_ck" type="logic">
+      <obj_property name="ElementShortName">mmio_mem_ck</obj_property>
+      <obj_property name="ObjectShortName">mmio_mem_ck</obj_property>
    </wvobject>
 </wave_config>

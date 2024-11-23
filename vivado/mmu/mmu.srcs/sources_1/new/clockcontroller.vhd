@@ -37,7 +37,7 @@ entity clockcontroller is
         debug_enable, debug_mock_clk: in std_logic;
         load_clk, exec_clk: out std_logic; 
         debug_clk: out std_logic; 
-        ck_stable: out std_logic;
+        ck_stable: out std_logic
     );
 end clockcontroller;
 
@@ -56,23 +56,27 @@ begin
     
     with wizard_locked select
         debug_clk <= clk50mhz_in when '1',
+                     '0' when '0',
                      '0' when others;
     
     with output_en_s select
         load_clk <= clk100mhz_in when "10",
                     debug_mock_clk when "11",
+                    '0' when "00",
+                    '0' when "01",
                     '0' when others;
     with output_en_s select
         exec_clk_s <= not clk100mhz_in when "10",
                     not debug_mock_clk when "11",
+                    '0' when "00",
+                    '0' when "01",
                     '0' when others;    
     exec_clk <= exec_clk_s;
-    --TODO Implement debug begin and end logic
     
     debug_state:process(clk100mhz_in)
     begin
         if rising_edge(clk100mhz_in) then
-            if debug_guard_clk='0' and debug_enable='0' and debug_reset='1' then
+            if debug_guard_clk='0' and debug_enable='0' and debug_reset='1' and wizard_locked='1' then
                 debug_en_s <= '0';
             elsif debug_guard_clk='0' and debug_enable='1' then
                 debug_en_s <= '1';

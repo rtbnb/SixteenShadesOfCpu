@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 22 23:36:34 2024
+--Date        : Sat Nov 23 15:24:54 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
@@ -146,8 +146,7 @@ architecture STRUCTURE of main_block is
     load_clk : out STD_LOGIC;
     exec_clk : out STD_LOGIC;
     debug_clk : out STD_LOGIC;
-    ck_stable : out STD_LOGIC;
-    test_state : inout STD_LOGIC_VECTOR ( 3 downto 0 )
+    ck_stable : out STD_LOGIC
   );
   end component main_block_clockcontroller_0_0;
   component main_block_clk_wiz_0_0 is
@@ -217,7 +216,6 @@ architecture STRUCTURE of main_block is
   signal vram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_clockcontroller_0_debug_clk_UNCONNECTED : STD_LOGIC;
   signal NLW_clockcontroller_0_load_clk_UNCONNECTED : STD_LOGIC;
-  signal NLW_clockcontroller_0_test_state_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal NLW_mmio_0_rho_UNCONNECTED : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
@@ -292,7 +290,6 @@ clockcontroller_0: component main_block_clockcontroller_0_0
       exec_clk => clockcontroller_0_clk100mhz,
       fault_reset => fault_reset_1,
       load_clk => NLW_clockcontroller_0_load_clk_UNCONNECTED,
-      test_state(3 downto 0) => NLW_clockcontroller_0_test_state_UNCONNECTED(3 downto 0),
       wizard_locked => clk_wiz_0_locked
     );
 mmio_0: component main_block_mmio_0_0
