@@ -51,7 +51,7 @@ vhdl xil_defaultlib  \
 "../../../../Integration.ip_user_files/bd/main/ip/main_VGA_Controller_0_0/sim/main_VGA_Controller_0_0.vhd" \
 "../../../../Integration.ip_user_files/bd/main/sim/main.vhd" \
 "../../../../Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" \
-"../../../../../../debug/FPGA/Debugger.srcs/sim_1/DebuggerIRAMWriteSim.vhd" \
+"../../../../Integration.srcs/debugger/DebuggerIRAMWriteSim.vhd" \
 
 # Do not sort compile order
 nosort
