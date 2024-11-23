@@ -10,11 +10,11 @@ vmap xil_defaultlib modelsim_lib/msim/xil_defaultlib
 vmap blk_mem_gen_v8_4_8 modelsim_lib/msim/blk_mem_gen_v8_4_8
 
 vlog -work xpm  -incr -mfcu  -sv "+incdir+../../../../Integration.gen/sources_1/bd/main/ipshared/3242" \
-"D:/AMD/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"D:/AMD/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"C:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"C:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm  -93  \
-"D:/AMD/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
+"C:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xil_defaultlib  -93  \
 "../../../bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" \

@@ -1,6 +1,7 @@
 import serial
 import threading
 import Datapool
+from queue import Queue
 
 from PySide6 import QtCore, QtWidgets, QtGui
 import sys
@@ -41,16 +42,27 @@ def rx(ser: serial.Serial, debugWindow: DebugWindow):
         rx_data = ser.read()
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
 
-def tx(ser: serial.Serial):
+def rx_no_loop(ser: serial.Serial, debugWindow: DebugWindow):
+    rx_Data = 0
+    byte_counter = 0
+    command_instruction: bytes = 0
+    while ser.in_waiting > 0:
+        rx_data = ser.read()
+        (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+
+def tx(ser: serial.Serial, debugWindow: DebugWindow):
     # input for debug command
     while(1):
         try:
-            command = input()
-            print(f"command is: {command} int: {int(command, base=16)}")
-
-            byte_command = bytes([int(command, base=16)])
-            print("command: ".join(hex(n) for n in byte_command))
-            ser.write(byte_command)
+            q = debugWindow.get_command_queue()
+            if not q.empty():
+                command_list = q.get()
+                for command in command_list:
+                    ser.write(command)
+                    print(f"sended command: {command.hex()}")
+                print("Waiting for response...")
+                rx_no_loop(ser, debugWindow)
+                print("Response received")
         except KeyboardInterrupt:
             break
 
@@ -63,16 +75,16 @@ def main():
     widget.resize(800, 600)
     widget.show()
 
-    listening_thread = threading.Thread(target=rx, args=[fpga_serial, widget])
-    listening_thread.start()
-    tx_thread = threading.Thread(target=tx, args=[fpga_serial])
+    #listening_thread = threading.Thread(target=rx, args=[fpga_serial, widget])
+    #listening_thread.start()
+    tx_thread = threading.Thread(target=tx, args=[fpga_serial, widget])
     tx_thread.start()
     app.exec()
 
     
     
     fpga_serial.close()
-    listening_thread.join()
+    #listening_thread.join()
     tx_thread.join()
 
 if __name__ == '__main__':

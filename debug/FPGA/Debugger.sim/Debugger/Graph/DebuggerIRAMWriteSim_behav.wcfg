@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="DebuggerIRAMWriteSim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="DebuggerIRAMWriteSim" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="177.000001 us"></ZoomEndTime>
+      <Cursor1Time time="125.675300 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="182"></NameColumnWidth>
+      <ValueColumnWidth column_width="82"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="36" />
+   <wvobject fp_name="/DebuggerIRAMWriteSim/RX_UART_IN" type="logic">
+      <obj_property name="ElementShortName">RX_UART_IN</obj_property>
+      <obj_property name="ObjectShortName">RX_UART_IN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/TX_UART_OUT" type="logic">
+      <obj_property name="ElementShortName">TX_UART_OUT</obj_property>
+      <obj_property name="ObjectShortName">TX_UART_OUT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/b" type="array">
+      <obj_property name="ElementShortName">b[3:0]</obj_property>
+      <obj_property name="ObjectShortName">b[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/clk100mhz_in" type="logic">
+      <obj_property name="ElementShortName">clk100mhz_in</obj_property>
+      <obj_property name="ObjectShortName">clk100mhz_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/debug_mock_clk" type="logic">
+      <obj_property name="ElementShortName">debug_mock_clk</obj_property>
+      <obj_property name="ObjectShortName">debug_mock_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/debug_reset" type="logic">
+      <obj_property name="ElementShortName">debug_reset</obj_property>
+      <obj_property name="ObjectShortName">debug_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/fault_reset" type="logic">
+      <obj_property name="ElementShortName">fault_reset</obj_property>
+      <obj_property name="ObjectShortName">fault_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/g" type="array">
+      <obj_property name="ElementShortName">g[3:0]</obj_property>
+      <obj_property name="ObjectShortName">g[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/h_sync" type="logic">
+      <obj_property name="ElementShortName">h_sync</obj_property>
+      <obj_property name="ObjectShortName">h_sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/ioe" type="logic">
+      <obj_property name="ElementShortName">ioe</obj_property>
+      <obj_property name="ObjectShortName">ioe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/led" type="logic">
+      <obj_property name="ElementShortName">led</obj_property>
+      <obj_property name="ObjectShortName">led</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/r" type="array">
+      <obj_property name="ElementShortName">r[3:0]</obj_property>
+      <obj_property name="ObjectShortName">r[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/v_sync" type="logic">
+      <obj_property name="ElementShortName">v_sync</obj_property>
+      <obj_property name="ObjectShortName">v_sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/rx_instruction" type="array">
+      <obj_property name="ElementShortName">rx_instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_instruction[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/rx_address" type="array">
+      <obj_property name="ElementShortName">rx_address[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_address[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/rx_data" type="array">
+      <obj_property name="ElementShortName">rx_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_sync_clk100mhz" type="logic">
+      <obj_property name="ElementShortName">mmu_debug_sync_clk100mhz</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_sync_clk100mhz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_en" type="logic">
+      <obj_property name="ElementShortName">mmu_debug_en</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_override_en" type="logic">
+      <obj_property name="ElementShortName">mmu_debug_override_en</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_override_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_addr" type="array">
+      <obj_property name="ElementShortName">mmu_debug_addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_addr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_din" type="array">
+      <obj_property name="ElementShortName">mmu_debug_din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_bank" type="array">
+      <obj_property name="ElementShortName">mmu_debug_bank[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_bank[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_we" type="logic">
+      <obj_property name="ElementShortName">mmu_debug_we</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_dout" type="array">
+      <obj_property name="ElementShortName">mmu_debug_dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/mmu_0/debug_override_enable" type="logic">
+      <obj_property name="ElementShortName">debug_override_enable</obj_property>
+      <obj_property name="ObjectShortName">debug_override_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/mmu_0/debug_clk" type="logic">
+      <obj_property name="ElementShortName">debug_clk</obj_property>
+      <obj_property name="ObjectShortName">debug_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/mmu_0/debug_addr" type="array">
+      <obj_property name="ElementShortName">debug_addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_addr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/mmu_0/debug_din" type="array">
+      <obj_property name="ElementShortName">debug_din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/mmu_0/debug_bank" type="array">
+      <obj_property name="ElementShortName">debug_bank[3:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_bank[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/mmu_0/debug_we" type="logic">
+      <obj_property name="ElementShortName">debug_we</obj_property>
+      <obj_property name="ObjectShortName">debug_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/mmu_0/debug_dout" type="array">
+      <obj_property name="ElementShortName">debug_dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/tx_data" type="array">
+      <obj_property name="ElementShortName">tx_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/mmu_debug_dout_s" type="array">
+      <obj_property name="ElementShortName">mmu_debug_dout_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mmu_debug_dout_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DebuggerIRAMWriteSim/EOT/main_i/Debugger_0/U0/tx_data_buffer" type="array">
+      <obj_property name="ElementShortName">tx_data_buffer[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_data_buffer[15:0]</obj_property>
+   </wvobject>
+</wave_config>

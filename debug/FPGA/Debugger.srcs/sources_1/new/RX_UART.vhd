@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity RX_UART is
     generic (
-        CLKS_PER_BIT: integer := 109 -- (clock Frequency) / (Baud Rate)
+        CLKS_PER_BIT: integer := 55 -- (clock Frequency) / (Baud Rate)
     );
     Port (
         clk: in std_logic;
@@ -92,7 +92,7 @@ begin
                         current_state <= Bit0;
                     else
                         clock_cnt <= 0;
-                        data_out(0) <= rx_data_in;
+                        data_out(7) <= rx_data_in;
                         current_state <= Bit1;
                     end if;
                 when Bit1 =>
@@ -101,7 +101,7 @@ begin
                         current_state <= Bit1;
                     else
                         clock_cnt <= 0;
-                        data_out(1) <= rx_data_in;
+                        data_out(6) <= rx_data_in;
                         current_state <= Bit2;
                     end if;
                 when Bit2 =>
@@ -110,7 +110,7 @@ begin
                         current_state <= Bit2;
                     else
                         clock_cnt <= 0;
-                        data_out(2) <= rx_data_in;
+                        data_out(5) <= rx_data_in;
                         current_state <= Bit3;
                     end if;
                 when Bit3 =>
@@ -119,7 +119,7 @@ begin
                         current_state <= Bit3;
                     else
                         clock_cnt <= 0;
-                        data_out(3) <= rx_data_in;
+                        data_out(4) <= rx_data_in;
                         current_state <= Bit4;
                     end if;
                 when Bit4 =>
@@ -128,7 +128,7 @@ begin
                         current_state <= Bit4;
                     else
                         clock_cnt <= 0;
-                        data_out(4) <= rx_data_in;
+                        data_out(3) <= rx_data_in;
                         current_state <= Bit5;
                     end if;
                 when Bit5 =>
@@ -137,7 +137,7 @@ begin
                         current_state <= Bit5;
                     else
                         clock_cnt <= 0;
-                        data_out(5) <= rx_data_in;
+                        data_out(2) <= rx_data_in;
                         current_state <= Bit6;
                     end if;
                 when Bit6 =>
@@ -146,7 +146,7 @@ begin
                         current_state <= Bit6;
                     else
                         clock_cnt <= 0;
-                        data_out(6) <= rx_data_in;
+                        data_out(1) <= rx_data_in;
                         current_state <= Bit7;
                     end if;
                 when Bit7 =>
@@ -155,7 +155,7 @@ begin
                         current_state <= Bit7;
                     else
                         clock_cnt <= 0;
-                        data_out(7) <= rx_data_in;
+                        data_out(0) <= rx_data_in;
                         current_state <= StopBit;
                     end if;
                 when StopBit =>

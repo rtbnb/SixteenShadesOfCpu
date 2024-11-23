@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity TX_UART is
     generic (
-        CLKS_PER_BIT: integer := 109 -- (clock Frequency) / (Baud Rate) => 100000000 / 921600
+        CLKS_PER_BIT: integer := 55 -- (clock Frequency) / (Baud Rate) => 100000000 / 921600
     );
     Port (
         data_valid: in std_logic; -- rising edge to start the writing process
@@ -85,7 +85,7 @@ begin
                         clk_cnt <= 0;
                     else
                         current_state <= Bit0;
-                        tx_data_out <= tx_data(0);
+                        tx_data_out <= tx_data(7);
                         clk_cnt <= clk_cnt + 1;
                     end if;
                 when Bit1 =>
@@ -94,7 +94,7 @@ begin
                         clk_cnt <= 0;
                     else
                         current_state <= Bit1;
-                        tx_data_out <= tx_data(1);
+                        tx_data_out <= tx_data(6);
                         clk_cnt <= clk_cnt + 1;
                     end if;
                 when Bit2 =>
@@ -103,7 +103,7 @@ begin
                         clk_cnt <= 0;
                     else
                         current_state <= Bit2;
-                        tx_data_out <= tx_data(2);
+                        tx_data_out <= tx_data(5);
                         clk_cnt <= clk_cnt + 1;
                     end if;
                 when Bit3 =>
@@ -112,7 +112,7 @@ begin
                         clk_cnt <= 0;
                     else
                         current_state <= Bit3;
-                        tx_data_out <= tx_data(3);
+                        tx_data_out <= tx_data(4);
                         clk_cnt <= clk_cnt + 1;
                     end if;
                 when Bit4 =>
@@ -121,7 +121,7 @@ begin
                         clk_cnt <= 0;
                     else
                         current_state <= Bit4;
-                        tx_data_out <= tx_data(4);
+                        tx_data_out <= tx_data(3);
                         clk_cnt <= clk_cnt + 1;
                     end if;
                 when Bit5 =>
@@ -130,7 +130,7 @@ begin
                         clk_cnt <= 0;
                     else
                         current_state <= Bit5;
-                        tx_data_out <= tx_data(5);
+                        tx_data_out <= tx_data(2);
                         clk_cnt <= clk_cnt + 1;
                     end if;
                 when Bit6 =>
@@ -139,7 +139,7 @@ begin
                         clk_cnt <= 0;
                     else
                         current_state <= Bit6;
-                        tx_data_out <= tx_data(6);
+                        tx_data_out <= tx_data(1);
                         clk_cnt <= clk_cnt + 1;
                     end if;
                 when Bit7 =>
@@ -148,7 +148,7 @@ begin
                         clk_cnt <= 0;
                     else
                         current_state <= Bit7;
-                        tx_data_out <= tx_data(7);
+                        tx_data_out <= tx_data(0);
                         clk_cnt <= clk_cnt + 1;
                     end if;
                 when Stop_Bit =>

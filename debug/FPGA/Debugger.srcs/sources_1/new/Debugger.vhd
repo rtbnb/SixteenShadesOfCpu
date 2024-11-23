@@ -45,13 +45,7 @@ entity Debugger is
         -- debug enable
         debug_enable: out std_logic := '0';
         
-        -- monitoring signals        
-        -- programm counter
-        
-        
-        -- IRAM
-        iram_current_instruction: in std_logic_vector(15 downto 0);
-        
+        -- monitoring signals
         -- pipeline
         pipeline_stalled: in std_logic;
         pipeline_instruction_forwarding_config: in std_logic_vector(4 downto 0);
@@ -106,10 +100,12 @@ architecture Behavioral of Debugger is
     -- state machine
     type state_types is (Idle,
         ReceivePreCommandDecission, ReceiveInstructionDataHIGH, ReceiveInstructionDataLOW, ReceiveInstructionData2HIGH, ReceiveInstructionData2LOW,
-        HoldClock, WaitClockCycle, ProcessCommand,
+        HoldClock, BufferState, ProcessCommand,
         TransmitDataInstruction, TransmitDataHIGH, TransmitDataLOW, TransmitDataAddrHIGH, TransmitDataAddrLOW, ResetTX,
         TransmitDataInstructionSHORT, TransmitDataHIGHSHORT, TransmitDataLOWSHORT,
-        ResetMMUDebug
+        TransmitInstructionOnly,
+        ClockMMUDebug, ResetMMUDebug,
+        MMUFetchIRAMClock, MMUFetchIRAMWriteToTX, MMUFetchIRAMReset
     );
     signal state: state_types := Idle;
     
@@ -124,7 +120,40 @@ architecture Behavioral of Debugger is
     signal tx_addr_buffer: std_logic_vector(15 downto 0) := x"0000";
     
     signal pc_current_addr_buffer: std_logic_vector(15 downto 0) := x"FFFF";
+
+    -- data buffers
+    -- pipeline
+    signal pipeline_stalled_s: std_logic;
+    signal pipeline_instruction_forwarding_config_s: std_logic_vector(4 downto 0);
+    signal pipeline_current_instruction_s: std_logic_vector(15 downto 0);
+    signal pipeline_operand_1_s, pipeline_operand_2_s: std_logic_vector(15 downto 0);
+    signal pipeline_memory_addr_reg_s: std_logic_vector(15 downto 0);
+    signal pipeline_jmp_s: std_logic;
+    -- program counter
+    signal pc_din_s: std_logic_vector(15 downto 0);
+    signal pc_dout_s: std_logic_vector(15 downto 0);
+    signal pc_current_addr_s: std_logic_vector(15 downto 0);
+    -- ALU
+    signal alu_din1_s: std_logic_vector(15 downto 0);  
+    signal alu_din2_s: std_logic_vector(15 downto 0);
+    signal alu_out_s: std_logic_vector(15 downto 0);
+    signal alu_flags_s: std_logic_vector(15 downto 0);
+    signal alu_op_s: std_logic_vector(15 downto 0);
+    -- Register File
+    signal regfile_addr_reg1_s: std_logic_vector(3 downto 0);
+    signal regfile_addr_reg2_s: std_logic_vector(3 downto 0);
+    signal regfile_addr_write_reg_s: std_logic_vector(3 downto 0);
+    signal regfile_write_enable_s: std_logic;
+    signal regfile_overwrite_flag_s: std_logic;
+    signal regfile_write_data_s: std_logic_vector(15 downto 0);
+    signal regfile_reg1_data_s: std_logic_vector(15 downto 0);
+    signal regfile_reg2_data_s: std_logic_vector(15 downto 0);
+    signal regfile_regma_data_s: std_logic_vector(15 downto 0);
+    signal regfile_bankid_s: std_logic_vector(3 downto 0);   
+    -- mmu
+    signal mmu_debug_dout_s: std_logic_vector(15 downto 0);
 begin
+    -- state machine
     pc_current_addr_buffer <= pc_current_addr;
     state_machine: process(clk, state, rx_data_valid, tx_data_sended) begin
         if rising_edge(clk) then
@@ -139,7 +168,7 @@ begin
                     end if;
                 -- rx states
                 when ReceivePreCommandDecission =>
-                    case rx_instruction_data_buffer is
+                    case rx_instruction_buffer is
                         -- general
                         when x"00" => state <= HoldClock;
                         when x"01" => state <= HoldClock;
@@ -159,6 +188,7 @@ begin
                         -- memory
                         when x"30" => state <= ReceiveInstructionDataHIGH;
                         when x"31" => state <= ReceiveInstructionDataHIGH;
+                        when x"32" => state <= ReceiveInstructionData2HIGH;
                         -- alu signal request
                         when x"40" => state <= HoldClock;
                         when x"41" => state <= HoldClock;
@@ -210,8 +240,35 @@ begin
                 -- command processing states
                 when HoldClock =>
                     debug_enable <= '1';
-                    state <= WaitClockCycle;
-                when WaitClockCycle =>
+                    state <= BufferState;
+                when BufferState =>
+                    -- buffering every input
+                    pipeline_stalled_s <= pipeline_stalled;
+                    pipeline_instruction_forwarding_config_s <= pipeline_instruction_forwarding_config;
+                    pipeline_current_instruction_s <= pipeline_current_instruction;
+                    pipeline_operand_1_s <= pipeline_operand_1;
+                    pipeline_operand_2_s <= pipeline_operand_2;
+                    pipeline_memory_addr_reg_s <= pipeline_memory_addr_reg;
+                    pipeline_jmp_s <= pipeline_jmp;
+                    pc_din_s <= pc_din;
+                    pc_dout_s <= pc_dout;
+                    pc_current_addr_s <= pc_current_addr_buffer;
+                    alu_din1_s <= alu_din1;
+                    alu_din2_s <= alu_din2;
+                    alu_out_s <= alu_out;
+                    alu_flags_s <= alu_flags;
+                    alu_op_s <= alu_op;
+                    regfile_addr_reg1_s <= regfile_addr_reg1;
+                    regfile_addr_reg2_s <= regfile_addr_reg2;
+                    regfile_addr_write_reg_s <= regfile_addr_write_reg;
+                    regfile_write_enable_s <= regfile_write_enable;
+                    regfile_overwrite_flag_s <= regfile_overwrite_flag;
+                    regfile_write_data_s <= regfile_write_data;
+                    regfile_reg1_data_s <= regfile_reg1_data;
+                    regfile_reg2_data_s <= regfile_reg2_data;
+                    regfile_regma_data_s <= regfile_regma_data;
+                    regfile_bankid_s <= regfile_bankid;
+                    --mmu_debug_dout_s <= mmu_debug_dout;
                     state <= ProcessCommand;
                 when ProcessCommand =>
                     -- command decode
@@ -225,46 +282,46 @@ begin
                         when x"10" =>
                             tx_instruction_buffer <= x"10";
                             tx_data_buffer(15 downto 1) <= "000000000000000";
-                            tx_data_buffer(0) <= pipeline_stalled;
+                            tx_data_buffer(0) <= pipeline_stalled_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"11" =>
                             tx_instruction_buffer <= x"11";
                             tx_data_buffer(15 downto 5) <= "00000000000";
-                            tx_data_buffer(4 downto 0) <= pipeline_instruction_forwarding_config;
+                            tx_data_buffer(4 downto 0) <= pipeline_instruction_forwarding_config_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"12" =>
                             tx_instruction_buffer <= x"12";
-                            tx_data_buffer <= pipeline_current_instruction;
+                            tx_data_buffer <= pipeline_current_instruction_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"13" =>
                             tx_instruction_buffer <= x"13";
-                            tx_data_buffer <= pipeline_operand_1;
+                            tx_data_buffer <= pipeline_operand_1_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"14" =>
                             tx_instruction_buffer <= x"14";
-                            tx_data_buffer <= pipeline_operand_2;
+                            tx_data_buffer <= pipeline_operand_2_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"15" =>
                             tx_instruction_buffer <= x"15";
-                            tx_data_buffer <= pipeline_memory_addr_reg;
+                            tx_data_buffer <= pipeline_memory_addr_reg_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"16" =>
                             tx_data_buffer(15 downto 1) <= "000000000000000";
                             tx_instruction_buffer <= x"16";
-                            tx_data_buffer(0) <= pipeline_jmp;
+                            tx_data_buffer(0) <= pipeline_jmp_s;
                             state <= TransmitDataInstructionSHORT;
                         -- program counter
                         when x"20" =>
                             tx_instruction_buffer <= x"20";
-                            tx_data_buffer <= pc_din;
+                            tx_data_buffer <= pc_din_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"21" =>
                             tx_instruction_buffer <= x"21";
-                            tx_data_buffer <= pc_dout;
-                            state <= TransmitDataInstructionSHORT; 
+                            tx_data_buffer <= pc_dout_s;
+                            state <= TransmitDataInstructionSHORT;
                         when x"22" =>
                             tx_instruction_buffer <= x"22";
-                            tx_data_buffer <= pc_current_addr;
+                            tx_data_buffer <= pc_current_addr_s;
                             state <= TransmitDataInstructionSHORT;
                         -- memmory
                         when x"30" =>
@@ -276,75 +333,82 @@ begin
                             mmu_debug_bank <= "1111";
                             mmu_debug_override_en <= '1';
                             mmu_debug_we <= '1';
-                            mmu_debug_sync_clk100mhz <= '1';
-                            state <= ResetMMUDebug;
+                            -- send acknoledge
+                            tx_instruction_buffer <= x"31";
+                            state <= ClockMMUDebug;
+                        when x"32" =>
+                            mmu_debug_addr <= rx_instruction_data2_buffer;
+                            mmu_debug_bank <= "1111";
+                            mmu_debug_override_en <= '1';
+                            mmu_debug_we <= '0';
+                            state <= MMUFetchIRAMClock;
                         -- alu
                         when x"40" =>
                             tx_instruction_buffer <= x"40";
-                            tx_data_buffer <= alu_din1;
+                            tx_data_buffer <= alu_din1_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"41" =>
                             tx_instruction_buffer <= x"41";
-                            tx_data_buffer <= alu_din2;
+                            tx_data_buffer <= alu_din2_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"42" =>
                             tx_instruction_buffer <= x"42";
-                            tx_data_buffer <= alu_out;
+                            tx_data_buffer <= alu_out_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"43" =>
                             tx_instruction_buffer <= x"43";
-                            tx_data_buffer <= alu_flags;
+                            tx_data_buffer <= alu_flags_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"44" =>
                             tx_instruction_buffer <= x"44";
-                            tx_data_buffer <= alu_op;
+                            tx_data_buffer <= alu_op_s;
                             state <= TransmitDataInstructionSHORT;
                         -- register file
                         when x"50" =>
                             tx_instruction_buffer <= x"50";
                             tx_data_buffer(15 downto 4) <= "000000000000";
-                            tx_data_buffer(3 downto 0) <= regfile_addr_reg1;
+                            tx_data_buffer(3 downto 0) <= regfile_addr_reg1_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"51" =>
                             tx_instruction_buffer <= x"51";
                             tx_data_buffer(15 downto 4) <= "000000000000";
-                            tx_data_buffer(3 downto 0) <= regfile_addr_reg2;
+                            tx_data_buffer(3 downto 0) <= regfile_addr_reg2_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"52" =>
                             tx_instruction_buffer <= x"52";
                             tx_data_buffer(15 downto 4) <= "000000000000";
-                            tx_data_buffer(3 downto 0) <= regfile_addr_write_reg;
+                            tx_data_buffer(3 downto 0) <= regfile_addr_write_reg_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"53" =>
                             tx_instruction_buffer <= x"53";
                             tx_data_buffer(15 downto 1) <= "000000000000000";
-                            tx_data_buffer(0) <= regfile_write_enable;
+                            tx_data_buffer(0) <= regfile_write_enable_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"54" =>
                             tx_instruction_buffer <= x"54";
                             tx_data_buffer(15 downto 1) <= "000000000000000";
-                            tx_data_buffer(0) <= regfile_overwrite_flag;
+                            tx_data_buffer(0) <= regfile_overwrite_flag_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"55" =>
                             tx_instruction_buffer <= x"55";
-                            tx_data_buffer <= regfile_write_data;
+                            tx_data_buffer <= regfile_write_data_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"56" =>
                             tx_instruction_buffer <= x"56";
-                            tx_data_buffer <= regfile_reg1_data;
+                            tx_data_buffer <= regfile_reg1_data_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"57" =>
                             tx_instruction_buffer <= x"57";
-                            tx_data_buffer <= regfile_reg2_data;
+                            tx_data_buffer <= regfile_reg2_data_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"58" =>
                             tx_instruction_buffer <= x"58";
-                            tx_data_buffer <= regfile_regma_data;
+                            tx_data_buffer <= regfile_regma_data_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"59" =>
                             tx_instruction_buffer <= x"59";
-                            tx_data_buffer(15 downto 1) <= "000000000000000";
-                            tx_data_buffer(0) <= regfile_overwrite_flag;
+                            tx_data_buffer(15 downto 4) <= "000000000000";
+                            tx_data_buffer(3 downto 0) <= regfile_bankid_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"5A" => state <= Idle;
                         when others =>
@@ -415,6 +479,12 @@ begin
                         tx_data_valid <= '0';
                         state <= TransmitDataLOWSHORT;
                     end if;
+                
+                -- transmit instruction only
+                when TransmitInstructionOnly =>
+                    tx_data <= tx_instruction_buffer;
+                    tx_data_valid <= '1';
+                    state <= ResetTX;
                 -- tx reset
                 when ResetTX =>
                     if (tx_data_sended = '1') then
@@ -425,12 +495,28 @@ begin
                         state <= ResetTX;
                     end if;
                 
-                -- signal resets
+                -- mmu
+                when ClockMMUDebug =>
+                    mmu_debug_sync_clk100mhz <= '1';
+                    state <= ResetMMUDebug;
                 when ResetMMUDebug =>
                     mmu_debug_override_en <= '0';
                     mmu_debug_we <= '0';
                     mmu_debug_sync_clk100mhz <= '0';
-                    state <= Idle;
+                    state <= TransmitInstructionOnly;
+                when MMUFetchIRAMClock =>
+                    mmu_debug_sync_clk100mhz <= '1';
+                    mmu_debug_dout_s <= mmu_debug_dout;
+                    state <= MMUFetchIRAMWriteToTX;
+                when MMUFetchIRAMWriteToTX =>
+                    tx_instruction_buffer <= x"32";
+                    tx_data_buffer <= mmu_debug_dout_s;
+                    tx_addr_buffer <= rx_instruction_data2_buffer;
+                    state <= MMUFetchIRAMReset;
+                when MMUFetchIRAMReset =>
+                    mmu_debug_override_en <= '0';
+                    mmu_debug_sync_clk100mhz <= '0';
+                    state <= TransmitDataInstruction;
                     
                     
                 when others =>
