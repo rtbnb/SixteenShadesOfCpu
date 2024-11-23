@@ -1,0 +1,57 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd" \
+"../../../../../Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd" \
+"../../../../../Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd" \
+"../../../../../RegisterFile/RegFile.srcs/sources_1/new/ProgramCounter.vhd" \
+"../../../../../RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd" \
+"../../../../../Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd" \
+"../../../../../Pipelining/Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd" \
+"../../../../../ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd" \
+"../../../../../ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd" \
+"../../../../../ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd" \
+"../../../../../ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd" \
+"../../../../../ControlUnit/ControlUnit.srcs/sources_1/new/FlagUnpacker.vhd" \
+"../../../../../ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd" \
+"../../../../../ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd" \
+"../../../../../Pipelining/Pipelining.srcs/sources_1/new/Pipelining_WriteBackStage.vhd" \
+"../../../../../ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU_FLAG_PACKER.vhd" \
+"../../../../../mmu/mmu.srcs/sources_1/new/clockcontroller.vhd" \
+"../../../../../mmu/mmu.srcs/sources_1/new/mmu.vhd" \
+"../../../../../mmu/mmu.srcs/sources_1/new/mmio.vhd" \
+"../../../../../../debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd" \
+"../../../../../../debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd" \
+"../../../../../../debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd" \
+"../../../../../VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_CPU_Bridge.vhd" \
+"../../../../../VGA_Controller/VGA_Controller.srcs/sources_1/new/GPU.vhd" \
+"../../../../../VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_ProgramCounter_0_0/sim/main_ProgramCounter_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_CU_Decoder_0_0/sim/main_CU_Decoder_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_Decoder_0_0/sim/main_Decoder_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_RegFile_0_0/sim/main_RegFile_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_Pipelining_Forwarder_0_0/sim/main_Pipelining_Forwarder_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_Pipelining_Execution_0_0/sim/main_Pipelining_Execution_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_CU_RAMAddressControl_0_0/sim/main_CU_RAMAddressControl_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_ALU_0_0/sim/main_ALU_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_CU_ImmediateManipula_0_0/sim/main_CU_ImmediateManipula_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_CU_JumpDestinationSe_0_0/sim/main_CU_JumpDestinationSe_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_CU_JumpController_0_0/sim/main_CU_JumpController_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_CU_WriteSelector_0_0/sim/main_CU_WriteSelector_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_Pipelining_WriteBack_0_0/sim/main_Pipelining_WriteBack_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_ALU_FLAG_PACKER_0_1/sim/main_ALU_FLAG_PACKER_0_1.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_clockcontroller_0_0/sim/main_clockcontroller_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_mmu_0_0/sim/main_mmu_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_mmio_0_0/sim/main_mmio_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_VGA_CPU_Bridge_0_0/sim/main_VGA_CPU_Bridge_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_GPU_0_0/sim/main_GPU_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_VGA_Controller_0_0/sim/main_VGA_Controller_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/sim/main.vhd" \
+"../../../../Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" \
+"../../../../../../debug/FPGA/Debugger.srcs/sim_1/DebuggerIRAMWriteSim.vhd" \
+
+# Do not sort compile order
+nosort

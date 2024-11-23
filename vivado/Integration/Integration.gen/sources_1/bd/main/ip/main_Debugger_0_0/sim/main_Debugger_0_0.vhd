@@ -62,7 +62,6 @@ ENTITY main_Debugger_0_0 IS
     tx_data_valid : OUT STD_LOGIC;
     tx_data_sended : IN STD_LOGIC;
     debug_enable : OUT STD_LOGIC;
-    iram_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pipeline_stalled : IN STD_LOGIC;
     pipeline_instruction_forwarding_config : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
     pipeline_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -112,7 +111,6 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       tx_data_valid : OUT STD_LOGIC;
       tx_data_sended : IN STD_LOGIC;
       debug_enable : OUT STD_LOGIC;
-      iram_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pipeline_stalled : IN STD_LOGIC;
       pipeline_instruction_forwarding_config : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       pipeline_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -151,7 +149,7 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
   END COMPONENT Debugger;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
 BEGIN
   U0 : Debugger
@@ -163,7 +161,6 @@ BEGIN
       tx_data_valid => tx_data_valid,
       tx_data_sended => tx_data_sended,
       debug_enable => debug_enable,
-      iram_current_instruction => iram_current_instruction,
       pipeline_stalled => pipeline_stalled,
       pipeline_instruction_forwarding_config => pipeline_instruction_forwarding_config,
       pipeline_current_instruction => pipeline_current_instruction,
