@@ -141,9 +141,8 @@ begin
                       '0' when "10",
                       exec_clk when others;
                        
-    with iram_comb_condition_s select
-        iram_dout <= X"0000" when "11",
-                     X"0000" when "10",
+    with internal_debug_override_s select
+        iram_dout <= X"0000" when '1',
                      iram_dout_s when others;
 --iram end    
 
@@ -235,6 +234,8 @@ begin
         vramb_mem_we <= "0";    
 --vramb end
    
+   output_config_s <= internal_debug_override_s & gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
+   
     with output_config_s select
         gram_dout <= gram_dout_s when "01000",
                      mmio_mem_dout when "00100",   
@@ -246,24 +247,11 @@ begin
                       std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "10010",
                       iram_dout_s when "10001",
                       X"0000" when others;                                      
---gram end
-
-------------------------------------------------------------
--- This Process is needed to relief timing concerns.
--- This Process holds the old comb_bank_s value until the process for the new value is finished. By this it is guaranteed that the value can be safely read be the client 
---
-------------------------------------------------------------
-    output_bank_update:process(exec_clk)
-    begin
-        if rising_edge(exec_clk) then
-            output_config_s <= internal_debug_override_s & gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
-        end if;
-    end process;
     
     iram_lutram:process(iram_clk_s)
 	begin
 	   if rising_edge(iram_clk_s) then
-            if (iram_we_s = '1') then
+            if iram_we_s = '1' then
 				iram(to_integer(unsigned(iram_addr_s))) <= iram_din_s;
 			end if;
 	   end if;
@@ -273,7 +261,7 @@ begin
     gram_lutram:process(gram_clk_s)
 	begin
 	   if rising_edge(gram_clk_s) then
-            if (gram_we_s = '1') then
+            if gram_we_s = '1' then
 				gram(to_integer(unsigned(gram_addr_s))) <= gram_din_s;
 			end if;
 	   end if;

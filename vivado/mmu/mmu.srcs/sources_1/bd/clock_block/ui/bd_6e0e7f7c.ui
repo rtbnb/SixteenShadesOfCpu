@@ -1,9 +1,9 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-1350,-721",
+   "Default View_TopLeft":"-1345,-718",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0 threadsafe
+   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
 preplace port port-id_clk100mhz_in -pg 1 -lvl 0 -x -330 -y -240 -defaultsOSRD
 preplace port port-id_fault_reset -pg 1 -lvl 0 -x -330 -y -380 -defaultsOSRD
@@ -17,20 +17,20 @@ preplace port port-id_ck_stable -pg 1 -lvl 3 -x 400 -y -350 -defaultsOSRD
 preplace portBus test_state -pg 1 -lvl 3 -x 400 -y -430 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x -170 -y -240 -defaultsOSRD
 preplace inst clockcontroller_0 -pg 1 -lvl 2 -x 180 -y -250 -defaultsOSRD
+preplace netloc Net 1 2 1 350 -430n
 preplace netloc clk100mhz_in_1 1 0 1 N -240
 preplace netloc clk_wiz_0_clk100mhz 1 1 1 -40 -320n
 preplace netloc clk_wiz_0_clk50mhz 1 1 1 -30 -300n
 preplace netloc clk_wiz_0_debug_guard_clk 1 1 1 10 -280n
 preplace netloc clk_wiz_0_locked 1 1 1 20 -260n
-preplace netloc clockcontroller_0_ck_stable 1 2 1 370 -350n
-preplace netloc clockcontroller_0_debug_clk 1 2 1 360 -370n
-preplace netloc clockcontroller_0_exec_clk 1 2 1 340 -390n
-preplace netloc clockcontroller_0_load_clk 1 2 1 330 -410n
+preplace netloc clockcontroller_0_ck_stable 1 2 1 350 -350n
+preplace netloc clockcontroller_0_debug_clk 1 2 1 340 -370n
+preplace netloc clockcontroller_0_exec_clk 1 2 1 330 -390n
+preplace netloc clockcontroller_0_load_clk 1 2 1 320 -410n
 preplace netloc debug_en_1 1 0 2 NJ -420 0
 preplace netloc debug_mock_clk_1 1 0 2 NJ -330 -50
 preplace netloc debug_reset_1 1 0 2 NJ -400 -10
 preplace netloc fault_reset_1 1 0 2 NJ -380 -20
-preplace netloc Net 1 2 1 350 -430n
 levelinfo -pg 1 -330 -170 180 400
 pagesize -pg 1 -db -bbox -sgen -490 -450 560 140
 "

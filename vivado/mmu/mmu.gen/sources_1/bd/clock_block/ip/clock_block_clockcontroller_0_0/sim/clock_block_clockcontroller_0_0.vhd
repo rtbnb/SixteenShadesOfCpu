@@ -66,8 +66,7 @@ ENTITY clock_block_clockcontroller_0_0 IS
     load_clk : OUT STD_LOGIC;
     exec_clk : OUT STD_LOGIC;
     debug_clk : OUT STD_LOGIC;
-    ck_stable : OUT STD_LOGIC;
-    test_state : INOUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    ck_stable : OUT STD_LOGIC
   );
 END clock_block_clockcontroller_0_0;
 
@@ -87,8 +86,7 @@ ARCHITECTURE clock_block_clockcontroller_0_0_arch OF clock_block_clockcontroller
       load_clk : OUT STD_LOGIC;
       exec_clk : OUT STD_LOGIC;
       debug_clk : OUT STD_LOGIC;
-      ck_stable : OUT STD_LOGIC;
-      test_state : INOUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+      ck_stable : OUT STD_LOGIC
     );
   END COMPONENT clockcontroller;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -121,7 +119,6 @@ BEGIN
       load_clk => load_clk,
       exec_clk => exec_clk,
       debug_clk => debug_clk,
-      ck_stable => ck_stable,
-      test_state => test_state
+      ck_stable => ck_stable
     );
 END clock_block_clockcontroller_0_0_arch;
