@@ -99,7 +99,7 @@ read_vhdl -library xil_defaultlib {
   O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_CPU_Bridge.vhd
   O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/GPU.vhd
   O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd
-  o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
 }
 add_files O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd
 set_property used_in_implementation false [get_files -all o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc]

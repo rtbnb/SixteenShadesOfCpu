@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Nov 24 15:45:36 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Nov 24 18:45:21 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35ti" NAME="main" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
@@ -12,11 +12,11 @@
     <PORT DIR="I" NAME="Reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_Reset">
       <CONNECTIONS>
         <CONNECTION INSTANCE="GPU_0" PORT="Reset"/>
-        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
         <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="Reset"/>
         <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="Reset"/>
         <CONNECTION INSTANCE="ProgramCounter_0" PORT="Reset"/>
         <CONNECTION INSTANCE="VGA_CPU_Bridge_0" PORT="Reset"/>
+        <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="Reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="TX_UART_OUT" SIGIS="undef" SIGNAME="TX_UART_0_tx_output">
@@ -525,6 +525,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="debug_enable"/>
             <CONNECTION INSTANCE="clockcontroller_0" PORT="debug_enable"/>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="debug_enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="load_clk" SIGIS="clk" SIGNAME="clockcontroller_0_load_clk">
@@ -560,6 +561,7 @@
         <PORT DIR="O" NAME="mmu_debug_override_en" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_override_en">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mmu_0" PORT="debug_override_enable"/>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="debug_override_enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="mmu_debug_we" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_we">
@@ -856,6 +858,16 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="ProgramCounter_0" PORT="Stalled"/>
             <CONNECTION INSTANCE="Debugger_0" PORT="pipeline_stalled"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="debug_enable" SIGIS="undef" SIGNAME="Debugger_0_debug_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="debug_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="debug_override_enable" SIGIS="undef" SIGNAME="Debugger_0_mmu_debug_override_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Debugger_0" PORT="mmu_debug_override_en"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1568,12 +1580,12 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="CU_JumpController_0" PORT="InstrExec_CLK"/>
             <CONNECTION INSTANCE="GPU_0" PORT="InstrExec_CLK"/>
-            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrExec_CLK"/>
             <CONNECTION INSTANCE="ProgramCounter_0" PORT="InstrExec_CLK"/>
             <CONNECTION INSTANCE="RegFile_0" PORT="clk"/>
             <CONNECTION INSTANCE="VGA_CPU_Bridge_0" PORT="InstrExec_CLK"/>
             <CONNECTION INSTANCE="VGA_Controller_0" PORT="InstrExec_CLK"/>
             <CONNECTION INSTANCE="mmu_0" PORT="exec_clk"/>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrExec_CLK"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="fault_reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_fault_reset">
@@ -1584,11 +1596,11 @@
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="load_clk" SIGIS="clk" SIGNAME="clockcontroller_0_load_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="GPU_0" PORT="InstrLoad_CLK"/>
-            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrLoad_CLK"/>
             <CONNECTION INSTANCE="Pipelining_Execution_0" PORT="InstrLoad_CLK"/>
             <CONNECTION INSTANCE="Pipelining_WriteBack_0" PORT="InstrLoad_CLK"/>
             <CONNECTION INSTANCE="ProgramCounter_0" PORT="InstrLoad_CLK"/>
             <CONNECTION INSTANCE="Debugger_0" PORT="load_clk"/>
+            <CONNECTION INSTANCE="Pipelining_Controller_0" PORT="InstrLoad_CLK"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

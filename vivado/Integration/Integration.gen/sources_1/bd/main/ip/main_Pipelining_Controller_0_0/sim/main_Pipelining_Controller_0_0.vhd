@@ -62,7 +62,9 @@ ENTITY main_Pipelining_Controller_0_0 IS
     ResolveStall : IN STD_LOGIC;
     Stalled : OUT STD_LOGIC;
     InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-    InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    debug_enable : IN STD_LOGIC;
+    debug_override_enable : IN STD_LOGIC
   );
 END main_Pipelining_Controller_0_0;
 
@@ -78,7 +80,9 @@ ARCHITECTURE main_Pipelining_Controller_0_0_arch OF main_Pipelining_Controller_0
       ResolveStall : IN STD_LOGIC;
       Stalled : OUT STD_LOGIC;
       InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-      InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+      InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      debug_enable : IN STD_LOGIC;
+      debug_override_enable : IN STD_LOGIC
     );
   END COMPONENT Pipelining_Controller;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -99,6 +103,8 @@ BEGIN
       ResolveStall => ResolveStall,
       Stalled => Stalled,
       InstructionForwardConfiguration => InstructionForwardConfiguration,
-      InstructionToExecute => InstructionToExecute
+      InstructionToExecute => InstructionToExecute,
+      debug_enable => debug_enable,
+      debug_override_enable => debug_override_enable
     );
 END main_Pipelining_Controller_0_0_arch;

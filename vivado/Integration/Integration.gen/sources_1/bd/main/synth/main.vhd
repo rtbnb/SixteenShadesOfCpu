@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Sun Nov 24 15:45:35 2024
+--Date        : Sun Nov 24 18:45:21 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
@@ -27,10 +27,10 @@ entity main is
     r : out STD_LOGIC_VECTOR ( 3 downto 0 );
     v_sync : out STD_LOGIC
   );
-  attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=25,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
-  attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of main : entity is "main.hwdef";
+  attribute core_generation_info : string;
+  attribute core_generation_info of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=25,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute hw_handoff : string;
+  attribute hw_handoff of main : entity is "main.hwdef";
 end main;
 
 architecture STRUCTURE of main is
@@ -43,7 +43,9 @@ architecture STRUCTURE of main is
     ResolveStall : in STD_LOGIC;
     Stalled : out STD_LOGIC;
     InstructionForwardConfiguration : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    InstructionToExecute : out STD_LOGIC_VECTOR ( 15 downto 0 )
+    InstructionToExecute : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_enable : in STD_LOGIC;
+    debug_override_enable : in STD_LOGIC
   );
   end component main_Pipelining_Controller_0_0;
   component main_ProgramCounter_0_0 is
@@ -592,14 +594,14 @@ architecture STRUCTURE of main is
   signal NLW_mmio_0_led2_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led3_UNCONNECTED : STD_LOGIC;
   signal NLW_mmu_0_gpu_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
-  attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
-  attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
-  attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
-  attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of fault_reset : signal is "xilinx.com:signal:reset:1.0 RST.FAULT_RESET RST";
-  attribute X_INTERFACE_PARAMETER of fault_reset : signal is "XIL_INTERFACENAME RST.FAULT_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute x_interface_info : string;
+  attribute x_interface_info of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute x_interface_info of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
+  attribute x_interface_parameter of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of fault_reset : signal is "xilinx.com:signal:reset:1.0 RST.FAULT_RESET RST";
+  attribute x_interface_parameter of fault_reset : signal is "XIL_INTERFACENAME RST.FAULT_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
 begin
   RX_UART_IN_1 <= RX_UART_IN;
   Reset_1 <= Reset;
@@ -781,7 +783,9 @@ Pipelining_Controller_0: component main_Pipelining_Controller_0_0
       InstructionToExecute(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
       Reset => Reset_1,
       ResolveStall => Pipelining_WriteBack_0_JMP_out,
-      Stalled => Pipelining_Controller_0_Stalled
+      Stalled => Pipelining_Controller_0_Stalled,
+      debug_enable => Debugger_0_debug_enable,
+      debug_override_enable => Debugger_0_mmu_debug_override_en
     );
 Pipelining_Execution_0: component main_Pipelining_Execution_0_0
      port map (
