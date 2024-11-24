@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x1CA3A1E85A4DBE5B",
+      "boundary_crc": "0xBCA9DE142A8EE933",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -40,9 +40,6 @@
       "Reset": {
         "type": "rst",
         "direction": "I"
-      },
-      "led": {
-        "direction": "O"
       },
       "clk100mhz_in": {
         "type": "clk",
@@ -85,6 +82,30 @@
       },
       "fault_reset": {
         "type": "rst",
+        "direction": "I"
+      },
+      "led0": {
+        "direction": "O"
+      },
+      "led1": {
+        "direction": "O"
+      },
+      "led2": {
+        "direction": "O"
+      },
+      "led3": {
+        "direction": "O"
+      },
+      "btn0": {
+        "direction": "I"
+      },
+      "btn1": {
+        "direction": "I"
+      },
+      "btn2": {
+        "direction": "I"
+      },
+      "btn3": {
         "direction": "I"
       }
     },
@@ -2452,7 +2473,6 @@
       "Pipelining_WriteBack_0_JMP_out": {
         "ports": [
           "Pipelining_WriteBack_0/JMP_out",
-          "led",
           "Pipelining_Controller_0/ResolveStall"
         ]
       },
@@ -2627,6 +2647,30 @@
           "v_sync"
         ]
       },
+      "btn0_1": {
+        "ports": [
+          "btn0",
+          "mmio_0/btn0"
+        ]
+      },
+      "btn1_1": {
+        "ports": [
+          "btn1",
+          "mmio_0/btn1"
+        ]
+      },
+      "btn2_1": {
+        "ports": [
+          "btn2",
+          "mmio_0/btn2"
+        ]
+      },
+      "btn3_1": {
+        "ports": [
+          "btn3",
+          "mmio_0/btn3"
+        ]
+      },
       "clk100mhz_in_1": {
         "ports": [
           "clk100mhz_in",
@@ -2662,6 +2706,30 @@
         "ports": [
           "mmio_0/dout",
           "mmu_0/mmio_mem_dout"
+        ]
+      },
+      "mmio_0_led0": {
+        "ports": [
+          "mmio_0/led0",
+          "led0"
+        ]
+      },
+      "mmio_0_led1": {
+        "ports": [
+          "mmio_0/led1",
+          "led1"
+        ]
+      },
+      "mmio_0_led2": {
+        "ports": [
+          "mmio_0/led2",
+          "led2"
+        ]
+      },
+      "mmio_0_led3": {
+        "ports": [
+          "mmio_0/led3",
+          "led3"
         ]
       },
       "mmio_0_rho": {
