@@ -1,37 +1,44 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.870559",
-   "Default View_TopLeft":"3333,658",
+   "Default View_ScaleFactor":"0.125001",
+   "Default View_TopLeft":"-808,-2032",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
 preplace port port-id_Reset -pg 1 -lvl 0 -x -480 -y -260 -defaultsOSRD
-preplace port port-id_led -pg 1 -lvl 15 -x 7350 -y -90 -defaultsOSRD
 preplace port port-id_clk100mhz_in -pg 1 -lvl 0 -x -480 -y -140 -defaultsOSRD
 preplace port port-id_RX_UART_IN -pg 1 -lvl 0 -x -480 -y -1270 -defaultsOSRD
-preplace port port-id_TX_UART_OUT -pg 1 -lvl 15 -x 7350 -y -1230 -defaultsOSRD
-preplace port port-id_ioe -pg 1 -lvl 15 -x 7350 -y 1760 -defaultsOSRD
-preplace port port-id_h_sync -pg 1 -lvl 15 -x 7350 -y 1780 -defaultsOSRD
-preplace port port-id_v_sync -pg 1 -lvl 15 -x 7350 -y 1800 -defaultsOSRD
+preplace port port-id_TX_UART_OUT -pg 1 -lvl 15 -x 7360 -y -1230 -defaultsOSRD
+preplace port port-id_ioe -pg 1 -lvl 15 -x 7360 -y 1760 -defaultsOSRD
+preplace port port-id_h_sync -pg 1 -lvl 15 -x 7360 -y 1780 -defaultsOSRD
+preplace port port-id_v_sync -pg 1 -lvl 15 -x 7360 -y 1800 -defaultsOSRD
 preplace port port-id_fault_reset -pg 1 -lvl 0 -x -480 -y -280 -defaultsOSRD
-preplace portBus r -pg 1 -lvl 15 -x 7350 -y 1700 -defaultsOSRD
-preplace portBus g -pg 1 -lvl 15 -x 7350 -y 1720 -defaultsOSRD
-preplace portBus b -pg 1 -lvl 15 -x 7350 -y 1740 -defaultsOSRD
+preplace port port-id_led0 -pg 1 -lvl 15 -x 7360 -y -1810 -defaultsOSRD
+preplace port port-id_led1 -pg 1 -lvl 15 -x 7360 -y -1790 -defaultsOSRD
+preplace port port-id_led2 -pg 1 -lvl 15 -x 7360 -y -1770 -defaultsOSRD
+preplace port port-id_led3 -pg 1 -lvl 15 -x 7360 -y -1750 -defaultsOSRD
+preplace port port-id_btn0 -pg 1 -lvl 0 -x -480 -y -1820 -defaultsOSRD
+preplace port port-id_btn1 -pg 1 -lvl 0 -x -480 -y -1800 -defaultsOSRD
+preplace port port-id_btn2 -pg 1 -lvl 0 -x -480 -y -1780 -defaultsOSRD
+preplace port port-id_btn3 -pg 1 -lvl 0 -x -480 -y -1760 -defaultsOSRD
+preplace portBus r -pg 1 -lvl 15 -x 7360 -y 1700 -defaultsOSRD
+preplace portBus g -pg 1 -lvl 15 -x 7360 -y 1720 -defaultsOSRD
+preplace portBus b -pg 1 -lvl 15 -x 7360 -y 1740 -defaultsOSRD
 preplace inst Pipelining_Controller_0 -pg 1 -lvl 3 -x 1420 -y -30 -defaultsOSRD
 preplace inst ProgramCounter_0 -pg 1 -lvl 2 -x 450 -y -10 -defaultsOSRD
 preplace inst CU_Decoder_0 -pg 1 -lvl 4 -x 1870 -y 380 -defaultsOSRD
 preplace inst Decoder_0 -pg 1 -lvl 4 -x 1870 -y -20 -defaultsOSRD
 preplace inst RegFile_0 -pg 1 -lvl 5 -x 2350 -y -20 -defaultsOSRD
-preplace inst Pipelining_Forwarder_0 -pg 1 -lvl 6 -x 2810 -y 0 -defaultsOSRD
+preplace inst Pipelining_Forwarder_0 -pg 1 -lvl 6 -x 2820 -y 0 -defaultsOSRD
 preplace inst Pipelining_Execution_0 -pg 1 -lvl 7 -x 3410 -y 370 -defaultsOSRD
 preplace inst CU_RAMAddressControl_0 -pg 1 -lvl 8 -x 4090 -y 690 -defaultsOSRD
 preplace inst ALU_0 -pg 1 -lvl 10 -x 5280 -y 100 -defaultsOSRD
 preplace inst CU_ImmediateManipula_0 -pg 1 -lvl 10 -x 5280 -y -100 -defaultsOSRD
 preplace inst CU_JumpDestinationSe_0 -pg 1 -lvl 8 -x 4090 -y 310 -defaultsOSRD
 preplace inst CU_JumpController_0 -pg 1 -lvl 10 -x 5280 -y 440 -defaultsOSRD
-preplace inst CU_WriteSelector_0 -pg 1 -lvl 13 -x 6670 -y 10 -defaultsOSRD
-preplace inst Pipelining_WriteBack_0 -pg 1 -lvl 14 -x 7100 -y 130 -defaultsOSRD
-preplace inst ALU_FLAG_PACKER_0 -pg 1 -lvl 12 -x 6240 -y 100 -defaultsOSRD
+preplace inst CU_WriteSelector_0 -pg 1 -lvl 13 -x 6710 -y 10 -defaultsOSRD
+preplace inst Pipelining_WriteBack_0 -pg 1 -lvl 14 -x 7120 -y 130 -defaultsOSRD
+preplace inst ALU_FLAG_PACKER_0 -pg 1 -lvl 12 -x 6280 -y 100 -defaultsOSRD
 preplace inst clockcontroller_0 -pg 1 -lvl 1 -x 90 -y -90 -defaultsOSRD
 preplace inst mmu_0 -pg 1 -lvl 10 -x 5280 -y 970 -defaultsOSRD
 preplace inst mmio_0 -pg 1 -lvl 11 -x 5810 -y 1280 -defaultsOSRD
@@ -40,96 +47,96 @@ preplace inst Debugger_0 -pg 1 -lvl 8 -x 4090 -y -970 -defaultsOSRD
 preplace inst RX_UART_0 -pg 1 -lvl 7 -x 3410 -y -1250 -defaultsOSRD
 preplace inst TX_UART_0 -pg 1 -lvl 10 -x 5280 -y -1220 -defaultsOSRD
 preplace inst VGA_CPU_Bridge_0 -pg 1 -lvl 8 -x 4090 -y 1440 -defaultsOSRD
-preplace inst GPU_0 -pg 1 -lvl 9 -x 4610 -y 1470 -defaultsOSRD
+preplace inst GPU_0 -pg 1 -lvl 9 -x 4620 -y 1470 -defaultsOSRD
 preplace inst VGA_Controller_0 -pg 1 -lvl 10 -x 5280 -y 1770 -defaultsOSRD
-preplace netloc ALU_0_ALU_OUT 1 7 6 3840 -610 N -610 N -610 5590 40 5980 220 6420J
-preplace netloc ALU_0_BIGGER_ZERO_FLAG 1 10 2 5570 100 N
-preplace netloc ALU_0_CARRY_FLAG 1 10 2 N 50 6060
-preplace netloc ALU_0_NOT_ZERO_FLAG 1 10 2 5590 160 N
-preplace netloc ALU_0_OVERFLOW_FLAG 1 10 2 5570 120 N
-preplace netloc ALU_0_RHO_FLAG 1 10 2 5590 140 N
-preplace netloc ALU_0_SMALLER_ZERO_FLAG 1 10 2 N 90 6060
-preplace netloc ALU_0_ZERO_FLAG 1 10 2 N 70 6060
-preplace netloc ALU_FLAG_PACKER_0_ALU_FLAGS 1 5 9 2580 -580 N -580 3750 -580 N -580 N -580 N -580 6060 -190 6440J 120 6870
-preplace netloc CU_Decoder_0_Is_ALU_OP 1 4 3 NJ 480 NJ 480 3040
-preplace netloc CU_Decoder_0_Is_RAM_OP 1 4 3 NJ 500 NJ 500 3030
-preplace netloc CU_Decoder_0_JMP 1 4 4 NJ 400 NJ 400 3150 -1050 N
-preplace netloc CU_Decoder_0_JMP_Conditional 1 4 3 NJ 420 NJ 420 3070
-preplace netloc CU_Decoder_0_JMP_DestinationSource 1 4 3 NJ 460 NJ 460 3050
-preplace netloc CU_Decoder_0_JMP_Relative 1 4 3 NJ 440 NJ 440 3060
-preplace netloc CU_Decoder_0_RAM_Address_Src 1 4 3 NJ 340 NJ 340 3090
-preplace netloc CU_Decoder_0_RAM_Read 1 4 3 NJ 360 NJ 360 3090
+preplace netloc ALU_0_ALU_OUT 1 7 6 3840 -600 N -600 N -600 5650 40 5950 220 6460J
+preplace netloc ALU_0_BIGGER_ZERO_FLAG 1 10 2 5530 100 N
+preplace netloc ALU_0_CARRY_FLAG 1 10 2 N 50 6000
+preplace netloc ALU_0_NOT_ZERO_FLAG 1 10 2 5580 160 N
+preplace netloc ALU_0_OVERFLOW_FLAG 1 10 2 5530 120 N
+preplace netloc ALU_0_RHO_FLAG 1 10 2 5560 140 N
+preplace netloc ALU_0_SMALLER_ZERO_FLAG 1 10 2 N 90 6040
+preplace netloc ALU_0_ZERO_FLAG 1 10 2 N 70 6020
+preplace netloc ALU_FLAG_PACKER_0_ALU_FLAGS 1 5 9 2590 -600 N -600 3670 -610 N -610 N -610 N -610 6100 -190 6480J 120 6920
+preplace netloc CU_Decoder_0_Is_ALU_OP 1 4 3 NJ 480 NJ 480 3050
+preplace netloc CU_Decoder_0_Is_RAM_OP 1 4 3 NJ 500 NJ 500 3040
+preplace netloc CU_Decoder_0_JMP 1 4 4 NJ 400 NJ 400 3140 -1050 N
+preplace netloc CU_Decoder_0_JMP_Conditional 1 4 3 NJ 420 NJ 420 3080
+preplace netloc CU_Decoder_0_JMP_DestinationSource 1 4 3 NJ 460 NJ 460 3060
+preplace netloc CU_Decoder_0_JMP_Relative 1 4 3 NJ 440 NJ 440 3070
+preplace netloc CU_Decoder_0_RAM_Address_Src 1 4 3 NJ 340 NJ 340 3100
+preplace netloc CU_Decoder_0_RAM_Read 1 4 3 NJ 360 NJ 360 3100
 preplace netloc CU_Decoder_0_RAM_Write 1 4 3 NJ 380 NJ 380 3050
-preplace netloc CU_Decoder_0_RF_WHB 1 4 3 NJ 280 NJ 280 3120
+preplace netloc CU_Decoder_0_RF_WHB 1 4 3 NJ 280 NJ 280 3130
 preplace netloc CU_Decoder_0_RF_WLB 1 4 3 NJ 300 NJ 300 3120
-preplace netloc CU_Decoder_0_Write_Data_Sel 1 4 3 NJ 320 NJ 320 3120
-preplace netloc CU_ImmediateManipula_0_ManipulatedImmidiate 1 10 3 NJ -100 5950 -80 6420
-preplace netloc CU_JumpController_0_PC_Load 1 1 10 320 650 N 650 N 650 N 650 N 650 N 650 3720 590 N 590 N 590 5480
-preplace netloc CU_JumpController_0_PC_Next 1 1 10 310 -570 NJ -570 NJ -570 NJ -570 NJ -570 NJ -570 3720J -570 NJ -570 N -570 5470
-preplace netloc CU_JumpDestinationSe_0_JMP_Address 1 8 2 N 310 4960
-preplace netloc CU_RAMAddressControl_0_RAM_Address 1 8 2 N 690 4880
-preplace netloc CU_WriteSelector_0_Write_Data 1 5 9 2590 -240 N -240 N -240 N -240 N -240 N -240 6000 -130 N -130 6910
-preplace netloc Debugger_0_cc_debug_mock_clk 1 0 9 -90 -1340 NJ -1340 NJ -1340 NJ -1340 NJ -1340 NJ -1340 NJ -1340 NJ -1340 4340
-preplace netloc Debugger_0_cc_debug_reset 1 0 9 -100 -1370 NJ -1370 NJ -1370 NJ -1370 NJ -1370 NJ -1370 NJ -1370 NJ -1370 4350
-preplace netloc Debugger_0_debug_enable 1 0 10 -80 -200 N -200 1150 -230 N -230 N -230 N -230 N -230 N -230 4360 -230 4790
-preplace netloc Debugger_0_mmu_debug_addr 1 8 2 4420 -650 4940
-preplace netloc Debugger_0_mmu_debug_bank 1 8 2 4380 -630 4900
-preplace netloc Debugger_0_mmu_debug_din 1 8 2 4400 -640 4920
-preplace netloc Debugger_0_mmu_debug_override_en 1 2 8 1170 -1330 N -1330 N -1330 N -1330 N -1330 N -1330 4430 -660 4980
-preplace netloc Debugger_0_mmu_debug_sync_clk100mhz 1 8 2 N -970 4990
-preplace netloc Debugger_0_mmu_debug_we 1 8 2 4370 -620 4860
-preplace netloc Debugger_0_tx_data 1 8 2 4420 -1220 N
-preplace netloc Debugger_0_tx_data_valid 1 8 2 4360 -1240 N
-preplace netloc Decoder_0_Immediate 1 4 3 2050J 130 NJ 130 3110
-preplace netloc Decoder_0_JMP_Condition 1 4 3 2120J -190 2530J -140 3080
-preplace netloc Decoder_0_Register1 1 4 4 2100 -640 N -640 3070 -740 3610
-preplace netloc Decoder_0_Register2 1 4 4 2110 -630 N -630 3080 -730 3620
-preplace netloc Decoder_0_Use_MA 1 4 3 2040J 120 NJ 120 3100
-preplace netloc Decoder_0_WriteBackRegister 1 4 3 2130J -180 NJ -180 3120
+preplace netloc CU_Decoder_0_Write_Data_Sel 1 4 3 NJ 320 NJ 320 3130
+preplace netloc CU_ImmediateManipula_0_ManipulatedImmidiate 1 10 3 NJ -100 5950 -80 6460
+preplace netloc CU_JumpController_0_PC_Load 1 1 10 320 650 N 650 N 650 N 650 N 650 N 650 3730 590 N 590 N 590 5480
+preplace netloc CU_JumpController_0_PC_Next 1 1 10 310 -250 NJ -250 NJ -250 NJ -250 NJ -250 NJ -250 3740J -250 NJ -250 5080 -240 5470
+preplace netloc CU_JumpDestinationSe_0_JMP_Address 1 8 2 N 310 4930
+preplace netloc CU_RAMAddressControl_0_RAM_Address 1 8 2 N 690 4870
+preplace netloc CU_WriteSelector_0_Write_Data 1 5 9 2600 -230 N -230 N -230 N -230 N -230 N -230 6000 -120 N -120 6950
+preplace netloc Debugger_0_cc_debug_mock_clk 1 0 9 -90 -1340 NJ -1340 NJ -1340 NJ -1340 NJ -1340 NJ -1340 NJ -1340 NJ -1340 4370
+preplace netloc Debugger_0_cc_debug_reset 1 0 9 -100 -1370 NJ -1370 NJ -1370 NJ -1370 NJ -1370 NJ -1370 NJ -1370 NJ -1370 4380
+preplace netloc Debugger_0_debug_enable 1 0 10 -80 -200 N -200 1150 -220 N -220 N -220 N -220 N -220 N -220 4410 -210 4800
+preplace netloc Debugger_0_mmu_debug_addr 1 8 2 4430 -650 4950
+preplace netloc Debugger_0_mmu_debug_bank 1 8 2 4400 -630 4900
+preplace netloc Debugger_0_mmu_debug_din 1 8 2 4420 -640 4920
+preplace netloc Debugger_0_mmu_debug_override_en 1 2 8 1170 -1330 N -1330 N -1330 N -1330 N -1330 N -1330 4440 -660 4990
+preplace netloc Debugger_0_mmu_debug_sync_clk100mhz 1 8 2 N -970 5000
+preplace netloc Debugger_0_mmu_debug_we 1 8 2 4370 -620 4890
+preplace netloc Debugger_0_tx_data 1 8 2 4410 -1220 N
+preplace netloc Debugger_0_tx_data_valid 1 8 2 4400 -1240 N
+preplace netloc Decoder_0_Immediate 1 4 3 2050J 130 NJ 130 3120
+preplace netloc Decoder_0_JMP_Condition 1 4 3 2130J -150 NJ -150 3090
+preplace netloc Decoder_0_Register1 1 4 4 2100 -650 N -650 3090 -740 3610
+preplace netloc Decoder_0_Register2 1 4 4 2110 -640 N -640 3100 -730 3620
+preplace netloc Decoder_0_Use_MA 1 4 3 2040J 120 NJ 120 3110
+preplace netloc Decoder_0_WriteBackRegister 1 4 3 2120J -160 NJ -160 3130
 preplace netloc GPU_0_VRAM_Addr 1 9 1 5020 1060n
-preplace netloc GPU_0_VRAM_CLK 1 9 1 4790 1040n
+preplace netloc GPU_0_VRAM_CLK 1 9 1 4810 1040n
 preplace netloc GPU_0_VRAM_Dout 1 9 1 5040 1080n
 preplace netloc GPU_0_VRAM_WE 1 9 1 5030 1100n
-preplace netloc InstrLoad_CLK_1 1 1 13 290 -130 1160 -170 N -170 N -170 N -170 3170 -170 3740 -170 4400 230 N 230 N 230 N 230 6430 110 6890
-preplace netloc Net 1 1 9 260 -1180 N -1180 N -1180 N -1180 N -1180 3200 -1180 3660 -1360 N -1360 4820
-preplace netloc Pipelining_Controller_0_InstructionForwardConfiguration 1 3 5 1700 -220 NJ -220 2540J -660 3050 -1130 3610
-preplace netloc Pipelining_Controller_0_InstructionToExecute 1 3 5 1690 -650 N -650 N -650 3060 -1120 3620
-preplace netloc Pipelining_Controller_0_Stalled 1 1 7 320 -180 NJ -180 1650 -1170 N -1170 N -1170 N -1170 N
-preplace netloc Pipelining_Execution_0_IS_ALU_OP_out 1 7 7 3810 220 NJ 220 5060 250 NJ 250 N 250 6460J 190 NJ
-preplace netloc Pipelining_Execution_0_Immediate_out 1 7 3 3700 110 NJ 110 4960
-preplace netloc Pipelining_Execution_0_JMP_Condition_out 1 7 3 3840 460 NJ 460 4970
-preplace netloc Pipelining_Execution_0_JMP_Conditional_out 1 7 3 N 450 4430J 410 N
-preplace netloc Pipelining_Execution_0_JMP_DestinationSelect_out 1 7 1 3820 330n
-preplace netloc Pipelining_Execution_0_JMP_Relative_out 1 7 3 3830 440 4340J 450 4950
-preplace netloc Pipelining_Execution_0_JMP_out 1 7 7 3800 420 4410J 400 4910 260 N 260 N 260 6480 210 N
-preplace netloc Pipelining_Execution_0_Operand1_out 1 7 6 3770 -220 NJ -220 4840 -230 N -230 5990 -120 6430
-preplace netloc Pipelining_Execution_0_Operand2_out 1 7 3 3780 190 NJ 190 5070
-preplace netloc Pipelining_Execution_0_RAM_BankID_out 1 7 3 3680J 400 4390 430 4890
-preplace netloc Pipelining_Execution_0_RAM_Read_out 1 7 3 3750J 390 4420J 420 4870
-preplace netloc Pipelining_Execution_0_RAM_Src_out 1 7 1 3710 330n
-preplace netloc Pipelining_Execution_0_RAM_Write_out 1 7 3 3690J 410 4360 440 4850
-preplace netloc Pipelining_Execution_0_WHB_out 1 7 7 3760 200 NJ 200 5080 270 N 270 N 270 6470 150 N
-preplace netloc Pipelining_Execution_0_WLB_out 1 7 7 3610 180 NJ 180 4850 -220 N -220 5980 -110 N -110 6880
-preplace netloc Pipelining_Execution_0_WriteAddress_out 1 7 7 3750 -210 NJ -210 N -210 NJ -210 5970 -100 NJ -100 6900J
-preplace netloc Pipelining_Execution_0_WriteDataSel_out 1 7 6 3680 230 4340J 250 5010 280 NJ 280 N 280 6450J
+preplace netloc InstrLoad_CLK_1 1 1 13 290 -130 1160 -210 N -210 N -210 N -210 3170 -210 3710 -210 4400 230 N 230 N 230 N 230 6470 110 6920
+preplace netloc Net 1 1 9 260 -1020 N -1020 N -1020 N -1020 N -1020 3050 -1180 3650 -1360 N -1360 4860
+preplace netloc Pipelining_Controller_0_InstructionForwardConfiguration 1 3 5 1700 -170 NJ -170 2550J -670 3070 -1130 3620
+preplace netloc Pipelining_Controller_0_InstructionToExecute 1 3 5 1690 -660 N -660 N -660 3080 -1120 3630
+preplace netloc Pipelining_Controller_0_Stalled 1 1 7 320 -170 NJ -170 1650 -1010 N -1010 N -1010 3060 -1140 3610
+preplace netloc Pipelining_Execution_0_IS_ALU_OP_out 1 7 7 3800 220 NJ 220 5010 250 NJ 250 N 250 6500J 190 NJ
+preplace netloc Pipelining_Execution_0_Immediate_out 1 7 3 3680 110 NJ 110 4970
+preplace netloc Pipelining_Execution_0_JMP_Condition_out 1 7 3 3830 460 NJ 460 4970
+preplace netloc Pipelining_Execution_0_JMP_Conditional_out 1 7 3 N 450 4440J 410 N
+preplace netloc Pipelining_Execution_0_JMP_DestinationSelect_out 1 7 1 3810 330n
+preplace netloc Pipelining_Execution_0_JMP_Relative_out 1 7 3 3820 440 4360J 450 4960
+preplace netloc Pipelining_Execution_0_JMP_out 1 7 7 3790 420 4420J 400 4910 260 N 260 N 260 6510 210 N
+preplace netloc Pipelining_Execution_0_Operand1_out 1 7 6 3770 -200 NJ -200 4840 -220 N -220 5980 -110 6470
+preplace netloc Pipelining_Execution_0_Operand2_out 1 7 3 3780 190 NJ 190 5080
+preplace netloc Pipelining_Execution_0_RAM_BankID_out 1 7 3 3670J 400 4390 430 4880
+preplace netloc Pipelining_Execution_0_RAM_Read_out 1 7 3 3740J 390 4430J 420 4860
+preplace netloc Pipelining_Execution_0_RAM_Src_out 1 7 1 3700 330n
+preplace netloc Pipelining_Execution_0_RAM_Write_out 1 7 3 3690J 410 4370 440 4850
+preplace netloc Pipelining_Execution_0_WHB_out 1 7 7 3740 180 NJ 180 4850 -210 N -210 5970 -100 N -100 6930
+preplace netloc Pipelining_Execution_0_WLB_out 1 7 7 3610 100 NJ 100 4860 -200 N -200 5960 -90 N -90 6900
+preplace netloc Pipelining_Execution_0_WriteAddress_out 1 7 7 3760 200 NJ 200 5070 270 NJ 270 N 270 NJ 270 6940J
+preplace netloc Pipelining_Execution_0_WriteDataSel_out 1 7 6 3670 230 4370J 250 4970 280 NJ 280 N 280 6490J
 preplace netloc Pipelining_Forwarder_0_ForwardedMA 1 6 2 3190 -1070 N
 preplace netloc Pipelining_Forwarder_0_ForwardedOperand1 1 6 2 3200 -1110 N
 preplace netloc Pipelining_Forwarder_0_ForwardedOperand2 1 6 2 3210 -1090 N
-preplace netloc Pipelining_WriteBack_0_Flags_out 1 4 11 2160 -260 NJ -260 NJ -260 NJ -260 NJ -260 N -260 NJ -260 6010 -140 NJ -140 NJ -140 7290
-preplace netloc Pipelining_WriteBack_0_Is_ALU_OP_out 1 4 11 2140 -560 NJ -560 NJ -560 3810J -560 NJ -560 N -560 NJ -560 6050 -180 NJ -180 NJ -180 7310
-preplace netloc Pipelining_WriteBack_0_JMP_out 1 2 13 1190 -200 N -200 N -200 N -200 N -200 N -200 N -200 N -200 N -200 5960 -90 N -90 N -90 7320
-preplace netloc Pipelining_WriteBack_0_RF_WE_out 1 4 11 2150 -550 NJ -550 NJ -550 3800J -550 NJ -550 N -550 NJ -550 6040 -170 NJ -170 NJ -170 7300
-preplace netloc Pipelining_WriteBack_0_WriteAddress_out 1 4 11 2170 -540 NJ -540 NJ -540 3790J -540 NJ -540 N -540 NJ -540 6030 -160 NJ -160 NJ -160 7270
-preplace netloc Pipelining_WriteBack_0_WriteData_out 1 4 11 2180 -530 NJ -530 NJ -530 3820J -530 NJ -530 N -530 NJ -530 6020 -150 NJ -150 NJ -150 7280
-preplace netloc ProgramCounter_0_Dout 1 2 8 1130 -580 1660 -590 N -590 N -590 N -590 3690 -590 N -590 4930
-preplace netloc RX_UART_0_data_output 1 7 1 3740 -1260n
-preplace netloc RX_UART_0_data_valid 1 7 1 3740 -1240n
+preplace netloc Pipelining_WriteBack_0_Flags_out 1 4 11 2160 -270 NJ -270 NJ -270 NJ -270 NJ -270 N -270 NJ -270 6040 -140 NJ -140 NJ -140 7310
+preplace netloc Pipelining_WriteBack_0_Is_ALU_OP_out 1 4 11 2140 -290 NJ -290 NJ -290 3810J -290 NJ -290 N -290 NJ -290 6060 -150 NJ -150 NJ -150 7320
+preplace netloc Pipelining_WriteBack_0_JMP_out 1 2 13 1180 -260 N -260 N -260 N -260 N -260 N -260 N -260 N -260 N -260 6020 -130 N -130 N -130 7300
+preplace netloc Pipelining_WriteBack_0_RF_WE_out 1 4 11 2150 -590 NJ -590 NJ -590 3760J -590 NJ -590 N -590 NJ -590 6090 -180 NJ -180 NJ -180 7340
+preplace netloc Pipelining_WriteBack_0_WriteAddress_out 1 4 11 2170 -580 NJ -580 NJ -580 3750J -580 NJ -580 N -580 NJ -580 6080 -170 NJ -170 NJ -170 7290
+preplace netloc Pipelining_WriteBack_0_WriteData_out 1 4 11 2180 -570 NJ -570 NJ -570 3800J -570 NJ -570 N -570 NJ -570 6070 -160 NJ -160 NJ -160 7330
+preplace netloc ProgramCounter_0_Dout 1 2 8 1130 -300 N -300 N -300 N -300 N -300 3730 -300 N -300 4940
+preplace netloc RX_UART_0_data_output 1 7 1 3710 -1260n
+preplace netloc RX_UART_0_data_valid 1 7 1 3710 -1240n
 preplace netloc RX_UART_IN_1 1 0 7 NJ -1270 NJ -1270 NJ -1270 NJ -1270 NJ -1270 NJ -1270 3210
-preplace netloc RegFile_0_BankID 1 5 3 2560J -110 3180 -690 N
-preplace netloc RegFile_0_Reg1_data 1 5 3 2520 -620 3100 -720 3630
-preplace netloc RegFile_0_Reg2_data 1 5 3 2550 -610 3110 -710 3710
-preplace netloc RegFile_0_RegMA_data 1 5 3 2570 -600 3120 -700 3730
-preplace netloc Reset_1 1 0 14 N -260 270 -160 1140 -160 N -160 N -160 N -160 3160 80 3730 210 4380 240 N 240 N 240 N 240 6440 130 6860
+preplace netloc RegFile_0_BankID 1 5 3 2570J -110 3180 -690 N
+preplace netloc RegFile_0_Reg1_data 1 5 3 2520 -630 3110 -720 3690
+preplace netloc RegFile_0_Reg2_data 1 5 3 2560 -620 3120 -710 3700
+preplace netloc RegFile_0_RegMA_data 1 5 3 2580 -610 3130 -700 3720
+preplace netloc Reset_1 1 0 14 N -260 270 -160 1140 -160 1660 -190 N -190 2540 -200 3160 80 3720 210 4380 240 N 240 N 240 N 240 6480 130 6910
 preplace netloc TX_UART_0_send_valid 1 7 4 3840 -1350 NJ -1350 N -1350 5470
 preplace netloc TX_UART_0_tx_output 1 10 5 N -1230 N -1230 NJ -1230 NJ -1230 NJ
 preplace netloc VGA_CPU_Bridge_0_Arg1_out 1 8 1 4350 1450n
@@ -137,7 +144,7 @@ preplace netloc VGA_CPU_Bridge_0_Arg2_out 1 8 1 4340 1470n
 preplace netloc VGA_CPU_Bridge_0_GPU_Command_out 1 8 1 4360 1430n
 preplace netloc VGA_CPU_Bridge_0_IsGPU_OP_out 1 8 1 4370 1410n
 preplace netloc VGA_Controller_0_VRAM_Addr 1 9 2 5060 1290 5480
-preplace netloc VGA_Controller_0_VRAM_Clk 1 9 2 5050 1300 5540
+preplace netloc VGA_Controller_0_VRAM_Clk 1 9 2 5050 1300 5490
 preplace netloc VGA_Controller_0_b 1 10 5 N 1740 NJ 1740 NJ 1740 NJ 1740 NJ
 preplace netloc VGA_Controller_0_g 1 10 5 N 1720 NJ 1720 NJ 1720 NJ 1720 NJ
 preplace netloc VGA_Controller_0_h_sync 1 10 5 N 1780 NJ 1780 NJ 1780 NJ 1780 NJ
@@ -145,14 +152,14 @@ preplace netloc VGA_Controller_0_ioe 1 10 5 N 1760 NJ 1760 NJ 1760 NJ 1760 NJ
 preplace netloc VGA_Controller_0_r 1 10 5 NJ 1700 NJ 1700 NJ 1700 NJ 1700 N
 preplace netloc VGA_Controller_0_v_sync 1 10 5 N 1800 NJ 1800 NJ 1800 NJ 1800 NJ
 preplace netloc clk100mhz_in_1 1 0 1 NJ -140
-preplace netloc clockcontroller_0_ck_stable 1 1 9 280J -150 NJ -150 N -150 N -150 N -150 N -150 N -150 N -150 5000
-preplace netloc clockcontroller_0_exec_clk 1 1 9 300J -120 1120J 90 N 90 2180 110 N 110 3110 90 3670 1550 4430 1350 5010
+preplace netloc clockcontroller_0_ck_stable 1 1 9 280J -150 NJ -150 1670 -180 N -180 N -180 N -180 3610 30 N 30 4980
+preplace netloc clockcontroller_0_exec_clk 1 1 9 300J -120 1120J 90 N 90 2180 110 N 110 3150 90 3660 1550 4440 1350 5010
 preplace netloc fault_reset_1 1 0 1 -460J -280n
-preplace netloc mmio_0_dout 1 9 3 5070 1280 5590 830 5930
+preplace netloc mmio_0_dout 1 9 3 5070 1280 5650 830 5930
 preplace netloc mmio_0_rho 1 9 3 5090 -250 NJ -250 5940
-preplace netloc mmu_0_debug_dout 1 7 4 3830 -600 NJ -600 N -600 5560
-preplace netloc mmu_0_gram_dout 1 10 3 5580 -30 N -30 NJ
-preplace netloc mmu_0_iram_dout 1 2 9 1180 -210 NJ -210 NJ -210 NJ -210 NJ -210 3610J -190 NJ -190 N -190 5550
+preplace netloc mmu_0_debug_dout 1 7 4 3830 -280 NJ -280 N -280 5500
+preplace netloc mmu_0_gram_dout 1 10 3 5550 -30 N -30 NJ
+preplace netloc mmu_0_iram_dout 1 2 9 1190 -200 NJ -200 NJ -200 2530J -190 NJ -190 NJ -190 NJ -190 N -190 5490
 preplace netloc mmu_0_mmio_mem_addr 1 10 1 5520 1110n
 preplace netloc mmu_0_mmio_mem_ck 1 10 1 5530 1070n
 preplace netloc mmu_0_mmio_mem_din 1 10 1 5510 1130n
@@ -161,17 +168,25 @@ preplace netloc mmu_0_vga_dout 1 9 2 5090 1310 5470
 preplace netloc mmu_0_vrama_mem_addr 1 10 1 N 910
 preplace netloc mmu_0_vrama_mem_ck 1 10 1 N 930
 preplace netloc mmu_0_vrama_mem_din 1 10 1 N 950
-preplace netloc mmu_0_vrama_mem_we 1 10 1 5570 970n
-preplace netloc mmu_0_vramb_mem_addr 1 10 1 5560 990n
-preplace netloc mmu_0_vramb_mem_ck 1 10 1 5570 1010n
-preplace netloc mmu_0_vramb_mem_din 1 10 1 5550 1030n
-preplace netloc mmu_0_vramb_mem_we 1 10 1 5540 1050n
-preplace netloc vram_bram_douta 1 9 2 5090 1260 5580
+preplace netloc mmu_0_vrama_mem_we 1 10 1 5630 970n
+preplace netloc mmu_0_vramb_mem_addr 1 10 1 5620 990n
+preplace netloc mmu_0_vramb_mem_ck 1 10 1 5600 1010n
+preplace netloc mmu_0_vramb_mem_din 1 10 1 5580 1030n
+preplace netloc mmu_0_vramb_mem_we 1 10 1 5560 1050n
+preplace netloc vram_bram_douta 1 9 2 5090 1260 5640
 preplace netloc vram_bram_doutb 1 9 2 5080 1270 5500
 preplace netloc CU_Decoder_0_Is_GPU_OP 1 4 3 2100 590 NJ 590 NJ
 preplace netloc Pipelining_Execution_0_Is_GPU_OP_out 1 7 1 3610 570n
-levelinfo -pg 1 -480 90 450 1420 1870 2350 2810 3410 4090 4610 5280 5810 6240 6670 7100 7350
-pagesize -pg 1 -db -bbox -sgen -690 -1830 7510 2410
+preplace netloc mmio_0_led0 1 11 4 5990 -1810 NJ -1810 NJ -1810 NJ
+preplace netloc mmio_0_led1 1 11 4 6010 -1790 NJ -1790 NJ -1790 NJ
+preplace netloc mmio_0_led2 1 11 4 6030 -1770 NJ -1770 NJ -1770 NJ
+preplace netloc mmio_0_led3 1 11 4 6050 -1750 NJ -1750 NJ -1750 NJ
+preplace netloc btn0_1 1 0 11 NJ -1820 NJ -1820 NJ -1820 NJ -1820 NJ -1820 NJ -1820 NJ -1820 NJ -1820 NJ -1820 NJ -1820 5610
+preplace netloc btn1_1 1 0 11 NJ -1800 NJ -1800 NJ -1800 NJ -1800 NJ -1800 NJ -1800 NJ -1800 NJ -1800 NJ -1800 NJ -1800 5590
+preplace netloc btn2_1 1 0 11 NJ -1780 NJ -1780 NJ -1780 NJ -1780 NJ -1780 NJ -1780 NJ -1780 NJ -1780 NJ -1780 NJ -1780 5570
+preplace netloc btn3_1 1 0 11 NJ -1760 NJ -1760 NJ -1760 NJ -1760 NJ -1760 NJ -1760 NJ -1760 NJ -1760 NJ -1760 NJ -1760 5540
+levelinfo -pg 1 -480 90 450 1420 1870 2350 2820 3410 4090 4620 5280 5810 6280 6710 7120 7360
+pagesize -pg 1 -db -bbox -sgen -690 -1840 7520 2410
 "
 }
 {
