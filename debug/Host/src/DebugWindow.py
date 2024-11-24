@@ -5,10 +5,10 @@ from queue import Queue
 
 
 class DebugWindow(QtWidgets.QWidget):
-    def __init__(self, data: Datapool, command_queue: Queue):
+    def __init__(self, data: Datapool):
         super().__init__()
         self.data = data.get_dict()
-        self.command_queue = command_queue
+        self.command_queue = Queue()
         self.initUI()
 
     def initUI(self):
@@ -158,6 +158,7 @@ class DebugWindow(QtWidgets.QWidget):
         # manuel command input window
         command_input_line_edit = QtWidgets.QLineEdit()
         command_input_send_button = QtWidgets.QPushButton(text="Send Command")
+        command_input_send_button.clicked.connect(lambda: self.send_command_manuel(command_input_line_edit))
         self.layout.addWidget(command_input_line_edit, len(self.data) + 1, 0, 1, 7)
         self.layout.addWidget(command_input_send_button, len(self.data) + 1, 7, 1, 1)
 
