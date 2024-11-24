@@ -6,6 +6,7 @@ from queue import Queue
 from PySide6 import QtCore, QtWidgets, QtGui
 import sys
 from DebugWindow import DebugWindow
+import struct
 
 
 rx_data_datapool: Datapool.Datapool = Datapool.Datapool()
@@ -48,12 +49,22 @@ def rx(ser: serial.Serial, debugWindow: DebugWindow):
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
 
 def rx_no_loop(ser: serial.Serial, debugWindow: DebugWindow):
-    rx_Data = 0
+    rx_data = 0
     byte_counter = 0
     command_instruction: bytes = 0
-    while ser.in_waiting > 0:
+    ser.timeout = 1
+    for i in range(5):
+        print(ser.timeout)
         rx_data = ser.read()
+        print(rx_data)
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+
+def to_little_endian(byte):
+    return struct.pack('<s', byte)
+
+def bytes_to_bits_binary(byte_data):
+    bits_data = bin(int.from_bytes(byte_data, byteorder='little'))[2:]
+    return bits_data
 
 def tx(ser: serial.Serial, debugWindow: DebugWindow):
     # input for debug command
@@ -63,8 +74,10 @@ def tx(ser: serial.Serial, debugWindow: DebugWindow):
             if not q.empty():
                 command_list = q.get()
                 for command in command_list:
-                    ser.write(command)
+                    ser.write(to_little_endian(command))
                     print(f"sended command: {command.hex()}")
+                    c_bits = bytes_to_bits_binary(to_little_endian(command))
+                    print(f"Bits: {c_bits}")
                 print("Waiting for response...")
                 rx_no_loop(ser, debugWindow)
                 print("Response received")
@@ -74,6 +87,7 @@ def tx(ser: serial.Serial, debugWindow: DebugWindow):
 def main():
     fpga_serial = serial.Serial('COM4', 921600)
     #fpga_serial.open()
+    print(fpga_serial.get_settings())
 
     app = QtWidgets.QApplication([])
     widget = DebugWindow(rx_data_datapool)
