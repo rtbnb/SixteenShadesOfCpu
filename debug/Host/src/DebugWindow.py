@@ -155,6 +155,19 @@ class DebugWindow(QtWidgets.QWidget):
         bin_file_button.clicked.connect(lambda: self.button_select_bin_file())
         self.layout.addWidget(bin_file_button, 1, 6, 1, 1)
 
+        # manuel command input window
+        command_input_line_edit = QtWidgets.QLineEdit()
+        command_input_send_button = QtWidgets.QPushButton(text="Send Command")
+        self.layout.addWidget(command_input_line_edit, len(self.data) + 1, 0, 1, 7)
+        self.layout.addWidget(command_input_send_button, len(self.data) + 1, 7, 1, 1)
+    
+    def send_command_manuel(self, command_input_line_edit:QtWidgets.QLineEdit):
+        command = command_input_line_edit.text()
+        if len(command) == 0:
+            return
+        command_bytes = bytes.fromhex(command)
+        self.add_command_to_queue([command_bytes])
+
     def button_pushed_write_iram(self, textfield_memory_data, textfield_memory_addr):
         data = textfield_memory_data.text()
         addr = textfield_memory_addr.text()
@@ -196,14 +209,15 @@ class DebugWindow(QtWidgets.QWidget):
     def populate_table(self):
         self.table.setRowCount(len(self.data))
         for row, (key, value) in enumerate(self.data.items()):
-            self.table.setItem(row, 0, QtWidgets.QTableWidgetItem("".join(hex(ord(key)))))
-            self.table.setItem(row, 1, QtWidgets.QTableWidgetItem(value['Name']))
-            data_1_high = value['data_1_high']
-            data_1_low = value['data_1_low']
-            data_bin = format(ord(data_1_high), '08b') + format(ord(data_1_low), '08b')
-            self.table.setItem(row, 2, QtWidgets.QTableWidgetItem(data_bin))
-            data_hex = "x" + format(ord(data_1_high), '02x') + " x" + format(ord(data_1_low), '02x')
-            self.table.setItem(row, 3, QtWidgets.QTableWidgetItem(data_hex))
+            if 'data_1_high' in value and 'data_1_low' in value:
+                self.table.setItem(row, 0, QtWidgets.QTableWidgetItem("".join(hex(ord(key)))))
+                self.table.setItem(row, 1, QtWidgets.QTableWidgetItem(value['Name']))
+                data_1_high = value['data_1_high']
+                data_1_low = value['data_1_low']
+                data_bin = format(ord(data_1_high), '08b') + format(ord(data_1_low), '08b')
+                self.table.setItem(row, 2, QtWidgets.QTableWidgetItem(data_bin))
+                data_hex = "x" + format(ord(data_1_high), '02x') + " x" + format(ord(data_1_low), '02x')
+                self.table.setItem(row, 3, QtWidgets.QTableWidgetItem(data_hex))
     
     def update_table(self, datapool: Datapool):
         self.data = datapool.get_dict()
@@ -243,7 +257,7 @@ if __name__ == '__main__':
 
     app = QtWidgets.QApplication([])
     widget = DebugWindow(rx_data_datapool, Queue())
-    widget.resize(800, 600)
+    widget.resize(1920, 600)
     widget.show()
 
     read_t = threading.Thread(target=print_queue, args=[widget])
