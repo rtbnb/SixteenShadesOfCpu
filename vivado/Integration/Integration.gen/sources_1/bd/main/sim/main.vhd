@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Sun Nov 24 15:08:07 2024
+--Date        : Sun Nov 24 15:45:35 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
@@ -28,7 +28,7 @@ entity main is
     v_sync : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=26,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=25,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of main : entity is "main.hwdef";
 end main;
@@ -263,9 +263,6 @@ architecture STRUCTURE of main is
   component main_clockcontroller_0_0 is
   port (
     clk100mhz_in : in STD_LOGIC;
-    clk50mhz_in : in STD_LOGIC;
-    debug_guard_clk : in STD_LOGIC;
-    wizard_locked : in STD_LOGIC;
     fault_reset : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
@@ -353,15 +350,6 @@ architecture STRUCTURE of main is
     doutb : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   end component main_blk_mem_gen_0_0;
-  component main_clk_wiz_0_0 is
-  port (
-    clk_in1 : in STD_LOGIC;
-    clk100mhz : out STD_LOGIC;
-    clk50mhz : out STD_LOGIC;
-    debug_guard_clk : out STD_LOGIC;
-    locked : out STD_LOGIC
-  );
-  end component main_clk_wiz_0_0;
   component main_Debugger_0_0 is
   port (
     clk : in STD_LOGIC;
@@ -571,10 +559,6 @@ architecture STRUCTURE of main is
   signal VGA_Controller_0_r : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal VGA_Controller_0_v_sync : STD_LOGIC;
   signal clk100mhz_in_1 : STD_LOGIC;
-  signal clk_wiz_0_clk100mhz : STD_LOGIC;
-  signal clk_wiz_0_clk50mhz : STD_LOGIC;
-  signal clk_wiz_0_debug_guard_clk : STD_LOGIC;
-  signal clk_wiz_0_locked : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_exec_clk : STD_LOGIC;
   signal fault_reset_1 : STD_LOGIC;
@@ -941,28 +925,17 @@ VGA_Controller_0: component main_VGA_Controller_0_0
       r(3 downto 0) => VGA_Controller_0_r(3 downto 0),
       v_sync => VGA_Controller_0_v_sync
     );
-clk_wiz_0: component main_clk_wiz_0_0
-     port map (
-      clk100mhz => clk_wiz_0_clk100mhz,
-      clk50mhz => clk_wiz_0_clk50mhz,
-      clk_in1 => clk100mhz_in_1,
-      debug_guard_clk => clk_wiz_0_debug_guard_clk,
-      locked => clk_wiz_0_locked
-    );
 clockcontroller_0: component main_clockcontroller_0_0
      port map (
       ck_stable => clockcontroller_0_ck_stable,
-      clk100mhz_in => clk_wiz_0_clk100mhz,
-      clk50mhz_in => clk_wiz_0_clk50mhz,
+      clk100mhz_in => clk100mhz_in_1,
       debug_clk => Net,
       debug_enable => Debugger_0_debug_enable,
-      debug_guard_clk => clk_wiz_0_debug_guard_clk,
       debug_mock_clk => Debugger_0_cc_debug_mock_clk,
       debug_reset => Debugger_0_cc_debug_reset,
       exec_clk => clockcontroller_0_exec_clk,
       fault_reset => fault_reset_1,
-      load_clk => InstrLoad_CLK_1,
-      wizard_locked => clk_wiz_0_locked
+      load_clk => InstrLoad_CLK_1
     );
 mmio_0: component main_mmio_0_0
      port map (

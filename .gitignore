@@ -17,6 +17,8 @@ vivado/*/*.gen/*/bd/*/hw_handoff
 vivado/Integration/Integration.cache/wt/project.wpc
 vivado/Integration/Integration.cache/wt/xsim.wdf
 vivado/Integration/Integration.gen/sources_1/bd
+vivado/*/*.ip_user_files/sim_scripts/*/*/*.txt
+
 
 .venv/
 __pycache__/

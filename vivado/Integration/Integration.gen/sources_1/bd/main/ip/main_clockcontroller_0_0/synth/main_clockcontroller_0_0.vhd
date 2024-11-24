@@ -56,9 +56,6 @@ USE ieee.numeric_std.ALL;
 ENTITY main_clockcontroller_0_0 IS
   PORT (
     clk100mhz_in : IN STD_LOGIC;
-    clk50mhz_in : IN STD_LOGIC;
-    debug_guard_clk : IN STD_LOGIC;
-    wizard_locked : IN STD_LOGIC;
     fault_reset : IN STD_LOGIC;
     debug_reset : IN STD_LOGIC;
     debug_enable : IN STD_LOGIC;
@@ -76,9 +73,6 @@ ARCHITECTURE main_clockcontroller_0_0_arch OF main_clockcontroller_0_0 IS
   COMPONENT clockcontroller IS
     PORT (
       clk100mhz_in : IN STD_LOGIC;
-      clk50mhz_in : IN STD_LOGIC;
-      debug_guard_clk : IN STD_LOGIC;
-      wizard_locked : IN STD_LOGIC;
       fault_reset : IN STD_LOGIC;
       debug_reset : IN STD_LOGIC;
       debug_enable : IN STD_LOGIC;
@@ -101,9 +95,7 @@ ARCHITECTURE main_clockcontroller_0_0_arch OF main_clockcontroller_0_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, ASSOCIATED_RESET debug_reset, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_guard_clk: SIGNAL IS "XIL_INTERFACENAME debug_guard_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 90.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF debug_guard_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_guard_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_mock_clk: SIGNAL IS "XIL_INTERFACENAME debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_debug_mock_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_mock_clk: SIGNAL IS "XIL_INTERFACENAME debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_Debugger_0_0_cc_debug_mock_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_mock_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_mock_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF debug_reset: SIGNAL IS "XIL_INTERFACENAME debug_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 debug_reset RST";
@@ -117,9 +109,6 @@ BEGIN
   U0 : clockcontroller
     PORT MAP (
       clk100mhz_in => clk100mhz_in,
-      clk50mhz_in => clk50mhz_in,
-      debug_guard_clk => debug_guard_clk,
-      wizard_locked => wizard_locked,
       fault_reset => fault_reset,
       debug_reset => debug_reset,
       debug_enable => debug_enable,
