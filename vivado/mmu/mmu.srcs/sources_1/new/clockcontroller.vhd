@@ -33,7 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity clockcontroller is
     port(
-        clk100mhz_in, clk50mhz_in, debug_guard_clk, wizard_locked, fault_reset, debug_reset: in std_logic;
+        clk100mhz_in, fault_reset, debug_reset: in std_logic;
         debug_enable, debug_mock_clk: in std_logic;
         load_clk, exec_clk: out std_logic; 
         debug_clk: out std_logic; 
@@ -50,14 +50,13 @@ architecture Behavioral of clockcontroller is
     signal debug_en_s: std_logic := '1';
     
     signal exec_clk_s: std_logic;
+    signal debug_clk_s: std_logic := '0';
 begin
-    output_en_s <= wizard_locked & debug_en_s;
-    ck_stable <= wizard_locked;
+    output_en_s <= '1' & debug_en_s;
+    ck_stable <= '1';
     
-    with wizard_locked select
-        debug_clk <= clk50mhz_in when '1',
-                     '0' when '0',
-                     '0' when others;
+    
+    debug_clk <= debug_clk_s;
     
     with output_en_s select
         load_clk <= clk100mhz_in when "10",
@@ -76,11 +75,18 @@ begin
     debug_state:process(clk100mhz_in)
     begin
         if rising_edge(clk100mhz_in) then
-            if debug_guard_clk='0' and debug_enable='0' and debug_reset='1' and wizard_locked='1' then
+            if debug_enable='0' and debug_reset='1' then
                 debug_en_s <= '0';
-            elsif debug_guard_clk='0' and debug_enable='1' then
+            elsif debug_enable='1' then
                 debug_en_s <= '1';
             end if;
+        end if;
+    end process;
+    
+    debug_clk_gen:process(clk100mhz_in)
+    begin
+        if rising_edge(clk100mhz_in) then
+            debug_clk_s <= not debug_clk_s;        
         end if;
     end process;
     
