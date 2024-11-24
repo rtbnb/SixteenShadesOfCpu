@@ -66,7 +66,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.cache/wt [current_project]
 set_property parent.project_path O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.cache/ip [current_project]
@@ -103,9 +103,6 @@ read_vhdl -library xil_defaultlib {
 }
 add_files O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd
 set_property used_in_implementation false [get_files -all o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc]
-set_property used_in_implementation false [get_files -all o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc]
 
 OPTRACE "Adding files" END { }

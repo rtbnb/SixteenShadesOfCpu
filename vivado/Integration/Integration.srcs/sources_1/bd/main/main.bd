@@ -2145,8 +2145,8 @@
       "Debugger_0_debug_enable": {
         "ports": [
           "Debugger_0/debug_enable",
-          "clockcontroller_0/debug_enable",
-          "mmu_0/debug_enable"
+          "mmu_0/debug_enable",
+          "clockcontroller_0/debug_enable"
         ]
       },
       "Debugger_0_mmu_debug_addr": {
