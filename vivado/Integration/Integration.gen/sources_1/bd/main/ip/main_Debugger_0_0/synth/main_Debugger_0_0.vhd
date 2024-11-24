@@ -62,6 +62,9 @@ ENTITY main_Debugger_0_0 IS
     tx_data_valid : OUT STD_LOGIC;
     tx_data_sended : IN STD_LOGIC;
     debug_enable : OUT STD_LOGIC;
+    cc_debug_mock_clk : OUT STD_LOGIC;
+    cc_debug_reset : OUT STD_LOGIC;
+    load_clk : IN STD_LOGIC;
     pipeline_stalled : IN STD_LOGIC;
     pipeline_instruction_forwarding_config : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
     pipeline_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -87,9 +90,7 @@ ENTITY main_Debugger_0_0 IS
     regfile_reg2_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_regma_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    mmu_debug_sys_clk200mhz : OUT STD_LOGIC;
-    mmu_debug_sync_clk100mhz : OUT STD_LOGIC;
-    mmu_debug_en : OUT STD_LOGIC;
+    mmu_debug_clk : OUT STD_LOGIC;
     mmu_debug_override_en : OUT STD_LOGIC;
     mmu_debug_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmu_debug_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -111,6 +112,9 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       tx_data_valid : OUT STD_LOGIC;
       tx_data_sended : IN STD_LOGIC;
       debug_enable : OUT STD_LOGIC;
+      cc_debug_mock_clk : OUT STD_LOGIC;
+      cc_debug_reset : OUT STD_LOGIC;
+      load_clk : IN STD_LOGIC;
       pipeline_stalled : IN STD_LOGIC;
       pipeline_instruction_forwarding_config : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       pipeline_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -136,9 +140,7 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       regfile_reg2_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_regma_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-      mmu_debug_sys_clk200mhz : OUT STD_LOGIC;
-      mmu_debug_sync_clk100mhz : OUT STD_LOGIC;
-      mmu_debug_en : OUT STD_LOGIC;
+      mmu_debug_clk : OUT STD_LOGIC;
       mmu_debug_override_en : OUT STD_LOGIC;
       mmu_debug_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmu_debug_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -157,8 +159,16 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
   ATTRIBUTE IP_DEFINITION_SOURCE OF main_Debugger_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF cc_debug_mock_clk: SIGNAL IS "XIL_INTERFACENAME cc_debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_Debugger_0_0_cc_debug_mock_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF cc_debug_mock_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 cc_debug_mock_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF cc_debug_reset: SIGNAL IS "XIL_INTERFACENAME cc_debug_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF cc_debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 cc_debug_reset RST";
   ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF load_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 load_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF mmu_debug_clk: SIGNAL IS "XIL_INTERFACENAME mmu_debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_Debugger_0_0_mmu_debug_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF mmu_debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 mmu_debug_clk CLK";
 BEGIN
   U0 : Debugger
     PORT MAP (
@@ -169,6 +179,9 @@ BEGIN
       tx_data_valid => tx_data_valid,
       tx_data_sended => tx_data_sended,
       debug_enable => debug_enable,
+      cc_debug_mock_clk => cc_debug_mock_clk,
+      cc_debug_reset => cc_debug_reset,
+      load_clk => load_clk,
       pipeline_stalled => pipeline_stalled,
       pipeline_instruction_forwarding_config => pipeline_instruction_forwarding_config,
       pipeline_current_instruction => pipeline_current_instruction,
@@ -194,9 +207,7 @@ BEGIN
       regfile_reg2_data => regfile_reg2_data,
       regfile_regma_data => regfile_regma_data,
       regfile_bankid => regfile_bankid,
-      mmu_debug_sys_clk200mhz => mmu_debug_sys_clk200mhz,
-      mmu_debug_sync_clk100mhz => mmu_debug_sync_clk100mhz,
-      mmu_debug_en => mmu_debug_en,
+      mmu_debug_clk => mmu_debug_clk,
       mmu_debug_override_en => mmu_debug_override_en,
       mmu_debug_addr => mmu_debug_addr,
       mmu_debug_din => mmu_debug_din,
