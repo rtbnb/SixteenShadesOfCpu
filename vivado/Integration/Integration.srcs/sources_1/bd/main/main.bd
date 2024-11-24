@@ -182,6 +182,12 @@
             "direction": "O",
             "left": "15",
             "right": "0"
+          },
+          "debug_enable": {
+            "direction": "I"
+          },
+          "debug_override_enable": {
+            "direction": "I"
           }
         }
       },
@@ -2146,7 +2152,8 @@
         "ports": [
           "Debugger_0/debug_enable",
           "mmu_0/debug_enable",
-          "clockcontroller_0/debug_enable"
+          "clockcontroller_0/debug_enable",
+          "Pipelining_Controller_0/debug_enable"
         ]
       },
       "Debugger_0_mmu_debug_addr": {
@@ -2170,7 +2177,8 @@
       "Debugger_0_mmu_debug_override_en": {
         "ports": [
           "Debugger_0/mmu_debug_override_en",
-          "mmu_0/debug_override_enable"
+          "mmu_0/debug_override_enable",
+          "Pipelining_Controller_0/debug_override_enable"
         ]
       },
       "Debugger_0_mmu_debug_sync_clk100mhz": {
@@ -2263,11 +2271,11 @@
         "ports": [
           "clockcontroller_0/load_clk",
           "GPU_0/InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK",
           "Pipelining_Execution_0/InstrLoad_CLK",
           "Pipelining_WriteBack_0/InstrLoad_CLK",
           "ProgramCounter_0/InstrLoad_CLK",
-          "Debugger_0/load_clk"
+          "Debugger_0/load_clk",
+          "Pipelining_Controller_0/InstrLoad_CLK"
         ]
       },
       "Net": {
@@ -2538,11 +2546,11 @@
         "ports": [
           "Reset",
           "GPU_0/Reset",
-          "Pipelining_Controller_0/Reset",
           "Pipelining_Execution_0/Reset",
           "Pipelining_WriteBack_0/Reset",
           "ProgramCounter_0/Reset",
-          "VGA_CPU_Bridge_0/Reset"
+          "VGA_CPU_Bridge_0/Reset",
+          "Pipelining_Controller_0/Reset"
         ]
       },
       "TX_UART_0_send_valid": {
@@ -2646,12 +2654,12 @@
           "clockcontroller_0/exec_clk",
           "CU_JumpController_0/InstrExec_CLK",
           "GPU_0/InstrExec_CLK",
-          "Pipelining_Controller_0/InstrExec_CLK",
           "ProgramCounter_0/InstrExec_CLK",
           "RegFile_0/clk",
           "VGA_CPU_Bridge_0/InstrExec_CLK",
           "VGA_Controller_0/InstrExec_CLK",
-          "mmu_0/exec_clk"
+          "mmu_0/exec_clk",
+          "Pipelining_Controller_0/InstrExec_CLK"
         ]
       },
       "fault_reset_1": {
