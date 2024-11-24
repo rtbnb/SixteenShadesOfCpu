@@ -60,6 +60,7 @@ ENTITY main_clockcontroller_0_0 IS
     debug_reset : IN STD_LOGIC;
     debug_enable : IN STD_LOGIC;
     debug_mock_clk : IN STD_LOGIC;
+    debug_mmu_override_enbale : IN STD_LOGIC;
     load_clk : OUT STD_LOGIC;
     exec_clk : OUT STD_LOGIC;
     debug_clk : OUT STD_LOGIC;
@@ -77,6 +78,7 @@ ARCHITECTURE main_clockcontroller_0_0_arch OF main_clockcontroller_0_0 IS
       debug_reset : IN STD_LOGIC;
       debug_enable : IN STD_LOGIC;
       debug_mock_clk : IN STD_LOGIC;
+      debug_mmu_override_enbale : IN STD_LOGIC;
       load_clk : OUT STD_LOGIC;
       exec_clk : OUT STD_LOGIC;
       debug_clk : OUT STD_LOGIC;
@@ -113,6 +115,7 @@ BEGIN
       debug_reset => debug_reset,
       debug_enable => debug_enable,
       debug_mock_clk => debug_mock_clk,
+      debug_mmu_override_enbale => debug_mmu_override_enbale,
       load_clk => load_clk,
       exec_clk => exec_clk,
       debug_clk => debug_clk,

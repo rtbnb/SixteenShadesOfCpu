@@ -46,12 +46,13 @@ entity CU_Decoder is
            JMP_Relative : out STD_LOGIC;
            JMP_DestinationSource : out STD_LOGIC;
            Is_ALU_OP : out STD_LOGIC;
-           Is_RAM_OP : out STD_LOGIC);
+           Is_RAM_OP : out STD_LOGIC;
+           Is_GPU_OP : out STD_LOGIC);
 end CU_Decoder;
 
 architecture Behavioral of CU_Decoder is
     signal instruction_name : STD_LOGIC_VECTOR (3 downto 0);
-    signal is_nop, is_alu, is_rdmi, is_wrmi, is_iml, is_imh, is_rdmr, is_wrmr, is_jc, is_jr, is_ja, is_cr : boolean;
+    signal is_nop, is_alu, is_rdmi, is_wrmi, is_iml, is_imh, is_rdmr, is_wrmr, is_jc, is_jr, is_ja, is_cr, is_gpu : boolean;
     signal write_whole_byte : boolean;
 begin
     instruction_name <= Instruction(15 downto 12);
@@ -67,6 +68,7 @@ begin
     is_jr   <= instruction_name = "1001";
     is_ja   <= instruction_name = "1010";
     is_cr   <= instruction_name = "1110"; 
+    is_gpu  <= instruction_name = "1111"; 
     
     -- ALU for operand1
     -- WRMI for write data
@@ -74,12 +76,14 @@ begin
     -- WRMR for write data
     -- JR for jump address
     -- CR for write data
-    Reg1Read <= '1' WHEN is_alu or is_wrmi or is_iml or is_imh or is_wrmr or is_jr or is_cr ELSE '0';
+    -- GPU for arg1
+    Reg1Read <= '1' WHEN is_alu or is_wrmi or is_iml or is_imh or is_wrmr or is_jr or is_cr or is_gpu ELSE '0';
     
     -- ALU for operand2
     -- RDMR and WRMR for address
     -- JC for flags 
-    Reg2Read <= '1' WHEN is_alu or is_rdmr or is_wrmr or is_jc ELSE '0';
+    -- GPU for arg2
+    Reg2Read <= '1' WHEN is_alu or is_rdmr or is_wrmr or is_jc or is_gpu ELSE '0';
     
     -- ALU for writing result to $AO
     -- RDMI/RDMR for writing memory read result
@@ -114,5 +118,6 @@ begin
     
     Is_ALU_OP <= '1' WHEN is_alu ELSE '0';
     Is_RAM_OP <= '1' WHEN is_rdmi or is_wrmi or is_rdmr or is_wrmr ELSE '0';
+    Is_GPU_OP <= '1' WHEN is_gpu ELSE '0';
     
 end Behavioral;

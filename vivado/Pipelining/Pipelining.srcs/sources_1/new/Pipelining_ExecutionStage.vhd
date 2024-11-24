@@ -54,6 +54,7 @@ entity Pipelining_ExecutionStage is
            JMP_Condition : in STD_LOGIC_VECTOR (2 downto 0);
            Is_ALU_OP : in STD_LOGIC;
            Is_RAM_OP : in STD_LOGIC;
+           Is_GPU_OP : in STD_LOGIC;
            Operand1_out : out STD_LOGIC_VECTOR (15 downto 0);
            Operand2_out : out STD_LOGIC_VECTOR (15 downto 0);
            Immediate_out : out STD_LOGIC_VECTOR (15 downto 0);
@@ -73,12 +74,13 @@ entity Pipelining_ExecutionStage is
            JMP_DestinationSelect_out : out STD_LOGIC;
            JMP_Condition_out : out STD_LOGIC_VECTOR (2 downto 0);
            IS_ALU_OP_out : out STD_LOGIC;
-           Is_RAM_OP_out : out STD_LOGIC);
+           Is_RAM_OP_out : out STD_LOGIC;
+           Is_GPU_OP_out : out STD_LOGIC);
 end Pipelining_ExecutionStage;
 architecture Behavioral of Pipelining_ExecutionStage is
     signal operand1_s, operand2_s, immediate_s, ma_s : STD_LOGIC_VECTOR(15 downto 0);
     signal write_address_s : STD_LOGIC_VECTOR(3 downto 0);
-    signal whb_s, wlb_s, ram_src_s, ram_read_s, ram_write_s, use_ma_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s : STD_LOGIC;
+    signal whb_s, wlb_s, ram_src_s, ram_read_s, ram_write_s, use_ma_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s, is_gpu_op_s : STD_LOGIC;
     signal write_data_select_s : STD_LOGIC_VECTOR(1 downto 0);
     signal jmp_condition_s : STD_LOGIC_VECTOR(2 downto 0);
     signal bank_id_s : STD_LOGIC_VECTOR (3 downto 0);
@@ -107,6 +109,7 @@ begin
         jmp_condition_s <= "000";
         is_alu_op_s <= '0';
         is_ram_op_s <= '0';
+        is_gpu_op_s <= '0';
     elsif rising_edge(InstrLoad_CLK) then
         operand1_s <= Operand1;
         operand2_s <= Operand2;
@@ -128,6 +131,7 @@ begin
         jmp_condition_s <= JMP_Condition;
         is_alu_op_s <= Is_ALU_OP;
         is_ram_op_s <= Is_RAM_OP;
+        is_gpu_op_s <= Is_GPU_OP;
     end if;
     end process latcher;
     
@@ -151,5 +155,5 @@ begin
     JMP_Condition_out <= jmp_condition_s;
     IS_ALU_OP_out <= is_alu_op_s;
     Is_RAM_OP_out <= is_ram_op_s;
-
+    Is_GPU_OP_out <= is_gpu_op_s;
 end Behavioral;

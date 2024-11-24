@@ -59,6 +59,7 @@
         "JMP_Condition": [ { "direction": "in", "size_left": "2", "size_right": "0" } ],
         "Is_ALU_OP": [ { "direction": "in" } ],
         "Is_RAM_OP": [ { "direction": "in" } ],
+        "Is_GPU_OP": [ { "direction": "in" } ],
         "Operand1_out": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
         "Operand2_out": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
         "Immediate_out": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
@@ -78,7 +79,8 @@
         "JMP_DestinationSelect_out": [ { "direction": "out" } ],
         "JMP_Condition_out": [ { "direction": "out", "size_left": "2", "size_right": "0" } ],
         "IS_ALU_OP_out": [ { "direction": "out" } ],
-        "Is_RAM_OP_out": [ { "direction": "out" } ]
+        "Is_RAM_OP_out": [ { "direction": "out" } ],
+        "Is_GPU_OP_out": [ { "direction": "out" } ]
       },
       "interfaces": {
         "Reset": {

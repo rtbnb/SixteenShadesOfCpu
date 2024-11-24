@@ -69,7 +69,8 @@ ENTITY main_CU_Decoder_0_0 IS
     JMP_Relative : OUT STD_LOGIC;
     JMP_DestinationSource : OUT STD_LOGIC;
     Is_ALU_OP : OUT STD_LOGIC;
-    Is_RAM_OP : OUT STD_LOGIC
+    Is_RAM_OP : OUT STD_LOGIC;
+    Is_GPU_OP : OUT STD_LOGIC
   );
 END main_CU_Decoder_0_0;
 
@@ -92,7 +93,8 @@ ARCHITECTURE main_CU_Decoder_0_0_arch OF main_CU_Decoder_0_0 IS
       JMP_Relative : OUT STD_LOGIC;
       JMP_DestinationSource : OUT STD_LOGIC;
       Is_ALU_OP : OUT STD_LOGIC;
-      Is_RAM_OP : OUT STD_LOGIC
+      Is_RAM_OP : OUT STD_LOGIC;
+      Is_GPU_OP : OUT STD_LOGIC
     );
   END COMPONENT CU_Decoder;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -120,6 +122,7 @@ BEGIN
       JMP_Relative => JMP_Relative,
       JMP_DestinationSource => JMP_DestinationSource,
       Is_ALU_OP => Is_ALU_OP,
-      Is_RAM_OP => Is_RAM_OP
+      Is_RAM_OP => Is_RAM_OP,
+      Is_GPU_OP => Is_GPU_OP
     );
 END main_CU_Decoder_0_0_arch;
