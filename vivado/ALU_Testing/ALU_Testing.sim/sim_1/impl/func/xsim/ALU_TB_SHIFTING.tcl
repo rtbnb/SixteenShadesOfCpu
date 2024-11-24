@@ -9,4 +9,3 @@ if { [string length $curr_wave] == 0 } {
 }
 
 run 1000ns
-quit

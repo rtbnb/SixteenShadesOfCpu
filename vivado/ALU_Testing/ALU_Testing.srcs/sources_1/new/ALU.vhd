@@ -32,7 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity ALU is
- Port ( 
+ Port (
     D1: IN std_logic_vector(15 downto 0 ):= (others => '0');
     D2: IN std_logic_vector(15 downto 0 ):= (others => '0');
     ALU_OPP: IN std_logic_vector(3 downto 0 ):= (others => '0');
@@ -55,20 +55,64 @@ architecture ALUBehavioral of ALU is
 --attribute use_dsp : string;
 --attribute use_dsp of P_reg : signal is "no";
 
+constant ZERO : std_logic_vector(31 downto 0) := (others => '0');
 signal D1Singend: signed(16 downto 0);
 signal D2Singend: signed(16 downto 0);
 signal ALU_OUT_Internal: std_logic_vector(31 downto 0);
+signal left_shifted_s, right_shifted_s : std_logic_vector(16 downto 0);
+--signal ALU_OUT_Shifting
 
 begin
     
     D1Singend <=resize(signed(D1), 17);
     D2Singend <=resize(signed(D2), 17);
     
+
+    with (D2) select left_shifted_s <=
+        std_logic_vector(D1Singend(16 downto 0)) when "0000000000000000",
+        std_logic_vector(D1Singend(15 downto 0)) & "0" when "0000000000000001",
+        std_logic_vector(D1Singend(14 downto 0)) & "00" when "0000000000000010",
+        std_logic_vector(D1Singend(13 downto 0)) & "000" when "0000000000000011",
+        std_logic_vector(D1Singend(12 downto 0)) & "0000" when "0000000000000100",
+        std_logic_vector(D1Singend(11 downto 0)) & "00000" when "0000000000000101",
+        std_logic_vector(D1Singend(10 downto 0)) & "000000" when "0000000000000110",
+        std_logic_vector(D1Singend( 9 downto 0)) & "0000000" when "0000000000000111",
+        std_logic_vector(D1Singend( 8 downto 0)) & "00000000" when "0000000000001000",
+        std_logic_vector(D1Singend( 7 downto 0)) & "000000000" when "0000000000001001",
+        std_logic_vector(D1Singend( 6 downto 0)) & "0000000000" when "0000000000001010",
+        std_logic_vector(D1Singend( 5 downto 0)) & "00000000000" when "0000000000001011",
+        std_logic_vector(D1Singend( 4 downto 0)) & "000000000000" when "0000000000001100",
+        std_logic_vector(D1Singend( 3 downto 0)) & "0000000000000" when "0000000000001101",
+        std_logic_vector(D1Singend( 2 downto 0)) & "00000000000000" when "0000000000001110",
+        std_logic_vector(D1Singend( 1 downto 0)) & "000000000000000" when "0000000000001111",
+        std_logic_vector(D1Singend( 0 downto 0)) & "0000000000000000" when "0000000000010000",
+        "00000000000000000" when others;
+
+    with (D2) select right_shifted_s <=
+        std_logic_vector(D1Singend(16 downto 0)) when "0000000000000000",
+        "0" & std_logic_vector(D1Singend(16 downto 1)) when "0000000000000001",
+        "00" & std_logic_vector(D1Singend(16 downto 2)) when "0000000000000010",
+        "000" & std_logic_vector(D1Singend(16 downto 3)) when "0000000000000011",
+        "0000" & std_logic_vector(D1Singend(16 downto 4)) when "0000000000000100",
+        "00000" & std_logic_vector(D1Singend(16 downto 5)) when "0000000000000101",
+        "000000" & std_logic_vector(D1Singend(16 downto 6)) when "0000000000000110",
+        "0000000" & std_logic_vector(D1Singend(16 downto 7)) when "0000000000000111",
+        "00000000" & std_logic_vector(D1Singend(16 downto 8)) when "0000000000001000",
+        "000000000" & std_logic_vector(D1Singend(16 downto 9)) when "0000000000001001",
+        "0000000000" & std_logic_vector(D1Singend(16 downto 10)) when "0000000000001010",
+        "00000000000" & std_logic_vector(D1Singend(16 downto 11)) when "0000000000001011",
+        "000000000000" & std_logic_vector(D1Singend(16 downto 12)) when "0000000000001100",
+        "0000000000000" & std_logic_vector(D1Singend(16 downto 13)) when "0000000000001101",
+        "00000000000000" & std_logic_vector(D1Singend(16 downto 14)) when "0000000000001110",
+        "000000000000000" & std_logic_vector(D1Singend(16 downto 15)) when "0000000000001111",
+        "0000000000000000" & std_logic_vector(D1Singend(16 downto 16)) when "0000000000010000",
+        "00000000000000000" when others;
+
     with ((ALU_OPP)) select AlU_OUT_Internal <=
         "000000000000000" & std_logic_vector(D1Singend+D2Singend) when "0000", --addtion
         "000000000000000" & std_logic_vector(D1Singend-D2Singend) when "0001", -- subtraction
-        "000000000000000" & std_logic_vector(shift_left(D1Singend, to_integer(D2Singend))) when "0010", --shift left
-        "000000000000000" & std_logic_vector(shift_right(D1Singend, to_integer(D2Singend))) when "0011", --shift right
+        "000000000000000" & left_shifted_s when "0010",
+        "000000000000000" & right_shifted_s when "0011",
         "0000000000000000" & D1 when "1000", -- identity
         "0000000000000000" &(D1 AND D2) when "1001", -- and
         "0000000000000000" &(D1 OR D2) when "1010", -- or
@@ -114,6 +158,8 @@ begin
          RHO_FLAG <= RHO_PIN;
          
          
-         ALU_OUT <= ALU_OUT_Internal(15 downto 0);
+
+        ALU_OUT <= ALU_OUT_Internal(15 downto 0);
+
     end process aluPostOp; 
 end ALUBehavioral;
