@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Sat Nov 23 17:50:05 2024
---Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
+--Date        : Sun Nov 24 15:08:07 2024
+--Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -19,8 +19,6 @@ entity main is
     TX_UART_OUT : out STD_LOGIC;
     b : out STD_LOGIC_VECTOR ( 3 downto 0 );
     clk100mhz_in : in STD_LOGIC;
-    debug_mock_clk : in STD_LOGIC;
-    debug_reset : in STD_LOGIC;
     fault_reset : in STD_LOGIC;
     g : out STD_LOGIC_VECTOR ( 3 downto 0 );
     h_sync : out STD_LOGIC;
@@ -286,6 +284,7 @@ architecture STRUCTURE of main is
     gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     gram_we : in STD_LOGIC;
+    gram_oe : in STD_LOGIC;
     gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -372,6 +371,9 @@ architecture STRUCTURE of main is
     tx_data_valid : out STD_LOGIC;
     tx_data_sended : in STD_LOGIC;
     debug_enable : out STD_LOGIC;
+    cc_debug_mock_clk : out STD_LOGIC;
+    cc_debug_reset : out STD_LOGIC;
+    load_clk : in STD_LOGIC;
     pipeline_stalled : in STD_LOGIC;
     pipeline_instruction_forwarding_config : in STD_LOGIC_VECTOR ( 4 downto 0 );
     pipeline_current_instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -397,9 +399,7 @@ architecture STRUCTURE of main is
     regfile_reg2_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
     regfile_regma_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
     regfile_bankid : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    mmu_debug_sys_clk200mhz : out STD_LOGIC;
-    mmu_debug_sync_clk100mhz : out STD_LOGIC;
-    mmu_debug_en : out STD_LOGIC;
+    mmu_debug_clk : out STD_LOGIC;
     mmu_debug_override_en : out STD_LOGIC;
     mmu_debug_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     mmu_debug_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -495,6 +495,8 @@ architecture STRUCTURE of main is
   signal CU_JumpDestinationSe_0_JMP_Address : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_RAMAddressControl_0_RAM_Address : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_WriteSelector_0_Write_Data : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal Debugger_0_cc_debug_mock_clk : STD_LOGIC;
+  signal Debugger_0_cc_debug_reset : STD_LOGIC;
   signal Debugger_0_debug_enable : STD_LOGIC;
   signal Debugger_0_mmu_debug_addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Debugger_0_mmu_debug_bank : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -529,6 +531,7 @@ architecture STRUCTURE of main is
   signal Pipelining_Execution_0_Operand1_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Operand2_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_RAM_BankID_out : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal Pipelining_Execution_0_RAM_Read_out : STD_LOGIC;
   signal Pipelining_Execution_0_RAM_Src_out : STD_LOGIC;
   signal Pipelining_Execution_0_RAM_Write_out : STD_LOGIC;
   signal Pipelining_Execution_0_WHB_out : STD_LOGIC;
@@ -574,10 +577,9 @@ architecture STRUCTURE of main is
   signal clk_wiz_0_locked : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_exec_clk : STD_LOGIC;
-  signal debug_mock_clk_1 : STD_LOGIC;
-  signal debug_reset_1 : STD_LOGIC;
   signal fault_reset_1 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmio_0_rho : STD_LOGIC;
   signal mmu_0_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_gram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_iram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -598,17 +600,13 @@ architecture STRUCTURE of main is
   signal vram_bram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
-  signal NLW_Debugger_0_mmu_debug_en_UNCONNECTED : STD_LOGIC;
-  signal NLW_Debugger_0_mmu_debug_sys_clk200mhz_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_MA_out_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_mmio_0_led0_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led1_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led2_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led3_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_rho_UNCONNECTED : STD_LOGIC;
   signal NLW_mmu_0_gpu_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
@@ -616,10 +614,6 @@ architecture STRUCTURE of main is
   attribute X_INTERFACE_PARAMETER of Reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
   attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_mock_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_MOCK_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of debug_mock_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_MOCK_CLK, CLK_DOMAIN main_debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_reset : signal is "xilinx.com:signal:reset:1.0 RST.DEBUG_RESET RST";
-  attribute X_INTERFACE_PARAMETER of debug_reset : signal is "XIL_INTERFACENAME RST.DEBUG_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of fault_reset : signal is "xilinx.com:signal:reset:1.0 RST.FAULT_RESET RST";
   attribute X_INTERFACE_PARAMETER of fault_reset : signal is "XIL_INTERFACENAME RST.FAULT_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
 begin
@@ -628,8 +622,6 @@ begin
   TX_UART_OUT <= TX_UART_0_tx_output;
   b(3 downto 0) <= VGA_Controller_0_b(3 downto 0);
   clk100mhz_in_1 <= clk100mhz_in;
-  debug_mock_clk_1 <= debug_mock_clk;
-  debug_reset_1 <= debug_reset;
   fault_reset_1 <= fault_reset;
   g(3 downto 0) <= VGA_Controller_0_g(3 downto 0);
   h_sync <= VGA_Controller_0_h_sync;
@@ -648,7 +640,7 @@ ALU_0: component main_ALU_0_0
       NOT_ZERO_FLAG => ALU_0_NOT_ZERO_FLAG,
       OVERFLOW_FLAG => ALU_0_OVERFLOW_FLAG,
       RHO_FLAG => ALU_0_RHO_FLAG,
-      RHO_PIN => '0',
+      RHO_PIN => mmio_0_rho,
       SMALLER_ZERO_FLAG => ALU_0_SMALLER_ZERO_FLAG,
       ZERO_FLAG => ALU_0_ZERO_FLAG
     );
@@ -734,16 +726,17 @@ Debugger_0: component main_Debugger_0_0
       alu_flags(15 downto 0) => ALU_FLAG_PACKER_0_ALU_FLAGS(15 downto 0),
       alu_op(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
       alu_out(15 downto 0) => ALU_0_ALU_OUT(15 downto 0),
+      cc_debug_mock_clk => Debugger_0_cc_debug_mock_clk,
+      cc_debug_reset => Debugger_0_cc_debug_reset,
       clk => Net,
       debug_enable => Debugger_0_debug_enable,
+      load_clk => InstrLoad_CLK_1,
       mmu_debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
       mmu_debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
+      mmu_debug_clk => Debugger_0_mmu_debug_sync_clk100mhz,
       mmu_debug_din(15 downto 0) => Debugger_0_mmu_debug_din(15 downto 0),
       mmu_debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
-      mmu_debug_en => NLW_Debugger_0_mmu_debug_en_UNCONNECTED,
       mmu_debug_override_en => Debugger_0_mmu_debug_override_en,
-      mmu_debug_sync_clk100mhz => Debugger_0_mmu_debug_sync_clk100mhz,
-      mmu_debug_sys_clk200mhz => NLW_Debugger_0_mmu_debug_sys_clk200mhz_UNCONNECTED,
       mmu_debug_we => Debugger_0_mmu_debug_we,
       pc_current_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
       pc_din(15 downto 0) => CU_JumpController_0_PC_Next(15 downto 0),
@@ -834,7 +827,7 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       RAM_BankID(3 downto 0) => RegFile_0_BankID(3 downto 0),
       RAM_BankID_out(3 downto 0) => Pipelining_Execution_0_RAM_BankID_out(3 downto 0),
       RAM_Read => CU_Decoder_0_RAM_Read,
-      RAM_Read_out => NLW_Pipelining_Execution_0_RAM_Read_out_UNCONNECTED,
+      RAM_Read_out => Pipelining_Execution_0_RAM_Read_out,
       RAM_Src => CU_Decoder_0_RAM_Address_Src,
       RAM_Src_out => Pipelining_Execution_0_RAM_Src_out,
       RAM_Write => CU_Decoder_0_RAM_Write,
@@ -964,8 +957,8 @@ clockcontroller_0: component main_clockcontroller_0_0
       debug_clk => Net,
       debug_enable => Debugger_0_debug_enable,
       debug_guard_clk => clk_wiz_0_debug_guard_clk,
-      debug_mock_clk => debug_mock_clk_1,
-      debug_reset => debug_reset_1,
+      debug_mock_clk => Debugger_0_cc_debug_mock_clk,
+      debug_reset => Debugger_0_cc_debug_reset,
       exec_clk => clockcontroller_0_exec_clk,
       fault_reset => fault_reset_1,
       load_clk => InstrLoad_CLK_1,
@@ -985,7 +978,7 @@ mmio_0: component main_mmio_0_0
       led1 => NLW_mmio_0_led1_UNCONNECTED,
       led2 => NLW_mmio_0_led2_UNCONNECTED,
       led3 => NLW_mmio_0_led3_UNCONNECTED,
-      rho => NLW_mmio_0_rho_UNCONNECTED,
+      rho => mmio_0_rho,
       we => mmu_0_mmio_mem_we
     );
 mmu_0: component main_mmu_0_0
@@ -1009,6 +1002,7 @@ mmu_0: component main_mmu_0_0
       gram_bank(3 downto 0) => Pipelining_Execution_0_RAM_BankID_out(3 downto 0),
       gram_din(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       gram_dout(15 downto 0) => mmu_0_gram_dout(15 downto 0),
+      gram_oe => Pipelining_Execution_0_RAM_Read_out,
       gram_we => Pipelining_Execution_0_RAM_Write_out,
       iram_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
       iram_dout(15 downto 0) => mmu_0_iram_dout(15 downto 0),

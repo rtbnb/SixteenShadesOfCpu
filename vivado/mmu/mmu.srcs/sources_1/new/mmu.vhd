@@ -38,7 +38,7 @@ entity mmu is
         
         gram_addr, gram_din : in std_logic_vector( 15 downto 0 );
         gram_bank: in std_logic_vector( 3 downto 0 );
-        gram_we: in std_logic;        
+        gram_we, gram_oe: in std_logic;        
         gram_dout: out std_logic_vector( 15 downto 0 );
         
         iram_addr: in std_logic_vector( 15 downto 0 );
@@ -79,7 +79,7 @@ entity mmu is
 end mmu;
 
 architecture Behavioral of mmu is
-	type ram_type is array (8191 downto 0) of std_logic_vector(15 downto 0);
+	type ram_type is array (2047 downto 0) of std_logic_vector(15 downto 0);
 	signal iram : ram_type;	
 	attribute iram_ram_style : string;
     attribute iram_ram_style of iram : signal is "distributed"; 
@@ -266,6 +266,10 @@ begin
 			end if;
 	   end if;
 	end process;
-	gram_dout_s <= gram(to_integer(unsigned(gram_addr_s)));
+	
+	with gram_oe or internal_debug_override_s select
+	   gram_dout_s <= gram(to_integer(unsigned(gram_addr_s))) when '1',
+	                  X"0000" when '0',
+	                  X"0000" when others;
     
 end Behavioral;
