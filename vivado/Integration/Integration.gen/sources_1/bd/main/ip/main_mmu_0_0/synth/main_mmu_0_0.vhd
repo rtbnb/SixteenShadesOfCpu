@@ -61,6 +61,7 @@ ENTITY main_mmu_0_0 IS
     gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     gram_we : IN STD_LOGIC;
+    gram_oe : IN STD_LOGIC;
     gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -109,6 +110,7 @@ ARCHITECTURE main_mmu_0_0_arch OF main_mmu_0_0 IS
       gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       gram_we : IN STD_LOGIC;
+      gram_oe : IN STD_LOGIC;
       gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -155,7 +157,7 @@ ARCHITECTURE main_mmu_0_0_arch OF main_mmu_0_0 IS
   ATTRIBUTE IP_DEFINITION_SOURCE OF main_mmu_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_debug_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_Debugger_0_0_mmu_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF exec_clk: SIGNAL IS "XIL_INTERFACENAME exec_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF exec_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 exec_clk CLK";
@@ -172,6 +174,7 @@ BEGIN
       gram_din => gram_din,
       gram_bank => gram_bank,
       gram_we => gram_we,
+      gram_oe => gram_oe,
       gram_dout => gram_dout,
       iram_addr => iram_addr,
       iram_dout => iram_dout,
