@@ -14,6 +14,11 @@ rx_data_datapool: Datapool.Datapool = Datapool.Datapool()
 def process_command(rx_data: bytes, byte_counter, command_instruction: bytes, debugWindow: DebugWindow):
     if byte_counter == 0:
         command_instruction = rx_data
+        try:
+            rx_data_datapool.get_data(command_instruction, "data_1_high")
+        except KeyError:
+            debugWindow.update_table(rx_data_datapool)
+            return (0, b'\x00')
     elif byte_counter == 1:
         rx_data_datapool.set_data(command_instruction, data_1_high=rx_data)
     elif byte_counter == 2:
