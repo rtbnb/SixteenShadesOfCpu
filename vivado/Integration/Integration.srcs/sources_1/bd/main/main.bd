@@ -30,7 +30,6 @@
       "mmu_0": "",
       "mmio_0": "",
       "vram_bram": "",
-      "clk_wiz_0": "",
       "Debugger_0": "",
       "RX_UART_0": "",
       "TX_UART_0": "",
@@ -1078,55 +1077,17 @@
             "parameters": {
               "FREQ_HZ": {
                 "value": "100000000",
-                "value_src": "ip_prop"
+                "value_src": "user_prop"
               },
               "PHASE": {
                 "value": "0.0",
-                "value_src": "ip_prop"
+                "value_src": "default_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
+                "value": "main_clk100mhz_in",
+                "value_src": "default_prop"
               }
             }
-          },
-          "clk50mhz_in": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "50000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "debug_guard_clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "90.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "wizard_locked": {
-            "direction": "I"
           },
           "fault_reset": {
             "type": "rst",
@@ -1497,72 +1458,6 @@
           },
           "use_bram_block": {
             "value": "Stand_Alone"
-          }
-        }
-      },
-      "clk_wiz_0": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "ip_revision": "14",
-        "xci_name": "main_clk_wiz_0_0",
-        "xci_path": "ip\\main_clk_wiz_0_0\\main_clk_wiz_0_0.xci",
-        "inst_hier_path": "clk_wiz_0",
-        "parameters": {
-          "CLKOUT1_JITTER": {
-            "value": "130.958"
-          },
-          "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "100.000"
-          },
-          "CLKOUT2_JITTER": {
-            "value": "151.636"
-          },
-          "CLKOUT2_PHASE_ERROR": {
-            "value": "98.575"
-          },
-          "CLKOUT2_REQUESTED_OUT_FREQ": {
-            "value": "50.000"
-          },
-          "CLKOUT2_USED": {
-            "value": "true"
-          },
-          "CLKOUT3_JITTER": {
-            "value": "130.958"
-          },
-          "CLKOUT3_PHASE_ERROR": {
-            "value": "98.575"
-          },
-          "CLKOUT3_REQUESTED_PHASE": {
-            "value": "90"
-          },
-          "CLKOUT3_USED": {
-            "value": "true"
-          },
-          "CLK_OUT1_PORT": {
-            "value": "clk100mhz"
-          },
-          "CLK_OUT2_PORT": {
-            "value": "clk50mhz"
-          },
-          "CLK_OUT3_PORT": {
-            "value": "debug_guard_clk"
-          },
-          "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "10.000"
-          },
-          "MMCM_CLKOUT1_DIVIDE": {
-            "value": "20"
-          },
-          "MMCM_CLKOUT2_DIVIDE": {
-            "value": "10"
-          },
-          "MMCM_CLKOUT2_PHASE": {
-            "value": "90.000"
-          },
-          "NUM_OUT_CLKS": {
-            "value": "3"
-          },
-          "USE_RESET": {
-            "value": "false"
           }
         }
       },
@@ -2250,8 +2145,8 @@
       "Debugger_0_debug_enable": {
         "ports": [
           "Debugger_0/debug_enable",
-          "clockcontroller_0/debug_enable",
-          "mmu_0/debug_enable"
+          "mmu_0/debug_enable",
+          "clockcontroller_0/debug_enable"
         ]
       },
       "Debugger_0_mmu_debug_addr": {
@@ -2737,31 +2632,7 @@
       "clk100mhz_in_1": {
         "ports": [
           "clk100mhz_in",
-          "clk_wiz_0/clk_in1"
-        ]
-      },
-      "clk_wiz_0_clk100mhz": {
-        "ports": [
-          "clk_wiz_0/clk100mhz",
           "clockcontroller_0/clk100mhz_in"
-        ]
-      },
-      "clk_wiz_0_clk50mhz": {
-        "ports": [
-          "clk_wiz_0/clk50mhz",
-          "clockcontroller_0/clk50mhz_in"
-        ]
-      },
-      "clk_wiz_0_debug_guard_clk": {
-        "ports": [
-          "clk_wiz_0/debug_guard_clk",
-          "clockcontroller_0/debug_guard_clk"
-        ]
-      },
-      "clk_wiz_0_locked": {
-        "ports": [
-          "clk_wiz_0/locked",
-          "clockcontroller_0/wizard_locked"
         ]
       },
       "clockcontroller_0_ck_stable": {
