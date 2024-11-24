@@ -51,7 +51,8 @@
         "JMP_Relative": [ { "direction": "out" } ],
         "JMP_DestinationSource": [ { "direction": "out" } ],
         "Is_ALU_OP": [ { "direction": "out" } ],
-        "Is_RAM_OP": [ { "direction": "out" } ]
+        "Is_RAM_OP": [ { "direction": "out" } ],
+        "Is_GPU_OP": [ { "direction": "out" } ]
       }
     }
   }

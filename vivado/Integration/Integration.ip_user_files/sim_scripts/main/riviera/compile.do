@@ -13,10 +13,10 @@ vmap xil_defaultlib riviera/xil_defaultlib
 vmap blk_mem_gen_v8_4_8 riviera/blk_mem_gen_v8_4_8
 
 vlog -work xpm  -incr -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
-"S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"D:/programme/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -93  -incr \
-"S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
+"D:/programme/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xil_defaultlib -93  -incr \
 "../../../bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" \

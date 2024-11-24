@@ -44,7 +44,7 @@ end Decoder;
 architecture Behavioral of Decoder is
     
     signal instruction_name : STD_LOGIC_VECTOR(3 downto 0);
-    signal alu_op_immediate, eight_bit_immediate, jc_immediate, ja_immediate : STD_LOGIC_VECTOR(15 downto 0);
+    signal alu_op_immediate, eight_bit_immediate, jc_immediate, ja_immediate, gpu_immediate : STD_LOGIC_VECTOR(15 downto 0);
 
 begin
     instruction_name <= Instruction(15 downto 12);
@@ -65,7 +65,7 @@ begin
         X"0" WHEN X"c",
         X"0" WHEN X"d",
         Instruction(7 downto 4) WHEN X"e",
-        X"0" WHEN X"f",
+        Instruction(7 downto 4) WHEN X"f",
         X"0" WHEN OTHERS;
         
     WITH (instruction_name) SELECT Register2 <=
@@ -84,7 +84,7 @@ begin
         X"0" WHEN X"c",
         X"0" WHEN X"d",
         X"0" WHEN X"e",
-        X"0" WHEN X"f",
+        Instruction(3 downto 0) WHEN X"f",
         X"0" WHEN OTHERS;
         
     WITH (instruction_name) SELECT WriteBackRegister <=
@@ -126,6 +126,8 @@ begin
     ja_immediate(11 downto 0) <= Instruction(11 downto 0);
     ja_immediate(15 downto 12) <= X"0";
              
+    gpu_immediate(3 downto 0) <= Instruction(11 downto 8);
+    gpu_immediate(15 downto 4) <= X"000";
     
     WITH (instruction_name) SELECT Immediate <=
         X"0000" WHEN X"0",
@@ -143,7 +145,7 @@ begin
         X"0000" WHEN X"c",
         X"0000" WHEN X"d",
         X"0000" WHEN X"e",
-        X"0000" WHEN X"f",
+        gpu_immediate WHEN X"f",
         X"0000" WHEN OTHERS;
     
     JMP_Condition <= Instruction(11 downto 9);

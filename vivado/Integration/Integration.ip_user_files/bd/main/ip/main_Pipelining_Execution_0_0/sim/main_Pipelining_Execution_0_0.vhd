@@ -77,6 +77,7 @@ ENTITY main_Pipelining_Execution_0_0 IS
     JMP_Condition : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     Is_ALU_OP : IN STD_LOGIC;
     Is_RAM_OP : IN STD_LOGIC;
+    Is_GPU_OP : IN STD_LOGIC;
     Operand1_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     Operand2_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     Immediate_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -96,7 +97,8 @@ ENTITY main_Pipelining_Execution_0_0 IS
     JMP_DestinationSelect_out : OUT STD_LOGIC;
     JMP_Condition_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
     IS_ALU_OP_out : OUT STD_LOGIC;
-    Is_RAM_OP_out : OUT STD_LOGIC
+    Is_RAM_OP_out : OUT STD_LOGIC;
+    Is_GPU_OP_out : OUT STD_LOGIC
   );
 END main_Pipelining_Execution_0_0;
 
@@ -127,6 +129,7 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
       JMP_Condition : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       Is_ALU_OP : IN STD_LOGIC;
       Is_RAM_OP : IN STD_LOGIC;
+      Is_GPU_OP : IN STD_LOGIC;
       Operand1_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       Operand2_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       Immediate_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -146,7 +149,8 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
       JMP_DestinationSelect_out : OUT STD_LOGIC;
       JMP_Condition_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
       IS_ALU_OP_out : OUT STD_LOGIC;
-      Is_RAM_OP_out : OUT STD_LOGIC
+      Is_RAM_OP_out : OUT STD_LOGIC;
+      Is_GPU_OP_out : OUT STD_LOGIC
     );
   END COMPONENT Pipelining_ExecutionStage;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -180,6 +184,7 @@ BEGIN
       JMP_Condition => JMP_Condition,
       Is_ALU_OP => Is_ALU_OP,
       Is_RAM_OP => Is_RAM_OP,
+      Is_GPU_OP => Is_GPU_OP,
       Operand1_out => Operand1_out,
       Operand2_out => Operand2_out,
       Immediate_out => Immediate_out,
@@ -199,6 +204,7 @@ BEGIN
       JMP_DestinationSelect_out => JMP_DestinationSelect_out,
       JMP_Condition_out => JMP_Condition_out,
       IS_ALU_OP_out => IS_ALU_OP_out,
-      Is_RAM_OP_out => Is_RAM_OP_out
+      Is_RAM_OP_out => Is_RAM_OP_out,
+      Is_GPU_OP_out => Is_GPU_OP_out
     );
 END main_Pipelining_Execution_0_0_arch;
