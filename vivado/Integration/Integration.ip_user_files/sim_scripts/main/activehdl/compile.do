@@ -12,7 +12,8 @@ vmap xpm activehdl/xpm
 vmap xil_defaultlib activehdl/xil_defaultlib
 vmap blk_mem_gen_v8_4_8 activehdl/blk_mem_gen_v8_4_8
 
-vlog -work xpm  -sv2k12 -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
+vlog -work xpm  -sv2k12 "+incdir+../../../../Integration.gen/sources_1/bd/main/ipshared/3242" -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
+"S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 "S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -93  \
@@ -38,11 +39,13 @@ vcom -work xil_defaultlib -93  \
 "../../../bd/main/ip/main_mmu_0_0/sim/main_mmu_0_0.vhd" \
 "../../../bd/main/ip/main_mmio_0_0/sim/main_mmio_0_0.vhd" \
 
-vlog -work blk_mem_gen_v8_4_8  -v2k5 -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
+vlog -work blk_mem_gen_v8_4_8  -v2k5 "+incdir+../../../../Integration.gen/sources_1/bd/main/ipshared/3242" -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
 "../../../../Integration.gen/sources_1/bd/main/ipshared/09bd/simulation/blk_mem_gen_v8_4.v" \
 
-vlog -work xil_defaultlib  -v2k5 -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Integration.gen/sources_1/bd/main/ipshared/3242" -l xpm -l xil_defaultlib -l blk_mem_gen_v8_4_8 \
 "../../../bd/main/ip/main_blk_mem_gen_0_0/sim/main_blk_mem_gen_0_0.v" \
+"../../../bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" \
+"../../../bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" \
 
 vcom -work xil_defaultlib -93  \
 "../../../bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" \

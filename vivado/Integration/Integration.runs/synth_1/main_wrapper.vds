@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sun Nov 24 15:45:49 2024
-# Process ID: 27860
+# Start of session at: Sun Nov 24 15:08:32 2024
+# Process ID: 14468
 # Current directory: O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1
 # Command line: vivado.exe -log main_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main_wrapper.tcl
 # Log file: O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.vds
@@ -19,10 +19,10 @@
 # Host memory       :34183 MB
 # Swap memory       :13859 MB
 # Total Virtual     :48043 MB
-# Available Virtual :14336 MB
+# Available Virtual :14506 MB
 #-----------------------------------------------------------
 source main_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 518.836 ; gain = 201.352
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 516.445 ; gain = 200.742
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'S:/Vivado/Vivado/2024.1/data/ip'.
@@ -39,14 +39,14 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 33724
+INFO: [Synth 8-7075] Helper process launched with PID 72108
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1384.191 ; gain = 450.855
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1383.754 ; gain = 447.434
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'main_wrapper' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd:32]
 INFO: [Synth 8-3491] module 'main' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:15' bound to instance 'main_i' of component 'main' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd:50]
 INFO: [Synth 8-638] synthesizing module 'main' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:36]
-INFO: [Synth 8-3491] module 'main_ALU_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/synth/main_ALU_0_0.vhd:56' bound to instance 'ALU_0' of component 'main_ALU_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:616]
+INFO: [Synth 8-3491] module 'main_ALU_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/synth/main_ALU_0_0.vhd:56' bound to instance 'ALU_0' of component 'main_ALU_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:632]
 INFO: [Synth 8-638] synthesizing module 'main_ALU_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/synth/main_ALU_0_0.vhd:73]
 INFO: [Synth 8-3491] module 'ALU' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:34' bound to instance 'U0' of component 'ALU' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/synth/main_ALU_0_0.vhd:101]
 INFO: [Synth 8-638] synthesizing module 'ALU' [O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:53]
@@ -56,26 +56,26 @@ WARNING: [Synth 8-614] signal 'D1' is read in the process but is not in the sens
 WARNING: [Synth 8-614] signal 'RHO_PIN' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:128]
 INFO: [Synth 8-256] done synthesizing module 'ALU' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd:53]
 INFO: [Synth 8-256] done synthesizing module 'main_ALU_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_0_0/synth/main_ALU_0_0.vhd:73]
-INFO: [Synth 8-3491] module 'main_ALU_FLAG_PACKER_0_1' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_FLAG_PACKER_0_1/synth/main_ALU_FLAG_PACKER_0_1.vhd:56' bound to instance 'ALU_FLAG_PACKER_0' of component 'main_ALU_FLAG_PACKER_0_1' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:631]
+INFO: [Synth 8-3491] module 'main_ALU_FLAG_PACKER_0_1' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_FLAG_PACKER_0_1/synth/main_ALU_FLAG_PACKER_0_1.vhd:56' bound to instance 'ALU_FLAG_PACKER_0' of component 'main_ALU_FLAG_PACKER_0_1' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:647]
 INFO: [Synth 8-638] synthesizing module 'main_ALU_FLAG_PACKER_0_1' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_FLAG_PACKER_0_1/synth/main_ALU_FLAG_PACKER_0_1.vhd:69]
 INFO: [Synth 8-3491] module 'ALU_FLAG_PACKER' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU_FLAG_PACKER.vhd:34' bound to instance 'U0' of component 'ALU_FLAG_PACKER' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_FLAG_PACKER_0_1/synth/main_ALU_FLAG_PACKER_0_1.vhd:93]
 INFO: [Synth 8-638] synthesizing module 'ALU_FLAG_PACKER' [O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU_FLAG_PACKER.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'ALU_FLAG_PACKER' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU_FLAG_PACKER.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'main_ALU_FLAG_PACKER_0_1' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ALU_FLAG_PACKER_0_1/synth/main_ALU_FLAG_PACKER_0_1.vhd:69]
-INFO: [Synth 8-3491] module 'main_CU_Decoder_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_Decoder_0_0/synth/main_CU_Decoder_0_0.vhd:56' bound to instance 'CU_Decoder_0' of component 'main_CU_Decoder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:642]
+INFO: [Synth 8-3491] module 'main_CU_Decoder_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_Decoder_0_0/synth/main_CU_Decoder_0_0.vhd:56' bound to instance 'CU_Decoder_0' of component 'main_CU_Decoder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:658]
 INFO: [Synth 8-638] synthesizing module 'main_CU_Decoder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_Decoder_0_0/synth/main_CU_Decoder_0_0.vhd:76]
 INFO: [Synth 8-3491] module 'CU_Decoder' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd:34' bound to instance 'U0' of component 'CU_Decoder' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_Decoder_0_0/synth/main_CU_Decoder_0_0.vhd:107]
 INFO: [Synth 8-638] synthesizing module 'CU_Decoder' [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'CU_Decoder' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'main_CU_Decoder_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_Decoder_0_0/synth/main_CU_Decoder_0_0.vhd:76]
-INFO: [Synth 8-3491] module 'main_CU_ImmediateManipula_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_ImmediateManipula_0_0/synth/main_CU_ImmediateManipula_0_0.vhd:56' bound to instance 'CU_ImmediateManipula_0' of component 'main_CU_ImmediateManipula_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:660]
+INFO: [Synth 8-3491] module 'main_CU_ImmediateManipula_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_ImmediateManipula_0_0/synth/main_CU_ImmediateManipula_0_0.vhd:56' bound to instance 'CU_ImmediateManipula_0' of component 'main_CU_ImmediateManipula_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:676]
 INFO: [Synth 8-638] synthesizing module 'main_CU_ImmediateManipula_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_ImmediateManipula_0_0/synth/main_CU_ImmediateManipula_0_0.vhd:66]
 INFO: [Synth 8-3491] module 'CU_ImmediateManipulator' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd:34' bound to instance 'U0' of component 'CU_ImmediateManipulator' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_ImmediateManipula_0_0/synth/main_CU_ImmediateManipula_0_0.vhd:87]
 INFO: [Synth 8-638] synthesizing module 'CU_ImmediateManipulator' [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd:42]
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd:56]
 INFO: [Synth 8-256] done synthesizing module 'CU_ImmediateManipulator' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd:42]
 INFO: [Synth 8-256] done synthesizing module 'main_CU_ImmediateManipula_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_ImmediateManipula_0_0/synth/main_CU_ImmediateManipula_0_0.vhd:66]
-INFO: [Synth 8-3491] module 'main_CU_JumpController_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpController_0_0/synth/main_CU_JumpController_0_0.vhd:56' bound to instance 'CU_JumpController_0' of component 'main_CU_JumpController_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:668]
+INFO: [Synth 8-3491] module 'main_CU_JumpController_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpController_0_0/synth/main_CU_JumpController_0_0.vhd:56' bound to instance 'CU_JumpController_0' of component 'main_CU_JumpController_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:684]
 INFO: [Synth 8-638] synthesizing module 'main_CU_JumpController_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpController_0_0/synth/main_CU_JumpController_0_0.vhd:71]
 INFO: [Synth 8-3491] module 'CU_JumpController' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd:34' bound to instance 'U0' of component 'CU_JumpController' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpController_0_0/synth/main_CU_JumpController_0_0.vhd:101]
 INFO: [Synth 8-638] synthesizing module 'CU_JumpController' [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd:47]
@@ -86,14 +86,14 @@ INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfC
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd:94]
 INFO: [Synth 8-256] done synthesizing module 'CU_JumpController' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'main_CU_JumpController_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpController_0_0/synth/main_CU_JumpController_0_0.vhd:71]
-INFO: [Synth 8-3491] module 'main_CU_JumpDestinationSe_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpDestinationSe_0_0/synth/main_CU_JumpDestinationSe_0_0.vhd:56' bound to instance 'CU_JumpDestinationSe_0' of component 'main_CU_JumpDestinationSe_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:681]
+INFO: [Synth 8-3491] module 'main_CU_JumpDestinationSe_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpDestinationSe_0_0/synth/main_CU_JumpDestinationSe_0_0.vhd:56' bound to instance 'CU_JumpDestinationSe_0' of component 'main_CU_JumpDestinationSe_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:697]
 INFO: [Synth 8-638] synthesizing module 'main_CU_JumpDestinationSe_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpDestinationSe_0_0/synth/main_CU_JumpDestinationSe_0_0.vhd:65]
 INFO: [Synth 8-3491] module 'CU_JumpDestinationSelector' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd:34' bound to instance 'U0' of component 'CU_JumpDestinationSelector' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpDestinationSe_0_0/synth/main_CU_JumpDestinationSe_0_0.vhd:85]
 INFO: [Synth 8-638] synthesizing module 'CU_JumpDestinationSelector' [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd:41]
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'CU_JumpDestinationSelector' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'main_CU_JumpDestinationSe_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_JumpDestinationSe_0_0/synth/main_CU_JumpDestinationSe_0_0.vhd:65]
-INFO: [Synth 8-3491] module 'main_CU_RAMAddressControl_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_RAMAddressControl_0_0/synth/main_CU_RAMAddressControl_0_0.vhd:56' bound to instance 'CU_RAMAddressControl_0' of component 'main_CU_RAMAddressControl_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:688]
+INFO: [Synth 8-3491] module 'main_CU_RAMAddressControl_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_RAMAddressControl_0_0/synth/main_CU_RAMAddressControl_0_0.vhd:56' bound to instance 'CU_RAMAddressControl_0' of component 'main_CU_RAMAddressControl_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:704]
 INFO: [Synth 8-638] synthesizing module 'main_CU_RAMAddressControl_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_RAMAddressControl_0_0/synth/main_CU_RAMAddressControl_0_0.vhd:67]
 INFO: [Synth 8-3491] module 'CU_RAMAddressController' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd:34' bound to instance 'U0' of component 'CU_RAMAddressController' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_RAMAddressControl_0_0/synth/main_CU_RAMAddressControl_0_0.vhd:89]
 INFO: [Synth 8-638] synthesizing module 'CU_RAMAddressController' [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd:43]
@@ -101,20 +101,20 @@ INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfC
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd:51]
 INFO: [Synth 8-256] done synthesizing module 'CU_RAMAddressController' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'main_CU_RAMAddressControl_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_RAMAddressControl_0_0/synth/main_CU_RAMAddressControl_0_0.vhd:67]
-INFO: [Synth 8-3491] module 'main_CU_WriteSelector_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_WriteSelector_0_0/synth/main_CU_WriteSelector_0_0.vhd:56' bound to instance 'CU_WriteSelector_0' of component 'main_CU_WriteSelector_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:697]
+INFO: [Synth 8-3491] module 'main_CU_WriteSelector_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_WriteSelector_0_0/synth/main_CU_WriteSelector_0_0.vhd:56' bound to instance 'CU_WriteSelector_0' of component 'main_CU_WriteSelector_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:713]
 INFO: [Synth 8-638] synthesizing module 'main_CU_WriteSelector_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_WriteSelector_0_0/synth/main_CU_WriteSelector_0_0.vhd:67]
 INFO: [Synth 8-3491] module 'CU_WriteSelector' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd:34' bound to instance 'U0' of component 'CU_WriteSelector' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_WriteSelector_0_0/synth/main_CU_WriteSelector_0_0.vhd:89]
 INFO: [Synth 8-638] synthesizing module 'CU_WriteSelector' [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd:43]
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'CU_WriteSelector' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'main_CU_WriteSelector_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_CU_WriteSelector_0_0/synth/main_CU_WriteSelector_0_0.vhd:67]
-INFO: [Synth 8-3491] module 'main_Debugger_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Debugger_0_0/synth/main_Debugger_0_0.vhd:56' bound to instance 'Debugger_0' of component 'main_Debugger_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:706]
+INFO: [Synth 8-3491] module 'main_Debugger_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Debugger_0_0/synth/main_Debugger_0_0.vhd:56' bound to instance 'Debugger_0' of component 'main_Debugger_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:722]
 INFO: [Synth 8-638] synthesizing module 'main_Debugger_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Debugger_0_0/synth/main_Debugger_0_0.vhd:103]
 INFO: [Synth 8-3491] module 'Debugger' declared at 'O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:34' bound to instance 'U0' of component 'Debugger' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Debugger_0_0/synth/main_Debugger_0_0.vhd:173]
 INFO: [Synth 8-638] synthesizing module 'Debugger' [O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:97]
 INFO: [Synth 8-256] done synthesizing module 'Debugger' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd:97]
 INFO: [Synth 8-256] done synthesizing module 'main_Debugger_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Debugger_0_0/synth/main_Debugger_0_0.vhd:103]
-INFO: [Synth 8-3491] module 'main_Decoder_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0/synth/main_Decoder_0_0.vhd:56' bound to instance 'Decoder_0' of component 'main_Decoder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:751]
+INFO: [Synth 8-3491] module 'main_Decoder_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0/synth/main_Decoder_0_0.vhd:56' bound to instance 'Decoder_0' of component 'main_Decoder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:767]
 INFO: [Synth 8-638] synthesizing module 'main_Decoder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0/synth/main_Decoder_0_0.vhd:68]
 INFO: [Synth 8-3491] module 'Decoder' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd:34' bound to instance 'U0' of component 'Decoder' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0/synth/main_Decoder_0_0.vhd:91]
 INFO: [Synth 8-638] synthesizing module 'Decoder' [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd:44]
@@ -125,13 +125,13 @@ INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfC
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd:150]
 INFO: [Synth 8-256] done synthesizing module 'Decoder' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'main_Decoder_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Decoder_0_0/synth/main_Decoder_0_0.vhd:68]
-INFO: [Synth 8-3491] module 'main_GPU_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_GPU_0_0/synth/main_GPU_0_0.vhd:56' bound to instance 'GPU_0' of component 'main_GPU_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:761]
+INFO: [Synth 8-3491] module 'main_GPU_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_GPU_0_0/synth/main_GPU_0_0.vhd:56' bound to instance 'GPU_0' of component 'main_GPU_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:777]
 INFO: [Synth 8-638] synthesizing module 'main_GPU_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_GPU_0_0/synth/main_GPU_0_0.vhd:72]
 INFO: [Synth 8-3491] module 'GPU' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/GPU.vhd:34' bound to instance 'U0' of component 'GPU' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_GPU_0_0/synth/main_GPU_0_0.vhd:109]
 INFO: [Synth 8-638] synthesizing module 'GPU' [O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/GPU.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'GPU' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/GPU.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'main_GPU_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_GPU_0_0/synth/main_GPU_0_0.vhd:72]
-INFO: [Synth 8-3491] module 'main_Pipelining_Controller_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Controller_0_0/synth/main_Pipelining_Controller_0_0.vhd:56' bound to instance 'Pipelining_Controller_0' of component 'main_Pipelining_Controller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:775]
+INFO: [Synth 8-3491] module 'main_Pipelining_Controller_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Controller_0_0/synth/main_Pipelining_Controller_0_0.vhd:56' bound to instance 'Pipelining_Controller_0' of component 'main_Pipelining_Controller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:791]
 INFO: [Synth 8-638] synthesizing module 'main_Pipelining_Controller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Controller_0_0/synth/main_Pipelining_Controller_0_0.vhd:69]
 INFO: [Synth 8-3491] module 'Pipelining_Controller' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd:34' bound to instance 'U0' of component 'Pipelining_Controller' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Controller_0_0/synth/main_Pipelining_Controller_0_0.vhd:101]
 INFO: [Synth 8-638] synthesizing module 'Pipelining_Controller' [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd:45]
@@ -142,13 +142,13 @@ INFO: [Synth 8-3491] module 'Decoder' declared at 'O:/Entwicklung/SixteenShadesO
 WARNING: [Synth 8-614] signal 'taking_data' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd:142]
 INFO: [Synth 8-256] done synthesizing module 'Pipelining_Controller' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'main_Pipelining_Controller_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Controller_0_0/synth/main_Pipelining_Controller_0_0.vhd:69]
-INFO: [Synth 8-3491] module 'main_Pipelining_Execution_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Execution_0_0/synth/main_Pipelining_Execution_0_0.vhd:56' bound to instance 'Pipelining_Execution_0' of component 'main_Pipelining_Execution_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:786]
+INFO: [Synth 8-3491] module 'main_Pipelining_Execution_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Execution_0_0/synth/main_Pipelining_Execution_0_0.vhd:56' bound to instance 'Pipelining_Execution_0' of component 'main_Pipelining_Execution_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:802]
 INFO: [Synth 8-638] synthesizing module 'main_Pipelining_Execution_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Execution_0_0/synth/main_Pipelining_Execution_0_0.vhd:103]
 INFO: [Synth 8-3491] module 'Pipelining_ExecutionStage' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd:34' bound to instance 'U0' of component 'Pipelining_ExecutionStage' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Execution_0_0/synth/main_Pipelining_Execution_0_0.vhd:167]
 INFO: [Synth 8-638] synthesizing module 'Pipelining_ExecutionStage' [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd:78]
 INFO: [Synth 8-256] done synthesizing module 'Pipelining_ExecutionStage' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd:78]
 INFO: [Synth 8-256] done synthesizing module 'main_Pipelining_Execution_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Execution_0_0/synth/main_Pipelining_Execution_0_0.vhd:103]
-INFO: [Synth 8-3491] module 'main_Pipelining_Forwarder_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Forwarder_0_0/synth/main_Pipelining_Forwarder_0_0.vhd:56' bound to instance 'Pipelining_Forwarder_0' of component 'main_Pipelining_Forwarder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:831]
+INFO: [Synth 8-3491] module 'main_Pipelining_Forwarder_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Forwarder_0_0/synth/main_Pipelining_Forwarder_0_0.vhd:56' bound to instance 'Pipelining_Forwarder_0' of component 'main_Pipelining_Forwarder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:847]
 INFO: [Synth 8-638] synthesizing module 'main_Pipelining_Forwarder_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Forwarder_0_0/synth/main_Pipelining_Forwarder_0_0.vhd:70]
 INFO: [Synth 8-3491] module 'Pipelining_Forwarder' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd:34' bound to instance 'U0' of component 'Pipelining_Forwarder' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Forwarder_0_0/synth/main_Pipelining_Forwarder_0_0.vhd:95]
 INFO: [Synth 8-638] synthesizing module 'Pipelining_Forwarder' [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd:46]
@@ -157,26 +157,26 @@ INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfC
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd:69]
 INFO: [Synth 8-256] done synthesizing module 'Pipelining_Forwarder' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'main_Pipelining_Forwarder_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_Forwarder_0_0/synth/main_Pipelining_Forwarder_0_0.vhd:70]
-INFO: [Synth 8-3491] module 'main_Pipelining_WriteBack_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_WriteBack_0_0/synth/main_Pipelining_WriteBack_0_0.vhd:56' bound to instance 'Pipelining_WriteBack_0' of component 'main_Pipelining_WriteBack_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:843]
+INFO: [Synth 8-3491] module 'main_Pipelining_WriteBack_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_WriteBack_0_0/synth/main_Pipelining_WriteBack_0_0.vhd:56' bound to instance 'Pipelining_WriteBack_0' of component 'main_Pipelining_WriteBack_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:859]
 INFO: [Synth 8-638] synthesizing module 'main_Pipelining_WriteBack_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_WriteBack_0_0/synth/main_Pipelining_WriteBack_0_0.vhd:76]
 INFO: [Synth 8-3491] module 'Pipelining_WriteBackStage' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_WriteBackStage.vhd:34' bound to instance 'U0' of component 'Pipelining_WriteBackStage' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_WriteBack_0_0/synth/main_Pipelining_WriteBack_0_0.vhd:113]
 INFO: [Synth 8-638] synthesizing module 'Pipelining_WriteBackStage' [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_WriteBackStage.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'Pipelining_WriteBackStage' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_WriteBackStage.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'main_Pipelining_WriteBack_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_Pipelining_WriteBack_0_0/synth/main_Pipelining_WriteBack_0_0.vhd:76]
-INFO: [Synth 8-3491] module 'main_ProgramCounter_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ProgramCounter_0_0/synth/main_ProgramCounter_0_0.vhd:56' bound to instance 'ProgramCounter_0' of component 'main_ProgramCounter_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:861]
+INFO: [Synth 8-3491] module 'main_ProgramCounter_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ProgramCounter_0_0/synth/main_ProgramCounter_0_0.vhd:56' bound to instance 'ProgramCounter_0' of component 'main_ProgramCounter_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:877]
 INFO: [Synth 8-638] synthesizing module 'main_ProgramCounter_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ProgramCounter_0_0/synth/main_ProgramCounter_0_0.vhd:68]
 INFO: [Synth 8-3491] module 'ProgramCounter' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/ProgramCounter.vhd:35' bound to instance 'U0' of component 'ProgramCounter' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ProgramCounter_0_0/synth/main_ProgramCounter_0_0.vhd:99]
 INFO: [Synth 8-638] synthesizing module 'ProgramCounter' [O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/ProgramCounter.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'ProgramCounter' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/ProgramCounter.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'main_ProgramCounter_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_ProgramCounter_0_0/synth/main_ProgramCounter_0_0.vhd:68]
-INFO: [Synth 8-3491] module 'main_RX_UART_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RX_UART_0_0/synth/main_RX_UART_0_0.vhd:56' bound to instance 'RX_UART_0' of component 'main_RX_UART_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:871]
+INFO: [Synth 8-3491] module 'main_RX_UART_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RX_UART_0_0/synth/main_RX_UART_0_0.vhd:56' bound to instance 'RX_UART_0' of component 'main_RX_UART_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:887]
 INFO: [Synth 8-638] synthesizing module 'main_RX_UART_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RX_UART_0_0/synth/main_RX_UART_0_0.vhd:65]
 	Parameter CLKS_PER_BIT bound to: 55 - type: integer 
 INFO: [Synth 8-3491] module 'RX_UART' declared at 'O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd:34' bound to instance 'U0' of component 'RX_UART' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RX_UART_0_0/synth/main_RX_UART_0_0.vhd:92]
 INFO: [Synth 8-638] synthesizing module 'RX_UART' [O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'RX_UART' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'main_RX_UART_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RX_UART_0_0/synth/main_RX_UART_0_0.vhd:65]
-INFO: [Synth 8-3491] module 'main_RegFile_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RegFile_0_0/synth/main_RegFile_0_0.vhd:56' bound to instance 'RegFile_0' of component 'main_RegFile_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:878]
+INFO: [Synth 8-3491] module 'main_RegFile_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RegFile_0_0/synth/main_RegFile_0_0.vhd:56' bound to instance 'RegFile_0' of component 'main_RegFile_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:894]
 INFO: [Synth 8-638] synthesizing module 'main_RegFile_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RegFile_0_0/synth/main_RegFile_0_0.vhd:73]
 INFO: [Synth 8-3491] module 'RegFile' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:34' bound to instance 'U0' of component 'RegFile' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RegFile_0_0/synth/main_RegFile_0_0.vhd:105]
 INFO: [Synth 8-638] synthesizing module 'RegFile' [O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:52]
@@ -185,48 +185,81 @@ INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfC
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:104]
 INFO: [Synth 8-256] done synthesizing module 'RegFile' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'main_RegFile_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_RegFile_0_0/synth/main_RegFile_0_0.vhd:73]
-INFO: [Synth 8-3491] module 'main_TX_UART_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_TX_UART_0_0/synth/main_TX_UART_0_0.vhd:56' bound to instance 'TX_UART_0' of component 'main_TX_UART_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:893]
+INFO: [Synth 8-3491] module 'main_TX_UART_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_TX_UART_0_0/synth/main_TX_UART_0_0.vhd:56' bound to instance 'TX_UART_0' of component 'main_TX_UART_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:909]
 INFO: [Synth 8-638] synthesizing module 'main_TX_UART_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_TX_UART_0_0/synth/main_TX_UART_0_0.vhd:66]
 	Parameter CLKS_PER_BIT bound to: 55 - type: integer 
 INFO: [Synth 8-3491] module 'TX_UART' declared at 'O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd:34' bound to instance 'U0' of component 'TX_UART' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_TX_UART_0_0/synth/main_TX_UART_0_0.vhd:94]
 INFO: [Synth 8-638] synthesizing module 'TX_UART' [O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'TX_UART' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'main_TX_UART_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_TX_UART_0_0/synth/main_TX_UART_0_0.vhd:66]
-INFO: [Synth 8-3491] module 'main_VGA_CPU_Bridge_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_CPU_Bridge_0_0/synth/main_VGA_CPU_Bridge_0_0.vhd:56' bound to instance 'VGA_CPU_Bridge_0' of component 'main_VGA_CPU_Bridge_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:901]
+INFO: [Synth 8-3491] module 'main_VGA_CPU_Bridge_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_CPU_Bridge_0_0/synth/main_VGA_CPU_Bridge_0_0.vhd:56' bound to instance 'VGA_CPU_Bridge_0' of component 'main_VGA_CPU_Bridge_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:917]
 INFO: [Synth 8-638] synthesizing module 'main_VGA_CPU_Bridge_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_CPU_Bridge_0_0/synth/main_VGA_CPU_Bridge_0_0.vhd:71]
 INFO: [Synth 8-3491] module 'VGA_CPU_Bridge' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_CPU_Bridge.vhd:34' bound to instance 'U0' of component 'VGA_CPU_Bridge' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_CPU_Bridge_0_0/synth/main_VGA_CPU_Bridge_0_0.vhd:103]
 INFO: [Synth 8-638] synthesizing module 'VGA_CPU_Bridge' [O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_CPU_Bridge.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'VGA_CPU_Bridge' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_CPU_Bridge.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'main_VGA_CPU_Bridge_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_CPU_Bridge_0_0/synth/main_VGA_CPU_Bridge_0_0.vhd:71]
-INFO: [Synth 8-3491] module 'main_VGA_Controller_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_Controller_0_0/synth/main_VGA_Controller_0_0.vhd:56' bound to instance 'VGA_Controller_0' of component 'main_VGA_Controller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:914]
+INFO: [Synth 8-3491] module 'main_VGA_Controller_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_Controller_0_0/synth/main_VGA_Controller_0_0.vhd:56' bound to instance 'VGA_Controller_0' of component 'main_VGA_Controller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:930]
 INFO: [Synth 8-638] synthesizing module 'main_VGA_Controller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_Controller_0_0/synth/main_VGA_Controller_0_0.vhd:71]
 INFO: [Synth 8-3491] module 'VGA_Controller' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:34' bound to instance 'U0' of component 'VGA_Controller' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_Controller_0_0/synth/main_VGA_Controller_0_0.vhd:103]
 INFO: [Synth 8-638] synthesizing module 'VGA_Controller' [O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'VGA_Controller' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'main_VGA_Controller_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_VGA_Controller_0_0/synth/main_VGA_Controller_0_0.vhd:71]
-INFO: [Synth 8-3491] module 'main_clockcontroller_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clockcontroller_0_0/synth/main_clockcontroller_0_0.vhd:56' bound to instance 'clockcontroller_0' of component 'main_clockcontroller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:928]
-INFO: [Synth 8-638] synthesizing module 'main_clockcontroller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clockcontroller_0_0/synth/main_clockcontroller_0_0.vhd:70]
-INFO: [Synth 8-3491] module 'clockcontroller' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:34' bound to instance 'U0' of component 'clockcontroller' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clockcontroller_0_0/synth/main_clockcontroller_0_0.vhd:109]
+INFO: [Synth 8-3491] module 'main_clk_wiz_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v:67' bound to instance 'clk_wiz_0' of component 'main_clk_wiz_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:944]
+INFO: [Synth 8-6157] synthesizing module 'main_clk_wiz_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v:67]
+INFO: [Synth 8-6157] synthesizing module 'main_clk_wiz_0_0_clk_wiz' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v:67]
+INFO: [Synth 8-6157] synthesizing module 'IBUF' [S:/Vivado/Vivado/2024.1/scripts/rt/data/unisim_comp.v:73643]
+INFO: [Synth 8-6155] done synthesizing module 'IBUF' (0#1) [S:/Vivado/Vivado/2024.1/scripts/rt/data/unisim_comp.v:73643]
+INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [S:/Vivado/Vivado/2024.1/scripts/rt/data/unisim_comp.v:82388]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT_F bound to: 10.000000 - type: double 
+	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKFBOUT_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: double 
+	Parameter CLKOUT0_DIVIDE_F bound to: 10.000000 - type: double 
+	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT0_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT1_DIVIDE bound to: 20 - type: integer 
+	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT1_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT2_DIVIDE bound to: 10 - type: integer 
+	Parameter CLKOUT2_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT2_PHASE bound to: 90.000000 - type: double 
+	Parameter CLKOUT2_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT4_CASCADE bound to: FALSE - type: string 
+	Parameter COMPENSATION bound to: ZHOLD - type: string 
+	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter STARTUP_WAIT bound to: FALSE - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (0#1) [S:/Vivado/Vivado/2024.1/scripts/rt/data/unisim_comp.v:82388]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [S:/Vivado/Vivado/2024.1/scripts/rt/data/unisim_comp.v:1951]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [S:/Vivado/Vivado/2024.1/scripts/rt/data/unisim_comp.v:1951]
+INFO: [Synth 8-6155] done synthesizing module 'main_clk_wiz_0_0_clk_wiz' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v:67]
+INFO: [Synth 8-6155] done synthesizing module 'main_clk_wiz_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v:67]
+INFO: [Synth 8-3491] module 'main_clockcontroller_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clockcontroller_0_0/synth/main_clockcontroller_0_0.vhd:56' bound to instance 'clockcontroller_0' of component 'main_clockcontroller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:952]
+INFO: [Synth 8-638] synthesizing module 'main_clockcontroller_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clockcontroller_0_0/synth/main_clockcontroller_0_0.vhd:73]
+INFO: [Synth 8-3491] module 'clockcontroller' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:34' bound to instance 'U0' of component 'clockcontroller' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clockcontroller_0_0/synth/main_clockcontroller_0_0.vhd:117]
 INFO: [Synth 8-638] synthesizing module 'clockcontroller' [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:44]
-INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:61]
-INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:67]
+INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:57]
+INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:62]
+INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:68]
 INFO: [Synth 8-256] done synthesizing module 'clockcontroller' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd:44]
-INFO: [Synth 8-256] done synthesizing module 'main_clockcontroller_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clockcontroller_0_0/synth/main_clockcontroller_0_0.vhd:70]
-INFO: [Synth 8-3491] module 'main_mmio_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmio_0_0/synth/main_mmio_0_0.vhd:56' bound to instance 'mmio_0' of component 'main_mmio_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:940]
+INFO: [Synth 8-256] done synthesizing module 'main_clockcontroller_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clockcontroller_0_0/synth/main_clockcontroller_0_0.vhd:73]
+INFO: [Synth 8-3491] module 'main_mmio_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmio_0_0/synth/main_mmio_0_0.vhd:56' bound to instance 'mmio_0' of component 'main_mmio_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:967]
 INFO: [Synth 8-638] synthesizing module 'main_mmio_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmio_0_0/synth/main_mmio_0_0.vhd:75]
 INFO: [Synth 8-3491] module 'mmio' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmio.vhd:34' bound to instance 'U0' of component 'mmio' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmio_0_0/synth/main_mmio_0_0.vhd:109]
 INFO: [Synth 8-638] synthesizing module 'mmio' [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmio.vhd:49]
 WARNING: [Synth 8-614] signal 'we' is read in the process but is not in the sensitivity list [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmio.vhd:132]
 INFO: [Synth 8-256] done synthesizing module 'mmio' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmio.vhd:49]
 INFO: [Synth 8-256] done synthesizing module 'main_mmio_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmio_0_0/synth/main_mmio_0_0.vhd:75]
-INFO: [Synth 8-3491] module 'main_mmu_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmu_0_0/synth/main_mmu_0_0.vhd:56' bound to instance 'mmu_0' of component 'main_mmu_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:957]
+INFO: [Synth 8-3491] module 'main_mmu_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmu_0_0/synth/main_mmu_0_0.vhd:56' bound to instance 'mmu_0' of component 'main_mmu_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:984]
 INFO: [Synth 8-638] synthesizing module 'main_mmu_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmu_0_0/synth/main_mmu_0_0.vhd:102]
 INFO: [Synth 8-3491] module 'mmu' declared at 'O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmu.vhd:34' bound to instance 'U0' of component 'mmu' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmu_0_0/synth/main_mmu_0_0.vhd:169]
 INFO: [Synth 8-638] synthesizing module 'mmu' [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmu.vhd:81]
 INFO: [Synth 8-226] default block is never used [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmu.vhd:270]
 INFO: [Synth 8-256] done synthesizing module 'mmu' (0#1) [O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmu.vhd:81]
 INFO: [Synth 8-256] done synthesizing module 'main_mmu_0_0' (0#1) [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_mmu_0_0/synth/main_mmu_0_0.vhd:102]
-INFO: [Synth 8-3491] module 'main_blk_mem_gen_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/synth/main_blk_mem_gen_0_0.vhd:59' bound to instance 'vram_bram' of component 'main_blk_mem_gen_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:1001]
+INFO: [Synth 8-3491] module 'main_blk_mem_gen_0_0' declared at 'o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/synth/main_blk_mem_gen_0_0.vhd:59' bound to instance 'vram_bram' of component 'main_blk_mem_gen_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/synth/main.vhd:1028]
 INFO: [Synth 8-638] synthesizing module 'main_blk_mem_gen_0_0' [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/synth/main_blk_mem_gen_0_0.vhd:74]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -426,52 +459,63 @@ WARNING: [Synth 8-7129] Port DBITERRIN[44] in module blk_mem_gen_mux__parameteri
 WARNING: [Synth 8-7129] Port DBITERRIN[43] in module blk_mem_gen_mux__parameterized0 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1776.961 ; gain = 843.625
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1777.766 ; gain = 841.445
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1776.961 ; gain = 843.625
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1777.766 ; gain = 841.445
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1776.961 ; gain = 843.625
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1777.766 ; gain = 841.445
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.082 . Memory (MB): peak = 1776.961 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 1781.051 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 25 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Finished Parsing XDC File [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc] for cell 'main_i/clk_wiz_0/inst'
+Parsing XDC File [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+Finished Parsing XDC File [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc] for cell 'main_i/clk_wiz_0/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/main_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
 Parsing XDC File [O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
 Finished Parsing XDC File [O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/main_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1858.391 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1884.250 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1858.391 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 1884.250 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/clk_wiz_0/inst. (constraint file  O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/dont_touch.xdc, line 90).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/Pipelining_Controller_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/ProgramCounter_0. (constraint file  auto generated constraint).
@@ -492,6 +536,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for main_i/clockcontroller_0. (constr
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/mmu_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/mmio_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/vram_bram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for main_i/clk_wiz_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/Debugger_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/RX_UART_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/TX_UART_0. (constraint file  auto generated constraint).
@@ -499,7 +544,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for main_i/VGA_CPU_Bridge_0. (constra
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/GPU_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for main_i/VGA_Controller_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Debugger'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'TX_UART'
@@ -553,7 +598,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'TX_UART'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -581,7 +626,7 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 11    
 	                3 Bit    Registers := 4     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 43    
+	                1 Bit    Registers := 42    
 +---Muxes : 
 	   2 Input   17 Bit        Muxes := 2     
 	   4 Input   16 Bit        Muxes := 4     
@@ -608,7 +653,7 @@ Detailed RTL Component Info :
 	   5 Input    2 Bit        Muxes := 3     
 	   3 Input    2 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 42    
+	   2 Input    1 Bit        Muxes := 43    
 	  27 Input    1 Bit        Muxes := 21    
 	  16 Input    1 Bit        Muxes := 19    
 	  13 Input    1 Bit        Muxes := 3     
@@ -638,7 +683,7 @@ DSP Report: operator ALU_OUT_Internal0 is absorbed into DSP ALU_OUT_Internal0.
 DSP Report: Generating DSP ALU_OUT_Internal0, operation Mode is: A*B.
 DSP Report: operator ALU_OUT_Internal0 is absorbed into DSP ALU_OUT_Internal0.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
  Sort Area is  ALU_OUT_Internal0_0 : 0 0 : 1937 1937 : Used 1 time 100
  Sort Area is  ALU_OUT_Internal0_2 : 0 0 : 116 116 : Used 1 time 100
@@ -683,13 +728,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -710,7 +755,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -728,37 +773,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -781,50 +826,51 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+----------+------+
-|      |Cell      |Count |
-+------+----------+------+
-|1     |BUFG      |     8|
-|2     |CARRY4    |     8|
-|3     |DSP48E1   |     3|
-|5     |LUT1      |     6|
-|6     |LUT2      |    77|
-|7     |LUT3      |   440|
-|8     |LUT4      |   169|
-|9     |LUT5      |   255|
-|10    |LUT6      |  1542|
-|11    |RAM256X1S |   256|
-|12    |RAMB36E1  |    24|
-|13    |FDCE      |   203|
-|14    |FDPE      |     1|
-|15    |FDRE      |  5601|
-|16    |FDSE      |     1|
-|17    |IBUF      |     3|
-|18    |OBUF      |    17|
-+------+----------+------+
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |    11|
+|2     |CARRY4     |     8|
+|3     |DSP48E1    |     3|
+|5     |LUT1       |     5|
+|6     |LUT2       |   154|
+|7     |LUT3       |   439|
+|8     |LUT4       |   235|
+|9     |LUT5       |   251|
+|10    |LUT6       |  1427|
+|11    |MMCME2_ADV |     1|
+|12    |RAM256X1S  |   256|
+|13    |RAMB36E1   |    24|
+|14    |FDCE       |   203|
+|15    |FDPE       |     1|
+|16    |FDRE       |  5600|
+|17    |FDSE       |     1|
+|18    |IBUF       |     3|
+|19    |OBUF       |    17|
++------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1884.250 ; gain = 947.930
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 198 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:42 . Memory (MB): peak = 1858.391 ; gain = 843.625
-Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1858.391 ; gain = 925.055
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:42 . Memory (MB): peak = 1884.250 ; gain = 841.445
+Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1884.250 ; gain = 947.930
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1858.391 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 291 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1884.250 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 292 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1858.391 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1884.250 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 256 instances were transformed.
   RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 256 instances
 
-Synth Design complete | Checksum: 10864318
+Synth Design complete | Checksum: 19dd5e76
 INFO: [Common 17-83] Releasing license: Synthesis
-213 Infos, 124 Warnings, 0 Critical Warnings and 0 Errors encountered.
+229 Infos, 124 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1858.391 ; gain = 1326.496
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1858.391 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1884.250 ; gain = 1352.652
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1884.250 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file main_wrapper_utilization_synth.rpt -pb main_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 24 15:46:45 2024...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 24 15:09:27 2024...
