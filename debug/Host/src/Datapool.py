@@ -1,6 +1,9 @@
 class Datapool:
     def __init__(self):
         self.data = {
+            b"\x00": {'Name': "hold_clk"},
+            b"\x01": {'Name': "count_one_cycle"},
+            b"\x02": {'Name': "resume_clk"},
             b"\x10": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_stalled"},
             b"\x11": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_instruction_forwarding_config"},
             b"\x12": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_current_instruction"},
@@ -11,8 +14,11 @@ class Datapool:
             b"\x20": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pc_din"},
             b"\x21": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pc_dout"},
             b"\x22": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pc_current_addr"},
-            b"\x30": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "Idle"},
-            b"\x31": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "Idle"},
+            b"\x30": {'Name': "write_gram"},
+            b"\x31": {'Name': "write_iram"},
+            b"\x32": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'data_2_high': b'\x00', 'data_2_low': b'\x00', 'Name': "read_memory"},
+            b"\x33": {'Name': "write_vram"},
+            b"\x34": {'Name': "write_mmio"},
             b"\x40": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "alu_din1"},
             b"\x41": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "alu_din2"},
             b"\x42": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "alu_out"},
