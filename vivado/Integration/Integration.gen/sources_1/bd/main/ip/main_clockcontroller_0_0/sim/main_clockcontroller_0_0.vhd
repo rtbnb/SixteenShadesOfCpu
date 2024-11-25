@@ -55,7 +55,9 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_clockcontroller_0_0 IS
   PORT (
+    clk50mhz_in : IN STD_LOGIC;
     clk100mhz_in : IN STD_LOGIC;
+    wizard_locked : IN STD_LOGIC;
     fault_reset : IN STD_LOGIC;
     debug_reset : IN STD_LOGIC;
     debug_enable : IN STD_LOGIC;
@@ -63,6 +65,7 @@ ENTITY main_clockcontroller_0_0 IS
     debug_mmu_override_enbale : IN STD_LOGIC;
     load_clk : OUT STD_LOGIC;
     exec_clk : OUT STD_LOGIC;
+    vga_clk : OUT STD_LOGIC;
     debug_clk : OUT STD_LOGIC;
     ck_stable : OUT STD_LOGIC
   );
@@ -73,7 +76,9 @@ ARCHITECTURE main_clockcontroller_0_0_arch OF main_clockcontroller_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_clockcontroller_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT clockcontroller IS
     PORT (
+      clk50mhz_in : IN STD_LOGIC;
       clk100mhz_in : IN STD_LOGIC;
+      wizard_locked : IN STD_LOGIC;
       fault_reset : IN STD_LOGIC;
       debug_reset : IN STD_LOGIC;
       debug_enable : IN STD_LOGIC;
@@ -81,6 +86,7 @@ ARCHITECTURE main_clockcontroller_0_0_arch OF main_clockcontroller_0_0 IS
       debug_mmu_override_enbale : IN STD_LOGIC;
       load_clk : OUT STD_LOGIC;
       exec_clk : OUT STD_LOGIC;
+      vga_clk : OUT STD_LOGIC;
       debug_clk : OUT STD_LOGIC;
       ck_stable : OUT STD_LOGIC
     );
@@ -99,10 +105,14 @@ ARCHITECTURE main_clockcontroller_0_0_arch OF main_clockcontroller_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF fault_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 fault_reset RST";
   ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF load_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 load_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF vga_clk: SIGNAL IS "XIL_INTERFACENAME vga_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_vga_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF vga_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 vga_clk CLK";
 BEGIN
   U0 : clockcontroller
     PORT MAP (
+      clk50mhz_in => clk50mhz_in,
       clk100mhz_in => clk100mhz_in,
+      wizard_locked => wizard_locked,
       fault_reset => fault_reset,
       debug_reset => debug_reset,
       debug_enable => debug_enable,
@@ -110,6 +120,7 @@ BEGIN
       debug_mmu_override_enbale => debug_mmu_override_enbale,
       load_clk => load_clk,
       exec_clk => exec_clk,
+      vga_clk => vga_clk,
       debug_clk => debug_clk,
       ck_stable => ck_stable
     );

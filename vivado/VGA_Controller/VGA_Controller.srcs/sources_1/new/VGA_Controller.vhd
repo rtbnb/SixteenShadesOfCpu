@@ -75,10 +75,10 @@ begin
     begin
     if rising_edge(InstrExec_CLK) then
         divider_counter_s <= divider_counter_s + 1;
-        if divider_counter_s = 9 then
+        if divider_counter_s = 4 then
             divider_counter_s <= 0;
             divided_clock_s <= '0';
-        elsif divider_counter_s = 4 then
+        elsif divider_counter_s = 2 then
             divided_clock_s <= '1';
         end if;
     end if;
