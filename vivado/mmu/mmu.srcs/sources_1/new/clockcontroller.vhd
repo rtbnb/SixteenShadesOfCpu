@@ -34,7 +34,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity clockcontroller is
     port(
         clk100mhz_in, fault_reset, debug_reset: in std_logic;
-        debug_enable, debug_mock_clk: in std_logic;
+        debug_enable, debug_mock_clk, debug_mmu_override_enbale: in std_logic;
         load_clk, exec_clk: out std_logic; 
         debug_clk: out std_logic; 
         ck_stable: out std_logic
@@ -52,22 +52,21 @@ architecture Behavioral of clockcontroller is
     signal exec_clk_s: std_logic;
     signal debug_clk_s: std_logic := '0';
 begin
-    output_en_s <= '1' & debug_en_s;
+    output_en_s <= debug_en_s & debug_mmu_override_enbale;
     ck_stable <= '1';
-    
     
     debug_clk <= debug_clk_s;
     
     with output_en_s select
-        load_clk <= clk100mhz_in when "10",
-                    debug_mock_clk when "11",
-                    '0' when "00",
+        load_clk <= clk100mhz_in when "00",
+                    debug_mock_clk when "10",
+                    '0' when "11",
                     '0' when "01",
                     '0' when others;
     with output_en_s select
         exec_clk_s <= not clk100mhz_in when "10",
-                    not debug_mock_clk when "11",
-                    '0' when "00",
+                    not debug_mock_clk when "10",
+                    '0' when "11",
                     '0' when "01",
                     '0' when others;    
     exec_clk <= exec_clk_s;
