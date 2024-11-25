@@ -6,6 +6,7 @@ from queue import Queue
 from PySide6 import QtCore, QtWidgets, QtGui
 import sys
 from DebugWindow import DebugWindow
+import struct
 
 
 rx_data_datapool: Datapool.Datapool = Datapool.Datapool()
@@ -14,6 +15,11 @@ rx_data_datapool: Datapool.Datapool = Datapool.Datapool()
 def process_command(rx_data: bytes, byte_counter, command_instruction: bytes, debugWindow: DebugWindow):
     if byte_counter == 0:
         command_instruction = rx_data
+        try:
+            rx_data_datapool.get_data(command_instruction, "data_1_high")
+        except KeyError:
+            debugWindow.update_table(rx_data_datapool)
+            return (0, b'\x00')
     elif byte_counter == 1:
         rx_data_datapool.set_data(command_instruction, data_1_high=rx_data)
     elif byte_counter == 2:
@@ -43,12 +49,32 @@ def rx(ser: serial.Serial, debugWindow: DebugWindow):
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
 
 def rx_no_loop(ser: serial.Serial, debugWindow: DebugWindow):
-    rx_Data = 0
+    rx_data = 0
     byte_counter = 0
     command_instruction: bytes = 0
-    while ser.in_waiting > 0:
+    ser.timeout = 10
+
+    # fetch instruction
+    rx_data = ser.read()
+    print(f"Received: {rx_data}")
+    (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+    if not (byte_counter == 0):
         rx_data = ser.read()
+        print(f"Received: {rx_data}")
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+        rx_data = ser.read()
+        print(f"Received: {rx_data}")
+        (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+    
+    if not (byte_counter == 0):
+        rx_data = ser.read()
+        print(f"Received: {rx_data}")
+        (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+        rx_data = ser.read()
+        print(f"Received: {rx_data}")
+        (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+
+
 
 def tx(ser: serial.Serial, debugWindow: DebugWindow):
     # input for debug command
@@ -69,6 +95,7 @@ def tx(ser: serial.Serial, debugWindow: DebugWindow):
 def main():
     fpga_serial = serial.Serial('COM4', 921600)
     #fpga_serial.open()
+    print(fpga_serial.get_settings())
 
     app = QtWidgets.QApplication([])
     widget = DebugWindow(rx_data_datapool)

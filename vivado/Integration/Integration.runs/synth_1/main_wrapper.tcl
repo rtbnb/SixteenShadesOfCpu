@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.tcl"
+  variable script "O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,6 +56,7 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 5
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
 
@@ -63,49 +64,46 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.cache/wt [current_project]
-set_property parent.project_path C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+set_property webtalk.parent_dir O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.cache/wt [current_project]
+set_property parent.project_path O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.xpr [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.cache/ip [current_project]
+set_property ip_output_repo o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/ProgramCounter.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/FlagUnpacker.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_WriteBackStage.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU_FLAG_PACKER.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmu.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmio.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_CPU_Bridge.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/GPU.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd
-  C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_Decoder.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Decoder.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Controller.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/ProgramCounter.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/RegisterFile/RegFile.srcs/sources_1/new/RegFile.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_Forwarder.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_ExecutionStage.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_RAMAddressController.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_ImmediateManipulator.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpDestinationSelector.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/FlagUnpacker.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_JumpController.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteSelector.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/Pipelining/Pipelining.srcs/sources_1/new/Pipelining_WriteBackStage.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/ALU_Testing/ALU_Testing.srcs/sources_1/new/ALU_FLAG_PACKER.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/clockcontroller.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmu.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/mmu/mmu.srcs/sources_1/new/mmio.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/Debugger.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/RX_UART.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/debug/FPGA/Debugger.srcs/sources_1/new/TX_UART.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_CPU_Bridge.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/GPU.vhd
+  O:/Entwicklung/SixteenShadesOfCpu/vivado/VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd
+  o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
 }
-add_files C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd
-set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc]
+add_files O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd
+set_property used_in_implementation false [get_files -all o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -116,14 +114,14 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc
-set_property used_in_implementation false [get_files C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
+read_xdc O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc
+set_property used_in_implementation false [get_files O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/constrs_1/new/main.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp
+read_checkpoint -auto_incremental -incremental O:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/utils_1/imports/synth_1/Pipelining_Controller.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
