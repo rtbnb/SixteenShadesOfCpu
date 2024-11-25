@@ -56,22 +56,22 @@ def rx_no_loop(ser: serial.Serial, debugWindow: DebugWindow):
 
     # fetch instruction
     rx_data = ser.read()
-    print(f"Received: {rx_data}")
+    print(f"Received: {format(ord(rx_data), '02x')}")
     (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
     if not (byte_counter == 0):
         rx_data = ser.read()
-        print(f"Received: {rx_data}")
+        print(f"Received: {format(ord(rx_data), '02x')}")
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
         rx_data = ser.read()
-        print(f"Received: {rx_data}")
+        print(f"Received: {format(ord(rx_data), '02x')}")
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
     
     if not (byte_counter == 0):
         rx_data = ser.read()
-        print(f"Received: {rx_data}")
+        print(f"Received: {format(ord(rx_data), '02x')}")
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
         rx_data = ser.read()
-        print(f"Received: {rx_data}")
+        print(f"Received: {format(ord(rx_data), '02x')}")
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
 
 
