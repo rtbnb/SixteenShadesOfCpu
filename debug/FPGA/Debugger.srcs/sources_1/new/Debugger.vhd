@@ -504,7 +504,7 @@ begin
                     end if;
                 when TransmitDataAddrLOW =>
                     if (tx_data_sended = '1') then
-                        tx_data <= tx_addr_buffer(15 downto 8);
+                        tx_data <= tx_addr_buffer(7 downto 0);
                         tx_data_valid <= '1';
                         state <= ResetTX;
                     else
