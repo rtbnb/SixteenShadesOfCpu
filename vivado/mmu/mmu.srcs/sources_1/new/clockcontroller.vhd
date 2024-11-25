@@ -33,60 +33,49 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity clockcontroller is
     port(
-        clk100mhz_in, fault_reset, debug_reset: in std_logic;
+        clk50mhz_in, clk100mhz_in, wizard_locked, fault_reset, debug_reset: in std_logic;
         debug_enable, debug_mock_clk, debug_mmu_override_enbale: in std_logic;
-        load_clk, exec_clk: out std_logic; 
+        load_clk, exec_clk, vga_clk: out std_logic; 
         debug_clk: out std_logic; 
         ck_stable: out std_logic
     );
 end clockcontroller;
 
 architecture Behavioral of clockcontroller is
-    attribute port100mhz_attr: string;
-    attribute port100mhz_attr of load_clk : signal is "FREQ_HZ=100000000";
-    
-    signal output_en_s: std_logic_vector( 1 downto 0 );
+    signal output_en_s: std_logic_vector( 2 downto 0 );
     signal fault_s: std_logic := '0';
     signal debug_en_s: std_logic := '1';
-    
-    signal exec_clk_s: std_logic;
-    signal debug_clk_s: std_logic := '0';
 begin
-    output_en_s <= debug_en_s & debug_mmu_override_enbale;
-    ck_stable <= '1';
-
-    debug_clk <= debug_clk_s;
+    output_en_s <= wizard_locked & debug_en_s & debug_mmu_override_enbale;
+    ck_stable <= wizard_locked;
     
     with output_en_s select
-        load_clk <= clk100mhz_in when "00",
-                    debug_mock_clk when "10",
-                    '0' when "11",
-                    '0' when "01",
+        load_clk <= clk50mhz_in when "100",
+                    debug_mock_clk when "111",
                     '0' when others;
     with output_en_s select
-        exec_clk_s <= not clk100mhz_in when "10",
-                    not debug_mock_clk when "10",
-                    '0' when "11",
-                    '0' when "01",
+        exec_clk <= not clk50mhz_in when "100",
+                    not debug_mock_clk when "111",
                     '0' when others;    
-    exec_clk <= exec_clk_s;
+                                    
+                    
+    with wizard_locked select
+        vga_clk <= clk50mhz_in when '1',
+                   '0' when others;
+    with wizard_locked select
+        debug_clk <= clk50mhz_in when '1',
+                     '0' when others;
     
-    debug_state:process(clk100mhz_in)
+                        
+    debug_state:process(clk50mhz_in) is
     begin
-        if rising_edge(clk100mhz_in) then
+        if rising_edge(clk50mhz_in) then
             if debug_enable='0' and debug_reset='1' then
                 debug_en_s <= '0';
             elsif debug_enable='1' then
                 debug_en_s <= '1';
             end if;
         end if;
-    end process;
-    
-    debug_clk_gen:process(clk100mhz_in)
-    begin
-        if rising_edge(clk100mhz_in) then
-            debug_clk_s <= not debug_clk_s;        
-        end if;
-    end process;
+    end process debug_state;
     
 end Behavioral;

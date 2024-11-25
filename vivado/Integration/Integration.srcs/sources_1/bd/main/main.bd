@@ -35,7 +35,8 @@
       "TX_UART_0": "",
       "VGA_CPU_Bridge_0": "",
       "GPU_0": "",
-      "VGA_Controller_0": ""
+      "VGA_Controller_0": "",
+      "clk_wiz_0": ""
     },
     "ports": {
       "Reset": {
@@ -1066,22 +1067,42 @@
           "boundary_crc": "0x0"
         },
         "ports": {
+          "clk50mhz_in": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
           "clk100mhz_in": {
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
                 "value": "100000000",
-                "value_src": "user_prop"
+                "value_src": "ip_prop"
               },
               "PHASE": {
                 "value": "0.0",
-                "value_src": "default_prop"
+                "value_src": "ip_prop"
               },
               "CLK_DOMAIN": {
-                "value": "main_clk100mhz_in",
-                "value_src": "default_prop"
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
               }
             }
+          },
+          "wizard_locked": {
+            "direction": "I"
           },
           "fault_reset": {
             "type": "rst",
@@ -1112,6 +1133,10 @@
             "direction": "O"
           },
           "exec_clk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "vga_clk": {
             "type": "clk",
             "direction": "O"
           },
@@ -1912,7 +1937,7 @@
             "direction": "I",
             "parameters": {
               "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_exec_clk",
+                "value": "main_clockcontroller_0_0_vga_clk",
                 "value_src": "default_prop"
               }
             }
@@ -1954,6 +1979,99 @@
           "VRAM_Clk": {
             "type": "clk",
             "direction": "O"
+          }
+        }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "ip_revision": "14",
+        "xci_name": "main_clk_wiz_0_0",
+        "xci_path": "ip\\main_clk_wiz_0_0\\main_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLKOUT1_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "108.951"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "76.967"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "50.000"
+          },
+          "CLKOUT2_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "96.283"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "76.967"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "CLKOUT3_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT3_JITTER": {
+            "value": "130.958"
+          },
+          "CLKOUT3_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT3_USED": {
+            "value": "false"
+          },
+          "CLKOUT4_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT5_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT6_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT7_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "cpu50mhz"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "vga100mhz"
+          },
+          "JITTER_SEL": {
+            "value": "Min_O_Jitter"
+          },
+          "MMCM_BANDWIDTH": {
+            "value": "HIGH"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "15"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "30"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "15"
+          },
+          "MMCM_CLKOUT2_DIVIDE": {
+            "value": "1"
+          },
+          "MMCM_COMPENSATION": {
+            "value": "ZHOLD"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "2"
+          },
+          "PRIMITIVE": {
+            "value": "PLL"
+          },
+          "USE_RESET": {
+            "value": "false"
           }
         }
       }
@@ -2266,8 +2384,8 @@
           "GPU_0/InstrLoad_CLK",
           "Pipelining_WriteBack_0/InstrLoad_CLK",
           "Pipelining_Execution_0/InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK",
-          "ProgramCounter_0/InstrLoad_CLK"
+          "ProgramCounter_0/InstrLoad_CLK",
+          "Pipelining_Controller_0/InstrLoad_CLK"
         ]
       },
       "Net": {
@@ -2545,8 +2663,8 @@
           "Pipelining_WriteBack_0/Reset",
           "VGA_CPU_Bridge_0/Reset",
           "Pipelining_Execution_0/Reset",
-          "Pipelining_Controller_0/Reset",
-          "ProgramCounter_0/Reset"
+          "ProgramCounter_0/Reset",
+          "Pipelining_Controller_0/Reset"
         ]
       },
       "TX_UART_0_send_valid": {
@@ -2660,6 +2778,24 @@
       "clk100mhz_in_1": {
         "ports": [
           "clk100mhz_in",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "clk_wiz_0_cpu50mhz": {
+        "ports": [
+          "clk_wiz_0/cpu50mhz",
+          "clockcontroller_0/clk50mhz_in"
+        ]
+      },
+      "clk_wiz_0_locked": {
+        "ports": [
+          "clk_wiz_0/locked",
+          "clockcontroller_0/wizard_locked"
+        ]
+      },
+      "clk_wiz_0_vga100mhz": {
+        "ports": [
+          "clk_wiz_0/vga100mhz",
           "clockcontroller_0/clk100mhz_in"
         ]
       },
@@ -2675,11 +2811,16 @@
           "CU_JumpController_0/InstrExec_CLK",
           "GPU_0/InstrExec_CLK",
           "VGA_CPU_Bridge_0/InstrExec_CLK",
-          "VGA_Controller_0/InstrExec_CLK",
           "mmu_0/exec_clk",
           "RegFile_0/clk",
-          "Pipelining_Controller_0/InstrExec_CLK",
-          "ProgramCounter_0/InstrExec_CLK"
+          "ProgramCounter_0/InstrExec_CLK",
+          "Pipelining_Controller_0/InstrExec_CLK"
+        ]
+      },
+      "clockcontroller_0_vga_clk": {
+        "ports": [
+          "clockcontroller_0/vga_clk",
+          "VGA_Controller_0/InstrExec_CLK"
         ]
       },
       "fault_reset_1": {

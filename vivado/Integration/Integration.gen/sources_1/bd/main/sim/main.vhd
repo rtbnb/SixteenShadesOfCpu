@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Mon Nov 25 01:16:14 2024
---Host        : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
+--Date        : Mon Nov 25 19:56:35 2024
+--Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -35,7 +35,7 @@ entity main is
     v_sync : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=25,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=26,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of main : entity is "main.hwdef";
 end main;
@@ -264,7 +264,9 @@ architecture STRUCTURE of main is
   end component main_ALU_FLAG_PACKER_0_1;
   component main_clockcontroller_0_0 is
   port (
+    clk50mhz_in : in STD_LOGIC;
     clk100mhz_in : in STD_LOGIC;
+    wizard_locked : in STD_LOGIC;
     fault_reset : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
     debug_enable : in STD_LOGIC;
@@ -272,6 +274,7 @@ architecture STRUCTURE of main is
     debug_mmu_override_enbale : in STD_LOGIC;
     load_clk : out STD_LOGIC;
     exec_clk : out STD_LOGIC;
+    vga_clk : out STD_LOGIC;
     debug_clk : out STD_LOGIC;
     ck_stable : out STD_LOGIC
   );
@@ -459,6 +462,14 @@ architecture STRUCTURE of main is
     VRAM_Clk : out STD_LOGIC
   );
   end component main_VGA_Controller_0_0;
+  component main_clk_wiz_0_0 is
+  port (
+    clk_in1 : in STD_LOGIC;
+    locked : out STD_LOGIC;
+    cpu50mhz : out STD_LOGIC;
+    vga100mhz : out STD_LOGIC
+  );
+  end component main_clk_wiz_0_0;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ALU_0_BIGGER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_CARRY_FLAG : STD_LOGIC;
@@ -565,8 +576,12 @@ architecture STRUCTURE of main is
   signal btn2_1 : STD_LOGIC;
   signal btn3_1 : STD_LOGIC;
   signal clk100mhz_in_1 : STD_LOGIC;
+  signal clk_wiz_0_cpu50mhz : STD_LOGIC;
+  signal clk_wiz_0_locked : STD_LOGIC;
+  signal clk_wiz_0_vga100mhz : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_exec_clk : STD_LOGIC;
+  signal clockcontroller_0_vga_clk : STD_LOGIC;
   signal fault_reset_1 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_0_led0 : STD_LOGIC;
@@ -922,7 +937,7 @@ VGA_CPU_Bridge_0: component main_VGA_CPU_Bridge_0_0
     );
 VGA_Controller_0: component main_VGA_Controller_0_0
      port map (
-      InstrExec_CLK => clockcontroller_0_exec_clk,
+      InstrExec_CLK => clockcontroller_0_vga_clk,
       VRAM_Addr(15 downto 0) => VGA_Controller_0_VRAM_Addr(15 downto 0),
       VRAM_Clk => VGA_Controller_0_VRAM_Clk,
       VRAM_Data(15 downto 12) => B"0000",
@@ -934,10 +949,18 @@ VGA_Controller_0: component main_VGA_Controller_0_0
       r(3 downto 0) => VGA_Controller_0_r(3 downto 0),
       v_sync => VGA_Controller_0_v_sync
     );
+clk_wiz_0: component main_clk_wiz_0_0
+     port map (
+      clk_in1 => clk100mhz_in_1,
+      cpu50mhz => clk_wiz_0_cpu50mhz,
+      locked => clk_wiz_0_locked,
+      vga100mhz => clk_wiz_0_vga100mhz
+    );
 clockcontroller_0: component main_clockcontroller_0_0
      port map (
       ck_stable => clockcontroller_0_ck_stable,
-      clk100mhz_in => clk100mhz_in_1,
+      clk100mhz_in => clk_wiz_0_vga100mhz,
+      clk50mhz_in => clk_wiz_0_cpu50mhz,
       debug_clk => Net,
       debug_enable => Debugger_0_debug_enable,
       debug_mmu_override_enbale => Debugger_0_mmu_debug_override_en,
@@ -945,7 +968,9 @@ clockcontroller_0: component main_clockcontroller_0_0
       debug_reset => Debugger_0_cc_debug_reset,
       exec_clk => clockcontroller_0_exec_clk,
       fault_reset => fault_reset_1,
-      load_clk => InstrLoad_CLK_1
+      load_clk => InstrLoad_CLK_1,
+      vga_clk => clockcontroller_0_vga_clk,
+      wizard_locked => clk_wiz_0_locked
     );
 mmio_0: component main_mmio_0_0
      port map (
