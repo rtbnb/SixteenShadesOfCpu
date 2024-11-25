@@ -61,7 +61,7 @@ ENTITY main_Pipelining_Controller_0_0 IS
     Instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     ResolveStall : IN STD_LOGIC;
     Stalled : OUT STD_LOGIC;
-    InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+    InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_enable : IN STD_LOGIC;
     debug_override_enable : IN STD_LOGIC
@@ -79,7 +79,7 @@ ARCHITECTURE main_Pipelining_Controller_0_0_arch OF main_Pipelining_Controller_0
       Instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       ResolveStall : IN STD_LOGIC;
       Stalled : OUT STD_LOGIC;
-      InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+      InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_enable : IN STD_LOGIC;
       debug_override_enable : IN STD_LOGIC

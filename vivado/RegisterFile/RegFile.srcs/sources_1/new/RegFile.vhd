@@ -44,7 +44,6 @@ entity RegFile is
 
         Reg1_data: out std_logic_vector(15 downto 0);
         Reg2_data: out std_logic_vector(15 downto 0);
-        RegMA_data: out std_logic_vector(15 downto 0);
         BankID: out std_logic_vector(3 downto 0)
     );
 end entity RegFile;
@@ -52,7 +51,6 @@ end entity RegFile;
 architecture Behavioral of RegFile is
     signal Reg0, Reg1, Reg2, Reg3, Reg4, Reg5, Reg6, Reg7, Reg8, Reg9, RegA, RegB, RegC, RegD, RegE, RegF: std_logic_vector(15 downto 0) := (others => '0');
 begin
-    RegMA_data <= RegA;
     BankID <= RegB(3 downto 0);
 
     -- Select data for addrreg1

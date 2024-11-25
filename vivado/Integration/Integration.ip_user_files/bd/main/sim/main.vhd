@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Sun Nov 24 21:42:12 2024
+--Date        : Mon Nov 25 01:16:14 2024
 --Host        : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
@@ -18,12 +18,19 @@ entity main is
     Reset : in STD_LOGIC;
     TX_UART_OUT : out STD_LOGIC;
     b : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    btn0 : in STD_LOGIC;
+    btn1 : in STD_LOGIC;
+    btn2 : in STD_LOGIC;
+    btn3 : in STD_LOGIC;
     clk100mhz_in : in STD_LOGIC;
     fault_reset : in STD_LOGIC;
     g : out STD_LOGIC_VECTOR ( 3 downto 0 );
     h_sync : out STD_LOGIC;
     ioe : out STD_LOGIC;
-    led : out STD_LOGIC;
+    led0 : out STD_LOGIC;
+    led1 : out STD_LOGIC;
+    led2 : out STD_LOGIC;
+    led3 : out STD_LOGIC;
     r : out STD_LOGIC_VECTOR ( 3 downto 0 );
     v_sync : out STD_LOGIC
   );
@@ -42,7 +49,7 @@ architecture STRUCTURE of main is
     Instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
     ResolveStall : in STD_LOGIC;
     Stalled : out STD_LOGIC;
-    InstructionForwardConfiguration : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    InstructionForwardConfiguration : out STD_LOGIC_VECTOR ( 3 downto 0 );
     InstructionToExecute : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_enable : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC
@@ -86,8 +93,7 @@ architecture STRUCTURE of main is
     Register2 : out STD_LOGIC_VECTOR ( 3 downto 0 );
     WriteBackRegister : out STD_LOGIC_VECTOR ( 3 downto 0 );
     Immediate : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    JMP_Condition : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    Use_MA : out STD_LOGIC
+    JMP_Condition : out STD_LOGIC_VECTOR ( 2 downto 0 )
   );
   end component main_Decoder_0_0;
   component main_RegFile_0_0 is
@@ -102,7 +108,6 @@ architecture STRUCTURE of main is
     clk : in STD_LOGIC;
     Reg1_data : out STD_LOGIC_VECTOR ( 15 downto 0 );
     Reg2_data : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    RegMA_data : out STD_LOGIC_VECTOR ( 15 downto 0 );
     BankID : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component main_RegFile_0_0;
@@ -110,13 +115,11 @@ architecture STRUCTURE of main is
   port (
     CurrentOperand1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     CurrentOperand2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    CurrentMA : in STD_LOGIC_VECTOR ( 15 downto 0 );
     ExecutionWriteData : in STD_LOGIC_VECTOR ( 15 downto 0 );
     ExecutionFlags : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    ForwardingConfiguration : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    ForwardingConfiguration : in STD_LOGIC_VECTOR ( 3 downto 0 );
     ForwardedOperand1 : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    ForwardedOperand2 : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    ForwardedMA : out STD_LOGIC_VECTOR ( 15 downto 0 )
+    ForwardedOperand2 : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_Pipelining_Forwarder_0_0;
   component main_Pipelining_Execution_0_0 is
@@ -126,7 +129,6 @@ architecture STRUCTURE of main is
     Operand1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     Operand2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     Immediate : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    MA : in STD_LOGIC_VECTOR ( 15 downto 0 );
     WriteAddress : in STD_LOGIC_VECTOR ( 3 downto 0 );
     WHB : in STD_LOGIC;
     WLB : in STD_LOGIC;
@@ -135,7 +137,6 @@ architecture STRUCTURE of main is
     RAM_Read : in STD_LOGIC;
     RAM_Write : in STD_LOGIC;
     RAM_BankID : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    Use_MA : in STD_LOGIC;
     JMP : in STD_LOGIC;
     JMP_Conditional : in STD_LOGIC;
     JMP_Relative : in STD_LOGIC;
@@ -147,7 +148,6 @@ architecture STRUCTURE of main is
     Operand1_out : out STD_LOGIC_VECTOR ( 15 downto 0 );
     Operand2_out : out STD_LOGIC_VECTOR ( 15 downto 0 );
     Immediate_out : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    MA_out : out STD_LOGIC_VECTOR ( 15 downto 0 );
     WriteAddress_out : out STD_LOGIC_VECTOR ( 3 downto 0 );
     WHB_out : out STD_LOGIC;
     WLB_out : out STD_LOGIC;
@@ -156,7 +156,6 @@ architecture STRUCTURE of main is
     RAM_Read_out : out STD_LOGIC;
     RAM_Write_out : out STD_LOGIC;
     RAM_BankID_out : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    Use_MA_out : out STD_LOGIC;
     JMP_out : out STD_LOGIC;
     JMP_Conditional_out : out STD_LOGIC;
     JMP_Relative_out : out STD_LOGIC;
@@ -171,9 +170,7 @@ architecture STRUCTURE of main is
   port (
     Reg2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     Immediate : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    MA : in STD_LOGIC_VECTOR ( 15 downto 0 );
     RAM_Address_Src : in STD_LOGIC;
-    Use_MA : in STD_LOGIC;
     RAM_Address : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_CU_RAMAddressControl_0_0;
@@ -472,6 +469,7 @@ architecture STRUCTURE of main is
   signal ALU_0_ZERO_FLAG : STD_LOGIC;
   signal ALU_FLAG_PACKER_0_ALU_FLAGS : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal CU_Decoder_0_Is_ALU_OP : STD_LOGIC;
+  signal CU_Decoder_0_Is_GPU_OP : STD_LOGIC;
   signal CU_Decoder_0_Is_RAM_OP : STD_LOGIC;
   signal CU_Decoder_0_JMP : STD_LOGIC;
   signal CU_Decoder_0_JMP_Conditional : STD_LOGIC;
@@ -504,7 +502,6 @@ architecture STRUCTURE of main is
   signal Decoder_0_JMP_Condition : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal Decoder_0_Register1 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Decoder_0_Register2 : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal Decoder_0_Use_MA : STD_LOGIC;
   signal Decoder_0_WriteBackRegister : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal GPU_0_VRAM_Addr : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal GPU_0_VRAM_CLK : STD_LOGIC;
@@ -512,11 +509,12 @@ architecture STRUCTURE of main is
   signal GPU_0_VRAM_WE : STD_LOGIC_VECTOR ( 0 to 0 );
   signal InstrLoad_CLK_1 : STD_LOGIC;
   signal Net : STD_LOGIC;
-  signal Pipelining_Controller_0_InstructionForwardConfiguration : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal Pipelining_Controller_0_InstructionForwardConfiguration : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Pipelining_Controller_0_InstructionToExecute : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Controller_0_Stalled : STD_LOGIC;
   signal Pipelining_Execution_0_IS_ALU_OP_out : STD_LOGIC;
   signal Pipelining_Execution_0_Immediate_out : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal Pipelining_Execution_0_Is_GPU_OP_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_Condition_out : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal Pipelining_Execution_0_JMP_Conditional_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_DestinationSelect_out : STD_LOGIC;
@@ -532,7 +530,6 @@ architecture STRUCTURE of main is
   signal Pipelining_Execution_0_WLB_out : STD_LOGIC;
   signal Pipelining_Execution_0_WriteAddress_out : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Pipelining_Execution_0_WriteDataSel_out : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal Pipelining_Forwarder_0_ForwardedMA : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Forwarder_0_ForwardedOperand1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Forwarder_0_ForwardedOperand2 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_WriteBack_0_Flags_out : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -548,7 +545,6 @@ architecture STRUCTURE of main is
   signal RegFile_0_BankID : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal RegFile_0_Reg1_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal RegFile_0_Reg2_data : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal RegFile_0_RegMA_data : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Reset_1 : STD_LOGIC;
   signal TX_UART_0_send_valid : STD_LOGIC;
   signal TX_UART_0_tx_output : STD_LOGIC;
@@ -564,11 +560,19 @@ architecture STRUCTURE of main is
   signal VGA_Controller_0_ioe : STD_LOGIC;
   signal VGA_Controller_0_r : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal VGA_Controller_0_v_sync : STD_LOGIC;
+  signal btn0_1 : STD_LOGIC;
+  signal btn1_1 : STD_LOGIC;
+  signal btn2_1 : STD_LOGIC;
+  signal btn3_1 : STD_LOGIC;
   signal clk100mhz_in_1 : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_exec_clk : STD_LOGIC;
   signal fault_reset_1 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal mmio_0_led0 : STD_LOGIC;
+  signal mmio_0_led1 : STD_LOGIC;
+  signal mmio_0_led2 : STD_LOGIC;
+  signal mmio_0_led3 : STD_LOGIC;
   signal mmio_0_rho : STD_LOGIC;
   signal mmu_0_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_gram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -588,17 +592,11 @@ architecture STRUCTURE of main is
   signal mmu_0_vramb_mem_we : STD_LOGIC_VECTOR ( 0 to 0 );
   signal vram_bram_douta : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal vram_bram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal NLW_CU_Decoder_0_Is_GPU_OP_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
-  signal NLW_Pipelining_Execution_0_Is_GPU_OP_out_UNCONNECTED : STD_LOGIC;
+  signal NLW_Debugger_0_pipeline_memory_addr_reg_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_Debugger_0_regfile_regma_data_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_Pipelining_Execution_0_MA_out_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_mmio_0_led0_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_led1_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_led2_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_led3_UNCONNECTED : STD_LOGIC;
   signal NLW_mmu_0_gpu_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
@@ -613,12 +611,19 @@ begin
   Reset_1 <= Reset;
   TX_UART_OUT <= TX_UART_0_tx_output;
   b(3 downto 0) <= VGA_Controller_0_b(3 downto 0);
+  btn0_1 <= btn0;
+  btn1_1 <= btn1;
+  btn2_1 <= btn2;
+  btn3_1 <= btn3;
   clk100mhz_in_1 <= clk100mhz_in;
   fault_reset_1 <= fault_reset;
   g(3 downto 0) <= VGA_Controller_0_g(3 downto 0);
   h_sync <= VGA_Controller_0_h_sync;
   ioe <= VGA_Controller_0_ioe;
-  led <= Pipelining_WriteBack_0_JMP_out;
+  led0 <= mmio_0_led0;
+  led1 <= mmio_0_led1;
+  led2 <= mmio_0_led2;
+  led3 <= mmio_0_led3;
   r(3 downto 0) <= VGA_Controller_0_r(3 downto 0);
   v_sync <= VGA_Controller_0_v_sync;
 ALU_0: component main_ALU_0_0
@@ -651,7 +656,7 @@ CU_Decoder_0: component main_CU_Decoder_0_0
      port map (
       Instruction(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
       Is_ALU_OP => CU_Decoder_0_Is_ALU_OP,
-      Is_GPU_OP => NLW_CU_Decoder_0_Is_GPU_OP_UNCONNECTED,
+      Is_GPU_OP => CU_Decoder_0_Is_GPU_OP,
       Is_RAM_OP => CU_Decoder_0_Is_RAM_OP,
       JMP => CU_Decoder_0_JMP,
       JMP_Conditional => CU_Decoder_0_JMP_Conditional,
@@ -697,11 +702,9 @@ CU_JumpDestinationSe_0: component main_CU_JumpDestinationSe_0_0
 CU_RAMAddressControl_0: component main_CU_RAMAddressControl_0_0
      port map (
       Immediate(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
-      MA(15 downto 0) => B"0000000000000000",
       RAM_Address(15 downto 0) => CU_RAMAddressControl_0_RAM_Address(15 downto 0),
       RAM_Address_Src => Pipelining_Execution_0_RAM_Src_out,
-      Reg2(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
-      Use_MA => '0'
+      Reg2(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0)
     );
 CU_WriteSelector_0: component main_CU_WriteSelector_0_0
      port map (
@@ -735,9 +738,10 @@ Debugger_0: component main_Debugger_0_0
       pc_din(15 downto 0) => CU_JumpController_0_PC_Next(15 downto 0),
       pc_dout(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
       pipeline_current_instruction(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
-      pipeline_instruction_forwarding_config(4 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(4 downto 0),
+      pipeline_instruction_forwarding_config(4) => '0',
+      pipeline_instruction_forwarding_config(3 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(3 downto 0),
       pipeline_jmp => CU_Decoder_0_JMP,
-      pipeline_memory_addr_reg(15 downto 0) => Pipelining_Forwarder_0_ForwardedMA(15 downto 0),
+      pipeline_memory_addr_reg(15 downto 0) => NLW_Debugger_0_pipeline_memory_addr_reg_UNCONNECTED(15 downto 0),
       pipeline_operand_1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
       pipeline_operand_2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),
       pipeline_stalled => Pipelining_Controller_0_Stalled,
@@ -748,7 +752,7 @@ Debugger_0: component main_Debugger_0_0
       regfile_overwrite_flag => Pipelining_WriteBack_0_Is_ALU_OP_out,
       regfile_reg1_data(15 downto 0) => RegFile_0_Reg1_data(15 downto 0),
       regfile_reg2_data(15 downto 0) => RegFile_0_Reg2_data(15 downto 0),
-      regfile_regma_data(15 downto 0) => RegFile_0_RegMA_data(15 downto 0),
+      regfile_regma_data(15 downto 0) => NLW_Debugger_0_regfile_regma_data_UNCONNECTED(15 downto 0),
       regfile_write_data(15 downto 0) => Pipelining_WriteBack_0_WriteData_out(15 downto 0),
       regfile_write_enable => Pipelining_WriteBack_0_RF_WE_out,
       rx_data(7 downto 0) => RX_UART_0_data_output(7 downto 0),
@@ -764,7 +768,6 @@ Decoder_0: component main_Decoder_0_0
       JMP_Condition(2 downto 0) => Decoder_0_JMP_Condition(2 downto 0),
       Register1(3 downto 0) => Decoder_0_Register1(3 downto 0),
       Register2(3 downto 0) => Decoder_0_Register2(3 downto 0),
-      Use_MA => Decoder_0_Use_MA,
       WriteBackRegister(3 downto 0) => Decoder_0_WriteBackRegister(3 downto 0)
     );
 GPU_0: component main_GPU_0_0
@@ -786,7 +789,7 @@ Pipelining_Controller_0: component main_Pipelining_Controller_0_0
       InstrExec_CLK => clockcontroller_0_exec_clk,
       InstrLoad_CLK => InstrLoad_CLK_1,
       Instruction(15 downto 0) => mmu_0_iram_dout(15 downto 0),
-      InstructionForwardConfiguration(4 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(4 downto 0),
+      InstructionForwardConfiguration(3 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(3 downto 0),
       InstructionToExecute(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
       Reset => Reset_1,
       ResolveStall => Pipelining_WriteBack_0_JMP_out,
@@ -801,8 +804,8 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       Immediate_out(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
       InstrLoad_CLK => InstrLoad_CLK_1,
       Is_ALU_OP => CU_Decoder_0_Is_ALU_OP,
-      Is_GPU_OP => '0',
-      Is_GPU_OP_out => NLW_Pipelining_Execution_0_Is_GPU_OP_out_UNCONNECTED,
+      Is_GPU_OP => CU_Decoder_0_Is_GPU_OP,
+      Is_GPU_OP_out => Pipelining_Execution_0_Is_GPU_OP_out,
       Is_RAM_OP => CU_Decoder_0_Is_RAM_OP,
       Is_RAM_OP_out => NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED,
       JMP => CU_Decoder_0_JMP,
@@ -815,8 +818,6 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       JMP_Relative => CU_Decoder_0_JMP_Relative,
       JMP_Relative_out => Pipelining_Execution_0_JMP_Relative_out,
       JMP_out => Pipelining_Execution_0_JMP_out,
-      MA(15 downto 0) => Pipelining_Forwarder_0_ForwardedMA(15 downto 0),
-      MA_out(15 downto 0) => NLW_Pipelining_Execution_0_MA_out_UNCONNECTED(15 downto 0),
       Operand1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
       Operand1_out(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       Operand2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),
@@ -830,8 +831,6 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       RAM_Write => CU_Decoder_0_RAM_Write,
       RAM_Write_out => Pipelining_Execution_0_RAM_Write_out,
       Reset => Reset_1,
-      Use_MA => Decoder_0_Use_MA,
-      Use_MA_out => NLW_Pipelining_Execution_0_Use_MA_out_UNCONNECTED,
       WHB => CU_Decoder_0_RF_WHB,
       WHB_out => Pipelining_Execution_0_WHB_out,
       WLB => CU_Decoder_0_RF_WLB,
@@ -843,15 +842,13 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
     );
 Pipelining_Forwarder_0: component main_Pipelining_Forwarder_0_0
      port map (
-      CurrentMA(15 downto 0) => RegFile_0_RegMA_data(15 downto 0),
       CurrentOperand1(15 downto 0) => RegFile_0_Reg1_data(15 downto 0),
       CurrentOperand2(15 downto 0) => RegFile_0_Reg2_data(15 downto 0),
       ExecutionFlags(15 downto 0) => ALU_FLAG_PACKER_0_ALU_FLAGS(15 downto 0),
       ExecutionWriteData(15 downto 0) => CU_WriteSelector_0_Write_Data(15 downto 0),
-      ForwardedMA(15 downto 0) => Pipelining_Forwarder_0_ForwardedMA(15 downto 0),
       ForwardedOperand1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
       ForwardedOperand2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),
-      ForwardingConfiguration(4 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(4 downto 0)
+      ForwardingConfiguration(3 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(3 downto 0)
     );
 Pipelining_WriteBack_0: component main_Pipelining_WriteBack_0_0
      port map (
@@ -898,7 +895,6 @@ RegFile_0: component main_RegFile_0_0
       OverwriteFl => Pipelining_WriteBack_0_Is_ALU_OP_out,
       Reg1_data(15 downto 0) => RegFile_0_Reg1_data(15 downto 0),
       Reg2_data(15 downto 0) => RegFile_0_Reg2_data(15 downto 0),
-      RegMA_data(15 downto 0) => RegFile_0_RegMA_data(15 downto 0),
       WE => Pipelining_WriteBack_0_RF_WE_out,
       WriteData(15 downto 0) => Pipelining_WriteBack_0_WriteData_out(15 downto 0),
       clk => clockcontroller_0_exec_clk
@@ -916,12 +912,12 @@ VGA_CPU_Bridge_0: component main_VGA_CPU_Bridge_0_0
       Arg1_out(15 downto 0) => VGA_CPU_Bridge_0_Arg1_out(15 downto 0),
       Arg2_out(15 downto 0) => VGA_CPU_Bridge_0_Arg2_out(15 downto 0),
       GPU_Command_out(3 downto 0) => VGA_CPU_Bridge_0_GPU_Command_out(3 downto 0),
-      Immediate_In(15 downto 0) => B"0000000000000000",
+      Immediate_In(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
       InstrExec_CLK => clockcontroller_0_exec_clk,
-      IsGPU_OP => '0',
+      IsGPU_OP => Pipelining_Execution_0_Is_GPU_OP_out,
       IsGPU_OP_out => VGA_CPU_Bridge_0_IsGPU_OP_out,
-      Reg1_In(15 downto 0) => B"0000000000000000",
-      Reg2_In(15 downto 0) => B"0000000000000000",
+      Reg1_In(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
+      Reg2_In(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
       Reset => Reset_1
     );
 VGA_Controller_0: component main_VGA_Controller_0_0
@@ -944,7 +940,7 @@ clockcontroller_0: component main_clockcontroller_0_0
       clk100mhz_in => clk100mhz_in_1,
       debug_clk => Net,
       debug_enable => Debugger_0_debug_enable,
-      debug_mmu_override_enbale => '0',
+      debug_mmu_override_enbale => Debugger_0_mmu_debug_override_en,
       debug_mock_clk => Debugger_0_cc_debug_mock_clk,
       debug_reset => Debugger_0_cc_debug_reset,
       exec_clk => clockcontroller_0_exec_clk,
@@ -954,17 +950,17 @@ clockcontroller_0: component main_clockcontroller_0_0
 mmio_0: component main_mmio_0_0
      port map (
       addr(15 downto 0) => mmu_0_mmio_mem_addr(15 downto 0),
-      btn0 => '0',
-      btn1 => '0',
-      btn2 => '0',
-      btn3 => '0',
+      btn0 => btn0_1,
+      btn1 => btn1_1,
+      btn2 => btn2_1,
+      btn3 => btn3_1,
       clk => mmu_0_mmio_mem_ck,
       din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
       dout(15 downto 0) => mmio_0_dout(15 downto 0),
-      led0 => NLW_mmio_0_led0_UNCONNECTED,
-      led1 => NLW_mmio_0_led1_UNCONNECTED,
-      led2 => NLW_mmio_0_led2_UNCONNECTED,
-      led3 => NLW_mmio_0_led3_UNCONNECTED,
+      led0 => mmio_0_led0,
+      led1 => mmio_0_led1,
+      led2 => mmio_0_led2,
+      led3 => mmio_0_led3,
       rho => mmio_0_rho,
       we => mmu_0_mmio_mem_we
     );

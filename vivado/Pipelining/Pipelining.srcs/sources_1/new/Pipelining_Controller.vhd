@@ -38,7 +38,7 @@ entity Pipelining_Controller is
            Instruction : in STD_LOGIC_VECTOR (15 downto 0);
            ResolveStall : in STD_LOGIC;
            Stalled : out STD_LOGIC;
-           InstructionForwardConfiguration : out STD_LOGIC_VECTOR (4 downto 0);
+           InstructionForwardConfiguration : out STD_LOGIC_VECTOR (3 downto 0);
            InstructionToExecute : out STD_LOGIC_VECTOR (15 downto 0);
            debug_enable, debug_override_enable: in std_logic
        );
@@ -70,8 +70,7 @@ architecture Behavioral of Pipelining_Controller is
            Register2 : out STD_LOGIC_VECTOR(3 downto 0);
            WriteBackRegister : out STD_LOGIC_VECTOR(3 downto 0);
            Immediate : out STD_LOGIC_VECTOR(15 downto 0);
-           JMP_Condition : out STD_LOGIC_VECTOR(2 downto 0);
-           Use_MA : out STD_LOGIC);
+           JMP_Condition : out STD_LOGIC_VECTOR(2 downto 0));
     end component Decoder;
     
     
@@ -80,19 +79,18 @@ architecture Behavioral of Pipelining_Controller is
     signal stall_required : STD_LOGIC;
     
     signal rf_reg_1, rf_reg_2 : STD_LOGIC_VECTOR(3 downto 0);
-    signal rf_reg_1_read, rf_reg_2_read, rf_use_ma, rf_jmp : STD_LOGIC;
+    signal rf_reg_1_read, rf_reg_2_read, rf_jmp : STD_LOGIC;
     
     signal exc_write_reg : STD_LOGIC_VECTOR(3 downto 0);
     signal exc_rf_whb, exc_rf_wlb, exc_alu : STD_LOGIC;
     
-    signal reg_1_reads_flags, reg_2_reads_flags, reg_1_reads_exc_results, reg_2_reads_exc_results, ma_reads_exc_results : boolean;
+    signal reg_1_reads_flags, reg_2_reads_flags, reg_1_reads_exc_results, reg_2_reads_exc_results : boolean;
     signal exc_write : boolean;
-    constant MA : STD_LOGIC_VECTOR(3 downto 0) := X"a";
     constant FL : STD_LOGIC_VECTOR(3 downto 0) := X"f";
     
     signal taking_data : boolean := false;
     
-    signal input_forward, rf_forward, execution_forward, write_back_forward, output_forward : STD_LOGIC_VECTOR(4 downto 0);
+    signal input_forward, rf_forward, execution_forward, write_back_forward, output_forward : STD_LOGIC_VECTOR(3 downto 0);
     
     signal ram_stall: std_logic;
     signal ram_stall_reset: std_logic;
@@ -112,8 +110,7 @@ begin
     Decoder_RF : Decoder port map(
         Instruction => rf_read_buffer,
         Register1 => rf_reg_1,
-        Register2 => rf_reg_2,
-        Use_MA => rf_use_ma
+        Register2 => rf_reg_2
     );
     
     CU_Decoder_Exec : CU_Decoder port map(
@@ -201,7 +198,6 @@ begin
     reg_1_reads_exc_results <= (rf_reg_1_read = '1') and (rf_reg_1 = exc_write_reg);
     reg_2_reads_exc_results <= (rf_reg_2_read = '1') and (rf_reg_2 = exc_write_reg);
     
-    ma_reads_exc_results <= (rf_use_ma = '1') and (exc_write_reg = MA);
     
     exc_write <= (exc_rf_whb or exc_rf_wlb or exc_alu) = '1';
     
@@ -217,15 +213,14 @@ begin
         "10" WHEN (exc_write and reg_2_reads_exc_results) ELSE
         "01";
     
-    input_forward(4) <= '1' WHEN ma_reads_exc_results ELSE '0';
     
     forward_shift_register : process(InstrExec_CLK, Reset) is
     begin
     if (Reset = '1') then
-        rf_forward <= "00000";
-        execution_forward <= "00000"; 
-        write_back_forward <= "00000";
-        output_forward <= "00000";
+        rf_forward <= "0000";
+        execution_forward <= "0000"; 
+        write_back_forward <= "0000";
+        output_forward <= "0000";
     elsif rising_edge(InstrExec_CLK) and not (debug_enable='1' and debug_override_enable='1') then
         rf_forward <= input_forward;
         execution_forward <= rf_forward; 

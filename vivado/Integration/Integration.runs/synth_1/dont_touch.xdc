@@ -81,6 +81,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_GPU_0_
 # IP: bd/main/ip/main_VGA_Controller_0_0/main_VGA_Controller_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_VGA_Controller_0_0 || ORIG_REF_NAME==main_VGA_Controller_0_0} -quiet] -quiet
 
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
+# XDC: d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
 
-# XDC: o:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc
+# XDC: d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc

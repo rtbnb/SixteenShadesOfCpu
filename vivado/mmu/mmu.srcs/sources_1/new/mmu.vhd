@@ -81,12 +81,12 @@ end mmu;
 architecture Behavioral of mmu is
 	type ram_type is array (2047 downto 0) of std_logic_vector(15 downto 0);
 	signal iram : ram_type;	
-	attribute iram_ram_style : string;
-    attribute iram_ram_style of iram : signal is "distributed"; 
+	--attribute iram_ram_style : string;
+    --attribute iram_ram_style of iram : signal is "distributed"; 
     
     signal gram : ram_type;
-    attribute gram_ram_style : string;
-    attribute gram_ram_style of gram : signal is "distributed";
+    --attribute gram_ram_style : string;
+    --attribute gram_ram_style of gram : signal is "distributed";
     
     signal gram_we_s, gram_clk_s: std_logic;
     signal gram_dout_s, gram_din_s: std_logic_vector( 15 downto 0 );
@@ -252,23 +252,23 @@ begin
 	begin
 	   if rising_edge(iram_clk_s) then
             if iram_we_s = '1' then
-				iram(to_integer(unsigned(iram_addr_s))) <= iram_din_s;
+				iram(to_integer(unsigned(iram_addr_s(11 downto 0)))) <= iram_din_s;
 			end if;
 	   end if;
 	end process;
-	iram_dout_s <= iram(to_integer(unsigned(iram_addr_s)));
+	iram_dout_s <= iram(to_integer(unsigned(iram_addr_s(11 downto 0))));
 	
     gram_lutram:process(gram_clk_s)
 	begin
 	   if rising_edge(gram_clk_s) then
             if gram_we_s = '1' then
-				gram(to_integer(unsigned(gram_addr_s))) <= gram_din_s;
+				gram(to_integer(unsigned(gram_addr_s(11 downto 0)))) <= gram_din_s;
 			end if;
 	   end if;
 	end process;
 	
 	with gram_oe or internal_debug_override_s select
-	   gram_dout_s <= gram(to_integer(unsigned(gram_addr_s))) when '1',
+	   gram_dout_s <= gram(to_integer(unsigned(gram_addr_s(11 downto 0)))) when '1',
 	                  X"0000" when '0',
 	                  X"0000" when others;
     

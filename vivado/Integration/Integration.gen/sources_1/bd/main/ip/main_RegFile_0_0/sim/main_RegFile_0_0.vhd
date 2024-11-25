@@ -65,7 +65,6 @@ ENTITY main_RegFile_0_0 IS
     clk : IN STD_LOGIC;
     Reg1_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     Reg2_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    RegMA_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     BankID : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
   );
 END main_RegFile_0_0;
@@ -85,7 +84,6 @@ ARCHITECTURE main_RegFile_0_0_arch OF main_RegFile_0_0 IS
       clk : IN STD_LOGIC;
       Reg1_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       Reg2_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      RegMA_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       BankID : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
   END COMPONENT RegFile;
@@ -106,7 +104,6 @@ BEGIN
       clk => clk,
       Reg1_data => Reg1_data,
       Reg2_data => Reg2_data,
-      RegMA_data => RegMA_data,
       BankID => BankID
     );
 END main_RegFile_0_0_arch;

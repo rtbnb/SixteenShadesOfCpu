@@ -54,7 +54,7 @@ architecture Behavioral of clockcontroller is
 begin
     output_en_s <= debug_en_s & debug_mmu_override_enbale;
     ck_stable <= '1';
-    
+
     debug_clk <= debug_clk_s;
     
     with output_en_s select

@@ -37,8 +37,8 @@ entity Decoder is
            Register2 : out STD_LOGIC_VECTOR (3 downto 0);
            WriteBackRegister : out STD_LOGIC_VECTOR (3 downto 0);
            Immediate : out STD_LOGIC_VECTOR (15 downto 0);
-           JMP_Condition : out STD_LOGIC_VECTOR (2 downto 0);
-           Use_MA : out STD_LOGIC);
+           JMP_Condition : out STD_LOGIC_VECTOR (2 downto 0)
+    );
 end Decoder;
 
 architecture Behavioral of Decoder is
@@ -149,23 +149,5 @@ begin
         X"0000" WHEN OTHERS;
     
     JMP_Condition <= Instruction(11 downto 9);
-    WITH (instruction_name) SELECT Use_MA <=
-        '0' WHEN X"0",
-        '0' WHEN X"1",
-        '1' WHEN X"2",
-        '1' WHEN X"3",
-        '0' WHEN X"4",
-        '0' WHEN X"5",
-        Instruction(0) WHEN X"6",
-        Instruction(0) WHEN X"7",
-        '0' WHEN X"8",
-        '0' WHEN X"9",
-        '0' WHEN X"a",
-        '0' WHEN X"b",
-        '0' WHEN X"c",
-        '0' WHEN X"d",
-        '0' WHEN X"e",
-        '0' WHEN X"f",
-        '0' WHEN OTHERS;
 
 end Behavioral;
