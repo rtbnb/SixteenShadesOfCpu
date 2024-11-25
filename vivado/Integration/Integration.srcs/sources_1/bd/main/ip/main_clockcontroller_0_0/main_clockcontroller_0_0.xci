@@ -42,6 +42,7 @@
         "debug_reset": [ { "direction": "in" } ],
         "debug_enable": [ { "direction": "in" } ],
         "debug_mock_clk": [ { "direction": "in" } ],
+        "debug_mmu_override_enbale": [ { "direction": "in" } ],
         "load_clk": [ { "direction": "out" } ],
         "exec_clk": [ { "direction": "out" } ],
         "debug_clk": [ { "direction": "out" } ],

@@ -57,13 +57,11 @@ ENTITY main_Pipelining_Forwarder_0_0 IS
   PORT (
     CurrentOperand1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     CurrentOperand2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    CurrentMA : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     ExecutionWriteData : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     ExecutionFlags : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    ForwardingConfiguration : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+    ForwardingConfiguration : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     ForwardedOperand1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    ForwardedOperand2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    ForwardedMA : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    ForwardedOperand2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END main_Pipelining_Forwarder_0_0;
 
@@ -74,13 +72,11 @@ ARCHITECTURE main_Pipelining_Forwarder_0_0_arch OF main_Pipelining_Forwarder_0_0
     PORT (
       CurrentOperand1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       CurrentOperand2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      CurrentMA : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       ExecutionWriteData : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       ExecutionFlags : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      ForwardingConfiguration : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      ForwardingConfiguration : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       ForwardedOperand1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      ForwardedOperand2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      ForwardedMA : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+      ForwardedOperand2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT Pipelining_Forwarder;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -96,12 +92,10 @@ BEGIN
     PORT MAP (
       CurrentOperand1 => CurrentOperand1,
       CurrentOperand2 => CurrentOperand2,
-      CurrentMA => CurrentMA,
       ExecutionWriteData => ExecutionWriteData,
       ExecutionFlags => ExecutionFlags,
       ForwardingConfiguration => ForwardingConfiguration,
       ForwardedOperand1 => ForwardedOperand1,
-      ForwardedOperand2 => ForwardedOperand2,
-      ForwardedMA => ForwardedMA
+      ForwardedOperand2 => ForwardedOperand2
     );
 END main_Pipelining_Forwarder_0_0_arch;

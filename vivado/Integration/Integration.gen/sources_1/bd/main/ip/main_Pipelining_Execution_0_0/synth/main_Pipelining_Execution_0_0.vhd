@@ -60,7 +60,6 @@ ENTITY main_Pipelining_Execution_0_0 IS
     Operand1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     Operand2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     Immediate : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    MA : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     WriteAddress : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     WHB : IN STD_LOGIC;
     WLB : IN STD_LOGIC;
@@ -69,7 +68,6 @@ ENTITY main_Pipelining_Execution_0_0 IS
     RAM_Read : IN STD_LOGIC;
     RAM_Write : IN STD_LOGIC;
     RAM_BankID : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    Use_MA : IN STD_LOGIC;
     JMP : IN STD_LOGIC;
     JMP_Conditional : IN STD_LOGIC;
     JMP_Relative : IN STD_LOGIC;
@@ -77,10 +75,10 @@ ENTITY main_Pipelining_Execution_0_0 IS
     JMP_Condition : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     Is_ALU_OP : IN STD_LOGIC;
     Is_RAM_OP : IN STD_LOGIC;
+    Is_GPU_OP : IN STD_LOGIC;
     Operand1_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     Operand2_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     Immediate_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    MA_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     WriteAddress_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     WHB_out : OUT STD_LOGIC;
     WLB_out : OUT STD_LOGIC;
@@ -89,14 +87,14 @@ ENTITY main_Pipelining_Execution_0_0 IS
     RAM_Read_out : OUT STD_LOGIC;
     RAM_Write_out : OUT STD_LOGIC;
     RAM_BankID_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-    Use_MA_out : OUT STD_LOGIC;
     JMP_out : OUT STD_LOGIC;
     JMP_Conditional_out : OUT STD_LOGIC;
     JMP_Relative_out : OUT STD_LOGIC;
     JMP_DestinationSelect_out : OUT STD_LOGIC;
     JMP_Condition_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
     IS_ALU_OP_out : OUT STD_LOGIC;
-    Is_RAM_OP_out : OUT STD_LOGIC
+    Is_RAM_OP_out : OUT STD_LOGIC;
+    Is_GPU_OP_out : OUT STD_LOGIC
   );
 END main_Pipelining_Execution_0_0;
 
@@ -110,7 +108,6 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
       Operand1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       Operand2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       Immediate : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      MA : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       WriteAddress : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       WHB : IN STD_LOGIC;
       WLB : IN STD_LOGIC;
@@ -119,7 +116,6 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
       RAM_Read : IN STD_LOGIC;
       RAM_Write : IN STD_LOGIC;
       RAM_BankID : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-      Use_MA : IN STD_LOGIC;
       JMP : IN STD_LOGIC;
       JMP_Conditional : IN STD_LOGIC;
       JMP_Relative : IN STD_LOGIC;
@@ -127,10 +123,10 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
       JMP_Condition : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       Is_ALU_OP : IN STD_LOGIC;
       Is_RAM_OP : IN STD_LOGIC;
+      Is_GPU_OP : IN STD_LOGIC;
       Operand1_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       Operand2_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       Immediate_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      MA_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       WriteAddress_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       WHB_out : OUT STD_LOGIC;
       WLB_out : OUT STD_LOGIC;
@@ -139,14 +135,14 @@ ARCHITECTURE main_Pipelining_Execution_0_0_arch OF main_Pipelining_Execution_0_0
       RAM_Read_out : OUT STD_LOGIC;
       RAM_Write_out : OUT STD_LOGIC;
       RAM_BankID_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-      Use_MA_out : OUT STD_LOGIC;
       JMP_out : OUT STD_LOGIC;
       JMP_Conditional_out : OUT STD_LOGIC;
       JMP_Relative_out : OUT STD_LOGIC;
       JMP_DestinationSelect_out : OUT STD_LOGIC;
       JMP_Condition_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
       IS_ALU_OP_out : OUT STD_LOGIC;
-      Is_RAM_OP_out : OUT STD_LOGIC
+      Is_RAM_OP_out : OUT STD_LOGIC;
+      Is_GPU_OP_out : OUT STD_LOGIC
     );
   END COMPONENT Pipelining_ExecutionStage;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -171,7 +167,6 @@ BEGIN
       Operand1 => Operand1,
       Operand2 => Operand2,
       Immediate => Immediate,
-      MA => MA,
       WriteAddress => WriteAddress,
       WHB => WHB,
       WLB => WLB,
@@ -180,7 +175,6 @@ BEGIN
       RAM_Read => RAM_Read,
       RAM_Write => RAM_Write,
       RAM_BankID => RAM_BankID,
-      Use_MA => Use_MA,
       JMP => JMP,
       JMP_Conditional => JMP_Conditional,
       JMP_Relative => JMP_Relative,
@@ -188,10 +182,10 @@ BEGIN
       JMP_Condition => JMP_Condition,
       Is_ALU_OP => Is_ALU_OP,
       Is_RAM_OP => Is_RAM_OP,
+      Is_GPU_OP => Is_GPU_OP,
       Operand1_out => Operand1_out,
       Operand2_out => Operand2_out,
       Immediate_out => Immediate_out,
-      MA_out => MA_out,
       WriteAddress_out => WriteAddress_out,
       WHB_out => WHB_out,
       WLB_out => WLB_out,
@@ -200,13 +194,13 @@ BEGIN
       RAM_Read_out => RAM_Read_out,
       RAM_Write_out => RAM_Write_out,
       RAM_BankID_out => RAM_BankID_out,
-      Use_MA_out => Use_MA_out,
       JMP_out => JMP_out,
       JMP_Conditional_out => JMP_Conditional_out,
       JMP_Relative_out => JMP_Relative_out,
       JMP_DestinationSelect_out => JMP_DestinationSelect_out,
       JMP_Condition_out => JMP_Condition_out,
       IS_ALU_OP_out => IS_ALU_OP_out,
-      Is_RAM_OP_out => Is_RAM_OP_out
+      Is_RAM_OP_out => Is_RAM_OP_out,
+      Is_GPU_OP_out => Is_GPU_OP_out
     );
 END main_Pipelining_Execution_0_0_arch;

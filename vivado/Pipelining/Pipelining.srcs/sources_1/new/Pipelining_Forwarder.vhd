@@ -34,23 +34,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Pipelining_Forwarder is
     Port ( CurrentOperand1 : in STD_LOGIC_VECTOR (15 downto 0);
            CurrentOperand2 : in STD_LOGIC_VECTOR (15 downto 0);
-           CurrentMA : in STD_LOGIC_VECTOR (15 downto 0);
            ExecutionWriteData : in STD_LOGIC_VECTOR (15 downto 0);
            ExecutionFlags : in STD_LOGIC_VECTOR (15 downto 0);
-           ForwardingConfiguration : in STD_LOGIC_VECTOR (4 downto 0);
+           ForwardingConfiguration : in STD_LOGIC_VECTOR (3 downto 0);
            ForwardedOperand1 : out STD_LOGIC_VECTOR (15 downto 0);
-           ForwardedOperand2 : out STD_LOGIC_VECTOR (15 downto 0);
-           ForwardedMA : out STD_LOGIC_VECTOR (15 downto 0));
+           ForwardedOperand2 : out STD_LOGIC_VECTOR (15 downto 0));
 end Pipelining_Forwarder;
 
 architecture Behavioral of Pipelining_Forwarder is
     signal operand_1_sel_s, operand_2_sel_s : STD_LOGIC_VECTOR(1 downto 0);
-    signal ma_sel_s : STD_LOGIC; 
 begin
     
     operand_1_sel_s <= ForwardingConfiguration(1 downto 0);
     operand_2_sel_s <= ForwardingConfiguration(3 downto 2);
-    ma_sel_s <= ForwardingConfiguration(4);
     
     WITH (operand_1_sel_s) SELECT ForwardedOperand1 <=
         CurrentOperand1 WHEN "00",
@@ -64,11 +60,6 @@ begin
         CurrentOperand2 WHEN "01",
         ExecutionWriteData WHEN "10",
         ExecutionFlags WHEN "11",
-        X"0000" WHEN OTHERS;
-        
-    WITH (ma_sel_s) SELECT ForwardedMA <=
-        CurrentMA WHEN '0',
-        ExecutionWriteData WHEN '1',
         X"0000" WHEN OTHERS;
 
 end Behavioral;
