@@ -60,8 +60,7 @@ ENTITY main_Decoder_0_0 IS
     Register2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     WriteBackRegister : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     Immediate : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    JMP_Condition : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-    Use_MA : OUT STD_LOGIC
+    JMP_Condition : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
   );
 END main_Decoder_0_0;
 
@@ -75,8 +74,7 @@ ARCHITECTURE main_Decoder_0_0_arch OF main_Decoder_0_0 IS
       Register2 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       WriteBackRegister : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       Immediate : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      JMP_Condition : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-      Use_MA : OUT STD_LOGIC
+      JMP_Condition : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
     );
   END COMPONENT Decoder;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -95,7 +93,6 @@ BEGIN
       Register2 => Register2,
       WriteBackRegister => WriteBackRegister,
       Immediate => Immediate,
-      JMP_Condition => JMP_Condition,
-      Use_MA => Use_MA
+      JMP_Condition => JMP_Condition
     );
 END main_Decoder_0_0_arch;

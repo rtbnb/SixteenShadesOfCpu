@@ -37,7 +37,6 @@ entity Pipelining_ExecutionStage is
            Operand1 : in STD_LOGIC_VECTOR (15 downto 0);
            Operand2 : in STD_LOGIC_VECTOR (15 downto 0);
            Immediate : in STD_LOGIC_VECTOR (15 downto 0);
-           MA : in STD_LOGIC_VECTOR (15 downto 0);
            WriteAddress : in STD_LOGIC_VECTOR (3 downto 0);
            WHB : in STD_LOGIC;
            WLB : in STD_LOGIC;
@@ -46,7 +45,6 @@ entity Pipelining_ExecutionStage is
            RAM_Read : in STD_LOGIC;
            RAM_Write : in STD_LOGIC;
            RAM_BankID : in STD_LOGIC_VECTOR (3 downto 0);
-           Use_MA : in STD_LOGIC;
            JMP : in STD_LOGIC;
            JMP_Conditional : in STD_LOGIC;
            JMP_Relative : in STD_LOGIC;
@@ -58,7 +56,6 @@ entity Pipelining_ExecutionStage is
            Operand1_out : out STD_LOGIC_VECTOR (15 downto 0);
            Operand2_out : out STD_LOGIC_VECTOR (15 downto 0);
            Immediate_out : out STD_LOGIC_VECTOR (15 downto 0);
-           MA_out : out STD_LOGIC_VECTOR (15 downto 0);
            WriteAddress_out : out STD_LOGIC_VECTOR (3 downto 0);
            WHB_out : out STD_LOGIC;
            WLB_out : out STD_LOGIC;
@@ -67,7 +64,6 @@ entity Pipelining_ExecutionStage is
            RAM_Read_out : out STD_LOGIC;
            RAM_Write_out : out STD_LOGIC;
            RAM_BankID_out : out STD_LOGIC_VECTOR (3 downto 0);
-           Use_MA_out : out STD_LOGIC;
            JMP_out : out STD_LOGIC;
            JMP_Conditional_out : out STD_LOGIC;
            JMP_Relative_out : out STD_LOGIC;
@@ -78,9 +74,9 @@ entity Pipelining_ExecutionStage is
            Is_GPU_OP_out : out STD_LOGIC);
 end Pipelining_ExecutionStage;
 architecture Behavioral of Pipelining_ExecutionStage is
-    signal operand1_s, operand2_s, immediate_s, ma_s : STD_LOGIC_VECTOR(15 downto 0);
+    signal operand1_s, operand2_s, immediate_s : STD_LOGIC_VECTOR(15 downto 0);
     signal write_address_s : STD_LOGIC_VECTOR(3 downto 0);
-    signal whb_s, wlb_s, ram_src_s, ram_read_s, ram_write_s, use_ma_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s, is_gpu_op_s : STD_LOGIC;
+    signal whb_s, wlb_s, ram_src_s, ram_read_s, ram_write_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s, is_gpu_op_s : STD_LOGIC;
     signal write_data_select_s : STD_LOGIC_VECTOR(1 downto 0);
     signal jmp_condition_s : STD_LOGIC_VECTOR(2 downto 0);
     signal bank_id_s : STD_LOGIC_VECTOR (3 downto 0);
@@ -92,7 +88,6 @@ begin
         operand1_s <= X"0000";
         operand2_s <= X"0000";
         immediate_s <= X"0000";
-        ma_s <= X"0000";
         write_address_s <= X"0";
         whb_s <= '0';
         wlb_s <= '0';
@@ -101,7 +96,6 @@ begin
         ram_read_s <= '0';
         ram_write_s <= '0';
         bank_id_s <= "0000";
-        use_ma_s <= '0';
         jmp_s <= '0';
         jmp_conditional_s <= '0';
         jmp_relative_s <= '0';
@@ -114,7 +108,6 @@ begin
         operand1_s <= Operand1;
         operand2_s <= Operand2;
         immediate_s <= Immediate;
-        ma_s <= MA;
         write_address_s <= WriteAddress;
         whb_s <= WHB;
         wlb_s <= WLB;
@@ -123,7 +116,6 @@ begin
         ram_read_s <= RAM_Read;
         ram_write_s <= RAM_Write;
         bank_id_s <= RAM_BankID;
-        use_ma_s <= Use_MA;
         jmp_s <= JMP;
         jmp_conditional_s <= JMP_Conditional;
         jmp_relative_s <= JMP_Relative;
@@ -138,7 +130,6 @@ begin
     Operand1_out <= operand1_s;
     Operand2_out <= operand2_s;
     Immediate_out <= immediate_s;
-    MA_out <= ma_s;
     WriteAddress_out <= write_address_s;
     WHB_out <= whb_s;
     WLB_out <= wlb_s;
@@ -147,7 +138,6 @@ begin
     RAM_Read_out <= ram_read_s;
     RAM_Write_out <= ram_write_s;
     RAM_BankID_out <= bank_id_s;
-    Use_MA_out <= use_ma_s;
     JMP_out <= jmp_s;
     JMP_Conditional_out <= jmp_conditional_s;
     JMP_Relative_out <= jmp_relative_s;

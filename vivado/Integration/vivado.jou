@@ -49,3 +49,204 @@ connect_bd_net [get_bd_pins VGA_CPU_Bridge_0/Immediate_In] [get_bd_pins Pipelini
 connect_bd_net [get_bd_pins VGA_CPU_Bridge_0/Reg1_In] [get_bd_pins Pipelining_Execution_0/Operand1_out]
 connect_bd_net [get_bd_pins VGA_CPU_Bridge_0/Reg2_In] [get_bd_pins Pipelining_Execution_0/Operand2_out]
 save_bd_design
+startgroup
+create_bd_port -dir O led0
+connect_bd_net [get_bd_pins /mmio_0/led0] [get_bd_ports led0]
+endgroup
+startgroup
+create_bd_port -dir O led1
+connect_bd_net [get_bd_pins /mmio_0/led1] [get_bd_ports led1]
+endgroup
+startgroup
+create_bd_port -dir O led2
+connect_bd_net [get_bd_pins /mmio_0/led2] [get_bd_ports led2]
+endgroup
+startgroup
+create_bd_port -dir O led3
+connect_bd_net [get_bd_pins /mmio_0/led3] [get_bd_ports led3]
+endgroup
+startgroup
+create_bd_port -dir I btn0
+connect_bd_net [get_bd_pins /mmio_0/btn0] [get_bd_ports btn0]
+endgroup
+startgroup
+create_bd_port -dir I btn1
+connect_bd_net [get_bd_pins /mmio_0/btn1] [get_bd_ports btn1]
+endgroup
+startgroup
+create_bd_port -dir I btn2
+connect_bd_net [get_bd_pins /mmio_0/btn2] [get_bd_ports btn2]
+endgroup
+startgroup
+create_bd_port -dir I btn3
+connect_bd_net [get_bd_pins /mmio_0/btn3] [get_bd_ports btn3]
+endgroup
+delete_bd_objs [get_bd_ports led]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+open_run impl_1
+close_design
+open_run synth_1 -name synth_1
+close_design
+open_run impl_1
+open_bd_design {D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+connect_bd_net [get_bd_pins clockcontroller_0/debug_mmu_override_enbale] [get_bd_pins Debugger_0/mmu_debug_override_en]
+save_bd_design
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+regenerate_bd_layout
+report_ip_status -name ip_status 
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_clockcontroller_0_0]
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+refresh_design
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_mmu_0_0]
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+refresh_design
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_mmu_0_0]
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+refresh_design
+open_bd_design {D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+open_bd_design {D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+open_bd_design {D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+open_bd_design {D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+report_ip_status -name ip_status 
+update_module_reference [get_ips  {main_RegFile_0_0 main_Decoder_0_0 main_CU_RAMAddressControl_0_0 main_Pipelining_Execution_0_0 main_Pipelining_Controller_0_0 main_Pipelining_Forwarder_0_0}]
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+set_property location {9 4022 -870} [get_bd_cells Debugger_0]
+set_property location {9 4117 1439} [get_bd_cells mmu_0]
+set_property location {4 1392 1395} [get_bd_cells Pipelining_Controller_0]
+set_property location {9 4336 2126} [get_bd_cells VGA_CPU_Bridge_0]
+set_property location {2 519 1304} [get_bd_cells ProgramCounter_0]
+set_property location {10 5405 330} [get_bd_cells Pipelining_WriteBack_0]
+set_property location {9.5 4980 1475} [get_bd_cells vram_bram]
+set_property location {10 4971 1507} [get_bd_cells vram_bram]
+set_property location {10 5019 1485} [get_bd_cells vram_bram]
+set_property location {8 3711 1230} [get_bd_cells CU_RAMAddressControl_0]
+set_property location {9 4344 1064} [get_bd_cells CU_JumpController_0]
+set_property location {8 3607 1711} [get_bd_cells GPU_0]
+set_property location {8 3632 2096} [get_bd_cells VGA_CPU_Bridge_0]
+set_property location {9 4328 2117} [get_bd_cells GPU_0]
+set_property location {9 4414 2119} [get_bd_cells GPU_0]
+set_property location {9 4409 2096} [get_bd_cells GPU_0]
+set_property location {9 4410 2061} [get_bd_cells GPU_0]
+set_property location {9 4418 2100} [get_bd_cells GPU_0]
+set_property location {9 4419 2092} [get_bd_cells GPU_0]
+set_property location {9 4420 2079} [get_bd_cells GPU_0]
+set_property location {9 4417 2065} [get_bd_cells GPU_0]
+set_property location {9 4414 2078} [get_bd_cells GPU_0]
+set_property location {9 4418 2065} [get_bd_cells GPU_0]
+set_property location {10 5043 1944} [get_bd_cells mmio_0]
+set_property location {3 879 1112} [get_bd_cells clockcontroller_0]
+set_property location {8 3683 -1225} [get_bd_cells RX_UART_0]
+set_property location {10 5140 -1232} [get_bd_cells TX_UART_0]
+set_property location {8 3759 1013} [get_bd_cells CU_JumpDestinationSe_0]
+set_property location {6.5 3159 563} [get_bd_cells Pipelining_Execution_0]
+set_property location {5.5 2364 143} [get_bd_cells ALU_0]
+set_property location {9 4301 460} [get_bd_cells ALU_0]
+set_property location {5.5 2503 166} [get_bd_cells ALU_FLAG_PACKER_0]
+set_property location {10 5150 455} [get_bd_cells ALU_FLAG_PACKER_0]
+set_property location {8.5 4985 461} [get_bd_cells ALU_FLAG_PACKER_0]
+set_property location {9 5120 1458} [get_bd_cells vram_bram]
+set_property location {9 5073 1458} [get_bd_cells vram_bram]
+set_property location {9 5085 1468} [get_bd_cells vram_bram]
+set_property location {9 5091 1473} [get_bd_cells vram_bram]
+set_property location {9 5107 1918} [get_bd_cells mmio_0]
+set_property location {8 4433 717} [get_bd_cells ALU_0]
+set_property location {9 5071 696} [get_bd_cells ALU_FLAG_PACKER_0]
+set_property location {9 4980 916} [get_bd_cells CU_WriteSelector_0]
+set_property location {10 5524 609} [get_bd_cells CU_WriteSelector_0]
+set_property location {8 4322 432} [get_bd_cells CU_ImmediateManipula_0]
+set_property location {4.5 2382 561} [get_bd_cells RegFile_0]
+set_property location {3 1253 775} [get_bd_cells CU_Decoder_0]
+set_property location {4 1830 571} [get_bd_cells RegFile_0]
+set_property location {4.5 2352 532} [get_bd_cells Pipelining_Forwarder_0]
+set_property location {3 1045 1131} [get_bd_cells Decoder_0]
+set_property location {3 1123 559} [get_bd_cells Decoder_0]
+set_property location {2 575 564} [get_bd_cells Pipelining_Controller_0]
+set_property location {2 478 1062} [get_bd_cells ProgramCounter_0]
+set_property location {0.5 -110 528} [get_bd_cells clockcontroller_0]
+set_property location {10 5558 1725} [get_bd_cells VGA_Controller_0]
+startgroup
+set_property location {5882 1628} [get_bd_ports g]
+set_property location {5882 1608} [get_bd_ports r]
+set_property location {5882 1648} [get_bd_ports b]
+set_property location {5882 1708} [get_bd_ports v_sync]
+set_property location {5882 1688} [get_bd_ports h_sync]
+set_property location {5882 1668} [get_bd_ports ioe]
+endgroup
+undo
+set_property location {8 4520 -354} [get_bd_cells Debugger_0]
+set_property location {7 3664 -623} [get_bd_cells RX_UART_0]
+set_property location {9 5147 -401} [get_bd_cells TX_UART_0]
+set_property location {7 3658 1393} [get_bd_cells CU_RAMAddressControl_0]
+set_property location {7 3650 1385} [get_bd_cells CU_RAMAddressControl_0]
+set_property location {7 3655 1170} [get_bd_cells CU_JumpDestinationSe_0]
+set_property location {7 3695 1193} [get_bd_cells CU_JumpDestinationSe_0]
+set_property location {7 3698 1192} [get_bd_cells CU_JumpDestinationSe_0]
+set_property location {7 3763 1208} [get_bd_cells CU_JumpDestinationSe_0]
+set_property location {11 6055 760} [get_bd_cells Pipelining_WriteBack_0]
+report_ip_status -name ip_status 
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_Pipelining_Controller_0_0]
+report_ip_status -name ip_status 
+report_ip_status -name ip_status 
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_Pipelining_Controller_0_0]
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+refresh_design
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_ProgramCounter_0_0]
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+refresh_design
+set_property -name {STEPS.ROUTE_DESIGN.ARGS.MORE OPTIONS} -value -ultrathreads -objects [get_runs impl_1]
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_clockcontroller_0_0]
+generate_target all [get_files  D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+refresh_design

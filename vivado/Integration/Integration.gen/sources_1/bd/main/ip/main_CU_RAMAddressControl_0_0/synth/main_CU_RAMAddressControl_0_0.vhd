@@ -57,9 +57,7 @@ ENTITY main_CU_RAMAddressControl_0_0 IS
   PORT (
     Reg2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     Immediate : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    MA : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     RAM_Address_Src : IN STD_LOGIC;
-    Use_MA : IN STD_LOGIC;
     RAM_Address : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END main_CU_RAMAddressControl_0_0;
@@ -71,9 +69,7 @@ ARCHITECTURE main_CU_RAMAddressControl_0_0_arch OF main_CU_RAMAddressControl_0_0
     PORT (
       Reg2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       Immediate : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      MA : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       RAM_Address_Src : IN STD_LOGIC;
-      Use_MA : IN STD_LOGIC;
       RAM_Address : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT CU_RAMAddressController;
@@ -90,9 +86,7 @@ BEGIN
     PORT MAP (
       Reg2 => Reg2,
       Immediate => Immediate,
-      MA => MA,
       RAM_Address_Src => RAM_Address_Src,
-      Use_MA => Use_MA,
       RAM_Address => RAM_Address
     );
 END main_CU_RAMAddressControl_0_0_arch;
