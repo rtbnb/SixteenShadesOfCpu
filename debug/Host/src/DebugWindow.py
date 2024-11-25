@@ -141,7 +141,7 @@ class DebugWindow(QtWidgets.QWidget):
         button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x20", b"\x21", b"\x22", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x58", b"\x59"]))
         self.layout.addWidget(button_request_all, 1, 2, 1, 1)
 
-        # memory write
+        # iram write
         textfield_memory_data = QtWidgets.QLineEdit()
         textfield_memory_addr = QtWidgets.QLineEdit()
         iram_write_button = QtWidgets.QPushButton(text="Write to IRAM")
@@ -150,10 +150,24 @@ class DebugWindow(QtWidgets.QWidget):
         self.layout.addWidget(textfield_memory_addr, 1, 4, 1, 1)
         self.layout.addWidget(iram_write_button, 1, 5, 1, 1)
 
-        # bin file
-        bin_file_button = QtWidgets.QPushButton(text="Select bin file")
-        bin_file_button.clicked.connect(lambda: self.button_select_bin_file())
+        # gram write
+        gram_textfield_memory_data = QtWidgets.QLineEdit()
+        gram_textfield_memory_addr = QtWidgets.QLineEdit()
+        gram_write_button = QtWidgets.QPushButton(text="Write to GRAM")
+        gram_write_button.clicked.connect(lambda: self.button_pushed_write_iram(textfield_memory_data, textfield_memory_addr))
+        self.layout.addWidget(gram_textfield_memory_data, 2, 3, 1, 1)
+        self.layout.addWidget(gram_textfield_memory_addr, 2, 4, 1, 1)
+        self.layout.addWidget(gram_write_button, 2, 5, 1, 1)
+
+        # iram bin file
+        bin_file_button = QtWidgets.QPushButton(text="Select IRAM bin file")
+        bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x31"))
         self.layout.addWidget(bin_file_button, 1, 6, 1, 1)
+
+        # gram bin file
+        gram_bin_file_button = QtWidgets.QPushButton(text="Select GRAM bin file")
+        gram_bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x30"))
+        self.layout.addWidget(gram_bin_file_button, 2, 6, 1, 1)
 
         # manuel command input window
         command_input_line_edit = QtWidgets.QLineEdit()
@@ -182,7 +196,7 @@ class DebugWindow(QtWidgets.QWidget):
         print(addr)
         self.add_command_to_queue([b"\x60", addr[0], addr[1], data[0], data[1]])
 
-    def button_select_bin_file(self):
+    def button_select_bin_file(self, command: bytes):
         fileName = QtWidgets.QFileDialog.getOpenFileName(self,
         self.tr("Open Image"), "", self.tr("Bin Files (*.bin)"))
         with open(fileName[0], 'rb') as f:
@@ -196,7 +210,7 @@ class DebugWindow(QtWidgets.QWidget):
                 #print(type(addr_bytes[0:1]))
                 #print([b"\x31", addr_bytes[0], addr_bytes[1], data[i], data[i+1]])
                 #print("End Bytes")
-                self.add_command_to_queue([b"\x31", addr_bytes[0:1], addr_bytes[1:2], data[i:i+1], data[i+1:i+2]])
+                self.add_command_to_queue([command, addr_bytes[0:1], addr_bytes[1:2], data[i:i+1], data[i+1:i+2]])
                 addr_counter += 1
 
         print(fileName)
@@ -257,7 +271,7 @@ if __name__ == '__main__':
     import threading
 
     app = QtWidgets.QApplication([])
-    widget = DebugWindow(rx_data_datapool, Queue())
+    widget = DebugWindow(rx_data_datapool)
     widget.resize(1920, 600)
     widget.show()
 
