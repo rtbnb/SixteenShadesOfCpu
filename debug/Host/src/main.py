@@ -52,19 +52,29 @@ def rx_no_loop(ser: serial.Serial, debugWindow: DebugWindow):
     rx_data = 0
     byte_counter = 0
     command_instruction: bytes = 0
-    ser.timeout = 1
-    for i in range(5):
-        print(ser.timeout)
+    ser.timeout = 10
+
+    # fetch instruction
+    rx_data = ser.read()
+    print(f"Received: {rx_data}")
+    (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+    if not (byte_counter == 0):
         rx_data = ser.read()
-        print(rx_data)
+        print(f"Received: {rx_data}")
+        (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+        rx_data = ser.read()
+        print(f"Received: {rx_data}")
+        (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+    
+    if not (byte_counter == 0):
+        rx_data = ser.read()
+        print(f"Received: {rx_data}")
+        (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
+        rx_data = ser.read()
+        print(f"Received: {rx_data}")
         (byte_counter, command_instruction) = process_command(rx_data, byte_counter, command_instruction, debugWindow)
 
-def to_little_endian(byte):
-    return struct.pack('<s', byte)
 
-def bytes_to_bits_binary(byte_data):
-    bits_data = bin(int.from_bytes(byte_data, byteorder='little'))[2:]
-    return bits_data
 
 def tx(ser: serial.Serial, debugWindow: DebugWindow):
     # input for debug command
@@ -74,10 +84,8 @@ def tx(ser: serial.Serial, debugWindow: DebugWindow):
             if not q.empty():
                 command_list = q.get()
                 for command in command_list:
-                    ser.write(to_little_endian(command))
+                    ser.write(command)
                     print(f"sended command: {command.hex()}")
-                    c_bits = bytes_to_bits_binary(to_little_endian(command))
-                    print(f"Bits: {c_bits}")
                 print("Waiting for response...")
                 rx_no_loop(ser, debugWindow)
                 print("Response received")

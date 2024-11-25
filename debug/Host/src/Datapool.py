@@ -4,6 +4,7 @@ class Datapool:
             b"\x00": {'Name': "hold_clk"},
             b"\x01": {'Name': "count_one_cycle"},
             b"\x02": {'Name': "resume_clk"},
+            b"\x0F": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "instruction_error"},
             b"\x10": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_stalled"},
             b"\x11": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_instruction_forwarding_config"},
             b"\x12": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_current_instruction"},
