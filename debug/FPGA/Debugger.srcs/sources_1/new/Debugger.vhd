@@ -182,6 +182,7 @@ begin
                         when x"13" => state <= HoldClock;
                         when x"14" => state <= HoldClock;
                         when x"15" => state <= HoldClock;
+                        when x"16" => state <= HoldClock;
                         -- program counter signal request
                         when x"20" => state <= HoldClock;
                         when x"21" => state <= HoldClock;
@@ -210,7 +211,12 @@ begin
                         when x"58" => state <= HoldClock;
                         when x"59" => state <= HoldClock;
                         -- others
-                        when others => state <= ReceiveInstructionDataHIGH;
+                        when others => 
+                            -- send error message
+                            tx_instruction_buffer <= x"0F";
+                            tx_data_buffer(15 downto 8) <= x"00";
+                            tx_data_buffer(7 downto 0) <= rx_instruction_buffer;
+                            state <= TransmitDataInstructionSHORT;
                     end case;
                 when ReceiveInstructionDataHIGH =>
                     if (rx_data_valid = '1') then
