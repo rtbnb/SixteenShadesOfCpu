@@ -103,6 +103,7 @@ architecture Behavioral of Debugger is
         TransmitDataInstructionSHORT, TransmitDataHIGHSHORT, TransmitDataLOWSHORT,
         TransmitInstructionOnly,
         ClockMMUDebug, ResetMMUDebug,
+        ClockVRAM1, ClockVRAM2, ClockVRAM3,
         MMUFetchIRAMClock, MMUFetchIRAMWriteToTX, MMUFetchIRAMReset,
         MMUFetchGRAMClock, MMUFetchGRAMWriteToTX, MMUFetchGRAMReset,
         ClockOneCycleHigh, ClockOneCycleLow,
@@ -370,7 +371,7 @@ begin
                             mmu_debug_we <= '1';
                             -- send acknoledge
                             tx_instruction_buffer <= x"33";
-                            state <= ClockMMUDebug;
+                            state <= ClockVRAM1;
                         when x"34" =>
                             mmu_debug_addr <= rx_instruction_data_buffer;
                             mmu_debug_din <= rx_instruction_data2_buffer;
@@ -554,6 +555,15 @@ begin
                 when ClockMMUDebug =>
                     mmu_debug_clk <= '1';
                     state <= ResetMMUDebug;
+                when ClockVRAM1 =>
+                    mmu_debug_clk <= '1';
+                    state <= ClockVRAM2;
+                when ClockVRAM2 =>
+                    mmu_debug_clk <= '0';
+                    state <= ClockVRAM3;
+                when ClockVRAM3 =>
+                    mmu_debug_clk <= '1';
+                    state <= ResetMMUDebug;
                 when ResetMMUDebug =>
                     mmu_debug_override_en <= '0';
                     mmu_debug_we <= '0';
@@ -573,7 +583,6 @@ begin
                     mmu_debug_override_en <= '0';
                     mmu_debug_clk <= '0';
                     state <= TransmitDataInstruction;
-                    
                     
                 when others =>
                     state <= Idle;
