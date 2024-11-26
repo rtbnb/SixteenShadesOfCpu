@@ -63,7 +63,7 @@ begin
     with output_en_s select
         exec_clk <= not clk50mhz_in when "100",
                     not debug_mock_clk when "110",
-                    '0' when others;    
+                    '1' when others;
                                     
                     
     with wizard_locked select
