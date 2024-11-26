@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Mon Nov 25 19:56:35 2024
---Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
+--Date        : Tue Nov 26 20:56:30 2024
+--Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -331,14 +331,50 @@ architecture STRUCTURE of main is
     addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    led0 : out STD_LOGIC;
-    led1 : out STD_LOGIC;
-    led2 : out STD_LOGIC;
-    led3 : out STD_LOGIC;
-    btn0 : in STD_LOGIC;
-    btn1 : in STD_LOGIC;
-    btn2 : in STD_LOGIC;
-    btn3 : in STD_LOGIC;
+    led00 : out STD_LOGIC;
+    led01 : out STD_LOGIC;
+    led02 : out STD_LOGIC;
+    led03 : out STD_LOGIC;
+    led04 : out STD_LOGIC;
+    led05 : out STD_LOGIC;
+    led06 : out STD_LOGIC;
+    led07 : out STD_LOGIC;
+    led08 : out STD_LOGIC;
+    led09 : out STD_LOGIC;
+    led10 : out STD_LOGIC;
+    led11 : out STD_LOGIC;
+    led12 : out STD_LOGIC;
+    led13 : out STD_LOGIC;
+    led14 : out STD_LOGIC;
+    led15 : out STD_LOGIC;
+    led16 : out STD_LOGIC;
+    led17 : out STD_LOGIC;
+    led18 : out STD_LOGIC;
+    led19 : out STD_LOGIC;
+    rgb0 : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    rgb1 : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    rgb2 : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    rgb3 : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    btn00 : in STD_LOGIC;
+    btn01 : in STD_LOGIC;
+    btn02 : in STD_LOGIC;
+    btn03 : in STD_LOGIC;
+    btn04 : in STD_LOGIC;
+    btn05 : in STD_LOGIC;
+    btn06 : in STD_LOGIC;
+    btn07 : in STD_LOGIC;
+    btn08 : in STD_LOGIC;
+    btn09 : in STD_LOGIC;
+    btn10 : in STD_LOGIC;
+    btn11 : in STD_LOGIC;
+    btn12 : in STD_LOGIC;
+    btn13 : in STD_LOGIC;
+    btn14 : in STD_LOGIC;
+    btn15 : in STD_LOGIC;
+    btn16 : in STD_LOGIC;
+    btn17 : in STD_LOGIC;
+    btn18 : in STD_LOGIC;
+    btn19 : in STD_LOGIC;
     rho : out STD_LOGIC
   );
   end component main_mmio_0_0;
@@ -367,13 +403,11 @@ architecture STRUCTURE of main is
     debug_enable : out STD_LOGIC;
     cc_debug_mock_clk : out STD_LOGIC;
     cc_debug_reset : out STD_LOGIC;
-    load_clk : in STD_LOGIC;
     pipeline_stalled : in STD_LOGIC;
     pipeline_instruction_forwarding_config : in STD_LOGIC_VECTOR ( 4 downto 0 );
     pipeline_current_instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pipeline_operand_1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pipeline_operand_2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    pipeline_memory_addr_reg : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pipeline_jmp : in STD_LOGIC;
     pc_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pc_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -391,7 +425,6 @@ architecture STRUCTURE of main is
     regfile_write_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
     regfile_reg1_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
     regfile_reg2_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    regfile_regma_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
     regfile_bankid : in STD_LOGIC_VECTOR ( 3 downto 0 );
     mmu_debug_clk : out STD_LOGIC;
     mmu_debug_override_en : out STD_LOGIC;
@@ -465,9 +498,9 @@ architecture STRUCTURE of main is
   component main_clk_wiz_0_0 is
   port (
     clk_in1 : in STD_LOGIC;
-    locked : out STD_LOGIC;
     cpu50mhz : out STD_LOGIC;
-    vga100mhz : out STD_LOGIC
+    vga100mhz : out STD_LOGIC;
+    locked : out STD_LOGIC
   );
   end component main_clk_wiz_0_0;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -584,10 +617,6 @@ architecture STRUCTURE of main is
   signal clockcontroller_0_vga_clk : STD_LOGIC;
   signal fault_reset_1 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal mmio_0_led0 : STD_LOGIC;
-  signal mmio_0_led1 : STD_LOGIC;
-  signal mmio_0_led2 : STD_LOGIC;
-  signal mmio_0_led3 : STD_LOGIC;
   signal mmio_0_rho : STD_LOGIC;
   signal mmu_0_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmu_0_gram_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -609,9 +638,31 @@ architecture STRUCTURE of main is
   signal vram_bram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
-  signal NLW_Debugger_0_pipeline_memory_addr_reg_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal NLW_Debugger_0_regfile_regma_data_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led00_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led01_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led02_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led03_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led04_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led05_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led06_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led07_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led08_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led09_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led10_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led11_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led12_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led13_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led14_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led15_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led16_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led17_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led18_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_led19_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmio_0_rgb0_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_mmio_0_rgb1_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_mmio_0_rgb2_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_mmio_0_rgb3_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal NLW_mmu_0_gpu_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
@@ -635,10 +686,6 @@ begin
   g(3 downto 0) <= VGA_Controller_0_g(3 downto 0);
   h_sync <= VGA_Controller_0_h_sync;
   ioe <= VGA_Controller_0_ioe;
-  led0 <= mmio_0_led0;
-  led1 <= mmio_0_led1;
-  led2 <= mmio_0_led2;
-  led3 <= mmio_0_led3;
   r(3 downto 0) <= VGA_Controller_0_r(3 downto 0);
   v_sync <= VGA_Controller_0_v_sync;
 ALU_0: component main_ALU_0_0
@@ -741,7 +788,6 @@ Debugger_0: component main_Debugger_0_0
       cc_debug_reset => Debugger_0_cc_debug_reset,
       clk => Net,
       debug_enable => Debugger_0_debug_enable,
-      load_clk => InstrLoad_CLK_1,
       mmu_debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
       mmu_debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
       mmu_debug_clk => Debugger_0_mmu_debug_sync_clk100mhz,
@@ -756,7 +802,6 @@ Debugger_0: component main_Debugger_0_0
       pipeline_instruction_forwarding_config(4) => '0',
       pipeline_instruction_forwarding_config(3 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(3 downto 0),
       pipeline_jmp => CU_Decoder_0_JMP,
-      pipeline_memory_addr_reg(15 downto 0) => NLW_Debugger_0_pipeline_memory_addr_reg_UNCONNECTED(15 downto 0),
       pipeline_operand_1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
       pipeline_operand_2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),
       pipeline_stalled => Pipelining_Controller_0_Stalled,
@@ -767,7 +812,6 @@ Debugger_0: component main_Debugger_0_0
       regfile_overwrite_flag => Pipelining_WriteBack_0_Is_ALU_OP_out,
       regfile_reg1_data(15 downto 0) => RegFile_0_Reg1_data(15 downto 0),
       regfile_reg2_data(15 downto 0) => RegFile_0_Reg2_data(15 downto 0),
-      regfile_regma_data(15 downto 0) => NLW_Debugger_0_regfile_regma_data_UNCONNECTED(15 downto 0),
       regfile_write_data(15 downto 0) => Pipelining_WriteBack_0_WriteData_out(15 downto 0),
       regfile_write_enable => Pipelining_WriteBack_0_RF_WE_out,
       rx_data(7 downto 0) => RX_UART_0_data_output(7 downto 0),
@@ -975,17 +1019,53 @@ clockcontroller_0: component main_clockcontroller_0_0
 mmio_0: component main_mmio_0_0
      port map (
       addr(15 downto 0) => mmu_0_mmio_mem_addr(15 downto 0),
-      btn0 => btn0_1,
-      btn1 => btn1_1,
-      btn2 => btn2_1,
-      btn3 => btn3_1,
+      btn00 => '0',
+      btn01 => '0',
+      btn02 => '0',
+      btn03 => '0',
+      btn04 => '0',
+      btn05 => '0',
+      btn06 => '0',
+      btn07 => '0',
+      btn08 => '0',
+      btn09 => '0',
+      btn10 => '0',
+      btn11 => '0',
+      btn12 => '0',
+      btn13 => '0',
+      btn14 => '0',
+      btn15 => '0',
+      btn16 => '0',
+      btn17 => '0',
+      btn18 => '0',
+      btn19 => '0',
       clk => mmu_0_mmio_mem_ck,
       din(15 downto 0) => mmu_0_mmio_mem_din(15 downto 0),
       dout(15 downto 0) => mmio_0_dout(15 downto 0),
-      led0 => mmio_0_led0,
-      led1 => mmio_0_led1,
-      led2 => mmio_0_led2,
-      led3 => mmio_0_led3,
+      led00 => NLW_mmio_0_led00_UNCONNECTED,
+      led01 => NLW_mmio_0_led01_UNCONNECTED,
+      led02 => NLW_mmio_0_led02_UNCONNECTED,
+      led03 => NLW_mmio_0_led03_UNCONNECTED,
+      led04 => NLW_mmio_0_led04_UNCONNECTED,
+      led05 => NLW_mmio_0_led05_UNCONNECTED,
+      led06 => NLW_mmio_0_led06_UNCONNECTED,
+      led07 => NLW_mmio_0_led07_UNCONNECTED,
+      led08 => NLW_mmio_0_led08_UNCONNECTED,
+      led09 => NLW_mmio_0_led09_UNCONNECTED,
+      led10 => NLW_mmio_0_led10_UNCONNECTED,
+      led11 => NLW_mmio_0_led11_UNCONNECTED,
+      led12 => NLW_mmio_0_led12_UNCONNECTED,
+      led13 => NLW_mmio_0_led13_UNCONNECTED,
+      led14 => NLW_mmio_0_led14_UNCONNECTED,
+      led15 => NLW_mmio_0_led15_UNCONNECTED,
+      led16 => NLW_mmio_0_led16_UNCONNECTED,
+      led17 => NLW_mmio_0_led17_UNCONNECTED,
+      led18 => NLW_mmio_0_led18_UNCONNECTED,
+      led19 => NLW_mmio_0_led19_UNCONNECTED,
+      rgb0(2 downto 0) => NLW_mmio_0_rgb0_UNCONNECTED(2 downto 0),
+      rgb1(2 downto 0) => NLW_mmio_0_rgb1_UNCONNECTED(2 downto 0),
+      rgb2(2 downto 0) => NLW_mmio_0_rgb2_UNCONNECTED(2 downto 0),
+      rgb3(2 downto 0) => NLW_mmio_0_rgb3_UNCONNECTED(2 downto 0),
       rho => mmio_0_rho,
       we => mmu_0_mmio_mem_we
     );

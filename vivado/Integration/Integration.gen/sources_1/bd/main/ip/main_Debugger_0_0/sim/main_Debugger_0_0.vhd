@@ -64,13 +64,11 @@ ENTITY main_Debugger_0_0 IS
     debug_enable : OUT STD_LOGIC;
     cc_debug_mock_clk : OUT STD_LOGIC;
     cc_debug_reset : OUT STD_LOGIC;
-    load_clk : IN STD_LOGIC;
     pipeline_stalled : IN STD_LOGIC;
     pipeline_instruction_forwarding_config : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
     pipeline_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pipeline_operand_1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pipeline_operand_2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    pipeline_memory_addr_reg : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pipeline_jmp : IN STD_LOGIC;
     pc_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pc_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -88,7 +86,6 @@ ENTITY main_Debugger_0_0 IS
     regfile_write_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_reg1_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_reg2_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    regfile_regma_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     mmu_debug_clk : OUT STD_LOGIC;
     mmu_debug_override_en : OUT STD_LOGIC;
@@ -114,13 +111,11 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       debug_enable : OUT STD_LOGIC;
       cc_debug_mock_clk : OUT STD_LOGIC;
       cc_debug_reset : OUT STD_LOGIC;
-      load_clk : IN STD_LOGIC;
       pipeline_stalled : IN STD_LOGIC;
       pipeline_instruction_forwarding_config : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       pipeline_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pipeline_operand_1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pipeline_operand_2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      pipeline_memory_addr_reg : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pipeline_jmp : IN STD_LOGIC;
       pc_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pc_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -138,7 +133,6 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       regfile_write_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_reg1_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_reg2_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      regfile_regma_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       mmu_debug_clk : OUT STD_LOGIC;
       mmu_debug_override_en : OUT STD_LOGIC;
@@ -157,8 +151,6 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF cc_debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 cc_debug_reset RST";
   ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF load_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 load_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF mmu_debug_clk: SIGNAL IS "XIL_INTERFACENAME mmu_debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_Debugger_0_0_mmu_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF mmu_debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 mmu_debug_clk CLK";
 BEGIN
@@ -173,13 +165,11 @@ BEGIN
       debug_enable => debug_enable,
       cc_debug_mock_clk => cc_debug_mock_clk,
       cc_debug_reset => cc_debug_reset,
-      load_clk => load_clk,
       pipeline_stalled => pipeline_stalled,
       pipeline_instruction_forwarding_config => pipeline_instruction_forwarding_config,
       pipeline_current_instruction => pipeline_current_instruction,
       pipeline_operand_1 => pipeline_operand_1,
       pipeline_operand_2 => pipeline_operand_2,
-      pipeline_memory_addr_reg => pipeline_memory_addr_reg,
       pipeline_jmp => pipeline_jmp,
       pc_din => pc_din,
       pc_dout => pc_dout,
@@ -197,7 +187,6 @@ BEGIN
       regfile_write_data => regfile_write_data,
       regfile_reg1_data => regfile_reg1_data,
       regfile_reg2_data => regfile_reg2_data,
-      regfile_regma_data => regfile_regma_data,
       regfile_bankid => regfile_bankid,
       mmu_debug_clk => mmu_debug_clk,
       mmu_debug_override_en => mmu_debug_override_en,
