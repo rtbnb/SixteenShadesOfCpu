@@ -111,6 +111,13 @@ class DebugWindow(QtWidgets.QWidget):
         self.layout.addWidget(clock_resume_button, 2, 6, 1, 1)
         self.layout.addWidget(clock_hold_button, 3, 6, 1, 1)
         self.layout.addWidget(clock_one_cylce_button, 4, 6, 1, 1)
+
+        # get all memory
+        memory_get_all_select_box = QtWidgets.QComboBox()
+        memory_get_all_button = QtWidgets.QPushButton(text="Fetch memory data")
+    
+    def memory_to_file():
+        pass
     
     def send_command_manuel(self, command_input_line_edit:QtWidgets.QLineEdit):
         command = command_input_line_edit.text()
