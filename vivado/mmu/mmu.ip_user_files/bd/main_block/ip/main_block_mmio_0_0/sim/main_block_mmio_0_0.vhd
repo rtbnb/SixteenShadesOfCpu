@@ -60,14 +60,50 @@ ENTITY main_block_mmio_0_0 IS
     addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    led0 : OUT STD_LOGIC;
-    led1 : OUT STD_LOGIC;
-    led2 : OUT STD_LOGIC;
-    led3 : OUT STD_LOGIC;
-    btn0 : IN STD_LOGIC;
-    btn1 : IN STD_LOGIC;
-    btn2 : IN STD_LOGIC;
-    btn3 : IN STD_LOGIC;
+    led00 : OUT STD_LOGIC;
+    led01 : OUT STD_LOGIC;
+    led02 : OUT STD_LOGIC;
+    led03 : OUT STD_LOGIC;
+    led04 : OUT STD_LOGIC;
+    led05 : OUT STD_LOGIC;
+    led06 : OUT STD_LOGIC;
+    led07 : OUT STD_LOGIC;
+    led08 : OUT STD_LOGIC;
+    led09 : OUT STD_LOGIC;
+    led10 : OUT STD_LOGIC;
+    led11 : OUT STD_LOGIC;
+    led12 : OUT STD_LOGIC;
+    led13 : OUT STD_LOGIC;
+    led14 : OUT STD_LOGIC;
+    led15 : OUT STD_LOGIC;
+    led16 : OUT STD_LOGIC;
+    led17 : OUT STD_LOGIC;
+    led18 : OUT STD_LOGIC;
+    led19 : OUT STD_LOGIC;
+    rgb0 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    rgb1 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    rgb2 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    rgb3 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    btn00 : IN STD_LOGIC;
+    btn01 : IN STD_LOGIC;
+    btn02 : IN STD_LOGIC;
+    btn03 : IN STD_LOGIC;
+    btn04 : IN STD_LOGIC;
+    btn05 : IN STD_LOGIC;
+    btn06 : IN STD_LOGIC;
+    btn07 : IN STD_LOGIC;
+    btn08 : IN STD_LOGIC;
+    btn09 : IN STD_LOGIC;
+    btn10 : IN STD_LOGIC;
+    btn11 : IN STD_LOGIC;
+    btn12 : IN STD_LOGIC;
+    btn13 : IN STD_LOGIC;
+    btn14 : IN STD_LOGIC;
+    btn15 : IN STD_LOGIC;
+    btn16 : IN STD_LOGIC;
+    btn17 : IN STD_LOGIC;
+    btn18 : IN STD_LOGIC;
+    btn19 : IN STD_LOGIC;
     rho : OUT STD_LOGIC
   );
 END main_block_mmio_0_0;
@@ -82,14 +118,50 @@ ARCHITECTURE main_block_mmio_0_0_arch OF main_block_mmio_0_0 IS
       addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      led0 : OUT STD_LOGIC;
-      led1 : OUT STD_LOGIC;
-      led2 : OUT STD_LOGIC;
-      led3 : OUT STD_LOGIC;
-      btn0 : IN STD_LOGIC;
-      btn1 : IN STD_LOGIC;
-      btn2 : IN STD_LOGIC;
-      btn3 : IN STD_LOGIC;
+      led00 : OUT STD_LOGIC;
+      led01 : OUT STD_LOGIC;
+      led02 : OUT STD_LOGIC;
+      led03 : OUT STD_LOGIC;
+      led04 : OUT STD_LOGIC;
+      led05 : OUT STD_LOGIC;
+      led06 : OUT STD_LOGIC;
+      led07 : OUT STD_LOGIC;
+      led08 : OUT STD_LOGIC;
+      led09 : OUT STD_LOGIC;
+      led10 : OUT STD_LOGIC;
+      led11 : OUT STD_LOGIC;
+      led12 : OUT STD_LOGIC;
+      led13 : OUT STD_LOGIC;
+      led14 : OUT STD_LOGIC;
+      led15 : OUT STD_LOGIC;
+      led16 : OUT STD_LOGIC;
+      led17 : OUT STD_LOGIC;
+      led18 : OUT STD_LOGIC;
+      led19 : OUT STD_LOGIC;
+      rgb0 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      rgb1 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      rgb2 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      rgb3 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      btn00 : IN STD_LOGIC;
+      btn01 : IN STD_LOGIC;
+      btn02 : IN STD_LOGIC;
+      btn03 : IN STD_LOGIC;
+      btn04 : IN STD_LOGIC;
+      btn05 : IN STD_LOGIC;
+      btn06 : IN STD_LOGIC;
+      btn07 : IN STD_LOGIC;
+      btn08 : IN STD_LOGIC;
+      btn09 : IN STD_LOGIC;
+      btn10 : IN STD_LOGIC;
+      btn11 : IN STD_LOGIC;
+      btn12 : IN STD_LOGIC;
+      btn13 : IN STD_LOGIC;
+      btn14 : IN STD_LOGIC;
+      btn15 : IN STD_LOGIC;
+      btn16 : IN STD_LOGIC;
+      btn17 : IN STD_LOGIC;
+      btn18 : IN STD_LOGIC;
+      btn19 : IN STD_LOGIC;
       rho : OUT STD_LOGIC
     );
   END COMPONENT mmio;
@@ -105,14 +177,50 @@ BEGIN
       addr => addr,
       din => din,
       dout => dout,
-      led0 => led0,
-      led1 => led1,
-      led2 => led2,
-      led3 => led3,
-      btn0 => btn0,
-      btn1 => btn1,
-      btn2 => btn2,
-      btn3 => btn3,
+      led00 => led00,
+      led01 => led01,
+      led02 => led02,
+      led03 => led03,
+      led04 => led04,
+      led05 => led05,
+      led06 => led06,
+      led07 => led07,
+      led08 => led08,
+      led09 => led09,
+      led10 => led10,
+      led11 => led11,
+      led12 => led12,
+      led13 => led13,
+      led14 => led14,
+      led15 => led15,
+      led16 => led16,
+      led17 => led17,
+      led18 => led18,
+      led19 => led19,
+      rgb0 => rgb0,
+      rgb1 => rgb1,
+      rgb2 => rgb2,
+      rgb3 => rgb3,
+      btn00 => btn00,
+      btn01 => btn01,
+      btn02 => btn02,
+      btn03 => btn03,
+      btn04 => btn04,
+      btn05 => btn05,
+      btn06 => btn06,
+      btn07 => btn07,
+      btn08 => btn08,
+      btn09 => btn09,
+      btn10 => btn10,
+      btn11 => btn11,
+      btn12 => btn12,
+      btn13 => btn13,
+      btn14 => btn14,
+      btn15 => btn15,
+      btn16 => btn16,
+      btn17 => btn17,
+      btn18 => btn18,
+      btn19 => btn19,
       rho => rho
     );
 END main_block_mmio_0_0_arch;

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x414BCD2F317E2D22",
+      "boundary_crc": "0x4958199B75109964",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -32,30 +32,6 @@
         "direction": "O",
         "left": "15",
         "right": "0"
-      },
-      "btn0": {
-        "direction": "I"
-      },
-      "btn1": {
-        "direction": "I"
-      },
-      "btn2": {
-        "direction": "I"
-      },
-      "btn3": {
-        "direction": "I"
-      },
-      "led0": {
-        "direction": "O"
-      },
-      "led1": {
-        "direction": "O"
-      },
-      "led2": {
-        "direction": "O"
-      },
-      "led3": {
-        "direction": "O"
       },
       "clk100mhz_in": {
         "type": "clk",
@@ -284,6 +260,152 @@
             "value_src": "default"
           }
         }
+      },
+      "btn00": {
+        "direction": "I"
+      },
+      "btn01": {
+        "direction": "I"
+      },
+      "btn02": {
+        "direction": "I"
+      },
+      "btn03": {
+        "direction": "I"
+      },
+      "btn04": {
+        "direction": "I"
+      },
+      "btn05": {
+        "direction": "I"
+      },
+      "btn06": {
+        "direction": "I"
+      },
+      "btn07": {
+        "direction": "I"
+      },
+      "btn08": {
+        "direction": "I"
+      },
+      "btn09": {
+        "direction": "I"
+      },
+      "btn10": {
+        "direction": "I"
+      },
+      "btn11": {
+        "direction": "I"
+      },
+      "btn12": {
+        "direction": "I"
+      },
+      "btn13": {
+        "direction": "I"
+      },
+      "btn14": {
+        "direction": "I"
+      },
+      "btn15": {
+        "direction": "I"
+      },
+      "btn16": {
+        "direction": "I"
+      },
+      "btn17": {
+        "direction": "I"
+      },
+      "btn18": {
+        "direction": "I"
+      },
+      "btn19": {
+        "direction": "I"
+      },
+      "led00": {
+        "direction": "O"
+      },
+      "led01": {
+        "direction": "O"
+      },
+      "led02": {
+        "direction": "O"
+      },
+      "led03": {
+        "direction": "O"
+      },
+      "led04": {
+        "direction": "O"
+      },
+      "led05": {
+        "direction": "O"
+      },
+      "led06": {
+        "direction": "O"
+      },
+      "led07": {
+        "direction": "O"
+      },
+      "led08": {
+        "direction": "O"
+      },
+      "led09": {
+        "direction": "O"
+      },
+      "led10": {
+        "direction": "O"
+      },
+      "led11": {
+        "direction": "O"
+      },
+      "led12": {
+        "direction": "O"
+      },
+      "led13": {
+        "direction": "O"
+      },
+      "led14": {
+        "direction": "O"
+      },
+      "led15": {
+        "direction": "O"
+      },
+      "led16": {
+        "direction": "O"
+      },
+      "led17": {
+        "direction": "O"
+      },
+      "led18": {
+        "direction": "O"
+      },
+      "led19": {
+        "direction": "O"
+      },
+      "rgb0": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb1": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb2": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb3": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rho": {
+        "direction": "O"
+      },
+      "gram_oe": {
+        "direction": "I"
       }
     },
     "components": {
@@ -382,6 +504,9 @@
             "right": "0"
           },
           "gram_we": {
+            "direction": "I"
+          },
+          "gram_oe": {
             "direction": "I"
           },
           "gram_dout": {
@@ -601,28 +726,144 @@
             "left": "15",
             "right": "0"
           },
-          "led0": {
+          "led00": {
             "direction": "O"
           },
-          "led1": {
+          "led01": {
             "direction": "O"
           },
-          "led2": {
+          "led02": {
             "direction": "O"
           },
-          "led3": {
+          "led03": {
             "direction": "O"
           },
-          "btn0": {
+          "led04": {
+            "direction": "O"
+          },
+          "led05": {
+            "direction": "O"
+          },
+          "led06": {
+            "direction": "O"
+          },
+          "led07": {
+            "direction": "O"
+          },
+          "led08": {
+            "direction": "O"
+          },
+          "led09": {
+            "direction": "O"
+          },
+          "led10": {
+            "direction": "O"
+          },
+          "led11": {
+            "direction": "O"
+          },
+          "led12": {
+            "direction": "O"
+          },
+          "led13": {
+            "direction": "O"
+          },
+          "led14": {
+            "direction": "O"
+          },
+          "led15": {
+            "direction": "O"
+          },
+          "led16": {
+            "direction": "O"
+          },
+          "led17": {
+            "direction": "O"
+          },
+          "led18": {
+            "direction": "O"
+          },
+          "led19": {
+            "direction": "O"
+          },
+          "rgb0": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "rgb1": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "rgb2": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "rgb3": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "btn00": {
             "direction": "I"
           },
-          "btn1": {
+          "btn01": {
             "direction": "I"
           },
-          "btn2": {
+          "btn02": {
             "direction": "I"
           },
-          "btn3": {
+          "btn03": {
+            "direction": "I"
+          },
+          "btn04": {
+            "direction": "I"
+          },
+          "btn05": {
+            "direction": "I"
+          },
+          "btn06": {
+            "direction": "I"
+          },
+          "btn07": {
+            "direction": "I"
+          },
+          "btn08": {
+            "direction": "I"
+          },
+          "btn09": {
+            "direction": "I"
+          },
+          "btn10": {
+            "direction": "I"
+          },
+          "btn11": {
+            "direction": "I"
+          },
+          "btn12": {
+            "direction": "I"
+          },
+          "btn13": {
+            "direction": "I"
+          },
+          "btn14": {
+            "direction": "I"
+          },
+          "btn15": {
+            "direction": "I"
+          },
+          "btn16": {
+            "direction": "I"
+          },
+          "btn17": {
+            "direction": "I"
+          },
+          "btn18": {
+            "direction": "I"
+          },
+          "btn19": {
             "direction": "I"
           },
           "rho": {
@@ -642,23 +883,6 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clk100mhz_in": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
           "clk50mhz_in": {
             "direction": "I",
             "parameters": {
@@ -676,8 +900,7 @@
               }
             }
           },
-          "debug_guard_clk": {
-            "type": "clk",
+          "clk100mhz_in": {
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
@@ -685,7 +908,7 @@
                 "value_src": "ip_prop"
               },
               "PHASE": {
-                "value": "90.0",
+                "value": "0.0",
                 "value_src": "ip_prop"
               },
               "CLK_DOMAIN": {
@@ -722,11 +945,18 @@
               }
             }
           },
+          "debug_mmu_override_enbale": {
+            "direction": "I"
+          },
           "load_clk": {
             "type": "clk",
             "direction": "O"
           },
           "exec_clk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "vga_clk": {
             "type": "clk",
             "direction": "O"
           },
@@ -849,28 +1079,124 @@
       }
     },
     "nets": {
-      "btn0_1": {
+      "btn00_1": {
         "ports": [
-          "btn0",
-          "mmio_0/btn0"
+          "btn00",
+          "mmio_0/btn00"
         ]
       },
-      "btn1_1": {
+      "btn01_1": {
         "ports": [
-          "btn1",
-          "mmio_0/btn1"
+          "btn01",
+          "mmio_0/btn01"
         ]
       },
-      "btn2_1": {
+      "btn02_1": {
         "ports": [
-          "btn2",
-          "mmio_0/btn2"
+          "btn02",
+          "mmio_0/btn02"
         ]
       },
-      "btn3_1": {
+      "btn03_1": {
         "ports": [
-          "btn3",
-          "mmio_0/btn3"
+          "btn03",
+          "mmio_0/btn03"
+        ]
+      },
+      "btn04_1": {
+        "ports": [
+          "btn04",
+          "mmio_0/btn04"
+        ]
+      },
+      "btn05_1": {
+        "ports": [
+          "btn05",
+          "mmio_0/btn05"
+        ]
+      },
+      "btn06_1": {
+        "ports": [
+          "btn06",
+          "mmio_0/btn06"
+        ]
+      },
+      "btn07_1": {
+        "ports": [
+          "btn07",
+          "mmio_0/btn07"
+        ]
+      },
+      "btn08_1": {
+        "ports": [
+          "btn08",
+          "mmio_0/btn08"
+        ]
+      },
+      "btn09_1": {
+        "ports": [
+          "btn09",
+          "mmio_0/btn09"
+        ]
+      },
+      "btn10_1": {
+        "ports": [
+          "btn10",
+          "mmio_0/btn10"
+        ]
+      },
+      "btn11_1": {
+        "ports": [
+          "btn11",
+          "mmio_0/btn11"
+        ]
+      },
+      "btn12_1": {
+        "ports": [
+          "btn12",
+          "mmio_0/btn12"
+        ]
+      },
+      "btn13_1": {
+        "ports": [
+          "btn13",
+          "mmio_0/btn13"
+        ]
+      },
+      "btn14_1": {
+        "ports": [
+          "btn14",
+          "mmio_0/btn14"
+        ]
+      },
+      "btn15_1": {
+        "ports": [
+          "btn15",
+          "mmio_0/btn15"
+        ]
+      },
+      "btn16_1": {
+        "ports": [
+          "btn16",
+          "mmio_0/btn16"
+        ]
+      },
+      "btn17_1": {
+        "ports": [
+          "btn17",
+          "mmio_0/btn17"
+        ]
+      },
+      "btn18_1": {
+        "ports": [
+          "btn18",
+          "mmio_0/btn18"
+        ]
+      },
+      "btn19_1": {
+        "ports": [
+          "btn19",
+          "mmio_0/btn19"
         ]
       },
       "clk100mhz_in_1": {
@@ -893,8 +1219,7 @@
       },
       "clk_wiz_0_debug_guard_clk": {
         "ports": [
-          "clk_wiz_0/debug_guard_clk",
-          "clockcontroller_0/debug_guard_clk"
+          "clk_wiz_0/debug_guard_clk"
         ]
       },
       "clk_wiz_0_locked": {
@@ -942,8 +1267,8 @@
       "debug_enable_1": {
         "ports": [
           "debug_enable",
-          "mmu_0/debug_enable",
-          "clockcontroller_0/debug_enable"
+          "clockcontroller_0/debug_enable",
+          "mmu_0/debug_enable"
         ]
       },
       "debug_mock_clk_1_1": {
@@ -1018,6 +1343,12 @@
           "mmu_0/gram_din"
         ]
       },
+      "gram_oe_1": {
+        "ports": [
+          "gram_oe",
+          "mmu_0/gram_oe"
+        ]
+      },
       "gram_we_1": {
         "ports": [
           "gram_we",
@@ -1036,28 +1367,154 @@
           "mmu_0/mmio_mem_dout"
         ]
       },
-      "mmio_0_led0": {
+      "mmio_0_led00": {
         "ports": [
-          "mmio_0/led0",
-          "led0"
+          "mmio_0/led00",
+          "led00"
         ]
       },
-      "mmio_0_led1": {
+      "mmio_0_led01": {
         "ports": [
-          "mmio_0/led1",
-          "led1"
+          "mmio_0/led01",
+          "led01"
         ]
       },
-      "mmio_0_led2": {
+      "mmio_0_led02": {
         "ports": [
-          "mmio_0/led2",
-          "led2"
+          "mmio_0/led02",
+          "led02"
         ]
       },
-      "mmio_0_led3": {
+      "mmio_0_led03": {
         "ports": [
-          "mmio_0/led3",
-          "led3"
+          "mmio_0/led03",
+          "led03"
+        ]
+      },
+      "mmio_0_led04": {
+        "ports": [
+          "mmio_0/led04",
+          "led04"
+        ]
+      },
+      "mmio_0_led05": {
+        "ports": [
+          "mmio_0/led05",
+          "led05"
+        ]
+      },
+      "mmio_0_led06": {
+        "ports": [
+          "mmio_0/led06",
+          "led06"
+        ]
+      },
+      "mmio_0_led07": {
+        "ports": [
+          "mmio_0/led07",
+          "led07"
+        ]
+      },
+      "mmio_0_led08": {
+        "ports": [
+          "mmio_0/led08",
+          "led08"
+        ]
+      },
+      "mmio_0_led09": {
+        "ports": [
+          "mmio_0/led09",
+          "led09"
+        ]
+      },
+      "mmio_0_led10": {
+        "ports": [
+          "mmio_0/led10",
+          "led10"
+        ]
+      },
+      "mmio_0_led11": {
+        "ports": [
+          "mmio_0/led11",
+          "led11"
+        ]
+      },
+      "mmio_0_led12": {
+        "ports": [
+          "mmio_0/led12",
+          "led12"
+        ]
+      },
+      "mmio_0_led13": {
+        "ports": [
+          "mmio_0/led13",
+          "led13"
+        ]
+      },
+      "mmio_0_led14": {
+        "ports": [
+          "mmio_0/led14",
+          "led14"
+        ]
+      },
+      "mmio_0_led15": {
+        "ports": [
+          "mmio_0/led15",
+          "led15"
+        ]
+      },
+      "mmio_0_led16": {
+        "ports": [
+          "mmio_0/led16",
+          "led16"
+        ]
+      },
+      "mmio_0_led17": {
+        "ports": [
+          "mmio_0/led17",
+          "led17"
+        ]
+      },
+      "mmio_0_led18": {
+        "ports": [
+          "mmio_0/led18",
+          "led18"
+        ]
+      },
+      "mmio_0_led19": {
+        "ports": [
+          "mmio_0/led19",
+          "led19"
+        ]
+      },
+      "mmio_0_rgb0": {
+        "ports": [
+          "mmio_0/rgb0",
+          "rgb0"
+        ]
+      },
+      "mmio_0_rgb1": {
+        "ports": [
+          "mmio_0/rgb1",
+          "rgb1"
+        ]
+      },
+      "mmio_0_rgb2": {
+        "ports": [
+          "mmio_0/rgb2",
+          "rgb2"
+        ]
+      },
+      "mmio_0_rgb3": {
+        "ports": [
+          "mmio_0/rgb3",
+          "rgb3"
+        ]
+      },
+      "mmio_0_rho": {
+        "ports": [
+          "mmio_0/rho",
+          "rho"
         ]
       },
       "mmu_0_debug_dout": {

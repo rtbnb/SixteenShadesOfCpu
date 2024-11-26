@@ -19,14 +19,14 @@ preplace inst clk_wiz_0 -pg 1 -lvl 1 -x -170 -y -240 -defaultsOSRD
 preplace inst clockcontroller_0 -pg 1 -lvl 2 -x 180 -y -250 -defaultsOSRD
 preplace netloc Net 1 2 1 350 -430n
 preplace netloc clk100mhz_in_1 1 0 1 N -240
-preplace netloc clk_wiz_0_clk100mhz 1 1 1 -40 -320n
-preplace netloc clk_wiz_0_clk50mhz 1 1 1 -30 -300n
-preplace netloc clk_wiz_0_debug_guard_clk 1 1 1 10 -280n
-preplace netloc clk_wiz_0_locked 1 1 1 20 -260n
-preplace netloc clockcontroller_0_ck_stable 1 2 1 350 -350n
-preplace netloc clockcontroller_0_debug_clk 1 2 1 340 -370n
-preplace netloc clockcontroller_0_exec_clk 1 2 1 330 -390n
-preplace netloc clockcontroller_0_load_clk 1 2 1 320 -410n
+preplace netloc clk_wiz_0_clk100mhz 1 1 1 -30 -300n
+preplace netloc clk_wiz_0_clk50mhz 1 1 1 -40 -320n
+preplace netloc clk_wiz_0_debug_guard_clk 1 1 1 N -230
+preplace netloc clk_wiz_0_locked 1 1 1 10 -280n
+preplace netloc clockcontroller_0_ck_stable 1 2 1 380 -350n
+preplace netloc clockcontroller_0_debug_clk 1 2 1 370 -370n
+preplace netloc clockcontroller_0_exec_clk 1 2 1 360 -390n
+preplace netloc clockcontroller_0_load_clk 1 2 1 350 -410n
 preplace netloc debug_en_1 1 0 2 NJ -420 0
 preplace netloc debug_mock_clk_1 1 0 2 NJ -330 -50
 preplace netloc debug_reset_1 1 0 2 NJ -400 -10
