@@ -19,6 +19,7 @@ vivado/Integration/Integration.gen/sources_1/bd
 vivado/*/*.ip_user_files/sim_scripts/*/*/*.txt
 vivado/*/*.ip_user_files/sim_scripts/*/*/main.sh
 vivado/*/*.ip_user_files/sim_scripts/*/*/compile.do
+vivado/*/*.gen/sources_1/bd/main_block/op/main_block_controller_0_0/**
 
 .venv/
 __pycache__/
