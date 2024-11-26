@@ -33,7 +33,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Pipelining_Controller is
     Port ( InstrLoad_CLK : in STD_LOGIC;
-           InstrExec_CLK : in STD_LOGIC;
            Reset : in STD_LOGIC;
            Instruction : in STD_LOGIC_VECTOR (15 downto 0);
            ResolveStall : in STD_LOGIC;
@@ -129,11 +128,11 @@ begin
     
     InstructionToExecute <= output_buffer;
     
-    process(InstrExec_CLK, Reset) is
+    process(InstrLoad_CLK, Reset) is
     begin
         if (Reset = '1') then
             taking_data <= false;
-        elsif rising_edge(InstrExec_CLK) then
+        elsif falling_edge(InstrLoad_CLK) then
             taking_data <= true;
         end if;
     end process;
@@ -154,11 +153,11 @@ begin
     end process instruction_fetch_shift_Register;
     
     
-    staller : process(InstrExec_CLK, Reset, stall_required) is
+    staller : process(InstrLoad_CLK, Reset, stall_required) is
     begin
     if (Reset = '1') then
         jmp_stalled <= '0';
-    elsif (rising_edge(InstrExec_CLK)) then
+    elsif (falling_edge(InstrLoad_CLK)) then
         if (stall_required = '1') then
             jmp_stalled <= '1';
         elsif (ResolveStall = '1') then
@@ -169,11 +168,11 @@ begin
     end if;
     end process staller;
     
-    staller2 : process(InstrExec_CLK, Reset, ram_stall) is
+    staller2 : process(InstrLoad_CLK, Reset, ram_stall) is
     begin
     if (Reset = '1') then
         ram_stalled <= '0';
-    elsif (rising_edge(InstrExec_CLK)) then
+    elsif (falling_edge(InstrLoad_CLK)) then
         if (ram_stall = '1') then
             ram_stalled <= '1';
         elsif (ram_stall_reset = '1') then
@@ -210,14 +209,14 @@ begin
         "01";
     
     
-    forward_shift_register : process(InstrExec_CLK, Reset) is
+    forward_shift_register : process(InstrLoad_CLK, Reset) is
     begin
     if (Reset = '1') then
         rf_forward <= "0000";
         execution_forward <= "0000"; 
         write_back_forward <= "0000";
         output_forward <= "0000";
-    elsif rising_edge(InstrExec_CLK) and not (debug_enable='1' and debug_override_enable='1') then
+    elsif falling_edge(InstrLoad_CLK) and not (debug_enable='1' and debug_override_enable='1') then
         rf_forward <= input_forward;
         execution_forward <= rf_forward; 
         write_back_forward <= execution_forward;

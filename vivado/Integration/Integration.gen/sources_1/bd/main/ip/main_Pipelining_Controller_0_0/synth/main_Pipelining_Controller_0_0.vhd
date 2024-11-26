@@ -56,7 +56,6 @@ USE ieee.numeric_std.ALL;
 ENTITY main_Pipelining_Controller_0_0 IS
   PORT (
     InstrLoad_CLK : IN STD_LOGIC;
-    InstrExec_CLK : IN STD_LOGIC;
     Reset : IN STD_LOGIC;
     Instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     ResolveStall : IN STD_LOGIC;
@@ -74,7 +73,6 @@ ARCHITECTURE main_Pipelining_Controller_0_0_arch OF main_Pipelining_Controller_0
   COMPONENT Pipelining_Controller IS
     PORT (
       InstrLoad_CLK : IN STD_LOGIC;
-      InstrExec_CLK : IN STD_LOGIC;
       Reset : IN STD_LOGIC;
       Instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       ResolveStall : IN STD_LOGIC;
@@ -95,9 +93,7 @@ ARCHITECTURE main_Pipelining_Controller_0_0_arch OF main_Pipelining_Controller_0
   ATTRIBUTE IP_DEFINITION_SOURCE OF main_Pipelining_Controller_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrExec_CLK: SIGNAL IS "XIL_INTERFACENAME InstrExec_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF InstrExec_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrExec_CLK CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrLoad_CLK: SIGNAL IS "XIL_INTERFACENAME InstrLoad_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrLoad_CLK: SIGNAL IS "XIL_INTERFACENAME InstrLoad_CLK, ASSOCIATED_RESET Reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF InstrLoad_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrLoad_CLK CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF Reset: SIGNAL IS "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF Reset: SIGNAL IS "xilinx.com:signal:reset:1.0 Reset RST";
@@ -105,7 +101,6 @@ BEGIN
   U0 : Pipelining_Controller
     PORT MAP (
       InstrLoad_CLK => InstrLoad_CLK,
-      InstrExec_CLK => InstrExec_CLK,
       Reset => Reset,
       Instruction => Instruction,
       ResolveStall => ResolveStall,

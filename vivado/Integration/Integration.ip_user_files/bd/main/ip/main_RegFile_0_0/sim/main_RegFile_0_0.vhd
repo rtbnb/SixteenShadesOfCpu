@@ -62,7 +62,7 @@ ENTITY main_RegFile_0_0 IS
     Flags : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     WE : IN STD_LOGIC;
     OverwriteFl : IN STD_LOGIC;
-    clk : IN STD_LOGIC;
+    load_clk : IN STD_LOGIC;
     Reg1_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     Reg2_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     BankID : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
@@ -81,7 +81,7 @@ ARCHITECTURE main_RegFile_0_0_arch OF main_RegFile_0_0 IS
       Flags : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       WE : IN STD_LOGIC;
       OverwriteFl : IN STD_LOGIC;
-      clk : IN STD_LOGIC;
+      load_clk : IN STD_LOGIC;
       Reg1_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       Reg2_data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       BankID : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
@@ -89,8 +89,8 @@ ARCHITECTURE main_RegFile_0_0_arch OF main_RegFile_0_0 IS
   END COMPONENT RegFile;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF load_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 load_clk CLK";
 BEGIN
   U0 : RegFile
     PORT MAP (
@@ -101,7 +101,7 @@ BEGIN
       Flags => Flags,
       WE => WE,
       OverwriteFl => OverwriteFl,
-      clk => clk,
+      load_clk => load_clk,
       Reg1_data => Reg1_data,
       Reg2_data => Reg2_data,
       BankID => BankID

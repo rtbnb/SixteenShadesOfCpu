@@ -33,7 +33,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity GPU is
     Port ( InstrLoad_CLK : in STD_LOGIC;
-           InstrExec_CLK : in STD_LOGIC;
            Reset : in STD_LOGIC;
            Bridge_IsGPU_OP : in STD_LOGIC;
            Bridge_Command : in STD_LOGIC_VECTOR (3 downto 0);
@@ -68,7 +67,7 @@ begin
         end if;
     end process loader;
     
-    VRAM_CLK <= InstrExec_CLK;
+    VRAM_CLK <= not InstrLoad_CLK;
     VRAM_WE(0) <= bridge_is_gpu_op_s;
     VRAM_Addr <= bridge_arg_1_s;
     VRAM_Dout <= bridge_arg_2_s;

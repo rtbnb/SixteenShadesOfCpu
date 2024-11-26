@@ -33,50 +33,70 @@ use UNISIM.VComponents.all;
 
 entity clockcontroller is
     port(
-        clk50mhz_in, clk100mhz_in, wizard_locked, fault_reset, debug_reset: in std_logic;
+        clk100mhz_in, fault_reset, debug_reset: in std_logic;
         debug_enable, debug_mock_clk, debug_mmu_override_enbale: in std_logic;
-        load_clk, exec_clk, vga_clk: out std_logic; 
+        load_clk, vga_clk: out std_logic;
         debug_clk: out std_logic; 
         ck_stable: out std_logic
     );
 end clockcontroller;
 
 architecture Behavioral of clockcontroller is
-    signal output_en_s: std_logic_vector( 2 downto 0 );
+    signal output_en_s: std_logic;
     signal fault_s: std_logic := '0';
     signal debug_en_s: std_logic := '1';
     signal clk50mhz_buf_s: std_logic;
+    signal clk_mux_s: std_logic;
+    signal clk50mhz_s, transfer_clk_s, load_clk_transfer_s: std_logic;
 begin
-    output_en_s <= wizard_locked & debug_en_s & debug_mmu_override_enbale;
-    ck_stable <= wizard_locked;
+    output_en_s <= not (debug_en_s or debug_mmu_override_enbale);
+    ck_stable <= '1';
     
-    BUFG_inst : BUFG
+    BUFR_inst1 : BUFR
+    generic map (
+       BUFR_DIVIDE => "2",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8"
+       SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES"
+    )
     port map (
-       O => clk50mhz_buf_s, -- 1-bit output: Clock output
-       I => clk50mhz_in  -- 1-bit input: Clock input
+       O => transfer_clk_s,     -- 1-bit output: Clock output port
+       CE => '1',   -- 1-bit input: Active high, clock enable (Divided modes only)
+       CLR => '0', -- 1-bit input: Active high, asynchronous clear (Divided modes only)
+       I => clk100mhz_in      -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
+    );
+
+    BUFGMUX_inst : BUFGMUX
+    port map (
+       O => load_clk_transfer_s,   -- 1-bit output: Clock output
+       I0 => debug_mock_clk, -- 1-bit input: Clock input (S=0)
+       I1 => transfer_clk_s, -- 1-bit input: Clock input (S=1)
+       S => output_en_s     -- 1-bit input: Clock select
     );
     
-    with output_en_s select
-        load_clk <= clk50mhz_in when "100",
-                    debug_mock_clk when "110",
-                    '0' when others;
-    with output_en_s select
-        exec_clk <= not clk50mhz_in when "100",
-                    not debug_mock_clk when "110",
-                    '1' when others;
-                                    
-                    
-    with wizard_locked select
-        vga_clk <= clk50mhz_in when '1',
-                   '0' when others;
-    with wizard_locked select
-        debug_clk <= clk50mhz_buf_s when '1',
-                     '0' when others;
+    BUFG_inst1: BUFG
+    port map (
+       O => clk50mhz_s, -- 1-bit output: Clock output
+       I => transfer_clk_s  -- 1-bit input: Clock input
+    );
+
+    BUFG_inst2: BUFG
+    port map (
+       O => load_clk, -- 1-bit output: Clock output
+       I => load_clk_transfer_s  -- 1-bit input: Clock input
+    );
+
+--    BUFG_inst : BUFG
+--    port map (
+--       O => clk50mhz_buf_s, -- 1-bit output: Clock output
+--       I => clk50mhz_in  -- 1-bit input: Clock input
+--    );
     
-                        
-    debug_state:process(clk50mhz_in) is
+    vga_clk <= clk50mhz_s;
+    debug_clk <= clk50mhz_s;
+
+
+    debug_state:process(clk50mhz_s) is
     begin
-        if rising_edge(clk50mhz_in) then
+        if rising_edge(clk50mhz_s) then
             if debug_enable='0' and debug_reset='1' then
                 debug_en_s <= '0';
             elsif debug_enable='1' then

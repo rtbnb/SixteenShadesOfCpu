@@ -56,7 +56,6 @@ USE ieee.numeric_std.ALL;
 ENTITY main_GPU_0_0 IS
   PORT (
     InstrLoad_CLK : IN STD_LOGIC;
-    InstrExec_CLK : IN STD_LOGIC;
     Reset : IN STD_LOGIC;
     Bridge_IsGPU_OP : IN STD_LOGIC;
     Bridge_Command : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -75,7 +74,6 @@ ARCHITECTURE main_GPU_0_0_arch OF main_GPU_0_0 IS
   COMPONENT GPU IS
     PORT (
       InstrLoad_CLK : IN STD_LOGIC;
-      InstrExec_CLK : IN STD_LOGIC;
       Reset : IN STD_LOGIC;
       Bridge_IsGPU_OP : IN STD_LOGIC;
       Bridge_Command : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -89,8 +87,6 @@ ARCHITECTURE main_GPU_0_0_arch OF main_GPU_0_0 IS
   END COMPONENT GPU;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrExec_CLK: SIGNAL IS "XIL_INTERFACENAME InstrExec_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF InstrExec_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrExec_CLK CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF InstrLoad_CLK: SIGNAL IS "XIL_INTERFACENAME InstrLoad_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF InstrLoad_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrLoad_CLK CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF Reset: SIGNAL IS "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
@@ -101,7 +97,6 @@ BEGIN
   U0 : GPU
     PORT MAP (
       InstrLoad_CLK => InstrLoad_CLK,
-      InstrExec_CLK => InstrExec_CLK,
       Reset => Reset,
       Bridge_IsGPU_OP => Bridge_IsGPU_OP,
       Bridge_Command => Bridge_Command,
