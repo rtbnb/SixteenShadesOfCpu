@@ -5,9 +5,10 @@ from queue import Queue
 
 
 class DebugWindow(QtWidgets.QWidget):
-    def __init__(self, data: Datapool):
+    def __init__(self, datapool: Datapool):
         super().__init__()
-        self.data = data.get_dict()
+        self.data = datapool.get_dict()
+        self.datapool = datapool
         self.command_queue = Queue()
         self.initUI()
 
@@ -175,6 +176,9 @@ class DebugWindow(QtWidgets.QWidget):
 
     def command_list_button_pushed(self, command_list):
         self.add_command_to_queue(command_list)
+
+    def  get_rx_datapool(self):
+        return self.datapool
 
 def print_queue(debugWindow: DebugWindow):
     while(1):
