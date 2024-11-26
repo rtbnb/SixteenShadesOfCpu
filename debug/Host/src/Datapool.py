@@ -10,7 +10,6 @@ class Datapool:
             b"\x12": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_current_instruction"},
             b"\x13": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_operand_1"},
             b"\x14": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_operand_2"},
-            b"\x15": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_memory_addr_reg"},
             b"\x16": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeline_jmp"},
             b"\x20": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pc_din"},
             b"\x21": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pc_dout"},
@@ -33,7 +32,6 @@ class Datapool:
             b"\x55": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_write_data"},
             b"\x56": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_reg1_data"},
             b"\x57": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_reg2_data"},
-            b"\x58": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_regma_data"},
             b"\x59": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_overwrite_flag"}
         }
 

@@ -46,7 +46,6 @@ entity Debugger is
         debug_enable: out std_logic := '0';
         cc_debug_mock_clk: out std_logic := '0';
         cc_debug_reset: out std_logic := '0';
-        load_clk: in std_logic;
         
         -- monitoring signals
         -- pipeline
@@ -54,7 +53,6 @@ entity Debugger is
         pipeline_instruction_forwarding_config: in std_logic_vector(4 downto 0);
         pipeline_current_instruction: in std_logic_vector(15 downto 0);
         pipeline_operand_1, pipeline_operand_2: in std_logic_vector(15 downto 0);
-        pipeline_memory_addr_reg: in std_logic_vector(15 downto 0);
         pipeline_jmp: in std_logic;
         
         -- program counter
@@ -78,7 +76,6 @@ entity Debugger is
         regfile_write_data: in std_logic_vector(15 downto 0);
         regfile_reg1_data: in std_logic_vector(15 downto 0);
         regfile_reg2_data: in std_logic_vector(15 downto 0);
-        regfile_regma_data: in std_logic_vector(15 downto 0);
         regfile_bankid: in std_logic_vector(3 downto 0);
               
         
@@ -129,7 +126,6 @@ architecture Behavioral of Debugger is
     signal pipeline_instruction_forwarding_config_s: std_logic_vector(4 downto 0);
     signal pipeline_current_instruction_s: std_logic_vector(15 downto 0);
     signal pipeline_operand_1_s, pipeline_operand_2_s: std_logic_vector(15 downto 0);
-    signal pipeline_memory_addr_reg_s: std_logic_vector(15 downto 0);
     signal pipeline_jmp_s: std_logic;
     -- program counter
     signal pc_din_s: std_logic_vector(15 downto 0);
@@ -150,10 +146,10 @@ architecture Behavioral of Debugger is
     signal regfile_write_data_s: std_logic_vector(15 downto 0);
     signal regfile_reg1_data_s: std_logic_vector(15 downto 0);
     signal regfile_reg2_data_s: std_logic_vector(15 downto 0);
-    signal regfile_regma_data_s: std_logic_vector(15 downto 0);
     signal regfile_bankid_s: std_logic_vector(3 downto 0);   
     -- mmu
     signal mmu_debug_dout_s: std_logic_vector(15 downto 0);
+
 begin
     -- state machine
     pc_current_addr_buffer <= pc_current_addr;
@@ -258,7 +254,6 @@ begin
                     pipeline_current_instruction_s <= pipeline_current_instruction;
                     pipeline_operand_1_s <= pipeline_operand_1;
                     pipeline_operand_2_s <= pipeline_operand_2;
-                    pipeline_memory_addr_reg_s <= pipeline_memory_addr_reg;
                     pipeline_jmp_s <= pipeline_jmp;
                     pc_din_s <= pc_din;
                     pc_dout_s <= pc_dout;
@@ -276,7 +271,6 @@ begin
                     regfile_write_data_s <= regfile_write_data;
                     regfile_reg1_data_s <= regfile_reg1_data;
                     regfile_reg2_data_s <= regfile_reg2_data;
-                    regfile_regma_data_s <= regfile_regma_data;
                     regfile_bankid_s <= regfile_bankid;
                     --mmu_debug_dout_s <= mmu_debug_dout;
                     state <= ProcessCommand;
@@ -315,10 +309,6 @@ begin
                         when x"14" =>
                             tx_instruction_buffer <= x"14";
                             tx_data_buffer <= pipeline_operand_2_s;
-                            state <= TransmitDataInstructionSHORT;
-                        when x"15" =>
-                            tx_instruction_buffer <= x"15";
-                            tx_data_buffer <= pipeline_memory_addr_reg_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"16" =>
                             tx_data_buffer(15 downto 1) <= "000000000000000";
@@ -440,10 +430,6 @@ begin
                             tx_instruction_buffer <= x"57";
                             tx_data_buffer <= regfile_reg2_data_s;
                             state <= TransmitDataInstructionSHORT;
-                        when x"58" =>
-                            tx_instruction_buffer <= x"58";
-                            tx_data_buffer <= regfile_regma_data_s;
-                            state <= TransmitDataInstructionSHORT;
                         when x"59" =>
                             tx_instruction_buffer <= x"59";
                             tx_data_buffer(15 downto 4) <= "000000000000";
@@ -462,13 +448,9 @@ begin
                     tx_instruction_buffer <= x"01";
                     state <= TransmitInstructionOnly;
                 when ClockResumeAck =>
-                    if (load_clk = '1') then
-                        cc_debug_reset <= '0';
-                        tx_instruction_buffer <= x"02";
-                        state <= TransmitInstructionOnly;
-                    else
-                        state <= ClockResumeAck;
-                    end if;
+                    tx_instruction_buffer <= x"02";
+                    cc_debug_reset <= '0';
+                    state <= TransmitInstructionOnly;
                     
                 -- tx states
                 -- long data transmission
