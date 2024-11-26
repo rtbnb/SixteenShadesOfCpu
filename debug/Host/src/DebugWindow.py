@@ -74,7 +74,7 @@ class DebugWindow(QtWidgets.QWidget):
         gram_textfield_memory_data = QtWidgets.QLineEdit()
         gram_textfield_memory_addr = QtWidgets.QLineEdit()
         gram_write_button = QtWidgets.QPushButton(text="Write to GRAM")
-        gram_write_button.clicked.connect(lambda: self.button_pushed_write_iram(textfield_memory_data, textfield_memory_addr))
+        gram_write_button.clicked.connect(lambda: self.button_pushed_write_gram(textfield_memory_data, textfield_memory_addr))
         self.layout.addWidget(gram_textfield_memory_data, len(self.data) + 2, 0, 1, 1)
         self.layout.addWidget(gram_textfield_memory_addr, len(self.data) + 2, 1, 1, 1)
         self.layout.addWidget(gram_write_button, len(self.data) + 2, 2, 1, 1)
@@ -120,19 +120,17 @@ class DebugWindow(QtWidgets.QWidget):
         self.add_command_to_queue([command_bytes])
 
     def button_pushed_write_iram(self, textfield_memory_data, textfield_memory_addr):
-        data = textfield_memory_data.text()
-        addr = textfield_memory_addr.text()
-        if len(data) == 0 or len(addr) == 0:
-            return
-        data = int(data, 16)
-        addr = int(addr, 16)
-        data = data.to_bytes(2, 'big')
-        addr = addr.to_bytes(2, 'big')
-        print(data)
-        print(addr)
-        self.add_command_to_queue([b"\x60", addr[0], addr[1], data[0], data[1]])
+        data = bytes.fromhex(textfield_memory_data.text())
+        addr = bytes.fromhex(textfield_memory_addr.text())
+        self.add_command_to_queue([b"\x31", addr, data])
+    
+    def button_pushed_write_gram(self, textfield_memory_data, textfield_memory_addr):
+        data = bytes.fromhex(textfield_memory_data.text())
+        addr = bytes.fromhex(textfield_memory_addr.text())
+        self.add_command_to_queue([b"\x30", addr, data])
 
     def button_select_bin_file(self, command: bytes):
+        max_addr = 0xFFFF
         fileName = QtWidgets.QFileDialog.getOpenFileName(self,
         self.tr("Open Image"), "", self.tr("Bin Files (*.bin)"))
         with open(fileName[0], 'rb') as f:
@@ -148,6 +146,9 @@ class DebugWindow(QtWidgets.QWidget):
                 #print("End Bytes")
                 self.add_command_to_queue([command, addr_bytes[0:1], addr_bytes[1:2], data[i:i+1], data[i+1:i+2]])
                 addr_counter += 1
+                if addr_counter > max_addr:
+                    break
+                    
 
         print(fileName)
 
@@ -180,7 +181,8 @@ class DebugWindow(QtWidgets.QWidget):
         self.add_command_to_queue(command_list)
 
     def command_list_button_pushed(self, command_list):
-        self.add_command_to_queue(command_list)
+        for command in command_list:
+            self.add_command_to_queue([command])
 
     def  get_rx_datapool(self):
         return self.datapool
