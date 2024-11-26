@@ -46,51 +46,37 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:ProgramCounter:1.0
+-- IP VLNV: xilinx.com:module_ref:custom_BUFH:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY main_ProgramCounter_0_0 IS
+ENTITY main_custom_BUFH_0_0 IS
   PORT (
-    InstrLoad_CLK : IN STD_LOGIC;
-    Stalled : IN STD_LOGIC;
-    JMP : IN STD_LOGIC;
-    Reset : IN STD_LOGIC;
-    Din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    Dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    clkIn : IN STD_LOGIC;
+    clkOut : OUT STD_LOGIC
   );
-END main_ProgramCounter_0_0;
+END main_custom_BUFH_0_0;
 
-ARCHITECTURE main_ProgramCounter_0_0_arch OF main_ProgramCounter_0_0 IS
+ARCHITECTURE main_custom_BUFH_0_0_arch OF main_custom_BUFH_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_ProgramCounter_0_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT ProgramCounter IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_custom_BUFH_0_0_arch: ARCHITECTURE IS "yes";
+  COMPONENT custom_BUFH IS
     PORT (
-      InstrLoad_CLK : IN STD_LOGIC;
-      Stalled : IN STD_LOGIC;
-      JMP : IN STD_LOGIC;
-      Reset : IN STD_LOGIC;
-      Din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      Dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+      clkIn : IN STD_LOGIC;
+      clkOut : OUT STD_LOGIC
     );
-  END COMPONENT ProgramCounter;
+  END COMPONENT custom_BUFH;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrLoad_CLK: SIGNAL IS "XIL_INTERFACENAME InstrLoad_CLK, ASSOCIATED_RESET Reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF InstrLoad_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrLoad_CLK CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF Reset: SIGNAL IS "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF Reset: SIGNAL IS "xilinx.com:signal:reset:1.0 Reset RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF clkIn: SIGNAL IS "XIL_INTERFACENAME clkIn, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF clkIn: SIGNAL IS "xilinx.com:signal:clock:1.0 clkIn CLK";
 BEGIN
-  U0 : ProgramCounter
+  U0 : custom_BUFH
     PORT MAP (
-      InstrLoad_CLK => InstrLoad_CLK,
-      Stalled => Stalled,
-      JMP => JMP,
-      Reset => Reset,
-      Din => Din,
-      Dout => Dout
+      clkIn => clkIn,
+      clkOut => clkOut
     );
-END main_ProgramCounter_0_0_arch;
+END main_custom_BUFH_0_0_arch;

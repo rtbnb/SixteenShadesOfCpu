@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xBCA9DE142A8EE933",
+      "boundary_crc": "0xE17EC58655D84C22",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -36,7 +36,7 @@
       "VGA_CPU_Bridge_0": "",
       "GPU_0": "",
       "VGA_Controller_0": "",
-      "clk_wiz_0": ""
+      "custom_BUFH_0": ""
     },
     "ports": {
       "Reset": {
@@ -122,28 +122,48 @@
           }
         }
       },
-      "led0": {
+      "led00": {
         "direction": "O"
       },
-      "led1": {
+      "led01": {
         "direction": "O"
       },
-      "led2": {
+      "led02": {
         "direction": "O"
       },
-      "led3": {
+      "led03": {
         "direction": "O"
       },
-      "btn0": {
+      "rgb0": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb1": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb2": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb3": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "btn00": {
         "direction": "I"
       },
-      "btn1": {
+      "btn01": {
         "direction": "I"
       },
-      "btn2": {
+      "btn02": {
         "direction": "I"
       },
-      "btn3": {
+      "btn03": {
         "direction": "I"
       }
     },
@@ -164,18 +184,12 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              },
               "CLK_DOMAIN": {
                 "value": "main_clockcontroller_0_0_load_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "InstrExec_CLK": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_exec_clk",
                 "value_src": "default_prop"
               }
             }
@@ -225,20 +239,14 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "InstrExec_CLK": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_exec_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
           "InstrLoad_CLK": {
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              },
               "CLK_DOMAIN": {
                 "value": "main_clockcontroller_0_0_load_clk",
                 "value_src": "default_prop"
@@ -420,12 +428,12 @@
           "OverwriteFl": {
             "direction": "I"
           },
-          "clk": {
+          "load_clk": {
             "type": "clk",
             "direction": "I",
             "parameters": {
               "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_exec_clk",
+                "value": "main_clockcontroller_0_0_load_clk",
                 "value_src": "default_prop"
               }
             }
@@ -839,16 +847,6 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "InstrExec_CLK": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_exec_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
           "JMP": {
             "direction": "I"
           },
@@ -1067,42 +1065,22 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clk50mhz_in": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "50000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
           "clk100mhz_in": {
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
                 "value": "100000000",
-                "value_src": "ip_prop"
+                "value_src": "user_prop"
               },
               "PHASE": {
                 "value": "0.0",
-                "value_src": "ip_prop"
+                "value_src": "default_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
+                "value": "main_clk100mhz_in",
+                "value_src": "default_prop"
               }
             }
-          },
-          "wizard_locked": {
-            "direction": "I"
           },
           "fault_reset": {
             "type": "rst",
@@ -1129,10 +1107,6 @@
             "direction": "I"
           },
           "load_clk": {
-            "type": "clk",
-            "direction": "O"
-          },
-          "exec_clk": {
             "type": "clk",
             "direction": "O"
           },
@@ -1173,12 +1147,12 @@
           "ck_stable": {
             "direction": "I"
           },
-          "exec_clk": {
+          "load_clk": {
             "type": "clk",
             "direction": "I",
             "parameters": {
               "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_exec_clk",
+                "value": "main_clockcontroller_0_0_load_clk",
                 "value_src": "default_prop"
               }
             }
@@ -1885,7 +1859,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "InstrExec_CLK": {
+          "InstrLoad_CLK": {
             "type": "clk",
             "direction": "I",
             "parameters": {
@@ -1894,7 +1868,7 @@
                 "value_src": "constant"
               },
               "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_exec_clk",
+                "value": "main_clockcontroller_0_0_load_clk",
                 "value_src": "default_prop"
               }
             }
@@ -1959,16 +1933,6 @@
             "parameters": {
               "CLK_DOMAIN": {
                 "value": "main_clockcontroller_0_0_load_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "InstrExec_CLK": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_exec_clk",
                 "value_src": "default_prop"
               }
             }
@@ -2078,96 +2042,34 @@
           }
         }
       },
-      "clk_wiz_0": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "ip_revision": "14",
-        "xci_name": "main_clk_wiz_0_0",
-        "xci_path": "ip\\main_clk_wiz_0_0\\main_clk_wiz_0_0.xci",
-        "inst_hier_path": "clk_wiz_0",
-        "parameters": {
-          "CLKOUT1_DRIVES": {
-            "value": "BUFG"
+      "custom_BUFH_0": {
+        "vlnv": "xilinx.com:module_ref:custom_BUFH:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_custom_BUFH_0_0",
+        "xci_path": "ip\\main_custom_BUFH_0_0\\main_custom_BUFH_0_0.xci",
+        "inst_hier_path": "custom_BUFH_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "custom_BUFH",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clkIn": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_load_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
-          "CLKOUT1_JITTER": {
-            "value": "108.951"
-          },
-          "CLKOUT1_PHASE_ERROR": {
-            "value": "76.967"
-          },
-          "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "50.000"
-          },
-          "CLKOUT2_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT2_JITTER": {
-            "value": "96.283"
-          },
-          "CLKOUT2_PHASE_ERROR": {
-            "value": "76.967"
-          },
-          "CLKOUT2_USED": {
-            "value": "true"
-          },
-          "CLKOUT3_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT3_JITTER": {
-            "value": "130.958"
-          },
-          "CLKOUT3_PHASE_ERROR": {
-            "value": "98.575"
-          },
-          "CLKOUT3_USED": {
-            "value": "false"
-          },
-          "CLKOUT4_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT5_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT6_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT7_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLK_OUT1_PORT": {
-            "value": "cpu50mhz"
-          },
-          "CLK_OUT2_PORT": {
-            "value": "vga100mhz"
-          },
-          "JITTER_SEL": {
-            "value": "Min_O_Jitter"
-          },
-          "MMCM_BANDWIDTH": {
-            "value": "HIGH"
-          },
-          "MMCM_CLKFBOUT_MULT_F": {
-            "value": "15"
-          },
-          "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "30"
-          },
-          "MMCM_CLKOUT1_DIVIDE": {
-            "value": "15"
-          },
-          "MMCM_CLKOUT2_DIVIDE": {
-            "value": "1"
-          },
-          "MMCM_COMPENSATION": {
-            "value": "ZHOLD"
-          },
-          "NUM_OUT_CLKS": {
-            "value": "2"
-          },
-          "PRIMITIVE": {
-            "value": "PLL"
-          },
-          "USE_RESET": {
-            "value": "false"
+          "clkOut": {
+            "direction": "O"
           }
         }
       }
@@ -2362,8 +2264,8 @@
       "Debugger_0_debug_enable": {
         "ports": [
           "Debugger_0/debug_enable",
-          "mmu_0/debug_enable",
           "Pipelining_Controller_0/debug_enable",
+          "mmu_0/debug_enable",
           "clockcontroller_0/debug_enable"
         ]
       },
@@ -2388,8 +2290,8 @@
       "Debugger_0_mmu_debug_override_en": {
         "ports": [
           "Debugger_0/mmu_debug_override_en",
-          "mmu_0/debug_override_enable",
           "Pipelining_Controller_0/debug_override_enable",
+          "mmu_0/debug_override_enable",
           "clockcontroller_0/debug_mmu_override_enbale"
         ]
       },
@@ -2479,8 +2381,13 @@
           "GPU_0/InstrLoad_CLK",
           "Pipelining_WriteBack_0/InstrLoad_CLK",
           "Pipelining_Execution_0/InstrLoad_CLK",
+          "Pipelining_Controller_0/InstrLoad_CLK",
+          "RegFile_0/load_clk",
+          "VGA_CPU_Bridge_0/InstrLoad_CLK",
           "ProgramCounter_0/InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK"
+          "GPU_0/InstrLoad_CLK",
+          "mmu_0/load_clk",
+          "custom_BUFH_0/clkIn"
         ]
       },
       "Net": {
@@ -2525,9 +2432,9 @@
           "ALU_0/ALU_OPP",
           "CU_ImmediateManipula_0/Immediate",
           "CU_JumpDestinationSe_0/Immediate",
-          "VGA_CPU_Bridge_0/Immediate_In",
           "CU_RAMAddressControl_0/Immediate",
-          "Debugger_0/alu_op"
+          "Debugger_0/alu_op",
+          "VGA_CPU_Bridge_0/Immediate_In"
         ]
       },
       "Pipelining_Execution_0_Is_GPU_OP_out": {
@@ -2563,8 +2470,8 @@
       "Pipelining_Execution_0_JMP_out": {
         "ports": [
           "Pipelining_Execution_0/JMP_out",
-          "CU_JumpController_0/JMP",
-          "Pipelining_WriteBack_0/JMP"
+          "Pipelining_WriteBack_0/JMP",
+          "CU_JumpController_0/JMP"
         ]
       },
       "Pipelining_Execution_0_Operand1_out": {
@@ -2583,9 +2490,9 @@
         "ports": [
           "Pipelining_Execution_0/Operand2_out",
           "ALU_0/D2",
-          "CU_JumpController_0/Flags",
-          "VGA_CPU_Bridge_0/Reg2_In",
           "CU_RAMAddressControl_0/Reg2",
+          "VGA_CPU_Bridge_0/Reg2_In",
+          "CU_JumpController_0/Flags",
           "Debugger_0/alu_din2"
         ]
       },
@@ -2744,12 +2651,12 @@
       "Reset_1": {
         "ports": [
           "Reset",
-          "GPU_0/Reset",
           "Pipelining_WriteBack_0/Reset",
-          "VGA_CPU_Bridge_0/Reset",
           "Pipelining_Execution_0/Reset",
+          "Pipelining_Controller_0/Reset",
+          "VGA_CPU_Bridge_0/Reset",
           "ProgramCounter_0/Reset",
-          "Pipelining_Controller_0/Reset"
+          "GPU_0/Reset"
         ]
       },
       "TX_UART_0_send_valid": {
@@ -2836,47 +2743,33 @@
           "v_sync"
         ]
       },
-      "btn0_1": {
+      "btn00_1": {
         "ports": [
-          "btn0"
+          "btn00",
+          "mmio_0/btn00"
         ]
       },
-      "btn1_1": {
+      "btn01_1": {
         "ports": [
-          "btn1"
+          "btn01",
+          "mmio_0/btn01"
         ]
       },
-      "btn2_1": {
+      "btn02_1": {
         "ports": [
-          "btn2"
+          "btn02",
+          "mmio_0/btn02"
         ]
       },
-      "btn3_1": {
+      "btn03_1": {
         "ports": [
-          "btn3"
+          "btn03",
+          "mmio_0/btn03"
         ]
       },
       "clk100mhz_in_1": {
         "ports": [
           "clk100mhz_in",
-          "clk_wiz_0/clk_in1"
-        ]
-      },
-      "clk_wiz_0_cpu50mhz": {
-        "ports": [
-          "clk_wiz_0/cpu50mhz",
-          "clockcontroller_0/clk50mhz_in"
-        ]
-      },
-      "clk_wiz_0_locked": {
-        "ports": [
-          "clk_wiz_0/locked",
-          "clockcontroller_0/wizard_locked"
-        ]
-      },
-      "clk_wiz_0_vga100mhz": {
-        "ports": [
-          "clk_wiz_0/vga100mhz",
           "clockcontroller_0/clk100mhz_in"
         ]
       },
@@ -2886,22 +2779,16 @@
           "mmu_0/ck_stable"
         ]
       },
-      "clockcontroller_0_exec_clk": {
-        "ports": [
-          "clockcontroller_0/exec_clk",
-          "CU_JumpController_0/InstrExec_CLK",
-          "GPU_0/InstrExec_CLK",
-          "VGA_CPU_Bridge_0/InstrExec_CLK",
-          "mmu_0/exec_clk",
-          "RegFile_0/clk",
-          "ProgramCounter_0/InstrExec_CLK",
-          "Pipelining_Controller_0/InstrExec_CLK"
-        ]
-      },
       "clockcontroller_0_vga_clk": {
         "ports": [
           "clockcontroller_0/vga_clk",
           "VGA_Controller_0/InstrExec_CLK"
+        ]
+      },
+      "custom_BUFH_0_clkOut": {
+        "ports": [
+          "custom_BUFH_0/clkOut",
+          "Debugger_0/load_clk"
         ]
       },
       "fault_reset_1": {
@@ -2916,24 +2803,52 @@
           "mmu_0/mmio_mem_dout"
         ]
       },
-      "mmio_0_led0": {
+      "mmio_0_led00": {
         "ports": [
-          "led0"
+          "mmio_0/led00",
+          "led00"
         ]
       },
-      "mmio_0_led1": {
+      "mmio_0_led01": {
         "ports": [
-          "led1"
+          "mmio_0/led01",
+          "led01"
         ]
       },
-      "mmio_0_led2": {
+      "mmio_0_led02": {
         "ports": [
-          "led2"
+          "mmio_0/led02",
+          "led02"
         ]
       },
-      "mmio_0_led3": {
+      "mmio_0_led03": {
         "ports": [
-          "led3"
+          "mmio_0/led03",
+          "led03"
+        ]
+      },
+      "mmio_0_rgb0": {
+        "ports": [
+          "mmio_0/rgb0",
+          "rgb0"
+        ]
+      },
+      "mmio_0_rgb1": {
+        "ports": [
+          "mmio_0/rgb1",
+          "rgb1"
+        ]
+      },
+      "mmio_0_rgb2": {
+        "ports": [
+          "mmio_0/rgb2",
+          "rgb2"
+        ]
+      },
+      "mmio_0_rgb3": {
+        "ports": [
+          "mmio_0/rgb3",
+          "rgb3"
         ]
       },
       "mmio_0_rho": {

@@ -55,7 +55,6 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_CU_JumpController_0_0 IS
   PORT (
-    InstrExec_CLK : IN STD_LOGIC;
     JMP : IN STD_LOGIC;
     JMP_Conditional : IN STD_LOGIC;
     JMP_Relative : IN STD_LOGIC;
@@ -73,7 +72,6 @@ ARCHITECTURE main_CU_JumpController_0_0_arch OF main_CU_JumpController_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_CU_JumpController_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT CU_JumpController IS
     PORT (
-      InstrExec_CLK : IN STD_LOGIC;
       JMP : IN STD_LOGIC;
       JMP_Conditional : IN STD_LOGIC;
       JMP_Relative : IN STD_LOGIC;
@@ -85,14 +83,9 @@ ARCHITECTURE main_CU_JumpController_0_0_arch OF main_CU_JumpController_0_0 IS
       PC_Next : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT CU_JumpController;
-  ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrExec_CLK: SIGNAL IS "XIL_INTERFACENAME InstrExec_CLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF InstrExec_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrExec_CLK CLK";
 BEGIN
   U0 : CU_JumpController
     PORT MAP (
-      InstrExec_CLK => InstrExec_CLK,
       JMP => JMP,
       JMP_Conditional => JMP_Conditional,
       JMP_Relative => JMP_Relative,

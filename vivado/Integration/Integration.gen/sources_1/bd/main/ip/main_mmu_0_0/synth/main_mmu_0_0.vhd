@@ -56,7 +56,7 @@ USE ieee.numeric_std.ALL;
 ENTITY main_mmu_0_0 IS
   PORT (
     ck_stable : IN STD_LOGIC;
-    exec_clk : IN STD_LOGIC;
+    load_clk : IN STD_LOGIC;
     gram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -105,7 +105,7 @@ ARCHITECTURE main_mmu_0_0_arch OF main_mmu_0_0 IS
   COMPONENT mmu IS
     PORT (
       ck_stable : IN STD_LOGIC;
-      exec_clk : IN STD_LOGIC;
+      load_clk : IN STD_LOGIC;
       gram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -159,17 +159,17 @@ ARCHITECTURE main_mmu_0_0_arch OF main_mmu_0_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_Debugger_0_0_mmu_debug_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF exec_clk: SIGNAL IS "XIL_INTERFACENAME exec_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF exec_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 exec_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF gpu_clk: SIGNAL IS "XIL_INTERFACENAME gpu_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_GPU_0_0_VRAM_CLK, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF gpu_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 gpu_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF load_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 load_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF vga_clk: SIGNAL IS "XIL_INTERFACENAME vga_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_VGA_Controller_0_0_VRAM_Clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF vga_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 vga_clk CLK";
 BEGIN
   U0 : mmu
     PORT MAP (
       ck_stable => ck_stable,
-      exec_clk => exec_clk,
+      load_clk => load_clk,
       gram_addr => gram_addr,
       gram_din => gram_din,
       gram_bank => gram_bank,

@@ -40,7 +40,7 @@ entity RegFile is
         Flags: in std_logic_vector(15 downto 0);
         WE: in std_logic;
         OverwriteFl: in std_logic;
-        clk: in std_logic;
+        load_clk: in std_logic;
 
         Reg1_data: out std_logic_vector(15 downto 0);
         Reg2_data: out std_logic_vector(15 downto 0);
@@ -92,9 +92,9 @@ begin
                 RegF when "1111",
                 "0000000000000000" when others;
 
-    writeReg: process(clk) is
+    writeReg: process(load_clk) is
     begin
-        if rising_edge(clk) then
+        if falling_edge(load_clk) then
             if (OverwriteFl = '1') then
                 RegF <= Flags;
             end if;

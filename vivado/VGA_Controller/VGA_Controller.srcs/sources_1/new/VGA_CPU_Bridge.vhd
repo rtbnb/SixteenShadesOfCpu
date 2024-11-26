@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity VGA_CPU_Bridge is
-    Port ( InstrExec_CLK : in STD_LOGIC;
+    Port ( InstrLoad_CLK : in STD_LOGIC;
            Reset : in STD_LOGIC;
            IsGPU_OP : in STD_LOGIC;
            Immediate_In : in STD_LOGIC_VECTOR (15 downto 0);
@@ -52,14 +52,14 @@ architecture Behavioral of VGA_CPU_Bridge is
     
 begin
 
-    command_buffer : process(InstrExec_CLK, Reset) is
+    command_buffer : process(InstrLoad_CLK, Reset) is
     begin
     if Reset = '1' then
         is_gpu_op_s <= '0';
         reg_1_s <= X"0000";
         reg_2_s <= X"0000";
         gpu_command_s <= X"0";
-    elsif rising_edge(InstrExec_CLK) then
+    elsif falling_edge(InstrLoad_CLK) then
         if IsGPU_OP = '1' then
             is_gpu_op_s <= IsGPU_OP;
             reg_1_s <= Reg1_In;
