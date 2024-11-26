@@ -61,6 +61,7 @@ ENTITY main_block_mmu_0_0 IS
     gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     gram_we : IN STD_LOGIC;
+    gram_oe : IN STD_LOGIC;
     gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -109,6 +110,7 @@ ARCHITECTURE main_block_mmu_0_0_arch OF main_block_mmu_0_0 IS
       gram_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       gram_bank : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       gram_we : IN STD_LOGIC;
+      gram_oe : IN STD_LOGIC;
       gram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       iram_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       iram_dout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -164,6 +166,7 @@ BEGIN
       gram_din => gram_din,
       gram_bank => gram_bank,
       gram_we => gram_we,
+      gram_oe => gram_oe,
       gram_dout => gram_dout,
       iram_addr => iram_addr,
       iram_dout => iram_dout,

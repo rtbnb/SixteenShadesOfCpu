@@ -134,14 +134,10 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clk100mhz_in": {
-            "direction": "I"
-          },
           "clk50mhz_in": {
             "direction": "I"
           },
-          "debug_guard_clk": {
-            "type": "clk",
+          "clk100mhz_in": {
             "direction": "I"
           },
           "wizard_locked": {
@@ -162,11 +158,18 @@
             "type": "clk",
             "direction": "I"
           },
+          "debug_mmu_override_enbale": {
+            "direction": "I"
+          },
           "load_clk": {
             "type": "clk",
             "direction": "O"
           },
           "exec_clk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "vga_clk": {
             "type": "clk",
             "direction": "O"
           },
@@ -212,8 +215,7 @@
       },
       "clk_wiz_0_debug_guard_clk": {
         "ports": [
-          "clk_wiz_0/debug_guard_clk",
-          "clockcontroller_0/debug_guard_clk"
+          "clk_wiz_0/debug_guard_clk"
         ]
       },
       "clk_wiz_0_locked": {
