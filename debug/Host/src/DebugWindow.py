@@ -19,163 +19,93 @@ class DebugWindow(QtWidgets.QWidget):
         self.table.setColumnCount(4)
         self.table.setColumnWidth(2, 150)
         self.table.setHorizontalHeaderLabels(['Key', 'Name', 'Binary', 'Hex'])
-        self.layout.addWidget(self.table, 0, 0, len(self.data) + 1, 1)
+        self.layout.addWidget(self.table, 0, 0, len(self.data), 3)
 
         self.populate_table()
 
-        self.CommandSendButtonList = []
+        # request commands combo box
+        request_select_box = QtWidgets.QComboBox()
+        request_select_box.addItem("pipeline_stalled", [b"\x10"])
+        request_select_box.addItem("pipeline_instruction_forwarding_config", [b"\x11"])
+        request_select_box.addItem("pipeline_current_instruction", [b"\x12"])
+        request_select_box.addItem("pipeline_operand_1", [b"\x13"])
+        request_select_box.addItem("pipeline_operand_2", [b"\x14"])
+        request_select_box.addItem("pipeline_memory_addr_reg", [b"\x15"])
+        request_select_box.addItem("pipeline_jmp", [b"\x16"])
+        request_select_box.addItem("pc_din", [b"\x20"])
+        request_select_box.addItem("pc_dout", [b"\x21"])
+        request_select_box.addItem("pc_current_addr", [b"\x22"])
+        request_select_box.addItem("alu_din1", [b"\x40"])
+        request_select_box.addItem("alu_din2", [b"\x41"])
+        request_select_box.addItem("alu_out", [b"\x42"])
+        request_select_box.addItem("alu_flags", [b"\x43"])
+        request_select_box.addItem("alu_op", [b"\x44"])
+        request_select_box.addItem("regfile_addr_reg1", [b"\x50"])
+        request_select_box.addItem("regfile_addr_reg2", [b"\x51"])
+        request_select_box.addItem("regfile_addr_write_reg", [b"\x52"])
+        request_select_box.addItem("regfile_write_enable", [b"\x53"])
+        request_select_box.addItem("regfile_overwrite_flag", [b"\x54"])
+        request_select_box.addItem("regfile_write_data", [b"\x55"])
+        request_select_box.addItem("regfile_reg1_data", [b"\x56"])
+        request_select_box.addItem("regfile_reg2_data", [b"\x57"])
+        request_select_box.addItem("regfile_regma_data", [b"\x58"])
+        request_select_box.addItem("regfile_overwrite_flag", [b"\x59"])
 
-        button_10 = QtWidgets.QPushButton(text="Request pipeline_stalled")
-        button_10.clicked.connect(lambda: self.command_button_pushed(b"\x10"))
-        self.CommandSendButtonList.append(button_10)
+        self.layout.addWidget(request_select_box, 0, 5, 1, 1)
+        request_button = QtWidgets.QPushButton(text="Request")
+        self.layout.addWidget(request_button, 0, 6, 1, 1)
+        request_button.clicked.connect(lambda: self.command_button_pushed(request_select_box.currentData()[0]))
 
-        button_11 = QtWidgets.QPushButton(text="Request pipeline_instruction_forwarding_config")
-        button_11.clicked.connect(lambda: self.command_button_pushed(b"\x11"))
-        self.CommandSendButtonList.append(button_11)
-
-        button_12 = QtWidgets.QPushButton(text="Request pipeline_current_instruction")
-        button_12.clicked.connect(lambda: self.command_button_pushed(b"\x12"))
-        self.CommandSendButtonList.append(button_12)
-
-        button_13 = QtWidgets.QPushButton(text="Request pipeline_operand_1")
-        button_13.clicked.connect(lambda: self.command_button_pushed(b"\x13"))
-        self.CommandSendButtonList.append(button_13)
-
-        button_14 = QtWidgets.QPushButton(text="Request pipeline_operand_2")
-        button_14.clicked.connect(lambda: self.command_button_pushed(b"\x14"))
-        self.CommandSendButtonList.append(button_14)
-
-        button_15 = QtWidgets.QPushButton(text="Request pipeline_memory_addr_reg")
-        button_15.clicked.connect(lambda: self.command_button_pushed(b"\x15"))
-        self.CommandSendButtonList.append(button_15)
-
-        button_16 = QtWidgets.QPushButton(text="Request pipeline_jmp")
-        button_16.clicked.connect(lambda: self.command_button_pushed(b"\x16"))
-        self.CommandSendButtonList.append(button_16)
-
-        button_20 = QtWidgets.QPushButton(text="Request pc_din")
-        button_20.clicked.connect(lambda: self.command_button_pushed(b"\x20"))
-        self.CommandSendButtonList.append(button_20)
-
-        button_21 = QtWidgets.QPushButton(text="Request pc_dout")
-        button_21.clicked.connect(lambda: self.command_button_pushed(b"\x21"))
-        self.CommandSendButtonList.append(button_21)
-
-        button_22 = QtWidgets.QPushButton(text="Request pc_current_addr")
-        button_22.clicked.connect(lambda: self.command_button_pushed(b"\x22"))
-        self.CommandSendButtonList.append(button_22)
-
-        button_40 = QtWidgets.QPushButton(text="Request alu_din1")
-        button_40.clicked.connect(lambda: self.command_button_pushed(b"\x40"))
-        self.CommandSendButtonList.append(button_40)
-
-        button_41 = QtWidgets.QPushButton(text="Request alu_din2")
-        button_41.clicked.connect(lambda: self.command_button_pushed(b"\x41"))
-        self.CommandSendButtonList.append(button_41)
-
-        button_42 = QtWidgets.QPushButton(text="Request alu_out")
-        button_42.clicked.connect(lambda: self.command_button_pushed(b"\x42"))
-        self.CommandSendButtonList.append(button_42)
-
-        button_43 = QtWidgets.QPushButton(text="Request alu_flags")
-        button_43.clicked.connect(lambda: self.command_button_pushed(b"\x43"))
-        self.CommandSendButtonList.append(button_43)
-
-        button_44 = QtWidgets.QPushButton(text="Request alu_op")
-        button_44.clicked.connect(lambda: self.command_button_pushed(b"\x44"))
-        self.CommandSendButtonList.append(button_44)
-
-        button_50 = QtWidgets.QPushButton(text="Request regfile_addr_reg1")
-        button_50.clicked.connect(lambda: self.command_button_pushed(b"\x50"))
-        self.CommandSendButtonList.append(button_50)
-
-        button_51 = QtWidgets.QPushButton(text="Request regfile_addr_reg2")
-        button_51.clicked.connect(lambda: self.command_button_pushed(b"\x51"))
-        self.CommandSendButtonList.append(button_51)
-
-        button_52 = QtWidgets.QPushButton(text="Request regfile_addr_write_reg")
-        button_52.clicked.connect(lambda: self.command_button_pushed(b"\x52"))
-        self.CommandSendButtonList.append(button_52)
-
-        button_53 = QtWidgets.QPushButton(text="Request regfile_write_enable")
-        button_53.clicked.connect(lambda: self.command_button_pushed(b"\x53"))
-        self.CommandSendButtonList.append(button_53)
-
-        button_54 = QtWidgets.QPushButton(text="Request regfile_overwrite_flag")
-        button_54.clicked.connect(lambda: self.command_button_pushed(b"\x54"))
-        self.CommandSendButtonList.append(button_54)
-
-        button_55 = QtWidgets.QPushButton(text="Request regfile_write_data")
-        button_55.clicked.connect(lambda: self.command_button_pushed(b"\x55"))
-        self.CommandSendButtonList.append(button_55)
-
-        button_56 = QtWidgets.QPushButton(text="Request regfile_reg1_data")
-        button_56.clicked.connect(lambda: self.command_button_pushed(b"\x56"))
-        self.CommandSendButtonList.append(button_56)
-
-        button_57 = QtWidgets.QPushButton(text="Request regfile_reg2_data")
-        button_57.clicked.connect(lambda: self.command_button_pushed(b"\x57"))
-        self.CommandSendButtonList.append(button_57)
-
-        button_58 = QtWidgets.QPushButton(text="Request regfile_regma_data")
-        button_58.clicked.connect(lambda: self.command_button_pushed(b"\x58"))
-        self.CommandSendButtonList.append(button_58)
-
-        button_59 = QtWidgets.QPushButton(text="Request regfile_overwrite_flag")
-        button_59.clicked.connect(lambda: self.command_button_pushed(b"\x59"))
-        self.CommandSendButtonList.append(button_59)
-
-
-        i = 1
-        for button in self.CommandSendButtonList:
-            self.layout.addWidget(button, i, 1, 1, 1)
-            i += 1
-
-        # general commands
-        button_request_all = QtWidgets.QPushButton(text="Request all Data")
-        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x20", b"\x21", b"\x22", b"\x30", b"\x31", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x58", b"\x59"]))
-        self.layout.addWidget(button_request_all, 1, 2, 1, 1)
-
-        # general commands
         button_request_all = QtWidgets.QPushButton(text="Request all Data")
         button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x20", b"\x21", b"\x22", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x58", b"\x59"]))
-        self.layout.addWidget(button_request_all, 1, 2, 1, 1)
+        self.layout.addWidget(button_request_all, 1, 6, 1, 1)
 
         # iram write
         textfield_memory_data = QtWidgets.QLineEdit()
         textfield_memory_addr = QtWidgets.QLineEdit()
         iram_write_button = QtWidgets.QPushButton(text="Write to IRAM")
         iram_write_button.clicked.connect(lambda: self.button_pushed_write_iram(textfield_memory_data, textfield_memory_addr))
-        self.layout.addWidget(textfield_memory_data, 1, 3, 1, 1)
-        self.layout.addWidget(textfield_memory_addr, 1, 4, 1, 1)
-        self.layout.addWidget(iram_write_button, 1, 5, 1, 1)
+        self.layout.addWidget(textfield_memory_data, len(self.data) + 1, 0, 1, 1)
+        self.layout.addWidget(textfield_memory_addr, len(self.data) + 1, 1, 1, 1)
+        self.layout.addWidget(iram_write_button, len(self.data) + 1, 2, 1, 1)
 
         # gram write
         gram_textfield_memory_data = QtWidgets.QLineEdit()
         gram_textfield_memory_addr = QtWidgets.QLineEdit()
         gram_write_button = QtWidgets.QPushButton(text="Write to GRAM")
         gram_write_button.clicked.connect(lambda: self.button_pushed_write_iram(textfield_memory_data, textfield_memory_addr))
-        self.layout.addWidget(gram_textfield_memory_data, 2, 3, 1, 1)
-        self.layout.addWidget(gram_textfield_memory_addr, 2, 4, 1, 1)
-        self.layout.addWidget(gram_write_button, 2, 5, 1, 1)
+        self.layout.addWidget(gram_textfield_memory_data, len(self.data) + 2, 0, 1, 1)
+        self.layout.addWidget(gram_textfield_memory_addr, len(self.data) + 2, 1, 1, 1)
+        self.layout.addWidget(gram_write_button, len(self.data) + 2, 2, 1, 1)
 
         # iram bin file
         bin_file_button = QtWidgets.QPushButton(text="Select IRAM bin file")
         bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x31"))
-        self.layout.addWidget(bin_file_button, 1, 6, 1, 1)
+        self.layout.addWidget(bin_file_button, len(self.data) + 1, 5, 1, 1)
 
         # gram bin file
         gram_bin_file_button = QtWidgets.QPushButton(text="Select GRAM bin file")
         gram_bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x30"))
-        self.layout.addWidget(gram_bin_file_button, 2, 6, 1, 1)
+        self.layout.addWidget(gram_bin_file_button, len(self.data) + 2, 5, 1, 1)
 
-        # manuel command input window
+        # manual command input window
         command_input_line_edit = QtWidgets.QLineEdit()
         command_input_send_button = QtWidgets.QPushButton(text="Send Command")
         command_input_send_button.clicked.connect(lambda: self.send_command_manuel(command_input_line_edit))
-        self.layout.addWidget(command_input_line_edit, len(self.data) + 1, 0, 1, 7)
-        self.layout.addWidget(command_input_send_button, len(self.data) + 1, 7, 1, 1)
+        self.layout.addWidget(command_input_line_edit, len(self.data) + 3, 0, 1, 2)
+        self.layout.addWidget(command_input_send_button, len(self.data) + 3, 2, 1, 1)
 
+        # clock buttons
+        clock_resume_button = QtWidgets.QPushButton(text="Resume Clock")
+        clock_resume_button.clicked.connect(lambda: self.command_button_pushed(b"\x02"))
+        clock_hold_button = QtWidgets.QPushButton(text="Hold Clock")
+        clock_hold_button.clicked.connect(lambda: self.command_button_pushed(b"\x00"))
+        clock_one_cylce_button = QtWidgets.QPushButton(text="Step One Clock")
+        clock_one_cylce_button.clicked.connect(lambda: self.command_button_pushed(b"\x01"))
+        self.layout.addWidget(clock_resume_button, 2, 6, 1, 1)
+        self.layout.addWidget(clock_hold_button, 3, 6, 1, 1)
+        self.layout.addWidget(clock_one_cylce_button, 4, 6, 1, 1)
+    
     def send_command_manuel(self, command_input_line_edit:QtWidgets.QLineEdit):
         command = command_input_line_edit.text()
         if len(command) == 0:
@@ -272,7 +202,7 @@ if __name__ == '__main__':
 
     app = QtWidgets.QApplication([])
     widget = DebugWindow(rx_data_datapool)
-    widget.resize(1920, 600)
+    widget.resize(1000, 600)
     widget.show()
 
     read_t = threading.Thread(target=print_queue, args=[widget])
