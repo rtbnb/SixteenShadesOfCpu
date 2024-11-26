@@ -16,7 +16,7 @@ def main():
 
     app = QtWidgets.QApplication([])
     widget = DebugWindow(rx_data_datapool)
-    widget.resize(800, 600)
+    widget.resize(900, 600)
     widget.show()
 
     #listening_thread = threading.Thread(target=rx, args=[fpga_serial, widget])
