@@ -35,8 +35,7 @@
       "TX_UART_0": "",
       "VGA_CPU_Bridge_0": "",
       "GPU_0": "",
-      "VGA_Controller_0": "",
-      "custom_BUFH_0": ""
+      "VGA_Controller_0": ""
     },
     "ports": {
       "Reset": {
@@ -2041,37 +2040,6 @@
             "direction": "O"
           }
         }
-      },
-      "custom_BUFH_0": {
-        "vlnv": "xilinx.com:module_ref:custom_BUFH:1.0",
-        "ip_revision": "1",
-        "xci_name": "main_custom_BUFH_0_0",
-        "xci_path": "ip\\main_custom_BUFH_0_0\\main_custom_BUFH_0_0.xci",
-        "inst_hier_path": "custom_BUFH_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "custom_BUFH",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clkIn": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_load_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "clkOut": {
-            "direction": "O"
-          }
-        }
       }
     },
     "nets": {
@@ -2385,9 +2353,7 @@
           "RegFile_0/load_clk",
           "VGA_CPU_Bridge_0/InstrLoad_CLK",
           "ProgramCounter_0/InstrLoad_CLK",
-          "GPU_0/InstrLoad_CLK",
-          "mmu_0/load_clk",
-          "custom_BUFH_0/clkIn"
+          "mmu_0/load_clk"
         ]
       },
       "Net": {
@@ -2433,8 +2399,8 @@
           "CU_ImmediateManipula_0/Immediate",
           "CU_JumpDestinationSe_0/Immediate",
           "CU_RAMAddressControl_0/Immediate",
-          "Debugger_0/alu_op",
-          "VGA_CPU_Bridge_0/Immediate_In"
+          "VGA_CPU_Bridge_0/Immediate_In",
+          "Debugger_0/alu_op"
         ]
       },
       "Pipelining_Execution_0_Is_GPU_OP_out": {
@@ -2783,12 +2749,6 @@
         "ports": [
           "clockcontroller_0/vga_clk",
           "VGA_Controller_0/InstrExec_CLK"
-        ]
-      },
-      "custom_BUFH_0_clkOut": {
-        "ports": [
-          "custom_BUFH_0/clkOut",
-          "Debugger_0/load_clk"
         ]
       },
       "fault_reset_1": {

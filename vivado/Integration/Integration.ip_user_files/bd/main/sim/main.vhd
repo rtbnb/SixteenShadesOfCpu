@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Tue Nov 26 20:04:28 2024
+--Date        : Tue Nov 26 21:53:14 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
@@ -39,7 +39,7 @@ entity main is
     v_sync : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=26,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=25,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=25,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of main : entity is "main.hwdef";
 end main;
@@ -492,12 +492,6 @@ architecture STRUCTURE of main is
     VRAM_Clk : out STD_LOGIC
   );
   end component main_VGA_Controller_0_0;
-  component main_custom_BUFH_0_0 is
-  port (
-    clkIn : in STD_LOGIC;
-    clkOut : out STD_LOGIC
-  );
-  end component main_custom_BUFH_0_0;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ALU_0_BIGGER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_CARRY_FLAG : STD_LOGIC;
@@ -606,7 +600,6 @@ architecture STRUCTURE of main is
   signal clk100mhz_in_1 : STD_LOGIC;
   signal clockcontroller_0_ck_stable : STD_LOGIC;
   signal clockcontroller_0_vga_clk : STD_LOGIC;
-  signal custom_BUFH_0_clkOut : STD_LOGIC;
   signal fault_reset_1 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_0_led00 : STD_LOGIC;
@@ -639,10 +632,6 @@ architecture STRUCTURE of main is
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
   signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_led00_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_led01_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_led02_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_led03_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led04_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led05_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led06_UNCONNECTED : STD_LOGIC;
@@ -659,10 +648,6 @@ architecture STRUCTURE of main is
   signal NLW_mmio_0_led17_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led18_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led19_UNCONNECTED : STD_LOGIC;
-  signal NLW_mmio_0_rgb0_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_mmio_0_rgb1_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_mmio_0_rgb2_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_mmio_0_rgb3_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal NLW_mmu_0_gpu_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
@@ -795,7 +780,6 @@ Debugger_0: component main_Debugger_0_0
       cc_debug_reset => Debugger_0_cc_debug_reset,
       clk => Net,
       debug_enable => Debugger_0_debug_enable,
-      load_clk => custom_BUFH_0_clkOut,
       mmu_debug_addr(15 downto 0) => Debugger_0_mmu_debug_addr(15 downto 0),
       mmu_debug_bank(3 downto 0) => Debugger_0_mmu_debug_bank(3 downto 0),
       mmu_debug_clk => Debugger_0_mmu_debug_sync_clk100mhz,
@@ -1010,11 +994,6 @@ clockcontroller_0: component main_clockcontroller_0_0
       fault_reset => fault_reset_1,
       load_clk => InstrLoad_CLK_1,
       vga_clk => clockcontroller_0_vga_clk
-    );
-custom_BUFH_0: component main_custom_BUFH_0_0
-     port map (
-      clkIn => InstrLoad_CLK_1,
-      clkOut => custom_BUFH_0_clkOut
     );
 mmio_0: component main_mmio_0_0
      port map (
