@@ -28,8 +28,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library UNISIM;
+use UNISIM.VComponents.all;
 
 entity clockcontroller is
     port(
@@ -45,9 +45,16 @@ architecture Behavioral of clockcontroller is
     signal output_en_s: std_logic_vector( 2 downto 0 );
     signal fault_s: std_logic := '0';
     signal debug_en_s: std_logic := '1';
+    signal clk50mhz_buf_s: std_logic;
 begin
     output_en_s <= wizard_locked & debug_en_s & debug_mmu_override_enbale;
     ck_stable <= wizard_locked;
+    
+    BUFG_inst : BUFG
+    port map (
+       O => clk50mhz_buf_s, -- 1-bit output: Clock output
+       I => clk50mhz_in  -- 1-bit input: Clock input
+    );
     
     with output_en_s select
         load_clk <= clk50mhz_in when "100",
@@ -63,7 +70,7 @@ begin
         vga_clk <= clk50mhz_in when '1',
                    '0' when others;
     with wizard_locked select
-        debug_clk <= clk50mhz_in when '1',
+        debug_clk <= clk50mhz_buf_s when '1',
                      '0' when others;
     
                         
