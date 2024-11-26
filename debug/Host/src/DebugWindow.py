@@ -89,6 +89,11 @@ class DebugWindow(QtWidgets.QWidget):
         gram_bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x30"))
         self.layout.addWidget(gram_bin_file_button, len(self.data) + 2, 5, 1, 1)
 
+        # vram bin file
+        vram_bin_file_button = QtWidgets.QPushButton(text="Select VRAM bin file")
+        vram_bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x33"))
+        self.layout.addWidget(vram_bin_file_button, len(self.data) + 3, 5, 1, 1)
+
         # manual command input window
         command_input_line_edit = QtWidgets.QLineEdit()
         command_input_send_button = QtWidgets.QPushButton(text="Send Command")
@@ -201,11 +206,11 @@ def print_queue(debugWindow: DebugWindow):
                 print(f"sended command: {c.hex()}")
 
 if __name__ == '__main__':
-    from main import rx_data_datapool  # Import the data from main.py
+    from Datapool import Datapool  # Import the data from main.py
     import threading
 
     app = QtWidgets.QApplication([])
-    widget = DebugWindow(rx_data_datapool)
+    widget = DebugWindow(Datapool())
     widget.resize(1000, 600)
     widget.show()
 
