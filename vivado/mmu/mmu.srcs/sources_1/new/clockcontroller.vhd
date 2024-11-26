@@ -51,11 +51,11 @@ begin
     
     with output_en_s select
         load_clk <= clk50mhz_in when "100",
-                    debug_mock_clk when "111",
+                    debug_mock_clk when "110",
                     '0' when others;
     with output_en_s select
         exec_clk <= not clk50mhz_in when "100",
-                    not debug_mock_clk when "111",
+                    not debug_mock_clk when "110",
                     '0' when others;    
                                     
                     
