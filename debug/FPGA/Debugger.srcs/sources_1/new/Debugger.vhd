@@ -53,7 +53,9 @@ entity Debugger is
         pipeline_instruction_forwarding_config: in std_logic_vector(4 downto 0);
         pipeline_current_instruction: in std_logic_vector(15 downto 0);
         pipeline_operand_1, pipeline_operand_2: in std_logic_vector(15 downto 0);
+        pipeline_rf_read_buf: in std_logic_vector(15 downto 0);
         pipeline_jmp: in std_logic;
+        pipeline_taking_data: in std_logic;
         
         -- program counter
         pc_din: in std_logic_vector(15 downto 0);
@@ -86,7 +88,8 @@ entity Debugger is
         mmu_debug_din: out std_logic_vector(15 downto 0) := x"0000";
         mmu_debug_bank: out std_logic_vector(3 downto 0) := x"0";
         mmu_debug_we: out std_logic := '0';
-        mmu_debug_dout: in std_logic_vector(15 downto 0)
+        mmu_debug_dout: in std_logic_vector(15 downto 0);
+        mmu_iram_dout: in std_logic_vector(15 downto 0)
 
     );
 end Debugger;
@@ -126,7 +129,9 @@ architecture Behavioral of Debugger is
     signal pipeline_instruction_forwarding_config_s: std_logic_vector(4 downto 0);
     signal pipeline_current_instruction_s: std_logic_vector(15 downto 0);
     signal pipeline_operand_1_s, pipeline_operand_2_s: std_logic_vector(15 downto 0);
+    signal pipeline_rf_read_buf_s: std_logic_vector(15 downto 0);
     signal pipeline_jmp_s: std_logic;
+    signal pipeline_taking_data_s: std_logic;
     -- program counter
     signal pc_din_s: std_logic_vector(15 downto 0);
     signal pc_dout_s: std_logic_vector(15 downto 0);
@@ -149,6 +154,7 @@ architecture Behavioral of Debugger is
     signal regfile_bankid_s: std_logic_vector(3 downto 0);   
     -- mmu
     signal mmu_debug_dout_s: std_logic_vector(15 downto 0);
+    signal mmu_iram_dout_s: std_logic_vector(15 downto 0);
 
 begin
     -- state machine
@@ -254,7 +260,9 @@ begin
                     pipeline_current_instruction_s <= pipeline_current_instruction;
                     pipeline_operand_1_s <= pipeline_operand_1;
                     pipeline_operand_2_s <= pipeline_operand_2;
+                    pipeline_rf_read_buf_s <= pipeline_rf_read_buf;
                     pipeline_jmp_s <= pipeline_jmp;
+                    pipeline_taking_data_s <= pipeline_taking_data;
                     pc_din_s <= pc_din;
                     pc_dout_s <= pc_dout;
                     pc_current_addr_s <= pc_current_addr_buffer;
@@ -272,6 +280,7 @@ begin
                     regfile_reg1_data_s <= regfile_reg1_data;
                     regfile_reg2_data_s <= regfile_reg2_data;
                     regfile_bankid_s <= regfile_bankid;
+                    mmu_iram_dout_s <= mmu_iram_dout;
                     --mmu_debug_dout_s <= mmu_debug_dout;
                     state <= ProcessCommand;
                 when ProcessCommand =>
@@ -310,10 +319,19 @@ begin
                             tx_instruction_buffer <= x"14";
                             tx_data_buffer <= pipeline_operand_2_s;
                             state <= TransmitDataInstructionSHORT;
+                        when x"15" =>
+                            tx_instruction_buffer <= x"15";
+                            tx_data_buffer <= pipeline_rf_read_buf_s;
+                            state <= TransmitDataInstructionSHORT;
                         when x"16" =>
                             tx_data_buffer(15 downto 1) <= "000000000000000";
                             tx_instruction_buffer <= x"16";
                             tx_data_buffer(0) <= pipeline_jmp_s;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"17" =>
+                            tx_instruction_buffer <= x"17";
+                            tx_data_buffer(15 downto 1) <= "000000000000000";
+                            tx_data_buffer(0) <= pipeline_taking_data_s;
                             state <= TransmitDataInstructionSHORT;
                         -- program counter
                         when x"20" =>
