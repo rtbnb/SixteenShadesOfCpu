@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="471,231.800 ns"></ZoomStartTime>
-      <ZoomEndTime time="471,503.401 ns"></ZoomEndTime>
-      <Cursor1Time time="471,235.000 ns"></Cursor1Time>
+      <ZoomStartTime time="816,331.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="816,878.001 ns"></ZoomEndTime>
+      <Cursor1Time time="816,595.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="182"></NameColumnWidth>
-      <ValueColumnWidth column_width="70"></ValueColumnWidth>
+      <NameColumnWidth column_width="231"></NameColumnWidth>
+      <ValueColumnWidth column_width="140"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="67" />
+   <WVObjectSize size="83" />
    <wvobject fp_name="/CPUSim/RX_UART_IN" type="logic">
       <obj_property name="ElementShortName">RX_UART_IN</obj_property>
       <obj_property name="ObjectShortName">RX_UART_IN</obj_property>
@@ -287,5 +287,69 @@
    <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/Reg1" type="array">
       <obj_property name="ElementShortName">Reg1[15:0]</obj_property>
       <obj_property name="ObjectShortName">Reg1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Execution_0/RAM_Src" type="logic">
+      <obj_property name="ElementShortName">RAM_Src</obj_property>
+      <obj_property name="ObjectShortName">RAM_Src</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Execution_0/RAM_Write" type="logic">
+      <obj_property name="ElementShortName">RAM_Write</obj_property>
+      <obj_property name="ObjectShortName">RAM_Write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Execution_0/RAM_BankID" type="array">
+      <obj_property name="ElementShortName">RAM_BankID[3:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_BankID[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_RAMAddressControl_0/RAM_Address" type="array">
+      <obj_property name="ElementShortName">RAM_Address[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_Address[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Execution_0/RAM_Read_out" type="logic">
+      <obj_property name="ElementShortName">RAM_Read_out</obj_property>
+      <obj_property name="ObjectShortName">RAM_Read_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Execution_0/RAM_Write_out" type="logic">
+      <obj_property name="ElementShortName">RAM_Write_out</obj_property>
+      <obj_property name="ObjectShortName">RAM_Write_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Execution_0/RAM_Read" type="logic">
+      <obj_property name="ElementShortName">RAM_Read</obj_property>
+      <obj_property name="ObjectShortName">RAM_Read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Execution_0/RAM_Write" type="logic">
+      <obj_property name="ElementShortName">RAM_Write</obj_property>
+      <obj_property name="ObjectShortName">RAM_Write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_Decoder_0/RAM_Read" type="logic">
+      <obj_property name="ElementShortName">RAM_Read</obj_property>
+      <obj_property name="ObjectShortName">RAM_Read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_Decoder_0/RAM_Write" type="logic">
+      <obj_property name="ElementShortName">RAM_Write</obj_property>
+      <obj_property name="ObjectShortName">RAM_Write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_Decoder_0/U0/is_rdmi" type="other">
+      <obj_property name="ElementShortName">is_rdmi</obj_property>
+      <obj_property name="ObjectShortName">is_rdmi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_Decoder_0/U0/is_wrmi" type="other">
+      <obj_property name="ElementShortName">is_wrmi</obj_property>
+      <obj_property name="ObjectShortName">is_wrmi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_Decoder_0/U0/is_rdmr" type="other">
+      <obj_property name="ElementShortName">is_rdmr</obj_property>
+      <obj_property name="ObjectShortName">is_rdmr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_Decoder_0/U0/is_wrmr" type="other">
+      <obj_property name="ElementShortName">is_wrmr</obj_property>
+      <obj_property name="ObjectShortName">is_wrmr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/U0/gram" type="array">
+      <obj_property name="ElementShortName">gram[2047:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">gram[2047:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/U0/gram_dout_s" type="array">
+      <obj_property name="ElementShortName">gram_dout_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gram_dout_s[15:0]</obj_property>
    </wvobject>
 </wave_config>

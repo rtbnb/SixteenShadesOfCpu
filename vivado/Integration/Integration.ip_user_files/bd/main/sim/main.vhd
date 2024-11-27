@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Wed Nov 27 08:24:20 2024
---Host        : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
+--Date        : Wed Nov 27 10:26:19 2024
+--Host        : 8x8-Bit running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -35,7 +35,7 @@ entity main is
     v_sync : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=26,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=24,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
+  attribute CORE_GENERATION_INFO of main : entity is "main,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=main,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=27,numReposBlks=27,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=25,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=None}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of main : entity is "main.hwdef";
 end main;
@@ -508,6 +508,15 @@ architecture STRUCTURE of main is
     locked : out STD_LOGIC
   );
   end component main_clk_wiz_0_0;
+  component main_instr2Led_0_0 is
+  port (
+    IRAM_Dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    led0 : out STD_LOGIC;
+    led1 : out STD_LOGIC;
+    led2 : out STD_LOGIC;
+    led3 : out STD_LOGIC
+  );
+  end component main_instr2Led_0_0;
   signal ALU_0_ALU_OUT : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal ALU_0_BIGGER_ZERO_FLAG : STD_LOGIC;
   signal ALU_0_CARRY_FLAG : STD_LOGIC;
@@ -623,6 +632,10 @@ architecture STRUCTURE of main is
   signal clockcontroller_0_exec_clk : STD_LOGIC;
   signal clockcontroller_0_vga_clk : STD_LOGIC;
   signal fault_reset_1 : STD_LOGIC;
+  signal instr2Led_0_led0 : STD_LOGIC;
+  signal instr2Led_0_led1 : STD_LOGIC;
+  signal instr2Led_0_led2 : STD_LOGIC;
+  signal instr2Led_0_led3 : STD_LOGIC;
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_0_rho : STD_LOGIC;
   signal mmu_0_debug_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -693,7 +706,10 @@ begin
   g(3 downto 0) <= VGA_Controller_0_g(3 downto 0);
   h_sync <= VGA_Controller_0_h_sync;
   ioe <= VGA_Controller_0_ioe;
-  led0 <= Debugger_0_mmu_debug_override_en;
+  led0 <= instr2Led_0_led0;
+  led1 <= instr2Led_0_led1;
+  led2 <= instr2Led_0_led2;
+  led3 <= instr2Led_0_led3;
   r(3 downto 0) <= VGA_Controller_0_r(3 downto 0);
   v_sync <= VGA_Controller_0_v_sync;
 ALU_0: component main_ALU_0_0
@@ -1028,6 +1044,14 @@ clockcontroller_0: component main_clockcontroller_0_0
       load_clk => InstrLoad_CLK_1,
       vga_clk => clockcontroller_0_vga_clk,
       wizard_locked => clk_wiz_0_locked
+    );
+instr2Led_0: component main_instr2Led_0_0
+     port map (
+      IRAM_Dout(15 downto 0) => mmu_0_iram_dout(15 downto 0),
+      led0 => instr2Led_0_led0,
+      led1 => instr2Led_0_led1,
+      led2 => instr2Led_0_led2,
+      led3 => instr2Led_0_led3
     );
 mmio_0: component main_mmio_0_0
      port map (

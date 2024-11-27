@@ -10,7 +10,7 @@ from TXThread import TXThread
 
 def main():
     rx_data_datapool: Datapool.Datapool = Datapool.Datapool()
-    fpga_serial = serial.Serial('COM4', 921600)
+    fpga_serial = serial.Serial('COM11', 921600)
     #fpga_serial.open()
     print(fpga_serial.get_settings())
 
@@ -27,7 +27,7 @@ def main():
     tx_thread.start()
     app.exec()
 
-    
+    print("ENDE")
     
     fpga_serial.close()
     tx_thread.stop_thread()

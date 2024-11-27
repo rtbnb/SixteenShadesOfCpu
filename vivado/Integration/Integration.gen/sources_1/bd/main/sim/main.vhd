@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Wed Nov 27 08:43:32 2024
---Host        : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
+--Date        : Wed Nov 27 10:26:19 2024
+--Host        : 8x8-Bit running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
