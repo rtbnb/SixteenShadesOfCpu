@@ -184,12 +184,6 @@ begin
     
     rgb_bank0_config_reg_s <= rgb0_s & "0" & rgb1_s & "0" & rgb2_s & "0" & rgb3_s & "0";
     
-    
---    btn0_pressed_reg_op_s <= internal_addr_s = 13;
---    btn1_pressed_reg_op_s <= internal_addr_s = 14;
---    btn2_pressed_reg_op_s <= internal_addr_s = 15;
---    btn3_pressed_reg_op_s <= internal_addr_s = 16;
-    
     with internal_addr_s select
         dout <= mmio_config_reg_s           when  0,
                 rho_config_reg_s            when  1,
@@ -282,6 +276,19 @@ begin
                 "000000000000000" & btn17p_s when 32825,
                 "000000000000000" & btn18p_s when 32826,
                 "000000000000000" & btn19p_s when 32827,
+                "000000000000000" & rgb0_s(0) when 32828,
+                "000000000000000" & rgb0_s(1) when 32829,
+                "000000000000000" & rgb0_s(2) when 32830,
+                "000000000000000" & rgb1_s(0) when 32831,
+                "000000000000000" & rgb1_s(1) when 32832,
+                "000000000000000" & rgb1_s(2) when 32833,
+                "000000000000000" & rgb2_s(0) when 32834,
+                "000000000000000" & rgb2_s(1) when 32835,
+                "000000000000000" & rgb2_s(2) when 32836,
+                "000000000000000" & rgb3_s(0) when 32837,
+                "000000000000000" & rgb3_s(1) when 32838,
+                "000000000000000" & rgb3_s(2) when 32839,
+                
 
                 "0000000000000000" when others;
     
@@ -331,8 +338,17 @@ begin
                     led18_s <= din(0);
                 when 32787 =>
                     led19_s <= din(0);                      
+                when 32828 | 32829 | 32830 =>
+                    rgb0_s <= din(2 downto 0);
+                when 32831 | 32832 | 32833 =>
+                    rgb1_s <= din(2 downto 0);
+                when 32834 | 32835 | 32836 =>
+                    rgb2_s <= din(2 downto 0);
+                when 32837 | 32838 | 32839 =>
+                    rgb3_s <= din(2 downto 0);
                 when 32808 =>
                     btn00p_s_rst_s <= '1';
+                
                 
                 when others =>
             end case;
