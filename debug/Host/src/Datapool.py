@@ -35,7 +35,7 @@ class Datapool:
             b"\x59": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_overwrite_flag"}
         }
 
-    def set_data(self, key: bytes, data_1_high=b'\x00', data_1_low=b'\x00', data_2_high=None, data_2_low=None):
+    def set_data(self, key: bytes, data_1_high=None, data_1_low=None, data_2_high=None, data_2_low=None):
         if key in self.data:
             if data_1_high is not None:
                 self.data[key]['data_1_high'] = data_1_high
