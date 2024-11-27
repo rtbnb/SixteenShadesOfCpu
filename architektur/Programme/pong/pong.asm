@@ -440,4 +440,4 @@ _code:
     WRMi $t5, p2y
 .main_after_p2y
 
-    JA .main
+    JA main

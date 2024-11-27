@@ -5,7 +5,7 @@ class ArgumentType(Enum):
     REGISTER = 0,
     NUMBER = 1
 
-registers = ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "MA", "BI", "S1", "S2", "AO", "FL"]
+registers = ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "S0", "BI", "SP", "S2", "AO", "FL"]
 
 class Argument():
     def __init__(self, argument_index_asm, argument_type, argument_begin_bit, argument_length_bits):
@@ -35,9 +35,10 @@ class Argument():
                 return current_binary | ((reg_index & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
             case ArgumentType.NUMBER:
                 return current_binary | ((int(argument, 16 if "0x" in argument else 2 if "0b" in argument else 10) & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
-            
 
-asm_file = "architektur/Programme/pong/pong.asm"
+
+#asm_file = "architektur/Programme/pong/pong.asm"
+asm_file = "architektur/TestProgramme/TestProgram1.asm"
 asm_file_name = ".".join(asm_file.split(".")[0:-1])
 
 instructions = {
@@ -54,7 +55,7 @@ instructions = {
     "JR": [9, [Argument(0, ArgumentType.REGISTER, 8, 4)]],
     "JA": [10, [Argument(0, ArgumentType.NUMBER, 0, 12)]],
     "CR": [14, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4)]],
-    #"EXT": [15, [Argument(0, ArgumentType.NUMBER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.REGISTER, 0, 4)]]
+    "GPU": [15, [Argument(0, ArgumentType.NUMBER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4), Argument(2, ArgumentType.REGISTER, 0, 4)]]
 }
 
 def replace_defines(lines, defines=[]):
@@ -73,7 +74,7 @@ def replace_defines(lines, defines=[]):
         defined.append(s)
         if s != line:
             define_used = True
-    
+
     return replace_defines(defined, defines) if define_used else defined
     
 def strip_file(lines: list[str]):
@@ -93,15 +94,42 @@ def parse_int(raw:str) -> int:
         data = int(raw, 10)
     return data
 
-def parse_data_region(raw_data: str, region_begin: int, save_path: str) -> None:
+def parse_data_region(raw_data: str) -> None:
     split_data = raw_data.split(",")
     int_data = [parse_int(data.strip()) for data in split_data]
     byted_data = []
     for d in int_data:
         byted_data.extend([(d >> 8) & 0xff, d & 0xff])
-    with open(save_path, "wb") as f:
-        f.write(bytes(region_begin * 2))
-        f.write(bytes(byted_data))
+
+
+def replace_variables(code_region:list[str], known_variables:dict) -> list[str]:
+    replaced = []
+    for line in code_region:
+        s = line
+        for variable_name in known_variables:
+            s = s.replace(variable_name, str(known_variables[variable_name]))
+        replaced.append(s)
+
+    return replaced
+
+def replace_jump_regions(code_region: list[str]) -> list[str]:
+    labels = {}
+    new_code_region = []
+    for line in code_region:
+        if line[0] == ".":
+            labels[line[1:]] = len(new_code_region)
+        else:
+            new_code_region.append(line)
+
+    new_new_code_region = []
+
+    for line in new_code_region:
+        s = line
+        for label in labels:
+            s = s.replace(label, str(labels[label]))
+        new_new_code_region.append(s)
+
+    return new_new_code_region
 
 if __name__ == "__main__":
     file_content = ""
@@ -114,30 +142,38 @@ if __name__ == "__main__":
     file_content = replace_defines(file_content)
     print("\n".join(file_content))
 
-    regions = []
+    region_bounds = []
     for l in range(len(file_content)):
         line = file_content[l]
         if line[0] == "_":
             if line[-1] != ":":
                 raise Exception("Region Assignment {} is missing ':'".format(line))
-            regions.append([line[1:-1], l+1])
-            if len(regions) > 1:
-                regions[-2].append(l)
-    
-    regions[-1].append(len(regions))
+            region_bounds.append([line[1:-1], l+1])
+            if len(region_bounds) > 1:
+                region_bounds[-2].append(l)
+
+    region_bounds[-1].append(len(file_content))
+
+    regions = region_bounds
+
 
     known_variables = {}
 
+    #gram_values = [0] * 2048
+
+    code_region = []
+    code_region.insert(0, "NOP")
+
     for region in regions:
         region_type = region[0].split("[")[0]
-        if region_type == "vram":
+        if region_type == "gram_data":
             region_begin = 0
             if "[" in region[0]:
                 begin_str = region[0].split("[")[1].split("]")[0]
                 region_begin = parse_int(begin_str)
             region_save_path = asm_file_name + "_" + region_type + ".bin"
             parse_data_region("".join(file_content[region[1]:region[2]]), region_begin, region_save_path)
-        elif region_type == "gram":
+        elif region_type == "gram_variables":
             raw_variables = file_content[region[1]:region[2]]
             variable_initial_values = []
             for r in range(len(raw_variables)):
@@ -148,13 +184,22 @@ if __name__ == "__main__":
                 variable_initial_values.append(initial_value)
             region_save_path = asm_file_name + "_" + region_type + ".bin"            
             parse_data_region(",".join(variable_initial_values), 0, region_save_path)
-    
+        elif region_type == "code":
+            code_region.extend(file_content[region[1]:region[2]])
+
     print(known_variables)
 
+    code_region = replace_variables(code_region, known_variables)
 
-    exit()
-    
-    for line in file_content:
+    print(code_region)
+
+    code_region = replace_jump_regions(code_region)
+
+    print(code_region)
+
+    output_bin = []
+
+    for line in code_region:
         if line == "":
             continue
         instr_name = line.split(" ")[0]
@@ -164,6 +209,11 @@ if __name__ == "__main__":
         for arg in instructions[instr_name][1]:
             coded_line = arg.write_to_binary(coded_line, line)
         output_str += format(coded_line, "04x") + "\n"
+        output_bin.append((coded_line >> 8) & 0xff)
+        output_bin.append((coded_line) & 0xff)
     
     with open(asm_file[:-3]+"txt", "w") as file:
         file.write(output_str)
+
+    with open(asm_file_name + "_code.bin", "wb") as file:
+        file.write(bytes(output_bin))
