@@ -7,8 +7,7 @@
       "name": "main",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "None",
-      "tool_version": "2024.1",
-      "validated": "true"
+      "tool_version": "2024.1"
     },
     "design_tree": {
       "Pipelining_Controller_0": "",
@@ -40,40 +39,14 @@
     "ports": {
       "Reset": {
         "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "clk100mhz_in": {
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_clk100mhz_in",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
@@ -109,17 +82,7 @@
       },
       "fault_reset": {
         "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "led00": {
         "direction": "O"
@@ -186,10 +149,6 @@
               "ASSOCIATED_RESET": {
                 "value": "Reset",
                 "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_load_clk",
-                "value_src": "default_prop"
               }
             }
           },
@@ -1106,12 +1065,17 @@
             "direction": "I"
           },
           "load_clk": {
-            "type": "clk",
             "direction": "O"
           },
           "vga_clk": {
             "type": "clk",
-            "direction": "O"
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
+              }
+            }
           },
           "debug_clk": {
             "type": "clk",
@@ -1148,13 +1112,7 @@
           },
           "load_clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_load_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "gram_addr": {
             "direction": "I",
@@ -1651,7 +1609,15 @@
             "left": "15",
             "right": "0"
           },
+          "pipeline_rf_read_buf": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
           "pipeline_jmp": {
+            "direction": "I"
+          },
+          "pipeline_taking_data": {
             "direction": "I"
           },
           "pc_din": {
@@ -1761,6 +1727,11 @@
             "direction": "O"
           },
           "mmu_debug_dout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "mmu_iram_dout": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -1995,6 +1966,10 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
               "CLK_DOMAIN": {
                 "value": "main_clockcontroller_0_0_vga_clk",
                 "value_src": "default_prop"
@@ -2232,9 +2207,9 @@
       "Debugger_0_debug_enable": {
         "ports": [
           "Debugger_0/debug_enable",
+          "clockcontroller_0/debug_enable",
           "Pipelining_Controller_0/debug_enable",
-          "mmu_0/debug_enable",
-          "clockcontroller_0/debug_enable"
+          "mmu_0/debug_enable"
         ]
       },
       "Debugger_0_mmu_debug_addr": {
@@ -2258,9 +2233,9 @@
       "Debugger_0_mmu_debug_override_en": {
         "ports": [
           "Debugger_0/mmu_debug_override_en",
+          "clockcontroller_0/debug_mmu_override_enbale",
           "Pipelining_Controller_0/debug_override_enable",
-          "mmu_0/debug_override_enable",
-          "clockcontroller_0/debug_mmu_override_enbale"
+          "mmu_0/debug_override_enable"
         ]
       },
       "Debugger_0_mmu_debug_sync_clk100mhz": {
@@ -2349,10 +2324,10 @@
           "GPU_0/InstrLoad_CLK",
           "Pipelining_WriteBack_0/InstrLoad_CLK",
           "Pipelining_Execution_0/InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK",
           "RegFile_0/load_clk",
           "VGA_CPU_Bridge_0/InstrLoad_CLK",
           "ProgramCounter_0/InstrLoad_CLK",
+          "Pipelining_Controller_0/InstrLoad_CLK",
           "mmu_0/load_clk"
         ]
       },
@@ -2448,8 +2423,8 @@
           "CU_JumpDestinationSe_0/Register1",
           "CU_WriteSelector_0/Reg1",
           "VGA_CPU_Bridge_0/Reg1_In",
-          "mmu_0/gram_din",
-          "Debugger_0/alu_din1"
+          "Debugger_0/alu_din1",
+          "mmu_0/gram_din"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -2570,9 +2545,9 @@
         "ports": [
           "ProgramCounter_0/Dout",
           "CU_JumpController_0/PC_Current",
-          "mmu_0/iram_addr",
           "Debugger_0/pc_dout",
-          "Debugger_0/pc_current_addr"
+          "Debugger_0/pc_current_addr",
+          "mmu_0/iram_addr"
         ]
       },
       "RX_UART_0_data_output": {
@@ -2619,10 +2594,10 @@
           "Reset",
           "Pipelining_WriteBack_0/Reset",
           "Pipelining_Execution_0/Reset",
-          "Pipelining_Controller_0/Reset",
           "VGA_CPU_Bridge_0/Reset",
           "ProgramCounter_0/Reset",
-          "GPU_0/Reset"
+          "GPU_0/Reset",
+          "Pipelining_Controller_0/Reset"
         ]
       },
       "TX_UART_0_send_valid": {
@@ -2832,7 +2807,8 @@
       "mmu_0_iram_dout": {
         "ports": [
           "mmu_0/iram_dout",
-          "Pipelining_Controller_0/Instruction"
+          "Pipelining_Controller_0/Instruction",
+          "Debugger_0/mmu_iram_dout"
         ]
       },
       "mmu_0_mmio_mem_addr": {
