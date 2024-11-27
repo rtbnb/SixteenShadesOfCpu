@@ -146,7 +146,7 @@ begin
         execution_buffer <= X"0000";
         write_back_buffer <= X"0000";
         output_buffer <= X"0000";
-    elsif (rising_edge(InstrLoad_CLK) and taking_data and not ( debug_enable='1' and debug_override_enable='1')) then
+    elsif (rising_edge(InstrLoad_CLK) and taking_data) then
         output_buffer <= write_back_buffer;
         write_back_buffer <= execution_buffer;
         execution_buffer <= rf_read_buffer;
@@ -218,7 +218,7 @@ begin
         execution_forward <= "0000"; 
         write_back_forward <= "0000";
         output_forward <= "0000";
-    elsif falling_edge(InstrLoad_CLK) and not (debug_enable='1' and debug_override_enable='1') then
+    elsif falling_edge(InstrLoad_CLK) then
         rf_forward <= input_forward;
         execution_forward <= rf_forward; 
         write_back_forward <= execution_forward;
