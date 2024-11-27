@@ -21,3 +21,11 @@
 # Total Virtual     :16907 MB
 # Available Virtual :8882 MB
 #-----------------------------------------------------------
+start_gui
+open_project D:/FPGA_CPU/vivado/Integration/Integration.xpr
+open_bd_design {D:/FPGA_CPU/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
+update_compile_order -fileset sources_1
+open_project D:/FPGA/stupid_fsm/stupid_fsm.xpr
+update_compile_order -fileset sources_1
+current_project Integration
+close_project
