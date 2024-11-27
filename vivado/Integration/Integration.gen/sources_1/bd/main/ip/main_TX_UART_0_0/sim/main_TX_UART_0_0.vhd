@@ -85,7 +85,7 @@ ARCHITECTURE main_TX_UART_0_0_arch OF main_TX_UART_0_0 IS
 BEGIN
   U0 : TX_UART
     GENERIC MAP (
-      CLKS_PER_BIT => 55
+      CLKS_PER_BIT => 434
     )
     PORT MAP (
       data_valid => data_valid,

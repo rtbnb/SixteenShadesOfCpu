@@ -95,9 +95,7 @@ ARCHITECTURE main_clockcontroller_0_0_arch OF main_clockcontroller_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 debug_reset RST";
   ATTRIBUTE X_INTERFACE_PARAMETER OF fault_reset: SIGNAL IS "XIL_INTERFACENAME fault_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF fault_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 fault_reset RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF load_clk: SIGNAL IS "XIL_INTERFACENAME load_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF load_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 load_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF vga_clk: SIGNAL IS "XIL_INTERFACENAME vga_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_vga_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF vga_clk: SIGNAL IS "XIL_INTERFACENAME vga_clk, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_vga_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF vga_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 vga_clk CLK";
 BEGIN
   U0 : clockcontroller
