@@ -227,6 +227,7 @@ begin
                         when x"32" => state <= ReceiveInstructionDataHIGH;
                         when x"33" => state <= ReceiveInstructionDataHIGH;
                         when x"34" => state <= ReceiveInstructionDataHIGH;
+                        when x"38" => state <= HoldClock;
                         -- alu signal request
                         when x"40" => state <= HoldClock;
                         when x"41" => state <= HoldClock;

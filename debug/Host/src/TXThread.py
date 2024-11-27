@@ -3,12 +3,14 @@ import serial
 import DebugWindow
 import Datapool
 
+
 class TXThread(threading.Thread):
     def __init__(self, ser: serial.Serial, debugWindow: DebugWindow):
         threading.Thread.__init__(self)
         self.ser = ser
         self.debugWindow = debugWindow
         self.is_running = True
+        self.failures = 0
 
     def run(self):
         # input for debug command
@@ -33,6 +35,9 @@ class TXThread(threading.Thread):
         rx_data_datapool = debugWindow.get_rx_datapool()
         if byte_counter == 0:
             command_instruction = rx_data
+            if command_instruction == b'\x0f':
+                self.failures += 1
+                print(f"Failures: {self.failures}")
             try:
                 rx_data_datapool.get_data(command_instruction, "data_1_high")
             except KeyError:
