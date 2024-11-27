@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity TX_UART is
     generic (
-        CLKS_PER_BIT: integer := 55 -- (clock Frequency) / (Baud Rate) => 100000000 / 921600
+        CLKS_PER_BIT: integer := 5208 -- (clock Frequency) / (Baud Rate) => 50000000 / 9600
     );
     Port (
         data_valid: in std_logic; -- rising edge to start the writing process
