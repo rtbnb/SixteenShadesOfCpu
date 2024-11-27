@@ -224,9 +224,12 @@ begin
                         -- memory
                         when x"30" => state <= ReceiveInstructionDataHIGH;
                         when x"31" => state <= ReceiveInstructionDataHIGH;
-                        when x"32" => state <= ReceiveInstructionDataHIGH;
+                        when x"32" => state <= ReceiveInstructionData2HIGH; -- iram read
                         when x"33" => state <= ReceiveInstructionDataHIGH;
                         when x"34" => state <= ReceiveInstructionDataHIGH;
+                        when x"35" => state <= ReceiveInstructionData2HIGH; -- vram read
+                        when x"36" => state <= ReceiveInstructionData2HIGH; -- gram read
+                        when x"37" => state <= ReceiveInstructionData2HIGH; -- mmio read
                         when x"38" => state <= HoldClock;
                         -- alu signal request
                         when x"40" => state <= HoldClock;
@@ -329,7 +332,7 @@ begin
                     regfile_reg2_data_s <= regfile_reg2_data;
                     regfile_bankid_s <= regfile_bankid;
                     mmu_iram_dout_s <= mmu_iram_dout;
-                    --mmu_debug_dout_s <= mmu_debug_dout;
+                    mmu_debug_dout_s <= mmu_debug_dout;
                     state <= ProcessCommand;
                 when ProcessCommand =>
                     -- command decode
