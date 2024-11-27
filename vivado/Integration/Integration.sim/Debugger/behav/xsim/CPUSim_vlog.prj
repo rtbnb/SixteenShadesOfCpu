@@ -1,8 +1,6 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../Integration.gen/sources_1/bd/main/ipshared/3242" \
+verilog xil_defaultlib  \
 "../../../../Integration.ip_user_files/bd/main/ip/main_blk_mem_gen_0_0/sim/main_blk_mem_gen_0_0.v" \
-"../../../../Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0_clk_wiz.v" \
-"../../../../Integration.ip_user_files/bd/main/ip/main_clk_wiz_0_0/main_clk_wiz_0_0.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

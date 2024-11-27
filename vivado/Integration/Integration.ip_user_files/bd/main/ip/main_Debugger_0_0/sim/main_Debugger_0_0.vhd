@@ -69,7 +69,25 @@ ENTITY main_Debugger_0_0 IS
     pipeline_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pipeline_operand_1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pipeline_operand_2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    pipeline_rf_read_buf : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pipeline_jmp : IN STD_LOGIC;
+    pipeline_jmp_conditional : IN STD_LOGIC;
+    pipeline_jmp_relative : IN STD_LOGIC;
+    pipeline_jmp_destination_select : IN STD_LOGIC;
+    pipeline_jmp_condition : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    pipeline_taking_data : IN STD_LOGIC;
+    pipeline_immediate : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    pipeline_write_address : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    pipeline_whb : IN STD_LOGIC;
+    pipeline_wlb : IN STD_LOGIC;
+    pipeline_write_data_sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    pipeline_ram_src : IN STD_LOGIC;
+    pipeline_ram_read : IN STD_LOGIC;
+    pipeline_ram_write : IN STD_LOGIC;
+    pipeline_ram_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    pipeline_is_alu_op : IN STD_LOGIC;
+    pipeline_is_ram_op : IN STD_LOGIC;
+    pipeline_is_gpu_op : IN STD_LOGIC;
     pc_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pc_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     pc_current_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -93,7 +111,8 @@ ENTITY main_Debugger_0_0 IS
     mmu_debug_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmu_debug_bank : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     mmu_debug_we : OUT STD_LOGIC;
-    mmu_debug_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+    mmu_debug_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    mmu_iram_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END main_Debugger_0_0;
 
@@ -116,7 +135,25 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       pipeline_current_instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pipeline_operand_1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pipeline_operand_2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      pipeline_rf_read_buf : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pipeline_jmp : IN STD_LOGIC;
+      pipeline_jmp_conditional : IN STD_LOGIC;
+      pipeline_jmp_relative : IN STD_LOGIC;
+      pipeline_jmp_destination_select : IN STD_LOGIC;
+      pipeline_jmp_condition : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+      pipeline_taking_data : IN STD_LOGIC;
+      pipeline_immediate : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      pipeline_write_address : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      pipeline_whb : IN STD_LOGIC;
+      pipeline_wlb : IN STD_LOGIC;
+      pipeline_write_data_sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+      pipeline_ram_src : IN STD_LOGIC;
+      pipeline_ram_read : IN STD_LOGIC;
+      pipeline_ram_write : IN STD_LOGIC;
+      pipeline_ram_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      pipeline_is_alu_op : IN STD_LOGIC;
+      pipeline_is_ram_op : IN STD_LOGIC;
+      pipeline_is_gpu_op : IN STD_LOGIC;
       pc_din : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pc_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       pc_current_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -140,7 +177,8 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       mmu_debug_din : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmu_debug_bank : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       mmu_debug_we : OUT STD_LOGIC;
-      mmu_debug_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+      mmu_debug_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      mmu_iram_dout : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT Debugger;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -170,7 +208,25 @@ BEGIN
       pipeline_current_instruction => pipeline_current_instruction,
       pipeline_operand_1 => pipeline_operand_1,
       pipeline_operand_2 => pipeline_operand_2,
+      pipeline_rf_read_buf => pipeline_rf_read_buf,
       pipeline_jmp => pipeline_jmp,
+      pipeline_jmp_conditional => pipeline_jmp_conditional,
+      pipeline_jmp_relative => pipeline_jmp_relative,
+      pipeline_jmp_destination_select => pipeline_jmp_destination_select,
+      pipeline_jmp_condition => pipeline_jmp_condition,
+      pipeline_taking_data => pipeline_taking_data,
+      pipeline_immediate => pipeline_immediate,
+      pipeline_write_address => pipeline_write_address,
+      pipeline_whb => pipeline_whb,
+      pipeline_wlb => pipeline_wlb,
+      pipeline_write_data_sel => pipeline_write_data_sel,
+      pipeline_ram_src => pipeline_ram_src,
+      pipeline_ram_read => pipeline_ram_read,
+      pipeline_ram_write => pipeline_ram_write,
+      pipeline_ram_bankid => pipeline_ram_bankid,
+      pipeline_is_alu_op => pipeline_is_alu_op,
+      pipeline_is_ram_op => pipeline_is_ram_op,
+      pipeline_is_gpu_op => pipeline_is_gpu_op,
       pc_din => pc_din,
       pc_dout => pc_dout,
       pc_current_addr => pc_current_addr,
@@ -194,6 +250,7 @@ BEGIN
       mmu_debug_din => mmu_debug_din,
       mmu_debug_bank => mmu_debug_bank,
       mmu_debug_we => mmu_debug_we,
-      mmu_debug_dout => mmu_debug_dout
+      mmu_debug_dout => mmu_debug_dout,
+      mmu_iram_dout => mmu_iram_dout
     );
 END main_Debugger_0_0_arch;

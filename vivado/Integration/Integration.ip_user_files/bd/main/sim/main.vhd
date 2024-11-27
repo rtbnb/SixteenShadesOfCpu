@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Tue Nov 26 21:53:14 2024
---Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
+--Date        : Wed Nov 27 20:33:36 2024
+--Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -406,7 +406,25 @@ architecture STRUCTURE of main is
     pipeline_current_instruction : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pipeline_operand_1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pipeline_operand_2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pipeline_rf_read_buf : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pipeline_jmp : in STD_LOGIC;
+    pipeline_jmp_conditional : in STD_LOGIC;
+    pipeline_jmp_relative : in STD_LOGIC;
+    pipeline_jmp_destination_select : in STD_LOGIC;
+    pipeline_jmp_condition : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    pipeline_taking_data : in STD_LOGIC;
+    pipeline_immediate : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pipeline_write_address : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    pipeline_whb : in STD_LOGIC;
+    pipeline_wlb : in STD_LOGIC;
+    pipeline_write_data_sel : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    pipeline_ram_src : in STD_LOGIC;
+    pipeline_ram_read : in STD_LOGIC;
+    pipeline_ram_write : in STD_LOGIC;
+    pipeline_ram_bankid : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    pipeline_is_alu_op : in STD_LOGIC;
+    pipeline_is_ram_op : in STD_LOGIC;
+    pipeline_is_gpu_op : in STD_LOGIC;
     pc_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pc_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pc_current_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -430,7 +448,8 @@ architecture STRUCTURE of main is
     mmu_debug_din : out STD_LOGIC_VECTOR ( 15 downto 0 );
     mmu_debug_bank : out STD_LOGIC_VECTOR ( 3 downto 0 );
     mmu_debug_we : out STD_LOGIC;
-    mmu_debug_dout : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    mmu_debug_dout : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    mmu_iram_dout : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_Debugger_0_0;
   component main_RX_UART_0_0 is
@@ -548,6 +567,7 @@ architecture STRUCTURE of main is
   signal Pipelining_Execution_0_IS_ALU_OP_out : STD_LOGIC;
   signal Pipelining_Execution_0_Immediate_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Is_GPU_OP_out : STD_LOGIC;
+  signal Pipelining_Execution_0_Is_RAM_OP_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_Condition_out : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal Pipelining_Execution_0_JMP_Conditional_out : STD_LOGIC;
   signal Pipelining_Execution_0_JMP_DestinationSelect_out : STD_LOGIC;
@@ -631,7 +651,6 @@ architecture STRUCTURE of main is
   signal vram_bram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_CU_Decoder_0_Reg1Read_UNCONNECTED : STD_LOGIC;
   signal NLW_CU_Decoder_0_Reg2Read_UNCONNECTED : STD_LOGIC;
-  signal NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led04_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led05_UNCONNECTED : STD_LOGIC;
   signal NLW_mmio_0_led06_UNCONNECTED : STD_LOGIC;
@@ -787,16 +806,35 @@ Debugger_0: component main_Debugger_0_0
       mmu_debug_dout(15 downto 0) => mmu_0_debug_dout(15 downto 0),
       mmu_debug_override_en => Debugger_0_mmu_debug_override_en,
       mmu_debug_we => Debugger_0_mmu_debug_we,
+      mmu_iram_dout(15 downto 0) => mmu_0_iram_dout(15 downto 0),
       pc_current_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
       pc_din(15 downto 0) => CU_JumpController_0_PC_Next(15 downto 0),
       pc_dout(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
       pipeline_current_instruction(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
+      pipeline_immediate(15 downto 0) => Pipelining_Execution_0_Immediate_out(15 downto 0),
       pipeline_instruction_forwarding_config(4) => '0',
       pipeline_instruction_forwarding_config(3 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(3 downto 0),
+      pipeline_is_alu_op => Pipelining_Execution_0_IS_ALU_OP_out,
+      pipeline_is_gpu_op => Pipelining_Execution_0_Is_GPU_OP_out,
+      pipeline_is_ram_op => Pipelining_Execution_0_Is_RAM_OP_out,
       pipeline_jmp => CU_Decoder_0_JMP,
+      pipeline_jmp_condition(2 downto 0) => Pipelining_Execution_0_JMP_Condition_out(2 downto 0),
+      pipeline_jmp_conditional => Pipelining_Execution_0_JMP_Conditional_out,
+      pipeline_jmp_destination_select => Pipelining_Execution_0_JMP_DestinationSelect_out,
+      pipeline_jmp_relative => Pipelining_Execution_0_JMP_Relative_out,
       pipeline_operand_1(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand1(15 downto 0),
       pipeline_operand_2(15 downto 0) => Pipelining_Forwarder_0_ForwardedOperand2(15 downto 0),
+      pipeline_ram_bankid(3 downto 0) => Pipelining_Execution_0_RAM_BankID_out(3 downto 0),
+      pipeline_ram_read => Pipelining_Execution_0_RAM_Read_out,
+      pipeline_ram_src => Pipelining_Execution_0_RAM_Src_out,
+      pipeline_ram_write => Pipelining_Execution_0_RAM_Write_out,
+      pipeline_rf_read_buf(15 downto 0) => B"0000000000000000",
       pipeline_stalled => Pipelining_Controller_0_Stalled,
+      pipeline_taking_data => '0',
+      pipeline_whb => Pipelining_Execution_0_WHB_out,
+      pipeline_wlb => Pipelining_Execution_0_WLB_out,
+      pipeline_write_address(3 downto 0) => Pipelining_Execution_0_WriteAddress_out(3 downto 0),
+      pipeline_write_data_sel(1 downto 0) => Pipelining_Execution_0_WriteDataSel_out(1 downto 0),
       regfile_addr_reg1(3 downto 0) => Decoder_0_Register1(3 downto 0),
       regfile_addr_reg2(3 downto 0) => Decoder_0_Register2(3 downto 0),
       regfile_addr_write_reg(3 downto 0) => Pipelining_WriteBack_0_WriteAddress_out(3 downto 0),
@@ -856,7 +894,7 @@ Pipelining_Execution_0: component main_Pipelining_Execution_0_0
       Is_GPU_OP => CU_Decoder_0_Is_GPU_OP,
       Is_GPU_OP_out => Pipelining_Execution_0_Is_GPU_OP_out,
       Is_RAM_OP => CU_Decoder_0_Is_RAM_OP,
-      Is_RAM_OP_out => NLW_Pipelining_Execution_0_Is_RAM_OP_out_UNCONNECTED,
+      Is_RAM_OP_out => Pipelining_Execution_0_Is_RAM_OP_out,
       JMP => CU_Decoder_0_JMP,
       JMP_Condition(2 downto 0) => Decoder_0_JMP_Condition(2 downto 0),
       JMP_Condition_out(2 downto 0) => Pipelining_Execution_0_JMP_Condition_out(2 downto 0),

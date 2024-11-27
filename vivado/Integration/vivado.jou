@@ -3,12 +3,12 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Tue Nov 26 16:55:25 2024
-# Process ID: 21256
-# Current directory: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24552 C:\Development\rebase_2\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
-# Log file: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/vivado.log
-# Journal file: C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration\vivado.jou
+# Start of session at: Wed Nov 27 18:37:52 2024
+# Process ID: 1208
+# Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1456 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/vivado.log
+# Journal file: C:/Development/SixteenShadesOfCpu/vivado/Integration\vivado.jou
 # Running On        :DESKTOP-E8CIL9E
 # Platform          :Windows Server 2016 or Windows 10
 # Operating System  :19045
@@ -19,192 +19,97 @@
 # Host memory       :17099 MB
 # Swap memory       :11274 MB
 # Total Virtual     :28373 MB
-# Available Virtual :12455 MB
+# Available Virtual :18999 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
+open_project C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
+update_compile_order -fileset sources_1
 report_ip_status -name ip_status 
 update_compile_order -fileset sources_1
-update_module_reference [get_ips  {main_clockcontroller_0_0 main_RX_UART_0_0 main_Debugger_0_0 main_TX_UART_0_0}]
-generate_target all [get_files  C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-export_ip_user_files -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-launch_runs impl_1 -jobs 12
-wait_on_run impl_1
-close_bd_design [get_bd_designs main]
-report_ip_status -name ip_status 
-set_property STEPS.WRITE_BITSTREAM.ARGS.BIN_FILE true [get_runs impl_1]
-launch_runs impl_1 -to_step write_bitstream -jobs 12
-wait_on_run impl_1
-open_hw_manager
-connect_hw_server -allow_non_jtag
-open_hw_target
-current_hw_device [get_hw_devices xc7a35t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
-create_hw_cfgmem -hw_device [lindex [get_hw_devices xc7a35t_0] 0] [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/main_wrapper.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-startgroup 
-create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a35t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a35t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a35t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0];
-program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-endgroup
-close_hw_manager
-set_property SOURCE_SET sources_1 [get_filesets debugger]
-close [ open C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim.vhd w ]
-add_files -fileset debugger C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim.vhd
-update_compile_order -fileset debugger
-update_compile_order -fileset debugger
-update_compile_order -fileset debugger
-open_bd_design {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
-delete_bd_objs [get_bd_nets Pipelining_Forwarder_0_ForwardedMA]
-delete_bd_objs [get_bd_nets RegFile_0_RegMA_data]
+update_module_reference [get_ips  {main_mmio_0_0 main_mmu_0_0 main_TX_UART_0_0 main_RX_UART_0_0 main_Pipelining_Controller_0_0}]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_is_gpu_op] [get_bd_pins Pipelining_Execution_0/Is_GPU_OP_out]
+connect_bd_net [get_bd_pins Pipelining_Execution_0/Is_RAM_OP_out] [get_bd_pins Debugger_0/pipeline_is_ram_op]
+set_property location {7.5 4313 -102} [get_bd_cells Debugger_0]
+set_property location {6 3098 721} [get_bd_cells Pipelining_Execution_0]
+set_property location {6 3021 582} [get_bd_cells Pipelining_Execution_0]
+set_property location {6 2974 76} [get_bd_cells Pipelining_Execution_0]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_is_alu_op] [get_bd_pins Pipelining_Execution_0/IS_ALU_OP_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_ram_bankid] [get_bd_pins Pipelining_Execution_0/RAM_BankID_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_ram_write] [get_bd_pins Pipelining_Execution_0/RAM_Write_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_ram_read] [get_bd_pins Pipelining_Execution_0/RAM_Read_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_ram_src] [get_bd_pins Pipelining_Execution_0/RAM_Src_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_write_data_sel] [get_bd_pins Pipelining_Execution_0/WriteDataSel_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_wlb] [get_bd_pins Pipelining_Execution_0/WLB_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_whb] [get_bd_pins Pipelining_Execution_0/WHB_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_write_address] [get_bd_pins Pipelining_Execution_0/WriteAddress_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_immediate] [get_bd_pins Pipelining_Execution_0/Immediate_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_jmp_condition] [get_bd_pins Pipelining_Execution_0/JMP_Condition_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_jmp_destination_select] [get_bd_pins Pipelining_Execution_0/JMP_DestinationSelect_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_jmp_relative] [get_bd_pins Pipelining_Execution_0/JMP_Relative_out]
+connect_bd_net [get_bd_pins Debugger_0/pipeline_jmp_conditional] [get_bd_pins Pipelining_Execution_0/JMP_Conditional_out]
+set_property location {6 2932 795} [get_bd_cells Pipelining_Execution_0]
+set_property location {6 2967 856} [get_bd_cells Pipelining_Execution_0]
+set_property location {6 2936 896} [get_bd_cells Pipelining_Execution_0]
+set_property location {6 2991 744} [get_bd_cells Pipelining_Execution_0]
+set_property location {6 2994 698} [get_bd_cells Pipelining_Execution_0]
+set_property location {8 4505 -58} [get_bd_cells Debugger_0]
+set_property location {8 4553 -131} [get_bd_cells Debugger_0]
+set_property location {8 4515 -405} [get_bd_cells Debugger_0]
+save_bd_design
+make_wrapper -files [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -top
+add_files -norecurse c:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
+update_compile_order -fileset sources_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top CPUSim [get_filesets debugger]
-set_property top_lib xil_defaultlib [get_filesets debugger]
+set_property top main_wrapper [current_fileset]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset debugger
-save_bd_design
-generate_target Simulation [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-export_ip_user_files -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_simulation -simset debugger -mode behavioral
 launch_simulation -simset [get_filesets debugger ]
-launch_simulation -simset [get_filesets debugger ]
-launch_simulation -simset [get_filesets debugger ]
+open_wave_config C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
 source CPUSim.tcl
 run 1 ms
-run 1 ms
-relaunch_sim
-run 1 us
-run 1 us
-run 1 us
-run 1 us
-relaunch_sim
-run 500 us
-run 200 us
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-relaunch_sim
-relaunch_sim
-relaunch_sim
-run 1 ms
-relaunch_sim
+run 10 s
 report_ip_status -name ip_status 
-update_module_reference [get_ips  main_clockcontroller_0_0]
-generate_target all [get_files  C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-export_ip_user_files -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
-add_files -fileset debugger -norecurse C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
-set_property xsim.view C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg [get_filesets debugger]
-close_sim
-launch_simulation -simset [get_filesets debugger ]
-open_wave_config C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
-source CPUSim.tcl
-run 1 ms
-close_sim
-update_module_reference main_clockcontroller_0_0
-reset_target all [get_files  C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-export_ip_user_files -of_objects  [get_files  C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
-generate_target all [get_files  C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-export_ip_user_files -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-launch_simulation -simset [get_filesets debugger ]
-open_wave_config C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
-source CPUSim.tcl
-run 1 ms
-relaunch_sim
-run 1 ms
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
+update_module_reference [get_ips  {main_TX_UART_0_0 main_RX_UART_0_0}]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+close_bd_design [get_bd_designs main]
 close_sim
 reset_simulation -simset debugger -mode behavioral
 launch_simulation -simset [get_filesets debugger ]
-open_wave_config C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
+open_wave_config C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
 source CPUSim.tcl
 run 1 ms
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
-relaunch_sim
-run 1 ms
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
-relaunch_sim
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
-relaunch_sim
-run 1 ms
-relaunch_sim
-run 1 ms
-save_wave_config {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg}
-relaunch_sim
-run 1 ms
 report_ip_status -name ip_status 
-update_module_reference [get_ips  main_mmio_0_0]
-generate_target all [get_files  C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-export_ip_user_files -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_module_reference [get_ips  {main_TX_UART_0_0 main_RX_UART_0_0}]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run impl_1
+launch_runs impl_1 -jobs 12
 reset_run synth_1
+launch_runs synth_1 -jobs 12
+wait_on_run synth_1
 launch_runs impl_1 -jobs 12
 wait_on_run impl_1
+close_bd_design [get_bd_designs main]
 close_sim
-close_bd_design [get_bd_designs main]
-open_bd_design {C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd}
 report_ip_status -name ip_status 
-update_module_reference [get_ips  main_Debugger_0_0]
-generate_target all [get_files  C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
-export_ip_user_files -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
-export_simulation -of_objects [get_files C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-close_bd_design [get_bd_designs main]
-report_ip_status -name ip_status 
-reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+reset_run impl_1
 launch_runs impl_1 -jobs 12
 wait_on_run impl_1
-reset_run synth_1
-launch_simulation -simset [get_filesets debugger ]
-open_wave_config C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
-source CPUSim.tcl
-run 1 ms
-close_sim
+reset_run impl_1 -prev_step 
+reset_run impl_1
 launch_runs impl_1 -jobs 12
 wait_on_run impl_1
 launch_runs impl_1 -to_step write_bitstream -jobs 12
@@ -216,7 +121,7 @@ current_hw_device [get_hw_devices xc7a35t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
 create_hw_cfgmem -hw_device [get_hw_devices xc7a35t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
 set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
-set_property PROGRAM.FILES [list "C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/main_wrapper.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.FILES [list "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/main_wrapper.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
 set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
 set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
 set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
@@ -229,8 +134,74 @@ create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a35t_0] 0] [get_proper
 program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
 endgroup
 close_hw_manager
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_RX_UART_0_0]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 12
+wait_on_run impl_1
+close_bd_design [get_bd_designs main]
+report_ip_status -name ip_status 
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+create_hw_cfgmem -hw_device [get_hw_devices xc7a35t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.FILES [list "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/main_wrapper.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+startgroup 
+create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a35t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a35t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a35t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0];
+program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+endgroup
+close_hw_manager
+report_ip_status -name ip_status 
+update_module_reference [get_ips  {main_TX_UART_0_0 main_RX_UART_0_0}]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+create_hw_cfgmem -hw_device [get_hw_devices xc7a35t_0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+set_property PROGRAM.ADDRESS_RANGE  {use_file} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.FILES [list "C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.runs/impl_1/main_wrapper.bin" ] [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.PRM_FILE {} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.BLANK_CHECK  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.ERASE  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CFG_PROGRAM  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.VERIFY  1 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+set_property PROGRAM.CHECKSUM  0 [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+startgroup 
+create_hw_bitstream -hw_device [lindex [get_hw_devices xc7a35t_0] 0] [get_property PROGRAM.HW_CFGMEM_BITFILE [ lindex [get_hw_devices xc7a35t_0] 0]]; program_hw_devices [lindex [get_hw_devices xc7a35t_0] 0]; refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0];
+program_hw_cfgmem -hw_cfgmem [ get_property PROGRAM.HW_CFGMEM [lindex [get_hw_devices xc7a35t_0] 0]]
+endgroup
+close_hw_manager
+report_ip_status -name ip_status 
+update_module_reference [get_ips  {main_Debugger_0_0 main_TX_UART_0_0}]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_simulation -simset debugger -mode behavioral
 launch_simulation -simset [get_filesets debugger ]
-open_wave_config C:/Development/rebase_2/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
+open_wave_config C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/debugger/new/CPUSim_behav.wcfg
 source CPUSim.tcl
-run 1 ms
+run 1 s
 close_sim
