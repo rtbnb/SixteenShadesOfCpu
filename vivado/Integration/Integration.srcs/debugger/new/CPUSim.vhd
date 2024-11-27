@@ -46,20 +46,24 @@ architecture Behavioral of CPUSim is
         Reset : in STD_LOGIC;
         TX_UART_OUT : out STD_LOGIC;
         b : out STD_LOGIC_VECTOR ( 3 downto 0 );
-        btn0 : in STD_LOGIC;
-        btn1 : in STD_LOGIC;
-        btn2 : in STD_LOGIC;
-        btn3 : in STD_LOGIC;
+        btn00 : in STD_LOGIC;
+        btn01 : in STD_LOGIC;
+        btn02 : in STD_LOGIC;
+        btn03 : in STD_LOGIC;
         clk100mhz_in : in STD_LOGIC;
         fault_reset : in STD_LOGIC;
         g : out STD_LOGIC_VECTOR ( 3 downto 0 );
         h_sync : out STD_LOGIC;
         ioe : out STD_LOGIC;
-        led0 : out STD_LOGIC;
-        led1 : out STD_LOGIC;
-        led2 : out STD_LOGIC;
-        led3 : out STD_LOGIC;
+        led00 : out STD_LOGIC;
+        led01 : out STD_LOGIC;
+        led02 : out STD_LOGIC;
+        led03 : out STD_LOGIC;
         r : out STD_LOGIC_VECTOR ( 3 downto 0 );
+        rgb0 : out STD_LOGIC_VECTOR ( 2 downto 0 );
+        rgb1 : out STD_LOGIC_VECTOR ( 2 downto 0 );
+        rgb2 : out STD_LOGIC_VECTOR ( 2 downto 0 );
+        rgb3 : out STD_LOGIC_VECTOR ( 2 downto 0 );
         v_sync : out STD_LOGIC
     );
     end component main_wrapper;
@@ -67,10 +71,10 @@ architecture Behavioral of CPUSim is
     signal Reset : STD_LOGIC := '0';
     signal TX_UART_OUT : STD_LOGIC;
     signal b : STD_LOGIC_VECTOR ( 3 downto 0 );
-    signal btn0 : STD_LOGIC;
-    signal btn1 : STD_LOGIC;
-    signal btn2 : STD_LOGIC;
-    signal btn3 : STD_LOGIC;
+    signal btn00 : STD_LOGIC;
+    signal btn01 : STD_LOGIC;
+    signal btn02 : STD_LOGIC;
+    signal btn03 : STD_LOGIC;
     signal clk100mhz_in : STD_LOGIC := '0';
     signal debug_mock_clk : STD_LOGIC := '0';
     signal debug_reset : STD_LOGIC := '0';
@@ -78,11 +82,15 @@ architecture Behavioral of CPUSim is
     signal g : STD_LOGIC_VECTOR ( 3 downto 0 );
     signal h_sync : STD_LOGIC;
     signal ioe : STD_LOGIC;
-    signal led0 : STD_LOGIC;
-    signal led1 : STD_LOGIC;
-    signal led2 : STD_LOGIC;
-    signal led3 : STD_LOGIC;
+    signal led00 : STD_LOGIC;
+    signal led01 : STD_LOGIC;
+    signal led02 : STD_LOGIC;
+    signal led03 : STD_LOGIC;
     signal r : STD_LOGIC_VECTOR ( 3 downto 0 );
+    signal rgb0 : STD_LOGIC_VECTOR ( 2 downto 0 );
+    signal rgb1 : STD_LOGIC_VECTOR ( 2 downto 0 );
+    signal rgb2 : STD_LOGIC_VECTOR ( 2 downto 0 );
+    signal rgb3 : STD_LOGIC_VECTOR ( 2 downto 0 );
     signal v_sync : STD_LOGIC;
     
 begin
@@ -91,20 +99,24 @@ begin
         Reset => Reset,
         TX_UART_OUT => TX_UART_OUT,
         b => b,
-        btn0 => btn0,
-        btn1 => btn1,
-        btn2 => btn2,
-        btn3 => btn3,
+        btn00 => btn00,
+        btn01 => btn01,
+        btn02 => btn02,
+        btn03 => btn03,
         clk100mhz_in => clk100mhz_in,
         fault_reset => fault_reset,
         g => g,
         h_sync => h_sync,
         ioe => ioe,
-        led0 => led0,
-        led1 => led1,
-        led2 => led2,
-        led3 => led3,
+        led00 => led00,
+        led01 => led01,
+        led02 => led02,
+        led03 => led03,
         r => r,
+        rgb0 => rgb0,
+        rgb1 => rgb1,
+        rgb2 => rgb2,
+        rgb3 => rgb3,
         v_sync => v_sync
     );
 
