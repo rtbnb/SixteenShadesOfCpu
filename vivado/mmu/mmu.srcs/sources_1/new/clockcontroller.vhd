@@ -42,6 +42,16 @@ entity clockcontroller is
 end clockcontroller;
 
 architecture Behavioral of clockcontroller is
+    attribute X_INTERFACE_PARAMETER: string;
+    attribute X_INTERFACE_INFO      :STRING;  
+    
+    attribute X_INTERFACE_INFO      of debug_clk       :signal is "xilinx.com:signal:clock:1.0 debug_clk CLK";
+    attribute X_INTERFACE_PARAMETER of debug_clk       :SIGNAL is "FREQ_HZ 50000000";
+    attribute X_INTERFACE_INFO      of load_clk       :signal is "xilinx.com:signal:clock:1.0 debug_clk CLK";
+    attribute X_INTERFACE_PARAMETER of load_clk       :SIGNAL is "FREQ_HZ 50000000";
+    attribute X_INTERFACE_INFO      of vga_clk       :signal is "xilinx.com:signal:clock:1.0 debug_clk CLK";
+    attribute X_INTERFACE_PARAMETER of vga_clk       :SIGNAL is "FREQ_HZ 50000000";
+
     signal output_en_s: std_logic;
     signal fault_s: std_logic := '0';
     signal debug_en_s: std_logic := '1';
