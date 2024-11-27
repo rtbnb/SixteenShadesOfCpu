@@ -60,7 +60,9 @@ architecture Behavioral of Pipelining_Controller is
            JMP_Relative : out STD_LOGIC;
            JMP_DestinationSource : out STD_LOGIC;
            Is_ALU_OP : out STD_LOGIC;
-           Is_RAM_OP : out STD_LOGIC);
+           Is_RAM_OP : out STD_LOGIC;
+           IS_GPU_OP : out STD_LOGIC
+           );
     end component CU_Decoder;
     
     component Decoder is

@@ -101,7 +101,7 @@ architecture Behavioral of mmu is
     signal gram_bank_op_s, vram_bank_op_s, mmio_bank_op_s, iram_bank_op_s: std_logic;
     signal internal_debug_override_s: std_logic;
     
-    signal output_config_s: std_logic_vector( 4 downto 0 );
+    signal output_config_s: std_logic_vector( 3 downto 0 );
     
     signal general_bank_s: std_logic_vector( 3 downto 0 );
 begin
@@ -234,18 +234,18 @@ begin
         vramb_mem_we <= "0";    
 --vramb end
    
-   output_config_s <= internal_debug_override_s & gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
+   output_config_s <=  gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
 
     with output_config_s select
-        gram_dout <= gram_dout_s when "01000",
-                     mmio_mem_dout when "00100",   
+        gram_dout <= gram_dout_s when "1000",
+                     mmio_mem_dout when "0100",   
                      X"0000" when others;
                      
     with output_config_s select               
-        debug_dout <= gram_dout_s when "11000",
-                      mmio_mem_dout when "10100",
-                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "10010",
-                      iram_dout_s when "10001",
+        debug_dout <= gram_dout_s when "1000",
+                      mmio_mem_dout when "0100",
+                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "0010",
+                      iram_dout_s when "0001",
                       X"0000" when others;
     
     iram_lutram:process(iram_clk_s)
