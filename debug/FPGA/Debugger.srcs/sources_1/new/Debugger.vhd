@@ -104,7 +104,8 @@ architecture Behavioral of Debugger is
         TransmitInstructionOnly,
         ClockMMUDebug, ResetMMUDebug,
         ClockVRAM1, ClockVRAM2, ClockVRAM3,
-        MMUFetchIRAMClock, MMUFetchIRAMWriteToTX, MMUFetchIRAMReset,
+        ClockBlockRamRead1, ClockBlockRamRead2, ClockBlockRamRead3, ClockBlockRamReadReset, ClockBlockRamReadFetch,
+        MMUFetchIRAMWriteToTX, MMUFetchIRAMReset,
         MMUFetchGRAMClock, MMUFetchGRAMWriteToTX, MMUFetchGRAMReset,
         ClockOneCycleHigh, ClockOneCycleLow,
         ClockResume, ClockResumeAck
@@ -365,12 +366,13 @@ begin
                             -- send acknoledge
                             tx_instruction_buffer <= x"31";
                             state <= ClockMMUDebug;
-                        when x"32" =>
+                        when x"32" => -- iram read
                             mmu_debug_addr <= rx_instruction_data2_buffer;
-                            mmu_debug_bank <= rx_instruction_data_buffer(3 downto 0);
+                            mmu_debug_bank <= "1111";
                             mmu_debug_override_en <= '1';
                             mmu_debug_we <= '0';
-                            state <= MMUFetchIRAMClock;
+                            tx_instruction_buffer <= x"32";
+                            state <= MMUFetchIRAMWriteToTX;
                         when x"33" =>
                             mmu_debug_addr <= rx_instruction_data_buffer;
                             mmu_debug_din <= rx_instruction_data2_buffer;
@@ -389,6 +391,27 @@ begin
                             -- send acknoledge
                             tx_instruction_buffer <= x"34";
                             state <= ClockMMUDebug;
+                        when x"35" => -- vram read
+                            mmu_debug_addr <= rx_instruction_data2_buffer;
+                            mmu_debug_bank <= "0010";
+                            mmu_debug_override_en <= '1';
+                            mmu_debug_we <= '0';
+                            tx_instruction_buffer <= x"35";
+                            state <= ClockBlockRamRead1;
+                        when x"36" => -- gram read
+                            mmu_debug_addr <= rx_instruction_data2_buffer;
+                            mmu_debug_bank <= "0000";
+                            mmu_debug_override_en <= '1';
+                            mmu_debug_we <= '0';
+                            tx_instruction_buffer <= x"36";
+                            state <= MMUFetchIRAMWriteToTX;
+                        when x"37" => -- mmio read
+                            mmu_debug_addr <= rx_instruction_data2_buffer;
+                            mmu_debug_bank <= "0001";
+                            mmu_debug_override_en <= '1';
+                            mmu_debug_we <= '0';
+                            tx_instruction_buffer <= x"37";
+                            state <= MMUFetchIRAMWriteToTX;
                         -- alu
                         when x"40" =>
                             tx_instruction_buffer <= x"40";
@@ -569,13 +592,8 @@ begin
                     mmu_debug_we <= '0';
                     mmu_debug_clk <= '0';
                     state <= TransmitInstructionOnly;
-                -- IRAM
-                when MMUFetchIRAMClock =>
-                    mmu_debug_clk <= '1';
-                    mmu_debug_dout_s <= mmu_debug_dout;
-                    state <= MMUFetchIRAMWriteToTX;
+                -- lutram
                 when MMUFetchIRAMWriteToTX =>
-                    tx_instruction_buffer <= x"32";
                     tx_data_buffer <= mmu_debug_dout_s;
                     tx_addr_buffer <= rx_instruction_data2_buffer;
                     state <= MMUFetchIRAMReset;
@@ -583,7 +601,26 @@ begin
                     mmu_debug_override_en <= '0';
                     mmu_debug_clk <= '0';
                     state <= TransmitDataInstruction;
-                    
+                -- block ram
+                when ClockBlockRamRead1 =>
+                    mmu_debug_clk <= '1';
+                    state <= ClockBlockRamRead2;
+                when ClockBlockRamRead2 =>
+                    mmu_debug_clk <= '0';
+                    state <= ClockBlockRamRead3;
+                when ClockBlockRamRead3 =>
+                    mmu_debug_clk <= '1';
+                    state <= ClockBlockRamReadFetch;
+                when ClockBlockRamReadFetch =>
+                    mmu_debug_clk <= '0';
+                    tx_data_buffer <= mmu_debug_dout_s;
+                    tx_addr_buffer <= rx_instruction_data2_buffer;
+                    state <= ClockBlockRamReadReset;
+                when ClockBlockRamReadReset =>
+                    mmu_debug_override_en <= '0';
+                    mmu_debug_we <= '0';
+                    state <= TransmitDataInstruction;    
+                
                 when others =>
                     state <= Idle;
             end case;

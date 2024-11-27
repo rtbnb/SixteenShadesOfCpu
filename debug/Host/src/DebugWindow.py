@@ -67,18 +67,18 @@ class DebugWindow(QtWidgets.QWidget):
         textfield_memory_addr = QtWidgets.QLineEdit()
         iram_write_button = QtWidgets.QPushButton(text="Write to IRAM")
         iram_write_button.clicked.connect(lambda: self.button_pushed_write_iram(textfield_memory_data, textfield_memory_addr))
-        self.layout.addWidget(textfield_memory_data, len(self.data) + 1, 0, 1, 1)
-        self.layout.addWidget(textfield_memory_addr, len(self.data) + 1, 1, 1, 1)
-        self.layout.addWidget(iram_write_button, len(self.data) + 1, 2, 1, 1)
+        #self.layout.addWidget(textfield_memory_data, len(self.data) + 1, 0, 1, 1)
+        #self.layout.addWidget(textfield_memory_addr, len(self.data) + 1, 1, 1, 1)
+        #self.layout.addWidget(iram_write_button, len(self.data) + 1, 2, 1, 1)
 
         # gram write
         gram_textfield_memory_data = QtWidgets.QLineEdit()
         gram_textfield_memory_addr = QtWidgets.QLineEdit()
         gram_write_button = QtWidgets.QPushButton(text="Write to GRAM")
         gram_write_button.clicked.connect(lambda: self.button_pushed_write_gram(textfield_memory_data, textfield_memory_addr))
-        self.layout.addWidget(gram_textfield_memory_data, len(self.data) + 2, 0, 1, 1)
-        self.layout.addWidget(gram_textfield_memory_addr, len(self.data) + 2, 1, 1, 1)
-        self.layout.addWidget(gram_write_button, len(self.data) + 2, 2, 1, 1)
+        #self.layout.addWidget(gram_textfield_memory_data, len(self.data) + 2, 0, 1, 1)
+        #self.layout.addWidget(gram_textfield_memory_addr, len(self.data) + 2, 1, 1, 1)
+        #self.layout.addWidget(gram_write_button, len(self.data) + 2, 2, 1, 1)
 
         # iram bin file
         bin_file_button = QtWidgets.QPushButton(text="Select IRAM bin file")
@@ -207,8 +207,9 @@ def print_queue(debugWindow: DebugWindow):
     def command_list_button_pushed(self, command_list):
         self.add_command_to_queue(command_list)
 
+print_enb = 1
 def print_queue(debugWindow: DebugWindow):
-    while(1):
+    while(print_enb):
         q = debugWindow.get_command_queue()
         if not q.empty():
             command_list = q.get()
@@ -227,5 +228,5 @@ if __name__ == '__main__':
     read_t = threading.Thread(target=print_queue, args=[widget])
     read_t.start()
     app.exec()
-
+    print_enb = 0
     read_t.join()
