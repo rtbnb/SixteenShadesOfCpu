@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity TX_UART is
     generic (
-        CLKS_PER_BIT: integer := 5208 -- (clock Frequency) / (Baud Rate) => 50000000 / 9600
+        CLKS_PER_BIT: integer := 434 -- (clock Frequency) / (Baud Rate) => 50000000 / 9600
     );
     Port (
         data_valid: in std_logic; -- rising edge to start the writing process
@@ -51,12 +51,7 @@ architecture Behavioral of TX_UART is
     signal tx_data: std_logic_vector(7 downto 0);
     signal tx_data_out: std_logic;
 begin
-    tx_output <= tx_data_out;
-
-    clock: process(clk) begin
-        
-    end process clock;
-    
+    tx_output <= tx_data_out;    
     tx: process(clk, current_state) begin
         if rising_edge(clk) then
             case current_state is

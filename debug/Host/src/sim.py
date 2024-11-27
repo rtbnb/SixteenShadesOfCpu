@@ -1,4 +1,4 @@
-
+wait_time_str = "8680"
 
 def bytes_to_bits_binary(byte_data):
     bits_data = ""
@@ -10,13 +10,13 @@ def bytes_to_bits_binary(byte_data):
 def write_one_byte(f, i):
     f.write("# start\n")
     f.write("RX_UART_IN <= '0';\n")
-    f.write("wait for 1100 ns;\n")
+    f.write(f"wait for {wait_time_str} ns;\n")
     for j in range(8):
         f.write(f"RX_UART_IN <= '{data_binary[i]}';\n")
-        f.write("wait for 1100 ns;\n")
+        f.write(f"wait for {wait_time_str} ns;\n")
         i += 1
     f.write("RX_UART_IN <= '1';\n")
-    f.write("wait for 1100 ns;\n")
+    f.write(f"wait for {wait_time_str} ns;\n")
     return i
 
 #data = [b"\x10", b'\x11']
@@ -46,12 +46,12 @@ with open("sim.txt", 'w') as f:
         # instruction
         f.write("-- start\n")
         f.write("RX_UART_IN <= '0';\n")
-        f.write("wait for 1100 ns;\n")
+        f.write(f"wait for {wait_time_str} ns;\n")
         for j in range(8):
             f.write(f"RX_UART_IN <= '{instruction_bits[7 - j]}';\n")
-            f.write("wait for 1100 ns;\n")
+            f.write(f"wait for {wait_time_str} ns;\n")
         f.write("RX_UART_IN <= '1';\n")
-        f.write("wait for 1100 ns;\n")
+        f.write(f"wait for {wait_time_str} ns;\n")
 
         # addr
         addr_bits = f'{addr:016b}'
@@ -60,23 +60,23 @@ with open("sim.txt", 'w') as f:
         for k in range(2):
             f.write("-- start addr\n")
             f.write("RX_UART_IN <= '0';\n")
-            f.write("wait for 1100 ns;\n")
+            f.write(f"wait for {wait_time_str} ns;\n")
             for j in range(8):
                 if k == 0:
                     f.write(f"RX_UART_IN <= '{addr_bits_high[7 - j]}';\n")
                 else:
                     f.write(f"RX_UART_IN <= '{addr_bits_low[7 - j]}';\n")
                 #f.write(f"RX_UART_IN <= '{addr_bits[k *(7 - j)]}';\n")
-                f.write("wait for 1100 ns;\n")
+                f.write(f"wait for {wait_time_str} ns;\n")
             f.write("RX_UART_IN <= '1';\n")
-            f.write("wait for 1100 ns;\n")
+            f.write(f"wait for {wait_time_str} ns;\n")
         addr += 1
 
         # data
         for k in range(2):
             f.write("-- start data\n")
             f.write("RX_UART_IN <= '0';\n")
-            f.write("wait for 1100 ns;\n")
+            f.write(f"wait for {wait_time_str} ns;\n")
             write_data = []
             for j in range(8):
                 write_data.append(data_binary[i])
@@ -84,9 +84,9 @@ with open("sim.txt", 'w') as f:
             for j in range(8):
                 #print(i)
                 f.write(f"RX_UART_IN <= '{write_data[7 - j]}';\n")
-                f.write("wait for 1100 ns;\n")
+                f.write(f"wait for {wait_time_str} ns;\n")
             f.write("RX_UART_IN <= '1';\n")
-            f.write("wait for 1100 ns;\n")
+            f.write(f"wait for {wait_time_str} ns;\n")
         f.write("wait for 60000ns;\n")
         f.write("-- next instruction\n")
         f.write("\n")
@@ -96,9 +96,9 @@ with open("sim.txt", 'w') as f:
     instruction_bits = bytes_to_bits_binary([b'\x02'])
     f.write("-- start\n")
     f.write("RX_UART_IN <= '0';\n")
-    f.write("wait for 1100 ns;\n")
+    f.write(f"wait for {wait_time_str} ns;\n")
     for j in range(8):
         f.write(f"RX_UART_IN <= '{instruction_bits[7 - j]}';\n")
-        f.write("wait for 1100 ns;\n")
+        f.write(f"wait for {wait_time_str} ns;\n")
     f.write("RX_UART_IN <= '1';\n")
-    f.write("wait for 1100 ns;\n")
+    f.write(f"wait for {wait_time_str} ns;\n")
