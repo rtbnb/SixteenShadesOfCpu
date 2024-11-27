@@ -77,6 +77,11 @@ entity Debugger is
         regfile_reg1_data: in std_logic_vector(15 downto 0);
         regfile_reg2_data: in std_logic_vector(15 downto 0);
         regfile_bankid: in std_logic_vector(3 downto 0);
+        
+        -- misc
+        pipelineControllerRFReadBuffer: in std_logic_vector(15 downto 0);
+        pipelineControllerTakingData: in std_logic;
+        IRAMDout : in std_logic_vector(15 downto 0);
               
         
         -- mmu
@@ -147,6 +152,10 @@ architecture Behavioral of Debugger is
     signal regfile_reg1_data_s: std_logic_vector(15 downto 0);
     signal regfile_reg2_data_s: std_logic_vector(15 downto 0);
     signal regfile_bankid_s: std_logic_vector(3 downto 0);   
+    -- misc
+    signal pipeline_controller_rf_read_buffer_s : std_logic_vector(15 downto 0);
+    signal pipeline_controller_taking_data_s : std_logic;
+    signal iram_dout_s : std_logic_vector(15 downto 0);
     -- mmu
     signal mmu_debug_dout_s: std_logic_vector(15 downto 0);
 
@@ -207,6 +216,10 @@ begin
                         when x"57" => state <= HoldClock;
                         when x"58" => state <= HoldClock;
                         when x"59" => state <= HoldClock;
+                        -- misc signal reqzest
+                        when x"60" => state <= HoldCLock;
+                        when x"61" => state <= HoldCLock;
+                        when x"62" => state <= HoldCLock;
                         -- others
                         when others => 
                             -- send error message
@@ -272,6 +285,9 @@ begin
                     regfile_reg1_data_s <= regfile_reg1_data;
                     regfile_reg2_data_s <= regfile_reg2_data;
                     regfile_bankid_s <= regfile_bankid;
+                    pipeline_controller_rf_read_buffer_s <= pipelineControllerRFReadBuffer;
+                    pipeline_controller_taking_data_s <= pipelineControllerTakingData;
+                    iram_dout_s <= IRAMDout;
                     --mmu_debug_dout_s <= mmu_debug_dout;
                     state <= ProcessCommand;
                 when ProcessCommand =>
@@ -434,6 +450,19 @@ begin
                             tx_instruction_buffer <= x"59";
                             tx_data_buffer(15 downto 4) <= "000000000000";
                             tx_data_buffer(3 downto 0) <= regfile_bankid_s;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"60" =>
+                            tx_instruction_buffer <= x"60";
+                            tx_data_buffer(15 downto 0) <= pipeline_controller_rf_read_buffer_s;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"61" =>
+                            tx_instruction_buffer <= x"61";
+                            tx_data_buffer(15 downto 1) <= "000000000000000";
+                            tx_data_buffer(0) <= pipeline_controller_taking_data_s;
+                            state <= TransmitDataInstructionSHORT;
+                        when x"62" =>
+                            tx_instruction_buffer <= x"62";
+                            tx_data_buffer(15 downto 0) <= iram_dout_s;
                             state <= TransmitDataInstructionSHORT;
                         when x"5A" => state <= Idle;
                         when others =>

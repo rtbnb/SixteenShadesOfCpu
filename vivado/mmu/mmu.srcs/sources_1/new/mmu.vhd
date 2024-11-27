@@ -252,23 +252,23 @@ begin
 	begin
 	   if rising_edge(iram_clk_s) then
             if iram_we_s = '1' then
-				iram(to_integer(unsigned(iram_addr_s(11 downto 0)))) <= iram_din_s;
+				iram(to_integer(unsigned(iram_addr_s(10 downto 0)))) <= iram_din_s;
 			end if;
 	   end if;
 	end process;
-	iram_dout_s <= iram(to_integer(unsigned(iram_addr_s(11 downto 0))));
+	iram_dout_s <= iram(to_integer(unsigned(iram_addr_s(10 downto 0))));
 	
     gram_lutram:process(gram_clk_s)
 	begin
 	   if rising_edge(gram_clk_s) then
             if gram_we_s = '1' then
-				gram(to_integer(unsigned(gram_addr_s(11 downto 0)))) <= gram_din_s;
+				gram(to_integer(unsigned(gram_addr_s(10 downto 0)))) <= gram_din_s;
 			end if;
 	   end if;
 	end process;
 	
 	with gram_oe or internal_debug_override_s select
-	   gram_dout_s <= gram(to_integer(unsigned(gram_addr_s(11 downto 0)))) when '1',
+	   gram_dout_s <= gram(to_integer(unsigned(gram_addr_s(10 downto 0)))) when '1',
 	                  X"0000" when '0',
 	                  X"0000" when others;
     

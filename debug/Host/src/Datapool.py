@@ -32,7 +32,10 @@ class Datapool:
             b"\x55": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_write_data"},
             b"\x56": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_reg1_data"},
             b"\x57": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_reg2_data"},
-            b"\x59": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_overwrite_flag"}
+            b"\x59": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "regfile_overwrite_flag"},
+            b"\x60": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeling_controller_rf_read_buffer"},
+            b"\x61": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "pipeling_controller_taking_data"},
+            b"\x62": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "iram_dout"}
         }
 
     def set_data(self, key: bytes, data_1_high=b'\x00', data_1_low=b'\x00', data_2_high=None, data_2_low=None):

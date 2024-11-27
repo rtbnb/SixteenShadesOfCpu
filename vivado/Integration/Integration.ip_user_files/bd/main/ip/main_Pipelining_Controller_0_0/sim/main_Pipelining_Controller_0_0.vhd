@@ -64,7 +64,9 @@ ENTITY main_Pipelining_Controller_0_0 IS
     InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     debug_enable : IN STD_LOGIC;
-    debug_override_enable : IN STD_LOGIC
+    debug_override_enable : IN STD_LOGIC;
+    rfReadBuffer : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    takingData : OUT STD_LOGIC
   );
 END main_Pipelining_Controller_0_0;
 
@@ -82,7 +84,9 @@ ARCHITECTURE main_Pipelining_Controller_0_0_arch OF main_Pipelining_Controller_0
       InstructionForwardConfiguration : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       InstructionToExecute : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
       debug_enable : IN STD_LOGIC;
-      debug_override_enable : IN STD_LOGIC
+      debug_override_enable : IN STD_LOGIC;
+      rfReadBuffer : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      takingData : OUT STD_LOGIC
     );
   END COMPONENT Pipelining_Controller;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -105,6 +109,8 @@ BEGIN
       InstructionForwardConfiguration => InstructionForwardConfiguration,
       InstructionToExecute => InstructionToExecute,
       debug_enable => debug_enable,
-      debug_override_enable => debug_override_enable
+      debug_override_enable => debug_override_enable,
+      rfReadBuffer => rfReadBuffer,
+      takingData => takingData
     );
 END main_Pipelining_Controller_0_0_arch;

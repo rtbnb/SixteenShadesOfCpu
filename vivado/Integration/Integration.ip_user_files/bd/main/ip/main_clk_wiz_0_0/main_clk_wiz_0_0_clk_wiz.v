@@ -53,7 +53,7 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// cpu50mhz__50.00000______0.000______50.0______108.951_____76.967
+// cpu50mhz__25.00000______0.000______50.0______123.392_____76.967
 // vga100mhz__100.00000______0.000______50.0_______96.283_____76.967
 //
 //----------------------------------------------------------------------------
@@ -121,7 +121,7 @@ wire clk_in2_main_clk_wiz_0_0;
     .DIVCLK_DIVIDE        (1),
     .CLKFBOUT_MULT        (15),
     .CLKFBOUT_PHASE       (0.000),
-    .CLKOUT0_DIVIDE       (30),
+    .CLKOUT0_DIVIDE       (60),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT1_DIVIDE       (15),

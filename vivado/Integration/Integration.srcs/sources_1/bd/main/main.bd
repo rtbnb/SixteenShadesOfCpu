@@ -36,7 +36,8 @@
       "VGA_CPU_Bridge_0": "",
       "GPU_0": "",
       "VGA_Controller_0": "",
-      "clk_wiz_0": ""
+      "clk_wiz_0": "",
+      "instr2Led_0": ""
     },
     "ports": {
       "Reset": {
@@ -210,6 +211,14 @@
           },
           "debug_override_enable": {
             "direction": "I"
+          },
+          "rfReadBuffer": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "takingData": {
+            "direction": "O"
           }
         }
       },
@@ -1071,7 +1080,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "50000000",
+                "value": "25000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1762,6 +1771,19 @@
             "left": "3",
             "right": "0"
           },
+          "pipelineControllerRFReadBuffer": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipelineControllerTakingData": {
+            "direction": "I"
+          },
+          "IRAMDout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
           "mmu_debug_clk": {
             "type": "clk",
             "direction": "O"
@@ -2089,13 +2111,13 @@
             "value": "BUFG"
           },
           "CLKOUT1_JITTER": {
-            "value": "108.951"
+            "value": "123.392"
           },
           "CLKOUT1_PHASE_ERROR": {
             "value": "76.967"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "50.000"
+            "value": "25.000"
           },
           "CLKOUT2_DRIVES": {
             "value": "BUFG"
@@ -2149,7 +2171,7 @@
             "value": "15"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "30"
+            "value": "60"
           },
           "MMCM_CLKOUT1_DIVIDE": {
             "value": "15"
@@ -2168,6 +2190,37 @@
           },
           "USE_RESET": {
             "value": "false"
+          }
+        }
+      },
+      "instr2Led_0": {
+        "vlnv": "xilinx.com:module_ref:instr2Led:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_instr2Led_0_0",
+        "xci_path": "ip\\main_instr2Led_0_0\\main_instr2Led_0_0.xci",
+        "inst_hier_path": "instr2Led_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "instr2Led",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "IRAM_Dout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "led0": {
+            "direction": "O"
+          },
+          "led1": {
+            "direction": "O"
+          },
+          "led2": {
+            "direction": "O"
+          },
+          "led3": {
+            "direction": "O"
           }
         }
       }
@@ -2362,9 +2415,9 @@
       "Debugger_0_debug_enable": {
         "ports": [
           "Debugger_0/debug_enable",
-          "mmu_0/debug_enable",
+          "clockcontroller_0/debug_enable",
           "Pipelining_Controller_0/debug_enable",
-          "clockcontroller_0/debug_enable"
+          "mmu_0/debug_enable"
         ]
       },
       "Debugger_0_mmu_debug_addr": {
@@ -2388,9 +2441,9 @@
       "Debugger_0_mmu_debug_override_en": {
         "ports": [
           "Debugger_0/mmu_debug_override_en",
-          "mmu_0/debug_override_enable",
+          "clockcontroller_0/debug_mmu_override_enbale",
           "Pipelining_Controller_0/debug_override_enable",
-          "clockcontroller_0/debug_mmu_override_enbale"
+          "mmu_0/debug_override_enable"
         ]
       },
       "Debugger_0_mmu_debug_sync_clk100mhz": {
@@ -2486,9 +2539,9 @@
       "Net": {
         "ports": [
           "clockcontroller_0/debug_clk",
+          "Debugger_0/clk",
           "RX_UART_0/clk",
-          "TX_UART_0/clk",
-          "Debugger_0/clk"
+          "TX_UART_0/clk"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -2511,6 +2564,18 @@
           "Pipelining_Controller_0/Stalled",
           "ProgramCounter_0/Stalled",
           "Debugger_0/pipeline_stalled"
+        ]
+      },
+      "Pipelining_Controller_0_rfReadBuffer": {
+        "ports": [
+          "Pipelining_Controller_0/rfReadBuffer",
+          "Debugger_0/pipelineControllerRFReadBuffer"
+        ]
+      },
+      "Pipelining_Controller_0_takingData": {
+        "ports": [
+          "Pipelining_Controller_0/takingData",
+          "Debugger_0/pipelineControllerTakingData"
         ]
       },
       "Pipelining_Execution_0_IS_ALU_OP_out": {
@@ -2575,8 +2640,8 @@
           "CU_JumpDestinationSe_0/Register1",
           "CU_WriteSelector_0/Reg1",
           "VGA_CPU_Bridge_0/Reg1_In",
-          "mmu_0/gram_din",
-          "Debugger_0/alu_din1"
+          "Debugger_0/alu_din1",
+          "mmu_0/gram_din"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -2697,9 +2762,9 @@
         "ports": [
           "ProgramCounter_0/Dout",
           "CU_JumpController_0/PC_Current",
-          "mmu_0/iram_addr",
           "Debugger_0/pc_dout",
-          "Debugger_0/pc_current_addr"
+          "Debugger_0/pc_current_addr",
+          "mmu_0/iram_addr"
         ]
       },
       "RX_UART_0_data_output": {
@@ -2892,10 +2957,10 @@
           "CU_JumpController_0/InstrExec_CLK",
           "GPU_0/InstrExec_CLK",
           "VGA_CPU_Bridge_0/InstrExec_CLK",
-          "mmu_0/exec_clk",
           "RegFile_0/clk",
           "ProgramCounter_0/InstrExec_CLK",
-          "Pipelining_Controller_0/InstrExec_CLK"
+          "Pipelining_Controller_0/InstrExec_CLK",
+          "mmu_0/exec_clk"
         ]
       },
       "clockcontroller_0_vga_clk": {
@@ -2910,30 +2975,34 @@
           "clockcontroller_0/fault_reset"
         ]
       },
+      "instr2Led_0_led0": {
+        "ports": [
+          "instr2Led_0/led0",
+          "led0"
+        ]
+      },
+      "instr2Led_0_led1": {
+        "ports": [
+          "instr2Led_0/led1",
+          "led1"
+        ]
+      },
+      "instr2Led_0_led2": {
+        "ports": [
+          "instr2Led_0/led2",
+          "led2"
+        ]
+      },
+      "instr2Led_0_led3": {
+        "ports": [
+          "instr2Led_0/led3",
+          "led3"
+        ]
+      },
       "mmio_0_dout": {
         "ports": [
           "mmio_0/dout",
           "mmu_0/mmio_mem_dout"
-        ]
-      },
-      "mmio_0_led0": {
-        "ports": [
-          "led0"
-        ]
-      },
-      "mmio_0_led1": {
-        "ports": [
-          "led1"
-        ]
-      },
-      "mmio_0_led2": {
-        "ports": [
-          "led2"
-        ]
-      },
-      "mmio_0_led3": {
-        "ports": [
-          "led3"
         ]
       },
       "mmio_0_rho": {
@@ -2957,6 +3026,8 @@
       "mmu_0_iram_dout": {
         "ports": [
           "mmu_0/iram_dout",
+          "instr2Led_0/IRAM_Dout",
+          "Debugger_0/IRAMDout",
           "Pipelining_Controller_0/Instruction"
         ]
       },

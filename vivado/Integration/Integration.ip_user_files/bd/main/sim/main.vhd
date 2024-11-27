@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Tue Nov 26 20:56:30 2024
---Host        : DESKTOP-E8CIL9E running 64-bit major release  (build 9200)
+--Date        : Wed Nov 27 08:24:20 2024
+--Host        : DESKTOP-7KK7962 running 64-bit major release  (build 9200)
 --Command     : generate_target main.bd
 --Design      : main
 --Purpose     : IP block netlist
@@ -52,7 +52,9 @@ architecture STRUCTURE of main is
     InstructionForwardConfiguration : out STD_LOGIC_VECTOR ( 3 downto 0 );
     InstructionToExecute : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_enable : in STD_LOGIC;
-    debug_override_enable : in STD_LOGIC
+    debug_override_enable : in STD_LOGIC;
+    rfReadBuffer : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    takingData : out STD_LOGIC
   );
   end component main_Pipelining_Controller_0_0;
   component main_ProgramCounter_0_0 is
@@ -426,6 +428,9 @@ architecture STRUCTURE of main is
     regfile_reg1_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
     regfile_reg2_data : in STD_LOGIC_VECTOR ( 15 downto 0 );
     regfile_bankid : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    pipelineControllerRFReadBuffer : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    pipelineControllerTakingData : in STD_LOGIC;
+    IRAMDout : in STD_LOGIC_VECTOR ( 15 downto 0 );
     mmu_debug_clk : out STD_LOGIC;
     mmu_debug_override_en : out STD_LOGIC;
     mmu_debug_addr : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -556,6 +561,8 @@ architecture STRUCTURE of main is
   signal Pipelining_Controller_0_InstructionForwardConfiguration : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Pipelining_Controller_0_InstructionToExecute : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Controller_0_Stalled : STD_LOGIC;
+  signal Pipelining_Controller_0_rfReadBuffer : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal Pipelining_Controller_0_takingData : STD_LOGIC;
   signal Pipelining_Execution_0_IS_ALU_OP_out : STD_LOGIC;
   signal Pipelining_Execution_0_Immediate_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Pipelining_Execution_0_Is_GPU_OP_out : STD_LOGIC;
@@ -686,6 +693,7 @@ begin
   g(3 downto 0) <= VGA_Controller_0_g(3 downto 0);
   h_sync <= VGA_Controller_0_h_sync;
   ioe <= VGA_Controller_0_ioe;
+  led0 <= Debugger_0_mmu_debug_override_en;
   r(3 downto 0) <= VGA_Controller_0_r(3 downto 0);
   v_sync <= VGA_Controller_0_v_sync;
 ALU_0: component main_ALU_0_0
@@ -779,6 +787,7 @@ CU_WriteSelector_0: component main_CU_WriteSelector_0_0
     );
 Debugger_0: component main_Debugger_0_0
      port map (
+      IRAMDout(15 downto 0) => mmu_0_iram_dout(15 downto 0),
       alu_din1(15 downto 0) => Pipelining_Execution_0_Operand1_out(15 downto 0),
       alu_din2(15 downto 0) => Pipelining_Execution_0_Operand2_out(15 downto 0),
       alu_flags(15 downto 0) => ALU_FLAG_PACKER_0_ALU_FLAGS(15 downto 0),
@@ -798,6 +807,8 @@ Debugger_0: component main_Debugger_0_0
       pc_current_addr(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
       pc_din(15 downto 0) => CU_JumpController_0_PC_Next(15 downto 0),
       pc_dout(15 downto 0) => ProgramCounter_0_Dout(15 downto 0),
+      pipelineControllerRFReadBuffer(15 downto 0) => Pipelining_Controller_0_rfReadBuffer(15 downto 0),
+      pipelineControllerTakingData => Pipelining_Controller_0_takingData,
       pipeline_current_instruction(15 downto 0) => Pipelining_Controller_0_InstructionToExecute(15 downto 0),
       pipeline_instruction_forwarding_config(4) => '0',
       pipeline_instruction_forwarding_config(3 downto 0) => Pipelining_Controller_0_InstructionForwardConfiguration(3 downto 0),
@@ -854,7 +865,9 @@ Pipelining_Controller_0: component main_Pipelining_Controller_0_0
       ResolveStall => Pipelining_WriteBack_0_JMP_out,
       Stalled => Pipelining_Controller_0_Stalled,
       debug_enable => Debugger_0_debug_enable,
-      debug_override_enable => Debugger_0_mmu_debug_override_en
+      debug_override_enable => Debugger_0_mmu_debug_override_en,
+      rfReadBuffer(15 downto 0) => Pipelining_Controller_0_rfReadBuffer(15 downto 0),
+      takingData => Pipelining_Controller_0_takingData
     );
 Pipelining_Execution_0: component main_Pipelining_Execution_0_0
      port map (

@@ -40,7 +40,9 @@ entity Pipelining_Controller is
            Stalled : out STD_LOGIC;
            InstructionForwardConfiguration : out STD_LOGIC_VECTOR (3 downto 0);
            InstructionToExecute : out STD_LOGIC_VECTOR (15 downto 0);
-           debug_enable, debug_override_enable: in std_logic
+           debug_enable, debug_override_enable: in std_logic;
+           rfReadBuffer : out STD_LOGIC_VECTOR(15 downto 0);
+           takingData : out STD_LOGIC
        );
 end Pipelining_Controller;
 
@@ -74,7 +76,7 @@ architecture Behavioral of Pipelining_Controller is
     end component Decoder;
     
     
-    signal rf_read_buffer, execution_buffer, write_back_buffer, output_buffer : STD_LOGIC_VECTOR(15 downto 0);
+    signal rf_read_buffer, execution_buffer, write_back_buffer, output_buffer : STD_LOGIC_VECTOR(15 downto 0) := X"0000";
     signal stalled_s : STD_LOGIC := '0';
     signal stall_required : STD_LOGIC;
     
@@ -98,6 +100,8 @@ architecture Behavioral of Pipelining_Controller is
     signal ram_stalled: std_logic;
 begin
 
+    rfReadBuffer <= rf_read_buffer;
+    takingData <= '1' WHEN taking_data ELSE '0';
     
     CU_Decoder_RF : CU_Decoder port map(
         Instruction => rf_read_buffer,
@@ -145,7 +149,7 @@ begin
         execution_buffer <= X"0000";
         write_back_buffer <= X"0000";
         output_buffer <= X"0000";
-    elsif (rising_edge(InstrLoad_CLK) and taking_data and not ( debug_enable='1' and debug_override_enable='1')) then
+    elsif (rising_edge(InstrLoad_CLK) and taking_data) then
         output_buffer <= write_back_buffer;
         write_back_buffer <= execution_buffer;
         execution_buffer <= rf_read_buffer;
@@ -217,7 +221,7 @@ begin
         execution_forward <= "0000"; 
         write_back_forward <= "0000";
         output_forward <= "0000";
-    elsif rising_edge(InstrExec_CLK) and not (debug_enable='1' and debug_override_enable='1') then
+    elsif rising_edge(InstrExec_CLK) then
         rf_forward <= input_forward;
         execution_forward <= rf_forward; 
         write_back_forward <= execution_forward;

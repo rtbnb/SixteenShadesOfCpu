@@ -87,6 +87,9 @@ ENTITY main_Debugger_0_0 IS
     regfile_reg1_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_reg2_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     regfile_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    pipelineControllerRFReadBuffer : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    pipelineControllerTakingData : IN STD_LOGIC;
+    IRAMDout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     mmu_debug_clk : OUT STD_LOGIC;
     mmu_debug_override_en : OUT STD_LOGIC;
     mmu_debug_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -134,6 +137,9 @@ ARCHITECTURE main_Debugger_0_0_arch OF main_Debugger_0_0 IS
       regfile_reg1_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_reg2_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       regfile_bankid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      pipelineControllerRFReadBuffer : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      pipelineControllerTakingData : IN STD_LOGIC;
+      IRAMDout : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       mmu_debug_clk : OUT STD_LOGIC;
       mmu_debug_override_en : OUT STD_LOGIC;
       mmu_debug_addr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -196,6 +202,9 @@ BEGIN
       regfile_reg1_data => regfile_reg1_data,
       regfile_reg2_data => regfile_reg2_data,
       regfile_bankid => regfile_bankid,
+      pipelineControllerRFReadBuffer => pipelineControllerRFReadBuffer,
+      pipelineControllerTakingData => pipelineControllerTakingData,
+      IRAMDout => IRAMDout,
       mmu_debug_clk => mmu_debug_clk,
       mmu_debug_override_en => mmu_debug_override_en,
       mmu_debug_addr => mmu_debug_addr,

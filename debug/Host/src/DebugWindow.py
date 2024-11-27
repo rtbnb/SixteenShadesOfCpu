@@ -49,6 +49,9 @@ class DebugWindow(QtWidgets.QWidget):
         request_select_box.addItem("regfile_reg1_data", [b"\x56"])
         request_select_box.addItem("regfile_reg2_data", [b"\x57"])
         request_select_box.addItem("regfile_overwrite_flag", [b"\x59"])
+        request_select_box.addItem("pipeline_controller_rf_read_buffer", [b"\x60"])
+        request_select_box.addItem("pipeline_controller_taking_data", [b"\x61"])
+        request_select_box.addItem("iram_dout", [b"\x62"])
 
         self.layout.addWidget(request_select_box, 0, 5, 1, 1)
         request_button = QtWidgets.QPushButton(text="Request")
@@ -56,7 +59,7 @@ class DebugWindow(QtWidgets.QWidget):
         request_button.clicked.connect(lambda: self.command_button_pushed(request_select_box.currentData()[0]))
 
         button_request_all = QtWidgets.QPushButton(text="Request all Data")
-        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x16", b"\x20", b"\x21", b"\x22", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x59"]))
+        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x16", b"\x20", b"\x21", b"\x22", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x59", b"\x60", b"\x61", b"\x62"]))
         self.layout.addWidget(button_request_all, 1, 6, 1, 1)
 
         # iram write
