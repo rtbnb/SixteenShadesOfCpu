@@ -34,7 +34,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity mmu is
     port(
         ck_stable: in std_logic; 
-        exec_clk: in std_logic;
+        load_clk: in std_logic;
         
         gram_addr, gram_din : in std_logic_vector( 15 downto 0 );
         gram_bank: in std_logic_vector( 3 downto 0 );
@@ -101,7 +101,7 @@ architecture Behavioral of mmu is
     signal gram_bank_op_s, vram_bank_op_s, mmio_bank_op_s, iram_bank_op_s: std_logic;
     signal internal_debug_override_s: std_logic;
     
-    signal output_config_s: std_logic_vector( 4 downto 0 );
+    signal output_config_s: std_logic_vector( 3 downto 0 );
     
     signal general_bank_s: std_logic_vector( 3 downto 0 );
 begin
@@ -139,7 +139,7 @@ begin
     with iram_comb_condition_s select
         iram_clk_s <= debug_clk when "11", 
                       '0' when "10",
-                      exec_clk when others;
+                      not load_clk when others;
                        
     with internal_debug_override_s select
         iram_dout <= X"0000" when '1',
@@ -149,7 +149,7 @@ begin
 --gram begin
     with gram_comb_condition_s select
         gram_clk_s <= debug_clk when "11",
-                      exec_clk when "01",
+                      not load_clk when "01",
                       '0' when others;
                        
     with gram_comb_condition_s select
@@ -171,7 +171,7 @@ begin
 --mmio begin
     with mmio_comb_condition_s select
         mmio_mem_ck <= debug_clk when "11",
-                       exec_clk when "01",
+                       not load_clk when "01",
                        '0' when others; 
                        
     with mmio_comb_condition_s select
@@ -234,41 +234,41 @@ begin
         vramb_mem_we <= "0";    
 --vramb end
    
-   output_config_s <= internal_debug_override_s & gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
+   output_config_s <=  gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
 
     with output_config_s select
-        gram_dout <= gram_dout_s when "01000",
-                     mmio_mem_dout when "00100",   
+        gram_dout <= gram_dout_s when "1000",
+                     mmio_mem_dout when "0100",   
                      X"0000" when others;
                      
     with output_config_s select               
-        debug_dout <= gram_dout_s when "11000",
-                      mmio_mem_dout when "10100",
-                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "10010",
-                      iram_dout_s when "10001",
+        debug_dout <= gram_dout_s when "1000",
+                      mmio_mem_dout when "0100",
+                      std_logic_vector(resize(signed(vrama_mem_dout), gram_dout'length)) when "0010",
+                      iram_dout_s when "0001",
                       X"0000" when others;
     
     iram_lutram:process(iram_clk_s)
 	begin
 	   if rising_edge(iram_clk_s) then
             if iram_we_s = '1' then
-				iram(to_integer(unsigned(iram_addr_s(11 downto 0)))) <= iram_din_s;
+				iram(to_integer(unsigned(iram_addr_s(10 downto 0)))) <= iram_din_s;
 			end if;
 	   end if;
 	end process;
-	iram_dout_s <= iram(to_integer(unsigned(iram_addr_s(11 downto 0))));
+	iram_dout_s <= iram(to_integer(unsigned(iram_addr_s(10 downto 0))));
 	
     gram_lutram:process(gram_clk_s)
 	begin
 	   if rising_edge(gram_clk_s) then
             if gram_we_s = '1' then
-				gram(to_integer(unsigned(gram_addr_s(11 downto 0)))) <= gram_din_s;
+				gram(to_integer(unsigned(gram_addr_s(10 downto 0)))) <= gram_din_s;
 			end if;
 	   end if;
 	end process;
 	
 	with gram_oe or internal_debug_override_s select
-	   gram_dout_s <= gram(to_integer(unsigned(gram_addr_s(11 downto 0)))) when '1',
+	   gram_dout_s <= gram(to_integer(unsigned(gram_addr_s(10 downto 0)))) when '1',
 	                  X"0000" when '0',
 	                  X"0000" when others;
     

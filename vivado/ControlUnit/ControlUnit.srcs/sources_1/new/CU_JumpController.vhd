@@ -32,7 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity CU_JumpController is
-    Port ( InstrExec_CLK : in STD_LOGIC;
+    Port ( 
            JMP : in STD_LOGIC;
            JMP_Conditional : in STD_LOGIC;
            JMP_Relative : in STD_LOGIC;

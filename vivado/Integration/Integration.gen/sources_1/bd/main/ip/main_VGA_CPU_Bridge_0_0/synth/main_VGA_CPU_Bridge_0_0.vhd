@@ -55,7 +55,7 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_VGA_CPU_Bridge_0_0 IS
   PORT (
-    InstrExec_CLK : IN STD_LOGIC;
+    InstrLoad_CLK : IN STD_LOGIC;
     Reset : IN STD_LOGIC;
     IsGPU_OP : IN STD_LOGIC;
     Immediate_In : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -73,7 +73,7 @@ ARCHITECTURE main_VGA_CPU_Bridge_0_0_arch OF main_VGA_CPU_Bridge_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_VGA_CPU_Bridge_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT VGA_CPU_Bridge IS
     PORT (
-      InstrExec_CLK : IN STD_LOGIC;
+      InstrLoad_CLK : IN STD_LOGIC;
       Reset : IN STD_LOGIC;
       IsGPU_OP : IN STD_LOGIC;
       Immediate_In : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -95,14 +95,14 @@ ARCHITECTURE main_VGA_CPU_Bridge_0_0_arch OF main_VGA_CPU_Bridge_0_0 IS
   ATTRIBUTE IP_DEFINITION_SOURCE OF main_VGA_CPU_Bridge_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrExec_CLK: SIGNAL IS "XIL_INTERFACENAME InstrExec_CLK, ASSOCIATED_RESET Reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_exec_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF InstrExec_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrExec_CLK CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF InstrLoad_CLK: SIGNAL IS "XIL_INTERFACENAME InstrLoad_CLK, ASSOCIATED_RESET Reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_clockcontroller_0_0_load_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF InstrLoad_CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 InstrLoad_CLK CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF Reset: SIGNAL IS "XIL_INTERFACENAME Reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF Reset: SIGNAL IS "xilinx.com:signal:reset:1.0 Reset RST";
 BEGIN
   U0 : VGA_CPU_Bridge
     PORT MAP (
-      InstrExec_CLK => InstrExec_CLK,
+      InstrLoad_CLK => InstrLoad_CLK,
       Reset => Reset,
       IsGPU_OP => IsGPU_OP,
       Immediate_In => Immediate_In,
