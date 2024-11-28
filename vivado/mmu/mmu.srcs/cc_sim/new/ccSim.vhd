@@ -38,20 +38,13 @@ end ccSim;
 architecture Behavioral of ccSim is
     component clock_block_wrapper
         port(
-            ck_stable : out STD_LOGIC;
-            clk100mhz_in : in STD_LOGIC;
-            debug_clk : out STD_LOGIC;
-            debug_en : in STD_LOGIC;
-            debug_mock_clk : in STD_LOGIC;
-            debug_reset : in STD_LOGIC;
-            exec_clk : out STD_LOGIC;
-            fault_reset : in STD_LOGIC;
-            load_clk : out STD_LOGIC;
-            test_state : INOUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+            clk100mhzIn, faultReset, debugReset: in std_logic;
+            debugEnable, debugMockClk, debugMmuOverrideEnable: in std_logic;
+            loadClk, vgaClk, debugClk, clk100mhzOut: out std_logic
         );
     end component;
     
-    signal ck_stable, clk100mhz_in, debug_clk, debug_en, debug_mock_clk, debug_reset, exec_clk, fault_reset, load_clk: STD_LOGIC;
+    signal clk100mhzIn, faultReset, debugReset, debugEnable, debugMockClk, debugMmuOverrideEnable, loadClk, vgaClk, debugClk, clk100mhzOut: STD_LOGIC;
     signal test_state: STD_LOGIC_VECTOR ( 3 downto 0 );
     
 begin

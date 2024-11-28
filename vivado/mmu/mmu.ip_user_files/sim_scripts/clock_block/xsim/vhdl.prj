@@ -1,6 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../bd/clock_block/ip/clock_block_clockcontroller_0_0/sim/clock_block_clockcontroller_0_0.vhd" \
-"../../../bd/clock_block/sim/clock_block.vhd" \
-
-# Do not sort compile order
-nosort
