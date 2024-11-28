@@ -211,18 +211,10 @@ begin
 --vrama end
 
 --vramb begin
-        with ck_stable select
-            vramb_mem_ck <= vga_clk when '1',
-                            '0' when others;    
-                            
-        with ck_stable select
-            vramb_mem_addr <= vga_addr when '1',
-                              X"0000" when others; 
-        
-        with ck_stable select
-            vga_dout <= vramb_mem_dout when '1',
-                        "000000000000" when others;
-             
+        vramb_mem_ck <= vga_clk;
+        vramb_mem_addr <= vga_addr;
+        vga_dout <= vramb_mem_dout;
+
         vramb_mem_din <= "000000000000";
         vramb_mem_we <= "0";    
 --vramb end

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="timerSim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="timerSim" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="993.893 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="226"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="32" />
+   <wvobject fp_name="/timerSim/clk100mhz_in" type="logic">
+      <obj_property name="ElementShortName">clk100mhz_in</obj_property>
+      <obj_property name="ObjectShortName">clk100mhz_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/clk50mhz_in" type="logic">
+      <obj_property name="ElementShortName">clk50mhz_in</obj_property>
+      <obj_property name="ObjectShortName">clk50mhz_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/we" type="logic">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/rho" type="logic">
+      <obj_property name="ElementShortName">rho</obj_property>
+      <obj_property name="ObjectShortName">rho</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/addr" type="array">
+      <obj_property name="ElementShortName">addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/dout" type="array">
+      <obj_property name="ElementShortName">dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/led00" type="logic">
+      <obj_property name="ElementShortName">led00</obj_property>
+      <obj_property name="ObjectShortName">led00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/led01" type="logic">
+      <obj_property name="ElementShortName">led01</obj_property>
+      <obj_property name="ObjectShortName">led01</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/led02" type="logic">
+      <obj_property name="ElementShortName">led02</obj_property>
+      <obj_property name="ObjectShortName">led02</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/led03" type="logic">
+      <obj_property name="ElementShortName">led03</obj_property>
+      <obj_property name="ObjectShortName">led03</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/led04" type="logic">
+      <obj_property name="ElementShortName">led04</obj_property>
+      <obj_property name="ObjectShortName">led04</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/btn00" type="logic">
+      <obj_property name="ElementShortName">btn00</obj_property>
+      <obj_property name="ObjectShortName">btn00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/btn01" type="logic">
+      <obj_property name="ElementShortName">btn01</obj_property>
+      <obj_property name="ObjectShortName">btn01</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/btn02" type="logic">
+      <obj_property name="ElementShortName">btn02</obj_property>
+      <obj_property name="ObjectShortName">btn02</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/btn03" type="logic">
+      <obj_property name="ElementShortName">btn03</obj_property>
+      <obj_property name="ObjectShortName">btn03</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/btn04" type="logic">
+      <obj_property name="ElementShortName">btn04</obj_property>
+      <obj_property name="ObjectShortName">btn04</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/rgb0" type="array">
+      <obj_property name="ElementShortName">rgb0[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb0[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/rgb1" type="array">
+      <obj_property name="ElementShortName">rgb1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/rgb2" type="array">
+      <obj_property name="ElementShortName">rgb2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/rgb3" type="array">
+      <obj_property name="ElementShortName">rgb3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb3[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/rho_mask_reg_s" type="array">
+      <obj_property name="ElementShortName">rho_mask_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rho_mask_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_config_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_config_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_config_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_prescaler_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_prescaler_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_prescaler_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_max_cnt_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_max_cnt_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_max_cnt_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_cnt_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_cnt_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_cnt_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_master_clk_s" type="logic">
+      <obj_property name="ElementShortName">tim0_master_clk_s</obj_property>
+      <obj_property name="ObjectShortName">tim0_master_clk_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_clk_s" type="logic">
+      <obj_property name="ElementShortName">tim0_clk_s</obj_property>
+      <obj_property name="ObjectShortName">tim0_clk_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_rho_en" type="logic">
+      <obj_property name="ElementShortName">tim0_rho_en</obj_property>
+      <obj_property name="ObjectShortName">tim0_rho_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_master_cnt_s" type="array">
+      <obj_property name="ElementShortName">tim0_master_cnt_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_master_cnt_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/timerSim/EUT/tim0_rho_rst_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_rho_rst_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_rho_rst_reg_s[15:0]</obj_property>
+   </wvobject>
+</wave_config>
