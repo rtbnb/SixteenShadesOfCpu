@@ -28,8 +28,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library UNISIM;
+use UNISIM.VComponents.all;
 
 entity mmio is
     port(
@@ -189,10 +189,18 @@ begin
     
     rgb_bank0_config_reg_s <= rgb0_s & "0" & rgb1_s & "0" & rgb2_s & "0" & rgb3_s & "0";
     
-    with tim0_config_reg_s(3 downto 2) select
-        tim0_master_clk_s <= clk50mhz_in when "01",
-                             clk100mhz_in when "10",
-                             '0' when others;    
+    tim0_clk_select : BUFGMUX
+    port map (
+       O => tim0_master_clk_s,   -- 1-bit output: Clock output
+       I0 => clk50mhz_in, -- 1-bit input: Clock input (S=0)
+       I1 => clk100mhz_in, -- 1-bit input: Clock input (S=1)
+       S => tim0_config_reg_s(3)     -- 1-bit input: Clock select
+    );
+    
+--    with tim0_config_reg_s(3 downto 2) select
+--        tim0_master_clk_s <= clk50mhz_in when "01",
+--                             clk100mhz_in when "10",
+--                             '0' when others;    
     
     with internal_addr_s select
         dout <= mmio_config_reg_s           when  0,
