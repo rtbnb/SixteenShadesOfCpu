@@ -267,7 +267,7 @@ _code:
 
 
 .draw_ball
-	
+
     IML $BI, GRAM_Bank
     IML $t2, SCREEN_WIDTH
     IMH $t2, 0
@@ -300,12 +300,86 @@ _code:
     JC JC_NotZero, -8
     ALU ALU_ADD, $t5, $t7
     JC JC_NotZero, -13
-	
+
 	JA render_after_draw_ball
 
 .draw_pedal1
+
+    IML $BI, GRAM_Bank
+    IML $t2, SCREEN_WIDTH
+    IMH $t2, 0
+    IML $t0, PEDAL_1_X
+    IMH $t0, 0
+	RDMi $t1, p1y
+    ;IML $BI, VRAM_Bank
+    IML $t3, PEDAL_HEIGHT
+    IMH $t3, 0
+
+    IML $t6, 1
+    IMH $t6, 0
+    IML $t7, 0
+    IMH $t7, 0
+    ; white
+    IML $t8, 0xff
+    IMH $t8, 0x0f
+    ;y
+    CR $t5, $t3
+    ;x
+    IML $t3, PEDAL_WIDTH
+    IMH $t3, 0
+    CR $t4, $t3
+    ALU ALU_SUB, $t5, $t6
+    CR $t5, $AO
+    ALU ALU_SUB, $t4, $t6
+    CR $t4, $AO
+    ALU ALU_ADD, $t1, $t5
+    ALU ALU_MUL, $AO, $t2
+    ALU ALU_ADD, $AO, $t0
+    ALU ALU_ADD, $AO, $t4
+    GPU 0, $AO, $t8
+    ALU ALU_ADD, $t4, $t7
+    JC JC_NotZero, -8
+    ALU ALU_ADD, $t5, $t7
+    JC JC_NotZero, -13
     JA render_after_draw_pedal1
 .draw_pedal2
+
+    IML $BI, GRAM_Bank
+    IML $t2, SCREEN_WIDTH
+    IMH $t2, 0
+    IML $t0, PEDAL_2_X
+    IMH $t0, 0
+	RDMi $t1, p2y
+    ;IML $BI, VRAM_Bank
+    IML $t3, PEDAL_HEIGHT
+    IMH $t3, 0
+
+    IML $t6, 1
+    IMH $t6, 0
+    IML $t7, 0
+    IMH $t7, 0
+    ; white
+    IML $t8, 0xff
+    IMH $t8, 0x0f
+    ;y
+    CR $t5, $t3
+    ;x
+    IML $t3, PEDAL_WIDTH
+    IMH $t3, 0
+    CR $t4, $t3
+    ALU ALU_SUB, $t5, $t6
+    CR $t5, $AO
+    ALU ALU_SUB, $t4, $t6
+    CR $t4, $AO
+    ALU ALU_ADD, $t1, $t5
+    ALU ALU_MUL, $AO, $t2
+    ALU ALU_ADD, $AO, $t0
+    ALU ALU_ADD, $AO, $t4
+    GPU 0, $AO, $t8
+    ALU ALU_ADD, $t4, $t7
+    JC JC_NotZero, -8
+    ALU ALU_ADD, $t5, $t7
+    JC JC_NotZero, -13
     JA render_after_draw_pedal2
 
 .render
@@ -439,4 +513,4 @@ _code:
     WRMi $t5, p2y
 .main_after_p2y
 
-    JA main
+    JA main_after_p2y
