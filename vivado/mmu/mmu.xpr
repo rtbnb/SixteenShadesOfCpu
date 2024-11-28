@@ -122,21 +122,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/bd/clock_block/clock_block.bd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PGENDIR/sources_1/bd/clock_block/hdl/clock_block_wrapper.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="main_block_wrapper"/>
@@ -255,6 +240,7 @@
       </Config>
     </FileSet>
     <FileSet Name="tim_sim" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/tim_sim" RelGenDir="$PGENDIR/tim_sim">
+      <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/tim_sim/new/timerSim.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
