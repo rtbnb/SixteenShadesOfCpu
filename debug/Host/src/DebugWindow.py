@@ -65,7 +65,7 @@ class DebugWindow(QtWidgets.QWidget):
         request_button.clicked.connect(lambda: self.command_button_pushed(request_select_box.currentData()[0]))
 
         button_request_all = QtWidgets.QPushButton(text="Request all Data")
-        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x17", b"\x1B" b"\x1C", b"\x20", b"\x21", b"\x22", b"\x38", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x59"]))
+        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x15", b"\x16", b"\x17", b"\x1B", b"\x1C", b"\x20", b"\x21", b"\x22", b"\x38", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x59"]))
         self.layout.addWidget(button_request_all, 1, 6, 1, 1)
 
         # iram write
@@ -131,7 +131,10 @@ class DebugWindow(QtWidgets.QWidget):
         if len(command) == 0:
             return
         command_bytes = bytes.fromhex(command)
-        self.add_command_to_queue([command_bytes])
+        command_list = []
+        for i in range(len(command_bytes)):
+            command_list.append(command_bytes[i:i+1])
+        self.add_command_to_queue(command_list)
 
     def button_pushed_write_iram(self, textfield_memory_data, textfield_memory_addr):
         data = bytes.fromhex(textfield_memory_data.text())
