@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x4958199B75109964",
+      "boundary_crc": "0xB7879561362FC2BA",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -14,8 +14,7 @@
       "vram": "",
       "mmu_0": "",
       "mmio_0": "",
-      "clockcontroller_0": "",
-      "clk_wiz_0": ""
+      "clockcontroller_0": ""
     },
     "ports": {
       "gram_dout": {
@@ -406,6 +405,58 @@
       },
       "gram_oe": {
         "direction": "I"
+      },
+      "vga_clk_1": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_clockcontroller_0_0_vga_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "50000000",
+            "value_src": "const_prop"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "debug_clk_1": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_clockcontroller_0_0_debug_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "50000000",
+            "value_src": "const_prop"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -475,18 +526,9 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "ck_stable": {
-            "direction": "I"
-          },
-          "exec_clk": {
+          "load_clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "main_block_clockcontroller_0_0_exec_clk",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "gram_addr": {
             "direction": "I",
@@ -704,6 +746,12 @@
           "boundary_crc": "0x0"
         },
         "ports": {
+          "clk100mhz_in": {
+            "direction": "I"
+          },
+          "clk50mhz_in": {
+            "direction": "I"
+          },
           "clk": {
             "type": "clk",
             "direction": "I"
@@ -883,42 +931,22 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clk50mhz_in": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "50000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
           "clk100mhz_in": {
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
                 "value": "100000000",
-                "value_src": "ip_prop"
+                "value_src": "user_prop"
               },
               "PHASE": {
                 "value": "0.0",
-                "value_src": "ip_prop"
+                "value_src": "default_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
+                "value": "main_block_clk100mhz_in",
+                "value_src": "default_prop"
               }
             }
-          },
-          "wizard_locked": {
-            "direction": "I"
           },
           "fault_reset": {
             "type": "rst",
@@ -949,16 +977,17 @@
             "direction": "I"
           },
           "load_clk": {
-            "type": "clk",
-            "direction": "O"
-          },
-          "exec_clk": {
-            "type": "clk",
             "direction": "O"
           },
           "vga_clk": {
             "type": "clk",
-            "direction": "O"
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
+              }
+            }
           },
           "debug_clk": {
             "type": "clk",
@@ -967,113 +996,15 @@
               "ASSOCIATED_RESET": {
                 "value": "debug_reset",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
               }
             }
           },
-          "ck_stable": {
+          "clk100mhz_out": {
             "direction": "O"
-          }
-        }
-      },
-      "clk_wiz_0": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "ip_revision": "14",
-        "xci_name": "main_block_clk_wiz_0_0",
-        "xci_path": "ip\\main_block_clk_wiz_0_0\\main_block_clk_wiz_0_0.xci",
-        "inst_hier_path": "clk_wiz_0",
-        "parameters": {
-          "CLKOUT1_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT2_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT2_JITTER": {
-            "value": "151.636"
-          },
-          "CLKOUT2_PHASE_ERROR": {
-            "value": "98.575"
-          },
-          "CLKOUT2_REQUESTED_OUT_FREQ": {
-            "value": "50.000"
-          },
-          "CLKOUT2_USED": {
-            "value": "true"
-          },
-          "CLKOUT3_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT3_JITTER": {
-            "value": "130.958"
-          },
-          "CLKOUT3_PHASE_ERROR": {
-            "value": "98.575"
-          },
-          "CLKOUT3_REQUESTED_PHASE": {
-            "value": "90.000"
-          },
-          "CLKOUT3_USED": {
-            "value": "true"
-          },
-          "CLKOUT4_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT5_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT6_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT7_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLK_IN1_BOARD_INTERFACE": {
-            "value": "sys_clock"
-          },
-          "CLK_OUT1_PORT": {
-            "value": "clk100mhz_out"
-          },
-          "CLK_OUT2_PORT": {
-            "value": "clk50mhz_out"
-          },
-          "CLK_OUT3_PORT": {
-            "value": "debug_guard_clk"
-          },
-          "ENABLE_CLOCK_MONITOR": {
-            "value": "false"
-          },
-          "FEEDBACK_SOURCE": {
-            "value": "FDBK_AUTO"
-          },
-          "MMCM_BANDWIDTH": {
-            "value": "OPTIMIZED"
-          },
-          "MMCM_CLKFBOUT_MULT_F": {
-            "value": "10.000"
-          },
-          "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "10.000"
-          },
-          "MMCM_CLKOUT1_DIVIDE": {
-            "value": "20"
-          },
-          "MMCM_CLKOUT2_DIVIDE": {
-            "value": "10"
-          },
-          "MMCM_CLKOUT2_PHASE": {
-            "value": "90.000"
-          },
-          "MMCM_COMPENSATION": {
-            "value": "ZHOLD"
-          },
-          "NUM_OUT_CLKS": {
-            "value": "3"
-          },
-          "PRIMITIVE": {
-            "value": "MMCM"
-          },
-          "USE_RESET": {
-            "value": "false"
           }
         }
       }
@@ -1202,42 +1133,32 @@
       "clk100mhz_in_1": {
         "ports": [
           "clk100mhz_in",
-          "clk_wiz_0/clk_in1"
-        ]
-      },
-      "clk_wiz_0_clk100mhz_out": {
-        "ports": [
-          "clk_wiz_0/clk100mhz_out",
           "clockcontroller_0/clk100mhz_in"
         ]
       },
-      "clk_wiz_0_clk50mhz_out": {
+      "clockcontroller_0_clk100mhz_out": {
         "ports": [
-          "clk_wiz_0/clk50mhz_out",
-          "clockcontroller_0/clk50mhz_in"
+          "clockcontroller_0/clk100mhz_out",
+          "mmio_0/clk100mhz_in"
         ]
       },
-      "clk_wiz_0_debug_guard_clk": {
+      "clockcontroller_0_debug_clk": {
         "ports": [
-          "clk_wiz_0/debug_guard_clk"
+          "clockcontroller_0/debug_clk",
+          "debug_clk_1"
         ]
       },
-      "clk_wiz_0_locked": {
+      "clockcontroller_0_load_clk": {
         "ports": [
-          "clk_wiz_0/locked",
-          "clockcontroller_0/wizard_locked"
+          "clockcontroller_0/load_clk",
+          "mmu_0/load_clk",
+          "mmio_0/clk50mhz_in"
         ]
       },
-      "clockcontroller_0_ck_stable": {
+      "clockcontroller_0_vga_clk": {
         "ports": [
-          "clockcontroller_0/ck_stable",
-          "mmu_0/ck_stable"
-        ]
-      },
-      "clockcontroller_0_clk100mhz": {
-        "ports": [
-          "clockcontroller_0/exec_clk",
-          "mmu_0/exec_clk"
+          "clockcontroller_0/vga_clk",
+          "vga_clk_1"
         ]
       },
       "debug_addr_1": {
@@ -1280,6 +1201,7 @@
       "debug_override_enable_1": {
         "ports": [
           "debug_override_enable",
+          "clockcontroller_0/debug_mmu_override_enbale",
           "mmu_0/debug_override_enable"
         ]
       },

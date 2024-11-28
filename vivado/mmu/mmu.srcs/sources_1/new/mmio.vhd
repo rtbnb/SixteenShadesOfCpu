@@ -33,6 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity mmio is
     port(
+        clk100mhz_in, clk50mhz_in: in std_logic;
         clk, we: in std_logic;
         addr, din: in std_logic_vector(15 downto 0);
         dout: out std_logic_vector(15 downto 0);
@@ -47,21 +48,18 @@ end mmio;
 architecture Behavioral of mmio is
     signal internal_addr_s: integer range 0 to 65535;
 
-    signal mmio_config_reg_s, rho_config_reg_s, rho_reset_reg_s: std_logic_vector( 15 downto 0 );
-    
---    signal led0_reg_s, led1_reg_s, led2_reg_s, led3_reg_s: std_logic_vector( 15 downto 0 );
---    signal btn0_reg_s, btn1_reg_s, btn2_reg_s, btn3_reg_s, btn4_reg_s, btn5_reg_s, btn6_reg_s, btn7_reg_s, btn8_reg_s, btn9_reg_s, btn10_reg_s, btn11_reg_s, btn12_reg_s, btn13_reg_s, btn14_reg_s, btn15_reg_s, btn16_reg_s, btn17_reg_s, btn18_reg_s, btn19_reg_s: std_logic_vector( 15 downto 0 );
+    signal mmio_config_reg_s: std_logic_vector( 15 downto 0 );
 
 -- general configs begin
-    signal rho_s, rho_reset_s, internal_rho_set_s: std_logic;
+    signal rho_mask_reg_s: std_logic_vector(15 downto 0);
 -- general configs end
     
     
 --led signals begin
-    signal led_bank0_config_reg_s, led_bank1_config_reg_s, led_bank2_config_reg_s, led_bank3_config_reg_s, led_bank4_config_reg_s: std_logic_vector(15 downto 0);
+    signal led_bank0_config_reg_s, led_bank1_config_reg_s, led_bank2_config_reg_s, led_bank3_config_reg_s, led_bank4_config_reg_s: std_logic_vector(15 downto 0) := X"0000";
     
-    signal led00_s, led01_s, led02_s, led03_s, led04_s, led05_s, led06_s, led07_s, led08_s, led09_s, led10_s, led11_s, led12_s, led13_s, led14_s, led15_s, led16_s, led17_s, led18_s, led19_s: std_logic;
-    signal led00_tim_s, led01_tim_s, led02_tim_s, led03_tim_s, led04_tim_s, led05_tim_s, led06_tim_s, led07_tim_s, led08_tim_s, led09_tim_s, led10_tim_s, led11_tim_s, led12_tim_s, led13_tim_s, led14_tim_s, led15_tim_s, led16_tim_s, led17_tim_s, led18_tim_s, led19_tim_s: std_logic;
+    signal led00_s, led01_s, led02_s, led03_s, led04_s, led05_s, led06_s, led07_s, led08_s, led09_s, led10_s, led11_s, led12_s, led13_s, led14_s, led15_s, led16_s, led17_s, led18_s, led19_s: std_logic := '0';
+    signal led00_tim_s, led01_tim_s, led02_tim_s, led03_tim_s, led04_tim_s, led05_tim_s, led06_tim_s, led07_tim_s, led08_tim_s, led09_tim_s, led10_tim_s, led11_tim_s, led12_tim_s, led13_tim_s, led14_tim_s, led15_tim_s, led16_tim_s, led17_tim_s, led18_tim_s, led19_tim_s: std_logic := '0';
     signal led00_tim_conf, led01_tim_conf, led02_tim_conf, led03_tim_conf, led04_tim_conf, led05_tim_conf, led06_tim_conf, led07_tim_conf, led08_tim_conf, led09_tim_conf, led10_tim_conf, led11_tim_conf, led12_tim_conf, led13_tim_conf, led14_tim_conf, led15_tim_conf, led16_tim_conf, led17_tim_conf, led18_tim_conf, led19_tim_conf: std_logic_vector(1 downto 0);
 --led signals end
 
@@ -82,24 +80,32 @@ architecture Behavioral of mmio is
 --rgb singals end
 
 --tim signals begin
-    signal tim0_config_reg_s, tim1_config_reg_s, tim2_config_reg_s, tim3_config_reg_s: std_logic_vector(15 downto 0);
-    signal tim0_prescaler_reg_s, tim1_prescaler_reg_s: std_logic_vector(15 downto 0);
-    signal tim0_max_cnt_reg_s, tim1_max_cnt_reg_s: std_logic_vector(15 downto 0);
-    signal tim0_cnt_reg_s, tim1_cnt_reg_s: std_logic_vector(15 downto 0);
-    signal tim0_pwm_val_reg_s, tim1_pwm_val_reg_s: std_logic_vector(15 downto 0);
+    signal tim0_config_reg_s, tim1_config_reg_s, tim2_config_reg_s, tim3_config_reg_s: std_logic_vector(15 downto 0) := X"0000";
+    signal tim0_prescaler_reg_s, tim1_prescaler_reg_s: std_logic_vector(15 downto 0) := X"0000";
+    signal tim0_max_cnt_reg_s, tim1_max_cnt_reg_s: std_logic_vector(15 downto 0) := X"0000";
+    signal tim0_cnt_reg_s, tim1_cnt_reg_s: std_logic_vector(15 downto 0) := X"0000";
+    signal tim0_pwm_val_reg_s, tim1_pwm_val_reg_s: std_logic_vector(15 downto 0) := X"0000";
+    signal tim0_rho_rst_reg_s, tim1_rho_rst_reg_s: std_logic_vector(15 downto 0) := X"0000";
+    
+    
+    --tim0
+    signal tim0_master_clk_s, tim0_clk_s, tim0_rho_en: std_logic := '0';
+    signal tim0_master_cnt_s: unsigned(15 downto 0) := X"0000";
 --tim signals end
     
     
     signal btn0_pressed_reg_s, btn1_pressed_reg_s, btn2_pressed_reg_s, btn3_pressed_reg_s: std_logic_vector( 15 downto 0 );
     
-    signal btn0_s, btn1_s, btn2_s, btn3_s: std_logic;
     signal btn0_pressed_s, btn1_pressed_s, btn2_pressed_s, btn3_pressed_s: std_logic;
     
     signal latch_signal : std_logic := '0';  -- Internes Signal zum Speichern des Zustands
     signal btn0_reset_s: std_logic;
 begin
     internal_addr_s <= to_integer(unsigned(addr));
-
+    
+    rho <= tim0_rho_en;
+    rho_mask_reg_s <= "000000000000000" & tim0_rho_en; 
+    
     led00 <= led00_s or led00_tim_s;
     led01 <= led01_s or led01_tim_s;
     led02 <= led02_s or led02_tim_s;
@@ -127,7 +133,6 @@ begin
     
 
     mmio_config_reg_s  <= "0000000000000000";
-    rho_config_reg_s   <= "0000000000000000";
     
     led_bank0_config_reg_s <= led00_s & led00_tim_s & led00_tim_conf &
                               led01_s & led01_tim_s & led01_tim_conf &
@@ -184,35 +189,39 @@ begin
     
     rgb_bank0_config_reg_s <= rgb0_s & "0" & rgb1_s & "0" & rgb2_s & "0" & rgb3_s & "0";
     
+    with tim0_config_reg_s(3 downto 2) select
+        tim0_master_clk_s <= clk50mhz_in when "01",
+                             clk100mhz_in when "10",
+                             '0' when others;    
+    
     with internal_addr_s select
         dout <= mmio_config_reg_s           when  0,
-                rho_config_reg_s            when  1,
-                rho_reset_reg_s             when  2,
-                led_bank0_config_reg_s      when  3,
-                led_bank1_config_reg_s      when  4,
-                led_bank2_config_reg_s      when  5,
-                led_bank3_config_reg_s      when  6,
-                led_bank4_config_reg_s      when  7,
-                btn_bank0_config_reg_s      when  8,
-                btn_bank1_config_reg_s      when  9,
-                btn_bank2_config_reg_s      when 10,
-                btn_bank3_config_reg_s      when 11,
-                btn_bank4_config_reg_s      when 12,
-                rgb_bank0_config_reg_s      when 13,
+                rho_mask_reg_s              when  1,
+                led_bank0_config_reg_s      when  2,
+                led_bank1_config_reg_s      when  3,
+                led_bank2_config_reg_s      when  4,
+                led_bank3_config_reg_s      when  5,
+                led_bank4_config_reg_s      when  6,
+                btn_bank0_config_reg_s      when  7,
+                btn_bank1_config_reg_s      when  8,
+                btn_bank2_config_reg_s      when  9,
+                btn_bank3_config_reg_s      when 10,
+                btn_bank4_config_reg_s      when 11,
+                rgb_bank0_config_reg_s      when 12,
                 
-                tim0_config_reg_s           when 14,
-                tim0_prescaler_reg_s        when 15,
-                tim0_max_cnt_reg_s          when 16,
-                tim0_cnt_reg_s              when 17,
-                tim0_pwm_val_reg_s          when 18,
+                tim0_config_reg_s           when 13,
+                tim0_prescaler_reg_s        when 14,
+                tim0_max_cnt_reg_s          when 15,
+                tim0_cnt_reg_s              when 16,
+                tim0_pwm_val_reg_s          when 17,
+                tim0_rho_rst_reg_s          when 18,
 
                 tim1_config_reg_s           when 19,
                 tim1_prescaler_reg_s        when 20,
                 tim1_max_cnt_reg_s          when 21,
                 tim1_cnt_reg_s              when 22,
                 tim1_pwm_val_reg_s          when 23,
-                
-                "000000000000000" & rho_reset_s when 100,
+                tim1_rho_rst_reg_s          when 24,
 
                 "000000000000000" & led00_s when 32768, --1000 0000 0000 0000
                 "000000000000000" & led01_s when 32769,      
@@ -296,8 +305,14 @@ begin
     begin
         if rising_edge(clk) and we='1' then
             case internal_addr_s is
-                when 100 =>
-                    rho_reset_s <= '1';
+                when 13 =>
+                    tim0_config_reg_s <= din;
+                when 14 =>
+                    tim0_prescaler_reg_s <= din;
+                when 15 =>
+                    tim0_max_cnt_reg_s <= din;
+                when 18 =>
+                    tim0_rho_rst_reg_s(0) <= din(0);
                 when 32768 =>
                     led00_s <= din(0);
                 when 32769 =>
@@ -356,10 +371,6 @@ begin
             if btn00p_s_rst_s='1' then
                 btn00p_s_rst_s <= '0';
             end if;
-            
-            if rho_reset_s='1' then
-                rho_reset_s <= '0';
-            end if;
                    
         end if;
     end process;
@@ -377,15 +388,40 @@ begin
     
     btn0_pressed_s <= latch_signal;  -- Weist das interne Signal dem Ausgang zu
     
-    rho_trigger:process(clk, internal_rho_set_s) is
+    tim0_prescaler:process(tim0_master_clk_s) is
     begin
-    if internal_rho_set_s = '1' then
-      rho_s <= '1';  -- Asynchrones Setzen des Signals, wenn der Button gedrückt wird
-    elsif rising_edge(clk) then
-      if rho_reset_s = '1' then
-        rho_s <= '0';  -- Synchroner Reset des Signals zum Takt
-      end if;
-    end if;
-    end process rho_trigger;
+        if rising_edge(tim0_master_clk_s) then
+            
+            if tim0_master_cnt_s= unsigned(tim0_prescaler_reg_s) then
+                tim0_master_cnt_s <= X"0000";
+                tim0_clk_s <= not tim0_clk_s;
+            elsif tim0_config_reg_s(1)='1' then
+                 tim0_master_cnt_s <= tim0_master_cnt_s + 1;  
+          
+            end if;
+        end if;
+    end process tim0_prescaler;
+    
+    tim0_counter:process(tim0_clk_s, tim0_rho_rst_reg_s) is
+    begin
+        if tim0_rho_rst_reg_s(0)='1' and tim0_rho_en='1' then
+            tim0_rho_en <= '0';    
+        end if;
+    
+        if rising_edge(tim0_clk_s) then
+        
+            if tim0_cnt_reg_s=tim0_max_cnt_reg_s then   
+                if tim0_config_reg_s(9)='1' or tim0_config_reg_s(0)='1' then
+                    tim0_cnt_reg_s <= X"0000"; 
+                end if;
+            
+                if tim0_config_reg_s(4)='1' and tim0_config_reg_s(5)='1' then
+                    tim0_rho_en <= '1';
+                end if;
+            elsif tim0_config_reg_s(1)='1' then
+                tim0_cnt_reg_s <= std_logic_vector(unsigned(tim0_cnt_reg_s) + 1);
+            end if; 
+        end if;
+    end process tim0_counter;
     
 end Behavioral;

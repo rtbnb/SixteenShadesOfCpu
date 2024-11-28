@@ -55,6 +55,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_block_mmio_0_0 IS
   PORT (
+    clk100mhz_in : IN STD_LOGIC;
+    clk50mhz_in : IN STD_LOGIC;
     clk : IN STD_LOGIC;
     we : IN STD_LOGIC;
     addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -113,6 +115,8 @@ ARCHITECTURE main_block_mmio_0_0_arch OF main_block_mmio_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_block_mmio_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT mmio IS
     PORT (
+      clk100mhz_in : IN STD_LOGIC;
+      clk50mhz_in : IN STD_LOGIC;
       clk : IN STD_LOGIC;
       we : IN STD_LOGIC;
       addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -172,6 +176,8 @@ ARCHITECTURE main_block_mmio_0_0_arch OF main_block_mmio_0_0 IS
 BEGIN
   U0 : mmio
     PORT MAP (
+      clk100mhz_in => clk100mhz_in,
+      clk50mhz_in => clk50mhz_in,
       clk => clk,
       we => we,
       addr => addr,

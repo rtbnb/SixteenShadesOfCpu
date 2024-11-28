@@ -37,6 +37,8 @@
     },
     "boundary": {
       "ports": {
+        "clk100mhz_in": [ { "direction": "in" } ],
+        "clk50mhz_in": [ { "direction": "in" } ],
         "clk": [ { "direction": "in" } ],
         "we": [ { "direction": "in" } ],
         "addr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],

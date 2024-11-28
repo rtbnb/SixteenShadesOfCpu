@@ -134,13 +134,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "clk50mhz_in": {
-            "direction": "I"
-          },
           "clk100mhz_in": {
-            "direction": "I"
-          },
-          "wizard_locked": {
             "direction": "I"
           },
           "fault_reset": {
@@ -162,16 +156,17 @@
             "direction": "I"
           },
           "load_clk": {
-            "type": "clk",
-            "direction": "O"
-          },
-          "exec_clk": {
-            "type": "clk",
             "direction": "O"
           },
           "vga_clk": {
             "type": "clk",
-            "direction": "O"
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
+              }
+            }
           },
           "debug_clk": {
             "type": "clk",
@@ -180,10 +175,14 @@
               "ASSOCIATED_RESET": {
                 "value": "debug_reset",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
               }
             }
           },
-          "ck_stable": {
+          "clk100mhz_out": {
             "direction": "O"
           }
         }
@@ -209,8 +208,7 @@
       },
       "clk_wiz_0_clk50mhz": {
         "ports": [
-          "clk_wiz_0/clk50mhz",
-          "clockcontroller_0/clk50mhz_in"
+          "clk_wiz_0/clk50mhz"
         ]
       },
       "clk_wiz_0_debug_guard_clk": {
@@ -220,13 +218,11 @@
       },
       "clk_wiz_0_locked": {
         "ports": [
-          "clk_wiz_0/locked",
-          "clockcontroller_0/wizard_locked"
+          "clk_wiz_0/locked"
         ]
       },
       "clockcontroller_0_ck_stable": {
         "ports": [
-          "clockcontroller_0/ck_stable",
           "ck_stable"
         ]
       },
@@ -238,7 +234,6 @@
       },
       "clockcontroller_0_exec_clk": {
         "ports": [
-          "clockcontroller_0/exec_clk",
           "exec_clk"
         ]
       },
