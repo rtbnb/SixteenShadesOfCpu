@@ -35,7 +35,8 @@
       "TX_UART_0": "",
       "VGA_CPU_Bridge_0": "",
       "GPU_0": "",
-      "VGA_Controller_0": ""
+      "VGA_Controller_0": "",
+      "custom_BUFH_0": ""
     },
     "ports": {
       "Reset": {
@@ -1671,22 +1672,6 @@
           "pipeline_taking_data": {
             "direction": "I"
           },
-          "pipeline_immediate": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "pipeline_write_address": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "pipeline_whb": {
-            "direction": "I"
-          },
-          "pipeline_wlb": {
-            "direction": "I"
-          },
           "pipeline_write_data_sel": {
             "direction": "I",
             "left": "1",
@@ -1705,15 +1690,6 @@
             "direction": "I",
             "left": "3",
             "right": "0"
-          },
-          "pipeline_is_alu_op": {
-            "direction": "I"
-          },
-          "pipeline_is_ram_op": {
-            "direction": "I"
-          },
-          "pipeline_is_gpu_op": {
-            "direction": "I"
           },
           "pc_din": {
             "direction": "I",
@@ -2110,6 +2086,27 @@
             "direction": "O"
           }
         }
+      },
+      "custom_BUFH_0": {
+        "vlnv": "xilinx.com:module_ref:custom_BUFH:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_custom_BUFH_0_0",
+        "xci_path": "ip\\main_custom_BUFH_0_0\\main_custom_BUFH_0_0.xci",
+        "inst_hier_path": "custom_BUFH_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "custom_BUFH",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clkIn": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "clkOut": {
+            "direction": "O"
+          }
+        }
       }
     },
     "nets": {
@@ -2303,8 +2300,8 @@
         "ports": [
           "Debugger_0/debug_enable",
           "clockcontroller_0/debug_enable",
-          "Pipelining_Controller_0/debug_enable",
-          "mmu_0/debug_enable"
+          "mmu_0/debug_enable",
+          "Pipelining_Controller_0/debug_enable"
         ]
       },
       "Debugger_0_mmu_debug_addr": {
@@ -2329,8 +2326,8 @@
         "ports": [
           "Debugger_0/mmu_debug_override_en",
           "clockcontroller_0/debug_mmu_override_enbale",
-          "Pipelining_Controller_0/debug_override_enable",
-          "mmu_0/debug_override_enable"
+          "mmu_0/debug_override_enable",
+          "Pipelining_Controller_0/debug_override_enable"
         ]
       },
       "Debugger_0_mmu_debug_sync_clk100mhz": {
@@ -2422,16 +2419,16 @@
           "RegFile_0/load_clk",
           "VGA_CPU_Bridge_0/InstrLoad_CLK",
           "ProgramCounter_0/InstrLoad_CLK",
-          "Pipelining_Controller_0/InstrLoad_CLK",
-          "mmu_0/load_clk"
+          "mmu_0/load_clk",
+          "custom_BUFH_0/clkIn"
         ]
       },
       "Net": {
         "ports": [
           "clockcontroller_0/debug_clk",
           "RX_UART_0/clk",
-          "Debugger_0/clk",
-          "TX_UART_0/clk"
+          "TX_UART_0/clk",
+          "Debugger_0/clk"
         ]
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
@@ -2459,8 +2456,7 @@
       "Pipelining_Execution_0_IS_ALU_OP_out": {
         "ports": [
           "Pipelining_Execution_0/IS_ALU_OP_out",
-          "Pipelining_WriteBack_0/Is_ALU_OP",
-          "Debugger_0/pipeline_is_alu_op"
+          "Pipelining_WriteBack_0/Is_ALU_OP"
         ]
       },
       "Pipelining_Execution_0_Immediate_out": {
@@ -2471,21 +2467,18 @@
           "CU_JumpDestinationSe_0/Immediate",
           "CU_RAMAddressControl_0/Immediate",
           "VGA_CPU_Bridge_0/Immediate_In",
-          "Debugger_0/pipeline_immediate",
           "Debugger_0/alu_op"
         ]
       },
       "Pipelining_Execution_0_Is_GPU_OP_out": {
         "ports": [
           "Pipelining_Execution_0/Is_GPU_OP_out",
-          "VGA_CPU_Bridge_0/IsGPU_OP",
-          "Debugger_0/pipeline_is_gpu_op"
+          "VGA_CPU_Bridge_0/IsGPU_OP"
         ]
       },
       "Pipelining_Execution_0_Is_RAM_OP_out": {
         "ports": [
-          "Pipelining_Execution_0/Is_RAM_OP_out",
-          "Debugger_0/pipeline_is_ram_op"
+          "Pipelining_Execution_0/Is_RAM_OP_out"
         ]
       },
       "Pipelining_Execution_0_JMP_Condition_out": {
@@ -2577,23 +2570,20 @@
         "ports": [
           "Pipelining_Execution_0/WHB_out",
           "CU_ImmediateManipula_0/RF_WHB",
-          "Pipelining_WriteBack_0/WHB",
-          "Debugger_0/pipeline_whb"
+          "Pipelining_WriteBack_0/WHB"
         ]
       },
       "Pipelining_Execution_0_WLB_out": {
         "ports": [
           "Pipelining_Execution_0/WLB_out",
           "CU_ImmediateManipula_0/RF_WLB",
-          "Pipelining_WriteBack_0/WLB",
-          "Debugger_0/pipeline_wlb"
+          "Pipelining_WriteBack_0/WLB"
         ]
       },
       "Pipelining_Execution_0_WriteAddress_out": {
         "ports": [
           "Pipelining_Execution_0/WriteAddress_out",
-          "Pipelining_WriteBack_0/WriteAddress",
-          "Debugger_0/pipeline_write_address"
+          "Pipelining_WriteBack_0/WriteAddress"
         ]
       },
       "Pipelining_Execution_0_WriteDataSel_out": {
@@ -2842,6 +2832,12 @@
           "VGA_Controller_0/InstrExec_CLK"
         ]
       },
+      "custom_BUFH_0_clkOut": {
+        "ports": [
+          "custom_BUFH_0/clkOut",
+          "Pipelining_Controller_0/InstrLoad_CLK"
+        ]
+      },
       "fault_reset_1": {
         "ports": [
           "fault_reset",
@@ -2923,8 +2919,8 @@
       "mmu_0_iram_dout": {
         "ports": [
           "mmu_0/iram_dout",
-          "Pipelining_Controller_0/Instruction",
-          "Debugger_0/mmu_iram_dout"
+          "Debugger_0/mmu_iram_dout",
+          "Pipelining_Controller_0/Instruction"
         ]
       },
       "mmu_0_mmio_mem_addr": {
