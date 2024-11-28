@@ -146,15 +146,13 @@ begin
         execution_buffer <= X"0000";
         write_back_buffer <= X"0000";
         output_buffer <= X"0000";
+    elsif (stalled_s = '1') then
+        rf_read_buffer <= X"0000";
     elsif (rising_edge(InstrLoad_CLK) and taking_data) then
         output_buffer <= write_back_buffer;
         write_back_buffer <= execution_buffer;
         execution_buffer <= rf_read_buffer;
-        if (stalled_s = '1') then
-            rf_read_buffer <= X"0000";
-        else
-            rf_read_buffer <= Instruction;
-        end if;
+        rf_read_buffer <= Instruction;
     end if;
     end process instruction_fetch_shift_Register;
     
