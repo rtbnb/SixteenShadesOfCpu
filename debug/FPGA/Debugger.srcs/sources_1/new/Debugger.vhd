@@ -60,18 +60,18 @@ entity Debugger is
         pipeline_jmp_destination_select: in std_logic;
         pipeline_jmp_condition: in std_logic_vector(2 downto 0);
         pipeline_taking_data: in std_logic;
-        --pipeline_immediate: in std_logic_vector(15 downto 0);
-        --pipeline_write_address: in std_logic_vector(3 downto 0);
-        --pipeline_whb: in std_logic;
-        --pipeline_wlb: in std_logic;
+        pipeline_immediate: in std_logic_vector(15 downto 0);
+        pipeline_write_address: in std_logic_vector(3 downto 0);
+        pipeline_whb: in std_logic;
+        pipeline_wlb: in std_logic;
         pipeline_write_data_sel: in std_logic_vector(1 downto 0);
         pipeline_ram_src: in std_logic;
         pipeline_ram_read: in std_logic;
         pipeline_ram_write: in std_logic;
         pipeline_ram_bankid: in std_logic_vector(3 downto 0);
-        --pipeline_is_alu_op: in std_logic;
-        --pipeline_is_ram_op: in std_logic;
-        --pipeline_is_gpu_op: in std_logic;
+        pipeline_is_alu_op: in std_logic;
+        pipeline_is_ram_op: in std_logic;
+        pipeline_is_gpu_op: in std_logic;
         
         -- program counter
         pc_din: in std_logic_vector(15 downto 0);
@@ -135,7 +135,7 @@ architecture Behavioral of Debugger is
     signal rx_instruction_buffer_ack: std_logic_vector(7 downto 0);
     signal rx_instruction_data_buffer_ack: std_logic_vector(15 downto 0);
     signal rx_instruction_data2_buffer_ack: std_logic_vector(15 downto 0);
-    
+
     -- tx data buffer
     signal tx_instruction_buffer: std_logic_vector(7 downto 0) := x"00";
     signal tx_data_buffer: std_logic_vector(15 downto 0) := x"0000";
@@ -152,12 +152,12 @@ architecture Behavioral of Debugger is
     signal pipeline_rf_read_buf_s: std_logic_vector(15 downto 0);
     signal pipeline_jmp_condl_rel_dests_cond_s: std_logic_vector(6 downto 0);
     signal pipeline_taking_data_s: std_logic;
-    --signal pipeline_immediate_s: std_logic_vector(15 downto 0);
-    --signal pipeline_write_address_s: std_logic_vector(3 downto 0);
-    --signal pipeline_whb_wlb_s: std_logic_vector(1 downto 0);
+    signal pipeline_immediate_s: std_logic_vector(15 downto 0);
+    signal pipeline_write_address_s: std_logic_vector(3 downto 0);
+    signal pipeline_whb_wlb_s: std_logic_vector(1 downto 0);
     signal pipeline_write_data_sel_s: std_logic_vector(1 downto 0);
     signal pipeline_ram_src_read_write_bankid_s: std_logic_vector(6 downto 0);
-    --signal pipeline_is_alu_ram_gpu_op_s: std_logic_vector(2 downto 0);
+    signal pipeline_is_alu_ram_gpu_op_s: std_logic_vector(2 downto 0);
         
     -- program counter
     signal pc_din_s: std_logic_vector(15 downto 0);
@@ -215,12 +215,12 @@ begin
                         when x"15" => state <= Readback;
                         when x"16" => state <= Readback;
                         when x"17" => state <= Readback;
-                        --when x"18" => state <= Readback;
-                        --when x"19" => state <= Readback;
-                        --when x"1A" => state <= Readback;
+                        when x"18" => state <= Readback;
+                        when x"19" => state <= Readback;
+                        when x"1A" => state <= Readback;
                         when x"1B" => state <= Readback;
                         when x"1C" => state <= Readback;
-                        --when x"1D" => state <= Readback;
+                        when x"1D" => state <= Readback;
                         -- program counter signal request
                         when x"20" => state <= Readback;
                         when x"21" => state <= Readback;
@@ -320,18 +320,18 @@ begin
                     pipeline_jmp_condl_rel_dests_cond_s(3) <= pipeline_jmp_destination_select;
                     pipeline_jmp_condl_rel_dests_cond_s(6 downto 4) <= pipeline_jmp_condition;
                     pipeline_taking_data_s <= pipeline_taking_data;
-                    --pipeline_immediate_s <= pipeline_immediate;
-                    --pipeline_write_address_s <= pipeline_write_address;
-                    --pipeline_whb_wlb_s(0) <= pipeline_whb;
-                    --pipeline_whb_wlb_s(1) <= pipeline_wlb;
+                    pipeline_immediate_s <= pipeline_immediate;
+                    pipeline_write_address_s <= pipeline_write_address;
+                    pipeline_whb_wlb_s(0) <= pipeline_whb;
+                    pipeline_whb_wlb_s(1) <= pipeline_wlb;
                     pipeline_write_data_sel_s <= pipeline_write_data_sel;
                     pipeline_ram_src_read_write_bankid_s(0) <= pipeline_ram_src;
                     pipeline_ram_src_read_write_bankid_s(1) <= pipeline_ram_read;
                     pipeline_ram_src_read_write_bankid_s(2) <= pipeline_ram_write;
                     pipeline_ram_src_read_write_bankid_s(6 downto 3) <= pipeline_ram_bankid;
-                    --pipeline_is_alu_ram_gpu_op_s(0) <= pipeline_is_alu_op;
-                    --pipeline_is_alu_ram_gpu_op_s(1) <= pipeline_is_ram_op;
-                    --pipeline_is_alu_ram_gpu_op_s(2) <= pipeline_is_gpu_op;
+                    pipeline_is_alu_ram_gpu_op_s(0) <= pipeline_is_alu_op;
+                    pipeline_is_alu_ram_gpu_op_s(1) <= pipeline_is_ram_op;
+                    pipeline_is_alu_ram_gpu_op_s(2) <= pipeline_is_gpu_op;
                     pc_din_s <= pc_din;
                     pc_dout_s <= pc_dout;
                     pc_current_addr_s <= pc_current_addr_buffer;
@@ -402,7 +402,7 @@ begin
                             tx_data_buffer(15 downto 1) <= "000000000000000";
                             tx_data_buffer(0) <= pipeline_taking_data_s;
                             state <= TransmitDataInstructionSHORT;
-                       
+
                         when x"1B" =>
                             tx_data_buffer(15 downto 2) <= "00000000000000";
                             tx_instruction_buffer <= x"1B";
@@ -413,7 +413,7 @@ begin
                             tx_instruction_buffer <= x"1C";
                             tx_data_buffer(6 downto 0) <= pipeline_ram_src_read_write_bankid_s;
                             state <= TransmitDataInstructionSHORT;
-                        
+
                         -- program counter
                         when x"20" =>
                             tx_instruction_buffer <= x"20";
