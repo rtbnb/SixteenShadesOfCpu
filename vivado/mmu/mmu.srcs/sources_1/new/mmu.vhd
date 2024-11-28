@@ -33,7 +33,6 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity mmu is
     port(
-        ck_stable: in std_logic; 
         load_clk: in std_logic;
         
         gram_addr, gram_din : in std_logic_vector( 15 downto 0 );
@@ -81,12 +80,7 @@ end mmu;
 architecture Behavioral of mmu is
 	type ram_type is array (2047 downto 0) of std_logic_vector(15 downto 0);
 	signal iram : ram_type;	
-	--attribute iram_ram_style : string;
-    --attribute iram_ram_style of iram : signal is "distributed"; 
-    
     signal gram : ram_type;
-    --attribute gram_ram_style : string;
-    --attribute gram_ram_style of gram : signal is "distributed";
     
     signal gram_we_s, gram_clk_s: std_logic;
     signal gram_dout_s, gram_din_s: std_logic_vector( 15 downto 0 );
@@ -111,11 +105,10 @@ begin
         general_bank_s <= debug_bank when '1',
                           gram_bank when others;  
     
-    gram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1) or general_bank_s(0))) and ck_stable;
-    mmio_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1))) and general_bank_s(0) and ck_stable;
-    vram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(0))) and general_bank_s(1) and ck_stable;
-    iram_bank_op_s <= general_bank_s(3) and general_bank_s(2) and general_bank_s(1) and general_bank_s(0) and ck_stable;
-    
+    gram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1) or general_bank_s(0)));
+    mmio_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(1))) and general_bank_s(0);
+    vram_bank_op_s <= (not (general_bank_s(3) or general_bank_s(2) or general_bank_s(0))) and general_bank_s(1);
+    iram_bank_op_s <= general_bank_s(3) and general_bank_s(2) and general_bank_s(1) and general_bank_s(0);
     
     iram_comb_condition_s <= internal_debug_override_s & iram_bank_op_s;
     gram_comb_condition_s <= internal_debug_override_s & gram_bank_op_s;

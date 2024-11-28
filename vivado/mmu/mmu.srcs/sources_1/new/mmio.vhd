@@ -33,6 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity mmio is
     port(
+        clk100mhz_in, clk50mhz_in: in std_logic;
         clk, we: in std_logic;
         addr, din: in std_logic_vector(15 downto 0);
         dout: out std_logic_vector(15 downto 0);
@@ -87,6 +88,8 @@ architecture Behavioral of mmio is
     signal tim0_max_cnt_reg_s, tim1_max_cnt_reg_s: std_logic_vector(15 downto 0);
     signal tim0_cnt_reg_s, tim1_cnt_reg_s: std_logic_vector(15 downto 0);
     signal tim0_pwm_val_reg_s, tim1_pwm_val_reg_s: std_logic_vector(15 downto 0);
+    
+    signal tim1_master_clk_s, tim1_clk_s: std_logic;
 --tim signals end
     
     
@@ -183,6 +186,13 @@ begin
                               btn19 & btn19p_s & btn19_rho_s & "0";    
     
     rgb_bank0_config_reg_s <= rgb0_s & "0" & rgb1_s & "0" & rgb2_s & "0" & rgb3_s & "0";
+    
+    with tim0_config_reg_s(3 downto 2) select
+        tim1_master_clk_s <= clk50mhz_in when "01",
+                             clk100mhz_in when "10",
+                             '0' when others;    
+    
+    tim1_master_clk_s <= '0';
     
     with internal_addr_s select
         dout <= mmio_config_reg_s           when  0,
@@ -387,5 +397,17 @@ begin
       end if;
     end if;
     end process rho_trigger;
+    
+    tim1_prescaler:process(tim1_master_clk_s) is
+    begin
+        if rising_edge(tim1_master_clk_s) then
+        
+        end if;
+    end process tim1_prescaler;
+    
+    tim1_counter:process(clk) is
+    begin
+    
+    end process tim1_counter;
     
 end Behavioral;
