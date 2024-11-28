@@ -46,17 +46,17 @@ end VGA_Controller;
 
 architecture Behavioral of VGA_Controller is
     signal divided_clock_s : STD_LOGIC := '0';
-    signal divider_counter_s : integer range 0 to 10 := 0;
+    signal divider_counter_s : unsigned(3 downto 0) := X"0";
     signal h_blank_s : STD_LOGIC := '0';
     signal v_blank_s : STD_LOGIC := '0';
     signal h_sync_s : STD_LOGIC := '0';
     signal v_sync_s : STD_LOGIC := '0';
-    signal h_counter_s : integer range 0 to 264 := 0;
-    signal v_counter_s : integer range 0 to 628 := 0;
-    signal x_pixel_s : integer range 0 to 199 := 0;
-    signal y_pixel_s : integer range 0 to 150 := 0;
-    signal pixel_address_s : integer range 0 to 30000 := 0;
-    signal frame_counter_s : integer range 0 to 60 := 0;
+    signal h_counter_s : unsigned(8 downto 0) := "0"&X"00";
+    signal v_counter_s : unsigned(9 downto 0) := "00"&X"00";
+    signal x_pixel_s : unsigned(7 downto 0) := X"00";
+    --signal y_pixel_s : integer range 0 to 150 := 0;
+    --signal pixel_address_s : integer range 0 to 30000 := 0;
+    --signal frame_counter_s : integer range 0 to 60 := 0;
     signal rgb_s : std_logic_vector(11 downto 0);
     
     signal fetch_sync_s : STD_LOGIC := '0';
@@ -65,7 +65,7 @@ architecture Behavioral of VGA_Controller is
     signal draw_line : lineMemory;
     signal fetch_line : lineMemory;
     
-    signal fetch_counter : integer range 0 to 200 := 0;
+    signal fetch_counter : unsigned(7 downto 0) := X"00";
     signal was_last_time : boolean := false;
     signal fetched_y_coord : unsigned(15 downto 0) := X"0000";
     signal memory_read_buffer_s : std_logic_vector(11 downto 0) := X"000";
@@ -75,10 +75,10 @@ begin
     begin
     if rising_edge(InstrExec_CLK) then
         divider_counter_s <= divider_counter_s + 1;
-        if divider_counter_s = 4 then
-            divider_counter_s <= 0;
+        if divider_counter_s = X"4" then
+            divider_counter_s <= X"0";
             divided_clock_s <= '0';
-        elsif divider_counter_s = 2 then
+        elsif divider_counter_s = X"2" then
             divided_clock_s <= '1';
         end if;
     end if;
@@ -90,34 +90,34 @@ begin
     begin
     if rising_edge(divided_clock_s) then
         h_counter_s <= h_counter_s + 1;
-        if h_counter_s + 1 = 264 then
-            h_counter_s <= 0;
+        if to_integer(h_counter_s + 1) = 264 then
+            h_counter_s <= "0"&X"00";
             v_counter_s <= v_counter_s + 1;
-            if v_counter_s + 1 = 628 then
-                v_counter_s <= 0;
-                frame_counter_s <= frame_counter_s + 1;
-                if frame_counter_s + 1 = 60 then
-                    frame_counter_s <= 0;
-                end if;
+            if to_integer(v_counter_s + 1) = 628 then
+                v_counter_s <= "00"&X"00";
+                --frame_counter_s <= frame_counter_s + 1;
+                --if frame_counter_s + 1 = 60 then
+                --    frame_counter_s <= 0;
+                --end if;
             end if;
         end if;
     end if;
     end process syncer;
     
     
-    h_blank_s <= '1' when h_counter_s >= 200 else '0';
-    v_blank_s <= '1' when v_counter_s >= 600 else '0'; 
+    h_blank_s <= '1' when to_integer(h_counter_s) >= 200 else '0';
+    v_blank_s <= '1' when to_integer(v_counter_s) >= 600 else '0'; 
     
-    h_sync_s <= '0' when h_counter_s >= 210 and h_counter_s < 242 else '1';
-    v_sync_s <= '0' when v_counter_s >= 601 and v_counter_s < 605 else '1';
+    h_sync_s <= '0' when to_integer(h_counter_s) >= 210 and to_integer(h_counter_s) < 242 else '1';
+    v_sync_s <= '0' when to_integer(v_counter_s) >= 601 and to_integer(v_counter_s) < 605 else '1';
     
     h_sync <= h_sync_s;
     v_sync <= v_sync_s;
     
-    x_pixel_s <= 199 when h_counter_s > 199 else h_counter_s;
-    y_pixel_s <= integer(600 when v_counter_s > 600 else v_counter_s) / 4;
+    x_pixel_s <= to_unsigned(199, 8) when to_integer(h_counter_s) > 199 else h_counter_s(7 downto 0);
+    --y_pixel_s <= integer(600 when to_integer(v_counter_s) > 600 else to_integer(v_counter_s)) / 4;
     
-    pixel_address_s <= y_pixel_s * 200 + x_pixel_s; 
+    --pixel_address_s <= y_pixel_s * 200 + x_pixel_s; 
     
     --r <= std_logic_vector(to_unsigned((x_pixel_s * 16) / 200, 4));
     --g <= std_logic_vector(to_unsigned((y_pixel_s * 16) / 150, 4));
@@ -127,10 +127,10 @@ begin
     g <= rgb_s(7 downto 4);
     b <= rgb_s(3 downto 0);
     
-    rgb_s <= draw_line(x_pixel_s);
+    rgb_s <= draw_line(to_integer(x_pixel_s));
     
 
-    fetch_sync_s <= TO_UNSIGNED(v_counter_s, 2)(1);
+    fetch_sync_s <= v_counter_s(1);
     
     draw_line_setter: process(fetch_sync_s) is
     begin
@@ -142,17 +142,17 @@ begin
     fetcher_counter: process(InstrExec_CLK) is
     begin
     if rising_edge(InstrExec_CLK) then
-        was_last_time <= to_unsigned(v_counter_s, 2) = "00";
-        if to_unsigned(v_counter_s, 2) = "00" then
+        was_last_time <= v_counter_s(1 downto 0) = "00";
+        if v_counter_s(1 downto 0) = "00" then
             if not was_last_time then
-                fetch_counter <= 0;
-                if y_pixel_s < 150 then
+                fetch_counter <= X"00";
+                if to_integer(v_counter_s(9 downto 2)) < 150 then
                     fetched_y_coord <= fetched_y_coord + X"00C8";
                 else
                     fetched_y_coord <= X"0000"; 
                 end if;
             else 
-                if fetch_counter < 199 then
+                if to_integer(fetch_counter) < 199 then
                     fetch_counter <= fetch_counter + 1;
                 end if;
             end if;            
@@ -167,12 +167,12 @@ begin
             --    fetched_y_coord := 0;
             --end if;
             
-            VRAM_Addr <= std_logic_vector(fetched_y_coord + to_unsigned(fetch_counter, 16));
-            if fetch_counter >= 2 then
-                if fetch_counter - 2 < 200 then
+            VRAM_Addr <= std_logic_vector(fetched_y_coord + fetch_counter);
+            if to_integer(fetch_counter) >= 2 then
+                if to_integer(fetch_counter - 2) < 200 then
                     --memory_read_buffer_s <= VRAM_Data(11 downto 0);
                     --fetch_line(fetch_counter - 3) <= memory_read_buffer_s;
-                    fetch_line(fetch_counter - 2) <= VRAM_Data(11 downto 0);
+                    fetch_line(to_integer(fetch_counter - 2)) <= VRAM_Data(11 downto 0);
                 end if;
             end if;      
             --if fetch_counter >= 3 then
