@@ -1,4 +1,4 @@
-from PySide6 import QtCore, QtWidgets, QtGui
+from PySide6 import QtWidgets
 import sys
 from Datapool import Datapool
 from queue import Queue
@@ -115,16 +115,30 @@ class DebugWindow(QtWidgets.QWidget):
         clock_hold_button.clicked.connect(lambda: self.command_button_pushed(b"\x00"))
         clock_one_cylce_button = QtWidgets.QPushButton(text="Step One Clock")
         clock_one_cylce_button.clicked.connect(lambda: self.command_button_pushed(b"\x01"))
+        clock_n_cycle_button = QtWidgets.QPushButton(text="Step N Clocks")
+        clock_n_cycle_text_box = QtWidgets.QLineEdit()
+        clock_n_cycle_text_box.setSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        clock_n_cycle_text_box.setInputMask("nnnnn")
+
+        clock_n_cycle_button.clicked.connect(lambda: self.clock_n_cycles(clock_n_cycle_text_box.text()))
         self.layout.addWidget(clock_resume_button, 2, 6, 1, 1)
         self.layout.addWidget(clock_hold_button, 3, 6, 1, 1)
         self.layout.addWidget(clock_one_cylce_button, 4, 6, 1, 1)
+        self.layout.addWidget(clock_n_cycle_text_box, 5, 5, 1, 1)
+        self.layout.addWidget(clock_n_cycle_button, 5, 6, 1, 1)
 
         # get all memory
         memory_get_all_select_box = QtWidgets.QComboBox()
         memory_get_all_button = QtWidgets.QPushButton(text="Fetch memory data")
-    
-    def memory_to_file():
-        pass
+
+    def clock_n_cycles(self, n: str):
+        command_list = []
+        if n.isnumeric() == False:
+            return
+        for i in range(int(n)):
+            command_list.append(b"\x01")
+        self.add_command_to_queue(command_list)
+        
     
     def send_command_manuel(self, command_input_line_edit:QtWidgets.QLineEdit):
         command = command_input_line_edit.text()
@@ -203,6 +217,21 @@ class DebugWindow(QtWidgets.QWidget):
 
     def  get_rx_datapool(self):
         return self.datapool
+    
+    def request_memory(self, memory_type: str, address_start, address_end):
+        command = b""
+        if memory_type == "iram":
+            command = b"\x31"
+        elif memory_type == "gram":
+            command = b"\x30"
+        elif memory_type == "vram":
+            command = b"\x33"
+        else:
+            print("Invalid memory type")
+            return
+        for addr in range(address_start, address_end):
+            addr_bytes = addr.to_bytes(2, 'big')
+            self.add_command_to_queue([command, addr_bytes[0:1], addr_bytes[1:2]])
 
 def print_queue(debugWindow: DebugWindow):
     while(1):
