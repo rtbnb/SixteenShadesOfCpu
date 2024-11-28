@@ -22,10 +22,10 @@ vlog -work xil_defaultlib  -incr -mfcu  \
 "../../../bd/main_block/ip/main_block_blk_mem_gen_0_0/sim/main_block_blk_mem_gen_0_0.v" \
 
 vcom -work xil_defaultlib  -93  \
-"../../../bd/main_block/ip/main_block_mmu_0_0/sim/main_block_mmu_0_0.vhd" \
 "../../../bd/main_block/ip/main_block_mmio_0_0/sim/main_block_mmio_0_0.vhd" \
 "../../../bd/main_block/ip/main_block_clockcontroller_0_0_1/sim/main_block_clockcontroller_0_0.vhd" \
 "../../../bd/main_block/sim/main_block.vhd" \
+"../../../bd/main_block/ip/main_block_mmu_1_0/sim/main_block_mmu_1_0.vhd" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

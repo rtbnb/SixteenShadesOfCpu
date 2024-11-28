@@ -38,8 +38,8 @@ end timerSim;
 architecture Behavioral of timerSim is
     component mmio
     port(
-            clk100mhz_in: in std_logic := '0';
-            clk50mhz_in: in std_logic := '0';
+            clk100mhzIn: in std_logic := '0';
+            clk50mhzIn: in std_logic := '0';
             clk: in std_logic := '1';
             we: in std_logic := '0';
             addr, din: in std_logic_vector(15 downto 0);
@@ -52,8 +52,8 @@ architecture Behavioral of timerSim is
         );
     end component;
     
-    signal clk100mhz_in: std_logic := '0';
-    signal clk50mhz_in: std_logic := '0';
+    signal clk100mhzIn: std_logic := '0';
+    signal clk50mhzIn: std_logic := '0';
     signal clk: std_logic := '1';
     signal we: std_logic := '0';
     signal rho: std_logic;
@@ -62,8 +62,8 @@ architecture Behavioral of timerSim is
     signal rgb0, rgb1, rgb2, rgb3: std_logic_vector(2 downto 0);
 begin
     EUT : mmio port map(
-        clk100mhz_in => clk100mhz_in, 
-        clk50mhz_in => clk50mhz_in,
+        clk100mhzIn => clk100mhzIn, 
+        clk50mhzIn => clk50mhzIn,
         clk => clk,
         we => we,
         rho => rho,
@@ -118,13 +118,13 @@ begin
     
     process
     begin
-        clk100mhz_in <= not clk100mhz_in;
+        clk100mhzIn <= not clk100mhzIn;
         wait for 5ns;  
     end process;
     
     process
     begin
-        clk50mhz_in <= not clk50mhz_in;
+        clk50mhzIn <= not clk50mhzIn;
         clk <= not clk;
         wait for 10ns;
     end process;
@@ -154,18 +154,17 @@ begin
             wait for 10ns;
             addr <= std_logic_vector(to_unsigned(13, addr'length));
             din <=  
-                "00000" & -- rest
-                "0" & --pwm inverted
-                "1" & --auto_reset
-                "0" & --rst_sig_enable
-                "0" & --pwm sig enable
-                "0" & --led enable
-                "1" & --rho enable
-                "1" & --out enable
-                "01" & --clk source
-                "1" & --state
-                "1"; --auto restart
---                "0000000000000000";
+                "00000" &   -- rest
+                "0" &       --pwm inverted
+                "1" &       --auto_reset
+                "0" &       --rst_sig_enable
+                "0" &       --pwm sig enable
+                "0" &       --led enable
+                "1" &       --rho enable
+                "1" &       --out enable
+                "01" &      --clk source
+                "1" &       --state
+                "1";        --auto restart
             we <= '1';
             wait for 10ns;
             addr <= X"0000";
