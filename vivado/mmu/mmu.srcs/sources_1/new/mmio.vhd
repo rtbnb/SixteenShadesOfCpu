@@ -1,39 +1,23 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 14.11.2024 19:50:38
--- Design Name: 
+-- Name: Robin
+-- Design Name: ShadeCpu
 -- Module Name: mmio - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
 library UNISIM;
 use UNISIM.VComponents.all;
 
 entity mmio is
     port(
-        clk100mhz_in, clk50mhz_in: in std_logic;
+        clk100mhzIn, clk50mhzIn: in std_logic;
         clk, we: in std_logic;
         addr, din: in std_logic_vector(15 downto 0);
         dout: out std_logic_vector(15 downto 0);
