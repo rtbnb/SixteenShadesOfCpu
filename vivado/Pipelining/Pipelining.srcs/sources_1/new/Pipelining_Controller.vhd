@@ -150,7 +150,11 @@ begin
         output_buffer <= write_back_buffer;
         write_back_buffer <= execution_buffer;
         execution_buffer <= rf_read_buffer;
-        rf_read_buffer <= Instruction;
+        if (stalled_s = '1') then
+            rf_read_buffer <= X"0000";
+        else
+            rf_read_buffer <= Instruction;
+        end if;
     end if;
     end process instruction_fetch_shift_Register;
     

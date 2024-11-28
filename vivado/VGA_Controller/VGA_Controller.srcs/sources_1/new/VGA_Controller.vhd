@@ -65,7 +65,7 @@ architecture Behavioral of VGA_Controller is
     signal draw_line : lineMemory;
     signal fetch_line : lineMemory;
     
-    signal fetch_counter : integer range 0 to 150 := 0;
+    signal fetch_counter : integer range 0 to 200 := 0;
     signal was_last_time : boolean := false;
     signal fetched_y_coord : unsigned(15 downto 0) := X"0000";
     signal memory_read_buffer_s : std_logic_vector(11 downto 0) := X"000";
@@ -152,7 +152,9 @@ begin
                     fetched_y_coord <= X"0000"; 
                 end if;
             else 
-                fetch_counter <= fetch_counter + 1;
+                if fetch_counter < 199 then
+                    fetch_counter <= fetch_counter + 1;
+                end if;
             end if;            
         end if;
     end if;
