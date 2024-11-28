@@ -21,18 +21,30 @@
 %define JC_Smaller 2
 %define JC_Bigger 3
 %define JC_Overflow 4
-%define JC_Bool 5
+%define JC_RhoPin 5
 %define JC_NotZero 6
 %define JC_Unconditional 7
 
 %define GRAM_Bank 0
-%define MMIO_Bank 2
+%define MMIO_Bank 1
 
 ;MMIOs:
-%define MMIO_Player1_UpButton 0
-%define MMIO_Player1_DownButton 1
+%define MMIO_Player1_UpButton 0x8018
+%define MMIO_Player1_DownButton 0x801a
 %define MMIO_Player2_UpButton 2
 %define MMIO_Player2_DownButton 3
+
+;Timer 0 Prescaler Register: 0x000e
+%define MMIO_Timer0_Prescaler_Register 249
+%define MMIO_Timer0_Prescaler_Register_Addr 0x000e
+;Timer 0 Max Prescaler Register: 0x000f
+%define MMIO_Timer0_Max_Count 1666
+%define MMIO_Timer0_Max_Count_Addr 0x000f
+;Timer 0 Config Register: 0x000d
+%define MMIO_Timer0_Conifg 0b0000001000110111
+%define MMIO_Timer0_Conifg_Addr 0x000d
+;Timer 0 Rho Reset Register: 0x0012
+%define MMIO_Timer0_RhoReset_Addr 0x0012
 
 
 %define SCORE_Y 10
@@ -184,9 +196,36 @@ _gram_variables:
     by: 75
     bvx: 1
     bvy: 1
+    player1_up_button : MMIO_Player1_UpButton
+    player1_down_button : MMIO_Player1_DownButton
     paused: 1
 
 _code:
+
+    IML $BI, MMIO_Bank
+
+    ; Configure Timer 0 Prescaler
+    IML $t0, MMIO_Timer0_Prescaler_Register_Addr[0]
+    IMH $t0, MMIO_Timer0_Prescaler_Register_Addr[1]
+    IML $t1, MMIO_Timer0_Prescaler_Register[0]
+    IMH $t1, MMIO_Timer0_Prescaler_Register[1]
+    WRMr $t1, $t0
+
+    ; Configure Timer 0 Max Count
+    IML $t0, MMIO_Timer0_Max_Count_Addr[0]
+    IMH $t0, MMIO_Timer0_Max_Count_Addr[1]
+    IML $t1, MMIO_Timer0_Max_Count[0]
+    IMH $t1, MMIO_Timer0_Max_Count[1]
+    WRMr $t1, $t0
+
+    ; Configure Timer 0 Config
+    IML $t0, MMIO_Timer0_Conifg_Addr[0]
+    IMH $t0, MMIO_Timer0_Conifg_Addr[1]
+    IML $t1, MMIO_Timer0_Conifg[0]
+    IMH $t1, MMIO_Timer0_Conifg[1]
+    WRMr $t1, $t0
+
+
     JA main
 
 .clear_vga
@@ -444,30 +483,51 @@ _code:
 .main
     JA render
 .main_after_render
-    IML $BI, MMIO_Bank
     IML $t0, 0
     IMH $t0, 0
-    RDMi $t1, MMIO_Player1_UpButton
-    RDMi $t2, MMIO_Player1_DownButton
+    IML $BI, GRAM_Bank
+    NOP
+    NOP
+    RDMi $t9, player1_up_button
+    IML $BI, MMIO_Bank
+    NOP
+    NOP
+    RDMr $t1, $t9
+    IML $BI, GRAM_Bank
+    NOP
+    NOP
+    RDMi $t9, player1_down_button
+    IML $BI, MMIO_Bank
+    NOP
+    NOP
+    RDMr $t2, $t9
     RDMi $t3, MMIO_Player2_UpButton
     RDMi $t4, MMIO_Player2_DownButton
     IML $BI, GRAM_Bank
     IML $t5, 2
     IMH $t5, 0
+
+    WRMi $t0, p1v
+    WRMi $t0, p2v
     ALU ALU_ADD, $t2, $t0
-    JC JC_Zero, +1
+    JC JC_NotZero, +2
     WRMi $t5, p1v
     ALU ALU_ADD, $t4, $t0
-    JC JC_Zero, +1
+    JC JC_NotZero, +2
     WRMi $t5, p2v
     IML $t5, -2
-    IML $t5, 0xff
+    IMH $t5, 0xff
     ALU ALU_ADD, $t1, $t0
-    JC JC_Zero, +1
+    JC JC_NotZero, +2
     WRMi $t5, p1v
     ALU ALU_ADD, $t3, $t0
-    JC JC_Zero, +1
+    JC JC_NotZero, +2
     WRMi $t5, p2v
+
+
+    IML $t5, 2
+    IMH $t5, 0
+
     
     RDMi $t1, p1v
     RDMi $t2, p1y
@@ -513,4 +573,20 @@ _code:
     WRMi $t5, p2y
 .main_after_p2y
 
-    JA main_after_p2y
+
+
+
+    JC JC_RhoPin, +2
+    JC JC_Unconditional, -1
+
+    IML $BI, MMIO_Bank
+    IML $t0, MMIO_Timer0_RhoReset_Addr[0]
+    IMH $t0, MMIO_Timer0_RhoReset_Addr[1]
+    IML $t1, 1
+    IMH $t1, 0
+    WRMr $t1, $t0
+    IML $t1, 0
+    WRMr $t1, $t0
+
+
+    JA main
