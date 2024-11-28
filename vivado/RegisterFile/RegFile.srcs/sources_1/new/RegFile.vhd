@@ -29,7 +29,7 @@ entity reg_f_sile is
 end entity reg_f_sile;
 
 architecture Behavioral of reg_f_sile is
-    signal reg0_s, reg1_s, reg2_s, reg3_s, reg4_s, reg5_s, reg6_s, reg7_s, reg8_s, reg9_s, reg_a_s, reg_b_s, reg_c_s, RegD, reg_e_s, reg_f_s: std_logic_vector(15 downto 0) := (others => '0');
+    signal reg0_s, reg1_s, reg2_s, reg3_s, reg4_s, reg5_s, reg6_s, reg7_s, reg8_s, reg9_s, reg_a_s, reg_b_s, reg_c_s, reg_d_s, reg_e_s, reg_f_s: std_logic_vector(15 downto 0) := (others => '0');
 begin
     BankID <= reg_b_s(3 downto 0);
     -- Select data for addrreg1
@@ -47,7 +47,7 @@ begin
         reg_a_s when "1010",
         reg_b_s when "1011",
         reg_c_s when "1100",
-        RegD when "1101",
+        reg_d_s when "1101",
         reg_e_s when "1110",
         reg_f_s when "1111",
         "0000000000000000" when others;
@@ -66,7 +66,7 @@ begin
         reg_a_s when "1010",
         reg_b_s when "1011",
         reg_c_s when "1100",
-        RegD when "1101",
+        reg_d_s when "1101",
         reg_e_s when "1110",
         reg_f_s when "1111",
         "0000000000000000" when others;
@@ -106,7 +106,7 @@ begin
                     when "1100" =>
                         reg_c_s <= WriteData;
                     when "1101" =>
-                        RegD <= WriteData;
+                        reg_d_s <= WriteData;
                     when "1110" =>
                         reg_e_s <= WriteData;
                     when "1111" =>
