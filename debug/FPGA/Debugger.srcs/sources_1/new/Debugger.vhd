@@ -178,9 +178,8 @@ architecture Behavioral of Debugger is
     signal regfile_write_data_s: std_logic_vector(15 downto 0);
     signal regfile_reg1_data_s: std_logic_vector(15 downto 0);
     signal regfile_reg2_data_s: std_logic_vector(15 downto 0);
-    signal regfile_bankid_s: std_logic_vector(3 downto 0);   
+    signal regfile_bankid_s: std_logic_vector(3 downto 0);
     -- mmu
-    signal mmu_debug_dout_s: std_logic_vector(15 downto 0);
     signal mmu_iram_dout_s: std_logic_vector(15 downto 0);
 
 begin
@@ -350,7 +349,6 @@ begin
                     regfile_reg2_data_s <= regfile_reg2_data;
                     regfile_bankid_s <= regfile_bankid;
                     mmu_iram_dout_s <= mmu_iram_dout;
-                    mmu_debug_dout_s <= mmu_debug_dout;
                     state <= ProcessCommand;
                 when ProcessCommand =>
                     -- command decode
@@ -695,7 +693,7 @@ begin
                     state <= TransmitInstructionOnly;
                 -- lutram
                 when MMUFetchIRAMWriteToTX =>
-                    tx_data_buffer <= mmu_debug_dout_s;
+                    tx_data_buffer <= mmu_debug_dout;
                     tx_addr_buffer <= rx_instruction_data2_buffer;
                     state <= MMUFetchIRAMReset;
                 when MMUFetchIRAMReset =>
@@ -714,7 +712,7 @@ begin
                     state <= ClockBlockRamReadFetch;
                 when ClockBlockRamReadFetch =>
                     mmu_debug_clk <= '0';
-                    tx_data_buffer <= mmu_debug_dout_s;
+                    tx_data_buffer <= mmu_debug_dout;
                     tx_addr_buffer <= rx_instruction_data2_buffer;
                     state <= ClockBlockRamReadReset;
                 when ClockBlockRamReadReset =>

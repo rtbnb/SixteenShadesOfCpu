@@ -20,7 +20,7 @@ class DebugWindow(QtWidgets.QWidget):
         self.table.setColumnCount(4)
         self.table.setColumnWidth(2, 150)
         self.table.setHorizontalHeaderLabels(['Key', 'Name', 'Binary', 'Hex'])
-        self.layout.addWidget(self.table, 0, 0, len(self.data), 3)
+        self.layout.addWidget(self.table, 0, 0, len(self.data) + 3, 3)
 
         self.populate_table()
 
@@ -86,20 +86,46 @@ class DebugWindow(QtWidgets.QWidget):
         #self.layout.addWidget(gram_textfield_memory_addr, len(self.data) + 2, 1, 1, 1)
         #self.layout.addWidget(gram_write_button, len(self.data) + 2, 2, 1, 1)
 
+        # memmory
+        fetch_memory_start_addr_textbox = QtWidgets.QLineEdit()
+        fetch_memory_start_addr_textbox.setSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        fetch_memory_start_addr_label = QtWidgets.QLabel("Start Address (HEX)")
+        self.layout.addWidget(fetch_memory_start_addr_label, len(self.data) - 1, 5, 1, 1)
+        self.layout.addWidget(fetch_memory_start_addr_textbox, len(self.data), 5, 1, 1)        
+        fetch_memory_end_addr_textbox = QtWidgets.QLineEdit()
+        fetch_memory_end_addr_textbox.setSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        fetch_memory_end_addr_label = QtWidgets.QLabel("End Address (HEX)")
+        self.layout.addWidget(fetch_memory_end_addr_label, len(self.data) - 1, 6, 1, 1)
+        self.layout.addWidget(fetch_memory_end_addr_textbox, len(self.data), 6, 1, 1)
+        write_memory_data_to_file_button = QtWidgets.QPushButton(text="Write Memory Data to File")
+        write_memory_data_to_file_button.clicked.connect(lambda: self.write_memory_data_to_file())
+        self.layout.addWidget(write_memory_data_to_file_button, len(self.data) - 2, 6, 1, 1)
         # iram bin file
-        bin_file_button = QtWidgets.QPushButton(text="Select IRAM bin file")
-        bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x31"))
-        self.layout.addWidget(bin_file_button, len(self.data) + 1, 5, 1, 1)
+        iram_bin_file_button = QtWidgets.QPushButton(text="Select IRAM bin file")
+        iram_bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x31"))
+        self.layout.addWidget(iram_bin_file_button, len(self.data) + 1, 5, 1, 1)
+
+        fetch_iram_button = QtWidgets.QPushButton(text="Fetch IRAM")
+        fetch_iram_button.clicked.connect(lambda: self.fetch_memory(b"\x32", int(fetch_memory_start_addr_textbox.text(), 16), int(fetch_memory_end_addr_textbox.text(), 16)))
+        self.layout.addWidget(fetch_iram_button, len(self.data) + 1, 6, 1, 1)
 
         # gram bin file
         gram_bin_file_button = QtWidgets.QPushButton(text="Select GRAM bin file")
         gram_bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x30"))
         self.layout.addWidget(gram_bin_file_button, len(self.data) + 2, 5, 1, 1)
 
+        fetch_gram_button = QtWidgets.QPushButton(text="Fetch GRAM")
+        fetch_gram_button.clicked.connect(lambda: self.fetch_memory(b"\x36", int(fetch_memory_start_addr_textbox.text(), 16), int(fetch_memory_end_addr_textbox.text(), 16)))
+        self.layout.addWidget(fetch_gram_button, len(self.data) + 2, 6, 1, 1)
+
         # vram bin file
         vram_bin_file_button = QtWidgets.QPushButton(text="Select VRAM bin file")
         vram_bin_file_button.clicked.connect(lambda: self.button_select_bin_file(b"\x33"))
         self.layout.addWidget(vram_bin_file_button, len(self.data) + 3, 5, 1, 1)
+
+        fetch_vram_button = QtWidgets.QPushButton(text="Fetch VRAM")
+        fetch_vram_button.clicked.connect(lambda: self.fetch_memory(b"\x35", int(fetch_memory_start_addr_textbox.text(), 16), int(fetch_memory_end_addr_textbox.text(), 16)))
+        self.layout.addWidget(fetch_vram_button, len(self.data) + 3, 6, 1, 1)
 
         # manual command input window
         command_input_line_edit = QtWidgets.QLineEdit()
@@ -126,10 +152,6 @@ class DebugWindow(QtWidgets.QWidget):
         self.layout.addWidget(clock_one_cylce_button, 4, 6, 1, 1)
         self.layout.addWidget(clock_n_cycle_text_box, 5, 5, 1, 1)
         self.layout.addWidget(clock_n_cycle_button, 5, 6, 1, 1)
-
-        # get all memory
-        memory_get_all_select_box = QtWidgets.QComboBox()
-        memory_get_all_button = QtWidgets.QPushButton(text="Fetch memory data")
 
     def clock_n_cycles(self, n: str):
         command_list = [b"\x01"]
@@ -178,9 +200,26 @@ class DebugWindow(QtWidgets.QWidget):
                 addr_counter += 1
                 if addr_counter > max_addr:
                     break
-                    
-
         print(fileName)
+    
+    def fetch_memory(self, fetch_command: bytes, address_start, address_end):
+        for i in range(address_start, address_end + 1):
+            addr_bytes = i.to_bytes(2, 'big')
+            self.add_command_to_queue([fetch_command, addr_bytes[0:1], addr_bytes[1:2]])
+    
+    def write_memory_data_to_file(self):
+        with open("iram.mem", 'wb') as f:
+            for data in self.data[b'\x32']['memory']:
+                f.write(data)
+        with open("gram.mem", 'wb') as f:
+            for data in self.data[b'\x36']['memory']:
+                f.write(data)
+        with open("vram.mem", 'wb') as f:
+            for data in self.data[b'\x35']['memory']:
+                f.write(data)
+        with open("mmio.mem", 'wb') as f:
+            for data in self.data[b'\x37']['memory']:
+                f.write(data)
 
     def get_command_queue(self):
         return self.command_queue
@@ -214,7 +253,7 @@ class DebugWindow(QtWidgets.QWidget):
         for command in command_list:
             self.add_command_to_queue([command])
 
-    def  get_rx_datapool(self):
+    def  get_rx_datapool(self) -> Datapool:
         return self.datapool
     
     def request_memory(self, memory_type: str, address_start, address_end):
