@@ -97,6 +97,8 @@ architecture Behavioral of Pipelining_Controller is
     signal ram_stall_reset: std_logic;
     signal jmp_stalled: std_logic;
     signal ram_stalled: std_logic;
+    
+    signal rf_read_buffer_write_data : std_logic_vector(15 downto 0);
 begin
 
     
@@ -139,20 +141,24 @@ begin
         end if;
     end process;
     
-    instruction_fetch_shift_register : process(InstrLoad_CLK, Reset) is
+    with stalled_s select rf_read_buffer_write_data <=
+         X"0000" when '1',
+         Instruction when others;
+        
+    
+    
+    instruction_fetch_shift_register : process(InstrLoad_CLK, Reset, stalled_s) is
     begin
     if (Reset = '1') then
         rf_read_buffer <= X"0000";
         execution_buffer <= X"0000";
         write_back_buffer <= X"0000";
         output_buffer <= X"0000";
-    elsif (stalled_s = '1') then
-        rf_read_buffer <= X"0000";
     elsif (rising_edge(InstrLoad_CLK) and taking_data) then
         output_buffer <= write_back_buffer;
         write_back_buffer <= execution_buffer;
         execution_buffer <= rf_read_buffer;
-        rf_read_buffer <= Instruction;
+        rf_read_buffer <= rf_read_buffer_write_data;
     end if;
     end process instruction_fetch_shift_Register;
     
