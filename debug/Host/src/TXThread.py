@@ -19,9 +19,32 @@ class TXThread(threading.Thread):
                 q = self.debugWindow.get_command_queue()
                 if not q.empty():
                     command_list = q.get()
-                    for command in command_list:
-                        self.ser.write(command)
-                        print(f"sended command: {command.hex()}")
+                    readback_correct = False
+                    while (not readback_correct):
+                        for command in command_list:
+                            self.ser.write(command)
+                            print(f"sended command: {command.hex()}")
+                        # readback test
+                        readback_data = self.ser.read(5)
+                        print(f"Readback: {readback_data.hex()}")
+                        if len(command_list) == 5:
+                            print("5")
+                            if readback_data[0:1] == command_list[0] and readback_data[1:2] == command_list[1] and readback_data[2:3] == command_list[2] and readback_data[3:4] == command_list[3] and readback_data[4:5] == command_list[4]:
+                                readback_correct = True
+                        elif len(command_list) == 3:
+                            print("3")
+                            if readback_data[0:1] == command_list[0] and readback_data[3:4] == command_list[1] and readback_data[4:5] == command_list[2]:
+                                readback_correct = True
+                        else:
+                            print("1")
+                            if readback_data[0:1] == command_list[0]:
+                                readback_correct = True
+                        # increase failures
+                        if not readback_correct:
+                            self.failures += 1
+                    # send ack command
+                    self.ser.write(b'\x0e')
+
                     print("Waiting for response...")
                     self.rx_no_loop(self.ser, self.debugWindow)
                     print("Response received")
@@ -86,4 +109,3 @@ class TXThread(threading.Thread):
             rx_data = ser.read()
             print(f"Received: {format(ord(rx_data), '02x')}")
             (byte_counter, command_instruction) = self.process_command(rx_data, byte_counter, command_instruction, debugWindow)
-
