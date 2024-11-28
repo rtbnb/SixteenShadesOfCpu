@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 28 16:00:29 2024
+--Date        : Thu Nov 28 22:20:17 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
@@ -35,14 +35,14 @@ entity main_block_wrapper is
     btn18 : in STD_LOGIC;
     btn19 : in STD_LOGIC;
     clk100mhz_in : in STD_LOGIC;
+    debugClk : out STD_LOGIC;
+    debugMockClk : in STD_LOGIC;
     debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     debug_clk : in STD_LOGIC;
-    debug_clk_1 : out STD_LOGIC;
     debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_enable : in STD_LOGIC;
-    debug_mock_clk_1 : in STD_LOGIC;
     debug_override_enable : in STD_LOGIC;
     debug_reset : in STD_LOGIC;
     debug_we : in STD_LOGIC;
@@ -85,9 +85,9 @@ entity main_block_wrapper is
     rgb2 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rgb3 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rho : out STD_LOGIC;
+    vgaClk : out STD_LOGIC;
     vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vga_clk : in STD_LOGIC;
-    vga_clk_1 : out STD_LOGIC;
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
 end main_block_wrapper;
@@ -103,25 +103,6 @@ architecture STRUCTURE of main_block_wrapper is
     debug_reset : in STD_LOGIC;
     gpu_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    gram_we : in STD_LOGIC;
-    iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_enable : in STD_LOGIC;
-    debug_override_enable : in STD_LOGIC;
-    debug_clk : in STD_LOGIC;
-    debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    debug_we : in STD_LOGIC;
-    gpu_clk : in STD_LOGIC;
-    gpu_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gpu_din : in STD_LOGIC_VECTOR ( 11 downto 0 );
-    gpu_we : in STD_LOGIC;
-    vga_clk : in STD_LOGIC;
-    vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_mock_clk_1 : in STD_LOGIC;
     btn00 : in STD_LOGIC;
     btn01 : in STD_LOGIC;
     btn02 : in STD_LOGIC;
@@ -167,9 +148,28 @@ architecture STRUCTURE of main_block_wrapper is
     rgb2 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rgb3 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rho : out STD_LOGIC;
+    vgaClk : out STD_LOGIC;
+    debugClk : out STD_LOGIC;
+    debugMockClk : in STD_LOGIC;
+    vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    vga_clk : in STD_LOGIC;
+    gpu_we : in STD_LOGIC;
+    gpu_din : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    gpu_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpu_clk : in STD_LOGIC;
+    debug_we : in STD_LOGIC;
+    debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_clk : in STD_LOGIC;
+    debug_override_enable : in STD_LOGIC;
+    iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_enable : in STD_LOGIC;
     gram_oe : in STD_LOGIC;
-    vga_clk_1 : out STD_LOGIC;
-    debug_clk_1 : out STD_LOGIC
+    gram_we : in STD_LOGIC;
+    gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component main_block;
 begin
@@ -196,14 +196,14 @@ main_block_i: component main_block
       btn18 => btn18,
       btn19 => btn19,
       clk100mhz_in => clk100mhz_in,
+      debugClk => debugClk,
+      debugMockClk => debugMockClk,
       debug_addr(15 downto 0) => debug_addr(15 downto 0),
       debug_bank(3 downto 0) => debug_bank(3 downto 0),
       debug_clk => debug_clk,
-      debug_clk_1 => debug_clk_1,
       debug_din(15 downto 0) => debug_din(15 downto 0),
       debug_dout(15 downto 0) => debug_dout(15 downto 0),
       debug_enable => debug_enable,
-      debug_mock_clk_1 => debug_mock_clk_1,
       debug_override_enable => debug_override_enable,
       debug_reset => debug_reset,
       debug_we => debug_we,
@@ -246,9 +246,9 @@ main_block_i: component main_block
       rgb2(2 downto 0) => rgb2(2 downto 0),
       rgb3(2 downto 0) => rgb3(2 downto 0),
       rho => rho,
+      vgaClk => vgaClk,
       vga_addr(15 downto 0) => vga_addr(15 downto 0),
       vga_clk => vga_clk,
-      vga_clk_1 => vga_clk_1,
       vga_dout(11 downto 0) => vga_dout(11 downto 0)
     );
 end STRUCTURE;

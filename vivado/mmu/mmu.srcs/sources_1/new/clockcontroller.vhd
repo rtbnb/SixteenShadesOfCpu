@@ -24,7 +24,7 @@ end clockcontroller;
 
 architecture Behavioral of clockcontroller is
     attribute X_INTERFACE_PARAMETER: string;
-    attribute X_INTERFACE_INFO      :STRING;  
+    attribute X_INTERFACE_INFO      :string;  
     
     attribute X_INTERFACE_INFO      of debugClk     :signal is "xilinx.com:signal:clock:1.0 debug_clk CLK";
     attribute X_INTERFACE_PARAMETER of debugClk     :SIGNAL is "FREQ_HZ 50000000";
