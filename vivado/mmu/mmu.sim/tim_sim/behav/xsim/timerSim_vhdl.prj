@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../mmu.srcs/sources_1/new/mmio.vhd" \
+"../../../../mmu.srcs/tim_sim/new/timerSim.vhd" \
+
+# Do not sort compile order
+nosort
