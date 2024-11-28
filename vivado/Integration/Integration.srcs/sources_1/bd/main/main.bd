@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xE17EC58655D84C22",
+      "boundary_crc": "0x36462CDFBC4BB700",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -41,15 +41,6 @@
       "Reset": {
         "type": "rst",
         "direction": "I"
-      },
-      "clk100mhz_in": {
-        "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "FREQ_HZ": {
-            "value": "100000000"
-          }
-        }
       },
       "RX_UART_IN": {
         "direction": "I"
@@ -128,6 +119,15 @@
       },
       "btn03": {
         "direction": "I"
+      },
+      "clk100mhzIn": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          }
+        }
       }
     },
     "components": {
@@ -301,32 +301,32 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "Instruction": {
+          "instruction": {
             "direction": "I",
             "left": "15",
             "right": "0"
           },
-          "Register1": {
+          "register1": {
             "direction": "O",
             "left": "3",
             "right": "0"
           },
-          "Register2": {
+          "register2": {
             "direction": "O",
             "left": "3",
             "right": "0"
           },
-          "WriteBackRegister": {
+          "writeBackRegister": {
             "direction": "O",
             "left": "3",
             "right": "0"
           },
-          "Immediate": {
+          "immediate": {
             "direction": "O",
             "left": "15",
             "right": "0"
           },
-          "JMP_Condition": {
+          "jmpCondition": {
             "direction": "O",
             "left": "2",
             "right": "0"
@@ -2244,33 +2244,32 @@
       },
       "Decoder_0_Immediate": {
         "ports": [
-          "Decoder_0/Immediate",
+          "Decoder_0/immediate",
           "Pipelining_Execution_0/Immediate"
         ]
       },
       "Decoder_0_JMP_Condition": {
         "ports": [
-          "Decoder_0/JMP_Condition",
           "Pipelining_Execution_0/JMP_Condition"
         ]
       },
       "Decoder_0_Register1": {
         "ports": [
-          "Decoder_0/Register1",
+          "Decoder_0/register1",
           "RegFile_0/AddrReg1",
           "Debugger_0/regfile_addr_reg1"
         ]
       },
       "Decoder_0_Register2": {
         "ports": [
-          "Decoder_0/Register2",
+          "Decoder_0/register2",
           "RegFile_0/AddrReg2",
           "Debugger_0/regfile_addr_reg2"
         ]
       },
       "Decoder_0_WriteBackRegister": {
         "ports": [
-          "Decoder_0/WriteBackRegister",
+          "Decoder_0/writeBackRegister",
           "Pipelining_Execution_0/WriteAddress"
         ]
       },
@@ -2322,8 +2321,8 @@
         "ports": [
           "Pipelining_Controller_0/InstructionToExecute",
           "CU_Decoder_0/Instruction",
-          "Decoder_0/Instruction",
-          "Debugger_0/pipeline_current_instruction"
+          "Debugger_0/pipeline_current_instruction",
+          "Decoder_0/instruction"
         ]
       },
       "Pipelining_Controller_0_Stalled": {
@@ -2687,9 +2686,9 @@
           "mmio_0/btn03"
         ]
       },
-      "clk100mhz_in_1": {
+      "clk100mhzIn_1": {
         "ports": [
-          "clk100mhz_in",
+          "clk100mhzIn",
           "clockcontroller_0/clk100mhzIn"
         ]
       },
