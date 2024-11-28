@@ -2424,8 +2424,8 @@
           "VGA_CPU_Bridge_0/InstrLoad_CLK",
           "ProgramCounter_0/InstrLoad_CLK",
           "mmu_0/load_clk",
-          "mmio_0/clk50mhz_in",
-          "custom_BUFH_0/clkIn"
+          "custom_BUFH_0/clkIn",
+          "mmio_0/clk50mhz_in"
         ]
       },
       "Net": {
