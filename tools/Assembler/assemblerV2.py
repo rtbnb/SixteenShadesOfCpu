@@ -1,5 +1,6 @@
 
 from enum import Enum
+import re
 
 class ArgumentType(Enum):
     REGISTER = 0,
@@ -34,11 +35,12 @@ class Argument():
                     raise Exception(f"Error in Instruction: {asm_instruction}\nRegister {reg_name} is not an existing register!")
                 return current_binary | ((reg_index & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
             case ArgumentType.NUMBER:
-                return current_binary | ((int(argument, 16 if "0x" in argument else 2 if "0b" in argument else 10) & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
+                num = parse_int(argument)
+                return current_binary | ((num & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
 
 
 #asm_file = "architektur/Programme/pong/pong.asm"
-asm_file = "architektur/TestProgramme/TestProgram1.asm"
+asm_file = "architektur/Programme/pong/pong.asm"
 asm_file_name = ".".join(asm_file.split(".")[0:-1])
 
 instructions = {
@@ -62,19 +64,23 @@ def replace_defines(lines, defines=[]):
     not_define_lines = []
     for line in lines:
         if line.split(" ")[0] == '%define':
-            defines.append((line.split(" ")[1], " ".join(line.split(" ")[2:])))
+            define_str = line.split(" ")[1]
+            define_re = re.compile(f"(?<=[[,\s]){define_str}(?=(([[\],\s]|$)))")
+            defines.append((define_re, " ".join(line.split(" ")[2:]), define_str))
         else:
             not_define_lines.append(line)
     defined = []
     define_used = False
+    print(defines)
     for line in not_define_lines:
         s = line
         for define in defines:
-            s = s.replace(define[0], define[1])
+            s = re.sub(define[0], define[1], s)
+            #s = s.replace(define[0], define[1])
         defined.append(s)
         if s != line:
             define_used = True
-
+    print(defined)
     return replace_defines(defined, defines) if define_used else defined
     
 def strip_file(lines: list[str]):
@@ -86,13 +92,18 @@ def strip_file(lines: list[str]):
     return stripped_lines
 
 def parse_int(raw:str) -> int:
-    if "0x" in raw:
-        data = int(raw, 16)
-    elif "0b" in raw:
-        data = int(raw, 2)
+    if not ("[" in raw and "]" in raw):
+        if "0x" in raw:
+            data = int(raw, 16)
+        elif "0b" in raw:
+            data = int(raw, 2)
+        else:
+            data = int(raw, 10)
+        return data
     else:
-        data = int(raw, 10)
-    return data
+        data = parse_int(raw.split("[")[0])
+        index = raw.split("[")[1].split("]")[0]
+        return (data >> (parse_int(index) * 8)) & 0xff
 
 def parse_data_region(raw_data: str) -> None:
     split_data = raw_data.split(",")
@@ -107,7 +118,8 @@ def replace_variables(code_region:list[str], known_variables:dict) -> list[str]:
     for line in code_region:
         s = line
         for variable_name in known_variables:
-            s = s.replace(variable_name, str(known_variables[variable_name]))
+            s = re.sub(known_variables[variable_name][0], str(known_variables[variable_name][1]), s)
+            #s = s.replace(variable_name, str(known_variables[variable_name]))
         replaced.append(s)
 
     return replaced
@@ -117,7 +129,9 @@ def replace_jump_regions(code_region: list[str]) -> list[str]:
     new_code_region = []
     for line in code_region:
         if line[0] == ".":
-            labels[line[1:]] = len(new_code_region)
+            label_str = line[1:]
+            label_re = re.compile(f"(?<=[,\s]){label_str}(?=(([[,\s]|$)))")
+            labels[line[1:]] = (label_re, len(new_code_region))
         else:
             new_code_region.append(line)
 
@@ -126,10 +140,21 @@ def replace_jump_regions(code_region: list[str]) -> list[str]:
     for line in new_code_region:
         s = line
         for label in labels:
-            s = s.replace(label, str(labels[label]))
+            s = re.sub(labels[label][0], str(labels[label][1]), s)
         new_new_code_region.append(s)
 
     return new_new_code_region
+
+def data2bin(data_image, file_name) -> None:
+    byte_data = []
+    for data in data_image:
+        if type(data) == str:
+            data = parse_int(data)
+        byte_data.append((data >> 8) & 0xff)
+        byte_data.append(data & 0xff)
+
+    with open(file_name, "wb") as f:
+        f.write(bytes(byte_data))
 
 if __name__ == "__main__":
     file_content = ""
@@ -163,6 +188,7 @@ if __name__ == "__main__":
 
     code_region = []
     code_region.insert(0, "NOP")
+    gram_image = []
 
     for region in regions:
         region_type = region[0].split("[")[0]
@@ -170,9 +196,20 @@ if __name__ == "__main__":
             region_begin = 0
             if "[" in region[0]:
                 begin_str = region[0].split("[")[1].split("]")[0]
+
                 region_begin = parse_int(begin_str)
-            region_save_path = asm_file_name + "_" + region_type + ".bin"
-            parse_data_region("".join(file_content[region[1]:region[2]]), region_begin, region_save_path)
+            region_data ="".join(file_content[region[1]:region[2]])
+            region_data = re.sub("\s", "", region_data)
+            region_data = region_data.split(",")
+            while region_begin >= len(gram_image):
+                gram_image.append(0)
+            for i in range(len(region_data)):
+                index = i + region_begin
+                while index >= len(gram_image):
+                    gram_image.append(0)
+                gram_image[i + region_begin] = parse_int(region_data[i])
+            #region_save_path = asm_file_name + "_" + region_type + ".bin"
+            #parse_data_region(, region_begin, region_save_path)
         elif region_type == "gram_variables":
             raw_variables = file_content[region[1]:region[2]]
             variable_initial_values = []
@@ -180,14 +217,21 @@ if __name__ == "__main__":
                 raw_variable = raw_variables[r]
                 name = raw_variable.split(":")[0].strip()
                 initial_value = raw_variable.split(":")[1].strip()
-                known_variables[name] = r
-                variable_initial_values.append(initial_value)
-            region_save_path = asm_file_name + "_" + region_type + ".bin"            
-            parse_data_region(",".join(variable_initial_values), 0, region_save_path)
+                name_re = re.compile(f"(?<=[,\s]){name}(?=(([[,\s]|$)))")
+                known_variables[name] = (name_re, r)
+                while r >= len(gram_image):
+                    gram_image.append(0)
+                gram_image[r] = initial_value
+                #gram_image.insert(r, initial_value)
+            region_save_path = asm_file_name + "_" + region_type + ".bin"
+            #parse_data_region(",".join(variable_initial_values), 0, region_save_path)
         elif region_type == "code":
             code_region.extend(file_content[region[1]:region[2]])
 
     print(known_variables)
+    print(gram_image)
+
+    data2bin(gram_image, asm_file_name + "_gram.bin")
 
     code_region = replace_variables(code_region, known_variables)
 
