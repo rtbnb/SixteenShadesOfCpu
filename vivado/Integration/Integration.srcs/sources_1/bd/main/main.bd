@@ -1124,11 +1124,12 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "50000000"
+                "value": "50000000",
+                "value_src": "constant"
               }
             }
           },
-          "ck_stable": {
+          "clk100mhz_out": {
             "direction": "O"
           }
         }
@@ -1145,9 +1146,6 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "ck_stable": {
-            "direction": "I"
-          },
           "load_clk": {
             "type": "clk",
             "direction": "I"
@@ -1356,6 +1354,12 @@
           "boundary_crc": "0x0"
         },
         "ports": {
+          "clk100mhz_in": {
+            "direction": "I"
+          },
+          "clk50mhz_in": {
+            "direction": "I"
+          },
           "clk": {
             "type": "clk",
             "direction": "I"
@@ -1586,7 +1590,7 @@
             "parameters": {
               "FREQ_HZ": {
                 "value": "50000000",
-                "value_src": "user_prop"
+                "value_src": "const_prop"
               },
               "CLK_DOMAIN": {
                 "value": "main_clockcontroller_0_0_debug_clk",
@@ -2420,6 +2424,7 @@
           "VGA_CPU_Bridge_0/InstrLoad_CLK",
           "ProgramCounter_0/InstrLoad_CLK",
           "mmu_0/load_clk",
+          "mmio_0/clk50mhz_in",
           "custom_BUFH_0/clkIn"
         ]
       },
@@ -2820,10 +2825,10 @@
           "clockcontroller_0/clk100mhz_in"
         ]
       },
-      "clockcontroller_0_ck_stable": {
+      "clockcontroller_0_clk100mhz_out": {
         "ports": [
-          "clockcontroller_0/ck_stable",
-          "mmu_0/ck_stable"
+          "clockcontroller_0/clk100mhz_out",
+          "mmio_0/clk100mhz_in"
         ]
       },
       "clockcontroller_0_vga_clk": {
