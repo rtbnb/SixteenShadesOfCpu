@@ -132,12 +132,11 @@ class DebugWindow(QtWidgets.QWidget):
         memory_get_all_button = QtWidgets.QPushButton(text="Fetch memory data")
 
     def clock_n_cycles(self, n: str):
-        command_list = []
+        command_list = [b"\x01"]
         if n.isnumeric() == False:
             return
         for i in range(int(n)):
-            command_list.append(b"\x01")
-        self.add_command_to_queue(command_list)
+            self.add_command_to_queue(command_list)
         
     
     def send_command_manuel(self, command_input_line_edit:QtWidgets.QLineEdit):
