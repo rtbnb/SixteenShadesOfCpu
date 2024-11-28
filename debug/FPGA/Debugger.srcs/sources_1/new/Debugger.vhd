@@ -46,7 +46,6 @@ entity Debugger is
         -- program counter
         pcDin: in std_logic_vector(15 downto 0);
         pcDout: in std_logic_vector(15 downto 0);
-        pcCurrentAddr: in std_logic_vector(15 downto 0);
         
         -- ALU
         aluDin1: in std_logic_vector(15 downto 0);
@@ -110,8 +109,6 @@ architecture Behavioral of Debugger is
     signal tx_instruction_buffer_s: std_logic_vector(7 downto 0) := x"00";
     signal tx_data_buffer_s: std_logic_vector(15 downto 0) := x"0000";
     signal tx_addr_buffer_s: std_logic_vector(15 downto 0) := x"0000";
-    
-    signal pc_current_addr_buffer_s: std_logic_vector(15 downto 0) := x"FFFF";
 
     -- data buffers
     -- pipeline
@@ -126,7 +123,6 @@ architecture Behavioral of Debugger is
     -- program counter
     signal pc_din_s: std_logic_vector(15 downto 0);
     signal pc_dout_s: std_logic_vector(15 downto 0);
-    signal pc_current_addr_s: std_logic_vector(15 downto 0);
     -- ALU
     signal alu_din1_s: std_logic_vector(15 downto 0);  
     signal alu_din2_s: std_logic_vector(15 downto 0);
@@ -184,7 +180,6 @@ begin
                         -- program counter signal request
                         when x"20" => state_s <= Readback;
                         when x"21" => state_s <= Readback;
-                        when x"22" => state_s <= Readback;
                         -- memory
                         when x"30" => state_s <= ReceiveInstructionDataHIGH;
                         when x"31" => state_s <= ReceiveInstructionDataHIGH;
@@ -285,7 +280,6 @@ begin
                     pipeline_ram_src_read_write_bankid_s(6 downto 3) <= pipelineRamBankid;
                     pc_din_s <= pcDin;
                     pc_dout_s <= pcDout;
-                    pc_current_addr_s <= pc_current_addr_buffer_s;
                     alu_din1_s <= aluDin1;
                     alu_din2_s <= aluDin2;
                     alu_out_s <= aluOut;
@@ -372,10 +366,6 @@ begin
                         when x"21" =>
                             tx_instruction_buffer_s <= x"21";
                             tx_data_buffer_s <= pc_dout_s;
-                            state_s <= TransmitDataInstructionSHORT;
-                        when x"22" =>
-                            tx_instruction_buffer_s <= x"22";
-                            tx_data_buffer_s <= pc_current_addr_s;
                             state_s <= TransmitDataInstructionSHORT;
                         -- memmory
                         when x"30" =>

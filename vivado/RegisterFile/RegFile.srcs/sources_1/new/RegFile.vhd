@@ -2,7 +2,7 @@
 -- Create Date: 06.11.2024 13:50:44
 -- Name: Nico
 -- Design Name: ShadeCpu
--- Module Name: reg_f_sile - Behavioral
+-- Module Name: RegFile - Behavioral
 -- Project Name: ShadeCpu-1
 -- Target Devices: Arty A7-35T Development Board
 -- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
@@ -11,7 +11,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity reg_f_sile is
+entity RegFile is
     port (
         AddrReg1: in std_logic_vector(3 downto 0);
         AddrReg2: in std_logic_vector(3 downto 0);
@@ -26,9 +26,9 @@ entity reg_f_sile is
         Reg2Data: out std_logic_vector(15 downto 0);
         BankID: out std_logic_vector(3 downto 0)
     );
-end entity reg_f_sile;
+end entity RegFile;
 
-architecture Behavioral of reg_f_sile is
+architecture Behavioral of RegFile is
     signal reg0_s, reg1_s, reg2_s, reg3_s, reg4_s, reg5_s, reg6_s, reg7_s, reg8_s, reg9_s, reg_a_s, reg_b_s, reg_c_s, reg_d_s, reg_e_s, reg_f_s: std_logic_vector(15 downto 0) := (others => '0');
 begin
     BankID <= reg_b_s(3 downto 0);
