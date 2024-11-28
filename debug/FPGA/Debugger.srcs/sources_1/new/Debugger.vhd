@@ -112,7 +112,7 @@ end Debugger;
 
 architecture Behavioral of Debugger is
     -- state machine
-    type state_types is (Idle,
+    type state_types is (Idle, Readback, ReadbackAck,
         ReceivePreCommandDecission, ReceiveInstructionDataHIGH, ReceiveInstructionDataLOW, ReceiveInstructionData2HIGH, ReceiveInstructionData2LOW,
         HoldClock, BufferState, ProcessCommand,
         TransmitDataInstruction, TransmitDataHIGH, TransmitDataLOW, TransmitDataAddrHIGH, TransmitDataAddrLOW, ResetTX,
@@ -132,6 +132,9 @@ architecture Behavioral of Debugger is
     signal rx_instruction_buffer: std_logic_vector(7 downto 0);
     signal rx_instruction_data_buffer: std_logic_vector(15 downto 0);
     signal rx_instruction_data2_buffer: std_logic_vector(15 downto 0);
+    signal rx_instruction_buffer_ack: std_logic_vector(7 downto 0);
+    signal rx_instruction_data_buffer_ack: std_logic_vector(15 downto 0);
+    signal rx_instruction_data2_buffer_ack: std_logic_vector(15 downto 0);
     
     -- tx data buffer
     signal tx_instruction_buffer: std_logic_vector(7 downto 0) := x"00";
@@ -198,29 +201,30 @@ begin
                 when ReceivePreCommandDecission =>
                     case rx_instruction_buffer is
                         -- general
-                        when x"00" => state <= HoldClock;
-                        when x"01" => state <= HoldClock;
-                        when x"02" => state <= HoldClock;
-                        when x"03" => state <= HoldClock;
+                        when x"00" => state <= Readback;
+                        when x"01" => state <= Readback;
+                        when x"02" => state <= Readback;
+                        when x"03" => state <= Readback;
+                        when x"0E" => state <= ReadbackAck;
                         -- pipeline signal request
-                        when x"10" => state <= HoldClock;
-                        when x"11" => state <= HoldClock;
-                        when x"12" => state <= HoldClock;
-                        when x"13" => state <= HoldClock;
-                        when x"14" => state <= HoldClock;
-                        when x"15" => state <= HoldClock;
-                        when x"16" => state <= HoldClock;
-                        when x"17" => state <= HoldClock;
-                        when x"18" => state <= HoldClock;
-                        when x"19" => state <= HoldClock;
-                        when x"1A" => state <= HoldClock;
-                        when x"1B" => state <= HoldClock;
-                        when x"1C" => state <= HoldClock;
-                        when x"1D" => state <= HoldClock;
+                        when x"10" => state <= Readback;
+                        when x"11" => state <= Readback;
+                        when x"12" => state <= Readback;
+                        when x"13" => state <= Readback;
+                        when x"14" => state <= Readback;
+                        when x"15" => state <= Readback;
+                        when x"16" => state <= Readback;
+                        when x"17" => state <= Readback;
+                        when x"18" => state <= Readback;
+                        when x"19" => state <= Readback;
+                        when x"1A" => state <= Readback;
+                        when x"1B" => state <= Readback;
+                        when x"1C" => state <= Readback;
+                        when x"1D" => state <= Readback;
                         -- program counter signal request
-                        when x"20" => state <= HoldClock;
-                        when x"21" => state <= HoldClock;
-                        when x"22" => state <= HoldClock;
+                        when x"20" => state <= Readback;
+                        when x"21" => state <= Readback;
+                        when x"22" => state <= Readback;
                         -- memory
                         when x"30" => state <= ReceiveInstructionDataHIGH;
                         when x"31" => state <= ReceiveInstructionDataHIGH;
@@ -230,24 +234,24 @@ begin
                         when x"35" => state <= ReceiveInstructionData2HIGH; -- vram read
                         when x"36" => state <= ReceiveInstructionData2HIGH; -- gram read
                         when x"37" => state <= ReceiveInstructionData2HIGH; -- mmio read
-                        when x"38" => state <= HoldClock;
+                        when x"38" => state <= Readback;
                         -- alu signal request
-                        when x"40" => state <= HoldClock;
-                        when x"41" => state <= HoldClock;
-                        when x"42" => state <= HoldClock;
-                        when x"43" => state <= HoldClock;
-                        when x"44" => state <= HoldClock;
+                        when x"40" => state <= Readback;
+                        when x"41" => state <= Readback;
+                        when x"42" => state <= Readback;
+                        when x"43" => state <= Readback;
+                        when x"44" => state <= Readback;
                         -- regfile signal request
-                        when x"50" => state <= HoldClock;
-                        when x"51" => state <= HoldClock;
-                        when x"52" => state <= HoldClock;
-                        when x"53" => state <= HoldClock;
-                        when x"54" => state <= HoldClock;
-                        when x"55" => state <= HoldClock;
-                        when x"56" => state <= HoldClock;
-                        when x"57" => state <= HoldClock;
-                        when x"58" => state <= HoldClock;
-                        when x"59" => state <= HoldClock;
+                        when x"50" => state <= Readback;
+                        when x"51" => state <= Readback;
+                        when x"52" => state <= Readback;
+                        when x"53" => state <= Readback;
+                        when x"54" => state <= Readback;
+                        when x"55" => state <= Readback;
+                        when x"56" => state <= Readback;
+                        when x"57" => state <= Readback;
+                        when x"58" => state <= Readback;
+                        when x"59" => state <= Readback;
                         -- others
                         when others => 
                             -- send error message
@@ -280,10 +284,24 @@ begin
                 when ReceiveInstructionData2LOW =>
                     if (rx_data_valid = '1') then
                         rx_instruction_data2_buffer(7 downto 0) <= rx_data;
-                        state <= HoldClock;
+                        state <= Readback;
                     else
                         state <= ReceiveInstructionData2LOW;
                     end if;
+                -- readback
+                when Readback =>
+                    rx_instruction_buffer_ack <= rx_instruction_buffer;
+                    rx_instruction_data_buffer_ack <= rx_instruction_data_buffer;
+                    rx_instruction_data2_buffer_ack <= rx_instruction_data2_buffer;
+                    tx_instruction_buffer <= rx_instruction_buffer;
+                    tx_data_buffer <= rx_instruction_data_buffer;
+                    tx_addr_buffer <= rx_instruction_data2_buffer;
+                    state <= TransmitDataInstruction;
+                when ReadbackAck =>
+                        rx_instruction_buffer <= rx_instruction_buffer_ack;
+                        rx_instruction_data_buffer <= rx_instruction_data_buffer_ack;
+                        rx_instruction_data2_buffer <= rx_instruction_data2_buffer_ack;
+                        state <= HoldClock;
                 -- command processing states
                 when HoldClock =>
                     debug_enable <= '1';
