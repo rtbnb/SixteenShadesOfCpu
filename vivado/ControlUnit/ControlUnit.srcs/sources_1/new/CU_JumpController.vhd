@@ -38,10 +38,12 @@ entity CU_JumpController is
            JMP_Relative : in STD_LOGIC;
            JMP_Condition : in STD_LOGIC_VECTOR (2 downto 0);
            Flags : in STD_LOGIC_VECTOR (15 downto 0);
+           RhoPin: in std_logic;
            JMP_Address : in STD_LOGIC_VECTOR (15 downto 0);
            PC_Current : in STD_LOGIC_VECTOR (15 downto 0);
            PC_Load : out STD_LOGIC;
-           PC_Next : out STD_LOGIC_VECTOR (15 downto 0));
+           PC_Next : out STD_LOGIC_VECTOR (15 downto 0)
+           );
 end entity CU_JumpController;
 
 architecture Behavioral of CU_JumpController is
@@ -82,7 +84,7 @@ begin
         smaller_zero_flag WHEN "010",
         bigger_zero_flag WHEN "011",
         overflow_flag WHEN "100",
-        rho_flag WHEN "101",
+        RhoPin WHEN "101",
         not_zero_flag WHEN "110",
         '1' WHEN "111",
         '0' WHEN OTHERS;
