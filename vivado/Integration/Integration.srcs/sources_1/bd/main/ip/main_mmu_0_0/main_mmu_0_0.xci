@@ -37,7 +37,6 @@
     },
     "boundary": {
       "ports": {
-        "ck_stable": [ { "direction": "in" } ],
         "load_clk": [ { "direction": "in" } ],
         "gram_addr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
         "gram_din": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],

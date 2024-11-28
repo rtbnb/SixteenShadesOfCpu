@@ -19,6 +19,25 @@ vivado/*/*.runs/impl_1/*.jou
 vivado/*/*.runs/impl_1/*.txt
 vivado/*/*.runs/impl_1/*.xml
 
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.do
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.bda
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.v
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.udo
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.tcl
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.opt
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.var
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.prj
+vivado/*/*.ip_user_files/sim_scripts/main/*/*.ini
+vivado/*/*.ip_user_files/sim_scripts/main/*/protoinst_files/*.protoinst
+
+
+vivado/*/*.ip_user_files/bd/main/ip/*/sim/*.vhd
+vivado/*/*.ip_user_files/bd/main/ip/*/sim/*.v
+vivado/*/*.ip_user_files/bd/main/ip/*/*.xci
+/vivado/*/*.ip_user_files/bd/main/sim/main.vhd
+/vivado/*/*.ip_user_files/bd/main/sim/main.protoinst
+
+
 vivado/*/*.runs/synth_1/*
 vivado/**/README.txt
 vivado/*/*.sim/*/synth/func/xsim/xsim.dir/*
@@ -37,3 +56,5 @@ vivado/*/*.gen/sources_1/bd/main_block/op/main_block_controller_0_0/**
 
 .venv/
 __pycache__/
+
+
