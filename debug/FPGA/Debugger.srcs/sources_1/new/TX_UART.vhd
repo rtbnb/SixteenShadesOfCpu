@@ -1,168 +1,147 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 15.11.2024 16:43:36
--- Design Name: 
+-- Name: Nico
+-- Design Name: ShadeCpu
 -- Module Name: TX_UART - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
 entity TX_UART is
     generic (
-        CLKS_PER_BIT: integer := 434 -- (clock Frequency) / (Baud Rate) => 50000000 / 9600
+        CLKS_PER_BIT_G: integer := 434 -- (clock Frequency) / (Baud Rate) => 50000000 / 9600
     );
     Port (
-        data_valid: in std_logic; -- rising edge to start the writing process
-        data_in: in std_logic_vector(7 downto 0);
+        dataValid: in std_logic; -- rising edge to start the writing process
+        dataIn: in std_logic_vector(7 downto 0);
         clk: in std_logic;
-        tx_output: out std_logic;
-        send_valid: out std_logic
+        txOutput: out std_logic;
+        sendValid: out std_logic
     );
 end TX_UART;
 
 architecture Behavioral of TX_UART is
-    type state_type is (Idle, Start_TX, Bit0, Bit1, Bit2, Bit3, Bit4, Bit5, Bit6, Bit7, Stop_Bit, Reset);
-    signal current_state: state_type := Idle;
-    signal clk_cnt: integer range 0 to CLKS_PER_BIT - 1 := 0;
-    signal tx_data: std_logic_vector(7 downto 0);
-    signal tx_data_out: std_logic;
+    type state_type is (Idle, StartTX, Bit0, Bit1, Bit2, Bit3, Bit4, Bit5, Bit6, Bit7, StopBit, Reset);
+    signal state_s: state_type := Idle;
+    signal clk_cnt_s: integer range 0 to CLKS_PER_BIT_G - 1 := 0;
+    signal tx_data_s: std_logic_vector(7 downto 0);
+    signal tx_data_out_s: std_logic;
 begin
-    tx_output <= tx_data_out;    
-    tx: process(clk, current_state) begin
+    txOutput <= tx_data_out_s;
+    tx: process(clk, state_s) is
+    begin
         if rising_edge(clk) then
-            case current_state is
+            case state_s is
                 when Idle =>
-                    if (data_valid = '1') then
-                        tx_data <= data_in;
-                        current_state <= Start_TX;
-                        clk_cnt <= 0;
-                        tx_data_out <= '1';
+                    if (dataValid = '1') then
+                        tx_data_s <= dataIn;
+                        state_s <= StartTX;
+                        clk_cnt_s <= 0;
+                        tx_data_out_s <= '1';
                     else
-                        current_state <= Idle;
-                        tx_data_out <= '1';
+                        state_s <= Idle;
+                        tx_data_out_s <= '1';
                     end if;
-                when Start_TX =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Bit0;
-                        clk_cnt <= 0;
+                when StartTX =>
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Bit0;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Start_TX;
-                        tx_data_out <= '0';
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= StartTX;
+                        tx_data_out_s <= '0';
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Bit0 =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Bit1;
-                        clk_cnt <= 0;
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Bit1;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Bit0;
-                        tx_data_out <= tx_data(0);
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= Bit0;
+                        tx_data_out_s <= tx_data_s(0);
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Bit1 =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Bit2;
-                        clk_cnt <= 0;
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Bit2;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Bit1;
-                        tx_data_out <= tx_data(1);
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= Bit1;
+                        tx_data_out_s <= tx_data_s(1);
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Bit2 =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Bit3;
-                        clk_cnt <= 0;
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Bit3;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Bit2;
-                        tx_data_out <= tx_data(2);
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= Bit2;
+                        tx_data_out_s <= tx_data_s(2);
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Bit3 =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Bit4;
-                        clk_cnt <= 0;
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Bit4;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Bit3;
-                        tx_data_out <= tx_data(3);
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= Bit3;
+                        tx_data_out_s <= tx_data_s(3);
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Bit4 =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Bit5;
-                        clk_cnt <= 0;
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Bit5;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Bit4;
-                        tx_data_out <= tx_data(4);
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= Bit4;
+                        tx_data_out_s <= tx_data_s(4);
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Bit5 =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Bit6;
-                        clk_cnt <= 0;
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Bit6;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Bit5;
-                        tx_data_out <= tx_data(5);
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= Bit5;
+                        tx_data_out_s <= tx_data_s(5);
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Bit6 =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Bit7;
-                        clk_cnt <= 0;
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Bit7;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Bit6;
-                        tx_data_out <= tx_data(6);
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= Bit6;
+                        tx_data_out_s <= tx_data_s(6);
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Bit7 =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Stop_Bit;
-                        clk_cnt <= 0;
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= StopBit;
+                        clk_cnt_s <= 0;
                     else
-                        current_state <= Bit7;
-                        tx_data_out <= tx_data(7);
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= Bit7;
+                        tx_data_out_s <= tx_data_s(7);
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
-                when Stop_Bit =>
-                    if (clk_cnt = (CLKS_PER_BIT - 1)) then
-                        current_state <= Reset;
-                        clk_cnt <= 0;
-                        send_valid <= '1';
+                when StopBit =>
+                    if (clk_cnt_s = (CLKS_PER_BIT_G - 1)) then
+                        state_s <= Reset;
+                        clk_cnt_s <= 0;
+                        sendValid <= '1';
                     else
-                        current_state <= Stop_Bit;
-                        tx_data_out <= '1';
-                        clk_cnt <= clk_cnt + 1;
+                        state_s <= StopBit;
+                        tx_data_out_s <= '1';
+                        clk_cnt_s <= clk_cnt_s + 1;
                     end if;
                 when Reset =>
-                    current_state <= Idle;
-                    send_valid <= '0';
+                    state_s <= Idle;
+                    sendValid <= '0';
                 when others =>
             end case;
         end if;
     end process tx;
-
-
 end Behavioral;
