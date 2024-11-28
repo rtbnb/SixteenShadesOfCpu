@@ -1,179 +1,158 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 15.11.2024 11:13:30
--- Design Name: 
--- Module Name: UART - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Name: Nico
+-- Design Name: ShadeCpu
+-- Module Name: RX_UART - Behavioral
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
 entity RX_UART is
     generic (
-        CLKS_PER_BIT: integer := 434 -- (clock Frequency) / (Baud Rate) => 50000000 / 9600
+        CLKS_PER_BIT_G: integer := 434 -- (clock Frequency) / (Baud Rate) => 50000000 / 9600
     );
     Port (
         clk: in std_logic;
-        rx_serial_input: in std_logic;
-        data_output: out std_logic_vector(7 downto 0);
-        data_valid: out std_logic := '0'
+        rxSerialInput: in std_logic;
+        dataOutput: out std_logic_vector(7 downto 0);
+        dataValid: out std_logic := '0'
     );
 end RX_UART;
 
  architecture Behavioral of RX_UART is
-    type state_type is (Idle, Start_RX, Bit0, Bit1, Bit2, Bit3, Bit4, Bit5, Bit6, Bit7, StopBit, Reset);
-    signal current_state: state_type := Idle;
-    signal rx_data_in: std_logic;
-    signal rx_data_in_buf: std_logic;
-    signal data_out: std_logic_vector(7 downto 0) := (others => '0');
-    signal clock_cnt: integer range 0 to CLKS_PER_BIT - 1 := 0;
+    type state_type is (Idle, StartRX, Bit0, Bit1, Bit2, Bit3, Bit4, Bit5, Bit6, Bit7, StopBit, Reset);
+    signal state_s: state_type := Idle;
+    signal rx_data_in_s: std_logic;
+    signal rx_data_in_buf_s: std_logic;
+    signal data_out_s: std_logic_vector(7 downto 0) := (others => '0');
+    signal clock_cnt_s: integer range 0 to CLKS_PER_BIT_G - 1 := 0;
 begin
     --data_output <= data_out;
-    buffer_data: process (clk)
+    buffer_data: process (clk) is
     begin
         if rising_edge(clk) then
             -- data buffering
-            rx_data_in_buf <= rx_serial_input;
-            rx_data_in <= rx_data_in_buf;
+            rx_data_in_buf_s <= rxSerialInput;
+            rx_data_in_s <= rx_data_in_buf_s;
         end if;
     end process buffer_data;
 
-    rx: process(clk)
+    rx: process(clk) is
     begin
         if rising_edge(clk) then
             -- state machine
-            case current_state is
+            case state_s is
                 when Idle =>
-                    clock_cnt <= 0;
-                    if (rx_data_in = '0') then
-                        current_state <= Start_RX;
-                        data_valid <= '0';
+                    clock_cnt_s <= 0;
+                    if (rx_data_in_s = '0') then
+                        state_s <= StartRX;
+                        dataValid <= '0';
                     else
-                        current_state <= Idle;
+                        state_s <= Idle;
                     end if;
-                when Start_RX =>
-                    if (clock_cnt = (CLKS_PER_BIT - 1) / 2) then
-                        if (rx_data_in = '0') then
-                            clock_cnt <= 0;
-                            current_state <= Bit0;
+                when StartRX =>
+                    if (clock_cnt_s = (CLKS_PER_BIT_G - 1) / 2) then
+                        if (rx_data_in_s = '0') then
+                            clock_cnt_s <= 0;
+                            state_s <= Bit0;
                         else
-                            current_state <= Idle;
+                            state_s <= Idle;
                         end if;
                     else
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Start_RX;
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= StartRX;
                     end if;
                 when Bit0 =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Bit0;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= Bit0;
                     else
-                        clock_cnt <= 0;
-                        data_out(0) <= rx_data_in;
-                        current_state <= Bit1;
+                        clock_cnt_s <= 0;
+                        data_out_s(0) <= rx_data_in_s;
+                        state_s <= Bit1;
                     end if;
                 when Bit1 =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Bit1;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= Bit1;
                     else
-                        clock_cnt <= 0;
-                        data_out(1) <= rx_data_in;
-                        current_state <= Bit2;
+                        clock_cnt_s <= 0;
+                        data_out_s(1) <= rx_data_in_s;
+                        state_s <= Bit2;
                     end if;
                 when Bit2 =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Bit2;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= Bit2;
                     else
-                        clock_cnt <= 0;
-                        data_out(2) <= rx_data_in;
-                        current_state <= Bit3;
+                        clock_cnt_s <= 0;
+                        data_out_s(2) <= rx_data_in_s;
+                        state_s <= Bit3;
                     end if;
                 when Bit3 =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Bit3;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= Bit3;
                     else
-                        clock_cnt <= 0;
-                        data_out(3) <= rx_data_in;
-                        current_state <= Bit4;
+                        clock_cnt_s <= 0;
+                        data_out_s(3) <= rx_data_in_s;
+                        state_s <= Bit4;
                     end if;
                 when Bit4 =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Bit4;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= Bit4;
                     else
-                        clock_cnt <= 0;
-                        data_out(4) <= rx_data_in;
-                        current_state <= Bit5;
+                        clock_cnt_s <= 0;
+                        data_out_s(4) <= rx_data_in_s;
+                        state_s <= Bit5;
                     end if;
                 when Bit5 =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Bit5;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= Bit5;
                     else
-                        clock_cnt <= 0;
-                        data_out(5) <= rx_data_in;
-                        current_state <= Bit6;
+                        clock_cnt_s <= 0;
+                        data_out_s(5) <= rx_data_in_s;
+                        state_s <= Bit6;
                     end if;
                 when Bit6 =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Bit6;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= Bit6;
                     else
-                        clock_cnt <= 0;
-                        data_out(6) <= rx_data_in;
-                        current_state <= Bit7;
+                        clock_cnt_s <= 0;
+                        data_out_s(6) <= rx_data_in_s;
+                        state_s <= Bit7;
                     end if;
                 when Bit7 =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= Bit7;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= Bit7;
                     else
-                        clock_cnt <= 0;
-                        data_out(7) <= rx_data_in;
-                        current_state <= StopBit;
+                        clock_cnt_s <= 0;
+                        data_out_s(7) <= rx_data_in_s;
+                        state_s <= StopBit;
                     end if;
                 when StopBit =>
-                    if (clock_cnt < CLKS_PER_BIT - 1) then
-                        clock_cnt <= clock_cnt + 1;
-                        current_state <= StopBit;
+                    if (clock_cnt_s < CLKS_PER_BIT_G - 1) then
+                        clock_cnt_s <= clock_cnt_s + 1;
+                        state_s <= StopBit;
                     else
-                        clock_cnt <= 0;
-                        data_output <= data_out;
-                        data_valid <= '1';
-                        current_state <= Reset;
+                        clock_cnt_s <= 0;
+                        dataOutput <= data_out_s;
+                        dataValid <= '1';
+                        state_s <= Reset;
                     end if;
                 when Reset =>
-                    current_state <= Idle;
-                    data_valid <= '0';
+                    state_s <= Idle;
+                    dataValid <= '0';
                 when others =>
             end case;
         end if;        
     end process rx;
-
 end Behavioral;
