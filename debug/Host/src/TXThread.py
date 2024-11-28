@@ -19,9 +19,28 @@ class TXThread(threading.Thread):
                 q = self.debugWindow.get_command_queue()
                 if not q.empty():
                     command_list = q.get()
-                    for command in command_list:
-                        self.ser.write(command)
-                        print(f"sended command: {command.hex()}")
+                    readback_correct = False
+                    while (not readback_correct):
+                        for command in command_list:
+                            self.ser.write(command)
+                            print(f"sended command: {command.hex()}")
+                        # readback test
+                        readback_data = self.ser.read(5)
+                        if len(command_list) == 5:
+                            if readback_data[0:1] == command_list[0] and readback_data[1:2] == command_list[1] and readback_data[2:3] == command_list[2] and readback_data[3:4] == command_list[3] and readback_data[4:5] == command_list[4]:
+                                readback_correct = True
+                        elif len(command_list) == 3:
+                            if readback_data[0:1] == command_list[0] and readback_data[1:2] == command_list[1] and readback_data[2:3] == command_list[2]:
+                                readback_correct = True
+                        else:
+                            if readback_data[0:1] == command_list[0]:
+                                readback_correct = True
+                        # increase failures
+                        if not readback_correct:
+                            self.failures += 1
+                    # send ack command
+                    self.ser.write(b'\x0e')
+
                     print("Waiting for response...")
                     self.rx_no_loop(self.ser, self.debugWindow)
                     print("Response received")
