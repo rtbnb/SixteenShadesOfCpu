@@ -35,9 +35,7 @@ entity clockcontroller is
     port(
         clk100mhz_in, fault_reset, debug_reset: in std_logic;
         debug_enable, debug_mock_clk, debug_mmu_override_enbale: in std_logic;
-        load_clk, vga_clk: out std_logic;
-        debug_clk: out std_logic; 
-        ck_stable: out std_logic
+        load_clk, vga_clk, debug_clk, clk100mhz_out: out std_logic
     );
 end clockcontroller;
 
@@ -60,9 +58,8 @@ architecture Behavioral of clockcontroller is
     signal clk50mhz_s, transfer_clk_s, load_clk_transfer_s: std_logic;
 begin
     output_en_s <= not (debug_en_s or debug_mmu_override_enbale);
-    ck_stable <= '1';
     
-    BUFR_inst1 : BUFR
+    clk50mhz_divider : BUFR
     generic map (
        BUFR_DIVIDE => "2",   -- Values: "BYPASS, 1, 2, 3, 4, 5, 6, 7, 8"
        SIM_DEVICE => "7SERIES"  -- Must be set to "7SERIES"
@@ -74,7 +71,7 @@ begin
        I => clk100mhz_in      -- 1-bit input: Clock buffer input driven by an IBUF, MMCM or local interconnect
     );
 
-    BUFGMUX_inst : BUFGMUX
+    load_clk_mux : BUFGMUX
     port map (
        O => load_clk_transfer_s,   -- 1-bit output: Clock output
        I0 => debug_mock_clk, -- 1-bit input: Clock input (S=0)
@@ -82,16 +79,22 @@ begin
        S => output_en_s     -- 1-bit input: Clock select
     );
     
-    BUFG_inst1: BUFG
+    clk50mhz_forwarder: BUFG
     port map (
        O => clk50mhz_s, -- 1-bit output: Clock output
        I => transfer_clk_s  -- 1-bit input: Clock input
     );
 
-    BUFG_inst2: BUFG
+    load_clk_forwarder: BUFG
     port map (
        O => load_clk, -- 1-bit output: Clock output
        I => load_clk_transfer_s  -- 1-bit input: Clock input
+    );
+    
+    clk100mhz_forwarder: BUFG
+    port map (
+        O => clk100mhz_out,
+        I => clk100mhz_in
     );
 
 --    BUFG_inst : BUFG
