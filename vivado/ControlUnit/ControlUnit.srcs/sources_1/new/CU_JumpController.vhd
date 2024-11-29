@@ -41,45 +41,46 @@ architecture Behavioral of CU_JumpController is
         );
     end component;
 
-    signal carryFlag, zeroFlag, smallerZeroFlag, biggerZeroFlag, overflowFlag, rhoFlag : std_logic;
-    signal notZeroFlag : std_logic;
-    signal jumpConditionFulfilled : std_logic;
-    signal relativeJumpDestination : std_logic_vector(15 downto 0);
-    signal jmpVerified : std_logic;
-    constant pcOffset : signed(15 downto 0) := "1111111111111111";
+    signal carry_flag_s, zero_flag_s, smaller_zero_flag_s, bigger_zero_flag_s, overflow_flag_s, rho_flag_s : std_logic;
+    signal not_zero_flag_s : std_logic;
+    signal jump_condition_fulfilled_s : std_logic;
+    signal relative_jump_destination_s : std_logic_vector(15 downto 0);
+    signal jmp_verified_s : std_logic;
+    constant PC_OFFSET : signed(15 downto 0) := "1111111111111111";
+
 
 begin
 
     FlagUnpackerInstance : FlagUnpacker port map(
         flags => flags,
-        carryFlag => carryFlag,
-        zeroFlag => zeroFlag,
-        smallerZeroFlag => smallerZeroFlag,
-        biggerZeroFlag => biggerZeroFlag,
-        overflowFlag => overflowFlag,
-        rhoFlag => rhoFlag
+        carryFlag => carry_flag_s,
+        zeroFlag => zero_flag_s,
+        smallerZeroFlag => smaller_zero_flag_s,
+        biggerZeroFlag => bigger_zero_flag_s,
+        overflowFlag => overflow_flag_s,
+        rhoFlag => rho_flag_s
     );
 
-    notZeroFlag <= not zeroFlag;
+    not_zero_flag_s <= not zero_flag_s;
 
     with jmpCondition select
-        jumpConditionFulfilled <= carryFlag         when "000",
-                                  zeroFlag          when "001",
-                                  smallerZeroFlag   when "010",
-                                  biggerZeroFlag    when "011",
-                                  overflowFlag      when "100",
-                                  rhoPin            when "101",
-                                  notZeroFlag       when "110",
-                                  '1'               when "111",
-                                  '0'               when others;
+        jump_condition_fulfilled_s <= carry_flag_s         when "000",
+        zero_flag_s          when "001",
+        smaller_zero_flag_s  when "010",
+        bigger_zero_flag_s   when "011",
+        overflow_flag_s      when "100",
+        rhoPin               when "101",
+        not_zero_flag_s      when "110",
+        '1'                  when "111",
+        '0'                  when others;
 
-    jmpVerified <= jmp and ((not jmpConditional) or jumpConditionFulfilled);
-    pcLoad <= jmpVerified;
-    relativeJumpDestination <= std_logic_vector(signed(jmpAddress) + signed(pcCurrent) + pcOffset);
+    jmp_verified_s <= jmp and ((not jmpConditional) or jump_condition_fulfilled_s);
+    pcLoad <= jmp_verified_s;
+    relative_jump_destination_s <= std_logic_vector(signed(jmpAddress) + signed(pcCurrent) + PC_OFFSET);
 
     with jmpRelative select
-        pcNext <= jmpAddress                when '0',
-                  relativeJumpDestination   when '1',
-                  X"0000"                   when others;
+        pcNext <= jmpAddress                    when '0',
+                  relative_jump_destination_s   when '1',
+                  X"0000"                       when others;
 
 end architecture Behavioral;
