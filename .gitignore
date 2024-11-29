@@ -55,6 +55,12 @@ vivado/*/*.ip_user_files/sim_scripts/*/*/main.sh
 vivado/*/*.ip_user_files/sim_scripts/*/*/compile.do
 vivado/*/*.gen/sources_1/bd/main_block/op/main_block_controller_0_0/**
 
+vivado/*/*.sim/*/behav/xsim/*.bat
+vivado/*/*.sim/*/behav/xsim/*.tcl
+vivado/*/*.sim/*/behav/xsim/*.wdb
+vivado/*/*.sim/*/behav/xsim/protoinst_files/*.protoinst
+vivado/*/*.sim/*/behav/xsim/xsim.dir/xil_defaultlib/*.vdb
+
 .venv/
 __pycache__/
 
