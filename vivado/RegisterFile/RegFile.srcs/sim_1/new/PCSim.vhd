@@ -1,35 +1,16 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 07.11.2024 10:51:56
--- Design Name: 
+-- Name: Nico
+-- Design Name: ShadeCpu
 -- Module Name: PCSim - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
 
 entity PCSim is
 end PCSim;
@@ -37,69 +18,40 @@ end PCSim;
 architecture Behavioral of PCSim is
     component ProgramCounter is
     port (
-        Count : in STD_LOGIC;
-        Load : in STD_LOGIC;
-        Reset : in STD_LOGIC;
-        Din: in std_logic_vector(15 downto 0); -- Absolute addr to IRAM
+        loadCLK : in STD_LOGIC;
+        stalled : in STD_LOGIC;
+        jmp : in STD_LOGIC;
+        reset : in STD_LOGIC;
+        din: in std_logic_vector(15 downto 0); -- Absolute addr to IRAM
         
-        Dout: out std_logic_vector(15 downto 0)
+        dout: out std_logic_vector(15 downto 0)
     );
     end component ProgramCounter;
  
-    signal Count, Load, Reset: std_logic := '0';
-    signal Din, Dout: std_logic_vector(15 downto 0);
+    signal loadCLK, stalled, jmp, reset: std_logic := '0';
+    signal din, dout: std_logic_vector(15 downto 0) := x"0000";
 begin
     EUT: ProgramCounter
     port map(
-        Count => Count,
-        Load => Load,
-        Reset => Reset,
-        Din => Din,
-        Dout => Dout
+        loadCLK => loadCLK,
+        stalled => stalled,
+        jmp => jmp,
+        reset => reset,
+        din => din,
+        dout => dout
     );
-
-    resetter : process is
-    begin
-        Reset <= '0';
-        wait for 190 ns;
-        Reset <= '1';
-        wait for 10 ns;
-    end process resetter;
     
+    loadCLK <= not loadCLK after 10 ns; -- 50mhz clk
+
     test: process is
     begin
-        Count <= '0';    
-        Load <= '0';
-        Din <= X"0000";
-        
-        wait for 10 ns;
-        
-        Count <= '1';
-        
-        wait for 10 ns;
-        
-        Count <= '0';
-        
-        wait for 10 ns;
-        
-        Din <= std_logic_vector(signed(Dout) + 5);
-        Load <= '1';
-        
-        wait for 10 ns;
-        
-        Load <= '0';
-        
-        wait for 10 ns;
-        
-        for i in 0 to 10 loop
-            Count <= '1';
-            wait for 10 ns;
-            Count <= '0';
-            wait for 10 ns;
-        end loop;
-        
-        
-        
+        jmp <= '0';    
+        stalled <= '0';
+        reset <= '0';
+        din <= X"0000";
+
+        wait for 200ns;
+
     end process test;
 
 end Behavioral;
