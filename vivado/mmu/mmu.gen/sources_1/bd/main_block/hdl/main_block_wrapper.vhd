@@ -2,8 +2,8 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 29 11:54:45 2024
---Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
+--Date        : Fri Nov 29 16:25:36 2024
+--Host        : Robin_Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
 --Purpose     : IP block netlist
@@ -39,7 +39,7 @@ entity main_block_wrapper is
     debugBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     debugClk : out STD_LOGIC;
     debugDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debugEnable : in STD_LOGIC;
+    debugEnableIn : in STD_LOGIC;
     debugMockClk : in STD_LOGIC;
     debugOverrideEnable : in STD_LOGIC;
     debugReset : in STD_LOGIC;
@@ -89,7 +89,7 @@ entity main_block_wrapper is
     vgaClk : out STD_LOGIC;
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
-end entity main_block_wrapper;
+end main_block_wrapper;
 
 architecture STRUCTURE of main_block_wrapper is
   component main_block is
@@ -158,7 +158,6 @@ architecture STRUCTURE of main_block_wrapper is
     gramOe : in STD_LOGIC;
     gramBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     gramDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debugEnable : in STD_LOGIC;
     debugOverrideEnable : in STD_LOGIC;
     external_debugClk : in STD_LOGIC;
     debugAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -167,7 +166,8 @@ architecture STRUCTURE of main_block_wrapper is
     debugDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
     debugBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     gpuAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gpuDin : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    gpuDin : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    debugEnableIn : in STD_LOGIC
   );
   end component main_block;
 begin
@@ -198,7 +198,7 @@ main_block_i: component main_block
       debugBank(3 downto 0) => debugBank(3 downto 0),
       debugClk => debugClk,
       debugDin(15 downto 0) => debugDin(15 downto 0),
-      debugEnable => debugEnable,
+      debugEnableIn => debugEnableIn,
       debugMockClk => debugMockClk,
       debugOverrideEnable => debugOverrideEnable,
       debugReset => debugReset,
@@ -248,4 +248,4 @@ main_block_i: component main_block
       vgaClk => vgaClk,
       vga_dout(11 downto 0) => vga_dout(11 downto 0)
     );
-end architecture STRUCTURE;
+end STRUCTURE;
