@@ -37,15 +37,16 @@
     },
     "boundary": {
       "ports": {
-        "JMP": [ { "direction": "in" } ],
-        "JMP_Conditional": [ { "direction": "in" } ],
-        "JMP_Relative": [ { "direction": "in" } ],
-        "JMP_Condition": [ { "direction": "in", "size_left": "2", "size_right": "0" } ],
-        "Flags": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
-        "JMP_Address": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
-        "PC_Current": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
-        "PC_Load": [ { "direction": "out" } ],
-        "PC_Next": [ { "direction": "out", "size_left": "15", "size_right": "0" } ]
+        "jmp": [ { "direction": "in" } ],
+        "jmpConditional": [ { "direction": "in" } ],
+        "jmpRelative": [ { "direction": "in" } ],
+        "jmpCondition": [ { "direction": "in", "size_left": "2", "size_right": "0" } ],
+        "flags": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "rhoPin": [ { "direction": "in" } ],
+        "jmpAddress": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pcCurrent": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "pcLoad": [ { "direction": "out" } ],
+        "pcNext": [ { "direction": "out", "size_left": "15", "size_right": "0" } ]
       }
     }
   }
