@@ -1,64 +1,45 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 07.11.2024 12:03:04
--- Design Name: 
+-- Name: Lukas Reil
+-- Design Name: ShadeCpu
 -- Module Name: CU_ImmediateManipulator - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
 entity CU_ImmediateManipulator is
-    Port ( Reg1 : in STD_LOGIC_VECTOR (15 downto 0);
-           Immediate : in STD_LOGIC_VECTOR (15 downto 0);
-           RF_WHB : in STD_LOGIC;
-           RF_WLB : in STD_LOGIC;
-           ManipulatedImmidiate : out STD_LOGIC_VECTOR (15 downto 0));
+    Port (
+        reg1 : in std_logic_vector(15 downto 0);
+        immediate : in std_logic_vector(15 downto 0);
+        rfWHB : in std_logic;
+        rfWLB : in std_logic;
+        manipulatedImmediate : out std_logic_vector(15 downto 0)
+    );
 end entity CU_ImmediateManipulator;
 
 architecture Behavioral of CU_ImmediateManipulator is
-    signal selection : STD_LOGIC_VECTOR (1 downto 0);
-    signal imh, iml : STD_LOGIC_VECTOR (15 downto 0);
+    signal selection_s : std_logic_vector(1 downto 0);
+    signal imh_s, iml_s : std_logic_vector(15 downto 0);
 begin
-    
-    selection(0) <= RF_WHB;
-    selection(1) <= RF_WLB;
-    
-    imh(7 downto 0) <= Reg1(7 downto 0);
-    imh(15 downto 8) <= Immediate(7 downto 0);
-    
-    iml(7 downto 0) <= Immediate(7 downto 0);
-    iml(15 downto 8) <= Reg1(15 downto 8);
-    
-    WITH selection SELECT ManipulatedImmidiate <=
-        Reg1 WHEN "00",
-        imh WHEN "01",
-        iml WHEN "10",
-        Immediate WHEN "11",
-        X"0000" WHEN OTHERS;
-     
+
+    selection_s(0) <= rfWHB;
+    selection_s(1) <= rfWLB;
+
+    imh_s(7 downto 0) <= reg1(7 downto 0);
+    imh_s(15 downto 8) <= immediate(7 downto 0);
+
+    iml_s(7 downto 0) <= immediate(7 downto 0);
+    iml_s(15 downto 8) <= reg1(15 downto 8);
+
+    with selection_s select
+        manipulatedImmediate <= reg1        when "00",
+                                imh_s       when "01",
+                                iml_s       when "10",
+                                immediate   when "11",
+                                X"0000"     when others;
 
 end architecture Behavioral;

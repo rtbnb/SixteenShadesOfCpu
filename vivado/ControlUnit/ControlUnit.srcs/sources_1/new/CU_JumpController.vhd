@@ -1,101 +1,85 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 07.11.2024 12:03:04
--- Design Name: 
+-- Name: Lukas Reil
+-- Design Name: ShadeCpu
 -- Module Name: CU_JumpController - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity CU_JumpController is
-    Port ( 
-           JMP : in STD_LOGIC;
-           JMP_Conditional : in STD_LOGIC;
-           JMP_Relative : in STD_LOGIC;
-           JMP_Condition : in STD_LOGIC_VECTOR (2 downto 0);
-           Flags : in STD_LOGIC_VECTOR (15 downto 0);
-           RhoPin: in std_logic;
-           JMP_Address : in STD_LOGIC_VECTOR (15 downto 0);
-           PC_Current : in STD_LOGIC_VECTOR (15 downto 0);
-           PC_Load : out STD_LOGIC;
-           PC_Next : out STD_LOGIC_VECTOR (15 downto 0)
-           );
+    Port (
+        jmp : in std_logic;
+        jmpConditional : in std_logic;
+        jmpRelative : in std_logic;
+        jmpCondition : in std_logic_vector(2 downto 0);
+        flags : in std_logic_vector(15 downto 0);
+        rhoPin : in std_logic;
+        jmpAddress : in std_logic_vector(15 downto 0);
+        pcCurrent : in std_logic_vector(15 downto 0);
+        pcLoad : out std_logic;
+        pcNext : out std_logic_vector(15 downto 0)
+    );
 end entity CU_JumpController;
 
 architecture Behavioral of CU_JumpController is
-    
-    component FlagUnpacker is
-        Port ( Flags : in STD_LOGIC_VECTOR (15 downto 0);
-               CarryFlag : out STD_LOGIC;
-               ZeroFlag : out STD_LOGIC;
-               SmallerZeroFlag : out STD_LOGIC;
-               BiggerZeroFlag : out STD_LOGIC;
-               OverflowFlag : out STD_LOGIC;
-               RhoFlag : out STD_LOGIC);
-    end component FlagUnpacker;
-    
-    signal carry_flag, zero_flag, smaller_zero_flag, bigger_zero_flag, overflow_flag, rho_flag : STD_LOGIC;
-    signal not_zero_flag : STD_LOGIC;
-    signal jump_condition_fullfilled : STD_LOGIC;
-    signal relative_jump_destination : STD_LOGIC_VECTOR(15 downto 0);
-    signal jmp_verified : STD_LOGIC;
-    constant pc_offset : signed(15 downto 0) := "1111111111111111";
-begin
-    
-    FlagUnpackerInstance : FlagUnpacker port map(
-        Flags => Flags,
-        CarryFlag => carry_flag,
-        ZeroFlag => zero_flag,
-        SmallerZeroFlag => smaller_zero_flag,
-        BiggerZeroFlag => bigger_zero_flag,
-        OverflowFlag => overflow_flag,
-        RhoFlag => rho_flag
-    );
-    
-    not_zero_flag <= not zero_flag;
-    
-    WITH JMP_Condition SELECT jump_condition_fullfilled <=
-        carry_flag WHEN "000",
-        zero_flag WHEN "001",
-        smaller_zero_flag WHEN "010",
-        bigger_zero_flag WHEN "011",
-        overflow_flag WHEN "100",
-        RhoPin WHEN "101",
-        not_zero_flag WHEN "110",
-        '1' WHEN "111",
-        '0' WHEN OTHERS;
-    
-    jmp_verified <= JMP and ((not JMP_Conditional) or jump_condition_fullfilled);
-    PC_Load <= jmp_verified;
-    relative_jump_destination <= std_logic_vector(SIGNED(JMP_Address) + SIGNED(PC_Current) + pc_offset);
-    
-    WITH JMP_Relative SELECT PC_Next <=
-        JMP_Address WHEN '0',
-        relative_jump_destination WHEN '1',
-        X"0000" WHEN OTHERS;
 
-end Behavioral;
+    component FlagUnpacker is
+        Port (
+            flags : in std_logic_vector(15 downto 0);
+            carryFlag : out std_logic;
+            zeroFlag : out std_logic;
+            smallerZeroFlag : out std_logic;
+            biggerZeroFlag : out std_logic;
+            overflowFlag : out std_logic;
+            rhoFlag : out std_logic
+        );
+    end component;
+
+    signal carryFlag, zeroFlag, smallerZeroFlag, biggerZeroFlag, overflowFlag, rhoFlag : std_logic;
+    signal notZeroFlag : std_logic;
+    signal jumpConditionFulfilled : std_logic;
+    signal relativeJumpDestination : std_logic_vector(15 downto 0);
+    signal jmpVerified : std_logic;
+    constant pcOffset : signed(15 downto 0) := "1111111111111111";
+
+begin
+
+    FlagUnpackerInstance : FlagUnpacker port map(
+        flags => flags,
+        carryFlag => carryFlag,
+        zeroFlag => zeroFlag,
+        smallerZeroFlag => smallerZeroFlag,
+        biggerZeroFlag => biggerZeroFlag,
+        overflowFlag => overflowFlag,
+        rhoFlag => rhoFlag
+    );
+
+    notZeroFlag <= not zeroFlag;
+
+    with jmpCondition select
+        jumpConditionFulfilled <= carryFlag         when "000",
+                                  zeroFlag          when "001",
+                                  smallerZeroFlag   when "010",
+                                  biggerZeroFlag    when "011",
+                                  overflowFlag      when "100",
+                                  rhoPin            when "101",
+                                  notZeroFlag       when "110",
+                                  '1'               when "111",
+                                  '0'               when others;
+
+    jmpVerified <= jmp and ((not jmpConditional) or jumpConditionFulfilled);
+    pcLoad <= jmpVerified;
+    relativeJumpDestination <= std_logic_vector(signed(jmpAddress) + signed(pcCurrent) + pcOffset);
+
+    with jmpRelative select
+        pcNext <= jmpAddress                when '0',
+                  relativeJumpDestination   when '1',
+                  X"0000"                   when others;
+
+end architecture Behavioral;
