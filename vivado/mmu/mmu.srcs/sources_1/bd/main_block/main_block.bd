@@ -1181,8 +1181,8 @@
       "debug_override_enable_1": {
         "ports": [
           "debugOverrideEnable",
-          "mmu_1/debugOverrideEnable",
-          "clockcontroller_0/debugMmuOverrideEnable"
+          "clockcontroller_0/debugMmuOverrideEnable",
+          "mmu_1/debugOverrideEnable"
         ]
       },
       "external_debugClk_1": {

@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="10.800 ns"></ZoomStartTime>
-      <ZoomEndTime time="93.201 ns"></ZoomEndTime>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="90.158 ns"></ZoomEndTime>
       <Cursor1Time time="60.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="149"></NameColumnWidth>
+      <NameColumnWidth column_width="145"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="37" />
+   <WVObjectSize size="38" />
    <wvobject fp_name="/mainSim/clk100mhzIn" type="logic">
       <obj_property name="ElementShortName">clk100mhzIn</obj_property>
       <obj_property name="ObjectShortName">clk100mhzIn</obj_property>
@@ -79,6 +79,10 @@
       <obj_property name="ObjectShortName">debugOverrideEnable</obj_property>
       <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/debugAddr" type="array">
+      <obj_property name="ElementShortName">debugAddr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">debugAddr[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/debugBank" type="array">
       <obj_property name="ElementShortName">debugBank[3:0]</obj_property>
