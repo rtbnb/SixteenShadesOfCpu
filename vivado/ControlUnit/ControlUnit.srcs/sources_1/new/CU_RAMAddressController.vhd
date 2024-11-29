@@ -1,48 +1,32 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 07.11.2024 12:03:04
--- Design Name: 
+-- Name: Lukas Reil
+-- Design Name: ShadeCpu
 -- Module Name: CU_RAMAddressController - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity CU_RAMAddressController is
-    Port ( Reg2 : in STD_LOGIC_VECTOR (15 downto 0);
-           Immediate : in STD_LOGIC_VECTOR (15 downto 0);
-           RAM_Address_Src : in STD_LOGIC;
-           RAM_Address : out STD_LOGIC_VECTOR (15 downto 0));
-end CU_RAMAddressController;
+    Port (
+        reg2 : in std_logic_vector(15 downto 0);
+        immediate : in std_logic_vector(15 downto 0);
+        ramAddressSrc : in std_logic;
+        ramAddress : out std_logic_vector(15 downto 0)
+    );
+end entity CU_RAMAddressController;
 
 architecture Behavioral of CU_RAMAddressController is
 begin
-    WITH RAM_Address_Src SELECT RAM_Address <=
-        Reg2 WHEN '0',
-        Immediate WHEN '1',
-        X"0000" WHEN OTHERS;
 
-end Behavioral;
+    with ramAddressSrc select
+        ramAddress <= reg2      when '0',
+                      immediate when '1',
+                      X"0000"   when others;
+
+end architecture Behavioral;

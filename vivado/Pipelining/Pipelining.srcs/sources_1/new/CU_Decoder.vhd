@@ -1,72 +1,55 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 07.11.2024 12:03:04
--- Design Name: 
+-- Name: Lukas Reil
+-- Design Name: ShadeCpu
 -- Module Name: CU_Decoder - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
+library ieee;
+use ieee.std_logic_1164.ALL;
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity CU_Decoder is
-    Port ( Instruction : in STD_LOGIC_VECTOR (15 downto 0);
-           Reg1Read : out STD_LOGIC;
-           Reg2Read : out STD_LOGIC;
-           RF_WHB : out STD_LOGIC;
-           RF_WLB : out STD_LOGIC;
-           Write_Data_Sel : out STD_LOGIC_VECTOR (1 downto 0);
-           RAM_Address_Src : out STD_LOGIC;
-           RAM_Read : out STD_LOGIC;
-           RAM_Write : out STD_LOGIC;
-           JMP : out STD_LOGIC;
-           JMP_Conditional : out STD_LOGIC;
-           JMP_Relative : out STD_LOGIC;
-           JMP_DestinationSource : out STD_LOGIC;
-           Is_ALU_OP : out STD_LOGIC;
-           Is_RAM_OP : out STD_LOGIC);
-end CU_Decoder;
+    Port (
+        instruction : in std_logic_vector(15 downto 0);
+        reg1Read : out std_logic;
+        reg2Read : out std_logic;
+        rfWHB : out std_logic;
+        rfWLB : out std_logic;
+        writeDataSelect : out std_logic_vector(1 downto 0);
+        ramAddressSrc : out std_logic;
+        ramRead : out std_logic;
+        ramWrite : out std_logic;
+        jmp : out std_logic;
+        jmpConditional : out std_logic;
+        jmpRelative : out std_logic;
+        jmpDestinationSource : out std_logic;
+        isALUOp : out std_logic;
+        isRAMOp : out std_logic
+    );
+end entity CU_Decoder;
 
 architecture Behavioral of CU_Decoder is
-    signal instruction_name : STD_LOGIC_VECTOR (3 downto 0);
-    signal is_nop, is_alu, is_rdmi, is_wrmi, is_iml, is_imh, is_rdmr, is_wrmr, is_jc, is_jr, is_ja, is_cr : boolean;
-    signal write_whole_byte : boolean;
+    signal instruction_name_s : std_logic_vector(3 downto 0);
+    signal is_nop_s, is_alu_s, is_rdmi_s, is_wrmi_s, is_iml_s, is_imh_s, is_rdmr_s, is_wrmr_s, is_jc_s, is_jr_s, is_ja_s, is_cr_s : boolean;
+    signal write_whole_byte_s : boolean;
 begin
-    instruction_name <= Instruction(15 downto 12);
-    is_nop  <= instruction_name = "0000";
-    is_alu  <= instruction_name = "0001";
-    is_rdmi <= instruction_name = "0010";
-    is_wrmi <= instruction_name = "0011";
-    is_iml  <= instruction_name = "0100";
-    is_imh  <= instruction_name = "0101";
-    is_rdmr <= instruction_name = "0110";
-    is_wrmr <= instruction_name = "0111";
-    is_jc   <= instruction_name = "1000";
-    is_jr   <= instruction_name = "1001";
-    is_ja   <= instruction_name = "1010";
-    is_cr   <= instruction_name = "1110"; 
+    instruction_name_s <= instruction(15 downto 12);
+    is_nop_s  <= instruction_name_s = "0000";
+    is_alu_s  <= instruction_name_s = "0001";
+    is_rdmi_s <= instruction_name_s = "0010";
+    is_wrmi_s <= instruction_name_s = "0011";
+    is_iml_s  <= instruction_name_s = "0100";
+    is_imh_s  <= instruction_name_s = "0101";
+    is_rdmr_s <= instruction_name_s = "0110";
+    is_wrmr_s <= instruction_name_s = "0111";
+    is_jc_s   <= instruction_name_s = "1000";
+    is_jr_s   <= instruction_name_s = "1001";
+    is_ja_s   <= instruction_name_s = "1010";
+    is_cr_s   <= instruction_name_s = "1110"; 
     
     -- ALU for operand1
     -- WRMI for write data
@@ -74,45 +57,45 @@ begin
     -- WRMR for write data
     -- JR for jump address
     -- CR for write data
-    Reg1Read <= '1' WHEN is_alu or is_wrmi or is_iml or is_imh or is_wrmr  or is_jr or is_cr ELSE '0';
+    reg1Read <= '1' when is_alu_s or is_wrmi_s or is_iml_s or is_imh_s or is_wrmr_s  or is_jr_s or is_cr_s else '0';
     
     -- ALU for operand2
     -- RDMR and WRMR for address
     -- JC for flags 
-    Reg2Read <= '1' WHEN is_alu or is_rdmr or is_wrmr or is_jc ELSE '0';
+    reg2Read <= '1' when is_alu_s or is_rdmr_s or is_wrmr_s or is_jc_s else '0';
     
     -- ALU for writing result to $AO
     -- RDMI/RDMR for writing memory read result
     -- CR for writing to dst register
-    write_whole_byte <= is_alu or is_rdmi or is_rdmr or is_cr; 
+    write_whole_byte_s <= is_alu_s or is_rdmi_s or is_rdmr_s or is_cr_s; 
     
-    RF_WHB <= '1' WHEN write_whole_byte or is_imh ELSE '0';
-    RF_WLB <= '1' WHEN write_whole_byte or is_iml ELSE '0';
+    rfWHB <= '1' when write_whole_byte_s or is_imh_s else '0';
+    rfWLB <= '1' when write_whole_byte_s or is_iml_s else '0';
     
     -- ALU => Select 0 (Also used as default)
     -- IMH/IML => Select 1
     -- CR => Select 2
     -- RDMR/RDMI (others) => Select 3
-    Write_Data_Sel <= "00" WHEN is_alu ELSE 
-                      "01" WHEN is_imh or is_iml ELSE 
-                      "10" WHEN is_cr ELSE 
-                      "11" WHEN is_rdmi or is_rdmr ELSE
-                      "00";
+    writeDataSelect <= "00" when is_alu_s else 
+                       "01" when is_imh_s or is_iml_s else
+                       "10" when is_cr_s else
+                       "11" when is_rdmi_s or is_rdmr_s else
+                       "00";
     -- '0': Reg2 is used as RAM Address
     -- '1': Immediate is used as RAM Address                  
-    RAM_Address_Src <= '1' WHEN is_rdmi or is_wrmi ELSE '0';
-    RAM_Read <= '1' WHEN is_rdmi or is_rdmr ELSE '0';
-    RAM_Write <= '1' WHEN is_wrmi or is_wrmr ELSE '0';
+    ramAddressSrc <= '1' when is_rdmi_s or is_wrmi_s else '0';
+    ramRead <= '1' when is_rdmi_s or is_rdmr_s else '0';
+    ramWrite <= '1' when is_wrmi_s or is_wrmr_s else '0';
     
-    JMP <= '1' WHEN is_jc or is_jr or is_ja ELSE '0';
-    JMP_Conditional <= '1' WHEN is_jc ELSE '0';
-    JMP_Relative <= '1' WHEN is_jc ELSE '0';
+    jmp <= '1' when is_jc_s or is_jr_s or is_ja_s else '0';
+    jmpConditional <= '1' when is_jc_s else '0';
+    jmpRelative <= '1' when is_jc_s else '0';
     
     -- '1': Jumps to value in Reg1
     -- '0': Jumps to value in Immediate
-    JMP_DestinationSource <= '1' WHEN is_jr ELSE '0';
+    jmpDestinationSource <= '1' when is_jr_s else '0';
     
-    Is_ALU_OP <= '1' WHEN is_alu ELSE '0';
-    Is_RAM_OP <= '1' WHEN is_rdmi or is_wrmi or is_rdmr or is_wrmr ELSE '0';
+    isALUOp <= '1' when is_alu_s else '0';
+    isRAMOp <= '1' when is_rdmi_s or is_wrmi_s or is_rdmr_s or is_wrmr_s else '0';
     
-end Behavioral;
+end architecture Behavioral;

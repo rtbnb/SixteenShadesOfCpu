@@ -20,7 +20,7 @@ entity Decoder is
         immediate : out std_logic_vector(15 downto 0);
         jmpCondition : out std_logic_vector(2 downto 0)
     );
-end Decoder;
+end entity Decoder;
 
 architecture Behavioral of Decoder is
     signal instruction_name_s : std_logic_vector(3 downto 0);
@@ -131,4 +131,4 @@ begin
             X"0000" when others;
     
     jmpCondition <= instruction(11 downto 9);
-end Behavioral;
+end architecture Behavioral;

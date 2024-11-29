@@ -1,65 +1,47 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 07.11.2024 14:50:41
--- Design Name: 
+-- Name: Lukas Reil
+-- Design Name: ShadeCpu
 -- Module Name: Pipelining_Forwarder - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
 entity Pipelining_Forwarder is
-    Port ( CurrentOperand1 : in STD_LOGIC_VECTOR (15 downto 0);
-           CurrentOperand2 : in STD_LOGIC_VECTOR (15 downto 0);
-           ExecutionWriteData : in STD_LOGIC_VECTOR (15 downto 0);
-           ExecutionFlags : in STD_LOGIC_VECTOR (15 downto 0);
-           ForwardingConfiguration : in STD_LOGIC_VECTOR (3 downto 0);
-           ForwardedOperand1 : out STD_LOGIC_VECTOR (15 downto 0);
-           ForwardedOperand2 : out STD_LOGIC_VECTOR (15 downto 0));
-end Pipelining_Forwarder;
+    Port (
+        currentOperand1 : in std_logic_vector(15 downto 0);
+        currentOperand2 : in std_logic_vector(15 downto 0);
+        executionWriteData : in std_logic_vector(15 downto 0);
+        executionFlags : in std_logic_vector(15 downto 0);
+        forwardingConfiguration : in std_logic_vector(3 downto 0);
+        forwardedOperand1 : out std_logic_vector(15 downto 0);
+        forwardedOperand2 : out std_logic_vector(15 downto 0)
+    );
+end entity Pipelining_Forwarder;
 
 architecture Behavioral of Pipelining_Forwarder is
-    signal operand_1_sel_s, operand_2_sel_s : STD_LOGIC_VECTOR(1 downto 0);
+    signal operand1Sel_s, operand2Sel_s : std_logic_vector(1 downto 0);
 begin
-    
-    operand_1_sel_s <= ForwardingConfiguration(1 downto 0);
-    operand_2_sel_s <= ForwardingConfiguration(3 downto 2);
-    
-    WITH (operand_1_sel_s) SELECT ForwardedOperand1 <=
-        CurrentOperand1 WHEN "00",
-        CurrentOperand1 WHEN "01",
-        ExecutionWriteData WHEN "10",
-        ExecutionFlags WHEN "11",
-        X"0000" WHEN OTHERS;
-        
-    WITH (operand_2_sel_s) SELECT ForwardedOperand2 <=
-        CurrentOperand2 WHEN "00",
-        CurrentOperand2 WHEN "01",
-        ExecutionWriteData WHEN "10",
-        ExecutionFlags WHEN "11",
-        X"0000" WHEN OTHERS;
 
-end Behavioral;
+    operand1Sel_s <= forwardingConfiguration(1 downto 0);
+    operand2Sel_s <= forwardingConfiguration(3 downto 2);
+
+    with operand1Sel_s select
+        forwardedOperand1 <= currentOperand1 when "00",
+                             currentOperand1 when "01",
+                             executionWriteData when "10",
+                             executionFlags when "11",
+                             X"0000" when others;
+
+    with operand2Sel_s select
+        forwardedOperand2 <= currentOperand2 when "00",
+                             currentOperand2 when "01",
+                             executionWriteData when "10",
+                             executionFlags when "11",
+                             X"0000" when others;
+
+end architecture Behavioral;
