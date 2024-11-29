@@ -12,8 +12,8 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="90.158 ns"></ZoomEndTime>
-      <Cursor1Time time="60.000 ns"></Cursor1Time>
+      <ZoomEndTime time="93.016 ns"></ZoomEndTime>
+      <Cursor1Time time="57.500 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="145"></NameColumnWidth>
@@ -80,9 +80,9 @@
       <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/debugAddr" type="array">
-      <obj_property name="ElementShortName">debugAddr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">debugAddr[15:0]</obj_property>
+   <wvobject fp_name="/mainSim/gram_we" type="logic">
+      <obj_property name="ElementShortName">gram_we</obj_property>
+      <obj_property name="ObjectShortName">gram_we</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/debugBank" type="array">
       <obj_property name="ElementShortName">debugBank[3:0]</obj_property>
