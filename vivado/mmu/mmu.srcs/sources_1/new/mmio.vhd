@@ -1,39 +1,22 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 14.11.2024 19:50:38
--- Design Name: 
+-- Name: Robin
+-- Design Name: ShadeCpu
 -- Module Name: mmio - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
 library UNISIM;
 use UNISIM.VComponents.all;
 
 entity mmio is
     port(
-        clk100mhz_in, clk50mhz_in: in std_logic;
+        clk100mhzIn, clk50mhzIn: in std_logic;
         clk, we: in std_logic;
         addr, din: in std_logic_vector(15 downto 0);
         dout: out std_logic_vector(15 downto 0);
@@ -76,7 +59,6 @@ architecture Behavioral of mmio is
     signal rgb_bank0_config_reg_s: std_logic_vector(15 downto 0);
     
     signal rgb0_s, rgb1_s, rgb2_s, rgb3_s: std_logic_vector( 2 downto 0 );
-
 --rgb singals end
 
 --tim signals begin
@@ -86,7 +68,6 @@ architecture Behavioral of mmio is
     signal tim0_cnt_reg_s, tim1_cnt_reg_s: std_logic_vector(15 downto 0) := X"0000";
     signal tim0_pwm_val_reg_s, tim1_pwm_val_reg_s: std_logic_vector(15 downto 0) := X"0000";
     signal tim0_rho_rst_reg_s, tim1_rho_rst_reg_s: std_logic_vector(15 downto 0) := X"0000";
-    
     
     --tim0
     signal tim0_master_clk_s, tim0_clk_s, tim0_rho_en: std_logic := '0';
@@ -98,7 +79,7 @@ architecture Behavioral of mmio is
     
     signal btn0_pressed_s, btn1_pressed_s, btn2_pressed_s, btn3_pressed_s: std_logic;
     
-    signal latch_signal : std_logic := '0';  -- Internes Signal zum Speichern des Zustands
+    signal latch_signal : std_logic := '0';  -- Internal temp signal
     signal btn0_reset_s: std_logic;
 begin
     internal_addr_s <= to_integer(unsigned(addr));
@@ -131,7 +112,6 @@ begin
     rgb2 <= rgb2_s;
     rgb3 <= rgb3_s;
     
-
     mmio_config_reg_s  <= "0000000000000000";
     
     led_bank0_config_reg_s <= led00_s & led00_tim_s & led00_tim_conf &
@@ -191,17 +171,12 @@ begin
     
     tim0_clk_select : BUFGMUX
     port map (
-       O => tim0_master_clk_s,   -- 1-bit output: Clock output
-       I0 => clk50mhz_in, -- 1-bit input: Clock input (S=0)
-       I1 => clk100mhz_in, -- 1-bit input: Clock input (S=1)
-       S => tim0_config_reg_s(3)     -- 1-bit input: Clock select
+       O => tim0_master_clk_s,
+       I0 => clk50mhzIn,           -- Clock input (S=0)
+       I1 => clk100mhzIn,          -- Clock input (S=1)
+       S => tim0_config_reg_s(3)
     );
-    
---    with tim0_config_reg_s(3 downto 2) select
---        tim0_master_clk_s <= clk50mhz_in when "01",
---                             clk100mhz_in when "10",
---                             '0' when others;    
-    
+
     with internal_addr_s select
         dout <= mmio_config_reg_s           when  0,
                 rho_mask_reg_s              when  1,
@@ -273,7 +248,7 @@ begin
                 "000000000000000" & btn18   when 32806, 
                 "000000000000000" & btn19   when 32807,
                 
-                "000000000000000" & btn00p_s when 32808,
+                "000000000000000" & btn00p_s when 32808, --1000 0000 0010 1000
                 "000000000000000" & btn01p_s when 32809,
                 "000000000000000" & btn02p_s when 32810,
                 "000000000000000" & btn03p_s when 32811,
@@ -306,7 +281,6 @@ begin
                 "000000000000000" & rgb3_s(1) when 32838,
                 "000000000000000" & rgb3_s(2) when 32839,
                 
-
                 "0000000000000000" when others;
     
     writeData:process(clk)
@@ -371,8 +345,7 @@ begin
                     rgb3_s <= din(2 downto 0);
                 when 32808 =>
                     btn00p_s_rst_s <= '1';
-                
-                
+                    
                 when others =>
             end case;
             
@@ -386,26 +359,24 @@ begin
     btn0pressed:process(clk, btn00) is
     begin
     if btn00 = '1' then
-      latch_signal <= '1';  -- Asynchrones Setzen des Signals, wenn der Button gedrückt wird
+      latch_signal <= '1';  -- Asynchronous set
     elsif rising_edge(clk) then
       if btn0_reset_s = '1' then
-        latch_signal <= '0';  -- Synchroner Reset des Signals zum Takt
+        latch_signal <= '0';  -- Synchronous reset
       end if;
     end if;
     end process btn0pressed;
     
-    btn0_pressed_s <= latch_signal;  -- Weist das interne Signal dem Ausgang zu
+    btn0_pressed_s <= latch_signal;
     
     tim0_prescaler:process(tim0_master_clk_s) is
     begin
         if rising_edge(tim0_master_clk_s) then
-            
             if tim0_master_cnt_s= unsigned(tim0_prescaler_reg_s) then
                 tim0_master_cnt_s <= X"0000";
                 tim0_clk_s <= not tim0_clk_s;
             elsif tim0_config_reg_s(1)='1' then
                  tim0_master_cnt_s <= tim0_master_cnt_s + 1;  
-          
             end if;
         end if;
     end process tim0_prescaler;

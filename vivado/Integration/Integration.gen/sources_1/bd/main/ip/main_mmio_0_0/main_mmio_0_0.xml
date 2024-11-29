@@ -99,7 +99,7 @@
   <spirit:model>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>clk100mhz_in</spirit:name>
+        <spirit:name>clk100mhzIn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -111,7 +111,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>clk50mhz_in</spirit:name>
+        <spirit:name>clk50mhzIn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>

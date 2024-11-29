@@ -2,8 +2,8 @@ xpm_memory.sv,systemverilog,xpm,S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_memory/h
 xpm_VCOMP.vhd,vhdl,xpm,S:/Vivado/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd,
 blk_mem_gen_v8_4.v,verilog,blk_mem_gen_v8_4_8,../../../../mmu.gen/sources_1/bd/main_block/ipshared/09bd/simulation/blk_mem_gen_v8_4.v,
 main_block_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/main_block/ip/main_block_blk_mem_gen_0_0/sim/main_block_blk_mem_gen_0_0.v,
-main_block_mmu_0_0.vhd,vhdl,xil_defaultlib,../../../bd/main_block/ip/main_block_mmu_0_0/sim/main_block_mmu_0_0.vhd,
 main_block_mmio_0_0.vhd,vhdl,xil_defaultlib,../../../bd/main_block/ip/main_block_mmio_0_0/sim/main_block_mmio_0_0.vhd,
 main_block_clockcontroller_0_0.vhd,vhdl,xil_defaultlib,../../../bd/main_block/ip/main_block_clockcontroller_0_0_1/sim/main_block_clockcontroller_0_0.vhd,
 main_block.vhd,vhdl,xil_defaultlib,../../../bd/main_block/sim/main_block.vhd,
+main_block_mmu_1_0.vhd,vhdl,xil_defaultlib,../../../bd/main_block/ip/main_block_mmu_1_0/sim/main_block_mmu_1_0.vhd,
 glbl.v,Verilog,xil_defaultlib,glbl.v

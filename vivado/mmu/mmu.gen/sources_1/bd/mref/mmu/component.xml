@@ -4,72 +4,6 @@
   <spirit:library>module_ref</spirit:library>
   <spirit:name>mmu</spirit:name>
   <spirit:version>1.0</spirit:version>
-  <spirit:busInterfaces>
-    <spirit:busInterface>
-      <spirit:name>debug_clk</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>debug_clk</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>gpu_clk</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>gpu_clk</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>load_clk</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>load_clk</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>vga_clk</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>vga_clk</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-  </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
       <spirit:view>
@@ -81,7 +15,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>850dfe99</spirit:value>
+            <spirit:value>3a8b8424</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -94,7 +28,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>850dfe99</spirit:value>
+            <spirit:value>3a8b8424</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -109,7 +43,7 @@
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>load_clk</spirit:name>
+        <spirit:name>loadClk</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -122,7 +56,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gram_addr</spirit:name>
+        <spirit:name>gramAddr</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -139,7 +73,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gram_din</spirit:name>
+        <spirit:name>gramDin</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -156,7 +90,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gram_bank</spirit:name>
+        <spirit:name>gramBank</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -173,7 +107,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gram_we</spirit:name>
+        <spirit:name>gramWe</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -186,7 +120,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gram_oe</spirit:name>
+        <spirit:name>gramOe</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -199,7 +133,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gram_dout</spirit:name>
+        <spirit:name>gramDout</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -216,7 +150,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>iram_addr</spirit:name>
+        <spirit:name>iramAddr</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -233,7 +167,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>iram_dout</spirit:name>
+        <spirit:name>iramDout</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -250,7 +184,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>debug_enable</spirit:name>
+        <spirit:name>debugEnable</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -263,7 +197,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>debug_override_enable</spirit:name>
+        <spirit:name>debugOverrideEnable</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -276,7 +210,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>debug_clk</spirit:name>
+        <spirit:name>debugClk</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -289,7 +223,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>debug_addr</spirit:name>
+        <spirit:name>debugAddr</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -306,7 +240,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>debug_din</spirit:name>
+        <spirit:name>debugDin</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -323,7 +257,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>debug_bank</spirit:name>
+        <spirit:name>debugBank</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -340,7 +274,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>debug_we</spirit:name>
+        <spirit:name>debugWe</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -353,7 +287,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>debug_dout</spirit:name>
+        <spirit:name>debugDout</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -370,7 +304,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gpu_clk</spirit:name>
+        <spirit:name>gpuClk</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -383,7 +317,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gpu_addr</spirit:name>
+        <spirit:name>gpuAddr</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -400,7 +334,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gpu_din</spirit:name>
+        <spirit:name>gpuDin</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -417,7 +351,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gpu_we</spirit:name>
+        <spirit:name>gpuWe</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -430,7 +364,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>gpu_dout</spirit:name>
+        <spirit:name>gpuDout</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -447,7 +381,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vga_clk</spirit:name>
+        <spirit:name>vgaClk</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -460,7 +394,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vga_addr</spirit:name>
+        <spirit:name>vgaAddr</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -477,7 +411,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vga_dout</spirit:name>
+        <spirit:name>vgaDout</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -494,7 +428,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vrama_mem_addr</spirit:name>
+        <spirit:name>vramaMemAddr</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -511,7 +445,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vrama_mem_ck</spirit:name>
+        <spirit:name>vramaMemClk</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -524,7 +458,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vrama_mem_din</spirit:name>
+        <spirit:name>vramaMemDin</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -541,7 +475,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vrama_mem_we</spirit:name>
+        <spirit:name>vramaMemWe</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -558,7 +492,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vrama_mem_dout</spirit:name>
+        <spirit:name>vramaMemDout</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -575,7 +509,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vramb_mem_addr</spirit:name>
+        <spirit:name>vrambMemAddr</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -592,7 +526,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vramb_mem_ck</spirit:name>
+        <spirit:name>vrambMemClk</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -605,7 +539,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vramb_mem_din</spirit:name>
+        <spirit:name>vrambMemDin</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -622,7 +556,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vramb_mem_we</spirit:name>
+        <spirit:name>vrambMemWe</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -639,7 +573,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vramb_mem_dout</spirit:name>
+        <spirit:name>vrambMemDout</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -656,7 +590,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>mmio_mem_ck</spirit:name>
+        <spirit:name>mmioMemClk</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -669,7 +603,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>mmio_mem_we</spirit:name>
+        <spirit:name>mmioMemWe</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -682,7 +616,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>mmio_mem_addr</spirit:name>
+        <spirit:name>mmioMemAddr</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -699,7 +633,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>mmio_mem_din</spirit:name>
+        <spirit:name>mmioMemDin</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -716,7 +650,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>mmio_mem_dout</spirit:name>
+        <spirit:name>mmioMemDout</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -767,7 +701,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-11-28T14:07:27Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2024-11-28T19:40:35Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2024.1</xilinx:xilinxVersion>
