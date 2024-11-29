@@ -50,7 +50,7 @@ architecture Behavioral of CPUSim is
         btn01 : in STD_LOGIC;
         btn02 : in STD_LOGIC;
         btn03 : in STD_LOGIC;
-        clk100mhz_in : in STD_LOGIC;
+        clk100mhzIn : in STD_LOGIC;
         fault_reset : in STD_LOGIC;
         g : out STD_LOGIC_VECTOR ( 3 downto 0 );
         h_sync : out STD_LOGIC;
@@ -75,7 +75,7 @@ architecture Behavioral of CPUSim is
     signal btn01 : STD_LOGIC;
     signal btn02 : STD_LOGIC;
     signal btn03 : STD_LOGIC;
-    signal clk100mhz_in : STD_LOGIC := '0';
+    signal clk100mhzIn : STD_LOGIC := '0';
     signal debug_mock_clk : STD_LOGIC := '0';
     signal debug_reset : STD_LOGIC := '0';
     signal fault_reset : STD_LOGIC := '0';
@@ -103,7 +103,7 @@ begin
         btn01 => btn01,
         btn02 => btn02,
         btn03 => btn03,
-        clk100mhz_in => clk100mhz_in,
+        clk100mhzIn => clk100mhzIn,
         fault_reset => fault_reset,
         g => g,
         h_sync => h_sync,
@@ -120,7 +120,7 @@ begin
         v_sync => v_sync
     );
 
-    clk100mhz_in <= not clk100mhz_in after 5 ns;
+    clk100mhzIn <= not clk100mhzIn after 5 ns;
     --debug_mock_clk <= not debug_mock_clk after 5 ns;
     
     init: process is
@@ -241,9 +241,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -349,9 +370,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -457,9 +499,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -565,9 +628,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -673,9 +757,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -696,12 +801,29 @@ wait for 8680 ns;
 RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
+wait for 500000ns;
+-- start
+RX_UART_IN <= '0';
 wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 
-
-
-
-        
         wait;
        
 

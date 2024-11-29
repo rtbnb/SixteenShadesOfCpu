@@ -25,6 +25,7 @@ vhdl xil_defaultlib  \
 "../../../../../VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_CPU_Bridge.vhd" \
 "../../../../../VGA_Controller/VGA_Controller.srcs/sources_1/new/GPU.vhd" \
 "../../../../../VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd" \
+"../../../../Integration.srcs/sources_1/new/custom_BUFH.vhd" \
 "../../../../Integration.ip_user_files/bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" \
 "../../../../Integration.ip_user_files/bd/main/ip/main_ProgramCounter_0_0/sim/main_ProgramCounter_0_0.vhd" \
 "../../../../Integration.ip_user_files/bd/main/ip/main_CU_Decoder_0_0/sim/main_CU_Decoder_0_0.vhd" \
@@ -49,6 +50,7 @@ vhdl xil_defaultlib  \
 "../../../../Integration.ip_user_files/bd/main/ip/main_VGA_CPU_Bridge_0_0/sim/main_VGA_CPU_Bridge_0_0.vhd" \
 "../../../../Integration.ip_user_files/bd/main/ip/main_GPU_0_0/sim/main_GPU_0_0.vhd" \
 "../../../../Integration.ip_user_files/bd/main/ip/main_VGA_Controller_0_0/sim/main_VGA_Controller_0_0.vhd" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_custom_BUFH_0_0/sim/main_custom_BUFH_0_0.vhd" \
 "../../../../Integration.ip_user_files/bd/main/sim/main.vhd" \
 "../../../../Integration.gen/sources_1/bd/main/hdl/main_wrapper.vhd" \
 "../../../../Integration.srcs/debugger/new/CPUSim.vhd" \

@@ -2154,8 +2154,7 @@
       "ALU_0_ALU_OUT": {
         "ports": [
           "ALU_0/ALU_OUT",
-          "CU_WriteSelector_0/aluOut",
-          "Debugger_0/aluOut"
+          "CU_WriteSelector_0/aluOut"
         ]
       },
       "ALU_0_BIGGER_ZERO_FLAG": {
@@ -2549,22 +2548,19 @@
       "Pipelining_Execution_0_jmpConditionalOut": {
         "ports": [
           "Pipelining_Execution_0/jmpConditionalOut",
-          "CU_JumpController_0/jmpConditional",
-          "Debugger_0/pipelineJmpConditional"
+          "CU_JumpController_0/jmpConditional"
         ]
       },
       "Pipelining_Execution_0_jmpDestinationSelectOut": {
         "ports": [
           "Pipelining_Execution_0/jmpDestinationSelectOut",
-          "CU_JumpDestinationSe_0/jmpDestinationSelect",
-          "Debugger_0/pipelineJmpDestinationSelect"
+          "CU_JumpDestinationSe_0/jmpDestinationSelect"
         ]
       },
       "Pipelining_Execution_0_jmpRelativeOut": {
         "ports": [
           "Pipelining_Execution_0/jmpRelativeOut",
-          "CU_JumpController_0/jmpRelative",
-          "Debugger_0/pipelineJmpRelative"
+          "CU_JumpController_0/jmpRelative"
         ]
       },
       "Pipelining_Execution_0_ramBankIDOut": {

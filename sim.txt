@@ -103,9 +103,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -211,9 +232,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -319,9 +361,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -427,9 +490,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -535,9 +619,30 @@ RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
 wait for 8680 ns;
-wait for 60000ns;
+wait for 500000ns;
 -- next instruction
 
+-- start
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
 -- start
 RX_UART_IN <= '0';
 wait for 8680 ns;
@@ -558,4 +663,25 @@ wait for 8680 ns;
 RX_UART_IN <= '0';
 wait for 8680 ns;
 RX_UART_IN <= '1';
+wait for 500000ns;
+-- start
+RX_UART_IN <= '0';
 wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '0';
+wait for 8680 ns;
+RX_UART_IN <= '1';
+wait for 500000ns;
