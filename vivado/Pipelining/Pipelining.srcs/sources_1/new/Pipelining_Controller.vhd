@@ -180,7 +180,7 @@ begin
     end process staller2;
     
     stalled_s <= ram_stalled_s or jmp_stalled_s;
-    stalled_s <= stalled_s ;
+    stalled <= stalled_s ;
     
     
     reg_1_reads_flags_s <= (rf_reg_1_read_s = '1') and (rf_reg_1_s = FL);
