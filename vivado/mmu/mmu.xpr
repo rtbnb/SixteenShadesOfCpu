@@ -60,20 +60,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="arty-a7-35"/>
-    <Option Name="WTXSimLaunchSim" Val="334"/>
+    <Option Name="WTXSimLaunchSim" Val="343"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="169"/>
-    <Option Name="WTModelSimExportSim" Val="169"/>
-    <Option Name="WTQuestaExportSim" Val="169"/>
+    <Option Name="WTXSimExportSim" Val="171"/>
+    <Option Name="WTModelSimExportSim" Val="171"/>
+    <Option Name="WTQuestaExportSim" Val="171"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="169"/>
-    <Option Name="WTRivieraExportSim" Val="169"/>
-    <Option Name="WTActivehdlExportSim" Val="169"/>
+    <Option Name="WTVcsExportSim" Val="171"/>
+    <Option Name="WTRivieraExportSim" Val="171"/>
+    <Option Name="WTActivehdlExportSim" Val="171"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -145,11 +145,6 @@
       <File Path="$PSRCDIR/sim_1/new/mainSim.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSIMDIR/sim_1/mainSim_behav.wcfg">
-        <FileInfo>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -240,6 +235,7 @@
       </Config>
     </FileSet>
     <FileSet Name="btn_sim" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/btn_sim" RelGenDir="$PGENDIR/btn_sim">
+      <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/btn_sim/new/BtnSim.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>

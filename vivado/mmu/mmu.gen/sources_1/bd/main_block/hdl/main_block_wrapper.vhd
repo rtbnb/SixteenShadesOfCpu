@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 28 22:20:17 2024
+--Date        : Fri Nov 29 11:54:45 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
@@ -34,31 +34,31 @@ entity main_block_wrapper is
     btn17 : in STD_LOGIC;
     btn18 : in STD_LOGIC;
     btn19 : in STD_LOGIC;
-    clk100mhz_in : in STD_LOGIC;
+    clk100mhzIn : in STD_LOGIC;
+    debugAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     debugClk : out STD_LOGIC;
+    debugDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugEnable : in STD_LOGIC;
     debugMockClk : in STD_LOGIC;
-    debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    debug_clk : in STD_LOGIC;
-    debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugOverrideEnable : in STD_LOGIC;
+    debugReset : in STD_LOGIC;
+    debugWe : in STD_LOGIC;
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_enable : in STD_LOGIC;
-    debug_override_enable : in STD_LOGIC;
-    debug_reset : in STD_LOGIC;
-    debug_we : in STD_LOGIC;
-    fault_reset : in STD_LOGIC;
-    gpu_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gpu_clk : in STD_LOGIC;
-    gpu_din : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    external_debugClk : in STD_LOGIC;
+    faultReset : in STD_LOGIC;
+    gpuAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpuClk : in STD_LOGIC;
+    gpuDin : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    gpuWe : in STD_LOGIC;
     gpu_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    gpu_we : in STD_LOGIC;
-    gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gramAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gramBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    gramDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gramOe : in STD_LOGIC;
+    gramWe : in STD_LOGIC;
     gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_oe : in STD_LOGIC;
-    gram_we : in STD_LOGIC;
-    iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    iramAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     led00 : out STD_LOGIC;
     led01 : out STD_LOGIC;
@@ -85,12 +85,11 @@ entity main_block_wrapper is
     rgb2 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rgb3 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rho : out STD_LOGIC;
+    vgaAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vgaClk : out STD_LOGIC;
-    vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    vga_clk : in STD_LOGIC;
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
-end main_block_wrapper;
+end entity main_block_wrapper;
 
 architecture STRUCTURE of main_block_wrapper is
   component main_block is
@@ -98,9 +97,6 @@ architecture STRUCTURE of main_block_wrapper is
     gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    clk100mhz_in : in STD_LOGIC;
-    fault_reset : in STD_LOGIC;
-    debug_reset : in STD_LOGIC;
     gpu_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
     btn00 : in STD_LOGIC;
@@ -151,25 +147,27 @@ architecture STRUCTURE of main_block_wrapper is
     vgaClk : out STD_LOGIC;
     debugClk : out STD_LOGIC;
     debugMockClk : in STD_LOGIC;
-    vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    vga_clk : in STD_LOGIC;
-    gpu_we : in STD_LOGIC;
-    gpu_din : in STD_LOGIC_VECTOR ( 11 downto 0 );
-    gpu_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gpu_clk : in STD_LOGIC;
-    debug_we : in STD_LOGIC;
-    debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_clk : in STD_LOGIC;
-    debug_override_enable : in STD_LOGIC;
-    iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_enable : in STD_LOGIC;
-    gram_oe : in STD_LOGIC;
-    gram_we : in STD_LOGIC;
-    gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    clk100mhzIn : in STD_LOGIC;
+    faultReset : in STD_LOGIC;
+    debugReset : in STD_LOGIC;
+    gramWe : in STD_LOGIC;
+    debugWe : in STD_LOGIC;
+    gpuWe : in STD_LOGIC;
+    vgaAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gramAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gramOe : in STD_LOGIC;
+    gramBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    gramDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugEnable : in STD_LOGIC;
+    debugOverrideEnable : in STD_LOGIC;
+    external_debugClk : in STD_LOGIC;
+    debugAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    iramAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpuClk : in STD_LOGIC;
+    debugDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    gpuAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpuDin : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   end component main_block;
 begin
@@ -195,31 +193,31 @@ main_block_i: component main_block
       btn17 => btn17,
       btn18 => btn18,
       btn19 => btn19,
-      clk100mhz_in => clk100mhz_in,
+      clk100mhzIn => clk100mhzIn,
+      debugAddr(15 downto 0) => debugAddr(15 downto 0),
+      debugBank(3 downto 0) => debugBank(3 downto 0),
       debugClk => debugClk,
+      debugDin(15 downto 0) => debugDin(15 downto 0),
+      debugEnable => debugEnable,
       debugMockClk => debugMockClk,
-      debug_addr(15 downto 0) => debug_addr(15 downto 0),
-      debug_bank(3 downto 0) => debug_bank(3 downto 0),
-      debug_clk => debug_clk,
-      debug_din(15 downto 0) => debug_din(15 downto 0),
+      debugOverrideEnable => debugOverrideEnable,
+      debugReset => debugReset,
+      debugWe => debugWe,
       debug_dout(15 downto 0) => debug_dout(15 downto 0),
-      debug_enable => debug_enable,
-      debug_override_enable => debug_override_enable,
-      debug_reset => debug_reset,
-      debug_we => debug_we,
-      fault_reset => fault_reset,
-      gpu_addr(15 downto 0) => gpu_addr(15 downto 0),
-      gpu_clk => gpu_clk,
-      gpu_din(11 downto 0) => gpu_din(11 downto 0),
+      external_debugClk => external_debugClk,
+      faultReset => faultReset,
+      gpuAddr(15 downto 0) => gpuAddr(15 downto 0),
+      gpuClk => gpuClk,
+      gpuDin(11 downto 0) => gpuDin(11 downto 0),
+      gpuWe => gpuWe,
       gpu_dout(11 downto 0) => gpu_dout(11 downto 0),
-      gpu_we => gpu_we,
-      gram_addr(15 downto 0) => gram_addr(15 downto 0),
-      gram_bank(3 downto 0) => gram_bank(3 downto 0),
-      gram_din(15 downto 0) => gram_din(15 downto 0),
+      gramAddr(15 downto 0) => gramAddr(15 downto 0),
+      gramBank(3 downto 0) => gramBank(3 downto 0),
+      gramDin(15 downto 0) => gramDin(15 downto 0),
+      gramOe => gramOe,
+      gramWe => gramWe,
       gram_dout(15 downto 0) => gram_dout(15 downto 0),
-      gram_oe => gram_oe,
-      gram_we => gram_we,
-      iram_addr(15 downto 0) => iram_addr(15 downto 0),
+      iramAddr(15 downto 0) => iramAddr(15 downto 0),
       iram_dout(15 downto 0) => iram_dout(15 downto 0),
       led00 => led00,
       led01 => led01,
@@ -246,9 +244,8 @@ main_block_i: component main_block
       rgb2(2 downto 0) => rgb2(2 downto 0),
       rgb3(2 downto 0) => rgb3(2 downto 0),
       rho => rho,
+      vgaAddr(15 downto 0) => vgaAddr(15 downto 0),
       vgaClk => vgaClk,
-      vga_addr(15 downto 0) => vga_addr(15 downto 0),
-      vga_clk => vga_clk,
       vga_dout(11 downto 0) => vga_dout(11 downto 0)
     );
-end STRUCTURE;
+end architecture STRUCTURE;
