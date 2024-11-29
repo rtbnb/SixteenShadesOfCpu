@@ -23,7 +23,6 @@ class Datapool:
             b"\x35": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'data_2_high': b'\x00', 'data_2_low': b'\x00', 'memory': [], 'Name': "read_vram"},
             b"\x36": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'data_2_high': b'\x00', 'data_2_low': b'\x00', 'memory': [], 'Name': "read_gram"},
             b"\x37": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'data_2_high': b'\x00', 'data_2_low': b'\x00', 'memory': [], 'Name': "read_mmio"},
-            b"\x38": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "mmu_iram_dout"},
             b"\x40": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "alu_din1"},
             b"\x41": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "alu_din2"},
             b"\x42": {'data_1_high': b'\x00', 'data_1_low': b'\x00', 'Name': "alu_out"},
