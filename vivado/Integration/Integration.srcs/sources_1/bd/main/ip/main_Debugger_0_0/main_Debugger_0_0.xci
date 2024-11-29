@@ -83,8 +83,7 @@
         "mmuDebugDin": [ { "direction": "out", "size_left": "15", "size_right": "0", "driver_value": "0x0000" } ],
         "mmuDebugBank": [ { "direction": "out", "size_left": "3", "size_right": "0", "driver_value": "0x0" } ],
         "mmuDebugWe": [ { "direction": "out", "driver_value": "0x0" } ],
-        "mmuDebugDout": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
-        "mmuIramDout": [ { "direction": "in", "size_left": "15", "size_right": "0" } ]
+        "mmuDebugDout": [ { "direction": "in", "size_left": "15", "size_right": "0" } ]
       },
       "interfaces": {
         "clk": {

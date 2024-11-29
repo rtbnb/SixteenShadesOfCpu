@@ -37,22 +37,22 @@
     },
     "boundary": {
       "ports": {
-        "Instruction": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
-        "Reg1Read": [ { "direction": "out" } ],
-        "Reg2Read": [ { "direction": "out" } ],
-        "RF_WHB": [ { "direction": "out" } ],
-        "RF_WLB": [ { "direction": "out" } ],
-        "Write_Data_Sel": [ { "direction": "out", "size_left": "1", "size_right": "0" } ],
-        "RAM_Address_Src": [ { "direction": "out" } ],
-        "RAM_Read": [ { "direction": "out" } ],
-        "RAM_Write": [ { "direction": "out" } ],
-        "JMP": [ { "direction": "out" } ],
-        "JMP_Conditional": [ { "direction": "out" } ],
-        "JMP_Relative": [ { "direction": "out" } ],
-        "JMP_DestinationSource": [ { "direction": "out" } ],
-        "Is_ALU_OP": [ { "direction": "out" } ],
-        "Is_RAM_OP": [ { "direction": "out" } ],
-        "Is_GPU_OP": [ { "direction": "out" } ]
+        "instruction": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "reg1Read": [ { "direction": "out" } ],
+        "reg2Read": [ { "direction": "out" } ],
+        "rfWHB": [ { "direction": "out" } ],
+        "rfWLB": [ { "direction": "out" } ],
+        "writeDataSelect": [ { "direction": "out", "size_left": "1", "size_right": "0" } ],
+        "ramAddressSrc": [ { "direction": "out" } ],
+        "ramRead": [ { "direction": "out" } ],
+        "ramWrite": [ { "direction": "out" } ],
+        "jmp": [ { "direction": "out" } ],
+        "jmpConditional": [ { "direction": "out" } ],
+        "jmpRelative": [ { "direction": "out" } ],
+        "jmpDestinationSource": [ { "direction": "out" } ],
+        "isALUOp": [ { "direction": "out" } ],
+        "isRAMOp": [ { "direction": "out" } ],
+        "isGPUOp": [ { "direction": "out" } ]
       }
     }
   }

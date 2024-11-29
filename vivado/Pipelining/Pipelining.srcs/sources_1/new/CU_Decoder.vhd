@@ -28,13 +28,14 @@ entity CU_Decoder is
         jmpRelative : out std_logic;
         jmpDestinationSource : out std_logic;
         isALUOp : out std_logic;
-        isRAMOp : out std_logic
+        isRAMOp : out std_logic;
+        isGPUOp : out std_logic
     );
 end entity CU_Decoder;
 
 architecture Behavioral of CU_Decoder is
     signal instruction_name_s : std_logic_vector(3 downto 0);
-    signal is_nop_s, is_alu_s, is_rdmi_s, is_wrmi_s, is_iml_s, is_imh_s, is_rdmr_s, is_wrmr_s, is_jc_s, is_jr_s, is_ja_s, is_cr_s : boolean;
+    signal is_nop_s, is_alu_s, is_rdmi_s, is_wrmi_s, is_iml_s, is_imh_s, is_rdmr_s, is_wrmr_s, is_jc_s, is_jr_s, is_ja_s, is_cr_s, is_gpu_s : boolean;
     signal write_whole_byte_s : boolean;
 begin
     instruction_name_s <= instruction(15 downto 12);
@@ -49,20 +50,21 @@ begin
     is_jc_s   <= instruction_name_s = "1000";
     is_jr_s   <= instruction_name_s = "1001";
     is_ja_s   <= instruction_name_s = "1010";
-    is_cr_s   <= instruction_name_s = "1110"; 
-    
+    is_cr_s   <= instruction_name_s = "1110";
+    is_gpu_s  <= instruction_name_s = "1111";
+
     -- ALU for operand1
     -- WRMI for write data
     -- IML/IMH for partial write data
     -- WRMR for write data
     -- JR for jump address
     -- CR for write data
-    reg1Read <= '1' when is_alu_s or is_wrmi_s or is_iml_s or is_imh_s or is_wrmr_s  or is_jr_s or is_cr_s else '0';
+    reg1Read <= '1' when is_alu_s or is_wrmi_s or is_iml_s or is_imh_s or is_wrmr_s  or is_jr_s or is_cr_s or is_gpu_s else '0';
     
     -- ALU for operand2
     -- RDMR and WRMR for address
     -- JC for flags 
-    reg2Read <= '1' when is_alu_s or is_rdmr_s or is_wrmr_s or is_jc_s else '0';
+    reg2Read <= '1' when is_alu_s or is_rdmr_s or is_wrmr_s or is_jc_s or is_gpu_s else '0';
     
     -- ALU for writing result to $AO
     -- RDMI/RDMR for writing memory read result
@@ -97,5 +99,6 @@ begin
     
     isALUOp <= '1' when is_alu_s else '0';
     isRAMOp <= '1' when is_rdmi_s or is_wrmi_s or is_rdmr_s or is_wrmr_s else '0';
+    isGPUOp <= '1' when is_gpu_s else '0';
     
 end architecture Behavioral;
