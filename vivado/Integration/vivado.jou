@@ -3,93 +3,66 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Nov 28 20:03:05 2024
-# Process ID: 29320
+# Start of session at: Fri Nov 29 14:59:30 2024
+# Process ID: 23084
 # Current directory: C:/Development/SixteenShadesOfCpu/vivado/Integration
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19488 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22692 C:\Development\SixteenShadesOfCpu\vivado\Integration\Integration.xpr
 # Log file: C:/Development/SixteenShadesOfCpu/vivado/Integration/vivado.log
 # Journal file: C:/Development/SixteenShadesOfCpu/vivado/Integration\vivado.jou
-# Running On        :DESKTOP-E8CIL9E
+# Running On        :BOOK-69BD3QPCMV
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :19045
-# Processor Detail  :AMD Ryzen 5 5600X 6-Core Processor             
-# CPU Frequency     :3693 MHz
-# CPU Physical cores:6
-# CPU Logical cores :12
-# Host memory       :17099 MB
-# Swap memory       :11274 MB
-# Total Virtual     :28373 MB
-# Available Virtual :5283 MB
+# Operating System  :22631
+# Processor Detail  :Intel(R) Core(TM) Ultra 5 125H
+# CPU Frequency     :2995 MHz
+# CPU Physical cores:14
+# CPU Logical cores :18
+# Host memory       :16739 MB
+# Swap memory       :8321 MB
+# Total Virtual     :25061 MB
+# Available Virtual :11297 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.xpr
+update_compile_order -fileset sources_1
 report_ip_status -name ip_status 
+update_module_reference [get_ips  main_RegFile_0_0]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs impl_1 -jobs 18
+wait_on_run impl_1
+reset_run synth_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top main_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sources_1
-update_module_reference [get_ips  {main_TX_UART_0_0 main_RX_UART_0_0}]
-connect_bd_net [get_bd_pins RX_UART_0/dataOutput] [get_bd_pins Debugger_0/rxData]
-connect_bd_net [get_bd_pins RX_UART_0/dataValid] [get_bd_pins Debugger_0/rxDataValid]
-connect_bd_net [get_bd_ports RX_UART_IN] [get_bd_pins RX_UART_0/rxSerialInput]
-connect_bd_net [get_bd_pins TX_UART_0/dataValid] [get_bd_pins Debugger_0/txDataValid]
-connect_bd_net [get_bd_pins Debugger_0/txData] [get_bd_pins TX_UART_0/dataIn]
-connect_bd_net [get_bd_pins TX_UART_0/sendValid] [get_bd_pins Debugger_0/txDataSended]
-connect_bd_net [get_bd_ports TX_UART_OUT] [get_bd_pins TX_UART_0/txOutput]
-set_property location {6 2916 -303} [get_bd_cells Pipelining_Execution_0]
-connect_bd_net [get_bd_pins Debugger_0/pipelineOperand1] [get_bd_pins Pipelining_Execution_0/Operand1_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineOperand2] [get_bd_pins Pipelining_Execution_0/Operand2_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineJmp] [get_bd_pins Pipelining_Execution_0/JMP_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineJmpConditional] [get_bd_pins Pipelining_Execution_0/JMP_Conditional_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineJmpRelative] [get_bd_pins Pipelining_Execution_0/JMP_Relative_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineJmpDestinationSelect] [get_bd_pins Pipelining_Execution_0/JMP_DestinationSelect_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineJmpCondition] [get_bd_pins Pipelining_Execution_0/JMP_Condition_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineWriteDataSel] [get_bd_pins Pipelining_Execution_0/JMP_DestinationSelect_out]
-undo
-connect_bd_net [get_bd_pins Debugger_0/pipelineWriteDataSel] [get_bd_pins Pipelining_Execution_0/WriteDataSel_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineRamSrc] [get_bd_pins Pipelining_Execution_0/RAM_Src_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineRamRead] [get_bd_pins Pipelining_Execution_0/RAM_Read_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineRamRrite] [get_bd_pins Pipelining_Execution_0/RAM_Write_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineRamBankid] [get_bd_pins Pipelining_Execution_0/RAM_BankID_out]
-connect_bd_net [get_bd_pins Debugger_0/pipelineCurrentInstruction] [get_bd_pins Pipelining_Controller_0/InstructionToExecute]
-connect_bd_net [get_bd_pins Debugger_0/pipelineStalled] [get_bd_pins Pipelining_Controller_0/Stalled]
-connect_bd_net [get_bd_pins Debugger_0/pipelineInstructionForwardingConfig] [get_bd_pins Pipelining_Controller_0/InstructionForwardConfiguration]
-set_property location {6 3033 796} [get_bd_cells Pipelining_Execution_0]
-set_property location {6 3001 844} [get_bd_cells Pipelining_Execution_0]
-connect_bd_net [get_bd_pins Debugger_0/pcDin] [get_bd_pins CU_JumpController_0/PC_Next]
-connect_bd_net [get_bd_pins Debugger_0/pcDout] [get_bd_pins ProgramCounter_0/dout]
-update_module_reference main_Debugger_0_0
-update_module_reference main_Debugger_0_0
-connect_bd_net [get_bd_pins Debugger_0/aluDin1] [get_bd_pins Pipelining_Execution_0/Operand1_out]
-connect_bd_net [get_bd_pins Debugger_0/aluDin2] [get_bd_pins Pipelining_Execution_0/Operand2_out]
-connect_bd_net [get_bd_pins Debugger_0/aluOut] [get_bd_pins ALU_0/ALU_OUT]
-connect_bd_net [get_bd_pins Debugger_0/aluFlags] [get_bd_pins ALU_FLAG_PACKER_0/ALU_FLAGS]
-connect_bd_net [get_bd_pins Debugger_0/aluOp] [get_bd_pins Pipelining_Execution_0/Immediate_out]
-connect_bd_net [get_bd_pins Debugger_0/regfileAddrReg1] [get_bd_pins Decoder_0/register1]
-connect_bd_net [get_bd_pins Debugger_0/regfileAddrReg2] [get_bd_pins Decoder_0/register2]
-connect_bd_net [get_bd_pins Debugger_0/regfileAddrWriteReg] [get_bd_pins Pipelining_WriteBack_0/WriteAddress_out]
-connect_bd_net [get_bd_pins Debugger_0/regfileWriteEnable] [get_bd_pins Pipelining_WriteBack_0/RF_WE_out]
-connect_bd_net [get_bd_pins Debugger_0/regfileOverwriteFlag] [get_bd_pins Pipelining_WriteBack_0/Is_ALU_OP_out]
-update_module_reference main_Pipelining_Execution_0_0
-update_module_reference main_RegFile_0_0
-update_module_reference main_RegFile_0_0
-update_module_reference main_RegFile_0_0
-update_compile_order -fileset sources_1
-connect_bd_net [get_bd_pins RegFile_0/Reg1Data] [get_bd_pins Debugger_0/regfileReg1Data]
-connect_bd_net [get_bd_pins Debugger_0/regfileReg2Data] [get_bd_pins RegFile_0/Reg2Data]
-connect_bd_net [get_bd_pins Debugger_0/regfileBankid] [get_bd_pins RegFile_0/BankID]
-connect_bd_net [get_bd_pins Debugger_0/mmuDebugDout] [get_bd_pins mmu_0/debugDout]
-connect_bd_net [get_bd_pins Debugger_0/mmuIramDout] [get_bd_pins mmu_0/iramDout]
-connect_bd_net [get_bd_pins Debugger_0/regfileWriteData] [get_bd_pins Pipelining_WriteBack_0/WriteData_out]
-connect_bd_net [get_bd_pins RegFile_0/loadClk] [get_bd_pins clockcontroller_0/loadClk]
-connect_bd_net [get_bd_pins clockcontroller_0/debugClk] [get_bd_pins RX_UART_0/clk]
-connect_bd_net [get_bd_pins Debugger_0/debugEnable] [get_bd_pins mmu_0/debugEnable]
-connect_bd_net [get_bd_pins Debugger_0/debugEnable] [get_bd_pins clockcontroller_0/debugEnable]
-connect_bd_net [get_bd_pins clockcontroller_0/debugMockClk] [get_bd_pins Debugger_0/ccDebugMockClk]
-connect_bd_net [get_bd_pins Debugger_0/ccDebugReset] [get_bd_pins clockcontroller_0/debugReset]
-connect_bd_net [get_bd_pins clockcontroller_0/debugMmuOverrideEnable] [get_bd_pins Debugger_0/mmuDebugOverrideEn]
-connect_bd_net [get_bd_pins Debugger_0/mmuDebugOverrideEn] [get_bd_pins mmu_0/debugOverrideEnable]
-connect_bd_net [get_bd_pins Debugger_0/mmuDebugClk] [get_bd_pins mmu_0/debugClk]
-connect_bd_net [get_bd_pins mmu_0/debugAddr] [get_bd_pins Debugger_0/mmuDebugAddr]
-connect_bd_net [get_bd_pins Debugger_0/mmuDebugDin] [get_bd_pins mmu_0/debugDin]
-connect_bd_net [get_bd_pins mmu_0/debugBank] [get_bd_pins Debugger_0/mmuDebugBank]
-connect_bd_net [get_bd_pins Debugger_0/mmuDebugWe] [get_bd_pins mmu_0/debugWe]
-save_bd_design
-update_compile_order -fileset sources_1
+launch_runs impl_1 -jobs 18
+wait_on_run impl_1
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_Debugger_0_0]
+connect_bd_net [get_bd_pins Debugger_0/pipelineRamWrite] [get_bd_pins Pipelining_Execution_0/ramWriteOut]
+report_ip_status -name ip_status 
+reset_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects  [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -sync -no_script -force -quiet
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 18
+wait_on_run impl_1
+close_bd_design [get_bd_designs main]
+open_run impl_1
+report_ip_status -name ip_status 
+update_module_reference [get_ips  main_Debugger_0_0]
+generate_target all [get_files  C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd]
+export_ip_user_files -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sources_1/bd/main/main.bd] -directory C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/sim_scripts -ip_user_files_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files -ipstatic_source_dir C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/modelsim} {questa=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/questa} {riviera=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/riviera} {activehdl=C:/Development/SixteenShadesOfCpu/vivado/Integration/Integration.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 18
+wait_on_run impl_1
+close_bd_design [get_bd_designs main]
+close_design
+launch_runs impl_1 -to_step write_bitstream -jobs 18
+wait_on_run impl_1

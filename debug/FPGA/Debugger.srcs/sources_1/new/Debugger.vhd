@@ -40,7 +40,7 @@ entity Debugger is
         pipelineWriteDataSel: in std_logic_vector(1 downto 0);
         pipelineRamSrc: in std_logic;
         pipelineRamRead: in std_logic;
-        pipelineRamRrite: in std_logic;
+        pipelineRamWrite: in std_logic;
         pipelineRamBankid: in std_logic_vector(3 downto 0);
         
         -- program counter
@@ -138,14 +138,15 @@ architecture Behavioral of Debugger is
     signal regfile_reg1_data_s: std_logic_vector(15 downto 0);
     signal regfile_reg2_data_s: std_logic_vector(15 downto 0);
     signal regfile_bankid_s: std_logic_vector(3 downto 0);
+    -- mmu
+    signal mmu_debug_dout_s: std_logic_vector(15 downto 0);
 
 begin
     -- state machine
-    pc_current_addr_buffer_s <= pcCurrentAddr;
     state_machine: process(clk, state_s, rxDataValid, txDataSended) is
     begin
         if rising_edge(clk) then
-            case state is
+            case state_s is
                 when Idle =>
                     -- if first byte read on rx
                     if (rxDataValid = '1') then
@@ -209,7 +210,7 @@ begin
                             -- send error message
                             tx_instruction_buffer_s <= x"0F";
                             tx_data_buffer_s(15 downto 8) <= x"00";
-                            tx_data_buffer_s(7 downto 0) <= rx_instruction_buffer;
+                            tx_data_buffer_s(7 downto 0) <= rx_instruction_buffer_s;
                             state_s <= TransmitDataInstructionSHORT;
                     end case;
                 when ReceiveInstructionDataHIGH =>
@@ -243,7 +244,7 @@ begin
                 -- readback
                 when Readback =>
                     rx_instruction_buffer_ack_s <= rx_instruction_buffer_s;
-                    rx_instruction_data_buffer_ack <= rx_instruction_data_buffer_s;
+                    rx_instruction_data_buffer_ack_s <= rx_instruction_data_buffer_s;
                     rx_instruction_data2_buffer_ack_s <= rx_instruction_data2_buffer_s;
                     tx_instruction_buffer_s <= rx_instruction_buffer_s;
                     tx_data_buffer_s <= rx_instruction_data_buffer_s;
@@ -251,12 +252,12 @@ begin
                     state_s <= TransmitDataInstruction;
                 when ReadbackAck =>
                         rx_instruction_buffer_s <= rx_instruction_buffer_ack_s;
-                        rx_instruction_data_buffer_s <= rx_instruction_data_buffer_ack;
+                        rx_instruction_data_buffer_s <= rx_instruction_data_buffer_ack_s;
                         rx_instruction_data2_buffer_s <= rx_instruction_data2_buffer_ack_s;
                         state_s <= HoldClock;
                 -- command processing states
                 when HoldClock =>
-                    debug_enable <= '1';
+                    debugEnable <= '1';
                     state_s <= BufferState;
                 when BufferState =>
                     -- buffering every input
@@ -302,8 +303,8 @@ begin
                         when x"01" => -- count one cycle
                             state_s <= ClockOneCycleHigh;
                         when x"02" => -- resume clk
-                            cc_debug_reset <= '1';
-                            debug_enable <= '0';
+                            ccDebugReset <= '1';
+                            debugEnable <= '0';
                             state_s <= ClockResumeAck;
                         -- pipeline
                         when x"10" =>
@@ -328,19 +329,10 @@ begin
                             tx_instruction_buffer_s <= x"14";
                             tx_data_buffer_s <= pipeline_operand_2_s;
                             state_s <= TransmitDataInstructionSHORT;
-                        when x"15" =>
-                            tx_instruction_buffer_s <= x"15";
-                            tx_data_buffer_s <= pipeline_rf_read_buf_s;
-                            state_s <= TransmitDataInstructionSHORT;
                         when x"16" =>
                             tx_data_buffer_s(15 downto 7) <= "000000000";
                             tx_instruction_buffer_s <= x"16";
                             tx_data_buffer_s(6 downto 0) <= pipeline_jmp_condl_rel_dests_cond_s;
-                            state_s <= TransmitDataInstructionSHORT;
-                        when x"17" =>
-                            tx_instruction_buffer_s <= x"17";
-                            tx_data_buffer_s(15 downto 1) <= "000000000000000";
-                            tx_data_buffer_s(0) <= pipeline_taking_data_s;
                             state_s <= TransmitDataInstructionSHORT;
                        
                         when x"1B" =>
@@ -610,10 +602,11 @@ begin
                     state_s <= TransmitInstructionOnly;
                 -- lutram
                 when MMUFetchIRAMWriteToTX =>
-                    tx_data_buffer_s <= mmu_debug_dout_s;
-                    tx_addr_buffer_s <= rx_instruction_data2_buffer_s;
+                    mmu_debug_dout_s <= mmuDebugDout;
                     state_s <= MMUFetchIRAMReset;
                 when MMUFetchIRAMReset =>
+                    tx_data_buffer_s <= mmu_debug_dout_s;
+                    tx_addr_buffer_s <= rx_instruction_data2_buffer_s;
                     mmuDebugOverrideEn <= '0';
                     mmuDebugClk <= '0';
                     state_s <= TransmitDataInstruction;
@@ -629,12 +622,13 @@ begin
                     state_s <= ClockBlockRamReadFetch;
                 when ClockBlockRamReadFetch =>
                     mmuDebugClk <= '0';
-                    tx_data_buffer_s <= mmu_debug_dout_s;
-                    tx_addr_buffer_s <= rx_instruction_data2_buffer_s;
+                    mmu_debug_dout_s <= mmuDebugDout;
                     state_s <= ClockBlockRamReadReset;
                 when ClockBlockRamReadReset =>
                     mmuDebugOverrideEn <= '0';
                     mmuDebugWe <= '0';
+                    tx_data_buffer_s <= mmu_debug_dout_s;
+                    tx_addr_buffer_s <= rx_instruction_data2_buffer_s;
                     state_s <= TransmitDataInstruction;
                 
                 when others =>
