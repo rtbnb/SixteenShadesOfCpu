@@ -30,33 +30,32 @@ architecture Behavioral of Pipelining_Controller is
     
     component CU_Decoder is
         Port (
-            Instruction : in std_logic_vector (15 downto 0);
-            Reg1Read : out std_logic;
-            Reg2Read : out std_logic;
-            RF_WHB : out std_logic;
-            RF_WLB : out std_logic;
-            Write_Data_Sel : out std_logic_vector (1 downto 0);
-            RAM_Address_Src : out std_logic;
-            RAM_Read : out std_logic;
-            RAM_Write : out std_logic;
-            JMP : out std_logic;
-            JMP_Conditional : out std_logic;
-            JMP_Relative : out std_logic;
-            JMP_DestinationSource : out std_logic;
-            Is_ALU_OP : out std_logic;
-            Is_RAM_OP : out std_logic;
-            IS_GPU_OP : out std_logic
+            instruction : in std_logic_vector(15 downto 0);
+            reg1Read : out std_logic;
+            reg2Read : out std_logic;
+            rfWHB : out std_logic;
+            rfWLB : out std_logic;
+            writeDataSelect : out std_logic_vector(1 downto 0);
+            ramAddressSrc : out std_logic;
+            ramRead : out std_logic;
+            ramWrite : out std_logic;
+            jmp : out std_logic;
+            jmpConditional : out std_logic;
+            jmpRelative : out std_logic;
+            jmpDestinationSource : out std_logic;
+            isALUOp : out std_logic;
+            isRAMOp : out std_logic
         );
     end component CU_Decoder;
     
     component Decoder is
         Port (
-            Instruction : in std_logic_vector (15 downto 0);
-            Register1 : out std_logic_vector(3 downto 0);
-            Register2 : out std_logic_vector(3 downto 0);
-            WriteBackRegister : out std_logic_vector(3 downto 0);
-            Immediate : out std_logic_vector(15 downto 0);
-            JMP_Condition : out std_logic_vector(2 downto 0)
+            instruction : in std_logic_vector(15 downto 0);
+            register1 : out std_logic_vector(3 downto 0);
+            register2 : out std_logic_vector(3 downto 0);
+            writeBackRegister : out std_logic_vector(3 downto 0);
+            immediate : out std_logic_vector(15 downto 0);
+            jmpCondition : out std_logic_vector(2 downto 0)
         );
     end component Decoder;
     
@@ -89,30 +88,30 @@ begin
 
     
     CU_Decoder_RF : CU_Decoder port map(
-        Instruction => rf_read_buffer_s,
-        Reg1Read => rf_reg_1_read_s,
-        Reg2Read => rf_reg_2_read_s,
-        RAM_Read => ram_stall_s,
-        JMP => rf_jmp_s
+        instruction => rf_read_buffer_s,
+        reg1Read => rf_reg_1_read_s,
+        reg2Read => rf_reg_2_read_s,
+        ramRead => ram_stall_s,
+        jmp => rf_jmp_s
     );
     
     Decoder_RF : Decoder port map(
-        Instruction => rf_read_buffer_s,
-        Register1 => rf_reg_1_s,
-        Register2 => rf_reg_2_s
+        instruction => rf_read_buffer_s,
+        register1 => rf_reg_1_s,
+        register2 => rf_reg_2_s
     );
     
     CU_Decoder_Exec : CU_Decoder port map(
-        Instruction => execution_buffer_s,
-        RF_WHB => exc_rf_whb_s,
-        RF_WLB => exc_rf_wlb_s,
-        RAM_Read => ram_stall_reset_s,
-        Is_ALU_OP => exc_alu_s
+        instruction => execution_buffer_s,
+        rfWHB => exc_rf_whb_s,
+        rfWLB => exc_rf_wlb_s,
+        ramRead => ram_stall_reset_s,
+        isALUOp => exc_alu_s
     );
     
     Decoder_Exec : Decoder port map(
-        Instruction => execution_buffer_s,
-        WriteBackRegister => exc_write_reg_s
+        instruction => execution_buffer_s,
+        writeBackRegister => exc_write_reg_s
     );
     
     

@@ -63,7 +63,7 @@ architecture Behavioral of Pipelining_ExecutionStage is
     signal whb_s, wlb_s, ram_src_s, ram_read_s, ram_write_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s, is_gpu_op_s : std_logic;
     signal write_data_select_s : std_logic_vector(1 downto 0);
     signal jmp_condition_s : std_logic_vector(2 downto 0);
-    signal bank_id_s : std_logic_vector (3 downto 0);
+    signal bank_id_s : std_logic_vector(3 downto 0);
 begin
     latcher : process(loadClk, reset) is
     begin

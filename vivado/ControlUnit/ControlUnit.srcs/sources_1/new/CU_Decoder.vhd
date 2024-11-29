@@ -77,10 +77,10 @@ begin
     -- CR => Select 2
     -- RDMR/RDMI (others) => Select 3
     writeDataSelect <= "00" when is_alu_s else
-        "01" when is_imh_s or is_iml_s else
-        "10" when is_cr_s else
-        "11" when is_rdmi_s or is_rdmr_s else
-        "00";
+                       "01" when is_imh_s or is_iml_s else
+                       "10" when is_cr_s else
+                       "11" when is_rdmi_s or is_rdmr_s else
+                       "00";
     -- '0': Reg2 is used as RAM Address
     -- '1': Immediate is used as RAM Address
     ramAddressSrc <= '1' when is_rdmi_s or is_wrmi_s else '0';
