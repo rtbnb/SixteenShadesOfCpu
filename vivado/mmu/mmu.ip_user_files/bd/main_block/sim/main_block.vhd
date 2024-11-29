@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Thu Nov 28 22:20:17 2024
+--Date        : Fri Nov 29 11:54:45 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block.bd
 --Design      : main_block
@@ -34,31 +34,31 @@ entity main_block is
     btn17 : in STD_LOGIC;
     btn18 : in STD_LOGIC;
     btn19 : in STD_LOGIC;
-    clk100mhz_in : in STD_LOGIC;
+    clk100mhzIn : in STD_LOGIC;
+    debugAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
     debugClk : out STD_LOGIC;
+    debugDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugEnable : in STD_LOGIC;
     debugMockClk : in STD_LOGIC;
-    debug_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    debug_clk : in STD_LOGIC;
-    debug_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    debugOverrideEnable : in STD_LOGIC;
+    debugReset : in STD_LOGIC;
+    debugWe : in STD_LOGIC;
     debug_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    debug_enable : in STD_LOGIC;
-    debug_override_enable : in STD_LOGIC;
-    debug_reset : in STD_LOGIC;
-    debug_we : in STD_LOGIC;
-    fault_reset : in STD_LOGIC;
-    gpu_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gpu_clk : in STD_LOGIC;
-    gpu_din : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    external_debugClk : in STD_LOGIC;
+    faultReset : in STD_LOGIC;
+    gpuAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpuClk : in STD_LOGIC;
+    gpuDin : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    gpuWe : in STD_LOGIC;
     gpu_dout : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    gpu_we : in STD_LOGIC;
-    gram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_bank : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    gram_din : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gramAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gramBank : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    gramDin : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gramOe : in STD_LOGIC;
+    gramWe : in STD_LOGIC;
     gram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    gram_oe : in STD_LOGIC;
-    gram_we : in STD_LOGIC;
-    iram_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    iramAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     iram_dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     led00 : out STD_LOGIC;
     led01 : out STD_LOGIC;
@@ -85,9 +85,8 @@ entity main_block is
     rgb2 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rgb3 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rho : out STD_LOGIC;
+    vgaAddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     vgaClk : out STD_LOGIC;
-    vga_addr : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    vga_clk : in STD_LOGIC;
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
@@ -245,31 +244,31 @@ architecture STRUCTURE of main_block is
   signal btn17_1 : STD_LOGIC;
   signal btn18_1 : STD_LOGIC;
   signal btn19_1 : STD_LOGIC;
-  signal clk100mhz_in_1 : STD_LOGIC;
+  signal clk100mhzIn_1 : STD_LOGIC;
   signal clockcontroller_0_clk100mhzOut : STD_LOGIC;
   signal clockcontroller_0_debugClk : STD_LOGIC;
   signal clockcontroller_0_load_clk : STD_LOGIC;
   signal clockcontroller_0_vgaClk : STD_LOGIC;
+  signal debugAddr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal debugBank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal debugDin_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal debugMockClk_1 : STD_LOGIC;
-  signal debug_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal debug_bank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal debug_clk_1 : STD_LOGIC;
-  signal debug_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal debugReset_1 : STD_LOGIC;
+  signal debugWe_1 : STD_LOGIC;
   signal debug_enable_1 : STD_LOGIC;
   signal debug_override_enable_1 : STD_LOGIC;
-  signal debug_reset_1 : STD_LOGIC;
-  signal debug_we_1 : STD_LOGIC;
-  signal fault_reset_1 : STD_LOGIC;
-  signal gpu_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal gpu_clk_1 : STD_LOGIC;
-  signal gpu_din_1 : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal gpu_we_1 : STD_LOGIC;
-  signal gram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal gram_bank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal gram_din_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal gram_oe_1 : STD_LOGIC;
-  signal gram_we_1 : STD_LOGIC;
-  signal iram_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal external_debugClk_1 : STD_LOGIC;
+  signal faultReset_1 : STD_LOGIC;
+  signal gpuAddr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal gpuClk_1 : STD_LOGIC;
+  signal gpuDin_1 : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal gpuWe_1 : STD_LOGIC;
+  signal gramAddr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal gramBank_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal gramDin_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal gramOe_1 : STD_LOGIC;
+  signal gramWe_1 : STD_LOGIC;
+  signal iramAddr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal mmio_0_led00 : STD_LOGIC;
   signal mmio_0_led01 : STD_LOGIC;
@@ -313,28 +312,17 @@ architecture STRUCTURE of main_block is
   signal mmu_1_vrambMemClk : STD_LOGIC;
   signal mmu_1_vrambMemDin : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal mmu_1_vrambMemWe : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal vga_addr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal vga_clk_1 : STD_LOGIC;
+  signal vgaAddr_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal vram_douta : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal vram_doutb : STD_LOGIC_VECTOR ( 11 downto 0 );
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of clk100mhz_in : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZ_IN CLK";
+  attribute X_INTERFACE_INFO of clk100mhzIn : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100MHZIN CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk100mhz_in : signal is "XIL_INTERFACENAME CLK.CLK100MHZ_IN, CLK_DOMAIN main_block_clk100mhz_in, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_PARAMETER of clk100mhzIn : signal is "XIL_INTERFACENAME CLK.CLK100MHZIN, CLK_DOMAIN main_block_clk100mhzIn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of debugClk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUGCLK CLK";
   attribute X_INTERFACE_PARAMETER of debugClk : signal is "XIL_INTERFACENAME CLK.DEBUGCLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_clk : signal is "xilinx.com:signal:clock:1.0 CLK.DEBUG_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of debug_clk : signal is "XIL_INTERFACENAME CLK.DEBUG_CLK, CLK_DOMAIN main_block_debug_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of debug_reset : signal is "xilinx.com:signal:reset:1.0 RST.DEBUG_RESET RST";
-  attribute X_INTERFACE_PARAMETER of debug_reset : signal is "XIL_INTERFACENAME RST.DEBUG_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
-  attribute X_INTERFACE_INFO of fault_reset : signal is "xilinx.com:signal:reset:1.0 RST.FAULT_RESET RST";
-  attribute X_INTERFACE_PARAMETER of fault_reset : signal is "XIL_INTERFACENAME RST.FAULT_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW";
-  attribute X_INTERFACE_INFO of gpu_clk : signal is "xilinx.com:signal:clock:1.0 CLK.GPU_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of gpu_clk : signal is "XIL_INTERFACENAME CLK.GPU_CLK, CLK_DOMAIN main_block_gpu_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of vgaClk : signal is "xilinx.com:signal:clock:1.0 CLK.VGACLK CLK";
-  attribute X_INTERFACE_PARAMETER of vgaClk : signal is "XIL_INTERFACENAME CLK.VGACLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of vga_clk : signal is "xilinx.com:signal:clock:1.0 CLK.VGA_CLK CLK";
-  attribute X_INTERFACE_PARAMETER of vga_clk : signal is "XIL_INTERFACENAME CLK.VGA_CLK, CLK_DOMAIN main_block_vga_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_PARAMETER of vgaClk : signal is "XIL_INTERFACENAME CLK.VGACLK, CLK_DOMAIN main_block_vga_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
   btn00_1 <= btn00;
   btn01_1 <= btn01;
@@ -356,31 +344,31 @@ begin
   btn17_1 <= btn17;
   btn18_1 <= btn18;
   btn19_1 <= btn19;
-  clk100mhz_in_1 <= clk100mhz_in;
+  clk100mhzIn_1 <= clk100mhzIn;
+  debugAddr_1(15 downto 0) <= debugAddr(15 downto 0);
+  debugBank_1(3 downto 0) <= debugBank(3 downto 0);
   debugClk <= clockcontroller_0_debugClk;
+  debugDin_1(15 downto 0) <= debugDin(15 downto 0);
   debugMockClk_1 <= debugMockClk;
-  debug_addr_1(15 downto 0) <= debug_addr(15 downto 0);
-  debug_bank_1(3 downto 0) <= debug_bank(3 downto 0);
-  debug_clk_1 <= debug_clk;
-  debug_din_1(15 downto 0) <= debug_din(15 downto 0);
+  debugReset_1 <= debugReset;
+  debugWe_1 <= debugWe;
   debug_dout(15 downto 0) <= mmu_1_debugDout(15 downto 0);
-  debug_enable_1 <= debug_enable;
-  debug_override_enable_1 <= debug_override_enable;
-  debug_reset_1 <= debug_reset;
-  debug_we_1 <= debug_we;
-  fault_reset_1 <= fault_reset;
-  gpu_addr_1(15 downto 0) <= gpu_addr(15 downto 0);
-  gpu_clk_1 <= gpu_clk;
-  gpu_din_1(11 downto 0) <= gpu_din(11 downto 0);
+  debug_enable_1 <= debugEnable;
+  debug_override_enable_1 <= debugOverrideEnable;
+  external_debugClk_1 <= external_debugClk;
+  faultReset_1 <= faultReset;
+  gpuAddr_1(15 downto 0) <= gpuAddr(15 downto 0);
+  gpuClk_1 <= gpuClk;
+  gpuDin_1(11 downto 0) <= gpuDin(11 downto 0);
+  gpuWe_1 <= gpuWe;
   gpu_dout(11 downto 0) <= mmu_1_gpuDout(11 downto 0);
-  gpu_we_1 <= gpu_we;
-  gram_addr_1(15 downto 0) <= gram_addr(15 downto 0);
-  gram_bank_1(3 downto 0) <= gram_bank(3 downto 0);
-  gram_din_1(15 downto 0) <= gram_din(15 downto 0);
+  gramAddr_1(15 downto 0) <= gramAddr(15 downto 0);
+  gramBank_1(3 downto 0) <= gramBank(3 downto 0);
+  gramDin_1(15 downto 0) <= gramDin(15 downto 0);
+  gramOe_1 <= gramOe;
+  gramWe_1 <= gramWe;
   gram_dout(15 downto 0) <= mmu_1_gramDout(15 downto 0);
-  gram_oe_1 <= gram_oe;
-  gram_we_1 <= gram_we;
-  iram_addr_1(15 downto 0) <= iram_addr(15 downto 0);
+  iramAddr_1(15 downto 0) <= iramAddr(15 downto 0);
   iram_dout(15 downto 0) <= mmu_1_iramDout(15 downto 0);
   led00 <= mmio_0_led00;
   led01 <= mmio_0_led01;
@@ -407,20 +395,19 @@ begin
   rgb2(2 downto 0) <= mmio_0_rgb2(2 downto 0);
   rgb3(2 downto 0) <= mmio_0_rgb3(2 downto 0);
   rho <= mmio_0_rho;
+  vgaAddr_1(15 downto 0) <= vgaAddr(15 downto 0);
   vgaClk <= clockcontroller_0_vgaClk;
-  vga_addr_1(15 downto 0) <= vga_addr(15 downto 0);
-  vga_clk_1 <= vga_clk;
   vga_dout(11 downto 0) <= mmu_1_vgaDout(11 downto 0);
 clockcontroller_0: component main_block_clockcontroller_0_0
      port map (
-      clk100mhzIn => clk100mhz_in_1,
+      clk100mhzIn => clk100mhzIn_1,
       clk100mhzOut => clockcontroller_0_clk100mhzOut,
       debugClk => clockcontroller_0_debugClk,
       debugEnable => debug_enable_1,
       debugMmuOverrideEnable => debug_override_enable_1,
       debugMockClk => debugMockClk_1,
-      debugReset => debug_reset_1,
-      faultReset => fault_reset_1,
+      debugReset => debugReset_1,
+      faultReset => faultReset_1,
       loadClk => clockcontroller_0_load_clk,
       vgaClk => clockcontroller_0_vgaClk
     );
@@ -481,26 +468,26 @@ mmio_0: component main_block_mmio_0_0
     );
 mmu_1: component main_block_mmu_1_0
      port map (
-      debugAddr(15 downto 0) => debug_addr_1(15 downto 0),
-      debugBank(3 downto 0) => debug_bank_1(3 downto 0),
-      debugClk => debug_clk_1,
-      debugDin(15 downto 0) => debug_din_1(15 downto 0),
+      debugAddr(15 downto 0) => debugAddr_1(15 downto 0),
+      debugBank(3 downto 0) => debugBank_1(3 downto 0),
+      debugClk => external_debugClk_1,
+      debugDin(15 downto 0) => debugDin_1(15 downto 0),
       debugDout(15 downto 0) => mmu_1_debugDout(15 downto 0),
       debugEnable => debug_enable_1,
       debugOverrideEnable => debug_override_enable_1,
-      debugWe => debug_we_1,
-      gpuAddr(15 downto 0) => gpu_addr_1(15 downto 0),
-      gpuClk => gpu_clk_1,
-      gpuDin(11 downto 0) => gpu_din_1(11 downto 0),
+      debugWe => debugWe_1,
+      gpuAddr(15 downto 0) => gpuAddr_1(15 downto 0),
+      gpuClk => gpuClk_1,
+      gpuDin(11 downto 0) => gpuDin_1(11 downto 0),
       gpuDout(11 downto 0) => mmu_1_gpuDout(11 downto 0),
-      gpuWe => gpu_we_1,
-      gramAddr(15 downto 0) => gram_addr_1(15 downto 0),
-      gramBank(3 downto 0) => gram_bank_1(3 downto 0),
-      gramDin(15 downto 0) => gram_din_1(15 downto 0),
+      gpuWe => gpuWe_1,
+      gramAddr(15 downto 0) => gramAddr_1(15 downto 0),
+      gramBank(3 downto 0) => gramBank_1(3 downto 0),
+      gramDin(15 downto 0) => gramDin_1(15 downto 0),
       gramDout(15 downto 0) => mmu_1_gramDout(15 downto 0),
-      gramOe => gram_oe_1,
-      gramWe => gram_we_1,
-      iramAddr(15 downto 0) => iram_addr_1(15 downto 0),
+      gramOe => gramOe_1,
+      gramWe => gramWe_1,
+      iramAddr(15 downto 0) => iramAddr_1(15 downto 0),
       iramDout(15 downto 0) => mmu_1_iramDout(15 downto 0),
       loadClk => clockcontroller_0_load_clk,
       mmioMemAddr(15 downto 0) => mmu_1_mmioMemAddr(15 downto 0),
@@ -508,8 +495,8 @@ mmu_1: component main_block_mmu_1_0
       mmioMemDin(15 downto 0) => mmu_1_mmioMemDin(15 downto 0),
       mmioMemDout(15 downto 0) => mmio_0_dout(15 downto 0),
       mmioMemWe => mmu_1_mmioMemWe,
-      vgaAddr(15 downto 0) => vga_addr_1(15 downto 0),
-      vgaClk => vga_clk_1,
+      vgaAddr(15 downto 0) => vgaAddr_1(15 downto 0),
+      vgaClk => clockcontroller_0_vgaClk,
       vgaDout(11 downto 0) => mmu_1_vgaDout(11 downto 0),
       vramaMemAddr(15 downto 0) => mmu_1_vramaMemAddr(15 downto 0),
       vramaMemClk => mmu_1_vramaMemClk,

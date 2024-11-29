@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x912A0768C8D3016A",
+      "boundary_crc": "0x1895D899779E6D1F",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -31,59 +31,6 @@
         "direction": "O",
         "left": "15",
         "right": "0"
-      },
-      "clk100mhz_in": {
-        "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_clk100mhz_in",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
-      },
-      "fault_reset": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
-      },
-      "debug_reset": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
       },
       "gpu_dout": {
         "direction": "O",
@@ -242,9 +189,13 @@
         "type": "clk",
         "direction": "O",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_vga_clk",
+            "value_src": "default_prop"
+          },
           "FREQ_HZ": {
             "value": "100000000",
-            "value_src": "default"
+            "value_src": "user_prop"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -256,7 +207,7 @@
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "default"
+            "value_src": "default_prop"
           }
         }
       },
@@ -285,17 +236,12 @@
       "debugMockClk": {
         "direction": "I"
       },
-      "vga_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
-      },
-      "vga_clk": {
+      "clk100mhzIn": {
         "type": "clk",
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "main_block_vga_clk",
+            "value": "main_block_clk100mhzIn",
             "value_src": "default"
           },
           "FREQ_HZ": {
@@ -315,117 +261,124 @@
           }
         }
       },
-      "gpu_we": {
+      "faultReset": {
+        "direction": "I",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default_prop"
+          }
+        }
+      },
+      "debugReset": {
+        "direction": "I",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default_prop"
+          }
+        }
+      },
+      "gramWe": {
         "direction": "I"
       },
-      "gpu_din": {
-        "direction": "I",
-        "left": "11",
-        "right": "0"
+      "debugWe": {
+        "direction": "I"
       },
-      "gpu_addr": {
+      "gpuWe": {
+        "direction": "I"
+      },
+      "vgaAddr": {
         "direction": "I",
         "left": "15",
         "right": "0"
       },
-      "gpu_clk": {
-        "type": "clk",
+      "gramAddr": {
         "direction": "I",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "main_block_gpu_clk",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
+        "left": "15",
+        "right": "0"
       },
-      "debug_we": {
+      "gramOe": {
         "direction": "I"
       },
-      "debug_bank": {
+      "gramBank": {
         "direction": "I",
         "left": "3",
         "right": "0"
       },
-      "debug_din": {
+      "gramDin": {
         "direction": "I",
         "left": "15",
         "right": "0"
       },
-      "debug_addr": {
-        "direction": "I",
-        "left": "15",
-        "right": "0"
+      "debugEnable": {
+        "direction": "I"
       },
-      "debug_clk": {
-        "type": "clk",
+      "debugOverrideEnable": {
+        "direction": "I"
+      },
+      "external_debugClk": {
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
             "value": "main_block_debug_clk",
-            "value_src": "default"
+            "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "100000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
+            "value": "100000000",
+            "value_src": "user_prop"
           },
           "PHASE": {
             "value": "0.0",
-            "value_src": "default"
+            "value_src": "default_prop"
           }
         }
       },
-      "debug_override_enable": {
-        "direction": "I"
-      },
-      "iram_addr": {
+      "debugAddr": {
         "direction": "I",
         "left": "15",
         "right": "0"
       },
-      "debug_enable": {
-        "direction": "I"
+      "iramAddr": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
       },
-      "gram_oe": {
-        "direction": "I"
+      "gpuClk": {
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_gpu_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "user_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default_prop"
+          }
+        }
       },
-      "gram_we": {
-        "direction": "I"
+      "debugDin": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
       },
-      "gram_bank": {
+      "debugBank": {
         "direction": "I",
         "left": "3",
         "right": "0"
       },
-      "gram_din": {
+      "gpuAddr": {
         "direction": "I",
         "left": "15",
         "right": "0"
       },
-      "gram_addr": {
+      "gpuDin": {
         "direction": "I",
-        "left": "15",
+        "left": "11",
         "right": "0"
       }
     },
@@ -707,7 +660,7 @@
                 "value_src": "default_prop"
               },
               "CLK_DOMAIN": {
-                "value": "main_block_clk100mhz_in",
+                "value": "main_block_clk100mhzIn",
                 "value_src": "default_prop"
               }
             }
@@ -750,7 +703,21 @@
             }
           },
           "vgaClk": {
-            "direction": "O"
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_block_vga_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "debugClk": {
             "direction": "O"
@@ -1124,9 +1091,9 @@
           "mmio_0/btn19"
         ]
       },
-      "clk100mhz_in_1": {
+      "clk100mhzIn_1": {
         "ports": [
-          "clk100mhz_in",
+          "clk100mhzIn",
           "clockcontroller_0/clk100mhzIn"
         ]
       },
@@ -1152,7 +1119,26 @@
       "clockcontroller_0_vgaClk": {
         "ports": [
           "clockcontroller_0/vgaClk",
-          "vgaClk"
+          "vgaClk",
+          "mmu_1/vgaClk"
+        ]
+      },
+      "debugAddr_1": {
+        "ports": [
+          "debugAddr",
+          "mmu_1/debugAddr"
+        ]
+      },
+      "debugBank_1": {
+        "ports": [
+          "debugBank",
+          "mmu_1/debugBank"
+        ]
+      },
+      "debugDin_1": {
+        "ports": [
+          "debugDin",
+          "mmu_1/debugDin"
         ]
       },
       "debugMockClk_1": {
@@ -1161,119 +1147,101 @@
           "clockcontroller_0/debugMockClk"
         ]
       },
-      "debug_addr_1": {
+      "debugReset_1": {
         "ports": [
-          "debug_addr",
-          "mmu_1/debugAddr"
+          "debugReset",
+          "clockcontroller_0/debugReset"
         ]
       },
-      "debug_bank_1": {
+      "debugWe_1": {
         "ports": [
-          "debug_bank",
-          "mmu_1/debugBank"
-        ]
-      },
-      "debug_clk_1": {
-        "ports": [
-          "debug_clk",
-          "mmu_1/debugClk"
-        ]
-      },
-      "debug_din_1": {
-        "ports": [
-          "debug_din",
-          "mmu_1/debugDin"
+          "debugWe",
+          "mmu_1/debugWe"
         ]
       },
       "debug_enable_1": {
         "ports": [
-          "debug_enable",
+          "debugEnable",
           "clockcontroller_0/debugEnable",
           "mmu_1/debugEnable"
         ]
       },
       "debug_override_enable_1": {
         "ports": [
-          "debug_override_enable",
+          "debugOverrideEnable",
           "clockcontroller_0/debugMmuOverrideEnable",
           "mmu_1/debugOverrideEnable"
         ]
       },
-      "debug_reset_1": {
+      "external_debugClk_1": {
         "ports": [
-          "debug_reset",
-          "clockcontroller_0/debugReset"
+          "external_debugClk",
+          "mmu_1/debugClk"
         ]
       },
-      "debug_we_1": {
+      "faultReset_1": {
         "ports": [
-          "debug_we",
-          "mmu_1/debugWe"
-        ]
-      },
-      "fault_reset_1": {
-        "ports": [
-          "fault_reset",
+          "faultReset",
           "clockcontroller_0/faultReset"
         ]
       },
-      "gpu_addr_1": {
+      "gpuAddr_1": {
         "ports": [
-          "gpu_addr",
+          "gpuAddr",
           "mmu_1/gpuAddr"
         ]
       },
-      "gpu_clk_1": {
+      "gpuClk_1": {
         "ports": [
-          "gpu_clk",
+          "gpuClk",
           "mmu_1/gpuClk"
         ]
       },
-      "gpu_din_1": {
+      "gpuDin_1": {
         "ports": [
-          "gpu_din",
+          "gpuDin",
           "mmu_1/gpuDin"
         ]
       },
-      "gpu_we_1": {
+      "gpuWe_1": {
         "ports": [
-          "gpu_we",
+          "gpuWe",
           "mmu_1/gpuWe"
         ]
       },
-      "gram_addr_1": {
+      "gramAddr_1": {
         "ports": [
-          "gram_addr",
+          "gramAddr",
           "mmu_1/gramAddr"
         ]
       },
-      "gram_bank_1": {
+      "gramBank_1": {
         "ports": [
-          "gram_bank",
+          "gramBank",
           "mmu_1/gramBank"
         ]
       },
-      "gram_din_1": {
+      "gramDin_1": {
         "ports": [
-          "gram_din",
+          "gramDin",
           "mmu_1/gramDin"
         ]
       },
-      "gram_oe_1": {
+      "gramOe_1": {
         "ports": [
-          "gram_oe",
+          "gramOe",
           "mmu_1/gramOe"
         ]
       },
-      "gram_we_1": {
+      "gramWe_1": {
         "ports": [
-          "gram_we",
+          "gramWe",
           "mmu_1/gramWe"
         ]
       },
-      "iram_addr_1": {
+      "iramAddr_1": {
         "ports": [
-          "iram_addr",
+          "iramAddr",
           "mmu_1/iramAddr"
         ]
       },
@@ -1535,16 +1503,10 @@
           "vram/web"
         ]
       },
-      "vga_addr_1": {
+      "vgaAddr_1": {
         "ports": [
-          "vga_addr",
+          "vgaAddr",
           "mmu_1/vgaAddr"
-        ]
-      },
-      "vga_clk_1": {
-        "ports": [
-          "vga_clk",
-          "mmu_1/vgaClk"
         ]
       },
       "vram_douta": {

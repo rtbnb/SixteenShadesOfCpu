@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 16.11.2024 14:46:10
--- Name: Robin
+-- Name: Robin Eilers
 -- Design Name: ShadeCpu
 -- Module Name: mmu - Behavioral
 -- Project Name: ShadeCpu-1
@@ -8,9 +8,9 @@
 -- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity mmu is
     port(
@@ -56,7 +56,7 @@ entity mmu is
         mmioMemAddr, mmioMemDin: out std_logic_vector(15 downto 0);
         mmioMemDout: in std_logic_vector(15 downto 0)
     );
-end mmu;
+end entity mmu;
 
 architecture Behavioral of mmu is
 	type iram_type is array (2047 downto 0) of std_logic_vector(15 downto 0);
@@ -239,4 +239,4 @@ begin
 	   gram_dout_s <= gram(to_integer(unsigned(gram_addr_s(10 downto 0)))) when '1',
 	                  X"0000" when '0',
 	                  X"0000" when others;
-end Behavioral;
+end architecture Behavioral;
