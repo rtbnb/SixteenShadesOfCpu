@@ -155,9 +155,9 @@ begin
         debugWe <= '1';
         
         wait for 7500ps; --blank
-        debugBank <= "0000";
-        debugAddr <= X"0000";
-        debugDin <= X"0000";
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
         debugWe <= '0';
         
         wait for 2500ps; --gram write
@@ -167,9 +167,9 @@ begin
         debugWe <= '1';
         
         wait for 7500ps; --blank
-        debugBank <= "0000";
-        debugAddr <= X"0000";
-        debugDin <= X"0000";
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
         debugWe <= '0';
         
         wait for 2500ps; --iram read
@@ -178,9 +178,9 @@ begin
         debugWe <= '0';        
         
         wait for 7500ps; --blank
-        debugBank <= "0000";
-        debugAddr <= X"0000";
-        debugDin <= X"0000";
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
         debugWe <= '0';
         
         wait for 2500ps; --gram read
@@ -189,9 +189,9 @@ begin
         debugWe <= '0';                  
         
         wait for 7500ps; --blank
-        debugBank <= "0000";
-        debugAddr <= X"0000";
-        debugDin <= X"0000";
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
         debugWe <= '0';
         
         wait for 2500ps; --mmio led set
@@ -201,9 +201,9 @@ begin
         debugWe <= '1';      
         
         wait for 7500ps; --blank  
-        debugBank <= "0000";
-        debugAddr <= X"0000";
-        debugDin <= X"0000";
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
         debugWe <= '0';
         
         wait for 2500ps; --mmio led clear        
@@ -213,9 +213,9 @@ begin
         debugWe <= '1';  
 
         wait for 7500ps; --blank
-        debugBank <= "0000";
-        debugAddr <= X"0000";
-        debugDin <= X"0000";
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
         debugWe <= '0';
         
         wait for 2500ps;
