@@ -36,68 +36,51 @@ entity ccSim is
 end ccSim;
 
 architecture Behavioral of ccSim is
-    component clock_block_wrapper
+    component clockcontroller
         port(
-            ck_stable : out STD_LOGIC;
-            clk100mhz_in : in STD_LOGIC;
-            debug_clk : out STD_LOGIC;
-            debug_en : in STD_LOGIC;
-            debug_mock_clk : in STD_LOGIC;
-            debug_reset : in STD_LOGIC;
-            exec_clk : out STD_LOGIC;
-            fault_reset : in STD_LOGIC;
-            load_clk : out STD_LOGIC;
-            test_state : INOUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+            clk100mhzIn, faultReset, debugReset: in std_logic;
+            debugEnable, debugMockClk, debugMmuOverrideEnable: in std_logic;
+            loadClk, vgaClk, debugClk, clk100mhzOut: out std_logic
         );
     end component;
     
-    signal ck_stable, clk100mhz_in, debug_clk, debug_en, debug_mock_clk, debug_reset, exec_clk, fault_reset, load_clk: STD_LOGIC;
-    signal test_state: STD_LOGIC_VECTOR ( 3 downto 0 );
+    signal clk100mhzIn, faultReset, debugReset, debugEnable, debugMockClk, debugMmuOverrideEnable, loadClk, vgaClk, debugClk, clk100mhzOut: STD_LOGIC := '0';
     
 begin
-    EUT: clock_block_wrapper port map(
-        ck_stable => ck_stable,
-        clk100mhz_in => clk100mhz_in,
-        debug_clk => debug_clk,
-        debug_en => debug_en,
-        debug_mock_clk => debug_mock_clk,
-        debug_reset => debug_reset,
-        exec_clk => exec_clk,
-        fault_reset => fault_reset,
-        load_clk => load_clk,
-        test_state => test_state
+    EUT: clockcontroller port map(
+        clk100mhzIn => clk100mhzIn,
+        faultReset => faultReset,
+        debugReset => debugReset,
+        debugEnable => debugEnable,
+        debugMockClk => debugMockClk,
+        debugMmuOverrideEnable => debugMmuOverrideEnable,
+        loadClk => loadClk,
+        vgaClk => vgaClk,
+        debugClk => debugClk,
+        clk100mhzOut => clk100mhzOut
     );
     
     process
     begin
-        clk100mhz_in <= '0';
-        wait for 5ns;
-        clk100mhz_in <= '1';
+        clk100mhzIn <= not clk100mhzIn;
         wait for 5ns;
     end process;
-    
-    process 
-    begin
-        debug_mock_clk <= '0';
-        debug_reset <= '0';
-        fault_reset <= '0';
-        debug_en <= '0';
-            
-        wait for 570ns;
-        while true loop
-            debug_reset <= '1';
-            wait for 60ns;
-            debug_reset <= '0';
-            wait for 60ns;            
-            debug_en <= '1';
-            wait for 60ns;
-            debug_en <= '0';
-            wait for 60ns;
-            
-
-        end loop;
-        
-    end process; 
    
+    process
+    begin
+        wait for 7500ps;
+        debugReset <= '1';
+        wait for 20ns;
+        debugReset <= '0';
+        wait for 70ns;
+        debugEnable <= '1';
+        wait for 20ns;
+        debugEnable <= '0';
+        
+        while true loop
+            debugEnable <= '0';
+            wait for 100ns;
+        end loop;
+    end process;
     
 end Behavioral;

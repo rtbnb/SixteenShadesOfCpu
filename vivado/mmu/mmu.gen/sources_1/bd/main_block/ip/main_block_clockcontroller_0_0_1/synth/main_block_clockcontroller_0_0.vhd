@@ -55,16 +55,16 @@ USE ieee.numeric_std.ALL;
 
 ENTITY main_block_clockcontroller_0_0 IS
   PORT (
-    clk100mhz_in : IN STD_LOGIC;
-    fault_reset : IN STD_LOGIC;
-    debug_reset : IN STD_LOGIC;
-    debug_enable : IN STD_LOGIC;
-    debug_mock_clk : IN STD_LOGIC;
-    debug_mmu_override_enbale : IN STD_LOGIC;
-    load_clk : OUT STD_LOGIC;
-    vga_clk : OUT STD_LOGIC;
-    debug_clk : OUT STD_LOGIC;
-    clk100mhz_out : OUT STD_LOGIC
+    clk100mhzIn : IN STD_LOGIC;
+    faultReset : IN STD_LOGIC;
+    debugReset : IN STD_LOGIC;
+    debugEnable : IN STD_LOGIC;
+    debugMockClk : IN STD_LOGIC;
+    debugMmuOverrideEnable : IN STD_LOGIC;
+    loadClk : OUT STD_LOGIC;
+    vgaClk : OUT STD_LOGIC;
+    debugClk : OUT STD_LOGIC;
+    clk100mhzOut : OUT STD_LOGIC
   );
 END main_block_clockcontroller_0_0;
 
@@ -73,16 +73,16 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF main_block_clockcontroller_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT clockcontroller IS
     PORT (
-      clk100mhz_in : IN STD_LOGIC;
-      fault_reset : IN STD_LOGIC;
-      debug_reset : IN STD_LOGIC;
-      debug_enable : IN STD_LOGIC;
-      debug_mock_clk : IN STD_LOGIC;
-      debug_mmu_override_enbale : IN STD_LOGIC;
-      load_clk : OUT STD_LOGIC;
-      vga_clk : OUT STD_LOGIC;
-      debug_clk : OUT STD_LOGIC;
-      clk100mhz_out : OUT STD_LOGIC
+      clk100mhzIn : IN STD_LOGIC;
+      faultReset : IN STD_LOGIC;
+      debugReset : IN STD_LOGIC;
+      debugEnable : IN STD_LOGIC;
+      debugMockClk : IN STD_LOGIC;
+      debugMmuOverrideEnable : IN STD_LOGIC;
+      loadClk : OUT STD_LOGIC;
+      vgaClk : OUT STD_LOGIC;
+      debugClk : OUT STD_LOGIC;
+      clk100mhzOut : OUT STD_LOGIC
     );
   END COMPONENT clockcontroller;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -95,28 +95,20 @@ ARCHITECTURE main_block_clockcontroller_0_0_arch OF main_block_clockcontroller_0
   ATTRIBUTE IP_DEFINITION_SOURCE OF main_block_clockcontroller_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_clk: SIGNAL IS "XIL_INTERFACENAME debug_clk, ASSOCIATED_RESET debug_reset, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_debug_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF debug_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_mock_clk: SIGNAL IS "XIL_INTERFACENAME debug_mock_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_debug_mock_clk_1, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF debug_mock_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_mock_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF debug_reset: SIGNAL IS "XIL_INTERFACENAME debug_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF debug_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 debug_reset RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF fault_reset: SIGNAL IS "XIL_INTERFACENAME fault_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF fault_reset: SIGNAL IS "xilinx.com:signal:reset:1.0 fault_reset RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF vga_clk: SIGNAL IS "XIL_INTERFACENAME vga_clk, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_vga_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF vga_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 vga_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF loadClk: SIGNAL IS "XIL_INTERFACENAME debug_clk, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN main_block_clockcontroller_0_0_loadClk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF loadClk: SIGNAL IS "xilinx.com:signal:clock:1.0 debug_clk CLK";
 BEGIN
   U0 : clockcontroller
     PORT MAP (
-      clk100mhz_in => clk100mhz_in,
-      fault_reset => fault_reset,
-      debug_reset => debug_reset,
-      debug_enable => debug_enable,
-      debug_mock_clk => debug_mock_clk,
-      debug_mmu_override_enbale => debug_mmu_override_enbale,
-      load_clk => load_clk,
-      vga_clk => vga_clk,
-      debug_clk => debug_clk,
-      clk100mhz_out => clk100mhz_out
+      clk100mhzIn => clk100mhzIn,
+      faultReset => faultReset,
+      debugReset => debugReset,
+      debugEnable => debugEnable,
+      debugMockClk => debugMockClk,
+      debugMmuOverrideEnable => debugMmuOverrideEnable,
+      loadClk => loadClk,
+      vgaClk => vgaClk,
+      debugClk => debugClk,
+      clk100mhzOut => clk100mhzOut
     );
 END main_block_clockcontroller_0_0_arch;
