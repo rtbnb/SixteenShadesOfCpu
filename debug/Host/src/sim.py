@@ -38,6 +38,7 @@ addr = 0
 #print(f'Addr: {addr:016b}')
 #print(len(data_binary))
 instruction_bits = bytes_to_bits_binary([b'\x31'])
+ack_bits = bytes_to_bits_binary([b'\x0e'])
 with open("sim.txt", 'w') as f:
     command_count = int(len(data) / 2)
     #print(len(data))
@@ -87,9 +88,19 @@ with open("sim.txt", 'w') as f:
                 f.write(f"wait for {wait_time_str} ns;\n")
             f.write("RX_UART_IN <= '1';\n")
             f.write(f"wait for {wait_time_str} ns;\n")
-        f.write("wait for 60000ns;\n")
+        f.write("wait for 500000ns;\n")
         f.write("-- next instruction\n")
         f.write("\n")
+
+        # ack
+        f.write("-- start\n")
+        f.write("RX_UART_IN <= '0';\n")
+        f.write(f"wait for {wait_time_str} ns;\n")
+        for j in range(8):
+            f.write(f"RX_UART_IN <= '{ack_bits[7 - j]}';\n")
+            f.write(f"wait for {wait_time_str} ns;\n")
+        f.write("RX_UART_IN <= '1';\n")
+        f.write(f"wait for 500000ns;\n")
     
     # start clk
     # instruction
