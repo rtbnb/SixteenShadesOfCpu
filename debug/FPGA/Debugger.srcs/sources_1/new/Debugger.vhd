@@ -73,8 +73,7 @@ entity Debugger is
         mmuDebugDin: out std_logic_vector(15 downto 0) := x"0000";
         mmuDebugBank: out std_logic_vector(3 downto 0) := x"0";
         mmuDebugWe: out std_logic := '0';
-        mmuDebugDout: in std_logic_vector(15 downto 0);
-        mmuIramDout: in std_logic_vector(15 downto 0)
+        mmuDebugDout: in std_logic_vector(15 downto 0)
 
     );
 end Debugger;
@@ -139,8 +138,6 @@ architecture Behavioral of Debugger is
     signal regfile_reg1_data_s: std_logic_vector(15 downto 0);
     signal regfile_reg2_data_s: std_logic_vector(15 downto 0);
     signal regfile_bankid_s: std_logic_vector(3 downto 0);
-    -- mmu
-    signal mmu_iram_dout_s: std_logic_vector(15 downto 0);
 
 begin
     -- state machine
@@ -294,7 +291,6 @@ begin
                     regfile_reg1_data_s <= regfileReg1Data;
                     regfile_reg2_data_s <= regfileReg2Data;
                     regfile_bankid_s <= regfileBankid;
-                    mmu_iram_dout_s <= mmuIramDout;
                     state_s <= ProcessCommand;
                 when ProcessCommand =>
                     -- command decode
@@ -432,10 +428,6 @@ begin
                             mmuDebugWe <= '0';
                             tx_instruction_buffer_s <= x"37";
                             state_s <= MMUFetchIRAMWriteToTX;
-                        when x"38" =>
-                            tx_data_buffer_s <= mmu_iram_dout_s;
-                            tx_instruction_buffer_s <= x"38";
-                            state_s <= TransmitDataInstructionSHORT;
                         -- alu
                         when x"40" =>
                             tx_instruction_buffer_s <= x"40";

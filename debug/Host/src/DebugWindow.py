@@ -36,7 +36,6 @@ class DebugWindow(QtWidgets.QWidget):
         request_select_box.addItem("pipeline_ram_src_read_write_bankid_out", [b"\x1C"])
         request_select_box.addItem("pc_din", [b"\x20"])
         request_select_box.addItem("pc_dout", [b"\x21"])
-        request_select_box.addItem("mmu_iram_dout", [b"\x38"])
         request_select_box.addItem("alu_din1", [b"\x40"])
         request_select_box.addItem("alu_din2", [b"\x41"])
         request_select_box.addItem("alu_out", [b"\x42"])
@@ -58,7 +57,7 @@ class DebugWindow(QtWidgets.QWidget):
         request_button.clicked.connect(lambda: self.command_button_pushed(request_select_box.currentData()[0]))
 
         button_request_all = QtWidgets.QPushButton(text="Request all Data")
-        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x16", b"\x1B", b"\x1C", b"\x20", b"\x21", b"\x38", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x59"]))
+        button_request_all.clicked.connect(lambda: self.command_list_button_pushed([b"\x10", b"\x11", b"\x12", b"\x13", b"\x14", b"\x16", b"\x1B", b"\x1C", b"\x20", b"\x21", b"\x40", b"\x41", b"\x42", b"\x43", b"\x44", b"\x50", b"\x51", b"\x52", b"\x53", b"\x54", b"\x55", b"\x56", b"\x57", b"\x59"]))
         self.layout.addWidget(button_request_all, 1, 6, 1, 1)
 
         # iram write
