@@ -33,7 +33,7 @@ architecture Behavioral of RegFile is
 begin
     BankID <= reg_b_s(3 downto 0);
     -- Select data for addrreg1
-    with Addrreg1_s select Reg1Data <=
+    with Addrreg1 select Reg1Data <=
         reg0_s when "0000",
         reg1_s when "0001",
         reg2_s when "0010",

@@ -1,36 +1,16 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 06.11.2024 15:14:57
--- Design Name: 
+-- Name: Nico
+-- Design Name: ShadeCpu
 -- Module Name: RegFileSim - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity RegFileSim is
     
@@ -46,19 +26,18 @@ architecture Behavioral of RegFileSim is
         Flags: in std_logic_vector(15 downto 0);
         WE: in std_logic;
         OverwriteFl: in std_logic;
-        clk: in std_logic;
+        loadClk: in std_logic;
         
-        Reg1_data: out std_logic_vector(15 downto 0);
-        Reg2_data: out std_logic_vector(15 downto 0);
-        RegMA_data: out std_logic_vector(15 downto 0);
+        Reg1Data: out std_logic_vector(15 downto 0);
+        Reg2Data: out std_logic_vector(15 downto 0);
         BankID: out std_logic_vector(3 downto 0)
     );
     end component RegFile;
     
     signal AddrReg1, AddrReg2, AddrWriteReg, BankID: std_logic_vector(3 downto 0);
-    signal WriteData, Flags, Reg1_data, Reg2_data, RegMA_data: std_logic_vector(15 downto 0);
+    signal WriteData, Flags, Reg1Data, Reg2Data: std_logic_vector(15 downto 0);
     signal WE, OverwriteFl: std_logic; 
-    signal clk: std_logic := '0';
+    signal loadClk: std_logic := '0';
     
 begin
     EUT: RegFile
@@ -70,16 +49,15 @@ begin
         Flags => Flags,
         WE => WE,
         OverwriteFl => OverwriteFl,
-        clk => clk,
+        loadClk => loadClk,
         
-        Reg1_data => Reg1_data,
-        Reg2_data => Reg2_data,
-        RegMA_data => RegMA_data,
+        Reg1Data => Reg1Data,
+        Reg2Data => Reg2Data,
         BankID => BankID
     );
 
     clock: process begin
-        clk <= not clk;
+        loadClk <= not loadClk;
         wait for 5ns;
     end process clock;
     
@@ -94,14 +72,14 @@ begin
         OverwriteFl <= '0';
         wait for 10ns; -- wait one clock cycle
         
-        -- test register read on addrreg1 (all registers values should be 0 => Reg1_data should stay 0)
+        -- test register read on addrreg1 (all registers values should be 0 => Reg1Data should stay 0)
         -- 16 clock cycles (begin 10ns end 170ns)
         for i in 0 to 15 loop
             AddrReg1 <= std_logic_vector(to_unsigned(i, 4));
             wait for 10ns;
         end loop;
 
-        -- test register read on addrreg2 (all registers values should be 0 => Reg2_data should stay 0)
+        -- test register read on addrreg2 (all registers values should be 0 => Reg2Data should stay 0)
         -- 16 clock cycles (begin 170ns end 330ns)
         for i in 0 to 15 loop
             AddrReg2 <= std_logic_vector(to_unsigned(i, 4));
@@ -129,7 +107,7 @@ begin
         -- test Flag write
         -- 2 clock cycle (begin 650ns end 670ns)
         -- test no write on Overwrite disabled
-        AddrReg1 <= "1111"; -- addr of flag register => data will output on Reg1_data
+        AddrReg1 <= "1111"; -- addr of flag register => data will output on Reg1Data
         Flags <= "1001011010001111"; -- random bin 16 bit value
         OverwriteFl <= '0';
         wait for 10ns;
@@ -154,10 +132,10 @@ begin
         end loop;
         wait for 8ns; -- to sync to clock
 
-        -- test bankID maximum value (value of Reg1_data should count up to 0xF over and over again, because the 12 most significant bits are ignored)
+        -- test bankID maximum value (value of Reg1Data should count up to 0xF over and over again, because the 12 most significant bits are ignored)
         -- 65632 clock cycles (begin 710ns end 656060ns or 656,06us or 0,65606ms)
         AddrWriteReg <= "1011"; -- addr of RegB
-        AddrReg1 <= "1011"; -- read value of RegB and output to Reg1_data
+        AddrReg1 <= "1011"; -- read value of RegB and output to Reg1Data
         WE <= '1';
         for i in 0 to 65535 loop
             WriteData <= std_logic_vector(to_unsigned(i, 16));
