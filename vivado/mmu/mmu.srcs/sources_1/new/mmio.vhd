@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 14.11.2024 19:50:38
--- Name: Robin
+-- Name: Robin Eilers
 -- Design Name: ShadeCpu
 -- Module Name: mmio - Behavioral
 -- Project Name: ShadeCpu-1
@@ -8,11 +8,11 @@
 -- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-library UNISIM;
-use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library unisim;
+use unisim.vcomponents.all;
 
 entity mmio is
     port(
@@ -26,7 +26,7 @@ entity mmio is
         btn00, btn01, btn02, btn03, btn04, btn05, btn06, btn07, btn08, btn09, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19: in std_logic;
         rho: out std_logic
     );
-end mmio;
+end entity mmio;
 
 architecture Behavioral of mmio is
     signal internal_addr_s: integer range 0 to 65535;
@@ -73,7 +73,6 @@ architecture Behavioral of mmio is
     signal tim0_master_clk_s, tim0_clk_s, tim0_rho_en: std_logic := '0';
     signal tim0_master_cnt_s: unsigned(15 downto 0) := X"0000";
 --tim signals end
-    
     
     signal btn0_pressed_reg_s, btn1_pressed_reg_s, btn2_pressed_reg_s, btn3_pressed_reg_s: std_logic_vector( 15 downto 0 );
     
@@ -388,7 +387,6 @@ begin
         end if;
     
         if rising_edge(tim0_clk_s) then
-        
             if tim0_cnt_reg_s=tim0_max_cnt_reg_s then   
                 if tim0_config_reg_s(9)='1' or tim0_config_reg_s(0)='1' then
                     tim0_cnt_reg_s <= X"0000"; 
@@ -403,4 +401,4 @@ begin
         end if;
     end process tim0_counter;
     
-end Behavioral;
+end architecture Behavioral;

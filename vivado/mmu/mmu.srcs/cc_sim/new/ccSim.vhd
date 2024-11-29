@@ -1,39 +1,19 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 22.11.2024 20:42:37
--- Design Name: 
+-- Name: Robin
+-- Design Name: ShadeCpu
 -- Module Name: ccSim - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
 entity ccSim is
---  Port ( );
-end ccSim;
+end entity ccSim;
 
 architecture Behavioral of ccSim is
     component clockcontroller
@@ -42,7 +22,7 @@ architecture Behavioral of ccSim is
             debugEnable, debugMockClk, debugMmuOverrideEnable: in std_logic;
             loadClk, vgaClk, debugClk, clk100mhzOut: out std_logic
         );
-    end component;
+    end component clockcontroller;
     
     signal clk100mhzIn, faultReset, debugReset, debugEnable, debugMockClk, debugMmuOverrideEnable, loadClk, vgaClk, debugClk, clk100mhzOut: STD_LOGIC := '0';
     
@@ -83,4 +63,4 @@ begin
         end loop;
     end process;
     
-end Behavioral;
+end architecture Behavioral;

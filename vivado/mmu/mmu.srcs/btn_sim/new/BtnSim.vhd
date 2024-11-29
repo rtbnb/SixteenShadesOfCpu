@@ -1,43 +1,23 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 28.11.2024 21:07:36
--- Design Name: 
+-- Name: Robin
+-- Design Name: ShadeCpu
 -- Module Name: BtnSim - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity BtnSim is
---  Port ( );
-end BtnSim;
+end entity BtnSim;
 
 architecture Behavioral of BtnSim is
     component mmio
-    port(
+        port(
             clk100mhzIn: in std_logic := '0';
             clk50mhzIn: in std_logic := '0';
             clk: in std_logic := '1';
@@ -50,7 +30,7 @@ architecture Behavioral of BtnSim is
             btn00, btn01, btn02, btn03, btn04, btn05, btn06, btn07, btn08, btn09, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19: in std_logic;
             rho: out std_logic
         );
-    end component;
+    end component mmio;
     
     signal clk100mhzIn: std_logic := '0';
     signal clk50mhzIn: std_logic := '0';
@@ -58,8 +38,8 @@ architecture Behavioral of BtnSim is
     signal we: std_logic := '0';
     signal rho: std_logic;
     signal addr, din, dout: std_logic_vector(15 downto 0);
-    signal led00, led01, led02, led03, led04, led05, led06, led07, led08, led09, led10, led11, led12, led13, led14, led15, led16, led17, led18, led19, btn00, btn01, btn02, btn03, btn04, btn05, btn06, btn07, btn08, btn09, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19: std_logic;
-    signal rgb0, rgb1, rgb2, rgb3: std_logic_vector(2 downto 0);
+    signal led00, led01, led02, led03, led04, led05, led06, led07, led08, led09, led10, led11, led12, led13, led14, led15, led16, led17, led18, led19, btn00, btn01, btn02, btn03, btn04, btn05, btn06, btn07, btn08, btn09, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19: std_logic := '0';
+    signal rgb0, rgb1, rgb2, rgb3: std_logic_vector(2 downto 0) := "000";
 begin
     EUT : mmio port map(
         clk100mhzIn => clk100mhzIn, 
@@ -152,7 +132,6 @@ begin
         addr <= std_logic_vector(to_unsigned(32789, addr'length));
         wait for 10ns;
        
-       
         --led test       
         addr <= std_logic_vector(to_unsigned(32768, addr'length));
         din <=  std_logic_vector(to_unsigned(1, din'length));
@@ -177,5 +156,4 @@ begin
         end loop;
     end process;
     
-
-end Behavioral;
+end architecture Behavioral;

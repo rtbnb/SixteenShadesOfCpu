@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 14.11.2024 19:55:13
--- Name: Robin
+-- Name: Robin Eilers
 -- Design Name: ShadeCpu
 -- Module Name: clockcontroller - Behavioral
 -- Project Name: ShadeCpu-1
@@ -8,11 +8,11 @@
 -- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-library UNISIM;
-use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library unisim;
+use unisim.vcomponents.all;
 
 entity clockcontroller is
     port(
@@ -20,18 +20,18 @@ entity clockcontroller is
         debugEnable, debugMockClk, debugMmuOverrideEnable: in std_logic;
         loadClk, vgaClk, debugClk, clk100mhzOut: out std_logic
     );
-end clockcontroller;
+end entity clockcontroller;
 
 architecture Behavioral of clockcontroller is
-    attribute X_INTERFACE_PARAMETER: string;
-    attribute X_INTERFACE_INFO      :string;  
+    attribute x_interface_parameter: string;
+    attribute x_interface_info      :string;  
     
-    attribute X_INTERFACE_INFO      of debugClk     :signal is "xilinx.com:signal:clock:1.0 debug_clk CLK";
-    attribute X_INTERFACE_PARAMETER of debugClk     :SIGNAL is "FREQ_HZ 50000000";
-    attribute X_INTERFACE_INFO      of loadClk      :signal is "xilinx.com:signal:clock:1.0 debug_clk CLK";
-    attribute X_INTERFACE_PARAMETER of loadClk      :SIGNAL is "FREQ_HZ 50000000";
-    attribute X_INTERFACE_INFO      of vgaClk       :signal is "xilinx.com:signal:clock:1.0 debug_clk CLK";
-    attribute X_INTERFACE_PARAMETER of vgaClk       :SIGNAL is "FREQ_HZ 50000000";
+    attribute x_interface_info      of debugClk     :signal is "xilinx.com:signal:clock:1.0 debug_clk CLK";
+    attribute x_interface_parameter of debugClk     :signal is "FREQ_HZ 50000000";
+    attribute x_interface_info      of loadClk      :signal is "xilinx.com:signal:clock:1.0 loadClk CLK";
+    attribute x_interface_parameter of loadClk      :signal is "FREQ_HZ 50000000";
+    attribute x_interface_info      of vgaClk       :signal is "xilinx.com:signal:clock:1.0 vgaClk CLK";
+    attribute x_interface_parameter of vgaClk       :signal is "FREQ_HZ 50000000";
 
     signal output_en_s: std_logic;
     signal fault_s: std_logic := '0';
@@ -93,4 +93,4 @@ begin
             end if;
         end if;
     end process debug_state;
-end Behavioral;
+end architecture Behavioral;
