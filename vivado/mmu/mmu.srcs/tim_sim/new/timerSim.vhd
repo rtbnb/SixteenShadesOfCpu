@@ -1,39 +1,19 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 28.11.2024 14:21:07
--- Design Name: 
+-- Name: Robin
+-- Design Name: ShadeCpu
 -- Module Name: timerSim - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity timerSim is
---  Port ( );
-end timerSim;
+end entity timerSim;
 
 architecture Behavioral of timerSim is
     component mmio
@@ -50,7 +30,7 @@ architecture Behavioral of timerSim is
             btn00, btn01, btn02, btn03, btn04, btn05, btn06, btn07, btn08, btn09, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19: in std_logic;
             rho: out std_logic
         );
-    end component;
+    end component mmio;
     
     signal clk100mhzIn: std_logic := '0';
     signal clk50mhzIn: std_logic := '0';
@@ -193,7 +173,6 @@ begin
                 wait for 100ns;
             end loop;                  
         end loop;
-        
     end process;
 
-end Behavioral;
+end architecture Behavioral;
