@@ -1,3 +1,6 @@
+# Shade CPU
+The Shade-1 Project is a 16-bit RISC CPU implemented on an Arty7-35T development board.
+
 ### Usefull Links:
 
 - [Constraint File](https://github.com/Digilent/digilent-xdc/blob/master/Arty-A7-35-Master.xdc)
@@ -8,12 +11,12 @@
 
 ### Projekt Aufteilung
 
-| Name     | Aufgabe                   | Status    |
-|----------|---------------------------|-----------|
-| Lukas    | Pipeline & Control Unit   | Preparing |
-| Nico     | RegFile & Program Counter | Preparing |
-| Robin    | Memory & Decoder          | Preparing |
-| Matthias | Alu                       | Preparing |
+| Name     | Implementieren            | Simulation                |
+|----------|---------------------------|---------------------------|
+| Lukas    | Pipeline & Control Unit   | Pipeline & Control Unit   |
+| Nico     | RegFile & Program Counter | RegFile & Program Counter |
+| Robin    | Memory & Decoder          | Memory                    |
+| Matthias | Alu                       | Alu & Decoder             |
 
 ### Abkürzungen
 - MMU (Memory Management Unit)
@@ -28,6 +31,7 @@
 - LUT (Look up Table)
 - FF (Flip Flop)
 - BUFG (Global Clock Simple Buffer)
+- Wizard (is a reference to the Clocking Wizard)
 
 Weitere gerne hinzufügen
 
