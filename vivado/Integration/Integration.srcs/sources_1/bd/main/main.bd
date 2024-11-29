@@ -273,7 +273,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "instruction": {
+          "instructionToDecode": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -339,7 +339,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "instruction": {
+          "instructionToDecode": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -2213,12 +2213,6 @@
           "Pipelining_Execution_0/jmp"
         ]
       },
-      "CU_Decoder_0_RF_WHB": {
-        "ports": [
-          "CU_Decoder_0/rfWHB",
-          "Pipelining_Execution_0/whb"
-        ]
-      },
       "CU_Decoder_0_RF_WLB": {
         "ports": [
           "CU_Decoder_0/rfWLB",
@@ -2285,6 +2279,12 @@
           "Pipelining_Execution_0/ramWrite"
         ]
       },
+      "CU_Decoder_0_rfWHB": {
+        "ports": [
+          "CU_Decoder_0/rfWHB",
+          "Pipelining_Execution_0/whb"
+        ]
+      },
       "CU_ImmediateManipula_0_manipulatedImmediate": {
         "ports": [
           "CU_ImmediateManipula_0/manipulatedImmediate",
@@ -2338,8 +2338,8 @@
       "Debugger_0_debugEnable": {
         "ports": [
           "Debugger_0/debugEnable",
-          "clockcontroller_0/debugEnable",
-          "mmu_0/debugEnable"
+          "mmu_0/debugEnable",
+          "clockcontroller_0/debugEnable"
         ]
       },
       "Debugger_0_mmuDebugAddr": {
@@ -2369,8 +2369,8 @@
       "Debugger_0_mmuDebugOverrideEn": {
         "ports": [
           "Debugger_0/mmuDebugOverrideEn",
-          "clockcontroller_0/debugMmuOverrideEnable",
-          "mmu_0/debugOverrideEnable"
+          "mmu_0/debugOverrideEnable",
+          "clockcontroller_0/debugMmuOverrideEnable"
         ]
       },
       "Debugger_0_mmuDebugWe": {
@@ -2465,9 +2465,9 @@
       "Pipelining_Controller_0_InstructionToExecute": {
         "ports": [
           "Pipelining_Controller_0/instructionToExecute",
-          "Decoder_0/instruction",
-          "CU_Decoder_0/instruction",
-          "Debugger_0/pipelineCurrentInstruction"
+          "Debugger_0/pipelineCurrentInstruction",
+          "CU_Decoder_0/instructionToDecode",
+          "Decoder_0/instructionToDecode"
         ]
       },
       "Pipelining_Controller_0_Stalled": {
@@ -2477,15 +2477,20 @@
           "Debugger_0/pipelineStalled"
         ]
       },
+      "Pipelining_Controller_0_rfReadBuffer": {
+        "ports": [
+          "Debugger_0/aluOut"
+        ]
+      },
       "Pipelining_Execution_0_Immediate_out": {
         "ports": [
           "Pipelining_Execution_0/immediateOut",
           "ALU_0/ALU_OPP",
           "VGA_CPU_Bridge_0/Immediate_In",
-          "CU_ImmediateManipula_0/immediate",
           "CU_JumpDestinationSe_0/immediate",
           "CU_RAMAddressControl_0/immediate",
-          "Debugger_0/aluOp"
+          "Debugger_0/aluOp",
+          "CU_ImmediateManipula_0/immediate"
         ]
       },
       "Pipelining_Execution_0_Is_GPU_OP_out": {
@@ -2507,12 +2512,12 @@
           "Pipelining_Execution_0/operand1Out",
           "ALU_0/D1",
           "VGA_CPU_Bridge_0/Reg1_In",
-          "CU_ImmediateManipula_0/reg1",
           "CU_JumpDestinationSe_0/register1",
           "CU_WriteSelector_0/reg1",
           "mmu_0/gramDin",
           "Debugger_0/pipelineOperand1",
-          "Debugger_0/aluDin1"
+          "Debugger_0/aluDin1",
+          "CU_ImmediateManipula_0/reg1"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -2594,15 +2599,15 @@
       "Pipelining_Execution_0_whbOut": {
         "ports": [
           "Pipelining_Execution_0/whbOut",
-          "CU_ImmediateManipula_0/rfWHB",
-          "Pipelining_WriteBack_0/whb"
+          "Pipelining_WriteBack_0/whb",
+          "CU_ImmediateManipula_0/rfWHB"
         ]
       },
       "Pipelining_Execution_0_wlbOut": {
         "ports": [
           "Pipelining_Execution_0/wlbOut",
-          "CU_ImmediateManipula_0/rfWLB",
-          "Pipelining_WriteBack_0/wlb"
+          "Pipelining_WriteBack_0/wlb",
+          "CU_ImmediateManipula_0/rfWLB"
         ]
       },
       "Pipelining_Execution_0_writeDataSelOut": {
@@ -2852,8 +2857,8 @@
           "Pipelining_WriteBack_0/instrLoadClk",
           "GPU_0/InstrLoad_CLK",
           "VGA_CPU_Bridge_0/InstrLoad_CLK",
-          "custom_BUFH_0/clkIn",
-          "RegFile_0/loadClk"
+          "RegFile_0/loadClk",
+          "custom_BUFH_0/clkIn"
         ]
       },
       "clockcontroller_0_vga_clk": {

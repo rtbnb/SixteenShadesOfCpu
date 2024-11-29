@@ -30,7 +30,7 @@ architecture Behavioral of Pipelining_Controller is
     
     component CU_Decoder is
         Port (
-            instruction : in std_logic_vector(15 downto 0);
+            instructionToDecode : in std_logic_vector(15 downto 0);
             reg1Read : out std_logic;
             reg2Read : out std_logic;
             rfWHB : out std_logic;
@@ -51,7 +51,7 @@ architecture Behavioral of Pipelining_Controller is
     
     component Decoder is
         Port (
-            instruction : in std_logic_vector(15 downto 0);
+            instructionToDecode : in std_logic_vector(15 downto 0);
             register1 : out std_logic_vector(3 downto 0);
             register2 : out std_logic_vector(3 downto 0);
             writeBackRegister : out std_logic_vector(3 downto 0);
@@ -86,32 +86,31 @@ architecture Behavioral of Pipelining_Controller is
     
     signal rf_read_buffer_write_data_s : std_logic_vector(15 downto 0);
 begin
-
     
     CU_Decoder_RF : CU_Decoder port map(
-        instruction => rf_read_buffer_s,
+        instructionToDecode => rf_read_buffer_s,
         reg1Read => rf_reg_1_read_s,
         reg2Read => rf_reg_2_read_s,
         ramRead => ram_stall_s,
         jmp => rf_jmp_s
     );
-    
+
     Decoder_RF : Decoder port map(
-        instruction => rf_read_buffer_s,
+        instructionToDecode => rf_read_buffer_s,
         register1 => rf_reg_1_s,
         register2 => rf_reg_2_s
     );
-    
+
     CU_Decoder_Exec : CU_Decoder port map(
-        instruction => execution_buffer_s,
+        instructionToDecode => execution_buffer_s,
         rfWHB => exc_rf_whb_s,
         rfWLB => exc_rf_wlb_s,
         ramRead => ram_stall_reset_s,
         isALUOp => exc_alu_s
     );
-    
+
     Decoder_Exec : Decoder port map(
-        instruction => execution_buffer_s,
+        instructionToDecode => execution_buffer_s,
         writeBackRegister => exc_write_reg_s
     );
     
@@ -133,14 +132,14 @@ begin
         
     
     
-    instruction_fetch_shift_register : process(loadClk, reset, stalled_s) is
+    instruction_fetch_shift_register : process(loadClk, reset) is
     begin
         if (reset = '1') then
             rf_read_buffer_s <= X"0000";
             execution_buffer_s <= X"0000";
             write_back_buffer_s <= X"0000";
             output_buffer_s <= X"0000";
-        elsif (rising_edge(loadClk) and taking_data_s) then
+        elsif rising_edge(loadClk) and taking_data_s then
             output_buffer_s <= write_back_buffer_s;
             write_back_buffer_s <= execution_buffer_s;
             execution_buffer_s <= rf_read_buffer_s;

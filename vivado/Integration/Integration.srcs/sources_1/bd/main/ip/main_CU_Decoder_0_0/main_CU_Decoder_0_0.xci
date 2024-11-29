@@ -37,7 +37,7 @@
     },
     "boundary": {
       "ports": {
-        "instruction": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "instructionToDecode": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
         "reg1Read": [ { "direction": "out" } ],
         "reg2Read": [ { "direction": "out" } ],
         "rfWHB": [ { "direction": "out" } ],
