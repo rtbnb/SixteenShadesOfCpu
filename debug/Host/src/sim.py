@@ -112,4 +112,14 @@ with open("sim.txt", 'w') as f:
         f.write(f"RX_UART_IN <= '{instruction_bits[7 - j]}';\n")
         f.write(f"wait for {wait_time_str} ns;\n")
     f.write("RX_UART_IN <= '1';\n")
+    f.write(f"wait for 500000ns;\n")
+
+    # ack
+    f.write("-- start\n")
+    f.write("RX_UART_IN <= '0';\n")
     f.write(f"wait for {wait_time_str} ns;\n")
+    for j in range(8):
+        f.write(f"RX_UART_IN <= '{ack_bits[7 - j]}';\n")
+        f.write(f"wait for {wait_time_str} ns;\n")
+    f.write("RX_UART_IN <= '1';\n")
+    f.write(f"wait for 500000ns;\n")
