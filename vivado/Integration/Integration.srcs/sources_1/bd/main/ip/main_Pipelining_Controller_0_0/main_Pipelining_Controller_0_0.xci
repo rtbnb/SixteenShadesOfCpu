@@ -38,12 +38,15 @@
     "boundary": {
       "ports": {
         "loadClk": [ { "direction": "in" } ],
-        "instruction": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "instructionIn": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
         "reset": [ { "direction": "in" } ],
-        "resolveStall": [ { "direction": "in" } ],
+        "pcLoad": [ { "direction": "in" } ],
+        "rfJmp": [ { "direction": "in" } ],
+        "rfRamRead": [ { "direction": "in" } ],
+        "execJmp": [ { "direction": "in" } ],
+        "execRamRead": [ { "direction": "in" } ],
         "stalled": [ { "direction": "out" } ],
-        "instructionForwardConfiguration": [ { "direction": "out", "size_left": "3", "size_right": "0" } ],
-        "instructionToExecute": [ { "direction": "out", "size_left": "15", "size_right": "0" } ]
+        "instructionOut": [ { "direction": "out", "size_left": "15", "size_right": "0" } ]
       },
       "interfaces": {
         "reset": {
