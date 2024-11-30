@@ -19,6 +19,7 @@ entity CU_Decoder is
         reg2Read : out std_logic;
         rfWHB : out std_logic;
         rfWLB : out std_logic;
+        rfWrite : out std_logic;
         writeDataSelect : out std_logic_vector(1 downto 0);
         ramAddressSrc : out std_logic;
         ramRead : out std_logic;
@@ -73,6 +74,7 @@ begin
 
     rfWHB <= '1' when write_whole_byte_s or is_imh_s else '0';
     rfWLB <= '1' when write_whole_byte_s or is_iml_s else '0';
+    rfWrite <= '1' when write_whole_byte_s or is_imh_s or is_iml_s else '0';
 
     -- ALU => Select 0 (Also used as default)
     -- IMH/IML => Select 1

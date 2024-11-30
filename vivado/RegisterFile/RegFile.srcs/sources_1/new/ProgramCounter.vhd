@@ -32,7 +32,7 @@ begin
     begin
     if (reset = '1') then
         instr_addr_s <= X"0000";
-    elsif (falling_edge(loadCLK) and ((jmp = '1') or (stalled = '0'))) then
+    elsif (rising_edge(loadCLK) and ((jmp = '1') or (stalled = '0'))) then
         if (JMP = '1') then
             instr_addr_s <= Din;
         else
