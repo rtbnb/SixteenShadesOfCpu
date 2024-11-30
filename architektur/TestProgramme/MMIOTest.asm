@@ -30,10 +30,10 @@
 %define MMIO_Bank 1
 
 ;Timer 0 Prescaler Register: 0x000e
-%define MMIO_Timer0_Prescaler_Register 1
+%define MMIO_Timer0_Prescaler_Register 24999
 %define MMIO_Timer0_Prescaler_Register_Addr 0x000e
 ;Timer 0 Max Prescaler Register: 0x000f
-%define MMIO_Timer0_Max_Count 5
+%define MMIO_Timer0_Max_Count 999
 %define MMIO_Timer0_Max_Count_Addr 0x000f
 ;Timer 0 Config Register: 0x000d
 %define MMIO_Timer0_Config 0b0000001000110111
@@ -45,8 +45,24 @@
 %define MMIO_RhoPinMask_Addr 0x0001
 
 %define MMIO_LED3_Addr 0x8003
+%define MMIO_Player1_UpButton 0x8018
+%define MMIO_Player1_DownButton 0x801a
 
 _code:
+    IML $BI, MMIO_Bank
+
+    IML $t0, 0
+    IMH $t0, 0
+    IML $t2, MMIO_Player1_UpButton[0]
+    IMH $t2, MMIO_Player1_UpButton[1]
+    IML $BI, GRAM_Bank
+    WRMi $t2, 0x12
+
+    IML $t0, 0x03
+    IMH $t0, 0x80
+    IML $t1, 0x01
+    IMH $t1, 0x00
+    WRMr $t1, $t0
     IML $BI, MMIO_Bank
 
     ; Configure Timer 0 Prescaler
@@ -70,9 +86,14 @@ _code:
     IMH $t1, MMIO_Timer0_Config[1]
     WRMr $t1, $t0
 .main
-
-
-
+    ;IML $BI, GRAM_Bank
+    ;RDMi $t9, 0x12
+    ;IML $BI, MMIO_Bank
+    ;RDMr $t1, $t9
+    ;GPU 0, $t1, $t2
+    ;IML $t0, 0x03
+    ;IMH $t0, 0x80
+    ;WRMr $t1, $t0
 
     JC JC_RhoPin, +2
     JC JC_Unconditional, -1

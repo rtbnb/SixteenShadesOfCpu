@@ -1,4 +1,5 @@
 _code:
+    IML  $BI, 0
     IML  $t0, 0xab
     IMH  $t0, 0xcd
     WRMi $t0, 0xaa
