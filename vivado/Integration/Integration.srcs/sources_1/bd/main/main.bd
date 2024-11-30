@@ -35,8 +35,7 @@
       "TX_UART_0": "",
       "VGA_CPU_Bridge_0": "",
       "GPU_0": "",
-      "VGA_Controller_0": "",
-      "CU_WriteBackSelector_0": ""
+      "VGA_Controller_0": ""
     },
     "ports": {
       "Reset": {
@@ -224,13 +223,7 @@
           "rfJmp": {
             "direction": "I"
           },
-          "rfRamRead": {
-            "direction": "I"
-          },
           "execJmp": {
-            "direction": "I"
-          },
-          "execRamRead": {
             "direction": "I"
           },
           "stalled": {
@@ -2136,6 +2129,9 @@
             "direction": "O",
             "left": "15",
             "right": "0"
+          },
+          "VGAFramBufferSelect": {
+            "direction": "O"
           }
         }
       },
@@ -2164,6 +2160,9 @@
                 "value_src": "default_prop"
               }
             }
+          },
+          "VGAFramBufferSelect": {
+            "direction": "I"
           },
           "r": {
             "direction": "O",
@@ -2202,38 +2201,6 @@
           "VRAM_Clk": {
             "type": "clk",
             "direction": "O"
-          }
-        }
-      },
-      "CU_WriteBackSelector_0": {
-        "vlnv": "xilinx.com:module_ref:CU_WriteBackSelector:1.0",
-        "ip_revision": "1",
-        "xci_name": "main_CU_WriteBackSelector_0_0",
-        "xci_path": "ip\\main_CU_WriteBackSelector_0_0\\main_CU_WriteBackSelector_0_0.xci",
-        "inst_hier_path": "CU_WriteBackSelector_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "CU_WriteBackSelector",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "writeBackPipelingData": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ramOut": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "ramRead": {
-            "direction": "I"
-          },
-          "writeData": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
           }
         }
       }
@@ -2360,8 +2327,7 @@
       "CU_Decoder_0_ramRead": {
         "ports": [
           "CU_Decoder_0/ramRead",
-          "Pipelining_Execution_0/ramRead",
-          "Pipelining_Controller_0/rfRamRead"
+          "Pipelining_Execution_0/ramRead"
         ]
       },
       "CU_Decoder_0_ramWrite": {
@@ -2403,8 +2369,8 @@
       "CU_JumpController_0_PC_Load": {
         "ports": [
           "CU_JumpController_0/pcLoad",
-          "Pipelining_Controller_0/pcLoad",
-          "ProgramCounter_0/jmp"
+          "ProgramCounter_0/jmp",
+          "Pipelining_Controller_0/pcLoad"
         ]
       },
       "CU_JumpController_0_PC_Next": {
@@ -2428,7 +2394,7 @@
       },
       "CU_WriteBackSelector_0_writeData": {
         "ports": [
-          "CU_WriteBackSelector_0/writeData",
+          "Pipelining_WriteBack_0/writeDataOut",
           "RegFile_0/WriteData",
           "Debugger_0/regfileWriteData"
         ]
@@ -2542,6 +2508,12 @@
           "Pipelining_Execution_0/jmpCondition"
         ]
       },
+      "GPU_0_VGAFramBufferSelect": {
+        "ports": [
+          "GPU_0/VGAFramBufferSelect",
+          "VGA_Controller_0/VGAFramBufferSelect"
+        ]
+      },
       "GPU_0_VRAM_Addr": {
         "ports": [
           "GPU_0/VRAM_Addr",
@@ -2621,8 +2593,8 @@
           "Pipelining_Execution_0/jmpOut",
           "CU_JumpController_0/jmp",
           "Debugger_0/pipelineJmp",
-          "Pipelining_Controller_0/execJmp",
-          "Pipelining_WriteBack_0/jmp"
+          "Pipelining_WriteBack_0/jmp",
+          "Pipelining_Controller_0/execJmp"
         ]
       },
       "Pipelining_Execution_0_Operand1_out": {
@@ -2704,7 +2676,6 @@
         "ports": [
           "Pipelining_Execution_0/ramReadOut",
           "Debugger_0/pipelineRamRead",
-          "Pipelining_Controller_0/execRamRead",
           "Pipelining_WriteBack_0/ramRead",
           "mmu_0/gramOe"
         ]
@@ -2794,19 +2765,6 @@
           "Debugger_0/regfileAddrWriteReg"
         ]
       },
-      "Pipelining_WriteBack_0_ramReadOut": {
-        "ports": [
-          "Pipelining_WriteBack_0/ramReadOut",
-          "CU_WriteBackSelector_0/ramRead"
-        ]
-      },
-      "Pipelining_WriteBack_0_writeDataOut": {
-        "ports": [
-          "Pipelining_WriteBack_0/writeDataOut",
-          "CU_WriteBackSelector_0/writeBackPipelingData",
-          "CU_WriteBackSelector_0/ramOut"
-        ]
-      },
       "ProgramCounter_0_Dout": {
         "ports": [
           "ProgramCounter_0/dout",
@@ -2864,12 +2822,12 @@
         "ports": [
           "Reset",
           "VGA_CPU_Bridge_0/Reset",
-          "GPU_0/Reset",
           "Pipelining_Execution_0/reset",
-          "Pipelining_Controller_0/reset",
           "Pipelining_WriteBack_0/reset",
           "ProgramCounter_0/reset",
-          "mmu_0/reset"
+          "mmu_0/reset",
+          "Pipelining_Controller_0/reset",
+          "GPU_0/Reset"
         ]
       },
       "TX_UART_0_sendValid": {
@@ -3019,15 +2977,15 @@
       "clockcontroller_0_loadClk": {
         "ports": [
           "clockcontroller_0/loadClk",
-          "mmio_0/clk50mhzIn",
-          "GPU_0/InstrLoad_CLK",
           "VGA_CPU_Bridge_0/InstrLoad_CLK",
           "RegFile_0/loadClk",
           "Pipelining_Execution_0/loadClk",
           "Pipelining_WriteBack_0/instrLoadClk",
-          "Pipelining_Controller_0/loadClk",
           "ProgramCounter_0/loadCLK",
-          "mmu_0/loadClk"
+          "mmu_0/loadClk",
+          "Pipelining_Controller_0/loadClk",
+          "mmio_0/clk50mhzIn",
+          "GPU_0/InstrLoad_CLK"
         ]
       },
       "clockcontroller_0_vga_clk": {
