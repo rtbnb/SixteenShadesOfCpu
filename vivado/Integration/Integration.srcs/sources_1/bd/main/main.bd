@@ -35,7 +35,9 @@
       "TX_UART_0": "",
       "VGA_CPU_Bridge_0": "",
       "GPU_0": "",
-      "VGA_Controller_0": ""
+      "VGA_Controller_0": "",
+      "FPU_0": "",
+      "ALU_FLAG_PACKER_1": ""
     },
     "ports": {
       "Reset": {
@@ -321,7 +323,12 @@
           },
           "writeDataSelect": {
             "direction": "O",
-            "left": "1",
+            "left": "2",
+            "right": "0"
+          },
+          "flagSelect": {
+            "direction": "O",
+            "left": "0",
             "right": "0"
           },
           "ramAddressSrc": {
@@ -625,7 +632,12 @@
           },
           "writeDataSel": {
             "direction": "I",
-            "left": "1",
+            "left": "2",
+            "right": "0"
+          },
+          "flagSel": {
+            "direction": "I",
+            "left": "0",
             "right": "0"
           },
           "ramSrc": {
@@ -699,7 +711,12 @@
           },
           "writeDataSelOut": {
             "direction": "O",
-            "left": "1",
+            "left": "2",
+            "right": "0"
+          },
+          "flagSelOut": {
+            "direction": "O",
+            "left": "0",
             "right": "0"
           },
           "ramSrcOut": {
@@ -987,12 +1004,37 @@
             "left": "15",
             "right": "0"
           },
+          "fpuOut": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "aluFlags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "fpuFlags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
           "writeSel": {
             "direction": "I",
-            "left": "1",
+            "left": "2",
+            "right": "0"
+          },
+          "flagSel": {
+            "direction": "I",
+            "left": "0",
             "right": "0"
           },
           "writeData": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "flags": {
             "direction": "O",
             "left": "15",
             "right": "0"
@@ -2203,6 +2245,104 @@
             "direction": "O"
           }
         }
+      },
+      "FPU_0": {
+        "vlnv": "xilinx.com:module_ref:FPU:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_FPU_0_0",
+        "xci_path": "ip\\main_FPU_0_0\\main_FPU_0_0.xci",
+        "inst_hier_path": "FPU_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FPU",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "D2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "FPU_OPP": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "RHO_PIN": {
+            "direction": "I"
+          },
+          "FPU_OUT": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "CARRY_FLAG": {
+            "direction": "O"
+          },
+          "ZERO_FLAG": {
+            "direction": "O"
+          },
+          "SMALLER_ZERO_FLAG": {
+            "direction": "O"
+          },
+          "BIGGER_ZERO_FLAG": {
+            "direction": "O"
+          },
+          "OVERFLOW_FLAG": {
+            "direction": "O"
+          },
+          "RHO_FLAG": {
+            "direction": "O"
+          },
+          "NOT_ZERO_FLAG": {
+            "direction": "O"
+          }
+        }
+      },
+      "ALU_FLAG_PACKER_1": {
+        "vlnv": "xilinx.com:module_ref:ALU_FLAG_PACKER:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ALU_FLAG_PACKER_1_0",
+        "xci_path": "ip\\main_ALU_FLAG_PACKER_1_0\\main_ALU_FLAG_PACKER_1_0.xci",
+        "inst_hier_path": "ALU_FLAG_PACKER_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ALU_FLAG_PACKER",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CARRY_FLAG": {
+            "direction": "I"
+          },
+          "ZERO_FLAG": {
+            "direction": "I"
+          },
+          "SMALLER_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "BIGGER_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "OVERFLOW_FLAG": {
+            "direction": "I"
+          },
+          "RHO_FLAG": {
+            "direction": "I"
+          },
+          "NOT_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "ALU_FLAGS": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
       }
     },
     "nets": {
@@ -2256,17 +2396,29 @@
       },
       "ALU_FLAG_PACKER_0_ALU_FLAGS": {
         "ports": [
-          "ALU_FLAG_PACKER_0/ALU_FLAGS",
+          "CU_WriteSelector_0/flags",
           "Debugger_0/aluFlags",
-          "Pipelining_WriteBack_0/flags",
-          "Pipelining_Forwarder_0/executionFlags"
+          "Pipelining_Forwarder_0/executionFlags",
+          "Pipelining_WriteBack_0/flags"
+        ]
+      },
+      "ALU_FLAG_PACKER_0_ALU_FLAGS1": {
+        "ports": [
+          "ALU_FLAG_PACKER_0/ALU_FLAGS",
+          "CU_WriteSelector_0/aluFlags"
+        ]
+      },
+      "ALU_FLAG_PACKER_1_ALU_FLAGS": {
+        "ports": [
+          "ALU_FLAG_PACKER_1/ALU_FLAGS",
+          "CU_WriteSelector_0/fpuFlags"
         ]
       },
       "CU_Decoder_0_JMP": {
         "ports": [
           "CU_Decoder_0/jmp",
-          "Pipelining_Execution_0/jmp",
-          "Pipelining_Controller_0/rfJmp"
+          "Pipelining_Controller_0/rfJmp",
+          "Pipelining_Execution_0/jmp"
         ]
       },
       "CU_Decoder_0_RF_WLB": {
@@ -2279,6 +2431,12 @@
         "ports": [
           "CU_Decoder_0/writeDataSelect",
           "Pipelining_Execution_0/writeDataSel"
+        ]
+      },
+      "CU_Decoder_0_flagSelect": {
+        "ports": [
+          "CU_Decoder_0/flagSelect",
+          "Pipelining_Execution_0/flagSel"
         ]
       },
       "CU_Decoder_0_isALUOp": {
@@ -2296,8 +2454,8 @@
       "CU_Decoder_0_isRAMOp": {
         "ports": [
           "CU_Decoder_0/isRAMOp",
-          "Pipelining_Execution_0/isRAMOp",
-          "Pipelining_Forwarder_0/rfIsRAMOp"
+          "Pipelining_Forwarder_0/rfIsRAMOp",
+          "Pipelining_Execution_0/isRAMOp"
         ]
       },
       "CU_Decoder_0_jmpConditional": {
@@ -2508,6 +2666,54 @@
           "Pipelining_Execution_0/jmpCondition"
         ]
       },
+      "FPU_0_BIGGER_ZERO_FLAG": {
+        "ports": [
+          "FPU_0/BIGGER_ZERO_FLAG",
+          "ALU_FLAG_PACKER_1/BIGGER_ZERO_FLAG"
+        ]
+      },
+      "FPU_0_CARRY_FLAG": {
+        "ports": [
+          "FPU_0/CARRY_FLAG",
+          "ALU_FLAG_PACKER_1/CARRY_FLAG"
+        ]
+      },
+      "FPU_0_FPU_OUT": {
+        "ports": [
+          "FPU_0/FPU_OUT",
+          "CU_WriteSelector_0/fpuOut"
+        ]
+      },
+      "FPU_0_NOT_ZERO_FLAG": {
+        "ports": [
+          "FPU_0/NOT_ZERO_FLAG",
+          "ALU_FLAG_PACKER_1/NOT_ZERO_FLAG"
+        ]
+      },
+      "FPU_0_OVERFLOW_FLAG": {
+        "ports": [
+          "FPU_0/OVERFLOW_FLAG",
+          "ALU_FLAG_PACKER_1/OVERFLOW_FLAG"
+        ]
+      },
+      "FPU_0_RHO_FLAG": {
+        "ports": [
+          "FPU_0/RHO_FLAG",
+          "ALU_FLAG_PACKER_1/RHO_FLAG"
+        ]
+      },
+      "FPU_0_SMALLER_ZERO_FLAG": {
+        "ports": [
+          "FPU_0/SMALLER_ZERO_FLAG",
+          "ALU_FLAG_PACKER_1/SMALLER_ZERO_FLAG"
+        ]
+      },
+      "FPU_0_ZERO_FLAG": {
+        "ports": [
+          "FPU_0/ZERO_FLAG",
+          "ALU_FLAG_PACKER_1/ZERO_FLAG"
+        ]
+      },
       "GPU_0_VGAFramBufferSelect": {
         "ports": [
           "GPU_0/VGAFramBufferSelect",
@@ -2579,7 +2785,8 @@
           "CU_JumpDestinationSe_0/immediate",
           "CU_RAMAddressControl_0/immediate",
           "Debugger_0/aluOp",
-          "CU_ImmediateManipula_0/immediate"
+          "CU_ImmediateManipula_0/immediate",
+          "FPU_0/FPU_OPP"
         ]
       },
       "Pipelining_Execution_0_Is_GPU_OP_out": {
@@ -2606,8 +2813,9 @@
           "Debugger_0/pipelineOperand1",
           "Debugger_0/aluDin1",
           "CU_ImmediateManipula_0/reg1",
-          "CU_WriteSelector_0/reg1",
-          "mmu_0/gramDin"
+          "mmu_0/gramDin",
+          "FPU_0/D1",
+          "CU_WriteSelector_0/reg1"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -2618,7 +2826,8 @@
           "CU_JumpController_0/flags",
           "CU_RAMAddressControl_0/reg2",
           "Debugger_0/pipelineOperand2",
-          "Debugger_0/aluDin2"
+          "Debugger_0/aluDin2",
+          "FPU_0/D2"
         ]
       },
       "Pipelining_Execution_0_WriteAddress_out": {
@@ -2626,6 +2835,12 @@
           "Pipelining_Execution_0/writeAddressOut",
           "Pipelining_WriteBack_0/writeAddress",
           "Pipelining_Forwarder_0/execRegWriteAddr"
+        ]
+      },
+      "Pipelining_Execution_0_flagSelOut": {
+        "ports": [
+          "Pipelining_Execution_0/flagSelOut",
+          "CU_WriteSelector_0/flagSel"
         ]
       },
       "Pipelining_Execution_0_isALUOpOut": {
@@ -2822,12 +3037,12 @@
         "ports": [
           "Reset",
           "VGA_CPU_Bridge_0/Reset",
-          "Pipelining_Execution_0/reset",
           "Pipelining_WriteBack_0/reset",
           "ProgramCounter_0/reset",
           "mmu_0/reset",
           "Pipelining_Controller_0/reset",
-          "GPU_0/Reset"
+          "GPU_0/Reset",
+          "Pipelining_Execution_0/reset"
         ]
       },
       "TX_UART_0_sendValid": {
@@ -2979,13 +3194,13 @@
           "clockcontroller_0/loadClk",
           "VGA_CPU_Bridge_0/InstrLoad_CLK",
           "RegFile_0/loadClk",
-          "Pipelining_Execution_0/loadClk",
           "Pipelining_WriteBack_0/instrLoadClk",
           "ProgramCounter_0/loadCLK",
           "mmu_0/loadClk",
           "Pipelining_Controller_0/loadClk",
           "mmio_0/clk50mhzIn",
-          "GPU_0/InstrLoad_CLK"
+          "GPU_0/InstrLoad_CLK",
+          "Pipelining_Execution_0/loadClk"
         ]
       },
       "clockcontroller_0_vga_clk": {
@@ -3058,7 +3273,8 @@
         "ports": [
           "mmio_0/rho",
           "ALU_0/RHO_PIN",
-          "CU_JumpController_0/rhoPin"
+          "CU_JumpController_0/rhoPin",
+          "FPU_0/RHO_PIN"
         ]
       },
       "mmu_0_debugDout": {

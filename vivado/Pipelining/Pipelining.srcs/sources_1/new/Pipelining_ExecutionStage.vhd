@@ -23,7 +23,8 @@ entity Pipelining_ExecutionStage is
         whb : in std_logic;
         wlb : in std_logic;
         rfWrite : in std_logic;
-        writeDataSel : in std_logic_vector(1 downto 0);
+        writeDataSel : in std_logic_vector(2 downto 0);
+        flagSel : in std_logic_vector(0 downto 0);
         ramSrc : in std_logic;
         ramRead : in std_logic;
         ramWrite : in std_logic;
@@ -43,7 +44,8 @@ entity Pipelining_ExecutionStage is
         whbOut : out std_logic;
         wlbOut : out std_logic;
         rfWriteOut : out std_logic;
-        writeDataSelOut : out std_logic_vector(1 downto 0);
+        writeDataSelOut : out std_logic_vector(2 downto 0);
+        flagSelOut : out std_logic_vector(0 downto 0);
         ramSrcOut : out std_logic;
         ramReadOut : out std_logic;
         ramWriteOut : out std_logic;
@@ -63,7 +65,8 @@ architecture Behavioral of Pipelining_ExecutionStage is
     signal operand1_s, operand2_s, immediate_s : std_logic_vector(15 downto 0);
     signal write_address_s : std_logic_vector(3 downto 0);
     signal whb_s, wlb_s, rf_write_s, ram_src_s, ram_read_s, ram_write_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s, is_gpu_op_s : std_logic;
-    signal write_data_select_s : std_logic_vector(1 downto 0);
+    signal write_data_select_s : std_logic_vector(2 downto 0);
+    signal flag_select_s : std_logic_vector(0 downto 0);
     signal jmp_condition_s : std_logic_vector(2 downto 0);
     signal bank_id_s : std_logic_vector(3 downto 0);
 begin
@@ -77,7 +80,8 @@ begin
             whb_s <= '0';
             wlb_s <= '0';
             rf_write_s <= '0';
-            write_data_select_s <= "00";
+            write_data_select_s <= "000";
+            flag_select_s <= "0";
             ram_src_s <= '0';
             ram_read_s <= '0';
             ram_write_s <= '0';
@@ -99,6 +103,7 @@ begin
             wlb_s <= wlb;
             rf_write_s <= rfWrite;
             write_data_select_s <= writeDataSel;
+            flag_select_s <= flagSel;
             ram_src_s <= ramSrc;
             ram_read_s <= ramRead;
             ram_write_s <= ramWrite;
@@ -122,6 +127,7 @@ begin
     wlbOut <= wlb_s;
     rfWriteOut <= rf_write_s;
     writeDataSelOut <= write_data_select_s;
+    flagSelOut <= flag_select_s;
     ramSrcOut <= ram_src_s;
     ramReadOut <= ram_read_s;
     ramWriteOut <= ram_write_s;

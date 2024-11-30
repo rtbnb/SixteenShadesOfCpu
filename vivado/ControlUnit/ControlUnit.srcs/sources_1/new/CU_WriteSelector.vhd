@@ -17,8 +17,13 @@ entity CU_WriteSelector is
         manipulatedImmediate : in std_logic_vector(15 downto 0);
         reg1 : in std_logic_vector(15 downto 0);
         aluOut : in std_logic_vector(15 downto 0);
-        writeSel : in std_logic_vector(1 downto 0);
-        writeData : out std_logic_vector(15 downto 0)
+        fpuOut : in std_logic_vector(15 downto 0);
+        aluFlags : in std_logic_vector(15 downto 0);
+        fpuFlags : in std_logic_vector(15 downto 0);
+        writeSel : in std_logic_vector(2 downto 0);
+        flagSel : in std_logic_vector(0 downto 0);
+        writeData : out std_logic_vector(15 downto 0);
+        flags : out std_logic_vector(15 downto 0)
     );
 end entity CU_WriteSelector;
 
@@ -26,10 +31,15 @@ architecture Behavioral of CU_WriteSelector is
 begin
 
     with writeSel select
-        writeData <= aluOut                 when "00",
-                     manipulatedImmediate   when "01",
-                     reg1                   when "10",
-                     ramOut                 when "11",
+        writeData <= aluOut                 when "000",
+                     manipulatedImmediate   when "001",
+                     reg1                   when "010",
+                     ramOut                 when "011",
+                     fpuOut                 when "100",
                      X"0000"                when others;
+    with flagSel select
+        flags <= aluFlags when "0",
+                 fpuFlags when "1",
+                 X"0000"  when others;      
 
 end architecture Behavioral;
