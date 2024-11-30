@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x36462CDFBC4BB700",
+      "boundary_crc": "0x33E72AF668DFAA63",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
       "name": "main",
@@ -35,8 +35,7 @@
       "TX_UART_0": "",
       "VGA_CPU_Bridge_0": "",
       "GPU_0": "",
-      "VGA_Controller_0": "",
-      "custom_BUFH_0": ""
+      "VGA_Controller_0": ""
     },
     "ports": {
       "Reset": {
@@ -165,6 +164,18 @@
             "value_src": "default"
           }
         }
+      },
+      "btn04": {
+        "direction": "I"
+      },
+      "btn05": {
+        "direction": "I"
+      },
+      "btn06": {
+        "direction": "I"
+      },
+      "btn07": {
+        "direction": "I"
       }
     },
     "components": {
@@ -181,9 +192,23 @@
         },
         "ports": {
           "loadClk": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
           },
-          "instruction": {
+          "instructionIn": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -192,18 +217,19 @@
             "type": "rst",
             "direction": "I"
           },
-          "resolveStall": {
+          "pcLoad": {
+            "direction": "I"
+          },
+          "rfJmp": {
+            "direction": "I"
+          },
+          "execJmp": {
             "direction": "I"
           },
           "stalled": {
             "direction": "O"
           },
-          "instructionForwardConfiguration": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "instructionToExecute": {
+          "instructionOut": {
             "direction": "O",
             "left": "15",
             "right": "0"
@@ -273,7 +299,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "instruction": {
+          "instructionToDecode": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -288,6 +314,9 @@
             "direction": "O"
           },
           "rfWLB": {
+            "direction": "O"
+          },
+          "rfWrite": {
             "direction": "O"
           },
           "writeDataSelect": {
@@ -339,7 +368,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "instruction": {
+          "instructionToDecode": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -460,14 +489,49 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "currentOperand1": {
+          "reg1Addr": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "reg2Addr": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "reg1Read": {
+            "direction": "I"
+          },
+          "reg2Read": {
+            "direction": "I"
+          },
+          "rfIsRAMOp": {
+            "direction": "I"
+          },
+          "execRegWriteAddr": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "execWritesReg": {
+            "direction": "I"
+          },
+          "execIsALUOp": {
+            "direction": "I"
+          },
+          "reg1Data": {
             "direction": "I",
             "left": "15",
             "right": "0"
           },
-          "currentOperand2": {
+          "reg2Data": {
             "direction": "I",
             "left": "15",
+            "right": "0"
+          },
+          "currentBankID": {
+            "direction": "I",
+            "left": "3",
             "right": "0"
           },
           "executionWriteData": {
@@ -480,11 +544,6 @@
             "left": "15",
             "right": "0"
           },
-          "forwardingConfiguration": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
           "forwardedOperand1": {
             "direction": "O",
             "left": "15",
@@ -493,6 +552,11 @@
           "forwardedOperand2": {
             "direction": "O",
             "left": "15",
+            "right": "0"
+          },
+          "forwardedBankID": {
+            "direction": "O",
+            "left": "3",
             "right": "0"
           }
         }
@@ -554,6 +618,9 @@
             "direction": "I"
           },
           "wlb": {
+            "direction": "I"
+          },
+          "rfWrite": {
             "direction": "I"
           },
           "writeDataSel": {
@@ -625,6 +692,9 @@
             "direction": "O"
           },
           "wlbOut": {
+            "direction": "O"
+          },
+          "rfWriteOut": {
             "direction": "O"
           },
           "writeDataSelOut": {
@@ -983,6 +1053,9 @@
           "wlb": {
             "direction": "I"
           },
+          "ramRead": {
+            "direction": "I"
+          },
           "isALUOp": {
             "direction": "I"
           },
@@ -1005,6 +1078,9 @@
             "right": "0"
           },
           "rfWEOut": {
+            "direction": "O"
+          },
+          "ramReadOut": {
             "direction": "O"
           },
           "isALUOpOut": {
@@ -1168,6 +1244,10 @@
                 "value_src": "default_prop"
               }
             }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
           },
           "gramAddr": {
             "direction": "I",
@@ -2049,6 +2129,9 @@
             "direction": "O",
             "left": "15",
             "right": "0"
+          },
+          "VGAFramBufferSelect": {
+            "direction": "O"
           }
         }
       },
@@ -2077,6 +2160,9 @@
                 "value_src": "default_prop"
               }
             }
+          },
+          "VGAFramBufferSelect": {
+            "direction": "I"
           },
           "r": {
             "direction": "O",
@@ -2114,37 +2200,6 @@
           },
           "VRAM_Clk": {
             "type": "clk",
-            "direction": "O"
-          }
-        }
-      },
-      "custom_BUFH_0": {
-        "vlnv": "xilinx.com:module_ref:custom_BUFH:1.0",
-        "ip_revision": "1",
-        "xci_name": "main_custom_BUFH_0_0",
-        "xci_path": "ip\\main_custom_BUFH_0_0\\main_custom_BUFH_0_0.xci",
-        "inst_hier_path": "custom_BUFH_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "custom_BUFH",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clkIn": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "50000000",
-                "value_src": "const_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_clockcontroller_0_0_loadClk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "clkOut": {
             "direction": "O"
           }
         }
@@ -2202,21 +2257,16 @@
       "ALU_FLAG_PACKER_0_ALU_FLAGS": {
         "ports": [
           "ALU_FLAG_PACKER_0/ALU_FLAGS",
-          "Pipelining_Forwarder_0/executionFlags",
+          "Debugger_0/aluFlags",
           "Pipelining_WriteBack_0/flags",
-          "Debugger_0/aluFlags"
+          "Pipelining_Forwarder_0/executionFlags"
         ]
       },
       "CU_Decoder_0_JMP": {
         "ports": [
           "CU_Decoder_0/jmp",
-          "Pipelining_Execution_0/jmp"
-        ]
-      },
-      "CU_Decoder_0_RF_WHB": {
-        "ports": [
-          "CU_Decoder_0/rfWHB",
-          "Pipelining_Execution_0/whb"
+          "Pipelining_Execution_0/jmp",
+          "Pipelining_Controller_0/rfJmp"
         ]
       },
       "CU_Decoder_0_RF_WLB": {
@@ -2246,7 +2296,8 @@
       "CU_Decoder_0_isRAMOp": {
         "ports": [
           "CU_Decoder_0/isRAMOp",
-          "Pipelining_Execution_0/isRAMOp"
+          "Pipelining_Execution_0/isRAMOp",
+          "Pipelining_Forwarder_0/rfIsRAMOp"
         ]
       },
       "CU_Decoder_0_jmpConditional": {
@@ -2285,6 +2336,30 @@
           "Pipelining_Execution_0/ramWrite"
         ]
       },
+      "CU_Decoder_0_reg1Read": {
+        "ports": [
+          "CU_Decoder_0/reg1Read",
+          "Pipelining_Forwarder_0/reg1Read"
+        ]
+      },
+      "CU_Decoder_0_reg2Read": {
+        "ports": [
+          "CU_Decoder_0/reg2Read",
+          "Pipelining_Forwarder_0/reg2Read"
+        ]
+      },
+      "CU_Decoder_0_rfWHB": {
+        "ports": [
+          "CU_Decoder_0/rfWHB",
+          "Pipelining_Execution_0/whb"
+        ]
+      },
+      "CU_Decoder_0_rfWrite": {
+        "ports": [
+          "CU_Decoder_0/rfWrite",
+          "Pipelining_Execution_0/rfWrite"
+        ]
+      },
       "CU_ImmediateManipula_0_manipulatedImmediate": {
         "ports": [
           "CU_ImmediateManipula_0/manipulatedImmediate",
@@ -2294,14 +2369,15 @@
       "CU_JumpController_0_PC_Load": {
         "ports": [
           "CU_JumpController_0/pcLoad",
-          "ProgramCounter_0/jmp"
+          "ProgramCounter_0/jmp",
+          "Pipelining_Controller_0/pcLoad"
         ]
       },
       "CU_JumpController_0_PC_Next": {
         "ports": [
           "CU_JumpController_0/pcNext",
-          "ProgramCounter_0/din",
-          "Debugger_0/pcDin"
+          "Debugger_0/pcDin",
+          "ProgramCounter_0/din"
         ]
       },
       "CU_JumpDestinationSe_0_jmpAddress": {
@@ -2316,11 +2392,18 @@
           "mmu_0/gramAddr"
         ]
       },
+      "CU_WriteBackSelector_0_writeData": {
+        "ports": [
+          "Pipelining_WriteBack_0/writeDataOut",
+          "RegFile_0/WriteData",
+          "Debugger_0/regfileWriteData"
+        ]
+      },
       "CU_WriteSelector_0_Write_Data": {
         "ports": [
           "CU_WriteSelector_0/writeData",
-          "Pipelining_Forwarder_0/executionWriteData",
-          "Pipelining_WriteBack_0/writeData"
+          "Pipelining_WriteBack_0/writeData",
+          "Pipelining_Forwarder_0/executionWriteData"
         ]
       },
       "Debugger_0_ccDebugMockClk": {
@@ -2401,14 +2484,16 @@
         "ports": [
           "Decoder_0/register1",
           "RegFile_0/AddrReg1",
-          "Debugger_0/regfileAddrReg1"
+          "Debugger_0/regfileAddrReg1",
+          "Pipelining_Forwarder_0/reg1Addr"
         ]
       },
       "Decoder_0_Register2": {
         "ports": [
           "Decoder_0/register2",
           "RegFile_0/AddrReg2",
-          "Debugger_0/regfileAddrReg2"
+          "Debugger_0/regfileAddrReg2",
+          "Pipelining_Forwarder_0/reg2Addr"
         ]
       },
       "Decoder_0_WriteBackRegister": {
@@ -2421,6 +2506,12 @@
         "ports": [
           "Decoder_0/jmpCondition",
           "Pipelining_Execution_0/jmpCondition"
+        ]
+      },
+      "GPU_0_VGAFramBufferSelect": {
+        "ports": [
+          "GPU_0/VGAFramBufferSelect",
+          "VGA_Controller_0/VGAFramBufferSelect"
         ]
       },
       "GPU_0_VRAM_Addr": {
@@ -2457,24 +2548,27 @@
       },
       "Pipelining_Controller_0_InstructionForwardConfiguration": {
         "ports": [
-          "Pipelining_Controller_0/instructionForwardConfiguration",
-          "Pipelining_Forwarder_0/forwardingConfiguration",
           "Debugger_0/pipelineInstructionForwardingConfig"
         ]
       },
       "Pipelining_Controller_0_InstructionToExecute": {
         "ports": [
-          "Pipelining_Controller_0/instructionToExecute",
-          "Decoder_0/instruction",
-          "CU_Decoder_0/instruction",
-          "Debugger_0/pipelineCurrentInstruction"
+          "Pipelining_Controller_0/instructionOut",
+          "Debugger_0/pipelineCurrentInstruction",
+          "Decoder_0/instructionToDecode",
+          "CU_Decoder_0/instructionToDecode"
         ]
       },
       "Pipelining_Controller_0_Stalled": {
         "ports": [
           "Pipelining_Controller_0/stalled",
-          "ProgramCounter_0/stalled",
-          "Debugger_0/pipelineStalled"
+          "Debugger_0/pipelineStalled",
+          "ProgramCounter_0/stalled"
+        ]
+      },
+      "Pipelining_Controller_0_rfReadBuffer": {
+        "ports": [
+          "Debugger_0/aluOut"
         ]
       },
       "Pipelining_Execution_0_Immediate_out": {
@@ -2482,10 +2576,10 @@
           "Pipelining_Execution_0/immediateOut",
           "ALU_0/ALU_OPP",
           "VGA_CPU_Bridge_0/Immediate_In",
-          "CU_ImmediateManipula_0/immediate",
           "CU_JumpDestinationSe_0/immediate",
           "CU_RAMAddressControl_0/immediate",
-          "Debugger_0/aluOp"
+          "Debugger_0/aluOp",
+          "CU_ImmediateManipula_0/immediate"
         ]
       },
       "Pipelining_Execution_0_Is_GPU_OP_out": {
@@ -2498,8 +2592,9 @@
         "ports": [
           "Pipelining_Execution_0/jmpOut",
           "CU_JumpController_0/jmp",
+          "Debugger_0/pipelineJmp",
           "Pipelining_WriteBack_0/jmp",
-          "Debugger_0/pipelineJmp"
+          "Pipelining_Controller_0/execJmp"
         ]
       },
       "Pipelining_Execution_0_Operand1_out": {
@@ -2507,12 +2602,12 @@
           "Pipelining_Execution_0/operand1Out",
           "ALU_0/D1",
           "VGA_CPU_Bridge_0/Reg1_In",
-          "CU_ImmediateManipula_0/reg1",
           "CU_JumpDestinationSe_0/register1",
-          "CU_WriteSelector_0/reg1",
-          "mmu_0/gramDin",
           "Debugger_0/pipelineOperand1",
-          "Debugger_0/aluDin1"
+          "Debugger_0/aluDin1",
+          "CU_ImmediateManipula_0/reg1",
+          "CU_WriteSelector_0/reg1",
+          "mmu_0/gramDin"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -2529,13 +2624,20 @@
       "Pipelining_Execution_0_WriteAddress_out": {
         "ports": [
           "Pipelining_Execution_0/writeAddressOut",
-          "Pipelining_WriteBack_0/writeAddress"
+          "Pipelining_WriteBack_0/writeAddress",
+          "Pipelining_Forwarder_0/execRegWriteAddr"
         ]
       },
       "Pipelining_Execution_0_isALUOpOut": {
         "ports": [
           "Pipelining_Execution_0/isALUOpOut",
-          "Pipelining_WriteBack_0/isALUOp"
+          "Pipelining_WriteBack_0/isALUOp",
+          "Pipelining_Forwarder_0/execIsALUOp"
+        ]
+      },
+      "Pipelining_Execution_0_isRAMOpOut": {
+        "ports": [
+          "Pipelining_Execution_0/isRAMOpOut"
         ]
       },
       "Pipelining_Execution_0_jmpConditionOut": {
@@ -2566,15 +2668,16 @@
       "Pipelining_Execution_0_ramBankIDOut": {
         "ports": [
           "Pipelining_Execution_0/ramBankIDOut",
-          "mmu_0/gramBank",
-          "Debugger_0/pipelineRamBankid"
+          "Debugger_0/pipelineRamBankid",
+          "mmu_0/gramBank"
         ]
       },
       "Pipelining_Execution_0_ramReadOut": {
         "ports": [
           "Pipelining_Execution_0/ramReadOut",
-          "mmu_0/gramOe",
-          "Debugger_0/pipelineRamRead"
+          "Debugger_0/pipelineRamRead",
+          "Pipelining_WriteBack_0/ramRead",
+          "mmu_0/gramOe"
         ]
       },
       "Pipelining_Execution_0_ramSrcOut": {
@@ -2587,8 +2690,14 @@
       "Pipelining_Execution_0_ramWriteOut": {
         "ports": [
           "Pipelining_Execution_0/ramWriteOut",
-          "mmu_0/gramWe",
-          "Debugger_0/pipelineRamWrite"
+          "Debugger_0/pipelineRamWrite",
+          "mmu_0/gramWe"
+        ]
+      },
+      "Pipelining_Execution_0_rfWriteOut": {
+        "ports": [
+          "Pipelining_Execution_0/rfWriteOut",
+          "Pipelining_Forwarder_0/execWritesReg"
         ]
       },
       "Pipelining_Execution_0_whbOut": {
@@ -2608,8 +2717,8 @@
       "Pipelining_Execution_0_writeDataSelOut": {
         "ports": [
           "Pipelining_Execution_0/writeDataSelOut",
-          "CU_WriteSelector_0/writeSel",
-          "Debugger_0/pipelineWriteDataSel"
+          "Debugger_0/pipelineWriteDataSel",
+          "CU_WriteSelector_0/writeSel"
         ]
       },
       "Pipelining_Forwarder_0_ForwardedOperand1": {
@@ -2639,8 +2748,7 @@
       },
       "Pipelining_WriteBack_0_JMP_out": {
         "ports": [
-          "Pipelining_WriteBack_0/jmpOut",
-          "Pipelining_Controller_0/resolveStall"
+          "Pipelining_WriteBack_0/jmpOut"
         ]
       },
       "Pipelining_WriteBack_0_RF_WE_out": {
@@ -2657,19 +2765,12 @@
           "Debugger_0/regfileAddrWriteReg"
         ]
       },
-      "Pipelining_WriteBack_0_WriteData_out": {
-        "ports": [
-          "Pipelining_WriteBack_0/writeDataOut",
-          "RegFile_0/WriteData",
-          "Debugger_0/regfileWriteData"
-        ]
-      },
       "ProgramCounter_0_Dout": {
         "ports": [
           "ProgramCounter_0/dout",
           "CU_JumpController_0/pcCurrent",
-          "mmu_0/iramAddr",
-          "Debugger_0/pcDout"
+          "Debugger_0/pcDout",
+          "mmu_0/iramAddr"
         ]
       },
       "RX_UART_0_dataOutput": {
@@ -2692,34 +2793,41 @@
       },
       "RegFile_0_BankID": {
         "ports": [
+          "Pipelining_Forwarder_0/forwardedBankID",
+          "Debugger_0/regfileBankid",
+          "Pipelining_Execution_0/ramBankID"
+        ]
+      },
+      "RegFile_0_BankID1": {
+        "ports": [
           "RegFile_0/BankID",
-          "Pipelining_Execution_0/ramBankID",
-          "Debugger_0/regfileBankid"
+          "Pipelining_Forwarder_0/currentBankID"
         ]
       },
       "RegFile_0_Reg1Data": {
         "ports": [
           "RegFile_0/Reg1Data",
-          "Pipelining_Forwarder_0/currentOperand1",
-          "Debugger_0/regfileReg1Data"
+          "Debugger_0/regfileReg1Data",
+          "Pipelining_Forwarder_0/reg1Data"
         ]
       },
       "RegFile_0_Reg2Data": {
         "ports": [
           "RegFile_0/Reg2Data",
-          "Pipelining_Forwarder_0/currentOperand2",
-          "Debugger_0/regfileReg2Data"
+          "Debugger_0/regfileReg2Data",
+          "Pipelining_Forwarder_0/reg2Data"
         ]
       },
       "Reset_1": {
         "ports": [
           "Reset",
           "VGA_CPU_Bridge_0/Reset",
-          "GPU_0/Reset",
-          "ProgramCounter_0/reset",
           "Pipelining_Execution_0/reset",
           "Pipelining_WriteBack_0/reset",
-          "Pipelining_Controller_0/reset"
+          "ProgramCounter_0/reset",
+          "mmu_0/reset",
+          "Pipelining_Controller_0/reset",
+          "GPU_0/Reset"
         ]
       },
       "TX_UART_0_sendValid": {
@@ -2830,6 +2938,30 @@
           "mmio_0/btn03"
         ]
       },
+      "btn04_1": {
+        "ports": [
+          "btn04",
+          "mmio_0/btn04"
+        ]
+      },
+      "btn05_1": {
+        "ports": [
+          "btn05",
+          "mmio_0/btn05"
+        ]
+      },
+      "btn06_1": {
+        "ports": [
+          "btn06",
+          "mmio_0/btn06"
+        ]
+      },
+      "btn07_1": {
+        "ports": [
+          "btn07",
+          "mmio_0/btn07"
+        ]
+      },
       "clk100mhzIn_1": {
         "ports": [
           "clk100mhzIn",
@@ -2845,27 +2977,21 @@
       "clockcontroller_0_loadClk": {
         "ports": [
           "clockcontroller_0/loadClk",
-          "ProgramCounter_0/loadCLK",
-          "mmio_0/clk50mhzIn",
-          "mmu_0/loadClk",
+          "VGA_CPU_Bridge_0/InstrLoad_CLK",
+          "RegFile_0/loadClk",
           "Pipelining_Execution_0/loadClk",
           "Pipelining_WriteBack_0/instrLoadClk",
-          "GPU_0/InstrLoad_CLK",
-          "VGA_CPU_Bridge_0/InstrLoad_CLK",
-          "custom_BUFH_0/clkIn",
-          "RegFile_0/loadClk"
+          "ProgramCounter_0/loadCLK",
+          "mmu_0/loadClk",
+          "Pipelining_Controller_0/loadClk",
+          "mmio_0/clk50mhzIn",
+          "GPU_0/InstrLoad_CLK"
         ]
       },
       "clockcontroller_0_vga_clk": {
         "ports": [
           "clockcontroller_0/vgaClk",
           "VGA_Controller_0/InstrExec_CLK"
-        ]
-      },
-      "custom_BUFH_0_clkOut": {
-        "ports": [
-          "custom_BUFH_0/clkOut",
-          "Pipelining_Controller_0/loadClk"
         ]
       },
       "fault_reset_1": {
@@ -2950,7 +3076,7 @@
       "mmu_0_iramDout": {
         "ports": [
           "mmu_0/iramDout",
-          "Pipelining_Controller_0/instruction"
+          "Pipelining_Controller_0/instructionIn"
         ]
       },
       "mmu_0_mmio_mem_addr": {

@@ -54,10 +54,14 @@ class TXThread(threading.Thread):
     def process_command(self, rx_data: bytes, byte_counter, command_instruction: bytes, debugWindow: DebugWindow, ser: serial.Serial):
         rx_data_datapool = debugWindow.get_rx_datapool()
         # memory read pre fetch
+
         if byte_counter == 0 and (rx_data == b'\x32' or rx_data == b'\x35' or rx_data == b'\x36' or rx_data == b'\x37'):
+
             data = ser.read(2)
             addr = ser.read(2)
             addr = int.from_bytes(addr, byteorder='big')
+            print(data.hex())
+            print(hex(addr))
             if rx_data == b'\x32':
                 rx_data_datapool.set_iram_data(addr, data)
             elif rx_data == b'\x35':

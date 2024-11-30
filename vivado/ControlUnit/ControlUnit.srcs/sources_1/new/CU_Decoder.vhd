@@ -14,11 +14,12 @@ use ieee.std_logic_1164.ALL;
 
 entity CU_Decoder is
     Port (
-        instruction : in std_logic_vector(15 downto 0);
+        instructionToDecode : in std_logic_vector(15 downto 0);
         reg1Read : out std_logic;
         reg2Read : out std_logic;
         rfWHB : out std_logic;
         rfWLB : out std_logic;
+        rfWrite : out std_logic;
         writeDataSelect : out std_logic_vector(1 downto 0);
         ramAddressSrc : out std_logic;
         ramRead : out std_logic;
@@ -38,7 +39,7 @@ architecture Behavioral of CU_Decoder is
     signal is_nop_s, is_alu_s, is_rdmi_s, is_wrmi_s, is_iml_s, is_imh_s, is_rdmr_s, is_wrmr_s, is_jc_s, is_jr_s, is_ja_s, is_cr_s, is_gpu_s : boolean;
     signal write_whole_byte_s : boolean;
 begin
-    instruction_name_s <= instruction(15 downto 12);
+    instruction_name_s <= instructionToDecode(15 downto 12);
     is_nop_s  <= instruction_name_s = "0000";
     is_alu_s  <= instruction_name_s = "0001";
     is_rdmi_s <= instruction_name_s = "0010";
@@ -73,6 +74,7 @@ begin
 
     rfWHB <= '1' when write_whole_byte_s or is_imh_s else '0';
     rfWLB <= '1' when write_whole_byte_s or is_iml_s else '0';
+    rfWrite <= '1' when write_whole_byte_s or is_imh_s or is_iml_s else '0';
 
     -- ALU => Select 0 (Also used as default)
     -- IMH/IML => Select 1
