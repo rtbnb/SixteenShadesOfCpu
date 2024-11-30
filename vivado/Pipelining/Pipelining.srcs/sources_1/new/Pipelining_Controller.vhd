@@ -21,16 +21,14 @@ entity Pipelining_Controller is
         reset : in std_logic;
         pcLoad : in std_logic;
         rfJmp : in std_logic;
-        rfRamRead : in std_logic;
         execJmp : in std_logic;
-        execRamRead : in std_logic;
         stalled : out std_logic;
         instructionOut : out std_logic_vector (15 downto 0)
     );
 end entity Pipelining_Controller;
 
 architecture Behavioral of Pipelining_Controller is
-    signal jmp_stalled_s, ramRead_stalled_s : std_logic := '0';
+    signal jmp_stalled_s : std_logic := '0';
     signal stall_elongated_s : std_logic := '0';
     signal stalled_s : std_logic := '0';
 
@@ -39,23 +37,17 @@ architecture Behavioral of Pipelining_Controller is
 begin
 
     stalled <= stalled_s;
-    stalled_s <= jmp_stalled_s or ramRead_stalled_s;
+    stalled_s <= jmp_stalled_s;
 
     stall_detector : process (loadClk, reset) is
     begin
         if (reset = '1') then
             jmp_stalled_s <= '0';
-            ramRead_stalled_s <= '0';
         elsif (falling_edge(loadClk)) then
             if (rfJmp = '1') then
                 jmp_stalled_s <= '1';
             elsif (execJmp = '1') then
                 jmp_stalled_s <= '0';
-            end if;
-            if (rfRamRead = '1') then
-                ramRead_stalled_s <= '1';
-            elsif (execRamRead = '1') then
-                ramRead_stalled_s <= '0';
             end if;
         end if;
     end process stall_detector;

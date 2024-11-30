@@ -380,13 +380,11 @@ begin
         end if;
     end process tim0_prescaler;
     
-    tim0_counter:process(tim0_clk_s, tim0_rho_rst_reg_s) is
+    tim0_counter:process(tim0_clk_s, tim0_rho_rst_reg_s, tim0_rho_en) is
     begin
         if tim0_rho_rst_reg_s(0)='1' and tim0_rho_en='1' then
             tim0_rho_en <= '0';    
-        end if;
-    
-        if rising_edge(tim0_clk_s) then
+        elsif rising_edge(tim0_clk_s) then
             if tim0_cnt_reg_s=tim0_max_cnt_reg_s then   
                 if tim0_config_reg_s(9)='1' or tim0_config_reg_s(0)='1' then
                     tim0_cnt_reg_s <= X"0000"; 

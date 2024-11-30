@@ -32,25 +32,28 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity VGA_Controller is
-    Port ( InstrExec_CLK : in STD_LOGIC;
-           r : out STD_LOGIC_VECTOR (3 downto 0);
-           g : out STD_LOGIC_VECTOR (3 downto 0);
-           b : out STD_LOGIC_VECTOR (3 downto 0);
-           ioe : out STD_LOGIC;
-           h_sync : out STD_LOGIC;
-           v_sync : out STD_LOGIC;
-           VRAM_Addr : out STD_LOGIC_VECTOR (15 downto 0);
-           VRAM_Data : in STD_LOGIC_VECTOR (15 downto 0);
-           VRAM_Clk : out STD_LOGIC);
+    Port ( 
+        InstrExec_CLK : in std_logic;
+        VGAFramBufferSelect : in std_logic;
+        r : out std_logic_vector (3 downto 0);
+        g : out std_logic_vector (3 downto 0);
+        b : out std_logic_vector (3 downto 0);
+        ioe : out std_logic;
+        h_sync : out std_logic;
+        v_sync : out std_logic;
+        VRAM_Addr : out std_logic_vector (15 downto 0);
+        VRAM_Data : in std_logic_vector (15 downto 0);
+        VRAM_Clk : out std_logic
+    );
 end VGA_Controller;
 
 architecture Behavioral of VGA_Controller is
-    signal divided_clock_s : STD_LOGIC := '0';
+    signal divided_clock_s : std_logic := '0';
     signal divider_counter_s : unsigned(3 downto 0) := X"0";
-    signal h_blank_s : STD_LOGIC := '0';
-    signal v_blank_s : STD_LOGIC := '0';
-    signal h_sync_s : STD_LOGIC := '0';
-    signal v_sync_s : STD_LOGIC := '0';
+    signal h_blank_s : std_logic := '0';
+    signal v_blank_s : std_logic := '0';
+    signal h_sync_s : std_logic := '0';
+    signal v_sync_s : std_logic := '0';
     signal h_counter_s : unsigned(8 downto 0) := "0"&X"00";
     signal v_counter_s : unsigned(9 downto 0) := "00"&X"00";
     signal x_pixel_s : unsigned(7 downto 0) := X"00";
@@ -59,9 +62,9 @@ architecture Behavioral of VGA_Controller is
     --signal frame_counter_s : integer range 0 to 60 := 0;
     signal rgb_s : std_logic_vector(11 downto 0);
     
-    signal fetch_sync_s : STD_LOGIC := '0';
+    signal fetch_sync_s : std_logic := '0';
     
-    type lineMemory is array(199 downto 0) of STD_LOGIC_VECTOR(11 downto 0);
+    type lineMemory is array(199 downto 0) of std_logic_vector(11 downto 0);
     signal draw_line : lineMemory;
     signal fetch_line : lineMemory;
     
@@ -69,6 +72,9 @@ architecture Behavioral of VGA_Controller is
     signal was_last_time : boolean := false;
     signal fetched_y_coord : unsigned(15 downto 0) := X"0000";
     signal memory_read_buffer_s : std_logic_vector(11 downto 0) := X"000";
+    signal real_frame_buffer_offset_s : unsigned(15 downto 0);
+    -- 30000
+    constant FRAME_BUFFER_OFFSET : unsigned(15 downto 0) := X"7530";
 begin
 
     divider:process(InstrExec_CLK) is
@@ -159,6 +165,9 @@ begin
         end if;
     end if;
     end process fetcher_counter;
+    
+    
+    real_frame_buffer_offset_s <= FRAME_BUFFER_OFFSET when VGAFramBufferSelect = '1' else X"0000";
     fetcher: process(InstrExec_CLK) is
     begin
     if falling_edge(InstrExec_CLK) then
@@ -166,8 +175,7 @@ begin
             --if fetched_y_coord > 149 then
             --    fetched_y_coord := 0;
             --end if;
-            
-            VRAM_Addr <= std_logic_vector(fetched_y_coord + fetch_counter);
+            VRAM_Addr <= std_logic_vector(fetched_y_coord + fetch_counter + real_frame_buffer_offset_s);
             if to_integer(fetch_counter) >= 2 then
                 if to_integer(fetch_counter - 2) < 200 then
                     --memory_read_buffer_s <= VRAM_Data(11 downto 0);

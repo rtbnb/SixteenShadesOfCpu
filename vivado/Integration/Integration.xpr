@@ -60,20 +60,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="arty-a7-35"/>
-    <Option Name="WTXSimLaunchSim" Val="214"/>
+    <Option Name="WTXSimLaunchSim" Val="232"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="123"/>
-    <Option Name="WTModelSimExportSim" Val="123"/>
-    <Option Name="WTQuestaExportSim" Val="123"/>
+    <Option Name="WTXSimExportSim" Val="130"/>
+    <Option Name="WTModelSimExportSim" Val="130"/>
+    <Option Name="WTQuestaExportSim" Val="130"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="123"/>
-    <Option Name="WTRivieraExportSim" Val="123"/>
-    <Option Name="WTActivehdlExportSim" Val="123"/>
+    <Option Name="WTVcsExportSim" Val="130"/>
+    <Option Name="WTRivieraExportSim" Val="130"/>
+    <Option Name="WTActivehdlExportSim" Val="130"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -236,12 +236,6 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../VGA_Controller/VGA_Controller.srcs/sources_1/new/VGA_Controller.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../ControlUnit/ControlUnit.srcs/sources_1/new/CU_WriteBackSelector.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
