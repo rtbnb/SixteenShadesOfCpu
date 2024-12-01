@@ -1217,7 +1217,7 @@
           "debugReset": {
             "direction": "I"
           },
-          "debugEnable": {
+          "debugEnableIn": {
             "direction": "I"
           },
           "debugMockClk": {
@@ -1258,6 +1258,9 @@
           },
           "clk100mhzOut": {
             "direction": "O"
+          },
+          "debugEnableOut": {
+            "direction": "O"
           }
         }
       },
@@ -1289,10 +1292,6 @@
                 "value_src": "default_prop"
               }
             }
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I"
           },
           "gramAddr": {
             "direction": "I",
@@ -2583,8 +2582,7 @@
       "Debugger_0_debugEnable": {
         "ports": [
           "Debugger_0/debugEnable",
-          "clockcontroller_0/debugEnable",
-          "mmu_0/debugEnable"
+          "clockcontroller_0/debugEnableIn"
         ]
       },
       "Debugger_0_mmuDebugAddr": {
@@ -2756,11 +2754,6 @@
           "Debugger_0/clk"
         ]
       },
-      "Pipelining_Controller_0_InstructionForwardConfiguration": {
-        "ports": [
-          "Debugger_0/pipelineInstructionForwardingConfig"
-        ]
-      },
       "Pipelining_Controller_0_InstructionToExecute": {
         "ports": [
           "Pipelining_Controller_0/instructionOut",
@@ -2810,11 +2803,11 @@
           "VGA_CPU_Bridge_0/Reg1_In",
           "CU_JumpDestinationSe_0/register1",
           "CU_ImmediateManipula_0/reg1",
-          "mmu_0/gramDin",
           "FPU_0/D1",
           "CU_WriteSelector_0/reg1",
           "Debugger_0/pipelineOperand1",
-          "Debugger_0/aluDin1"
+          "Debugger_0/aluDin1",
+          "mmu_0/gramDin"
         ]
       },
       "Pipelining_Execution_0_Operand2_out": {
@@ -2885,16 +2878,16 @@
       "Pipelining_Execution_0_ramBankIDOut": {
         "ports": [
           "Pipelining_Execution_0/ramBankIDOut",
-          "mmu_0/gramBank",
-          "Debugger_0/pipelineRamBankid"
+          "Debugger_0/pipelineRamBankid",
+          "mmu_0/gramBank"
         ]
       },
       "Pipelining_Execution_0_ramReadOut": {
         "ports": [
           "Pipelining_Execution_0/ramReadOut",
           "Pipelining_WriteBack_0/ramRead",
-          "mmu_0/gramOe",
-          "Debugger_0/pipelineRamRead"
+          "Debugger_0/pipelineRamRead",
+          "mmu_0/gramOe"
         ]
       },
       "Pipelining_Execution_0_ramSrcOut": {
@@ -2907,8 +2900,8 @@
       "Pipelining_Execution_0_ramWriteOut": {
         "ports": [
           "Pipelining_Execution_0/ramWriteOut",
-          "mmu_0/gramWe",
-          "Debugger_0/pipelineRamWrite"
+          "Debugger_0/pipelineRamWrite",
+          "mmu_0/gramWe"
         ]
       },
       "Pipelining_Execution_0_rfWriteOut": {
@@ -2985,9 +2978,9 @@
       "ProgramCounter_0_Dout": {
         "ports": [
           "ProgramCounter_0/dout",
-          "mmu_0/iramAddr",
           "CU_JumpController_0/pcCurrent",
-          "Debugger_0/pcDout"
+          "Debugger_0/pcDout",
+          "mmu_0/iramAddr"
         ]
       },
       "RX_UART_0_dataOutput": {
@@ -3041,7 +3034,6 @@
           "VGA_CPU_Bridge_0/Reset",
           "Pipelining_WriteBack_0/reset",
           "ProgramCounter_0/reset",
-          "mmu_0/reset",
           "Pipelining_Controller_0/reset",
           "GPU_0/Reset",
           "Pipelining_Execution_0/reset"
@@ -3191,6 +3183,12 @@
           "mmio_0/clk100mhzIn"
         ]
       },
+      "clockcontroller_0_debugEnableOut": {
+        "ports": [
+          "clockcontroller_0/debugEnableOut",
+          "mmu_0/debugEnable"
+        ]
+      },
       "clockcontroller_0_loadClk": {
         "ports": [
           "clockcontroller_0/loadClk",
@@ -3198,11 +3196,11 @@
           "RegFile_0/loadClk",
           "Pipelining_WriteBack_0/instrLoadClk",
           "ProgramCounter_0/loadCLK",
-          "mmu_0/loadClk",
           "Pipelining_Controller_0/loadClk",
-          "mmio_0/clk50mhzIn",
           "GPU_0/InstrLoad_CLK",
-          "Pipelining_Execution_0/loadClk"
+          "Pipelining_Execution_0/loadClk",
+          "mmio_0/clk50mhzIn",
+          "mmu_0/loadClk"
         ]
       },
       "clockcontroller_0_vga_clk": {
