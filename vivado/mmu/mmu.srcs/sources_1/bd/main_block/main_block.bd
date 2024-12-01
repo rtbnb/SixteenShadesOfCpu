@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x1895D899779E6D1F",
+      "boundary_crc": "0x15B46AF8FB4D0D94",
       "device": "xc7a35ticsg324-1L",
       "gen_directory": "../../../../mmu.gen/sources_1/bd/main_block",
       "name": "main_block",
@@ -190,12 +190,12 @@
         "direction": "O",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "main_block_vga_clk",
+            "value": "main_block_clockcontroller_0_0_vgaClk",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "user_prop"
+            "value": "50000000",
+            "value_src": "const_prop"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -215,9 +215,13 @@
         "type": "clk",
         "direction": "O",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_block_clockcontroller_0_0_debugClk",
+            "value_src": "default_prop"
+          },
           "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
+            "value": "50000000",
+            "value_src": "const_prop"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -311,9 +315,6 @@
         "left": "15",
         "right": "0"
       },
-      "debugEnable": {
-        "direction": "I"
-      },
       "debugOverrideEnable": {
         "direction": "I"
       },
@@ -380,6 +381,9 @@
         "direction": "I",
         "left": "11",
         "right": "0"
+      },
+      "debugEnableIn": {
+        "direction": "I"
       }
     },
     "components": {
@@ -683,7 +687,7 @@
               }
             }
           },
-          "debugEnable": {
+          "debugEnableIn": {
             "direction": "I"
           },
           "debugMockClk": {
@@ -703,26 +707,29 @@
             }
           },
           "vgaClk": {
+            "type": "clk",
             "direction": "O",
             "parameters": {
               "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "user_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_block_vga_clk",
-                "value_src": "default_prop"
+                "value": "50000000",
+                "value_src": "constant"
               }
             }
           },
           "debugClk": {
-            "direction": "O"
+            "type": "clk",
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
+              }
+            }
           },
           "clk100mhzOut": {
+            "direction": "O"
+          },
+          "debugEnableOut": {
             "direction": "O"
           }
         }
@@ -801,16 +808,16 @@
           "debugClk": {
             "direction": "I",
             "parameters": {
+              "CLK_DOMAIN": {
+                "value": "main_block_debug_clk",
+                "value_src": "default_prop"
+              },
               "FREQ_HZ": {
                 "value": "100000000",
                 "value_src": "user_prop"
               },
               "PHASE": {
                 "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_block_debug_clk",
                 "value_src": "default_prop"
               }
             }
@@ -841,16 +848,16 @@
           "gpuClk": {
             "direction": "I",
             "parameters": {
+              "CLK_DOMAIN": {
+                "value": "main_block_gpu_clk",
+                "value_src": "default_prop"
+              },
               "FREQ_HZ": {
                 "value": "100000000",
                 "value_src": "user_prop"
               },
               "PHASE": {
                 "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "main_block_gpu_clk",
                 "value_src": "default_prop"
               }
             }
@@ -877,15 +884,15 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "user_prop"
+                "value": "50000000",
+                "value_src": "const_prop"
               },
               "PHASE": {
                 "value": "0.0",
                 "value_src": "default_prop"
               },
               "CLK_DOMAIN": {
-                "value": "main_block_vga_clk",
+                "value": "main_block_clockcontroller_0_0_vgaClk",
                 "value_src": "default_prop"
               }
             }
@@ -1109,11 +1116,17 @@
           "debugClk"
         ]
       },
+      "clockcontroller_0_debugEnableOut": {
+        "ports": [
+          "clockcontroller_0/debugEnableOut",
+          "mmu_1/debugEnable"
+        ]
+      },
       "clockcontroller_0_load_clk": {
         "ports": [
           "clockcontroller_0/loadClk",
-          "mmio_0/clk50mhzIn",
-          "mmu_1/loadClk"
+          "mmu_1/loadClk",
+          "mmio_0/clk50mhzIn"
         ]
       },
       "clockcontroller_0_vgaClk": {
@@ -1141,6 +1154,12 @@
           "mmu_1/debugDin"
         ]
       },
+      "debugEnableIn_1": {
+        "ports": [
+          "debugEnableIn",
+          "clockcontroller_0/debugEnableIn"
+        ]
+      },
       "debugMockClk_1": {
         "ports": [
           "debugMockClk",
@@ -1157,13 +1176,6 @@
         "ports": [
           "debugWe",
           "mmu_1/debugWe"
-        ]
-      },
-      "debug_enable_1": {
-        "ports": [
-          "debugEnable",
-          "clockcontroller_0/debugEnable",
-          "mmu_1/debugEnable"
         ]
       },
       "debug_override_enable_1": {

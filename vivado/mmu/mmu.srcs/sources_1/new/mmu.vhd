@@ -15,7 +15,6 @@ use ieee.numeric_std.all;
 entity mmu is
     port(
         loadClk: in std_logic;
-        reset : in std_logic;
         
         gramAddr, gramDin : in std_logic_vector(15 downto 0);
         gramBank: in std_logic_vector(3 downto 0);
@@ -78,11 +77,7 @@ architecture Behavioral of mmu is
     signal gram_bank_op_s, vram_bank_op_s, mmio_bank_op_s, iram_bank_op_s: std_logic;
     signal internal_debug_override_s: std_logic;
     
-    signal output_config_s: std_logic_vector(3 downto 0);
-    
-    signal general_bank_s: std_logic_vector(3 downto 0);
-    
-    signal gram_dout_buffer_s : std_logic_vector(15 downto 0) := X"0000";
+    signal output_config_s, general_bank_s: std_logic_vector(3 downto 0);
 begin
     internal_debug_override_s <= debugEnable and debugOverrideEnable;
                         
@@ -208,18 +203,9 @@ begin
    output_config_s <=  gram_bank_op_s & mmio_bank_op_s & vram_bank_op_s & iram_bank_op_s;
 
     with output_config_s select
-        gram_dout_buffer_s <= gram_dout_s when "1000",
-                              mmioMemDout when "0100",   
-                              X"0000" when others;
-    
-    gramDout <= gram_dout_buffer_s;
-    --output_buffer : process(loadClk) is
-    --begin
-    --    if reset='1' then
-    --        gramDout <= X"0000";
-    --    elsif (falling_edge(loadClk)) then
-    --    end if;
-    --end process output_buffer;
+        gramDout <= gram_dout_s when "1000",
+                    mmioMemDout when "0100",   
+                    X"0000" when others;
                      
     with output_config_s select               
         debugDout <= gram_dout_s when "1000",
