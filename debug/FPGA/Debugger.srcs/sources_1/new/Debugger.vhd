@@ -36,7 +36,7 @@ entity Debugger is
         pipelineJmpConditional: in std_logic;
         pipelineJmpRelative: in std_logic;
         pipelineJmpDestinationSelect: in std_logic;
-        pipelineJmpCondition: in std_logic_vector(2 downto 0);
+        pipelineJmpCondition: in std_logic_vector(4 downto 0);
         pipelineWriteDataSel: in std_logic_vector(1 downto 0);
         pipelineRamSrc: in std_logic;
         pipelineRamRead: in std_logic;
@@ -115,7 +115,7 @@ architecture Behavioral of Debugger is
     signal pipeline_instruction_forwarding_config_s: std_logic_vector(4 downto 0);
     signal pipeline_current_instruction_s: std_logic_vector(15 downto 0);
     signal pipeline_operand_1_s, pipeline_operand_2_s: std_logic_vector(15 downto 0);
-    signal pipeline_jmp_condl_rel_dests_cond_s: std_logic_vector(6 downto 0);
+    signal pipeline_jmp_condl_rel_dests_cond_s: std_logic_vector(8 downto 0);
     signal pipeline_write_data_sel_s: std_logic_vector(1 downto 0);
     signal pipeline_ram_src_read_write_bankid_s: std_logic_vector(6 downto 0);
         
@@ -270,7 +270,7 @@ begin
                     pipeline_jmp_condl_rel_dests_cond_s(1) <= pipelineJmpConditional;
                     pipeline_jmp_condl_rel_dests_cond_s(2) <= pipelineJmpRelative;
                     pipeline_jmp_condl_rel_dests_cond_s(3) <= pipelineJmpDestinationSelect;
-                    pipeline_jmp_condl_rel_dests_cond_s(6 downto 4) <= pipelineJmpCondition;
+                    pipeline_jmp_condl_rel_dests_cond_s(8 downto 4) <= pipelineJmpCondition;
                     pipeline_write_data_sel_s <= pipelineWriteDataSel;
                     pipeline_ram_src_read_write_bankid_s(0) <= pipelineRamSrc;
                     pipeline_ram_src_read_write_bankid_s(1) <= pipelineRamRead;
@@ -330,9 +330,9 @@ begin
                             tx_data_buffer_s <= pipeline_operand_2_s;
                             state_s <= TransmitDataInstructionSHORT;
                         when x"16" =>
-                            tx_data_buffer_s(15 downto 7) <= "000000000";
+                            tx_data_buffer_s(15 downto 9) <= "0000000";
                             tx_instruction_buffer_s <= x"16";
-                            tx_data_buffer_s(6 downto 0) <= pipeline_jmp_condl_rel_dests_cond_s;
+                            tx_data_buffer_s(8 downto 0) <= pipeline_jmp_condl_rel_dests_cond_s;
                             state_s <= TransmitDataInstructionSHORT;
                        
                         when x"1B" =>
