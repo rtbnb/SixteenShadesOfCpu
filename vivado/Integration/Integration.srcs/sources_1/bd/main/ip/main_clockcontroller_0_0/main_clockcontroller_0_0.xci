@@ -40,14 +40,13 @@
         "clk100mhzIn": [ { "direction": "in" } ],
         "faultReset": [ { "direction": "in" } ],
         "debugReset": [ { "direction": "in" } ],
-        "debugEnableIn": [ { "direction": "in" } ],
+        "debugEnable": [ { "direction": "in" } ],
         "debugMockClk": [ { "direction": "in" } ],
         "debugMmuOverrideEnable": [ { "direction": "in" } ],
         "loadClk": [ { "direction": "out" } ],
         "vgaClk": [ { "direction": "out" } ],
         "debugClk": [ { "direction": "out" } ],
-        "clk100mhzOut": [ { "direction": "out" } ],
-        "debugEnableOut": [ { "direction": "out" } ]
+        "clk100mhzOut": [ { "direction": "out" } ]
       },
       "interfaces": {
         "loadClk": {

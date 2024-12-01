@@ -1217,7 +1217,7 @@
           "debugReset": {
             "direction": "I"
           },
-          "debugEnableIn": {
+          "debugEnable": {
             "direction": "I"
           },
           "debugMockClk": {
@@ -1258,9 +1258,6 @@
           },
           "clk100mhzOut": {
             "direction": "O"
-          },
-          "debugEnableOut": {
-            "direction": "O"
           }
         }
       },
@@ -1292,6 +1289,10 @@
                 "value_src": "default_prop"
               }
             }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
           },
           "gramAddr": {
             "direction": "I",
@@ -2582,7 +2583,8 @@
       "Debugger_0_debugEnable": {
         "ports": [
           "Debugger_0/debugEnable",
-          "clockcontroller_0/debugEnableIn"
+          "mmu_0/debugEnable",
+          "clockcontroller_0/debugEnable"
         ]
       },
       "Debugger_0_mmuDebugAddr": {
@@ -3036,7 +3038,8 @@
           "ProgramCounter_0/reset",
           "Pipelining_Controller_0/reset",
           "GPU_0/Reset",
-          "Pipelining_Execution_0/reset"
+          "Pipelining_Execution_0/reset",
+          "mmu_0/reset"
         ]
       },
       "TX_UART_0_sendValid": {
@@ -3183,12 +3186,6 @@
           "mmio_0/clk100mhzIn"
         ]
       },
-      "clockcontroller_0_debugEnableOut": {
-        "ports": [
-          "clockcontroller_0/debugEnableOut",
-          "mmu_0/debugEnable"
-        ]
-      },
       "clockcontroller_0_loadClk": {
         "ports": [
           "clockcontroller_0/loadClk",
@@ -3199,8 +3196,8 @@
           "Pipelining_Controller_0/loadClk",
           "GPU_0/InstrLoad_CLK",
           "Pipelining_Execution_0/loadClk",
-          "mmio_0/clk50mhzIn",
-          "mmu_0/loadClk"
+          "mmu_0/loadClk",
+          "mmio_0/clk50mhzIn"
         ]
       },
       "clockcontroller_0_vga_clk": {
