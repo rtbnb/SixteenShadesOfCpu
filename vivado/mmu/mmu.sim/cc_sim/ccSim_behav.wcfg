@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="ccSim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="ccSim" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="166.666 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,166.667 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="169"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/ccSim/clk100mhzIn" type="logic">
+      <obj_property name="ElementShortName">clk100mhzIn</obj_property>
+      <obj_property name="ObjectShortName">clk100mhzIn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/faultReset" type="logic">
+      <obj_property name="ElementShortName">faultReset</obj_property>
+      <obj_property name="ObjectShortName">faultReset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/debugReset" type="logic">
+      <obj_property name="ElementShortName">debugReset</obj_property>
+      <obj_property name="ObjectShortName">debugReset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/debugEnable" type="logic">
+      <obj_property name="ElementShortName">debugEnable</obj_property>
+      <obj_property name="ObjectShortName">debugEnable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/debugMockClk" type="logic">
+      <obj_property name="ElementShortName">debugMockClk</obj_property>
+      <obj_property name="ObjectShortName">debugMockClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/debugMmuOverrideEnable" type="logic">
+      <obj_property name="ElementShortName">debugMmuOverrideEnable</obj_property>
+      <obj_property name="ObjectShortName">debugMmuOverrideEnable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/loadClk" type="logic">
+      <obj_property name="ElementShortName">loadClk</obj_property>
+      <obj_property name="ObjectShortName">loadClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/vgaClk" type="logic">
+      <obj_property name="ElementShortName">vgaClk</obj_property>
+      <obj_property name="ObjectShortName">vgaClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/debugClk" type="logic">
+      <obj_property name="ElementShortName">debugClk</obj_property>
+      <obj_property name="ObjectShortName">debugClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/clk100mhzOut" type="logic">
+      <obj_property name="ElementShortName">clk100mhzOut</obj_property>
+      <obj_property name="ObjectShortName">clk100mhzOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ccSim/EUT/debug_en_s" type="logic">
+      <obj_property name="ElementShortName">debug_en_s</obj_property>
+      <obj_property name="ObjectShortName">debug_en_s</obj_property>
+   </wvobject>
+</wave_config>

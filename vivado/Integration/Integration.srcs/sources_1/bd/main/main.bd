@@ -1,0 +1,3387 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x33E72AF668DFAA63",
+      "device": "xc7a35ticsg324-1L",
+      "gen_directory": "../../../../Integration.gen/sources_1/bd/main",
+      "name": "main",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "None",
+      "tool_version": "2024.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "Pipelining_Controller_0": "",
+      "ProgramCounter_0": "",
+      "CU_Decoder_0": "",
+      "Decoder_0": "",
+      "RegFile_0": "",
+      "Pipelining_Forwarder_0": "",
+      "Pipelining_Execution_0": "",
+      "CU_RAMAddressControl_0": "",
+      "ALU_0": "",
+      "CU_ImmediateManipula_0": "",
+      "CU_JumpDestinationSe_0": "",
+      "CU_JumpController_0": "",
+      "CU_WriteSelector_0": "",
+      "Pipelining_WriteBack_0": "",
+      "ALU_FLAG_PACKER_0": "",
+      "clockcontroller_0": "",
+      "mmu_0": "",
+      "mmio_0": "",
+      "vram_bram": "",
+      "Debugger_0": "",
+      "RX_UART_0": "",
+      "TX_UART_0": "",
+      "VGA_CPU_Bridge_0": "",
+      "GPU_0": "",
+      "VGA_Controller_0": "",
+      "FPU_0": "",
+      "ALU_FLAG_PACKER_1": ""
+    },
+    "ports": {
+      "Reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "RX_UART_IN": {
+        "direction": "I"
+      },
+      "TX_UART_OUT": {
+        "direction": "O"
+      },
+      "r": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "g": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "b": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "ioe": {
+        "direction": "O"
+      },
+      "h_sync": {
+        "direction": "O"
+      },
+      "v_sync": {
+        "direction": "O"
+      },
+      "fault_reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "led00": {
+        "direction": "O"
+      },
+      "led01": {
+        "direction": "O"
+      },
+      "led02": {
+        "direction": "O"
+      },
+      "led03": {
+        "direction": "O"
+      },
+      "rgb0": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb1": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb2": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb3": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "btn00": {
+        "direction": "I"
+      },
+      "btn01": {
+        "direction": "I"
+      },
+      "btn02": {
+        "direction": "I"
+      },
+      "btn03": {
+        "direction": "I"
+      },
+      "clk100mhzIn": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "main_clk100mhzIn",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "btn04": {
+        "direction": "I"
+      },
+      "btn05": {
+        "direction": "I"
+      },
+      "btn06": {
+        "direction": "I"
+      },
+      "btn07": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "Pipelining_Controller_0": {
+        "vlnv": "xilinx.com:module_ref:Pipelining_Controller:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Pipelining_Controller_0_0",
+        "xci_path": "ip\\main_Pipelining_Controller_0_0\\main_Pipelining_Controller_0_0.xci",
+        "inst_hier_path": "Pipelining_Controller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pipelining_Controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "loadClk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "instructionIn": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "pcLoad": {
+            "direction": "I"
+          },
+          "rfJmp": {
+            "direction": "I"
+          },
+          "execJmp": {
+            "direction": "I"
+          },
+          "stalled": {
+            "direction": "O"
+          },
+          "instructionOut": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ProgramCounter_0": {
+        "vlnv": "xilinx.com:module_ref:ProgramCounter:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ProgramCounter_0_0",
+        "xci_path": "ip\\main_ProgramCounter_0_0\\main_ProgramCounter_0_0.xci",
+        "inst_hier_path": "ProgramCounter_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ProgramCounter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "loadCLK": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "stalled": {
+            "direction": "I"
+          },
+          "jmp": {
+            "direction": "I"
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "din": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "CU_Decoder_0": {
+        "vlnv": "xilinx.com:module_ref:CU_Decoder:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_Decoder_0_0",
+        "xci_path": "ip\\main_CU_Decoder_0_0\\main_CU_Decoder_0_0.xci",
+        "inst_hier_path": "CU_Decoder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_Decoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "instructionToDecode": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "reg1Read": {
+            "direction": "O"
+          },
+          "reg2Read": {
+            "direction": "O"
+          },
+          "rfWHB": {
+            "direction": "O"
+          },
+          "rfWLB": {
+            "direction": "O"
+          },
+          "rfWrite": {
+            "direction": "O"
+          },
+          "writeDataSelect": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "flagSelect": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "ramAddressSrc": {
+            "direction": "O"
+          },
+          "ramRead": {
+            "direction": "O"
+          },
+          "ramWrite": {
+            "direction": "O"
+          },
+          "jmp": {
+            "direction": "O"
+          },
+          "jmpConditional": {
+            "direction": "O"
+          },
+          "jmpRelative": {
+            "direction": "O"
+          },
+          "jmpDestinationSource": {
+            "direction": "O"
+          },
+          "isALUOp": {
+            "direction": "O"
+          },
+          "isRAMOp": {
+            "direction": "O"
+          },
+          "isGPUOp": {
+            "direction": "O"
+          }
+        }
+      },
+      "Decoder_0": {
+        "vlnv": "xilinx.com:module_ref:Decoder:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Decoder_0_0",
+        "xci_path": "ip\\main_Decoder_0_0\\main_Decoder_0_0.xci",
+        "inst_hier_path": "Decoder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Decoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "instructionToDecode": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "register1": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "register2": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "writeBackRegister": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "immediate": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "jmpCondition": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          }
+        }
+      },
+      "RegFile_0": {
+        "vlnv": "xilinx.com:module_ref:RegFile:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_RegFile_0_0",
+        "xci_path": "ip\\main_RegFile_0_0\\main_RegFile_0_0.xci",
+        "inst_hier_path": "RegFile_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RegFile",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "AddrReg1": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "AddrReg2": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "AddrWriteReg": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "WriteData": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Flags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "WE": {
+            "direction": "I"
+          },
+          "OverwriteFl": {
+            "direction": "I"
+          },
+          "loadClk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Reg1Data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Reg2Data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "BankID": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "Pipelining_Forwarder_0": {
+        "vlnv": "xilinx.com:module_ref:Pipelining_Forwarder:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Pipelining_Forwarder_0_0",
+        "xci_path": "ip\\main_Pipelining_Forwarder_0_0\\main_Pipelining_Forwarder_0_0.xci",
+        "inst_hier_path": "Pipelining_Forwarder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pipelining_Forwarder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reg1Addr": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "reg2Addr": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "reg1Read": {
+            "direction": "I"
+          },
+          "reg2Read": {
+            "direction": "I"
+          },
+          "rfIsRAMOp": {
+            "direction": "I"
+          },
+          "execRegWriteAddr": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "execWritesReg": {
+            "direction": "I"
+          },
+          "execIsALUOp": {
+            "direction": "I"
+          },
+          "reg1Data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "reg2Data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "currentBankID": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "executionWriteData": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "executionFlags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "forwardedOperand1": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "forwardedOperand2": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "forwardedBankID": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "Pipelining_Execution_0": {
+        "vlnv": "xilinx.com:module_ref:Pipelining_ExecutionStage:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Pipelining_Execution_0_0",
+        "xci_path": "ip\\main_Pipelining_Execution_0_0\\main_Pipelining_Execution_0_0.xci",
+        "inst_hier_path": "Pipelining_Execution_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pipelining_ExecutionStage",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "loadClk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "operand1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "operand2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "immediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "writeAddress": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "whb": {
+            "direction": "I"
+          },
+          "wlb": {
+            "direction": "I"
+          },
+          "rfWrite": {
+            "direction": "I"
+          },
+          "writeDataSel": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "flagSel": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
+          },
+          "ramSrc": {
+            "direction": "I"
+          },
+          "ramRead": {
+            "direction": "I"
+          },
+          "ramWrite": {
+            "direction": "I"
+          },
+          "ramBankID": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "jmp": {
+            "direction": "I"
+          },
+          "jmpConditional": {
+            "direction": "I"
+          },
+          "jmpRelative": {
+            "direction": "I"
+          },
+          "jmpDestinationSelect": {
+            "direction": "I"
+          },
+          "jmpCondition": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "isALUOp": {
+            "direction": "I"
+          },
+          "isRAMOp": {
+            "direction": "I"
+          },
+          "isGPUOp": {
+            "direction": "I"
+          },
+          "operand1Out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "operand2Out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "immediateOut": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "writeAddressOut": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "whbOut": {
+            "direction": "O"
+          },
+          "wlbOut": {
+            "direction": "O"
+          },
+          "rfWriteOut": {
+            "direction": "O"
+          },
+          "writeDataSelOut": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "flagSelOut": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "ramSrcOut": {
+            "direction": "O"
+          },
+          "ramReadOut": {
+            "direction": "O"
+          },
+          "ramWriteOut": {
+            "direction": "O"
+          },
+          "ramBankIDOut": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "jmpOut": {
+            "direction": "O"
+          },
+          "jmpConditionalOut": {
+            "direction": "O"
+          },
+          "jmpRelativeOut": {
+            "direction": "O"
+          },
+          "jmpDestinationSelectOut": {
+            "direction": "O"
+          },
+          "jmpConditionOut": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "isALUOpOut": {
+            "direction": "O"
+          },
+          "isRAMOpOut": {
+            "direction": "O"
+          },
+          "isGPUOpOut": {
+            "direction": "O"
+          }
+        }
+      },
+      "CU_RAMAddressControl_0": {
+        "vlnv": "xilinx.com:module_ref:CU_RAMAddressController:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_RAMAddressControl_0_0",
+        "xci_path": "ip\\main_CU_RAMAddressControl_0_0\\main_CU_RAMAddressControl_0_0.xci",
+        "inst_hier_path": "CU_RAMAddressControl_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_RAMAddressController",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reg2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "immediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ramAddressSrc": {
+            "direction": "I"
+          },
+          "ramAddress": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "ALU_0": {
+        "vlnv": "xilinx.com:module_ref:ALU:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ALU_0_0",
+        "xci_path": "ip\\main_ALU_0_0\\main_ALU_0_0.xci",
+        "inst_hier_path": "ALU_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ALU",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "D2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "ALU_OPP": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "RHO_PIN": {
+            "direction": "I"
+          },
+          "ALU_OUT": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "CARRY_FLAG": {
+            "direction": "O"
+          },
+          "ZERO_FLAG": {
+            "direction": "O"
+          },
+          "SMALLER_ZERO_FLAG": {
+            "direction": "O"
+          },
+          "BIGGER_ZERO_FLAG": {
+            "direction": "O"
+          },
+          "OVERFLOW_FLAG": {
+            "direction": "O"
+          },
+          "RHO_FLAG": {
+            "direction": "O"
+          },
+          "NOT_ZERO_FLAG": {
+            "direction": "O"
+          }
+        }
+      },
+      "CU_ImmediateManipula_0": {
+        "vlnv": "xilinx.com:module_ref:CU_ImmediateManipulator:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_ImmediateManipula_0_0",
+        "xci_path": "ip\\main_CU_ImmediateManipula_0_0\\main_CU_ImmediateManipula_0_0.xci",
+        "inst_hier_path": "CU_ImmediateManipula_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_ImmediateManipulator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reg1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "immediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "rfWHB": {
+            "direction": "I"
+          },
+          "rfWLB": {
+            "direction": "I"
+          },
+          "manipulatedImmediate": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "CU_JumpDestinationSe_0": {
+        "vlnv": "xilinx.com:module_ref:CU_JumpDestinationSelector:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_JumpDestinationSe_0_0",
+        "xci_path": "ip\\main_CU_JumpDestinationSe_0_0\\main_CU_JumpDestinationSe_0_0.xci",
+        "inst_hier_path": "CU_JumpDestinationSe_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_JumpDestinationSelector",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "immediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "register1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "jmpDestinationSelect": {
+            "direction": "I"
+          },
+          "jmpAddress": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "CU_JumpController_0": {
+        "vlnv": "xilinx.com:module_ref:CU_JumpController:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_JumpController_0_0",
+        "xci_path": "ip\\main_CU_JumpController_0_0\\main_CU_JumpController_0_0.xci",
+        "inst_hier_path": "CU_JumpController_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_JumpController",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "jmp": {
+            "direction": "I"
+          },
+          "jmpConditional": {
+            "direction": "I"
+          },
+          "jmpRelative": {
+            "direction": "I"
+          },
+          "jmpCondition": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "flags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "rhoPin": {
+            "direction": "I"
+          },
+          "gpuDone": {
+            "direction": "I"
+          },
+          "jmpAddress": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pcCurrent": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pcLoad": {
+            "direction": "O"
+          },
+          "pcNext": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "CU_WriteSelector_0": {
+        "vlnv": "xilinx.com:module_ref:CU_WriteSelector:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_CU_WriteSelector_0_0",
+        "xci_path": "ip\\main_CU_WriteSelector_0_0\\main_CU_WriteSelector_0_0.xci",
+        "inst_hier_path": "CU_WriteSelector_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU_WriteSelector",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "ramOut": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "manipulatedImmediate": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "reg1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "aluOut": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "fpuOut": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "aluFlags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "fpuFlags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "writeSel": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "flagSel": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
+          },
+          "writeData": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "flags": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "Pipelining_WriteBack_0": {
+        "vlnv": "xilinx.com:module_ref:Pipelining_WriteBackStage:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Pipelining_WriteBack_0_0",
+        "xci_path": "ip\\main_Pipelining_WriteBack_0_0\\main_Pipelining_WriteBack_0_0.xci",
+        "inst_hier_path": "Pipelining_WriteBack_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pipelining_WriteBackStage",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "instrLoadClk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "writeAddress": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "writeData": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "flags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "whb": {
+            "direction": "I"
+          },
+          "wlb": {
+            "direction": "I"
+          },
+          "ramRead": {
+            "direction": "I"
+          },
+          "isALUOp": {
+            "direction": "I"
+          },
+          "jmp": {
+            "direction": "I"
+          },
+          "writeAddressOut": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "writeDataOut": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "flagsOut": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rfWEOut": {
+            "direction": "O"
+          },
+          "ramReadOut": {
+            "direction": "O"
+          },
+          "isALUOpOut": {
+            "direction": "O"
+          },
+          "jmpOut": {
+            "direction": "O"
+          }
+        }
+      },
+      "ALU_FLAG_PACKER_0": {
+        "vlnv": "xilinx.com:module_ref:ALU_FLAG_PACKER:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ALU_FLAG_PACKER_0_1",
+        "xci_path": "ip\\main_ALU_FLAG_PACKER_0_1\\main_ALU_FLAG_PACKER_0_1.xci",
+        "inst_hier_path": "ALU_FLAG_PACKER_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ALU_FLAG_PACKER",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CARRY_FLAG": {
+            "direction": "I"
+          },
+          "ZERO_FLAG": {
+            "direction": "I"
+          },
+          "SMALLER_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "BIGGER_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "OVERFLOW_FLAG": {
+            "direction": "I"
+          },
+          "RHO_FLAG": {
+            "direction": "I"
+          },
+          "NOT_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "ALU_FLAGS": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "clockcontroller_0": {
+        "vlnv": "xilinx.com:module_ref:clockcontroller:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_clockcontroller_0_0",
+        "xci_path": "ip\\main_clockcontroller_0_0\\main_clockcontroller_0_0.xci",
+        "inst_hier_path": "clockcontroller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "clockcontroller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk100mhzIn": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clk100mhzIn",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "faultReset": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "debugReset": {
+            "direction": "I"
+          },
+          "debugEnable": {
+            "direction": "I"
+          },
+          "debugMockClk": {
+            "direction": "I"
+          },
+          "debugMmuOverrideEnable": {
+            "direction": "I"
+          },
+          "loadClk": {
+            "type": "clk",
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
+              }
+            }
+          },
+          "vgaClk": {
+            "type": "clk",
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
+              }
+            }
+          },
+          "debugClk": {
+            "type": "clk",
+            "direction": "O",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk100mhzOut": {
+            "direction": "O"
+          }
+        }
+      },
+      "mmu_0": {
+        "vlnv": "xilinx.com:module_ref:mmu:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_mmu_0_0",
+        "xci_path": "ip\\main_mmu_0_0\\main_mmu_0_0.xci",
+        "inst_hier_path": "mmu_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mmu",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "loadClk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "gramAddr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "gramDin": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "gramBank": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "gramWe": {
+            "direction": "I"
+          },
+          "gramOe": {
+            "direction": "I"
+          },
+          "gramDout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "iramAddr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "iramDout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "debugEnable": {
+            "direction": "I"
+          },
+          "debugOverrideEnable": {
+            "direction": "I"
+          },
+          "debugClk": {
+            "direction": "I"
+          },
+          "debugAddr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "debugDin": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "debugBank": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "debugWe": {
+            "direction": "I"
+          },
+          "debugDout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "gpuClk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_GPU_0_0_VRAM_CLK",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "gpuAddr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "gpuDin": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "gpuWe": {
+            "direction": "I"
+          },
+          "gpuDout": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "vgaClk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_VGA_Controller_0_0_VRAM_Clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "vgaAddr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "vgaDout": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "vramaMemAddr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "vramaMemClk": {
+            "direction": "O"
+          },
+          "vramaMemDin": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "vramaMemWe": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "vramaMemDout": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "vrambMemAddr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "vrambMemClk": {
+            "direction": "O"
+          },
+          "vrambMemDin": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "vrambMemWe": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "vrambMemDout": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "mmioMemClk": {
+            "direction": "O"
+          },
+          "mmioMemWe": {
+            "direction": "O"
+          },
+          "mmioMemAddr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmioMemDin": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmioMemDout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "mmio_0": {
+        "vlnv": "xilinx.com:module_ref:mmio:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_mmio_0_0",
+        "xci_path": "ip\\main_mmio_0_0\\main_mmio_0_0.xci",
+        "inst_hier_path": "mmio_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mmio",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk100mhzIn": {
+            "direction": "I"
+          },
+          "clk50mhzIn": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "we": {
+            "direction": "I"
+          },
+          "addr": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "din": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "led00": {
+            "direction": "O"
+          },
+          "led01": {
+            "direction": "O"
+          },
+          "led02": {
+            "direction": "O"
+          },
+          "led03": {
+            "direction": "O"
+          },
+          "led04": {
+            "direction": "O"
+          },
+          "led05": {
+            "direction": "O"
+          },
+          "led06": {
+            "direction": "O"
+          },
+          "led07": {
+            "direction": "O"
+          },
+          "led08": {
+            "direction": "O"
+          },
+          "led09": {
+            "direction": "O"
+          },
+          "led10": {
+            "direction": "O"
+          },
+          "led11": {
+            "direction": "O"
+          },
+          "led12": {
+            "direction": "O"
+          },
+          "led13": {
+            "direction": "O"
+          },
+          "led14": {
+            "direction": "O"
+          },
+          "led15": {
+            "direction": "O"
+          },
+          "led16": {
+            "direction": "O"
+          },
+          "led17": {
+            "direction": "O"
+          },
+          "led18": {
+            "direction": "O"
+          },
+          "led19": {
+            "direction": "O"
+          },
+          "rgb0": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "rgb1": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "rgb2": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "rgb3": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "btn00": {
+            "direction": "I"
+          },
+          "btn01": {
+            "direction": "I"
+          },
+          "btn02": {
+            "direction": "I"
+          },
+          "btn03": {
+            "direction": "I"
+          },
+          "btn04": {
+            "direction": "I"
+          },
+          "btn05": {
+            "direction": "I"
+          },
+          "btn06": {
+            "direction": "I"
+          },
+          "btn07": {
+            "direction": "I"
+          },
+          "btn08": {
+            "direction": "I"
+          },
+          "btn09": {
+            "direction": "I"
+          },
+          "btn10": {
+            "direction": "I"
+          },
+          "btn11": {
+            "direction": "I"
+          },
+          "btn12": {
+            "direction": "I"
+          },
+          "btn13": {
+            "direction": "I"
+          },
+          "btn14": {
+            "direction": "I"
+          },
+          "btn15": {
+            "direction": "I"
+          },
+          "btn16": {
+            "direction": "I"
+          },
+          "btn17": {
+            "direction": "I"
+          },
+          "btn18": {
+            "direction": "I"
+          },
+          "btn19": {
+            "direction": "I"
+          },
+          "rho": {
+            "direction": "O"
+          }
+        }
+      },
+      "vram_bram": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "ip_revision": "8",
+        "xci_name": "main_blk_mem_gen_0_0",
+        "xci_path": "ip\\main_blk_mem_gen_0_0\\main_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "vram_bram",
+        "parameters": {
+          "Algorithm": {
+            "value": "Fixed_Primitives"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Enable_B": {
+            "value": "Always_Enabled"
+          },
+          "Memory_Type": {
+            "value": "True_Dual_Port_RAM"
+          },
+          "Operating_Mode_A": {
+            "value": "READ_FIRST"
+          },
+          "Operating_Mode_B": {
+            "value": "READ_FIRST"
+          },
+          "Primitive": {
+            "value": "8kx2"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Register_PortB_Output_of_Memory_Primitives": {
+            "value": "true"
+          },
+          "Write_Depth_A": {
+            "value": "65535"
+          },
+          "Write_Width_A": {
+            "value": "12"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "Debugger_0": {
+        "vlnv": "xilinx.com:module_ref:Debugger:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_Debugger_0_0",
+        "xci_path": "ip\\main_Debugger_0_0\\main_Debugger_0_0.xci",
+        "inst_hier_path": "Debugger_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Debugger",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_debugClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rxData": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "rxDataValid": {
+            "direction": "I"
+          },
+          "txData": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "txDataValid": {
+            "direction": "O"
+          },
+          "txDataSended": {
+            "direction": "I"
+          },
+          "debugEnable": {
+            "direction": "O"
+          },
+          "ccDebugMockClk": {
+            "direction": "O"
+          },
+          "ccDebugReset": {
+            "direction": "O"
+          },
+          "pipelineStalled": {
+            "direction": "I"
+          },
+          "pipelineInstructionForwardingConfig": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "pipelineCurrentInstruction": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipelineOperand1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipelineOperand2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pipelineJmp": {
+            "direction": "I"
+          },
+          "pipelineJmpConditional": {
+            "direction": "I"
+          },
+          "pipelineJmpRelative": {
+            "direction": "I"
+          },
+          "pipelineJmpDestinationSelect": {
+            "direction": "I"
+          },
+          "pipelineJmpCondition": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "pipelineWriteDataSel": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "pipelineRamSrc": {
+            "direction": "I"
+          },
+          "pipelineRamRead": {
+            "direction": "I"
+          },
+          "pipelineRamWrite": {
+            "direction": "I"
+          },
+          "pipelineRamBankid": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "pcDin": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pcDout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "aluDin1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "aluDin2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "aluOut": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "aluFlags": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "aluOp": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfileAddrReg1": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "regfileAddrReg2": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "regfileAddrWriteReg": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "regfileWriteEnable": {
+            "direction": "I"
+          },
+          "regfileOverwriteFlag": {
+            "direction": "I"
+          },
+          "regfileWriteData": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfileReg1Data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfileReg2Data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "regfileBankid": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "mmuDebugClk": {
+            "direction": "O"
+          },
+          "mmuDebugOverrideEn": {
+            "direction": "O"
+          },
+          "mmuDebugAddr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmuDebugDin": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "mmuDebugBank": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "mmuDebugWe": {
+            "direction": "O"
+          },
+          "mmuDebugDout": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "RX_UART_0": {
+        "vlnv": "xilinx.com:module_ref:RX_UART:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_RX_UART_0_0",
+        "xci_path": "ip\\main_RX_UART_0_0\\main_RX_UART_0_0.xci",
+        "inst_hier_path": "RX_UART_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "RX_UART",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_debugClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rxSerialInput": {
+            "direction": "I"
+          },
+          "dataOutput": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "dataValid": {
+            "direction": "O"
+          }
+        }
+      },
+      "TX_UART_0": {
+        "vlnv": "xilinx.com:module_ref:TX_UART:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_TX_UART_0_0",
+        "xci_path": "ip\\main_TX_UART_0_0\\main_TX_UART_0_0.xci",
+        "inst_hier_path": "TX_UART_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TX_UART",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "dataValid": {
+            "direction": "I"
+          },
+          "dataIn": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_debugClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "txOutput": {
+            "direction": "O"
+          },
+          "sendValid": {
+            "direction": "O"
+          }
+        }
+      },
+      "VGA_CPU_Bridge_0": {
+        "vlnv": "xilinx.com:module_ref:VGA_CPU_Bridge:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_VGA_CPU_Bridge_0_0",
+        "xci_path": "ip\\main_VGA_CPU_Bridge_0_0\\main_VGA_CPU_Bridge_0_0.xci",
+        "inst_hier_path": "VGA_CPU_Bridge_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "VGA_CPU_Bridge",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrLoad_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "Reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "IsGPU_OP": {
+            "direction": "I"
+          },
+          "Immediate_In": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Reg1_In": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Reg2_In": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "IsGPU_OP_out": {
+            "direction": "O"
+          },
+          "GPU_Command_out": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "Arg1_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "Arg2_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "GPU_0": {
+        "vlnv": "xilinx.com:module_ref:GPU:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_GPU_0_0",
+        "xci_path": "ip\\main_GPU_0_0\\main_GPU_0_0.xci",
+        "inst_hier_path": "GPU_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "GPU",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrLoad_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_loadClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "Reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "Bridge_IsGPU_OP": {
+            "direction": "I"
+          },
+          "Bridge_Command": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "Bridge_Arg1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Bridge_Arg2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "VRAM_CLK": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "VRAM_WE": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "VRAM_Addr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "VRAM_Dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "VGAFramBufferSelect": {
+            "direction": "O"
+          }
+        }
+      },
+      "VGA_Controller_0": {
+        "vlnv": "xilinx.com:module_ref:VGA_Controller:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_VGA_Controller_0_0",
+        "xci_path": "ip\\main_VGA_Controller_0_0\\main_VGA_Controller_0_0.xci",
+        "inst_hier_path": "VGA_Controller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "VGA_Controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "InstrExec_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "const_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "main_clockcontroller_0_0_vgaClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "VGAFramBufferSelect": {
+            "direction": "I"
+          },
+          "r": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "g": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "b": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "ioe": {
+            "direction": "O"
+          },
+          "h_sync": {
+            "direction": "O"
+          },
+          "v_sync": {
+            "direction": "O"
+          },
+          "VRAM_Addr": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "VRAM_Data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "VRAM_Clk": {
+            "type": "clk",
+            "direction": "O"
+          }
+        }
+      },
+      "FPU_0": {
+        "vlnv": "xilinx.com:module_ref:FPU:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_FPU_0_0",
+        "xci_path": "ip\\main_FPU_0_0\\main_FPU_0_0.xci",
+        "inst_hier_path": "FPU_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FPU",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "D1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "D2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "FPU_OPP": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "RHO_PIN": {
+            "direction": "I"
+          },
+          "FPU_OUT": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "CARRY_FLAG": {
+            "direction": "O"
+          },
+          "ZERO_FLAG": {
+            "direction": "O"
+          },
+          "SMALLER_ZERO_FLAG": {
+            "direction": "O"
+          },
+          "BIGGER_ZERO_FLAG": {
+            "direction": "O"
+          },
+          "OVERFLOW_FLAG": {
+            "direction": "O"
+          },
+          "RHO_FLAG": {
+            "direction": "O"
+          },
+          "NOT_ZERO_FLAG": {
+            "direction": "O"
+          }
+        }
+      },
+      "ALU_FLAG_PACKER_1": {
+        "vlnv": "xilinx.com:module_ref:ALU_FLAG_PACKER:1.0",
+        "ip_revision": "1",
+        "xci_name": "main_ALU_FLAG_PACKER_1_0",
+        "xci_path": "ip\\main_ALU_FLAG_PACKER_1_0\\main_ALU_FLAG_PACKER_1_0.xci",
+        "inst_hier_path": "ALU_FLAG_PACKER_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ALU_FLAG_PACKER",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CARRY_FLAG": {
+            "direction": "I"
+          },
+          "ZERO_FLAG": {
+            "direction": "I"
+          },
+          "SMALLER_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "BIGGER_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "OVERFLOW_FLAG": {
+            "direction": "I"
+          },
+          "RHO_FLAG": {
+            "direction": "I"
+          },
+          "NOT_ZERO_FLAG": {
+            "direction": "I"
+          },
+          "ALU_FLAGS": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "ALU_0_ALU_OUT": {
+        "ports": [
+          "ALU_0/ALU_OUT",
+          "CU_WriteSelector_0/aluOut",
+          "Debugger_0/aluOut"
+        ]
+      },
+      "ALU_0_BIGGER_ZERO_FLAG": {
+        "ports": [
+          "ALU_0/BIGGER_ZERO_FLAG",
+          "ALU_FLAG_PACKER_0/BIGGER_ZERO_FLAG"
+        ]
+      },
+      "ALU_0_CARRY_FLAG": {
+        "ports": [
+          "ALU_0/CARRY_FLAG",
+          "ALU_FLAG_PACKER_0/CARRY_FLAG"
+        ]
+      },
+      "ALU_0_NOT_ZERO_FLAG": {
+        "ports": [
+          "ALU_0/NOT_ZERO_FLAG",
+          "ALU_FLAG_PACKER_0/NOT_ZERO_FLAG"
+        ]
+      },
+      "ALU_0_OVERFLOW_FLAG": {
+        "ports": [
+          "ALU_0/OVERFLOW_FLAG",
+          "ALU_FLAG_PACKER_0/OVERFLOW_FLAG"
+        ]
+      },
+      "ALU_0_RHO_FLAG": {
+        "ports": [
+          "ALU_0/RHO_FLAG",
+          "ALU_FLAG_PACKER_0/RHO_FLAG"
+        ]
+      },
+      "ALU_0_SMALLER_ZERO_FLAG": {
+        "ports": [
+          "ALU_0/SMALLER_ZERO_FLAG",
+          "ALU_FLAG_PACKER_0/SMALLER_ZERO_FLAG"
+        ]
+      },
+      "ALU_0_ZERO_FLAG": {
+        "ports": [
+          "ALU_0/ZERO_FLAG",
+          "ALU_FLAG_PACKER_0/ZERO_FLAG"
+        ]
+      },
+      "ALU_FLAG_PACKER_0_ALU_FLAGS": {
+        "ports": [
+          "CU_WriteSelector_0/flags",
+          "Pipelining_Forwarder_0/executionFlags",
+          "Pipelining_WriteBack_0/flags",
+          "Debugger_0/aluFlags"
+        ]
+      },
+      "ALU_FLAG_PACKER_0_ALU_FLAGS1": {
+        "ports": [
+          "ALU_FLAG_PACKER_0/ALU_FLAGS",
+          "CU_WriteSelector_0/aluFlags"
+        ]
+      },
+      "ALU_FLAG_PACKER_1_ALU_FLAGS": {
+        "ports": [
+          "ALU_FLAG_PACKER_1/ALU_FLAGS",
+          "CU_WriteSelector_0/fpuFlags"
+        ]
+      },
+      "CU_Decoder_0_JMP": {
+        "ports": [
+          "CU_Decoder_0/jmp",
+          "Pipelining_Controller_0/rfJmp",
+          "Pipelining_Execution_0/jmp"
+        ]
+      },
+      "CU_Decoder_0_RF_WLB": {
+        "ports": [
+          "CU_Decoder_0/rfWLB",
+          "Pipelining_Execution_0/wlb"
+        ]
+      },
+      "CU_Decoder_0_Write_Data_Sel": {
+        "ports": [
+          "CU_Decoder_0/writeDataSelect",
+          "Pipelining_Execution_0/writeDataSel"
+        ]
+      },
+      "CU_Decoder_0_flagSelect": {
+        "ports": [
+          "CU_Decoder_0/flagSelect",
+          "Pipelining_Execution_0/flagSel"
+        ]
+      },
+      "CU_Decoder_0_isALUOp": {
+        "ports": [
+          "CU_Decoder_0/isALUOp",
+          "Pipelining_Execution_0/isALUOp"
+        ]
+      },
+      "CU_Decoder_0_isGPUOp": {
+        "ports": [
+          "CU_Decoder_0/isGPUOp",
+          "Pipelining_Execution_0/isGPUOp"
+        ]
+      },
+      "CU_Decoder_0_isRAMOp": {
+        "ports": [
+          "CU_Decoder_0/isRAMOp",
+          "Pipelining_Forwarder_0/rfIsRAMOp",
+          "Pipelining_Execution_0/isRAMOp"
+        ]
+      },
+      "CU_Decoder_0_jmpConditional": {
+        "ports": [
+          "CU_Decoder_0/jmpConditional",
+          "Pipelining_Execution_0/jmpConditional"
+        ]
+      },
+      "CU_Decoder_0_jmpDestinationSource": {
+        "ports": [
+          "CU_Decoder_0/jmpDestinationSource",
+          "Pipelining_Execution_0/jmpDestinationSelect"
+        ]
+      },
+      "CU_Decoder_0_jmpRelative": {
+        "ports": [
+          "CU_Decoder_0/jmpRelative",
+          "Pipelining_Execution_0/jmpRelative"
+        ]
+      },
+      "CU_Decoder_0_ramAddressSrc": {
+        "ports": [
+          "CU_Decoder_0/ramAddressSrc",
+          "Pipelining_Execution_0/ramSrc"
+        ]
+      },
+      "CU_Decoder_0_ramRead": {
+        "ports": [
+          "CU_Decoder_0/ramRead",
+          "Pipelining_Execution_0/ramRead"
+        ]
+      },
+      "CU_Decoder_0_ramWrite": {
+        "ports": [
+          "CU_Decoder_0/ramWrite",
+          "Pipelining_Execution_0/ramWrite"
+        ]
+      },
+      "CU_Decoder_0_reg1Read": {
+        "ports": [
+          "CU_Decoder_0/reg1Read",
+          "Pipelining_Forwarder_0/reg1Read"
+        ]
+      },
+      "CU_Decoder_0_reg2Read": {
+        "ports": [
+          "CU_Decoder_0/reg2Read",
+          "Pipelining_Forwarder_0/reg2Read"
+        ]
+      },
+      "CU_Decoder_0_rfWHB": {
+        "ports": [
+          "CU_Decoder_0/rfWHB",
+          "Pipelining_Execution_0/whb"
+        ]
+      },
+      "CU_Decoder_0_rfWrite": {
+        "ports": [
+          "CU_Decoder_0/rfWrite",
+          "Pipelining_Execution_0/rfWrite"
+        ]
+      },
+      "CU_ImmediateManipula_0_manipulatedImmediate": {
+        "ports": [
+          "CU_ImmediateManipula_0/manipulatedImmediate",
+          "CU_WriteSelector_0/manipulatedImmediate"
+        ]
+      },
+      "CU_JumpController_0_PC_Load": {
+        "ports": [
+          "CU_JumpController_0/pcLoad",
+          "ProgramCounter_0/jmp",
+          "Pipelining_Controller_0/pcLoad"
+        ]
+      },
+      "CU_JumpController_0_PC_Next": {
+        "ports": [
+          "CU_JumpController_0/pcNext",
+          "ProgramCounter_0/din",
+          "Debugger_0/pcDin"
+        ]
+      },
+      "CU_JumpDestinationSe_0_jmpAddress": {
+        "ports": [
+          "CU_JumpDestinationSe_0/jmpAddress",
+          "CU_JumpController_0/jmpAddress"
+        ]
+      },
+      "CU_RAMAddressControl_0_ramAddress": {
+        "ports": [
+          "CU_RAMAddressControl_0/ramAddress",
+          "mmu_0/gramAddr"
+        ]
+      },
+      "CU_WriteBackSelector_0_writeData": {
+        "ports": [
+          "Pipelining_WriteBack_0/writeDataOut",
+          "RegFile_0/WriteData",
+          "Debugger_0/regfileWriteData"
+        ]
+      },
+      "CU_WriteSelector_0_Write_Data": {
+        "ports": [
+          "CU_WriteSelector_0/writeData",
+          "Pipelining_WriteBack_0/writeData",
+          "Pipelining_Forwarder_0/executionWriteData"
+        ]
+      },
+      "Debugger_0_ccDebugMockClk": {
+        "ports": [
+          "Debugger_0/ccDebugMockClk",
+          "clockcontroller_0/debugMockClk"
+        ]
+      },
+      "Debugger_0_ccDebugReset": {
+        "ports": [
+          "Debugger_0/ccDebugReset",
+          "clockcontroller_0/debugReset"
+        ]
+      },
+      "Debugger_0_debugEnable": {
+        "ports": [
+          "Debugger_0/debugEnable",
+          "mmu_0/debugEnable",
+          "clockcontroller_0/debugEnable"
+        ]
+      },
+      "Debugger_0_mmuDebugAddr": {
+        "ports": [
+          "Debugger_0/mmuDebugAddr",
+          "mmu_0/debugAddr"
+        ]
+      },
+      "Debugger_0_mmuDebugBank": {
+        "ports": [
+          "Debugger_0/mmuDebugBank",
+          "mmu_0/debugBank"
+        ]
+      },
+      "Debugger_0_mmuDebugClk": {
+        "ports": [
+          "Debugger_0/mmuDebugClk",
+          "mmu_0/debugClk"
+        ]
+      },
+      "Debugger_0_mmuDebugDin": {
+        "ports": [
+          "Debugger_0/mmuDebugDin",
+          "mmu_0/debugDin"
+        ]
+      },
+      "Debugger_0_mmuDebugOverrideEn": {
+        "ports": [
+          "Debugger_0/mmuDebugOverrideEn",
+          "clockcontroller_0/debugMmuOverrideEnable",
+          "mmu_0/debugOverrideEnable"
+        ]
+      },
+      "Debugger_0_mmuDebugWe": {
+        "ports": [
+          "Debugger_0/mmuDebugWe",
+          "mmu_0/debugWe"
+        ]
+      },
+      "Debugger_0_txData": {
+        "ports": [
+          "Debugger_0/txData",
+          "TX_UART_0/dataIn"
+        ]
+      },
+      "Debugger_0_txDataValid": {
+        "ports": [
+          "Debugger_0/txDataValid",
+          "TX_UART_0/dataValid"
+        ]
+      },
+      "Decoder_0_Immediate": {
+        "ports": [
+          "Decoder_0/immediate",
+          "Pipelining_Execution_0/immediate"
+        ]
+      },
+      "Decoder_0_Register1": {
+        "ports": [
+          "Decoder_0/register1",
+          "RegFile_0/AddrReg1",
+          "Pipelining_Forwarder_0/reg1Addr",
+          "Debugger_0/regfileAddrReg1"
+        ]
+      },
+      "Decoder_0_Register2": {
+        "ports": [
+          "Decoder_0/register2",
+          "RegFile_0/AddrReg2",
+          "Pipelining_Forwarder_0/reg2Addr",
+          "Debugger_0/regfileAddrReg2"
+        ]
+      },
+      "Decoder_0_WriteBackRegister": {
+        "ports": [
+          "Decoder_0/writeBackRegister",
+          "Pipelining_Execution_0/writeAddress"
+        ]
+      },
+      "Decoder_0_jmpCondition": {
+        "ports": [
+          "Decoder_0/jmpCondition",
+          "Pipelining_Execution_0/jmpCondition"
+        ]
+      },
+      "FPU_0_BIGGER_ZERO_FLAG": {
+        "ports": [
+          "FPU_0/BIGGER_ZERO_FLAG",
+          "ALU_FLAG_PACKER_1/BIGGER_ZERO_FLAG"
+        ]
+      },
+      "FPU_0_CARRY_FLAG": {
+        "ports": [
+          "FPU_0/CARRY_FLAG",
+          "ALU_FLAG_PACKER_1/CARRY_FLAG"
+        ]
+      },
+      "FPU_0_FPU_OUT": {
+        "ports": [
+          "FPU_0/FPU_OUT",
+          "CU_WriteSelector_0/fpuOut"
+        ]
+      },
+      "FPU_0_NOT_ZERO_FLAG": {
+        "ports": [
+          "FPU_0/NOT_ZERO_FLAG",
+          "ALU_FLAG_PACKER_1/NOT_ZERO_FLAG"
+        ]
+      },
+      "FPU_0_OVERFLOW_FLAG": {
+        "ports": [
+          "FPU_0/OVERFLOW_FLAG",
+          "ALU_FLAG_PACKER_1/OVERFLOW_FLAG"
+        ]
+      },
+      "FPU_0_RHO_FLAG": {
+        "ports": [
+          "FPU_0/RHO_FLAG",
+          "ALU_FLAG_PACKER_1/RHO_FLAG"
+        ]
+      },
+      "FPU_0_SMALLER_ZERO_FLAG": {
+        "ports": [
+          "FPU_0/SMALLER_ZERO_FLAG",
+          "ALU_FLAG_PACKER_1/SMALLER_ZERO_FLAG"
+        ]
+      },
+      "FPU_0_ZERO_FLAG": {
+        "ports": [
+          "FPU_0/ZERO_FLAG",
+          "ALU_FLAG_PACKER_1/ZERO_FLAG"
+        ]
+      },
+      "GPU_0_VGAFramBufferSelect": {
+        "ports": [
+          "GPU_0/VGAFramBufferSelect",
+          "VGA_Controller_0/VGAFramBufferSelect"
+        ]
+      },
+      "GPU_0_VRAM_Addr": {
+        "ports": [
+          "GPU_0/VRAM_Addr",
+          "mmu_0/gpuAddr"
+        ]
+      },
+      "GPU_0_VRAM_CLK": {
+        "ports": [
+          "GPU_0/VRAM_CLK",
+          "mmu_0/gpuClk"
+        ]
+      },
+      "GPU_0_VRAM_Dout": {
+        "ports": [
+          "GPU_0/VRAM_Dout",
+          "mmu_0/gpuDin"
+        ]
+      },
+      "GPU_0_VRAM_WE": {
+        "ports": [
+          "GPU_0/VRAM_WE",
+          "mmu_0/gpuWe"
+        ]
+      },
+      "Net": {
+        "ports": [
+          "clockcontroller_0/debugClk",
+          "RX_UART_0/clk",
+          "TX_UART_0/clk",
+          "Debugger_0/clk"
+        ]
+      },
+      "Pipelining_Controller_0_InstructionToExecute": {
+        "ports": [
+          "Pipelining_Controller_0/instructionOut",
+          "CU_Decoder_0/instructionToDecode",
+          "Decoder_0/instructionToDecode",
+          "Debugger_0/pipelineCurrentInstruction"
+        ]
+      },
+      "Pipelining_Controller_0_Stalled": {
+        "ports": [
+          "Pipelining_Controller_0/stalled",
+          "ProgramCounter_0/stalled",
+          "Debugger_0/pipelineStalled"
+        ]
+      },
+      "Pipelining_Execution_0_Immediate_out": {
+        "ports": [
+          "Pipelining_Execution_0/immediateOut",
+          "ALU_0/ALU_OPP",
+          "VGA_CPU_Bridge_0/Immediate_In",
+          "CU_JumpDestinationSe_0/immediate",
+          "CU_RAMAddressControl_0/immediate",
+          "CU_ImmediateManipula_0/immediate",
+          "FPU_0/FPU_OPP",
+          "Debugger_0/aluOp"
+        ]
+      },
+      "Pipelining_Execution_0_Is_GPU_OP_out": {
+        "ports": [
+          "Pipelining_Execution_0/isGPUOpOut",
+          "VGA_CPU_Bridge_0/IsGPU_OP"
+        ]
+      },
+      "Pipelining_Execution_0_JMP_out": {
+        "ports": [
+          "Pipelining_Execution_0/jmpOut",
+          "Pipelining_WriteBack_0/jmp",
+          "Pipelining_Controller_0/execJmp",
+          "CU_JumpController_0/jmp",
+          "Debugger_0/pipelineJmp"
+        ]
+      },
+      "Pipelining_Execution_0_Operand1_out": {
+        "ports": [
+          "Pipelining_Execution_0/operand1Out",
+          "ALU_0/D1",
+          "VGA_CPU_Bridge_0/Reg1_In",
+          "CU_JumpDestinationSe_0/register1",
+          "CU_ImmediateManipula_0/reg1",
+          "FPU_0/D1",
+          "CU_WriteSelector_0/reg1",
+          "Debugger_0/pipelineOperand1",
+          "Debugger_0/aluDin1",
+          "mmu_0/gramDin"
+        ]
+      },
+      "Pipelining_Execution_0_Operand2_out": {
+        "ports": [
+          "Pipelining_Execution_0/operand2Out",
+          "ALU_0/D2",
+          "VGA_CPU_Bridge_0/Reg2_In",
+          "CU_RAMAddressControl_0/reg2",
+          "FPU_0/D2",
+          "CU_JumpController_0/flags",
+          "Debugger_0/pipelineOperand2",
+          "Debugger_0/aluDin2"
+        ]
+      },
+      "Pipelining_Execution_0_WriteAddress_out": {
+        "ports": [
+          "Pipelining_Execution_0/writeAddressOut",
+          "Pipelining_WriteBack_0/writeAddress",
+          "Pipelining_Forwarder_0/execRegWriteAddr"
+        ]
+      },
+      "Pipelining_Execution_0_flagSelOut": {
+        "ports": [
+          "Pipelining_Execution_0/flagSelOut",
+          "CU_WriteSelector_0/flagSel"
+        ]
+      },
+      "Pipelining_Execution_0_isALUOpOut": {
+        "ports": [
+          "Pipelining_Execution_0/isALUOpOut",
+          "Pipelining_WriteBack_0/isALUOp",
+          "Pipelining_Forwarder_0/execIsALUOp"
+        ]
+      },
+      "Pipelining_Execution_0_isRAMOpOut": {
+        "ports": [
+          "Pipelining_Execution_0/isRAMOpOut"
+        ]
+      },
+      "Pipelining_Execution_0_jmpConditionOut": {
+        "ports": [
+          "Pipelining_Execution_0/jmpConditionOut",
+          "CU_JumpController_0/jmpCondition",
+          "Debugger_0/pipelineJmpCondition"
+        ]
+      },
+      "Pipelining_Execution_0_jmpConditionalOut": {
+        "ports": [
+          "Pipelining_Execution_0/jmpConditionalOut",
+          "CU_JumpController_0/jmpConditional",
+          "Debugger_0/pipelineJmpConditional"
+        ]
+      },
+      "Pipelining_Execution_0_jmpDestinationSelectOut": {
+        "ports": [
+          "Pipelining_Execution_0/jmpDestinationSelectOut",
+          "CU_JumpDestinationSe_0/jmpDestinationSelect",
+          "Debugger_0/pipelineJmpDestinationSelect"
+        ]
+      },
+      "Pipelining_Execution_0_jmpRelativeOut": {
+        "ports": [
+          "Pipelining_Execution_0/jmpRelativeOut",
+          "CU_JumpController_0/jmpRelative",
+          "Debugger_0/pipelineJmpRelative"
+        ]
+      },
+      "Pipelining_Execution_0_ramBankIDOut": {
+        "ports": [
+          "Pipelining_Execution_0/ramBankIDOut",
+          "Debugger_0/pipelineRamBankid",
+          "mmu_0/gramBank"
+        ]
+      },
+      "Pipelining_Execution_0_ramReadOut": {
+        "ports": [
+          "Pipelining_Execution_0/ramReadOut",
+          "Pipelining_WriteBack_0/ramRead",
+          "Debugger_0/pipelineRamRead",
+          "mmu_0/gramOe"
+        ]
+      },
+      "Pipelining_Execution_0_ramSrcOut": {
+        "ports": [
+          "Pipelining_Execution_0/ramSrcOut",
+          "CU_RAMAddressControl_0/ramAddressSrc",
+          "Debugger_0/pipelineRamSrc"
+        ]
+      },
+      "Pipelining_Execution_0_ramWriteOut": {
+        "ports": [
+          "Pipelining_Execution_0/ramWriteOut",
+          "Debugger_0/pipelineRamWrite",
+          "mmu_0/gramWe"
+        ]
+      },
+      "Pipelining_Execution_0_rfWriteOut": {
+        "ports": [
+          "Pipelining_Execution_0/rfWriteOut",
+          "Pipelining_Forwarder_0/execWritesReg"
+        ]
+      },
+      "Pipelining_Execution_0_whbOut": {
+        "ports": [
+          "Pipelining_Execution_0/whbOut",
+          "CU_ImmediateManipula_0/rfWHB",
+          "Pipelining_WriteBack_0/whb"
+        ]
+      },
+      "Pipelining_Execution_0_wlbOut": {
+        "ports": [
+          "Pipelining_Execution_0/wlbOut",
+          "CU_ImmediateManipula_0/rfWLB",
+          "Pipelining_WriteBack_0/wlb"
+        ]
+      },
+      "Pipelining_Execution_0_writeDataSelOut": {
+        "ports": [
+          "Pipelining_Execution_0/writeDataSelOut",
+          "CU_WriteSelector_0/writeSel",
+          "Debugger_0/pipelineWriteDataSel"
+        ]
+      },
+      "Pipelining_Forwarder_0_ForwardedOperand1": {
+        "ports": [
+          "Pipelining_Forwarder_0/forwardedOperand1",
+          "Pipelining_Execution_0/operand1"
+        ]
+      },
+      "Pipelining_Forwarder_0_ForwardedOperand2": {
+        "ports": [
+          "Pipelining_Forwarder_0/forwardedOperand2",
+          "Pipelining_Execution_0/operand2"
+        ]
+      },
+      "Pipelining_WriteBack_0_Flags_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/flagsOut",
+          "RegFile_0/Flags"
+        ]
+      },
+      "Pipelining_WriteBack_0_Is_ALU_OP_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/isALUOpOut",
+          "RegFile_0/OverwriteFl",
+          "Debugger_0/regfileOverwriteFlag"
+        ]
+      },
+      "Pipelining_WriteBack_0_JMP_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/jmpOut"
+        ]
+      },
+      "Pipelining_WriteBack_0_RF_WE_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/rfWEOut",
+          "RegFile_0/WE",
+          "Debugger_0/regfileWriteEnable"
+        ]
+      },
+      "Pipelining_WriteBack_0_WriteAddress_out": {
+        "ports": [
+          "Pipelining_WriteBack_0/writeAddressOut",
+          "RegFile_0/AddrWriteReg",
+          "Debugger_0/regfileAddrWriteReg"
+        ]
+      },
+      "ProgramCounter_0_Dout": {
+        "ports": [
+          "ProgramCounter_0/dout",
+          "CU_JumpController_0/pcCurrent",
+          "Debugger_0/pcDout",
+          "mmu_0/iramAddr"
+        ]
+      },
+      "RX_UART_0_dataOutput": {
+        "ports": [
+          "RX_UART_0/dataOutput",
+          "Debugger_0/rxData"
+        ]
+      },
+      "RX_UART_0_dataValid": {
+        "ports": [
+          "RX_UART_0/dataValid",
+          "Debugger_0/rxDataValid"
+        ]
+      },
+      "RX_UART_IN_1": {
+        "ports": [
+          "RX_UART_IN",
+          "RX_UART_0/rxSerialInput"
+        ]
+      },
+      "RegFile_0_BankID": {
+        "ports": [
+          "Pipelining_Forwarder_0/forwardedBankID",
+          "Pipelining_Execution_0/ramBankID",
+          "Debugger_0/regfileBankid"
+        ]
+      },
+      "RegFile_0_BankID1": {
+        "ports": [
+          "RegFile_0/BankID",
+          "Pipelining_Forwarder_0/currentBankID"
+        ]
+      },
+      "RegFile_0_Reg1Data": {
+        "ports": [
+          "RegFile_0/Reg1Data",
+          "Pipelining_Forwarder_0/reg1Data",
+          "Debugger_0/regfileReg1Data"
+        ]
+      },
+      "RegFile_0_Reg2Data": {
+        "ports": [
+          "RegFile_0/Reg2Data",
+          "Pipelining_Forwarder_0/reg2Data",
+          "Debugger_0/regfileReg2Data"
+        ]
+      },
+      "Reset_1": {
+        "ports": [
+          "Reset",
+          "VGA_CPU_Bridge_0/Reset",
+          "Pipelining_WriteBack_0/reset",
+          "ProgramCounter_0/reset",
+          "Pipelining_Controller_0/reset",
+          "GPU_0/Reset",
+          "Pipelining_Execution_0/reset",
+          "mmu_0/reset"
+        ]
+      },
+      "TX_UART_0_sendValid": {
+        "ports": [
+          "TX_UART_0/sendValid",
+          "Debugger_0/txDataSended"
+        ]
+      },
+      "TX_UART_0_tx_output": {
+        "ports": [
+          "TX_UART_0/txOutput",
+          "TX_UART_OUT"
+        ]
+      },
+      "VGA_CPU_Bridge_0_Arg1_out": {
+        "ports": [
+          "VGA_CPU_Bridge_0/Arg1_out",
+          "GPU_0/Bridge_Arg1"
+        ]
+      },
+      "VGA_CPU_Bridge_0_Arg2_out": {
+        "ports": [
+          "VGA_CPU_Bridge_0/Arg2_out",
+          "GPU_0/Bridge_Arg2"
+        ]
+      },
+      "VGA_CPU_Bridge_0_GPU_Command_out": {
+        "ports": [
+          "VGA_CPU_Bridge_0/GPU_Command_out",
+          "GPU_0/Bridge_Command"
+        ]
+      },
+      "VGA_CPU_Bridge_0_IsGPU_OP_out": {
+        "ports": [
+          "VGA_CPU_Bridge_0/IsGPU_OP_out",
+          "GPU_0/Bridge_IsGPU_OP"
+        ]
+      },
+      "VGA_Controller_0_VRAM_Addr": {
+        "ports": [
+          "VGA_Controller_0/VRAM_Addr",
+          "mmu_0/vgaAddr"
+        ]
+      },
+      "VGA_Controller_0_VRAM_Clk": {
+        "ports": [
+          "VGA_Controller_0/VRAM_Clk",
+          "mmu_0/vgaClk"
+        ]
+      },
+      "VGA_Controller_0_b": {
+        "ports": [
+          "VGA_Controller_0/b",
+          "b"
+        ]
+      },
+      "VGA_Controller_0_g": {
+        "ports": [
+          "VGA_Controller_0/g",
+          "g"
+        ]
+      },
+      "VGA_Controller_0_h_sync": {
+        "ports": [
+          "VGA_Controller_0/h_sync",
+          "h_sync"
+        ]
+      },
+      "VGA_Controller_0_ioe": {
+        "ports": [
+          "VGA_Controller_0/ioe",
+          "ioe"
+        ]
+      },
+      "VGA_Controller_0_r": {
+        "ports": [
+          "VGA_Controller_0/r",
+          "r"
+        ]
+      },
+      "VGA_Controller_0_v_sync": {
+        "ports": [
+          "VGA_Controller_0/v_sync",
+          "v_sync"
+        ]
+      },
+      "btn00_1": {
+        "ports": [
+          "btn00",
+          "mmio_0/btn00"
+        ]
+      },
+      "btn01_1": {
+        "ports": [
+          "btn01",
+          "mmio_0/btn01"
+        ]
+      },
+      "btn02_1": {
+        "ports": [
+          "btn02",
+          "mmio_0/btn02"
+        ]
+      },
+      "btn03_1": {
+        "ports": [
+          "btn03",
+          "mmio_0/btn03"
+        ]
+      },
+      "btn04_1": {
+        "ports": [
+          "btn04",
+          "mmio_0/btn04"
+        ]
+      },
+      "btn05_1": {
+        "ports": [
+          "btn05",
+          "mmio_0/btn05"
+        ]
+      },
+      "btn06_1": {
+        "ports": [
+          "btn06",
+          "mmio_0/btn06"
+        ]
+      },
+      "btn07_1": {
+        "ports": [
+          "btn07",
+          "mmio_0/btn07"
+        ]
+      },
+      "clk100mhzIn_1": {
+        "ports": [
+          "clk100mhzIn",
+          "clockcontroller_0/clk100mhzIn"
+        ]
+      },
+      "clockcontroller_0_clk100mhzOut": {
+        "ports": [
+          "clockcontroller_0/clk100mhzOut",
+          "mmio_0/clk100mhzIn"
+        ]
+      },
+      "clockcontroller_0_loadClk": {
+        "ports": [
+          "clockcontroller_0/loadClk",
+          "VGA_CPU_Bridge_0/InstrLoad_CLK",
+          "RegFile_0/loadClk",
+          "Pipelining_WriteBack_0/instrLoadClk",
+          "ProgramCounter_0/loadCLK",
+          "Pipelining_Controller_0/loadClk",
+          "GPU_0/InstrLoad_CLK",
+          "Pipelining_Execution_0/loadClk",
+          "mmu_0/loadClk",
+          "mmio_0/clk50mhzIn"
+        ]
+      },
+      "clockcontroller_0_vga_clk": {
+        "ports": [
+          "clockcontroller_0/vgaClk",
+          "VGA_Controller_0/InstrExec_CLK"
+        ]
+      },
+      "fault_reset_1": {
+        "ports": [
+          "fault_reset",
+          "clockcontroller_0/faultReset"
+        ]
+      },
+      "mmio_0_dout": {
+        "ports": [
+          "mmio_0/dout",
+          "mmu_0/mmioMemDout"
+        ]
+      },
+      "mmio_0_led00": {
+        "ports": [
+          "mmio_0/led00",
+          "led00"
+        ]
+      },
+      "mmio_0_led01": {
+        "ports": [
+          "mmio_0/led01",
+          "led01"
+        ]
+      },
+      "mmio_0_led02": {
+        "ports": [
+          "mmio_0/led02",
+          "led02"
+        ]
+      },
+      "mmio_0_led03": {
+        "ports": [
+          "mmio_0/led03",
+          "led03"
+        ]
+      },
+      "mmio_0_rgb0": {
+        "ports": [
+          "mmio_0/rgb0",
+          "rgb0"
+        ]
+      },
+      "mmio_0_rgb1": {
+        "ports": [
+          "mmio_0/rgb1",
+          "rgb1"
+        ]
+      },
+      "mmio_0_rgb2": {
+        "ports": [
+          "mmio_0/rgb2",
+          "rgb2"
+        ]
+      },
+      "mmio_0_rgb3": {
+        "ports": [
+          "mmio_0/rgb3",
+          "rgb3"
+        ]
+      },
+      "mmio_0_rho": {
+        "ports": [
+          "mmio_0/rho",
+          "ALU_0/RHO_PIN",
+          "FPU_0/RHO_PIN",
+          "CU_JumpController_0/rhoPin"
+        ]
+      },
+      "mmu_0_debugDout": {
+        "ports": [
+          "mmu_0/debugDout",
+          "Debugger_0/mmuDebugDout"
+        ]
+      },
+      "mmu_0_gramDout": {
+        "ports": [
+          "mmu_0/gramDout",
+          "CU_WriteSelector_0/ramOut"
+        ]
+      },
+      "mmu_0_iramDout": {
+        "ports": [
+          "mmu_0/iramDout",
+          "Pipelining_Controller_0/instructionIn"
+        ]
+      },
+      "mmu_0_mmio_mem_addr": {
+        "ports": [
+          "mmu_0/mmioMemAddr",
+          "mmio_0/addr"
+        ]
+      },
+      "mmu_0_mmio_mem_ck": {
+        "ports": [
+          "mmu_0/mmioMemClk",
+          "mmio_0/clk"
+        ]
+      },
+      "mmu_0_mmio_mem_din": {
+        "ports": [
+          "mmu_0/mmioMemDin",
+          "mmio_0/din"
+        ]
+      },
+      "mmu_0_mmio_mem_we": {
+        "ports": [
+          "mmu_0/mmioMemWe",
+          "mmio_0/we"
+        ]
+      },
+      "mmu_0_vga_dout": {
+        "ports": [
+          "mmu_0/vgaDout",
+          "VGA_Controller_0/VRAM_Data"
+        ]
+      },
+      "mmu_0_vrama_mem_addr": {
+        "ports": [
+          "mmu_0/vramaMemAddr",
+          "vram_bram/addra"
+        ]
+      },
+      "mmu_0_vrama_mem_ck": {
+        "ports": [
+          "mmu_0/vramaMemClk",
+          "vram_bram/clka"
+        ]
+      },
+      "mmu_0_vrama_mem_din": {
+        "ports": [
+          "mmu_0/vramaMemDin",
+          "vram_bram/dina"
+        ]
+      },
+      "mmu_0_vrama_mem_we": {
+        "ports": [
+          "mmu_0/vramaMemWe",
+          "vram_bram/wea"
+        ]
+      },
+      "mmu_0_vramb_mem_addr": {
+        "ports": [
+          "mmu_0/vrambMemAddr",
+          "vram_bram/addrb"
+        ]
+      },
+      "mmu_0_vramb_mem_ck": {
+        "ports": [
+          "mmu_0/vrambMemClk",
+          "vram_bram/clkb"
+        ]
+      },
+      "mmu_0_vramb_mem_din": {
+        "ports": [
+          "mmu_0/vrambMemDin",
+          "vram_bram/dinb"
+        ]
+      },
+      "mmu_0_vramb_mem_we": {
+        "ports": [
+          "mmu_0/vrambMemWe",
+          "vram_bram/web"
+        ]
+      },
+      "vram_bram_douta": {
+        "ports": [
+          "vram_bram/douta",
+          "mmu_0/vramaMemDout"
+        ]
+      },
+      "vram_bram_doutb": {
+        "ports": [
+          "vram_bram/doutb",
+          "mmu_0/vrambMemDout"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="CPUSim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="CPUSim" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="491.451000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="505.721000001 ms"></ZoomEndTime>
+      <Cursor1Time time="500.001000000 ms"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="182"></NameColumnWidth>
+      <ValueColumnWidth column_width="62"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="64" />
+   <wave_markers>
+      <marker time="458833745000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/CPUSim/RX_UART_IN" type="logic">
+      <obj_property name="ElementShortName">RX_UART_IN</obj_property>
+      <obj_property name="ObjectShortName">RX_UART_IN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Debugger_0/rxData" type="array">
+      <obj_property name="ElementShortName">rxData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rxData[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Debugger_0/U0/debugEnable" type="logic">
+      <obj_property name="ElementShortName">debugEnable</obj_property>
+      <obj_property name="ObjectShortName">debugEnable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Debugger_0/U0/ccDebugReset" type="logic">
+      <obj_property name="ElementShortName">ccDebugReset</obj_property>
+      <obj_property name="ObjectShortName">ccDebugReset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Debugger_0/U0/state_s" type="other">
+      <obj_property name="ElementShortName">state_s</obj_property>
+      <obj_property name="ObjectShortName">state_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/TX_UART_OUT" type="logic">
+      <obj_property name="ElementShortName">TX_UART_OUT</obj_property>
+      <obj_property name="ObjectShortName">TX_UART_OUT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/b" type="array">
+      <obj_property name="ElementShortName">b[3:0]</obj_property>
+      <obj_property name="ObjectShortName">b[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/debug_mock_clk" type="logic">
+      <obj_property name="ElementShortName">debug_mock_clk</obj_property>
+      <obj_property name="ObjectShortName">debug_mock_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/debug_reset" type="logic">
+      <obj_property name="ElementShortName">debug_reset</obj_property>
+      <obj_property name="ObjectShortName">debug_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/fault_reset" type="logic">
+      <obj_property name="ElementShortName">fault_reset</obj_property>
+      <obj_property name="ObjectShortName">fault_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/g" type="array">
+      <obj_property name="ElementShortName">g[3:0]</obj_property>
+      <obj_property name="ObjectShortName">g[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/h_sync" type="logic">
+      <obj_property name="ElementShortName">h_sync</obj_property>
+      <obj_property name="ObjectShortName">h_sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/ioe" type="logic">
+      <obj_property name="ElementShortName">ioe</obj_property>
+      <obj_property name="ObjectShortName">ioe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/r" type="array">
+      <obj_property name="ElementShortName">r[3:0]</obj_property>
+      <obj_property name="ObjectShortName">r[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/v_sync" type="logic">
+      <obj_property name="ElementShortName">v_sync</obj_property>
+      <obj_property name="ObjectShortName">v_sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/rx_instruction" type="array">
+      <obj_property name="ElementShortName">rx_instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_instruction[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/rx_address" type="array">
+      <obj_property name="ElementShortName">rx_address[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_address[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/rx_data" type="array">
+      <obj_property name="ElementShortName">rx_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ProgramCounter_0/U0/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ProgramCounter_0/U0/dout" type="array">
+      <obj_property name="ElementShortName">dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ProgramCounter_0/U0/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ProgramCounter_0/U0/jmp" type="logic">
+      <obj_property name="ElementShortName">jmp</obj_property>
+      <obj_property name="ObjectShortName">jmp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ProgramCounter_0/U0/stalled" type="logic">
+      <obj_property name="ElementShortName">stalled</obj_property>
+      <obj_property name="ObjectShortName">stalled</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Controller_0/stalled" type="logic">
+      <obj_property name="ElementShortName">stalled</obj_property>
+      <obj_property name="ObjectShortName">stalled</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ALU_0/ALU_OPP" type="array">
+      <obj_property name="ElementShortName">ALU_OPP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OPP[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ALU_0/D1" type="array">
+      <obj_property name="ElementShortName">D1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">D1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ALU_0/D2" type="array">
+      <obj_property name="ElementShortName">D2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">D2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ALU_0/ALU_OUT" type="array">
+      <obj_property name="ElementShortName">ALU_OUT[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OUT[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Forwarder_0/executionWriteData" type="array">
+      <obj_property name="ElementShortName">executionWriteData[15:0]</obj_property>
+      <obj_property name="ObjectShortName">executionWriteData[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Forwarder_0/executionFlags" type="array">
+      <obj_property name="ElementShortName">executionFlags[15:0]</obj_property>
+      <obj_property name="ObjectShortName">executionFlags[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Forwarder_0/forwardedOperand1" type="array">
+      <obj_property name="ElementShortName">forwardedOperand1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">forwardedOperand1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Forwarder_0/forwardedOperand2" type="array">
+      <obj_property name="ElementShortName">forwardedOperand2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">forwardedOperand2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/iramDout" type="array">
+      <obj_property name="ElementShortName">iramDout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">iramDout[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ProgramCounter_0/dout" type="array">
+      <obj_property name="ElementShortName">dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ProgramCounter_0/loadCLK" type="logic">
+      <obj_property name="ElementShortName">loadCLK</obj_property>
+      <obj_property name="ObjectShortName">loadCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/ProgramCounter_0/stalled" type="logic">
+      <obj_property name="ElementShortName">stalled</obj_property>
+      <obj_property name="ObjectShortName">stalled</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/gramAddr" type="array">
+      <obj_property name="ElementShortName">gramAddr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gramAddr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/gramDin" type="array">
+      <obj_property name="ElementShortName">gramDin[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gramDin[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/gramBank" type="array">
+      <obj_property name="ElementShortName">gramBank[3:0]</obj_property>
+      <obj_property name="ObjectShortName">gramBank[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/gramWe" type="logic">
+      <obj_property name="ElementShortName">gramWe</obj_property>
+      <obj_property name="ObjectShortName">gramWe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/gramOe" type="logic">
+      <obj_property name="ElementShortName">gramOe</obj_property>
+      <obj_property name="ObjectShortName">gramOe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/loadClk" type="logic">
+      <obj_property name="ElementShortName">loadClk</obj_property>
+      <obj_property name="ObjectShortName">loadClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/addr" type="array">
+      <obj_property name="ElementShortName">addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/dout" type="array">
+      <obj_property name="ElementShortName">dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_config_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_config_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_config_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_prescaler_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_prescaler_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_prescaler_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_max_cnt_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_max_cnt_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_max_cnt_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_cnt_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_cnt_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_cnt_reg_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_pwm_val_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_pwm_val_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_pwm_val_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_rho_rst_reg_s" type="array">
+      <obj_property name="ElementShortName">tim0_rho_rst_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_rho_rst_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_master_clk_s" type="logic">
+      <obj_property name="ElementShortName">tim0_master_clk_s</obj_property>
+      <obj_property name="ObjectShortName">tim0_master_clk_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_clk_s" type="logic">
+      <obj_property name="ElementShortName">tim0_clk_s</obj_property>
+      <obj_property name="ObjectShortName">tim0_clk_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_rho_en" type="logic">
+      <obj_property name="ElementShortName">tim0_rho_en</obj_property>
+      <obj_property name="ObjectShortName">tim0_rho_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/tim0_master_cnt_s" type="array">
+      <obj_property name="ElementShortName">tim0_master_cnt_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tim0_master_cnt_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/rho" type="logic">
+      <obj_property name="ElementShortName">rho</obj_property>
+      <obj_property name="ObjectShortName">rho</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/rhoPin" type="logic">
+      <obj_property name="ElementShortName">rhoPin</obj_property>
+      <obj_property name="ObjectShortName">rhoPin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/pcLoad" type="logic">
+      <obj_property name="ElementShortName">pcLoad</obj_property>
+      <obj_property name="ObjectShortName">pcLoad</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/jump_condition_fulfilled_s" type="logic">
+      <obj_property name="ElementShortName">jump_condition_fulfilled_s</obj_property>
+      <obj_property name="ObjectShortName">jump_condition_fulfilled_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/jmpCondition" type="array">
+      <obj_property name="ElementShortName">jmpCondition[2:0]</obj_property>
+      <obj_property name="ObjectShortName">jmpCondition[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/jmpConditional" type="logic">
+      <obj_property name="ElementShortName">jmpConditional</obj_property>
+      <obj_property name="ObjectShortName">jmpConditional</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/jmp" type="logic">
+      <obj_property name="ElementShortName">jmp</obj_property>
+      <obj_property name="ObjectShortName">jmp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/rho_mask_reg_s" type="array">
+      <obj_property name="ElementShortName">rho_mask_reg_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rho_mask_reg_s[15:0]</obj_property>
+   </wvobject>
+</wave_config>

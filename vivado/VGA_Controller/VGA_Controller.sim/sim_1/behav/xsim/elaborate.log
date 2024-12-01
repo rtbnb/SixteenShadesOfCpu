@@ -1,0 +1,29 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Vivado/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_8 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot VGA_ControllerWithMem_SIM_behav xil_defaultlib.VGA_ControllerWithMem_SIM xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.VGA_Controller [vga_controller_default]
+Compiling architecture testblockdesign_vga_controller_0_0_arch of entity xil_defaultlib.TestBlockDesign_VGA_Controller_0_0 [testblockdesign_vga_controller_0...]
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_output_stage(...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_8.blk_mem_gen_v8_4_8(C_FAMILY="art...
+Compiling module xil_defaultlib.TestBlockDesign_blk_mem_gen_0_0
+Compiling architecture structure of entity xil_defaultlib.TestBlockDesign [testblockdesign_default]
+Compiling architecture structure of entity xil_defaultlib.TestBlockDesign_wrapper [testblockdesign_wrapper_default]
+Compiling architecture behavioral of entity xil_defaultlib.vga_controllerwithmem_sim
+Built simulation snapshot VGA_ControllerWithMem_SIM_behav

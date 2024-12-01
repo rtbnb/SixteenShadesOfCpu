@@ -1,0 +1,6 @@
+vhdl xil_defaultlib  \
+"../../../bd/TestBlockDesign/ip/TestBlockDesign_VGA_Controller_0_0/sim/TestBlockDesign_VGA_Controller_0_0.vhd" \
+"../../../bd/TestBlockDesign/sim/TestBlockDesign.vhd" \
+
+# Do not sort compile order
+nosort

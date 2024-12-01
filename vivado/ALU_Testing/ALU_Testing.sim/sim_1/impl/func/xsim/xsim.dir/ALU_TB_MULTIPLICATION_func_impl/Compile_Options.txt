@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "ALU_TB_MULTIPLICATION_func_impl" "xil_defaultlib.ALU_TB_MULTIPLICATION" -log "elaborate.log" 

@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../memory_tryout.ip_user_files/bd/main_block/ip/main_block_main_0_0/sim/main_block_main_0_0.vhd" \
+"../../../../memory_tryout.ip_user_files/bd/main_block/sim/main_block.vhd" \
+"../../../../memory_tryout.gen/sources_1/bd/main_block/hdl/main_block_wrapper.vhd" \
+
+# Do not sort compile order
+nosort

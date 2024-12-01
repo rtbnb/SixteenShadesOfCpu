@@ -1,0 +1,7 @@
+Running: xsim.dir/CU_WriteSelector_SIM_behav/xsimk.exe -simmode gui -wdb CU_WriteSelector_SIM_behav.wdb -simrunnum 0 -socket 52478
+Design successfully loaded
+Design Loading Memory Usage: 7688 KB (Peak: 7688 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 8124 KB (Peak: 8124 KB)
+Simulation CPU Usage: 0 ms

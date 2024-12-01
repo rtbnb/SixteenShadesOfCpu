@@ -1,0 +1,286 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Fri Nov 22 12:55:09 2024
+| Host         : 8x8-Bit running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file opt_report_control_sets_0.rpt
+| Design       : TestBlockDesign_wrapper
+| Device       : xc7a35ti
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   208 |
+|    Minimum number of control sets                        |   208 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   831 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   208 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     2 |
+| >= 12 to < 14      |   201 |
+| >= 14 to < 16      |     1 |
+| >= 16              |     1 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |            2418 |            0 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              14 |            0 |
+| Yes          | No                    | No                     |            2400 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              33 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+--------------+
+|                        Clock Signal                       |                          Enable Signal                         |                        Set/Reset Signal                        | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+--------------+
+|  InstrExec_CLK_IBUF                                       |                                                                |                                                                |                0 |              3 |           NA |
+|  InstrExec_CLK_IBUF                                       |                                                                | TestBlockDesign_i/VGA_Controller_0/U0/TestBlockDesign1_net_825 |                0 |              5 |           NA |
+|  TestBlockDesign_i/VGA_Controller_0/U0/divided_clock_s    |                                                                | TestBlockDesign_i/VGA_Controller_0/U0/TestBlockDesign1_net_816 |                0 |              9 |           NA |
+|  TestBlockDesign_i/VGA_Controller_0/U0/divided_clock_s    | TestBlockDesign_i/VGA_Controller_0/U0/TestBlockDesign1_net_816 | TestBlockDesign_i/VGA_Controller_0/U0/TestBlockDesign1_net_829 |                0 |             10 |           NA |
+|  InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/TestBlockDesign1_net_803 | TestBlockDesign_i/VGA_Controller_0/U0/TestBlockDesign1_net_810 |                0 |             11 |           NA |
+|  InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/TestBlockDesign1_net_810 | TestBlockDesign_i/VGA_Controller_0/U0/TestBlockDesign1_net_827 |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[176]_346      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[182]_244      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[181]_296      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[184]_236      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[183]_219      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[186]_363      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[18]_252       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[196]_275      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[189]_395      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[190]_338      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[193]_326      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[195]_288      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[197]_301      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[191]_313      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[185]_211      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[192]_351      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[187]_387      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[194]_262      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[188]_375      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[36]_264       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[37]_290       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[3]_276        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[24]_231       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[34]_251       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[32]_340       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[35]_277       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[27]_382       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[38]_238       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[39]_213       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[40]_230       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[42]_357       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[41]_205       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[31]_302       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[43]_381       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[44]_369       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[25]_206       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[23]_214       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[33]_315       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[199]_224      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[2]_250        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[29]_390       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[19]_278       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[26]_358       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[198]_249      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[1]_314        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[21]_291       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[22]_239       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[28]_370       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[30]_327       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[20]_265       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[49]_317       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[4]_263        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[5]_289        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[50]_253       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[52]_266       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[56]_232       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[57]_207       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[47]_304       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[58]_359       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[54]_240       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[59]_383       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[55]_215       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[45]_389       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[51]_279       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[46]_329       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[48]_342       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[53]_292       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[7]_212        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[80]_349       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[64]_347       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[82]_260       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[60]_371       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[70]_245       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[74]_352       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[84]_273       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[85]_299       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[77]_396       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[88]_227       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[62]_334       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[76]_364       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[71]_220       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[83]_286       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[86]_247       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[81]_324       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[87]_222       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[6]_237        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[67]_284       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[63]_309       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[72]_225       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[61]_391       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[68]_271       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[66]_258       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[69]_297       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[73]_200       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[75]_376       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[78]_336       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[79]_311       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[65]_322       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[91]_378       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[90]_354       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[8]_229        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[98]_259       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[92]_366       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[96]_348       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[89]_202       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[94]_335       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[97]_323       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[9]_204        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[93]_398       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[95]_310       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[99]_285       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[102]_246      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[113]_325      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[116]_274      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[103]_221      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[109]_397      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[114]_261      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[111]_312      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[108]_365      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[117]_300      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[118]_248      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[115]_287      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[106]_353      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[107]_377      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[119]_223      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[105]_201      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[104]_226      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[110]_337      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[100]_272      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[0]_339        |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[10]_356       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[112]_350      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[101]_298      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[123]_379      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[144]_345      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[124]_367      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[145]_320      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[131]_280      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[137]_208      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[13]_388       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[128]_343      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[125]_399      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[130]_254      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[140]_372      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[133]_293      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[11]_380       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[129]_318      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[12]_368       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[134]_241      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[122]_355      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[136]_233      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[127]_305      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[120]_228      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[138]_360      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[139]_384      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[132]_267      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[126]_330      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[141]_392      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[135]_216      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[142]_332      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[143]_307      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[121]_203      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[162]_255      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[163]_281      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[165]_294      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[164]_268      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[167]_217      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[149]_295      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[161]_319      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[150]_243      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[146]_256      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[169]_209      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[16]_341       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[170]_361      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[173]_393      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[15]_303       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[157]_394      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[151]_218      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[168]_234      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[171]_385      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[152]_235      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[160]_344      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[156]_374      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[158]_331      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[14]_328       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[166]_242      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[155]_386      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[172]_373      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[174]_333      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[154]_362      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[153]_210      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[148]_269      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[147]_282      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[159]_306      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[17]_316       |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[179]_283      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[177]_321      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[178]_257      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[180]_270      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       | TestBlockDesign_i/VGA_Controller_0/U0/fetch_line[175]_308      |                                                                |                0 |             12 |           NA |
+| ~InstrExec_CLK_IBUF                                       |                                                                |                                                                |                0 |             15 |           NA |
+| ~TestBlockDesign_i/VGA_Controller_0/U0/v_counter_s_reg[1] |                                                                |                                                                |                0 |           2400 |           NA |
++-----------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+--------------+
+
+

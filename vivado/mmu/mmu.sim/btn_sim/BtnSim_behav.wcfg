@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="BtnSim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="BtnSim" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="88.263 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="161"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/BtnSim/clk100mhzIn" type="logic">
+      <obj_property name="ElementShortName">clk100mhzIn</obj_property>
+      <obj_property name="ObjectShortName">clk100mhzIn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/clk50mhzIn" type="logic">
+      <obj_property name="ElementShortName">clk50mhzIn</obj_property>
+      <obj_property name="ObjectShortName">clk50mhzIn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/we" type="logic">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/rho" type="logic">
+      <obj_property name="ElementShortName">rho</obj_property>
+      <obj_property name="ObjectShortName">rho</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/addr" type="array">
+      <obj_property name="ElementShortName">addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/dout" type="array">
+      <obj_property name="ElementShortName">dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/led00" type="logic">
+      <obj_property name="ElementShortName">led00</obj_property>
+      <obj_property name="ObjectShortName">led00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/led01" type="logic">
+      <obj_property name="ElementShortName">led01</obj_property>
+      <obj_property name="ObjectShortName">led01</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/led02" type="logic">
+      <obj_property name="ElementShortName">led02</obj_property>
+      <obj_property name="ObjectShortName">led02</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/led03" type="logic">
+      <obj_property name="ElementShortName">led03</obj_property>
+      <obj_property name="ObjectShortName">led03</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/led04" type="logic">
+      <obj_property name="ElementShortName">led04</obj_property>
+      <obj_property name="ObjectShortName">led04</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/btn00" type="logic">
+      <obj_property name="ElementShortName">btn00</obj_property>
+      <obj_property name="ObjectShortName">btn00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/btn01" type="logic">
+      <obj_property name="ElementShortName">btn01</obj_property>
+      <obj_property name="ObjectShortName">btn01</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/btn02" type="logic">
+      <obj_property name="ElementShortName">btn02</obj_property>
+      <obj_property name="ObjectShortName">btn02</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/btn03" type="logic">
+      <obj_property name="ElementShortName">btn03</obj_property>
+      <obj_property name="ObjectShortName">btn03</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/btn04" type="logic">
+      <obj_property name="ElementShortName">btn04</obj_property>
+      <obj_property name="ObjectShortName">btn04</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/rgb0" type="array">
+      <obj_property name="ElementShortName">rgb0[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb0[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/rgb1" type="array">
+      <obj_property name="ElementShortName">rgb1[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb1[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/rgb2" type="array">
+      <obj_property name="ElementShortName">rgb2[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb2[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BtnSim/rgb3" type="array">
+      <obj_property name="ElementShortName">rgb3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb3[2:0]</obj_property>
+   </wvobject>
+</wave_config>

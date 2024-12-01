@@ -1,0 +1,98 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "main_mmu_0_0",
+    "cell_name": "mmu_0",
+    "component_reference": "xilinx.com:module_ref:mmu:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../../../Integration.gen/sources_1/bd/main/ip/main_mmu_0_0",
+    "parameters": {
+      "component_parameters": {
+        "Component_Name": [ { "value": "main_mmu_0_0", "resolve_type": "user", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "artix7" } ],
+        "BASE_BOARD_PART": [ { "value": "" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xc7a35ti" } ],
+        "NEXTGEN_VERSAL": [ { "value": "0" } ],
+        "PACKAGE": [ { "value": "csg324" } ],
+        "PREFHDL": [ { "value": "VHDL" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-1L" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "I" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../Integration.gen/sources_1/bd/main/ip/main_mmu_0_0" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2024.1" } ],
+        "SYNTHESISFLOW": [ { "value": "GLOBAL" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "loadClk": [ { "direction": "in" } ],
+        "reset": [ { "direction": "in" } ],
+        "gramAddr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "gramDin": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "gramBank": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
+        "gramWe": [ { "direction": "in" } ],
+        "gramOe": [ { "direction": "in" } ],
+        "gramDout": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "iramAddr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "iramDout": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "debugEnable": [ { "direction": "in" } ],
+        "debugOverrideEnable": [ { "direction": "in" } ],
+        "debugClk": [ { "direction": "in" } ],
+        "debugAddr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "debugDin": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "debugBank": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
+        "debugWe": [ { "direction": "in" } ],
+        "debugDout": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "gpuClk": [ { "direction": "in" } ],
+        "gpuAddr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "gpuDin": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
+        "gpuWe": [ { "direction": "in" } ],
+        "gpuDout": [ { "direction": "out", "size_left": "11", "size_right": "0" } ],
+        "vgaClk": [ { "direction": "in" } ],
+        "vgaAddr": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "vgaDout": [ { "direction": "out", "size_left": "11", "size_right": "0" } ],
+        "vramaMemAddr": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "vramaMemClk": [ { "direction": "out" } ],
+        "vramaMemDin": [ { "direction": "out", "size_left": "11", "size_right": "0" } ],
+        "vramaMemWe": [ { "direction": "out", "size_left": "0", "size_right": "0" } ],
+        "vramaMemDout": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
+        "vrambMemAddr": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "vrambMemClk": [ { "direction": "out" } ],
+        "vrambMemDin": [ { "direction": "out", "size_left": "11", "size_right": "0" } ],
+        "vrambMemWe": [ { "direction": "out", "size_left": "0", "size_right": "0" } ],
+        "vrambMemDout": [ { "direction": "in", "size_left": "11", "size_right": "0" } ],
+        "mmioMemClk": [ { "direction": "out" } ],
+        "mmioMemWe": [ { "direction": "out" } ],
+        "mmioMemAddr": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "mmioMemDin": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "mmioMemDout": [ { "direction": "in", "size_left": "15", "size_right": "0" } ]
+      },
+      "interfaces": {
+        "reset": {
+          "vlnv": "xilinx.com:signal:reset:1.0",
+          "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "reset" } ]
+          }
+        }
+      }
+    }
+  }
+}

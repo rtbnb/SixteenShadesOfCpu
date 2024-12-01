@@ -1,0 +1,6 @@
+0.7
+2020.2
+May 22 2024
+19:03:11
+D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.sim/sim_1/impl/timing/xsim/mainSim_time_impl.v,1731709249,verilog,,,,ALU;CU_Decoder;CU_ImmediateManipulator;CU_JumpController;CU_JumpDestinationSelector;CU_RAMAddressController;CU_WriteSelector;Decoder;Pipelining_Controller;Pipelining_ExecutionStage;Pipelining_Forwarder;Pipelining_WriteBackStage;ProgramCounter;RAM256X1S_HD1;RAM256X1S_HD10;RAM256X1S_HD11;RAM256X1S_HD12;RAM256X1S_HD13;RAM256X1S_HD14;RAM256X1S_HD15;RAM256X1S_HD2;RAM256X1S_HD3;RAM256X1S_HD4;RAM256X1S_HD5;RAM256X1S_HD6;RAM256X1S_HD7;RAM256X1S_HD8;RAM256X1S_HD9;RAM256X1S_UNIQ_BASE_;RAM_Placeholder;RegFile;glbl;main;main_ALU_0_0;main_ALU_FLAG_PACKER_0_1;main_CU_Decoder_0_0;main_CU_ImmediateManipula_0_0;main_CU_JumpController_0_0;main_CU_JumpDestinationSe_0_0;main_CU_RAMAddressControl_0_0;main_CU_WriteSelector_0_0;main_Decoder_0_0;main_IROM_0_1;main_Pipelining_Controller_0_0;main_Pipelining_Execution_0_0;main_Pipelining_Forwarder_0_0;main_Pipelining_WriteBack_0_0;main_ProgramCounter_0_0;main_RAM_Placeholder_0_0;main_RegFile_0_0;main_wrapper,,,,,,,,
+D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.srcs/sim_1/new/mainSim.vhd,1731708475,vhdl,,,,mainsim,,,,,,,,

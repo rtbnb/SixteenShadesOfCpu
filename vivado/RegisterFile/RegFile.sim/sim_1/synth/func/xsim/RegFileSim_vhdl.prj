@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"RegFileSim_func_synth.vhd" \
+"../../../../../RegFile.srcs/sim_1/new/RegFileSim.vhd" \
+
+# Do not sort compile order
+nosort
