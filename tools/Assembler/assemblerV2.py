@@ -52,7 +52,7 @@ instructions = {
     "IMH": [5, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.NUMBER, 0, 8)]],
     "RDMr": [6, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4)]],
     "WRMr": [7, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4)]],
-    "JC": [8, [Argument(0, ArgumentType.NUMBER, 9, 3), Argument(1, ArgumentType.NUMBER, 0, 9)]],
+    "JC": [8, [Argument(0, ArgumentType.NUMBER, 7, 5), Argument(1, ArgumentType.NUMBER, 0, 7)]],
     "JR": [9, [Argument(0, ArgumentType.REGISTER, 8, 4)]],
     "JA": [10, [Argument(0, ArgumentType.NUMBER, 0, 12)]],
     "CR": [14, [Argument(0, ArgumentType.REGISTER, 8, 4), Argument(1, ArgumentType.REGISTER, 4, 4)]],

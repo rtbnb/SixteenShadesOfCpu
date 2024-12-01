@@ -16,14 +16,21 @@
 %define ALU_NOR 14
 %define ALU_XNOR 15
 
-%define JC_Carry 0
-%define JC_Zero 1
-%define JC_Smaller 2
-%define JC_Bigger 3
-%define JC_Overflow 4
-%define JC_RhoPin 5
-%define JC_NotZero 6
-%define JC_Unconditional 7
+%define JC_Carry            0b00000
+%define JC_NotCarry         0b10000
+%define JC_Zero             0b00001
+%define JC_NotZero          0b10001
+%define JC_Smaller          0b00010
+%define JC_NotSmaller       0b10010
+%define JC_Bigger           0b00011
+%define JC_NotBigger        0b10011
+%define JC_Overflow         0b00100
+%define JC_NotOverflow      0b10100
+%define JC_RhoPin           0b01000
+%define JC_NotRhoPin        0b11000
+%define JC_GPUDone          0b01001
+%define JC_NotGPUDone       0b11001
+%define JC_Unconditional    0b00111
 
 %define GRAM_Bank 0
 %define MMIO_Bank 1
@@ -491,21 +498,18 @@ _code:
 .main_after_render
     IML $t0, 0
     IMH $t0, 0
-    IML $BI, GRAM_Bank
-    RDMi $t9, player1_up_button
     IML $BI, MMIO_Bank
+    IML $t9, MMIO_Player1_UpButton[0]
+    IMH $t9, MMIO_Player1_UpButton[1]
     RDMr $t1, $t9
-    IML $BI, GRAM_Bank
-    RDMi $t9, player1_down_button
-    IML $BI, MMIO_Bank
+    IML $t9, MMIO_Player1_DownButton[0]
+    IMH $t9, MMIO_Player1_DownButton[1]
     RDMr $t2, $t9
-    IML $BI, GRAM_Bank
-    RDMi $t9, player2_up_button
-    IML $BI, MMIO_Bank
+    IML $t9, MMIO_Player2_UpButton[0]
+    IMH $t9, MMIO_Player2_UpButton[1]
     RDMr $t3, $t9
-    IML $BI, GRAM_Bank
-    RDMi $t9, player2_down_button
-    IML $BI, MMIO_Bank
+    IML $t9, MMIO_Player2_DownButton[0]
+    IMH $t9, MMIO_Player2_DownButton[1]
     RDMr $t4, $t9
     IML $BI, GRAM_Bank
     IML $t5, 2
