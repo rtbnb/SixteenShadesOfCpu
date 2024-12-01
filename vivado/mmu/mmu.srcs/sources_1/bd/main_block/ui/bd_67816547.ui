@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.16629",
-   "Default View_TopLeft":"-612,-514",
+   "Default View_TopLeft":"-725,-328",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
@@ -52,37 +52,37 @@ preplace port port-id_debugMockClk -pg 1 -lvl 0 -x -480 -y -270 -defaultsOSRD
 preplace port port-id_clk100mhzIn -pg 1 -lvl 0 -x -480 -y -350 -defaultsOSRD
 preplace port port-id_faultReset -pg 1 -lvl 0 -x -480 -y -330 -defaultsOSRD
 preplace port port-id_debugReset -pg 1 -lvl 0 -x -480 -y -310 -defaultsOSRD
-preplace port port-id_gramWe -pg 1 -lvl 0 -x -480 -y -110 -defaultsOSRD
-preplace port port-id_debugWe -pg 1 -lvl 0 -x -480 -y 70 -defaultsOSRD
-preplace port port-id_gpuWe -pg 1 -lvl 0 -x -480 -y 150 -defaultsOSRD
-preplace port port-id_gramOe -pg 1 -lvl 0 -x -480 -y -90 -defaultsOSRD
-preplace port port-id_debugOverrideEnable -pg 1 -lvl 0 -x -480 -y -30 -defaultsOSRD
-preplace port port-id_external_debugClk -pg 1 -lvl 0 -x -480 -y -10 -defaultsOSRD
-preplace port port-id_gpuClk -pg 1 -lvl 0 -x -480 -y 90 -defaultsOSRD
+preplace port port-id_gramWe -pg 1 -lvl 0 -x -480 -y -130 -defaultsOSRD
+preplace port port-id_debugWe -pg 1 -lvl 0 -x -480 -y 50 -defaultsOSRD
+preplace port port-id_gpuWe -pg 1 -lvl 0 -x -480 -y 130 -defaultsOSRD
+preplace port port-id_gramOe -pg 1 -lvl 0 -x -480 -y -110 -defaultsOSRD
+preplace port port-id_debugOverrideEnable -pg 1 -lvl 0 -x -480 -y -50 -defaultsOSRD
+preplace port port-id_external_debugClk -pg 1 -lvl 0 -x -480 -y -30 -defaultsOSRD
+preplace port port-id_gpuClk -pg 1 -lvl 0 -x -480 -y 70 -defaultsOSRD
 preplace port port-id_debugEnableIn -pg 1 -lvl 0 -x -480 -y -290 -defaultsOSRD
-preplace portBus gram_dout -pg 1 -lvl 4 -x 1840 -y -140 -defaultsOSRD
-preplace portBus iram_dout -pg 1 -lvl 4 -x 1840 -y -120 -defaultsOSRD
-preplace portBus debug_dout -pg 1 -lvl 4 -x 1840 -y -100 -defaultsOSRD
-preplace portBus gpu_dout -pg 1 -lvl 4 -x 1840 -y -80 -defaultsOSRD
-preplace portBus vga_dout -pg 1 -lvl 4 -x 1840 -y -60 -defaultsOSRD
+preplace portBus gram_dout -pg 1 -lvl 4 -x 1840 -y -150 -defaultsOSRD
+preplace portBus iram_dout -pg 1 -lvl 4 -x 1840 -y -130 -defaultsOSRD
+preplace portBus debug_dout -pg 1 -lvl 4 -x 1840 -y -110 -defaultsOSRD
+preplace portBus gpu_dout -pg 1 -lvl 4 -x 1840 -y -90 -defaultsOSRD
+preplace portBus vga_dout -pg 1 -lvl 4 -x 1840 -y -70 -defaultsOSRD
 preplace portBus rgb0 -pg 1 -lvl 4 -x 1840 -y 740 -defaultsOSRD
 preplace portBus rgb1 -pg 1 -lvl 4 -x 1840 -y 760 -defaultsOSRD
 preplace portBus rgb2 -pg 1 -lvl 4 -x 1840 -y 780 -defaultsOSRD
 preplace portBus rgb3 -pg 1 -lvl 4 -x 1840 -y 800 -defaultsOSRD
-preplace portBus vgaAddr -pg 1 -lvl 0 -x -480 -y 190 -defaultsOSRD
-preplace portBus gramAddr -pg 1 -lvl 0 -x -480 -y -170 -defaultsOSRD
-preplace portBus gramBank -pg 1 -lvl 0 -x -480 -y -130 -defaultsOSRD
-preplace portBus gramDin -pg 1 -lvl 0 -x -480 -y -150 -defaultsOSRD
-preplace portBus debugAddr -pg 1 -lvl 0 -x -480 -y 10 -defaultsOSRD
-preplace portBus iramAddr -pg 1 -lvl 0 -x -480 -y -70 -defaultsOSRD
-preplace portBus debugDin -pg 1 -lvl 0 -x -480 -y 30 -defaultsOSRD
-preplace portBus debugBank -pg 1 -lvl 0 -x -480 -y 50 -defaultsOSRD
-preplace portBus gpuAddr -pg 1 -lvl 0 -x -480 -y 110 -defaultsOSRD
-preplace portBus gpuDin -pg 1 -lvl 0 -x -480 -y 130 -defaultsOSRD
-preplace inst vram -pg 1 -lvl 3 -x 1440 -y 110 -defaultsOSRD
+preplace portBus vgaAddr -pg 1 -lvl 0 -x -480 -y 170 -defaultsOSRD
+preplace portBus gramAddr -pg 1 -lvl 0 -x -480 -y -190 -defaultsOSRD
+preplace portBus gramBank -pg 1 -lvl 0 -x -480 -y -150 -defaultsOSRD
+preplace portBus gramDin -pg 1 -lvl 0 -x -480 -y -170 -defaultsOSRD
+preplace portBus debugAddr -pg 1 -lvl 0 -x -480 -y -10 -defaultsOSRD
+preplace portBus iramAddr -pg 1 -lvl 0 -x -480 -y -90 -defaultsOSRD
+preplace portBus debugDin -pg 1 -lvl 0 -x -480 -y 10 -defaultsOSRD
+preplace portBus debugBank -pg 1 -lvl 0 -x -480 -y 30 -defaultsOSRD
+preplace portBus gpuAddr -pg 1 -lvl 0 -x -480 -y 90 -defaultsOSRD
+preplace portBus gpuDin -pg 1 -lvl 0 -x -480 -y 110 -defaultsOSRD
+preplace inst vram -pg 1 -lvl 3 -x 1440 -y 100 -defaultsOSRD
 preplace inst mmio_0 -pg 1 -lvl 3 -x 1440 -y 570 -defaultsOSRD
 preplace inst clockcontroller_0 -pg 1 -lvl 1 -x 360 -y -300 -defaultsOSRD
-preplace inst mmu_1 -pg 1 -lvl 2 -x 790 -y 20 -defaultsOSRD
+preplace inst mmu_1 -pg 1 -lvl 2 -x 790 -y 10 -defaultsOSRD
 preplace netloc btn00_1 1 0 3 NJ 440 NJ 440 N
 preplace netloc btn01_1 1 0 3 NJ 460 NJ 460 N
 preplace netloc btn02_1 1 0 3 NJ 480 NJ 480 N
@@ -104,31 +104,31 @@ preplace netloc btn17_1 1 0 3 NJ 780 NJ 780 N
 preplace netloc btn18_1 1 0 3 NJ 800 NJ 800 N
 preplace netloc btn19_1 1 0 3 NJ 820 NJ 820 N
 preplace netloc clk100mhzIn_1 1 0 1 NJ -350
-preplace netloc clockcontroller_0_clk100mhzOut 1 1 2 NJ -280 1070
+preplace netloc clockcontroller_0_clk100mhzOut 1 1 2 NJ -280 1060
 preplace netloc clockcontroller_0_debugClk 1 1 3 N -300 N -300 N
 preplace netloc clockcontroller_0_debugEnableOut 1 1 1 540 -260n
-preplace netloc clockcontroller_0_load_clk 1 1 2 590 -270 1050
+preplace netloc clockcontroller_0_load_clk 1 1 2 590 -310 1070
 preplace netloc clockcontroller_0_vgaClk 1 1 3 580 -320 N -320 N
-preplace netloc debugAddr_1 1 0 2 -440J 0 NJ
-preplace netloc debugBank_1 1 0 2 -440J 40 NJ
-preplace netloc debugDin_1 1 0 2 -460J 20 NJ
+preplace netloc debugAddr_1 1 0 2 NJ -10 NJ
+preplace netloc debugBank_1 1 0 2 NJ 30 NJ
+preplace netloc debugDin_1 1 0 2 NJ 10 NJ
 preplace netloc debugEnableIn_1 1 0 1 N -290
 preplace netloc debugMockClk_1 1 0 1 N -270
 preplace netloc debugReset_1 1 0 1 NJ -310
-preplace netloc debugWe_1 1 0 2 -460J 60 NJ
-preplace netloc debug_override_enable_1 1 0 2 170J -40 N
-preplace netloc external_debugClk_1 1 0 2 -460J -20 NJ
+preplace netloc debugWe_1 1 0 2 NJ 50 NJ
+preplace netloc debug_override_enable_1 1 0 2 180J -50 N
+preplace netloc external_debugClk_1 1 0 2 NJ -30 NJ
 preplace netloc faultReset_1 1 0 1 NJ -330
-preplace netloc gpuAddr_1 1 0 2 -460J 100 NJ
-preplace netloc gpuClk_1 1 0 2 -440J 80 NJ
-preplace netloc gpuDin_1 1 0 2 -440J 120 NJ
-preplace netloc gpuWe_1 1 0 2 -460J 140 NJ
-preplace netloc gramAddr_1 1 0 2 -460J -180 NJ
-preplace netloc gramBank_1 1 0 2 -460J -140 NJ
-preplace netloc gramDin_1 1 0 2 -460J -160 NJ
-preplace netloc gramOe_1 1 0 2 180J -100 NJ
-preplace netloc gramWe_1 1 0 2 180J -120 NJ
-preplace netloc iramAddr_1 1 0 2 180J -80 NJ
+preplace netloc gpuAddr_1 1 0 2 NJ 90 NJ
+preplace netloc gpuClk_1 1 0 2 NJ 70 NJ
+preplace netloc gpuDin_1 1 0 2 NJ 110 NJ
+preplace netloc gpuWe_1 1 0 2 NJ 130 NJ
+preplace netloc gramAddr_1 1 0 2 NJ -190 NJ
+preplace netloc gramBank_1 1 0 2 NJ -150 NJ
+preplace netloc gramDin_1 1 0 2 NJ -170 NJ
+preplace netloc gramOe_1 1 0 2 NJ -110 NJ
+preplace netloc gramWe_1 1 0 2 NJ -130 NJ
+preplace netloc iramAddr_1 1 0 2 NJ -90 NJ
 preplace netloc mmio_0_dout 1 1 3 600 880 NJ 880 1570
 preplace netloc mmio_0_led00 1 3 1 N 340
 preplace netloc mmio_0_led01 1 3 1 N 360
@@ -155,26 +155,26 @@ preplace netloc mmio_0_rgb1 1 3 1 N 760
 preplace netloc mmio_0_rgb2 1 3 1 N 780
 preplace netloc mmio_0_rgb3 1 3 1 N 800
 preplace netloc mmio_0_rho 1 3 1 N 820
-preplace netloc mmu_1_debugDout 1 2 2 N -100 NJ
-preplace netloc mmu_1_gpuDout 1 2 2 N -80 NJ
-preplace netloc mmu_1_gramDout 1 2 2 NJ -140 N
-preplace netloc mmu_1_iramDout 1 2 2 N -120 NJ
-preplace netloc mmu_1_mmioMemAddr 1 2 1 980 160n
-preplace netloc mmu_1_mmioMemClk 1 2 1 1000 120n
-preplace netloc mmu_1_mmioMemDin 1 2 1 970 180n
-preplace netloc mmu_1_mmioMemWe 1 2 1 990 140n
-preplace netloc mmu_1_vgaDout 1 2 2 N -60 NJ
-preplace netloc mmu_1_vramaMemAddr 1 2 1 1110 -40n
-preplace netloc mmu_1_vramaMemClk 1 2 1 1090 -20n
-preplace netloc mmu_1_vramaMemDin 1 2 1 1080 0n
-preplace netloc mmu_1_vramaMemWe 1 2 1 1060 20n
-preplace netloc mmu_1_vrambMemAddr 1 2 1 1040 40n
-preplace netloc mmu_1_vrambMemClk 1 2 1 1030 60n
-preplace netloc mmu_1_vrambMemDin 1 2 1 1020 80n
-preplace netloc mmu_1_vrambMemWe 1 2 1 1010 100n
-preplace netloc vgaAddr_1 1 0 2 -440J 180 NJ
-preplace netloc vram_douta 1 1 2 610 -260 1100J
-preplace netloc vram_doutb 1 1 2 610 300 1020J
+preplace netloc mmu_1_debugDout 1 2 2 N -110 NJ
+preplace netloc mmu_1_gpuDout 1 2 2 N -90 NJ
+preplace netloc mmu_1_gramDout 1 2 2 NJ -150 N
+preplace netloc mmu_1_iramDout 1 2 2 N -130 NJ
+preplace netloc mmu_1_mmioMemAddr 1 2 1 980 150n
+preplace netloc mmu_1_mmioMemClk 1 2 1 1000 110n
+preplace netloc mmu_1_mmioMemDin 1 2 1 970 170n
+preplace netloc mmu_1_mmioMemWe 1 2 1 990 130n
+preplace netloc mmu_1_vgaDout 1 2 2 N -70 NJ
+preplace netloc mmu_1_vramaMemAddr 1 2 1 1110 -50n
+preplace netloc mmu_1_vramaMemClk 1 2 1 1090 -30n
+preplace netloc mmu_1_vramaMemDin 1 2 1 1080 -10n
+preplace netloc mmu_1_vramaMemWe 1 2 1 1050 10n
+preplace netloc mmu_1_vrambMemAddr 1 2 1 1040 30n
+preplace netloc mmu_1_vrambMemClk 1 2 1 1030 50n
+preplace netloc mmu_1_vrambMemDin 1 2 1 1020 70n
+preplace netloc mmu_1_vrambMemWe 1 2 1 1010 90n
+preplace netloc vgaAddr_1 1 0 2 NJ 170 NJ
+preplace netloc vram_douta 1 1 2 610 -270 1100J
+preplace netloc vram_doutb 1 1 2 610 290 1020J
 levelinfo -pg 1 -480 360 790 1440 1840
 pagesize -pg 1 -db -bbox -sgen -680 -980 2180 1260
 "
