@@ -33,7 +33,7 @@ entity Pipelining_ExecutionStage is
         jmpConditional : in std_logic;
         jmpRelative : in std_logic;
         jmpDestinationSelect : in std_logic;
-        jmpCondition : in std_logic_vector(2 downto 0);
+        jmpCondition : in std_logic_vector(4 downto 0);
         isALUOp : in std_logic;
         isRAMOp : in std_logic;
         isGPUOp : in std_logic;
@@ -54,7 +54,7 @@ entity Pipelining_ExecutionStage is
         jmpConditionalOut : out std_logic;
         jmpRelativeOut : out std_logic;
         jmpDestinationSelectOut : out std_logic;
-        jmpConditionOut : out std_logic_vector(2 downto 0);
+        jmpConditionOut : out std_logic_vector(4 downto 0);
         isALUOpOut : out std_logic;
         isRAMOpOut : out std_logic;
         isGPUOpOut : out std_logic
@@ -67,7 +67,7 @@ architecture Behavioral of Pipelining_ExecutionStage is
     signal whb_s, wlb_s, rf_write_s, ram_src_s, ram_read_s, ram_write_s, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_sel_s, is_alu_op_s, is_ram_op_s, is_gpu_op_s : std_logic;
     signal write_data_select_s : std_logic_vector(2 downto 0);
     signal flag_select_s : std_logic_vector(0 downto 0);
-    signal jmp_condition_s : std_logic_vector(2 downto 0);
+    signal jmp_condition_s : std_logic_vector(4 downto 0);
     signal bank_id_s : std_logic_vector(3 downto 0);
 begin
     latcher : process(loadClk, reset) is
@@ -90,7 +90,7 @@ begin
             jmp_conditional_s <= '0';
             jmp_relative_s <= '0';
             jmp_destination_sel_s <= '0';
-            jmp_condition_s <= "000";
+            jmp_condition_s <= "00000";
             is_alu_op_s <= '0';
             is_ram_op_s <= '0';
             is_gpu_op_s <= '0';

@@ -55,7 +55,7 @@
         "pipelineJmpConditional": [ { "direction": "in" } ],
         "pipelineJmpRelative": [ { "direction": "in" } ],
         "pipelineJmpDestinationSelect": [ { "direction": "in" } ],
-        "pipelineJmpCondition": [ { "direction": "in", "size_left": "2", "size_right": "0" } ],
+        "pipelineJmpCondition": [ { "direction": "in", "size_left": "4", "size_right": "0" } ],
         "pipelineWriteDataSel": [ { "direction": "in", "size_left": "1", "size_right": "0" } ],
         "pipelineRamSrc": [ { "direction": "in" } ],
         "pipelineRamRead": [ { "direction": "in" } ],
