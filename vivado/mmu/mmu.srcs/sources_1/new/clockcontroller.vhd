@@ -17,8 +17,8 @@ use unisim.vcomponents.all;
 entity clockcontroller is
     port(
         clk100mhzIn, faultReset, debugReset: in std_logic;
-        debugEnableIn, debugMockClk, debugMmuOverrideEnable: in std_logic;
-        loadClk, vgaClk, debugClk, clk100mhzOut, debugEnableOut: out std_logic
+        debugEnable, debugMockClk, debugMmuOverrideEnable: in std_logic;
+        loadClk, vgaClk, debugClk, clk100mhzOut: out std_logic
     );
 end entity clockcontroller;
 
@@ -41,7 +41,6 @@ architecture Behavioral of clockcontroller is
     signal clk50mhz_s, transfer_clk_s, load_clk_transfer_s: std_logic;
 begin
     output_en_s <= not (debug_en_s or debugMmuOverrideEnable);
-    debugEnableOut <= debug_en_s;
     
     clk50mhz_divider : BUFR
     generic map (
@@ -87,9 +86,9 @@ begin
     debug_state:process(clk50mhz_s) is
     begin
         if rising_edge(clk50mhz_s) then
-            if debugEnableIn='0' and debugReset='1' then
+            if debugEnable='0' and debugReset='1' then
                 debug_en_s <= '0';
-            elsif debugEnableIn='1' then
+            elsif debugEnable='1' then
                 debug_en_s <= '1';
             end if;
         end if;
