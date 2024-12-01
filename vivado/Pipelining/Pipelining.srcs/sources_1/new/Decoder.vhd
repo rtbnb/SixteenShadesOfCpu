@@ -18,7 +18,7 @@ entity Decoder is
         register2 : out std_logic_vector(3 downto 0);
         writeBackRegister : out std_logic_vector(3 downto 0);
         immediate : out std_logic_vector(15 downto 0);
-        jmpCondition : out std_logic_vector(2 downto 0)
+        jmpCondition : out std_logic_vector(4 downto 0)
     );
 end entity Decoder;
 
@@ -94,15 +94,17 @@ begin
     eight_bit_immediate_s(7 downto 0) <= instructionToDecode(7 downto 0);
     eight_bit_immediate_s(15 downto 8) <= X"00";
     
-    jc_immediate_s(8 downto 0) <= instructionToDecode(8 downto 0);
+    jc_immediate_s(6 downto 0) <= instructionToDecode(6 downto 0);
     -- Signed extension
-    jc_immediate_s(9) <= instructionToDecode(8);
-    jc_immediate_s(10) <= instructionToDecode(8);
-    jc_immediate_s(11) <= instructionToDecode(8);
-    jc_immediate_s(12) <= instructionToDecode(8);
-    jc_immediate_s(13) <= instructionToDecode(8);
-    jc_immediate_s(14) <= instructionToDecode(8);
-    jc_immediate_s(15) <= instructionToDecode(8);
+    jc_immediate_s(7)  <= instructionToDecode(6);
+    jc_immediate_s(8)  <= instructionToDecode(6);
+    jc_immediate_s(9)  <= instructionToDecode(6);
+    jc_immediate_s(10) <= instructionToDecode(6);
+    jc_immediate_s(11) <= instructionToDecode(6);
+    jc_immediate_s(12) <= instructionToDecode(6);
+    jc_immediate_s(13) <= instructionToDecode(6);
+    jc_immediate_s(14) <= instructionToDecode(6);
+    jc_immediate_s(15) <= instructionToDecode(6);
     
     ja_immediate_s(11 downto 0) <= instructionToDecode(11 downto 0);
     ja_immediate_s(15 downto 12) <= X"0";
@@ -130,5 +132,5 @@ begin
             gpu_immediate_s when X"f",
             X"0000" when others;
     
-    jmpCondition <= instructionToDecode(11 downto 9);
+    jmpCondition <= instructionToDecode(11 downto 7);
 end architecture Behavioral;

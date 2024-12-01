@@ -56,7 +56,7 @@
         "jmpConditional": [ { "direction": "in" } ],
         "jmpRelative": [ { "direction": "in" } ],
         "jmpDestinationSelect": [ { "direction": "in" } ],
-        "jmpCondition": [ { "direction": "in", "size_left": "2", "size_right": "0" } ],
+        "jmpCondition": [ { "direction": "in", "size_left": "4", "size_right": "0" } ],
         "isALUOp": [ { "direction": "in" } ],
         "isRAMOp": [ { "direction": "in" } ],
         "isGPUOp": [ { "direction": "in" } ],
@@ -77,7 +77,7 @@
         "jmpConditionalOut": [ { "direction": "out" } ],
         "jmpRelativeOut": [ { "direction": "out" } ],
         "jmpDestinationSelectOut": [ { "direction": "out" } ],
-        "jmpConditionOut": [ { "direction": "out", "size_left": "2", "size_right": "0" } ],
+        "jmpConditionOut": [ { "direction": "out", "size_left": "4", "size_right": "0" } ],
         "isALUOpOut": [ { "direction": "out" } ],
         "isRAMOpOut": [ { "direction": "out" } ],
         "isGPUOpOut": [ { "direction": "out" } ]
