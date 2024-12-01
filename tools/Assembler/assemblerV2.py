@@ -39,8 +39,8 @@ class Argument():
                 return current_binary | ((num & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
 
 #asm_file = "architektur/TestProgramme/MMIOTest.asm"
-#asm_file = "architektur/Programme/pong/pong.asm"
-asm_file = "architektur/Programme/demonstration/demonstration.asm"
+asm_file = "architektur/Programme/pong/pong.asm"
+#asm_file = "architektur/Programme/demonstration/demonstration.asm"
 asm_file_name = ".".join(asm_file.split(".")[0:-1])
 
 instructions = {
