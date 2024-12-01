@@ -218,16 +218,49 @@ begin
         debugDin <= "UUUUUUUUUUUUUUUU";
         debugWe <= '0';
         
+        btn00 <= '1';
+        
+        wait for 2500ps; --mmio button read
+        debugBank <= "0001";
+        debugAddr <= "1000000000010100";
+        debugWe <= '0';
+        
+        wait for 7500ps; --blank
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        debugWe <= '0';
+        
+        btn00 <= '0';
+        debugOverrideEnable <= '0';
+        wait for 2500ps;
+        
+        debugReset <= '1';
+        wait for 7500ps;
+        debugReset <= '0';
+        
+        wait for 2500ps;
+        iramAddr <= "0000000000000001";
+        gramAddr <= "0000000000000001";
+        gramBank <= "0000";
+        gramOe <= '1';
+        gramWe <= '0';
+        
+        wait for 7500ps;
+        gramAddr <= "UUUUUUUUUUUUUUUU";
+        iramAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        gramBank <= "UUUU";
+        gramOe <= '0';
+        gramWe <= '0';
+        
         wait for 2500ps;
         
         wait for 30ns;
-        debugOverrideEnable <= '0';
+        
         
         while true loop
-            debugBank <= "0000";
-            debugAddr <= X"0000";
-            debugDin <= X"0000";
-            debugWe <= '0';
+            debugOverrideEnable <= '0';
             wait for 10ns;
         end loop;
     
@@ -263,7 +296,7 @@ begin
         wait for 5ns;
         external_debugClk <= '1';
         wait for 5ns;
-        external_debugClk <= '0';
+        external_debugClk <= '0';    
                                 
         while true loop
             wait for 10ns;
@@ -277,48 +310,4 @@ begin
         wait for 10ns;
     end process;
     
---    process
---    begin
---        debugEnableIn <= '1';
---        debugReset <= '0';
---        wait for 100ns;
---        debugEnableIn <= '0';
---        debugReset <= '1';
---        
---        while true loop
---            debugEnableIn <= '1';
---            wait for 10ns;
---        end loop;
---
---    end process;
-    
-    process
-    begin
-        iramAddr <= X"0000";
-        faultReset <= '0';
-        
-        gramBank <= "0000";
-        count_s <= '0';
-        gramWe <= '0';
-        gramDin <= X"0000";
-        gramAddr <= X"0000";
-        wait for 10ns;
-        
-        while true loop
-            count_s <= not count_s;
-            
-            if count_s='1' then
-                gramBank <= "0000";
-            else
-                gramBank <= "0000";
-            end if;
-            
-            gramWe <= '1';
-            gramAddr <= X"0001";
-            gramDin <= std_logic_vector(unsigned(gramDin) + 1);
-            wait for 10ns;
-        end loop;
-    
-    end process;
-
 end Behavioral;

@@ -1125,8 +1125,8 @@
       "clockcontroller_0_load_clk": {
         "ports": [
           "clockcontroller_0/loadClk",
-          "mmio_0/clk50mhzIn",
-          "mmu_1/loadClk"
+          "mmu_1/loadClk",
+          "mmio_0/clk50mhzIn"
         ]
       },
       "clockcontroller_0_vgaClk": {
