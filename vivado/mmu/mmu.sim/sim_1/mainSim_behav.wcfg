@@ -11,181 +11,117 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="193.508 ns"></ZoomEndTime>
-      <Cursor1Time time="94.645 ns"></Cursor1Time>
+      <ZoomStartTime time="504.950 ns"></ZoomStartTime>
+      <ZoomEndTime time="620.751 ns"></ZoomEndTime>
+      <Cursor1Time time="555.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="173"></NameColumnWidth>
-      <ValueColumnWidth column_width="83"></ValueColumnWidth>
+      <NameColumnWidth column_width="177"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="35" />
-   <wvobject fp_name="/mainSim/clk100mhzIn" type="logic">
-      <obj_property name="ElementShortName">clk100mhzIn</obj_property>
-      <obj_property name="ObjectShortName">clk100mhzIn</obj_property>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/mainSim/clk100mhz_in" type="logic">
+      <obj_property name="ElementShortName">clk100mhz_in</obj_property>
+      <obj_property name="ObjectShortName">clk100mhz_in</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/loadClk" type="logic">
-      <obj_property name="ElementShortName">loadClk</obj_property>
-      <obj_property name="ObjectShortName">loadClk</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/clk50mhz_in" type="logic">
+      <obj_property name="ElementShortName">clk50mhz_in</obj_property>
+      <obj_property name="ObjectShortName">clk50mhz_in</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/vgaClk" type="logic">
-      <obj_property name="ElementShortName">vgaClk</obj_property>
-      <obj_property name="ObjectShortName">vgaClk</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/load_clk" type="logic">
+      <obj_property name="ElementShortName">load_clk</obj_property>
+      <obj_property name="ObjectShortName">load_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/debugClk" type="logic">
-      <obj_property name="ElementShortName">debugClk</obj_property>
-      <obj_property name="ObjectShortName">debugClk</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/exec_clk" type="logic">
+      <obj_property name="ElementShortName">exec_clk</obj_property>
+      <obj_property name="ObjectShortName">exec_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_1/debugClk" type="logic">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">debugClk</obj_property>
-      <obj_property name="ObjectShortName">debugClk</obj_property>
-      <obj_property name="label">mmu_debugClk</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/debug_clk" type="logic">
+      <obj_property name="ElementShortName">debug_clk</obj_property>
+      <obj_property name="ObjectShortName">debug_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/debugEnableIn" type="logic">
-      <obj_property name="ElementShortName">debugEnableIn</obj_property>
-      <obj_property name="ObjectShortName">debugEnableIn</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/debugReset" type="logic">
-      <obj_property name="ElementShortName">debugReset</obj_property>
-      <obj_property name="ObjectShortName">debugReset</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/wizard_locked" type="logic">
+      <obj_property name="ElementShortName">wizard_locked</obj_property>
+      <obj_property name="ObjectShortName">wizard_locked</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/EUT/main_block_i/clockcontroller_0/U0/debug_en_s" type="logic">
       <obj_property name="ElementShortName">debug_en_s</obj_property>
       <obj_property name="ObjectShortName">debug_en_s</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/external_debugClk" type="logic">
-      <obj_property name="ElementShortName">external_debugClk</obj_property>
-      <obj_property name="ObjectShortName">external_debugClk</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/output_config_s" type="array">
+      <obj_property name="ElementShortName">output_config_s[4:0]</obj_property>
+      <obj_property name="ObjectShortName">output_config_s[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/debugWe" type="logic">
-      <obj_property name="ElementShortName">debugWe</obj_property>
-      <obj_property name="ObjectShortName">debugWe</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/vramb_mem_ck" type="logic">
+      <obj_property name="ElementShortName">vramb_mem_ck</obj_property>
+      <obj_property name="ObjectShortName">vramb_mem_ck</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_1/U0/debugOverrideEnable" type="logic">
-      <obj_property name="ElementShortName">debugOverrideEnable</obj_property>
-      <obj_property name="ObjectShortName">debugOverrideEnable</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/mainSim/debug_enable" type="logic">
+      <obj_property name="ElementShortName">debug_enable</obj_property>
+      <obj_property name="ObjectShortName">debug_enable</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/debugAddr" type="array">
-      <obj_property name="ElementShortName">debugAddr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">debugAddr[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/debug_override_enable" type="logic">
+      <obj_property name="ElementShortName">debug_override_enable</obj_property>
+      <obj_property name="ObjectShortName">debug_override_enable</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/debugBank" type="array">
-      <obj_property name="ElementShortName">debugBank[3:0]</obj_property>
-      <obj_property name="ObjectShortName">debugBank[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/mainSim/debug_we" type="logic">
+      <obj_property name="ElementShortName">debug_we</obj_property>
+      <obj_property name="ObjectShortName">debug_we</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/debugDin" type="array">
-      <obj_property name="ElementShortName">debugDin[15:0]</obj_property>
-      <obj_property name="ObjectShortName">debugDin[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/mainSim/gram_we" type="logic">
+      <obj_property name="ElementShortName">gram_we</obj_property>
+      <obj_property name="ObjectShortName">gram_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/debug_addr" type="array">
+      <obj_property name="ElementShortName">debug_addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_addr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mainSim/debug_din" type="array">
+      <obj_property name="ElementShortName">debug_din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_din[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/debug_dout" type="array">
       <obj_property name="ElementShortName">debug_dout[15:0]</obj_property>
       <obj_property name="ObjectShortName">debug_dout[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/gramAddr" type="array">
-      <obj_property name="ElementShortName">gramAddr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">gramAddr[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/mainSim/gram_addr" type="array">
+      <obj_property name="ElementShortName">gram_addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gram_addr[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/gramBank" type="array">
-      <obj_property name="ElementShortName">gramBank[3:0]</obj_property>
-      <obj_property name="ObjectShortName">gramBank[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/gramDin" type="array">
-      <obj_property name="ElementShortName">gramDin[15:0]</obj_property>
-      <obj_property name="ObjectShortName">gramDin[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/gram_dout" type="array">
-      <obj_property name="ElementShortName">gram_dout[15:0]</obj_property>
-      <obj_property name="ObjectShortName">gram_dout[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/gramWe" type="logic">
-      <obj_property name="ElementShortName">gramWe</obj_property>
-      <obj_property name="ObjectShortName">gramWe</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/gramOe" type="logic">
-      <obj_property name="ElementShortName">gramOe</obj_property>
-      <obj_property name="ObjectShortName">gramOe</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/iramAddr" type="array">
-      <obj_property name="ElementShortName">iramAddr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">iramAddr[15:0]</obj_property>
+   <wvobject fp_name="/mainSim/iram_addr" type="array">
+      <obj_property name="ElementShortName">iram_addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">iram_addr[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mainSim/iram_dout" type="array">
       <obj_property name="ElementShortName">iram_dout[15:0]</obj_property>
       <obj_property name="ObjectShortName">iram_dout[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/gpuClk" type="logic">
-      <obj_property name="ElementShortName">gpuClk</obj_property>
-      <obj_property name="ObjectShortName">gpuClk</obj_property>
+   <wvobject fp_name="/mainSim/gram_din" type="array">
+      <obj_property name="ElementShortName">gram_din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gram_din[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/gpuAddr" type="array">
-      <obj_property name="ElementShortName">gpuAddr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">gpuAddr[15:0]</obj_property>
+   <wvobject fp_name="/mainSim/gram_dout" type="array">
+      <obj_property name="ElementShortName">gram_dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gram_dout[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/vgaAddr" type="array">
-      <obj_property name="ElementShortName">vgaAddr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">vgaAddr[15:0]</obj_property>
+   <wvobject fp_name="/mainSim/debug_bank" type="array">
+      <obj_property name="ElementShortName">debug_bank[3:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_bank[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/gpu_dout" type="array">
-      <obj_property name="ElementShortName">gpu_dout[11:0]</obj_property>
-      <obj_property name="ObjectShortName">gpu_dout[11:0]</obj_property>
+   <wvobject fp_name="/mainSim/gram_bank" type="array">
+      <obj_property name="ElementShortName">gram_bank[3:0]</obj_property>
+      <obj_property name="ObjectShortName">gram_bank[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/vga_dout" type="array">
-      <obj_property name="ElementShortName">vga_dout[11:0]</obj_property>
-      <obj_property name="ObjectShortName">vga_dout[11:0]</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/gram_clk_s" type="logic">
+      <obj_property name="ElementShortName">gram_clk_s</obj_property>
+      <obj_property name="ObjectShortName">gram_clk_s</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/gpuDin" type="array">
-      <obj_property name="ElementShortName">gpuDin[11:0]</obj_property>
-      <obj_property name="ObjectShortName">gpuDin[11:0]</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/iram_clk_s" type="logic">
+      <obj_property name="ElementShortName">iram_clk_s</obj_property>
+      <obj_property name="ObjectShortName">iram_clk_s</obj_property>
    </wvobject>
-   <wvobject fp_name="/mainSim/gpuWe" type="logic">
-      <obj_property name="ElementShortName">gpuWe</obj_property>
-      <obj_property name="ObjectShortName">gpuWe</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/vgaClk" type="logic">
-      <obj_property name="ElementShortName">vgaClk</obj_property>
-      <obj_property name="ObjectShortName">vgaClk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_1/U0/output_config_s" type="array">
-      <obj_property name="ElementShortName">output_config_s[3:0]</obj_property>
-      <obj_property name="ObjectShortName">output_config_s[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/count_s" type="logic">
-      <obj_property name="ElementShortName">count_s</obj_property>
-      <obj_property name="ObjectShortName">count_s</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/led00" type="logic">
-      <obj_property name="ElementShortName">led00</obj_property>
-      <obj_property name="ObjectShortName">led00</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mainSim/btn00" type="logic">
-      <obj_property name="ElementShortName">btn00</obj_property>
-      <obj_property name="ObjectShortName">btn00</obj_property>
+   <wvobject fp_name="/mainSim/EUT/main_block_i/mmu_0/U0/mmio_mem_ck" type="logic">
+      <obj_property name="ElementShortName">mmio_mem_ck</obj_property>
+      <obj_property name="ObjectShortName">mmio_mem_ck</obj_property>
    </wvobject>
 </wave_config>

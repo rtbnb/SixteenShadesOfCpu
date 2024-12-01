@@ -40,17 +40,16 @@
         "clk100mhzIn": [ { "direction": "in" } ],
         "faultReset": [ { "direction": "in" } ],
         "debugReset": [ { "direction": "in" } ],
-        "debugEnableIn": [ { "direction": "in" } ],
+        "debugEnable": [ { "direction": "in" } ],
         "debugMockClk": [ { "direction": "in" } ],
         "debugMmuOverrideEnable": [ { "direction": "in" } ],
         "loadClk": [ { "direction": "out" } ],
         "vgaClk": [ { "direction": "out" } ],
         "debugClk": [ { "direction": "out" } ],
-        "clk100mhzOut": [ { "direction": "out" } ],
-        "debugEnableOut": [ { "direction": "out" } ]
+        "clk100mhzOut": [ { "direction": "out" } ]
       },
       "interfaces": {
-        "loadClk": {
+        "debug_clk": {
           "vlnv": "xilinx.com:signal:clock:1.0",
           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
           "mode": "master",
@@ -66,42 +65,6 @@
           },
           "port_maps": {
             "CLK": [ { "physical_name": "loadClk" } ]
-          }
-        },
-        "vgaClk": {
-          "vlnv": "xilinx.com:signal:clock:1.0",
-          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
-          "mode": "master",
-          "parameters": {
-            "FREQ_HZ": [ { "value": "50000000", "value_src": "constant", "value_permission": "bd_and_user", "format": "long", "usage": "all" } ],
-            "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "main_block_clockcontroller_0_0_vgaClk", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "ASSOCIATED_RESET": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
-          },
-          "port_maps": {
-            "CLK": [ { "physical_name": "vgaClk" } ]
-          }
-        },
-        "debug_clk": {
-          "vlnv": "xilinx.com:signal:clock:1.0",
-          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
-          "mode": "master",
-          "parameters": {
-            "FREQ_HZ": [ { "value": "50000000", "value_src": "constant", "value_permission": "bd_and_user", "format": "long", "usage": "all" } ],
-            "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "main_block_clockcontroller_0_0_debugClk", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "ASSOCIATED_RESET": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
-          },
-          "port_maps": {
-            "CLK": [ { "physical_name": "debugClk" } ]
           }
         }
       }

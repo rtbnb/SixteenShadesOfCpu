@@ -31,10 +31,12 @@ end entity mmio;
 architecture Behavioral of mmio is
     signal internal_addr_s: integer range 0 to 65535;
 
--- general configs begin
     signal mmio_config_reg_s: std_logic_vector( 15 downto 0 );
+
+-- general configs begin
     signal rho_mask_reg_s: std_logic_vector(15 downto 0);
 -- general configs end
+    
     
 --led signals begin
     signal led_bank0_config_reg_s, led_bank1_config_reg_s, led_bank2_config_reg_s, led_bank3_config_reg_s, led_bank4_config_reg_s: std_logic_vector(15 downto 0) := X"0000";
