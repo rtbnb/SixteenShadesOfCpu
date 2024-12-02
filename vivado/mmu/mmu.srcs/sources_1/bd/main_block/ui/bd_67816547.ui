@@ -5,9 +5,6 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port port-id_clk100mhz_in -pg 1 -lvl 0 -x -480 -y -360 -defaultsOSRD
-preplace port port-id_fault_reset -pg 1 -lvl 0 -x -480 -y -340 -defaultsOSRD
-preplace port port-id_debug_reset -pg 1 -lvl 0 -x -480 -y -320 -defaultsOSRD
 preplace port port-id_btn00 -pg 1 -lvl 0 -x -480 -y 380 -defaultsOSRD
 preplace port port-id_btn01 -pg 1 -lvl 0 -x -480 -y 400 -defaultsOSRD
 preplace port port-id_btn02 -pg 1 -lvl 0 -x -480 -y 420 -defaultsOSRD
@@ -28,155 +25,156 @@ preplace port port-id_btn16 -pg 1 -lvl 0 -x -480 -y 700 -defaultsOSRD
 preplace port port-id_btn17 -pg 1 -lvl 0 -x -480 -y 720 -defaultsOSRD
 preplace port port-id_btn18 -pg 1 -lvl 0 -x -480 -y 740 -defaultsOSRD
 preplace port port-id_btn19 -pg 1 -lvl 0 -x -480 -y 760 -defaultsOSRD
-preplace port port-id_led00 -pg 1 -lvl 4 -x 1840 -y 280 -defaultsOSRD
-preplace port port-id_led01 -pg 1 -lvl 4 -x 1840 -y 300 -defaultsOSRD
-preplace port port-id_led02 -pg 1 -lvl 4 -x 1840 -y 320 -defaultsOSRD
-preplace port port-id_led03 -pg 1 -lvl 4 -x 1840 -y 340 -defaultsOSRD
-preplace port port-id_led04 -pg 1 -lvl 4 -x 1840 -y 360 -defaultsOSRD
-preplace port port-id_led05 -pg 1 -lvl 4 -x 1840 -y 380 -defaultsOSRD
-preplace port port-id_led06 -pg 1 -lvl 4 -x 1840 -y 400 -defaultsOSRD
-preplace port port-id_led07 -pg 1 -lvl 4 -x 1840 -y 420 -defaultsOSRD
-preplace port port-id_led08 -pg 1 -lvl 4 -x 1840 -y 440 -defaultsOSRD
-preplace port port-id_led09 -pg 1 -lvl 4 -x 1840 -y 460 -defaultsOSRD
-preplace port port-id_led10 -pg 1 -lvl 4 -x 1840 -y 480 -defaultsOSRD
-preplace port port-id_led11 -pg 1 -lvl 4 -x 1840 -y 500 -defaultsOSRD
-preplace port port-id_led12 -pg 1 -lvl 4 -x 1840 -y 520 -defaultsOSRD
-preplace port port-id_led13 -pg 1 -lvl 4 -x 1840 -y 540 -defaultsOSRD
-preplace port port-id_led14 -pg 1 -lvl 4 -x 1840 -y 560 -defaultsOSRD
-preplace port port-id_led15 -pg 1 -lvl 4 -x 1840 -y 580 -defaultsOSRD
-preplace port port-id_led16 -pg 1 -lvl 4 -x 1840 -y 600 -defaultsOSRD
-preplace port port-id_led17 -pg 1 -lvl 4 -x 1840 -y 620 -defaultsOSRD
-preplace port port-id_led18 -pg 1 -lvl 4 -x 1840 -y 640 -defaultsOSRD
-preplace port port-id_led19 -pg 1 -lvl 4 -x 1840 -y 660 -defaultsOSRD
-preplace port port-id_rho -pg 1 -lvl 4 -x 1840 -y 760 -defaultsOSRD
-preplace port port-id_vgaClk -pg 1 -lvl 4 -x 1840 -y -320 -defaultsOSRD
-preplace port port-id_debugClk -pg 1 -lvl 4 -x 1840 -y -300 -defaultsOSRD
+preplace port port-id_led00 -pg 1 -lvl 4 -x 1850 -y 280 -defaultsOSRD
+preplace port port-id_led01 -pg 1 -lvl 4 -x 1850 -y 300 -defaultsOSRD
+preplace port port-id_led02 -pg 1 -lvl 4 -x 1850 -y 320 -defaultsOSRD
+preplace port port-id_led03 -pg 1 -lvl 4 -x 1850 -y 340 -defaultsOSRD
+preplace port port-id_led04 -pg 1 -lvl 4 -x 1850 -y 360 -defaultsOSRD
+preplace port port-id_led05 -pg 1 -lvl 4 -x 1850 -y 380 -defaultsOSRD
+preplace port port-id_led06 -pg 1 -lvl 4 -x 1850 -y 400 -defaultsOSRD
+preplace port port-id_led07 -pg 1 -lvl 4 -x 1850 -y 420 -defaultsOSRD
+preplace port port-id_led08 -pg 1 -lvl 4 -x 1850 -y 440 -defaultsOSRD
+preplace port port-id_led09 -pg 1 -lvl 4 -x 1850 -y 460 -defaultsOSRD
+preplace port port-id_led10 -pg 1 -lvl 4 -x 1850 -y 480 -defaultsOSRD
+preplace port port-id_led11 -pg 1 -lvl 4 -x 1850 -y 500 -defaultsOSRD
+preplace port port-id_led12 -pg 1 -lvl 4 -x 1850 -y 520 -defaultsOSRD
+preplace port port-id_led13 -pg 1 -lvl 4 -x 1850 -y 540 -defaultsOSRD
+preplace port port-id_led14 -pg 1 -lvl 4 -x 1850 -y 560 -defaultsOSRD
+preplace port port-id_led15 -pg 1 -lvl 4 -x 1850 -y 580 -defaultsOSRD
+preplace port port-id_led16 -pg 1 -lvl 4 -x 1850 -y 600 -defaultsOSRD
+preplace port port-id_led17 -pg 1 -lvl 4 -x 1850 -y 620 -defaultsOSRD
+preplace port port-id_led18 -pg 1 -lvl 4 -x 1850 -y 640 -defaultsOSRD
+preplace port port-id_led19 -pg 1 -lvl 4 -x 1850 -y 660 -defaultsOSRD
+preplace port port-id_rho -pg 1 -lvl 4 -x 1850 -y 760 -defaultsOSRD
+preplace port port-id_vgaClk -pg 1 -lvl 4 -x 1850 -y -320 -defaultsOSRD
+preplace port port-id_debugClk -pg 1 -lvl 4 -x 1850 -y -300 -defaultsOSRD
 preplace port port-id_debugMockClk -pg 1 -lvl 0 -x -480 -y -280 -defaultsOSRD
-preplace port port-id_vga_clk -pg 1 -lvl 0 -x -480 -y 160 -defaultsOSRD
-preplace port port-id_gpu_we -pg 1 -lvl 0 -x -480 -y 140 -defaultsOSRD
-preplace port port-id_gpu_clk -pg 1 -lvl 0 -x -480 -y 80 -defaultsOSRD
-preplace port port-id_debug_we -pg 1 -lvl 0 -x -480 -y 60 -defaultsOSRD
-preplace port port-id_debug_clk -pg 1 -lvl 0 -x -480 -y -20 -defaultsOSRD
-preplace port port-id_debug_override_enable -pg 1 -lvl 0 -x -480 -y -260 -defaultsOSRD
-preplace port port-id_debug_enable -pg 1 -lvl 0 -x -480 -y -420 -defaultsOSRD
-preplace port port-id_gram_oe -pg 1 -lvl 0 -x -480 -y -100 -defaultsOSRD
-preplace port port-id_gram_we -pg 1 -lvl 0 -x -480 -y -120 -defaultsOSRD
-preplace portBus gram_dout -pg 1 -lvl 4 -x 1840 -y -140 -defaultsOSRD
-preplace portBus iram_dout -pg 1 -lvl 4 -x 1840 -y -120 -defaultsOSRD
-preplace portBus debug_dout -pg 1 -lvl 4 -x 1840 -y -100 -defaultsOSRD
-preplace portBus gpu_dout -pg 1 -lvl 4 -x 1840 -y -80 -defaultsOSRD
-preplace portBus vga_dout -pg 1 -lvl 4 -x 1840 -y -60 -defaultsOSRD
-preplace portBus rgb0 -pg 1 -lvl 4 -x 1840 -y 680 -defaultsOSRD
-preplace portBus rgb1 -pg 1 -lvl 4 -x 1840 -y 700 -defaultsOSRD
-preplace portBus rgb2 -pg 1 -lvl 4 -x 1840 -y 720 -defaultsOSRD
-preplace portBus rgb3 -pg 1 -lvl 4 -x 1840 -y 740 -defaultsOSRD
-preplace portBus vga_addr -pg 1 -lvl 0 -x -480 -y 180 -defaultsOSRD
-preplace portBus gpu_din -pg 1 -lvl 0 -x -480 -y 120 -defaultsOSRD
-preplace portBus gpu_addr -pg 1 -lvl 0 -x -480 -y 100 -defaultsOSRD
-preplace portBus debug_bank -pg 1 -lvl 0 -x -480 -y 40 -defaultsOSRD
-preplace portBus debug_din -pg 1 -lvl 0 -x -480 -y 20 -defaultsOSRD
-preplace portBus debug_addr -pg 1 -lvl 0 -x -480 -y 0 -defaultsOSRD
-preplace portBus iram_addr -pg 1 -lvl 0 -x -480 -y -80 -defaultsOSRD
-preplace portBus gram_bank -pg 1 -lvl 0 -x -480 -y -140 -defaultsOSRD
-preplace portBus gram_din -pg 1 -lvl 0 -x -480 -y -160 -defaultsOSRD
-preplace portBus gram_addr -pg 1 -lvl 0 -x -480 -y -180 -defaultsOSRD
-preplace inst vram -pg 1 -lvl 3 -x 1440 -y 110 -defaultsOSRD
-preplace inst mmio_0 -pg 1 -lvl 3 -x 1440 -y 570 -defaultsOSRD
+preplace port port-id_clk100mhzIn -pg 1 -lvl 0 -x -480 -y -360 -defaultsOSRD
+preplace port port-id_faultReset -pg 1 -lvl 0 -x -480 -y -340 -defaultsOSRD
+preplace port port-id_debugReset -pg 1 -lvl 0 -x -480 -y -320 -defaultsOSRD
+preplace port port-id_gramWe -pg 1 -lvl 0 -x -480 -y -120 -defaultsOSRD
+preplace port port-id_debugWe -pg 1 -lvl 0 -x -480 -y 60 -defaultsOSRD
+preplace port port-id_gpuWe -pg 1 -lvl 0 -x -480 -y 140 -defaultsOSRD
+preplace port port-id_gramOe -pg 1 -lvl 0 -x -480 -y -100 -defaultsOSRD
+preplace port port-id_debugEnable -pg 1 -lvl 0 -x -480 -y -300 -defaultsOSRD
+preplace port port-id_debugOverrideEnable -pg 1 -lvl 0 -x -480 -y -260 -defaultsOSRD
+preplace port port-id_external_debugClk -pg 1 -lvl 0 -x -480 -y -20 -defaultsOSRD
+preplace port port-id_gpuClk -pg 1 -lvl 0 -x -480 -y 80 -defaultsOSRD
+preplace portBus gram_dout -pg 1 -lvl 4 -x 1850 -y -140 -defaultsOSRD
+preplace portBus iram_dout -pg 1 -lvl 4 -x 1850 -y -120 -defaultsOSRD
+preplace portBus debug_dout -pg 1 -lvl 4 -x 1850 -y -100 -defaultsOSRD
+preplace portBus gpu_dout -pg 1 -lvl 4 -x 1850 -y -80 -defaultsOSRD
+preplace portBus vga_dout -pg 1 -lvl 4 -x 1850 -y -60 -defaultsOSRD
+preplace portBus rgb0 -pg 1 -lvl 4 -x 1850 -y 680 -defaultsOSRD
+preplace portBus rgb1 -pg 1 -lvl 4 -x 1850 -y 700 -defaultsOSRD
+preplace portBus rgb2 -pg 1 -lvl 4 -x 1850 -y 720 -defaultsOSRD
+preplace portBus rgb3 -pg 1 -lvl 4 -x 1850 -y 740 -defaultsOSRD
+preplace portBus vgaAddr -pg 1 -lvl 0 -x -480 -y 180 -defaultsOSRD
+preplace portBus gramAddr -pg 1 -lvl 0 -x -480 -y -180 -defaultsOSRD
+preplace portBus gramBank -pg 1 -lvl 0 -x -480 -y -140 -defaultsOSRD
+preplace portBus gramDin -pg 1 -lvl 0 -x -480 -y -160 -defaultsOSRD
+preplace portBus debugAddr -pg 1 -lvl 0 -x -480 -y 0 -defaultsOSRD
+preplace portBus iramAddr -pg 1 -lvl 0 -x -480 -y -80 -defaultsOSRD
+preplace portBus debugDin -pg 1 -lvl 0 -x -480 -y 20 -defaultsOSRD
+preplace portBus debugBank -pg 1 -lvl 0 -x -480 -y 40 -defaultsOSRD
+preplace portBus gpuAddr -pg 1 -lvl 0 -x -480 -y 100 -defaultsOSRD
+preplace portBus gpuDin -pg 1 -lvl 0 -x -480 -y 120 -defaultsOSRD
+preplace inst vram -pg 1 -lvl 3 -x 1450 -y 110 -defaultsOSRD
+preplace inst mmio_0 -pg 1 -lvl 3 -x 1450 -y 570 -defaultsOSRD
 preplace inst clockcontroller_0 -pg 1 -lvl 1 -x 360 -y -310 -defaultsOSRD
-preplace inst mmu_1 -pg 1 -lvl 2 -x 790 -y 20 -defaultsOSRD
-preplace netloc btn00_1 1 0 3 NJ 380 NJ 380 1160
-preplace netloc btn01_1 1 0 3 NJ 400 NJ 400 1150
-preplace netloc btn02_1 1 0 3 NJ 420 NJ 420 1140
-preplace netloc btn03_1 1 0 3 NJ 440 NJ 440 1130
-preplace netloc btn04_1 1 0 3 NJ 460 NJ 460 1120
-preplace netloc btn05_1 1 0 3 NJ 480 NJ 480 1110
-preplace netloc btn06_1 1 0 3 NJ 500 NJ 500 1100
-preplace netloc btn07_1 1 0 3 NJ 520 NJ 520 1090
-preplace netloc btn08_1 1 0 3 NJ 540 NJ 540 1080
-preplace netloc btn09_1 1 0 3 NJ 560 NJ 560 1070
-preplace netloc btn10_1 1 0 3 NJ 580 NJ 580 1060
-preplace netloc btn11_1 1 0 3 NJ 600 NJ 600 1050
-preplace netloc btn12_1 1 0 3 NJ 620 NJ 620 1040
-preplace netloc btn13_1 1 0 3 NJ 640 NJ 640 1030
-preplace netloc btn14_1 1 0 3 NJ 660 NJ 660 1020
-preplace netloc btn15_1 1 0 3 NJ 680 NJ 680 1010
-preplace netloc btn16_1 1 0 3 NJ 700 NJ 700 1000
-preplace netloc btn17_1 1 0 3 NJ 720 NJ 720 990
-preplace netloc btn18_1 1 0 3 NJ 740 NJ 740 980
-preplace netloc btn19_1 1 0 3 NJ 760 NJ 760 970
-preplace netloc clk100mhz_in_1 1 0 1 NJ -360
-preplace netloc clockcontroller_0_load_clk 1 1 2 580 -270 1250
-preplace netloc debug_enable_1 1 0 2 180J -420 590
-preplace netloc debug_override_enable_1 1 0 2 180J -200 540
-preplace netloc debug_reset_1 1 0 1 NJ -320
-preplace netloc fault_reset_1 1 0 1 NJ -340
-preplace netloc mmio_0_led00 1 3 1 1580 280n
-preplace netloc mmio_0_led01 1 3 1 1590 300n
-preplace netloc mmio_0_led02 1 3 1 1600 320n
-preplace netloc mmio_0_led03 1 3 1 1610 340n
-preplace netloc mmio_0_led04 1 3 1 1620 360n
-preplace netloc mmio_0_led05 1 3 1 1630 380n
-preplace netloc mmio_0_led06 1 3 1 1640 400n
-preplace netloc mmio_0_led07 1 3 1 1650 420n
-preplace netloc mmio_0_led08 1 3 1 1660 440n
-preplace netloc mmio_0_led09 1 3 1 1670 460n
-preplace netloc mmio_0_led10 1 3 1 1680 480n
-preplace netloc mmio_0_led11 1 3 1 1690 500n
-preplace netloc mmio_0_led12 1 3 1 1700 520n
-preplace netloc mmio_0_led13 1 3 1 1710 540n
-preplace netloc mmio_0_led14 1 3 1 1720 560n
-preplace netloc mmio_0_led15 1 3 1 1730 580n
-preplace netloc mmio_0_led16 1 3 1 1740 600n
-preplace netloc mmio_0_led17 1 3 1 1750 620n
-preplace netloc mmio_0_led18 1 3 1 1760 640n
-preplace netloc mmio_0_led19 1 3 1 1770 660n
-preplace netloc mmio_0_rgb0 1 3 1 1780 680n
-preplace netloc mmio_0_rgb1 1 3 1 1790 700n
-preplace netloc mmio_0_rgb2 1 3 1 1800 720n
-preplace netloc mmio_0_rgb3 1 3 1 1810 740n
-preplace netloc mmio_0_rho 1 3 1 1820 760n
-preplace netloc clockcontroller_0_vgaClk 1 1 3 N -320 N -320 N
+preplace inst mmu_1 -pg 1 -lvl 2 -x 800 -y 20 -defaultsOSRD
+preplace netloc btn00_1 1 0 3 NJ 380 NJ 380 1170
+preplace netloc btn01_1 1 0 3 NJ 400 NJ 400 1160
+preplace netloc btn02_1 1 0 3 NJ 420 NJ 420 1150
+preplace netloc btn03_1 1 0 3 NJ 440 NJ 440 1140
+preplace netloc btn04_1 1 0 3 NJ 460 NJ 460 1130
+preplace netloc btn05_1 1 0 3 NJ 480 NJ 480 1120
+preplace netloc btn06_1 1 0 3 NJ 500 NJ 500 1110
+preplace netloc btn07_1 1 0 3 NJ 520 NJ 520 1100
+preplace netloc btn08_1 1 0 3 NJ 540 NJ 540 1090
+preplace netloc btn09_1 1 0 3 NJ 560 NJ 560 1080
+preplace netloc btn10_1 1 0 3 NJ 580 NJ 580 1070
+preplace netloc btn11_1 1 0 3 NJ 600 NJ 600 1060
+preplace netloc btn12_1 1 0 3 NJ 620 NJ 620 1050
+preplace netloc btn13_1 1 0 3 NJ 640 NJ 640 1040
+preplace netloc btn14_1 1 0 3 NJ 660 NJ 660 1030
+preplace netloc btn15_1 1 0 3 NJ 680 NJ 680 1020
+preplace netloc btn16_1 1 0 3 NJ 700 NJ 700 1010
+preplace netloc btn17_1 1 0 3 NJ 720 NJ 720 1000
+preplace netloc btn18_1 1 0 3 NJ 740 NJ 740 990
+preplace netloc btn19_1 1 0 3 NJ 760 NJ 760 980
+preplace netloc clk100mhzIn_1 1 0 1 NJ -360
+preplace netloc clockcontroller_0_clk100mhzOut 1 1 2 NJ -280 1280
 preplace netloc clockcontroller_0_debugClk 1 1 3 N -300 N -300 N
-preplace netloc clockcontroller_0_clk100mhzOut 1 1 2 NJ -280 1270
+preplace netloc clockcontroller_0_load_clk 1 1 2 590 -270 1260
+preplace netloc clockcontroller_0_vgaClk 1 1 3 580 -320 N -320 N
+preplace netloc debugAddr_1 1 0 2 NJ 0 NJ
+preplace netloc debugBank_1 1 0 2 NJ 40 NJ
+preplace netloc debugDin_1 1 0 2 NJ 20 NJ
 preplace netloc debugMockClk_1 1 0 1 N -280
-preplace netloc mmu_1_gramDout 1 2 2 NJ -140 N
-preplace netloc mmu_1_iramDout 1 2 2 N -120 NJ
+preplace netloc debugReset_1 1 0 1 NJ -320
+preplace netloc debugWe_1 1 0 2 NJ 60 NJ
+preplace netloc debug_enable_1 1 0 2 180J -420 600
+preplace netloc debug_override_enable_1 1 0 2 180J -200 540
+preplace netloc external_debugClk_1 1 0 2 NJ -20 NJ
+preplace netloc faultReset_1 1 0 1 NJ -340
+preplace netloc gpuAddr_1 1 0 2 NJ 100 NJ
+preplace netloc gpuClk_1 1 0 2 NJ 80 NJ
+preplace netloc gpuDin_1 1 0 2 NJ 120 NJ
+preplace netloc gpuWe_1 1 0 2 NJ 140 NJ
+preplace netloc gramAddr_1 1 0 2 NJ -180 NJ
+preplace netloc gramBank_1 1 0 2 NJ -140 NJ
+preplace netloc gramDin_1 1 0 2 NJ -160 NJ
+preplace netloc gramOe_1 1 0 2 NJ -100 NJ
+preplace netloc gramWe_1 1 0 2 NJ -120 NJ
+preplace netloc iramAddr_1 1 0 2 NJ -80 NJ
+preplace netloc mmio_0_dout 1 1 3 610 880 NJ 880 1580
+preplace netloc mmio_0_led00 1 3 1 1590 280n
+preplace netloc mmio_0_led01 1 3 1 1600 300n
+preplace netloc mmio_0_led02 1 3 1 1610 320n
+preplace netloc mmio_0_led03 1 3 1 1620 340n
+preplace netloc mmio_0_led04 1 3 1 1630 360n
+preplace netloc mmio_0_led05 1 3 1 1640 380n
+preplace netloc mmio_0_led06 1 3 1 1650 400n
+preplace netloc mmio_0_led07 1 3 1 1660 420n
+preplace netloc mmio_0_led08 1 3 1 1670 440n
+preplace netloc mmio_0_led09 1 3 1 1680 460n
+preplace netloc mmio_0_led10 1 3 1 1690 480n
+preplace netloc mmio_0_led11 1 3 1 1700 500n
+preplace netloc mmio_0_led12 1 3 1 1710 520n
+preplace netloc mmio_0_led13 1 3 1 1720 540n
+preplace netloc mmio_0_led14 1 3 1 1730 560n
+preplace netloc mmio_0_led15 1 3 1 1740 580n
+preplace netloc mmio_0_led16 1 3 1 1750 600n
+preplace netloc mmio_0_led17 1 3 1 1760 620n
+preplace netloc mmio_0_led18 1 3 1 1770 640n
+preplace netloc mmio_0_led19 1 3 1 1780 660n
+preplace netloc mmio_0_rgb0 1 3 1 1790 680n
+preplace netloc mmio_0_rgb1 1 3 1 1800 700n
+preplace netloc mmio_0_rgb2 1 3 1 1810 720n
+preplace netloc mmio_0_rgb3 1 3 1 1820 740n
+preplace netloc mmio_0_rho 1 3 1 1830 760n
 preplace netloc mmu_1_debugDout 1 2 2 N -100 NJ
 preplace netloc mmu_1_gpuDout 1 2 2 N -80 NJ
+preplace netloc mmu_1_gramDout 1 2 2 NJ -140 N
+preplace netloc mmu_1_iramDout 1 2 2 N -120 NJ
+preplace netloc mmu_1_mmioMemAddr 1 2 1 1190 160n
+preplace netloc mmu_1_mmioMemClk 1 2 1 1210 120n
+preplace netloc mmu_1_mmioMemDin 1 2 1 1180 180n
+preplace netloc mmu_1_mmioMemWe 1 2 1 1200 140n
 preplace netloc mmu_1_vgaDout 1 2 2 N -60 NJ
-preplace netloc mmu_1_vramaMemAddr 1 2 1 1310 -40n
-preplace netloc mmu_1_vramaMemClk 1 2 1 1290 -20n
-preplace netloc mmu_1_vramaMemDin 1 2 1 1280 0n
-preplace netloc vram_douta 1 1 2 610 -260 1300J
-preplace netloc vram_doutb 1 1 2 610 300 1160J
-preplace netloc mmio_0_dout 1 1 3 600 880 NJ 880 1570
-preplace netloc mmu_1_vramaMemWe 1 2 1 1260 20n
-preplace netloc mmu_1_vrambMemAddr 1 2 1 1240 40n
-preplace netloc mmu_1_vrambMemClk 1 2 1 1230 60n
-preplace netloc mmu_1_vrambMemDin 1 2 1 1220 80n
-preplace netloc mmu_1_vrambMemWe 1 2 1 1210 100n
-preplace netloc mmu_1_mmioMemClk 1 2 1 1200 120n
-preplace netloc mmu_1_mmioMemWe 1 2 1 1190 140n
-preplace netloc mmu_1_mmioMemAddr 1 2 1 1180 160n
-preplace netloc mmu_1_mmioMemDin 1 2 1 1170 180n
-preplace netloc vga_addr_1 1 0 2 NJ 180 NJ
-preplace netloc vga_clk_1 1 0 2 NJ 160 NJ
-preplace netloc gpu_we_1 1 0 2 NJ 140 NJ
-preplace netloc gpu_din_1 1 0 2 NJ 120 NJ
-preplace netloc gpu_addr_1 1 0 2 NJ 100 NJ
-preplace netloc gpu_clk_1 1 0 2 NJ 80 NJ
-preplace netloc debug_we_1 1 0 2 NJ 60 NJ
-preplace netloc debug_bank_1 1 0 2 NJ 40 NJ
-preplace netloc debug_din_1 1 0 2 NJ 20 NJ
-preplace netloc debug_addr_1 1 0 2 NJ 0 NJ
-preplace netloc debug_clk_1 1 0 2 NJ -20 NJ
-preplace netloc iram_addr_1 1 0 2 NJ -80 NJ
-preplace netloc gram_oe_1 1 0 2 NJ -100 NJ
-preplace netloc gram_we_1 1 0 2 NJ -120 NJ
-preplace netloc gram_bank_1 1 0 2 NJ -140 NJ
-preplace netloc gram_din_1 1 0 2 NJ -160 NJ
-preplace netloc gram_addr_1 1 0 2 NJ -180 NJ
-levelinfo -pg 1 -480 360 790 1440 1840
+preplace netloc mmu_1_vramaMemAddr 1 2 1 1320 -40n
+preplace netloc mmu_1_vramaMemClk 1 2 1 1300 -20n
+preplace netloc mmu_1_vramaMemDin 1 2 1 1290 0n
+preplace netloc mmu_1_vramaMemWe 1 2 1 1270 20n
+preplace netloc mmu_1_vrambMemAddr 1 2 1 1250 40n
+preplace netloc mmu_1_vrambMemClk 1 2 1 1240 60n
+preplace netloc mmu_1_vrambMemDin 1 2 1 1230 80n
+preplace netloc mmu_1_vrambMemWe 1 2 1 1220 100n
+preplace netloc vgaAddr_1 1 0 2 NJ 180 NJ
+preplace netloc vram_douta 1 1 2 620 -260 1310J
+preplace netloc vram_doutb 1 1 2 620 300 1170J
+levelinfo -pg 1 -480 360 800 1450 1850
 pagesize -pg 1 -db -bbox -sgen -680 -980 2180 1260
 "
 }
