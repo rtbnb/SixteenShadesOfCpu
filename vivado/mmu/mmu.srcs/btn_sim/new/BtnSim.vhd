@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 28.11.2024 21:07:36
--- Name: Robin
+-- Name: Robin Eilers
 -- Design Name: ShadeCpu
 -- Module Name: BtnSim - Behavioral
 -- Project Name: ShadeCpu-1

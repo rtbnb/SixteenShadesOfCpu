@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 28.11.2024 14:21:07
--- Name: Robin
+-- Name: Robin Eilers
 -- Design Name: ShadeCpu
 -- Module Name: timerSim - Behavioral
 -- Project Name: ShadeCpu-1
