@@ -37,7 +37,8 @@
       "GPU_0": "",
       "VGA_Controller_0": "",
       "FPU_0": "",
-      "ALU_FLAG_PACKER_1": ""
+      "ALU_FLAG_PACKER_1": "",
+      "xlconstant_0": ""
     },
     "ports": {
       "Reset": {
@@ -2342,6 +2343,18 @@
             "right": "0"
           }
         }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "9",
+        "xci_name": "main_xlconstant_0_0",
+        "xci_path": "ip\\main_xlconstant_0_0\\main_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
       }
     },
     "nets": {
@@ -3375,6 +3388,23 @@
         "ports": [
           "vram_bram/doutb",
           "mmu_0/vrambMemDout"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "mmio_0/btn18",
+          "mmio_0/btn19",
+          "mmio_0/btn17",
+          "mmio_0/btn16",
+          "mmio_0/btn15",
+          "mmio_0/btn14",
+          "mmio_0/btn13",
+          "mmio_0/btn12",
+          "mmio_0/btn11",
+          "mmio_0/btn10",
+          "mmio_0/btn09",
+          "mmio_0/btn08"
         ]
       }
     }
