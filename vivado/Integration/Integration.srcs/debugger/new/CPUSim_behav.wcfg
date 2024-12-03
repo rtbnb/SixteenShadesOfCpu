@@ -6,20 +6,21 @@
       <db_ref path="CPUSim_behav.wdb" id="1">
          <top_modules>
             <top_module name="CPUSim" />
+            <top_module name="floatingpoints" />
             <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="491.451000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="505.721000001 ms"></ZoomEndTime>
-      <Cursor1Time time="500.001000000 ms"></Cursor1Time>
+      <ZoomStartTime time="12,758,188.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="12,758,903.501 ns"></ZoomEndTime>
+      <Cursor1Time time="12,758,485.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="182"></NameColumnWidth>
-      <ValueColumnWidth column_width="62"></ValueColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="64" />
+   <WVObjectSize size="83" />
    <wave_markers>
       <marker time="458833745000" label="" />
    </wave_markers>
@@ -126,18 +127,29 @@
    <wvobject fp_name="/CPUSim/EOT/main_i/ALU_0/ALU_OPP" type="array">
       <obj_property name="ElementShortName">ALU_OPP[3:0]</obj_property>
       <obj_property name="ObjectShortName">ALU_OPP[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/ALU_0/D1" type="array">
       <obj_property name="ElementShortName">D1[15:0]</obj_property>
       <obj_property name="ObjectShortName">D1[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/ALU_0/D2" type="array">
       <obj_property name="ElementShortName">D2[15:0]</obj_property>
       <obj_property name="ObjectShortName">D2[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/ALU_0/ALU_OUT" type="array">
       <obj_property name="ElementShortName">ALU_OUT[15:0]</obj_property>
       <obj_property name="ObjectShortName">ALU_OUT[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Forwarder_0/executionWriteData" type="array">
       <obj_property name="ElementShortName">executionWriteData[15:0]</obj_property>
@@ -146,6 +158,7 @@
    <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Forwarder_0/executionFlags" type="array">
       <obj_property name="ElementShortName">executionFlags[15:0]</obj_property>
       <obj_property name="ObjectShortName">executionFlags[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Forwarder_0/forwardedOperand1" type="array">
       <obj_property name="ElementShortName">forwardedOperand1[15:0]</obj_property>
@@ -154,6 +167,10 @@
    <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Forwarder_0/forwardedOperand2" type="array">
       <obj_property name="ElementShortName">forwardedOperand2[15:0]</obj_property>
       <obj_property name="ObjectShortName">forwardedOperand2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/Pipelining_Controller_0/U0/instructionOut" type="array">
+      <obj_property name="ElementShortName">instructionOut[15:0]</obj_property>
+      <obj_property name="ObjectShortName">instructionOut[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/iramDout" type="array">
       <obj_property name="ElementShortName">iramDout[15:0]</obj_property>
@@ -264,25 +281,139 @@
    <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/pcLoad" type="logic">
       <obj_property name="ElementShortName">pcLoad</obj_property>
       <obj_property name="ObjectShortName">pcLoad</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/jump_condition_fulfilled_s" type="logic">
       <obj_property name="ElementShortName">jump_condition_fulfilled_s</obj_property>
       <obj_property name="ObjectShortName">jump_condition_fulfilled_s</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/jmpCondition" type="array">
-      <obj_property name="ElementShortName">jmpCondition[2:0]</obj_property>
-      <obj_property name="ObjectShortName">jmpCondition[2:0]</obj_property>
+      <obj_property name="ElementShortName">jmpCondition[4:0]</obj_property>
+      <obj_property name="ObjectShortName">jmpCondition[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/U0/jmpConditional" type="logic">
       <obj_property name="ElementShortName">jmpConditional</obj_property>
       <obj_property name="ObjectShortName">jmpConditional</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/CU_JumpController_0/jmp" type="logic">
       <obj_property name="ElementShortName">jmp</obj_property>
       <obj_property name="ObjectShortName">jmp</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/CPUSim/EOT/main_i/mmio_0/U0/rho_mask_reg_s" type="array">
       <obj_property name="ElementShortName">rho_mask_reg_s[15:0]</obj_property>
       <obj_property name="ObjectShortName">rho_mask_reg_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/U0/gram" type="array">
+      <obj_property name="ElementShortName">gram[2047:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">gram[2047:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/mmu_0/U0/iram" type="array">
+      <obj_property name="ElementShortName">iram[2047:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">iram[2047:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg0_s" type="array">
+      <obj_property name="ElementShortName">reg0_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg0_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg1_s" type="array">
+      <obj_property name="ElementShortName">reg1_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg2_s" type="array">
+      <obj_property name="ElementShortName">reg2_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg2_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg3_s" type="array">
+      <obj_property name="ElementShortName">reg3_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg3_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg4_s" type="array">
+      <obj_property name="ElementShortName">reg4_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg4_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg5_s" type="array">
+      <obj_property name="ElementShortName">reg5_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg5_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg6_s" type="array">
+      <obj_property name="ElementShortName">reg6_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg6_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg7_s" type="array">
+      <obj_property name="ElementShortName">reg7_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg7_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg8_s" type="array">
+      <obj_property name="ElementShortName">reg8_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg8_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg9_s" type="array">
+      <obj_property name="ElementShortName">reg9_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg9_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg_a_s" type="array">
+      <obj_property name="ElementShortName">reg_a_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_a_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg_b_s" type="array">
+      <obj_property name="ElementShortName">reg_b_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_b_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg_c_s" type="array">
+      <obj_property name="ElementShortName">reg_c_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_c_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg_d_s" type="array">
+      <obj_property name="ElementShortName">reg_d_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_d_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg_e_s" type="array">
+      <obj_property name="ElementShortName">reg_e_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_e_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPUSim/EOT/main_i/RegFile_0/U0/reg_f_s" type="array">
+      <obj_property name="ElementShortName">reg_f_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_f_s[15:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
 </wave_config>
