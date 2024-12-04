@@ -1,21 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 07.11.2024 20:09:55
--- Design Name: 
--- Module Name: ALU_TB_ADDING - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Create Date: 08.11.2024 14:14:45
+-- Name: Matthias Fuchs
+-- Design Name: ShadeCpu
+-- Module Name: ALU_TB_OR - Behavioral
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
 
