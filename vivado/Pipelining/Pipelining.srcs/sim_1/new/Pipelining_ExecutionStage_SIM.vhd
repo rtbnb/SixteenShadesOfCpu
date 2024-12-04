@@ -13,18 +13,9 @@
 library ieee;
 use ieee.std_logic_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity Pipelining_ExecutionStage_SIM is
---  Port ( );
-end Pipelining_ExecutionStage_SIM;
+end entity Pipelining_ExecutionStage_SIM;
 
 architecture Behavioral of Pipelining_ExecutionStage_SIM is
 
@@ -78,7 +69,7 @@ architecture Behavioral of Pipelining_ExecutionStage_SIM is
     end component Pipelining_ExecutionStage;
     
     signal load_clk_s, reset_s : std_logic;
-    signal operand_1_s, operand_2_s, iImmediate_s : std_logic_vector(15 downto 0);
+    signal operand_1_s, operand_2_s, immediate_s : std_logic_vector(15 downto 0);
     signal write_address_s, ram_bank_id_s : std_logic_vector(3 downto 0);
     signal write_data_sel_s : std_logic_vector(2 downto 0);
     signal flag_sel_s : std_logic_vector(0 downto 0);
@@ -112,7 +103,7 @@ begin
         isGPUOp => is_gpu_op_s
     );
 
-    rf_write_s <= wl_s or whb_s;
+    rf_write_s <= wlb_s or whb_s;
 
     simulator : process is
     begin
@@ -122,7 +113,6 @@ begin
         write_address_s <= X"f";
         whb_s <= '1';
         wlb_s <= '1';
-        rf_write_s <= '1';
         write_data_sel_s <= "001";
         flag_sel_s <= "1";
         ram_src_s <= '1';
@@ -145,7 +135,6 @@ begin
         write_address_s <= X"e";
         whb_s <= '0';
         wlb_s <= '1';
-        rf_write_s <= '1';
         write_data_sel_s <= "011";
         flag_sel_s <= "0";
         ram_src_s <= '1';
@@ -169,7 +158,6 @@ begin
         write_address_s <= X"1";
         whb_s <= '1';
         wlb_s <= '0';
-        rf_write_s <= '0';
         write_data_sel_s <= "100";
         flag_sel_s <= "1";
         ram_src_s <= '0';
@@ -178,6 +166,29 @@ begin
         ram_bank_id_s <= X"5";
         jmp_s <= '1';
         jmp_conditional_s <= '0';
+        jmp_relative_s <= '0';
+        jmp_destination_select_s <= '1';
+        jmp_condition_s <= "00101";
+        is_alu_op_s <= '1';
+        is_ram_op_s <= '0';
+        is_gpu_op_s <= '1';
+        wait for 20 ns;
+
+
+        operand_1_s <= X"94af";
+        operand_2_s <= X"ad62";
+        immediate_s <= X"4258";
+        write_address_s <= X"1";
+        whb_s <= '0';
+        wlb_s <= '0';
+        write_data_sel_s <= "100";
+        flag_sel_s <= "1";
+        ram_src_s <= '1';
+        ram_read_s <= '1';
+        ram_write_s <= '0';
+        ram_bank_id_s <= X"5";
+        jmp_s <= '1';
+        jmp_conditional_s <= '1';
         jmp_relative_s <= '0';
         jmp_destination_select_s <= '1';
         jmp_condition_s <= "00101";
