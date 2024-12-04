@@ -43,14 +43,14 @@ architecture Behavioral of CU_WriteSelector_SIM is
 begin
     -- Outputs are not connected, as they will be configured in the waveform
     EUT : CU_WriteSelector port map(
-        ram_out_s => X"1234",
-        manipulated_immidiate_s => X"5678",
-        reg_1_s => X"9abc",
-        alu_out_s => X"def0",
+        ramOut => X"1234",
+        manipulatedImmediate => X"5678",
+        reg1 => X"9abc",
+        aluOut => X"def0",
         fpuOut => X"a3d8",
         aluFlags => "0000000000000100",
         fpuFlags => "0000000000010010",
-        write_sel_s => write_sel_s,
+        writeSel => write_sel_s,
         flagSel => flag_sel_s
     );
 
@@ -62,11 +62,11 @@ begin
         end loop;
     end process simulator_1;
 
-    simulator_1 : process is
+    simulator_2 : process is
     begin
         FOR i in 0 to 1 loop
             flag_sel_s <= std_logic_vector(to_unsigned(i, 1));
             wait for 5  ns;
         end loop;
-    end process simulator_1;
+    end process simulator_2;
 end architecture Behavioral;
