@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 16.11.2024 12:24:33
--- Name: Nico
+-- Name: Nico Tunkowski
 -- Design Name: ShadeCpu
 -- Module Name: Debugger - Behavioral
 -- Project Name: ShadeCpu-1

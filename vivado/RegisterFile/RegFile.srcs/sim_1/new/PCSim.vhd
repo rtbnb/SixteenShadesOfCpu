@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 07.11.2024 10:51:56
--- Name: Nico
+-- Name: Nico Tunkowski
 -- Design Name: ShadeCpu
 -- Module Name: PCSim - Behavioral
 -- Project Name: ShadeCpu-1
@@ -49,9 +49,37 @@ begin
         stalled <= '0';
         reset <= '0';
         din <= X"0000";
-
+        wait for 20ns;
+        -- test count
         wait for 200ns;
 
-    end process test;
+        -- set addr to 0x0001
+        din <= X"0001";
+        jmp <= '1';
+        stalled <= '0';
+        wait for 20ns;
 
+        -- stall
+        jmp <= '0';
+        stalled <= '1';
+        wait for 100ns;
+
+        -- reset
+        reset <= '1';
+        jmp <= '0';
+        stalled <= '0';
+        wait for 40ns;
+
+        -- reset with jmp and stalled high to prove not affecting the reset
+        jmp <= '1';
+        stalled <= '1';
+        wait for 20ns;
+
+        -- count normally
+        reset <= '0';
+        jmp <= '0';
+        stalled <= '0';
+        din <= X"0000";
+        wait;
+    end process test;
 end Behavioral;
