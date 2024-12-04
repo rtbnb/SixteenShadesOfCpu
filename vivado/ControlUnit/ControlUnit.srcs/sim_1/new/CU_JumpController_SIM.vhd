@@ -53,7 +53,7 @@ begin
 
     -- Outputs are not connected, as they will be configured in the waveform
     EUT : CU_JumpController port map(
-        jmp_s => jmp_s,
+        jmp => jmp_s,
         jmpConditional => jmp_conditional_s,
         jmpRelative => jmp_relative_s,
         jmpCondition => jmp_condition_s,
@@ -103,7 +103,6 @@ begin
         jmp_conditional_s <= '0';
         jmp_address_s <= X"1F00";
         pc_current_s <= X"0011";
-        flags_s <= X"0000";
     
         for i in 0 to 31 loop
             jmp_condition_s <= std_logic_vector(to_unsigned(i, 5));

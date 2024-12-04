@@ -39,16 +39,8 @@ begin
     simulator : process is
     begin
         ram_address_src_s <= '0';
-        Use_MA <= '0';
-        wait for 10 ns;
-        ram_address_src_s <= '0';
-        Use_MA <= '1';
         wait for 10 ns;
         ram_address_src_s <= '1';
-        Use_MA <= '0';
-        wait for 10 ns;
-        ram_address_src_s <= '1';
-        Use_MA <= '1';
         wait for 10 ns;
     end process simulator;
 

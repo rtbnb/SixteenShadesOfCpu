@@ -1,7 +1,7 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: D:/programme/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot CU_Decoder_SIM_behav xil_defaultlib.CU_Decoder_SIM -log elaborate.log 
+Running: D:/programme/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ControlUnitSimulation_behav xil_defaultlib.ControlUnitSimulation -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -13,5 +13,17 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder [cu_decoder_default]
-Compiling architecture behavioral of entity xil_defaultlib.cu_decoder_sim
-Built simulation snapshot CU_Decoder_SIM_behav
+Compiling architecture behavioral of entity xil_defaultlib.CU_Decoder_SIM [cu_decoder_sim_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator [cu_immediatemanipulator_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_ImmediateManipulator_SIM [cu_immediatemanipulator_sim_defa...]
+Compiling architecture behavioral of entity xil_defaultlib.FlagUnpacker [flagunpacker_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController [cu_jumpcontroller_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpController_SIM [cu_jumpcontroller_sim_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector [cu_jumpdestinationselector_defau...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_JumpDestinationSelector_SIM [cu_jumpdestinationselector_sim_d...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController [cu_ramaddresscontroller_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_RAMAddressController_SIM [cu_ramaddresscontroller_sim_defa...]
+Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector [cu_writeselector_default]
+Compiling architecture behavioral of entity xil_defaultlib.CU_WriteSelector_SIM [cu_writeselector_sim_default]
+Compiling architecture behavioral of entity xil_defaultlib.controlunitsimulation
+Built simulation snapshot ControlUnitSimulation_behav

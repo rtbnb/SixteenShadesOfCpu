@@ -29,7 +29,7 @@ architecture Behavioral of CU_ImmediateManipulator_SIM is
     
     signal reg1_s : std_logic_vector(15 downto 0) := X"abcd";
     signal immediate_s : std_logic_vector(15 downto 0) := X"3377";
-    signal rf_whb_s, rd_wlb_s : std_logic;
+    signal rf_whb_s, rf_wlb_s : std_logic;
     
 begin
     -- Outputs are not connected, as they will be configured in the waveform
@@ -37,7 +37,7 @@ begin
         reg1 => reg1_s,
         immediate => immediate_s,
         rfWHB => rf_whb_s,
-        rfWLB => rd_wlb_s
+        rfWLB => rf_wlb_s
     );
     
     -- Tests all possible combinations of rfWHB and rfWLB
