@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 16.11.2024 14:55:29
--- Name: Robin
+-- Name: Robin Eilers
 -- Design Name: ShadeCpu
 -- Module Name: mainSim - Behavioral
 -- Project Name: ShadeCpu-1

@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 22.11.2024 20:42:37
--- Name: Robin
+-- Name: Robin Eilers
 -- Design Name: ShadeCpu
 -- Module Name: ccSim - Behavioral
 -- Project Name: ShadeCpu-1
