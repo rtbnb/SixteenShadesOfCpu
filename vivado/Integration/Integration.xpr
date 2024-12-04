@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="67" Path="C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.xpr">
+<Project Product="Vivado" Version="7" Minor="67" Path="D:/Code/VHDL/SixteenShadesOfCpu/vivado/Integration/Integration.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="71a83c23edd948ca9b553402d6fc8f8b"/>
@@ -365,6 +365,82 @@
       </File>
       <File Path="$PSRCDIR/debugger/new/CPUSim_behav.wcfg">
         <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/debugger/imports/new/FPU_TB_MULTIPLICATION.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../SixteenShadesOfCpu_FPU_Fork/FPU_Testing/FPU_Testing.srcs/sim_1/new/FPU_TB_MULTIPLICATION.vhd"/>
+          <Attr Name="ImportTime" Val="1731936653"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/debugger/imports/new/FPU_TB_ADDING.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../SixteenShadesOfCpu_FPU_Fork/FPU_Testing/FPU_Testing.srcs/sim_1/new/FPU_TB_ADDING.vhd"/>
+          <Attr Name="ImportTime" Val="1731946474"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/debugger/imports/new/FPU_TB_SUBTRACTION.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../SixteenShadesOfCpu_FPU_Fork/FPU_Testing/FPU_Testing.srcs/sim_1/new/FPU_TB_SUBTRACTION.vhd"/>
+          <Attr Name="ImportTime" Val="1731932428"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_OR.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_MULTIPLICATION.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_AND.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_ADDING.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_IDENTITY.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SHIFTING.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../ALU_Testing/ALU_Testing.srcs/sim_1/new/ALU_TB_SUBTRACTING.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
