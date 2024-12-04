@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 07.11.2024 10:34:23
--- Name: Nico
+-- Name: Nico Tunkowski
 -- Design Name: ShadeCpu
 -- Module Name: ProgramCounter - Behavioral
 -- Project Name: ShadeCpu-1

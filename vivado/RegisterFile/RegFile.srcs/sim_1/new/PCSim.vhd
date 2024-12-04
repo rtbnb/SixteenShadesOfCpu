@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 07.11.2024 10:51:56
--- Name: Nico
+-- Name: Nico Tunkowski
 -- Design Name: ShadeCpu
 -- Module Name: PCSim - Behavioral
 -- Project Name: ShadeCpu-1

@@ -1,3 +1,12 @@
+# ----------------------------------------------------------------------------------
+# Name: Nico Tunkowski
+# Design Name: ShadeCpu
+# Module Name: Datapool.py
+# Project Name: ShadeCpu-1
+# Target Devices: Host PC with Python 3
+# Repository: https://github.com/rtbnb/SixteenShadesOfCpu
+# ----------------------------------------------------------------------------------
+
 class Datapool:
     def __init__(self):
         self.data = {

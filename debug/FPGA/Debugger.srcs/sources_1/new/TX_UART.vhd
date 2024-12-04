@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 15.11.2024 16:43:36
--- Name: Nico
+-- Name: Nico Tunkowski
 -- Design Name: ShadeCpu
 -- Module Name: TX_UART - Behavioral
 -- Project Name: ShadeCpu-1
