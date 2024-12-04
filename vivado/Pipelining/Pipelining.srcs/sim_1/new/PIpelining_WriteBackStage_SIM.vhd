@@ -9,7 +9,7 @@
 ----------------------------------------------------------------------------------
 
 library ieee;
-use ieee.std_logic_1164.ALL;
+use ieee.std_logic_1164.all;
 
 
 entity Pipelining_WriteBackStage_SIM is
@@ -36,7 +36,8 @@ architecture Behavioral of Pipelining_WriteBackStage_SIM is
     
     
     signal load_clk_s, reset_s, whb_s, wlb_s, is_alu_op_s : std_logic;
-    signal write_address_s, write_data_s, flags_s : std_logic_vector(15 downto 0);
+    signal write_address_s : std_logic_vector(3 downto 0);
+    signal write_data_s, flags_s : std_logic_vector(15 downto 0);
     
 begin
     
@@ -53,7 +54,7 @@ begin
     
     simulator : process is
     begin
-        write_address_s <= X"0123";
+        write_address_s <= X"1";
         write_data_s <= X"31ac";
         flags_s <= X"a2c2";
         whb_s <= '1';
@@ -62,7 +63,7 @@ begin
         
         wait for 20 ns;
         
-        write_address_s <= X"97cd";
+        write_address_s <= X"a";
         write_data_s <= X"312a";
         flags_s <= X"875a";
         whb_s <= '0';
@@ -71,19 +72,19 @@ begin
         
         wait for 20 ns;
         
-        write_address_s <= X"fca1";
+        write_address_s <= X"b";
         write_data_s <= X"ace2";
         flags_s <= X"5742";
-        whb_s <= '0';
+        whb_s <= '1';
         wlb_s <= '1';
         is_alu_op_s <= '0';
         
         wait for 20 ns;
         
-        write_address_s <= X"abcd";
+        write_address_s <= X"8";
         write_data_s <= X"ef32";
         flags_s <= X"7423";
-        whb_s <= '1';
+        whb_s <= '0';
         wlb_s <= '0';
         is_alu_op_s <= '0';
         
