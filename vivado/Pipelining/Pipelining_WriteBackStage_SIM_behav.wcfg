@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="PipeliningSimulation_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="PipeliningSimulation" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="361.045 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,127.792 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="216"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/instrLoadClk" type="logic">
+      <obj_property name="ElementShortName">instrLoadClk</obj_property>
+      <obj_property name="ObjectShortName">instrLoadClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/writeAddress" type="array">
+      <obj_property name="ElementShortName">writeAddress[3:0]</obj_property>
+      <obj_property name="ObjectShortName">writeAddress[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/writeData" type="array">
+      <obj_property name="ElementShortName">writeData[15:0]</obj_property>
+      <obj_property name="ObjectShortName">writeData[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/flags" type="array">
+      <obj_property name="ElementShortName">flags[15:0]</obj_property>
+      <obj_property name="ObjectShortName">flags[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/whb" type="logic">
+      <obj_property name="ElementShortName">whb</obj_property>
+      <obj_property name="ObjectShortName">whb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/wlb" type="logic">
+      <obj_property name="ElementShortName">wlb</obj_property>
+      <obj_property name="ObjectShortName">wlb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/isALUOp" type="logic">
+      <obj_property name="ElementShortName">isALUOp</obj_property>
+      <obj_property name="ObjectShortName">isALUOp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/writeAddressOut" type="array">
+      <obj_property name="ElementShortName">writeAddressOut[3:0]</obj_property>
+      <obj_property name="ObjectShortName">writeAddressOut[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/writeDataOut" type="array">
+      <obj_property name="ElementShortName">writeDataOut[15:0]</obj_property>
+      <obj_property name="ObjectShortName">writeDataOut[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/flagsOut" type="array">
+      <obj_property name="ElementShortName">flagsOut[15:0]</obj_property>
+      <obj_property name="ObjectShortName">flagsOut[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/rfWEOut" type="logic">
+      <obj_property name="ElementShortName">rfWEOut</obj_property>
+      <obj_property name="ObjectShortName">rfWEOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_WriteBackStage/EUT/isALUOpOut" type="logic">
+      <obj_property name="ElementShortName">isALUOpOut</obj_property>
+      <obj_property name="ObjectShortName">isALUOpOut</obj_property>
+   </wvobject>
+</wave_config>

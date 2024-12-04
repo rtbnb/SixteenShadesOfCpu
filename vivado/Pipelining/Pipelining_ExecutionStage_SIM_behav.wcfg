@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="PipeliningSimulation_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="PipeliningSimulation" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="276.917 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,645.918 ns"></ZoomEndTime>
+      <Cursor1Time time="505.083 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="216"></NameColumnWidth>
+      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="44" />
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/loadClk" type="logic">
+      <obj_property name="ElementShortName">loadClk</obj_property>
+      <obj_property name="ObjectShortName">loadClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/operand1" type="array">
+      <obj_property name="ElementShortName">operand1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/operand2" type="array">
+      <obj_property name="ElementShortName">operand2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">operand2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/immediate" type="array">
+      <obj_property name="ElementShortName">immediate[15:0]</obj_property>
+      <obj_property name="ObjectShortName">immediate[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/writeAddress" type="array">
+      <obj_property name="ElementShortName">writeAddress[3:0]</obj_property>
+      <obj_property name="ObjectShortName">writeAddress[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/whb" type="logic">
+      <obj_property name="ElementShortName">whb</obj_property>
+      <obj_property name="ObjectShortName">whb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/wlb" type="logic">
+      <obj_property name="ElementShortName">wlb</obj_property>
+      <obj_property name="ObjectShortName">wlb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/rfWrite" type="logic">
+      <obj_property name="ElementShortName">rfWrite</obj_property>
+      <obj_property name="ObjectShortName">rfWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/writeDataSel" type="array">
+      <obj_property name="ElementShortName">writeDataSel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">writeDataSel[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/flagSel" type="array">
+      <obj_property name="ElementShortName">flagSel[0:0]</obj_property>
+      <obj_property name="ObjectShortName">flagSel[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/ramSrc" type="logic">
+      <obj_property name="ElementShortName">ramSrc</obj_property>
+      <obj_property name="ObjectShortName">ramSrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/ramRead" type="logic">
+      <obj_property name="ElementShortName">ramRead</obj_property>
+      <obj_property name="ObjectShortName">ramRead</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/ramWrite" type="logic">
+      <obj_property name="ElementShortName">ramWrite</obj_property>
+      <obj_property name="ObjectShortName">ramWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/ramBankID" type="array">
+      <obj_property name="ElementShortName">ramBankID[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ramBankID[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmp" type="logic">
+      <obj_property name="ElementShortName">jmp</obj_property>
+      <obj_property name="ObjectShortName">jmp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpConditional" type="logic">
+      <obj_property name="ElementShortName">jmpConditional</obj_property>
+      <obj_property name="ObjectShortName">jmpConditional</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpRelative" type="logic">
+      <obj_property name="ElementShortName">jmpRelative</obj_property>
+      <obj_property name="ObjectShortName">jmpRelative</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpDestinationSelect" type="logic">
+      <obj_property name="ElementShortName">jmpDestinationSelect</obj_property>
+      <obj_property name="ObjectShortName">jmpDestinationSelect</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpCondition" type="array">
+      <obj_property name="ElementShortName">jmpCondition[4:0]</obj_property>
+      <obj_property name="ObjectShortName">jmpCondition[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/isALUOp" type="logic">
+      <obj_property name="ElementShortName">isALUOp</obj_property>
+      <obj_property name="ObjectShortName">isALUOp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/isRAMOp" type="logic">
+      <obj_property name="ElementShortName">isRAMOp</obj_property>
+      <obj_property name="ObjectShortName">isRAMOp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/isGPUOp" type="logic">
+      <obj_property name="ElementShortName">isGPUOp</obj_property>
+      <obj_property name="ObjectShortName">isGPUOp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/operand1Out" type="array">
+      <obj_property name="ElementShortName">operand1Out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1Out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/operand2Out" type="array">
+      <obj_property name="ElementShortName">operand2Out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">operand2Out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/immediateOut" type="array">
+      <obj_property name="ElementShortName">immediateOut[15:0]</obj_property>
+      <obj_property name="ObjectShortName">immediateOut[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/writeAddressOut" type="array">
+      <obj_property name="ElementShortName">writeAddressOut[3:0]</obj_property>
+      <obj_property name="ObjectShortName">writeAddressOut[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/whbOut" type="logic">
+      <obj_property name="ElementShortName">whbOut</obj_property>
+      <obj_property name="ObjectShortName">whbOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/wlbOut" type="logic">
+      <obj_property name="ElementShortName">wlbOut</obj_property>
+      <obj_property name="ObjectShortName">wlbOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/rfWriteOut" type="logic">
+      <obj_property name="ElementShortName">rfWriteOut</obj_property>
+      <obj_property name="ObjectShortName">rfWriteOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/writeDataSelOut" type="array">
+      <obj_property name="ElementShortName">writeDataSelOut[2:0]</obj_property>
+      <obj_property name="ObjectShortName">writeDataSelOut[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/flagSelOut" type="array">
+      <obj_property name="ElementShortName">flagSelOut[0:0]</obj_property>
+      <obj_property name="ObjectShortName">flagSelOut[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/ramSrcOut" type="logic">
+      <obj_property name="ElementShortName">ramSrcOut</obj_property>
+      <obj_property name="ObjectShortName">ramSrcOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/ramReadOut" type="logic">
+      <obj_property name="ElementShortName">ramReadOut</obj_property>
+      <obj_property name="ObjectShortName">ramReadOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/ramWriteOut" type="logic">
+      <obj_property name="ElementShortName">ramWriteOut</obj_property>
+      <obj_property name="ObjectShortName">ramWriteOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/ramBankIDOut" type="array">
+      <obj_property name="ElementShortName">ramBankIDOut[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ramBankIDOut[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpOut" type="logic">
+      <obj_property name="ElementShortName">jmpOut</obj_property>
+      <obj_property name="ObjectShortName">jmpOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpConditionalOut" type="logic">
+      <obj_property name="ElementShortName">jmpConditionalOut</obj_property>
+      <obj_property name="ObjectShortName">jmpConditionalOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpRelativeOut" type="logic">
+      <obj_property name="ElementShortName">jmpRelativeOut</obj_property>
+      <obj_property name="ObjectShortName">jmpRelativeOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpDestinationSelectOut" type="logic">
+      <obj_property name="ElementShortName">jmpDestinationSelectOut</obj_property>
+      <obj_property name="ObjectShortName">jmpDestinationSelectOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/jmpConditionOut" type="array">
+      <obj_property name="ElementShortName">jmpConditionOut[4:0]</obj_property>
+      <obj_property name="ObjectShortName">jmpConditionOut[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/isALUOpOut" type="logic">
+      <obj_property name="ElementShortName">isALUOpOut</obj_property>
+      <obj_property name="ObjectShortName">isALUOpOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/isRAMOpOut" type="logic">
+      <obj_property name="ElementShortName">isRAMOpOut</obj_property>
+      <obj_property name="ObjectShortName">isRAMOpOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipeliningSimulation/Pipelining_ExecutionStage/EUT/isGPUOpOut" type="logic">
+      <obj_property name="ElementShortName">isGPUOpOut</obj_property>
+      <obj_property name="ObjectShortName">isGPUOpOut</obj_property>
+   </wvobject>
+</wave_config>
