@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Tue Dec  3 12:05:18 2024
-# Process ID: 55500
-# Current directory: C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1
+# Start of session at: Thu Dec  5 14:31:54 2024
+# Process ID: 5064
+# Current directory: D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1
 # Command line: vivado.exe -log main_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main_wrapper.tcl
-# Log file: C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.vds
-# Journal file: C:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1\vivado.jou
-# Running On        :Robin_Laptop
+# Log file: D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1/main_wrapper.vds
+# Journal file: D:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.runs/synth_1\vivado.jou
+# Running On        :DESKTOP-7KK7962
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :22631
-# Processor Detail  :13th Gen Intel(R) Core(TM) i7-13700H
-# CPU Frequency     :2918 MHz
-# CPU Physical cores:14
-# CPU Logical cores :20
-# Host memory       :33854 MB
-# Swap memory       :19327 MB
-# Total Virtual     :53181 MB
-# Available Virtual :20067 MB
+# Operating System  :19045
+# Processor Detail  :AMD Ryzen 7 3700X 8-Core Processor             
+# CPU Frequency     :3600 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :34276 MB
+# Swap memory       :5100 MB
+# Total Virtual     :39376 MB
+# Available Virtual :14791 MB
 #-----------------------------------------------------------
 source main_wrapper.tcl -notrace

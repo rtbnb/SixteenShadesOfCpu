@@ -1099,13 +1099,7 @@
           "wlb": {
             "direction": "I"
           },
-          "ramRead": {
-            "direction": "I"
-          },
           "isALUOp": {
-            "direction": "I"
-          },
-          "jmp": {
             "direction": "I"
           },
           "writeAddressOut": {
@@ -1126,13 +1120,7 @@
           "rfWEOut": {
             "direction": "O"
           },
-          "ramReadOut": {
-            "direction": "O"
-          },
           "isALUOpOut": {
-            "direction": "O"
-          },
-          "jmpOut": {
             "direction": "O"
           }
         }
@@ -2361,8 +2349,8 @@
       "ALU_0_ALU_OUT": {
         "ports": [
           "ALU_0/ALU_OUT",
-          "Debugger_0/aluOut",
-          "CU_WriteSelector_0/aluOut"
+          "CU_WriteSelector_0/aluOut",
+          "Debugger_0/aluOut"
         ]
       },
       "ALU_0_BIGGER_ZERO_FLAG": {
@@ -2768,8 +2756,8 @@
       "Pipelining_Controller_0_InstructionToExecute": {
         "ports": [
           "Pipelining_Controller_0/instructionOut",
-          "Debugger_0/pipelineCurrentInstruction",
           "CU_Decoder_0/instructionToDecode",
+          "Debugger_0/pipelineCurrentInstruction",
           "Decoder_0/instructionToDecode"
         ]
       },
@@ -2783,12 +2771,12 @@
       "Pipelining_Execution_0_Immediate_out": {
         "ports": [
           "Pipelining_Execution_0/immediateOut",
-          "FPU_0/FPU_OPP",
-          "Debugger_0/aluOp",
           "ALU_0/ALU_OPP",
           "CU_ImmediateManipula_0/immediate",
           "CU_JumpDestinationSe_0/immediate",
           "CU_RAMAddressControl_0/immediate",
+          "Debugger_0/aluOp",
+          "FPU_0/FPU_OPP",
           "VGA_CPU_Bridge_0/Immediate_In"
         ]
       },
@@ -2801,22 +2789,21 @@
       "Pipelining_Execution_0_JMP_out": {
         "ports": [
           "Pipelining_Execution_0/jmpOut",
-          "Debugger_0/pipelineJmp",
           "CU_JumpController_0/jmp",
-          "Pipelining_Controller_0/execJmp",
-          "Pipelining_WriteBack_0/jmp"
+          "Debugger_0/pipelineJmp",
+          "Pipelining_Controller_0/execJmp"
         ]
       },
       "Pipelining_Execution_0_Operand1_out": {
         "ports": [
           "Pipelining_Execution_0/operand1Out",
-          "FPU_0/D1",
-          "Debugger_0/pipelineOperand1",
-          "Debugger_0/aluDin1",
           "ALU_0/D1",
           "CU_ImmediateManipula_0/reg1",
           "CU_JumpDestinationSe_0/register1",
           "CU_WriteSelector_0/reg1",
+          "Debugger_0/pipelineOperand1",
+          "Debugger_0/aluDin1",
+          "FPU_0/D1",
           "VGA_CPU_Bridge_0/Reg1_In",
           "mmu_0/gramDin"
         ]
@@ -2824,12 +2811,12 @@
       "Pipelining_Execution_0_Operand2_out": {
         "ports": [
           "Pipelining_Execution_0/operand2Out",
-          "FPU_0/D2",
-          "Debugger_0/pipelineOperand2",
-          "Debugger_0/aluDin2",
           "ALU_0/D2",
           "CU_JumpController_0/flags",
           "CU_RAMAddressControl_0/reg2",
+          "Debugger_0/pipelineOperand2",
+          "Debugger_0/aluDin2",
+          "FPU_0/D2",
           "VGA_CPU_Bridge_0/Reg2_In"
         ]
       },
@@ -2861,29 +2848,29 @@
       "Pipelining_Execution_0_jmpConditionOut": {
         "ports": [
           "Pipelining_Execution_0/jmpConditionOut",
-          "Debugger_0/pipelineJmpCondition",
-          "CU_JumpController_0/jmpCondition"
+          "CU_JumpController_0/jmpCondition",
+          "Debugger_0/pipelineJmpCondition"
         ]
       },
       "Pipelining_Execution_0_jmpConditionalOut": {
         "ports": [
           "Pipelining_Execution_0/jmpConditionalOut",
-          "Debugger_0/pipelineJmpConditional",
-          "CU_JumpController_0/jmpConditional"
+          "CU_JumpController_0/jmpConditional",
+          "Debugger_0/pipelineJmpConditional"
         ]
       },
       "Pipelining_Execution_0_jmpDestinationSelectOut": {
         "ports": [
           "Pipelining_Execution_0/jmpDestinationSelectOut",
-          "Debugger_0/pipelineJmpDestinationSelect",
-          "CU_JumpDestinationSe_0/jmpDestinationSelect"
+          "CU_JumpDestinationSe_0/jmpDestinationSelect",
+          "Debugger_0/pipelineJmpDestinationSelect"
         ]
       },
       "Pipelining_Execution_0_jmpRelativeOut": {
         "ports": [
           "Pipelining_Execution_0/jmpRelativeOut",
-          "Debugger_0/pipelineJmpRelative",
-          "CU_JumpController_0/jmpRelative"
+          "CU_JumpController_0/jmpRelative",
+          "Debugger_0/pipelineJmpRelative"
         ]
       },
       "Pipelining_Execution_0_ramBankIDOut": {
@@ -2897,15 +2884,14 @@
         "ports": [
           "Pipelining_Execution_0/ramReadOut",
           "Debugger_0/pipelineRamRead",
-          "Pipelining_WriteBack_0/ramRead",
           "mmu_0/gramOe"
         ]
       },
       "Pipelining_Execution_0_ramSrcOut": {
         "ports": [
           "Pipelining_Execution_0/ramSrcOut",
-          "Debugger_0/pipelineRamSrc",
-          "CU_RAMAddressControl_0/ramAddressSrc"
+          "CU_RAMAddressControl_0/ramAddressSrc",
+          "Debugger_0/pipelineRamSrc"
         ]
       },
       "Pipelining_Execution_0_ramWriteOut": {
@@ -2938,8 +2924,8 @@
       "Pipelining_Execution_0_writeDataSelOut": {
         "ports": [
           "Pipelining_Execution_0/writeDataSelOut",
-          "Debugger_0/pipelineWriteDataSel",
-          "CU_WriteSelector_0/writeSel"
+          "CU_WriteSelector_0/writeSel",
+          "Debugger_0/pipelineWriteDataSel"
         ]
       },
       "Pipelining_Forwarder_0_ForwardedOperand1": {
@@ -2967,11 +2953,6 @@
           "RegFile_0/OverwriteFl"
         ]
       },
-      "Pipelining_WriteBack_0_JMP_out": {
-        "ports": [
-          "Pipelining_WriteBack_0/jmpOut"
-        ]
-      },
       "Pipelining_WriteBack_0_RF_WE_out": {
         "ports": [
           "Pipelining_WriteBack_0/rfWEOut",
@@ -2989,8 +2970,8 @@
       "ProgramCounter_0_Dout": {
         "ports": [
           "ProgramCounter_0/dout",
-          "Debugger_0/pcDout",
           "CU_JumpController_0/pcCurrent",
+          "Debugger_0/pcDout",
           "mmu_0/iramAddr"
         ]
       },
@@ -3277,9 +3258,9 @@
       "mmio_0_rho": {
         "ports": [
           "mmio_0/rho",
-          "FPU_0/RHO_PIN",
           "ALU_0/RHO_PIN",
-          "CU_JumpController_0/rhoPin"
+          "CU_JumpController_0/rhoPin",
+          "FPU_0/RHO_PIN"
         ]
       },
       "mmu_0_debugDout": {
@@ -3393,18 +3374,18 @@
       "xlconstant_0_dout": {
         "ports": [
           "xlconstant_0/dout",
-          "mmio_0/btn18",
-          "mmio_0/btn19",
-          "mmio_0/btn17",
-          "mmio_0/btn16",
-          "mmio_0/btn15",
-          "mmio_0/btn14",
-          "mmio_0/btn13",
-          "mmio_0/btn12",
-          "mmio_0/btn11",
-          "mmio_0/btn10",
+          "mmio_0/btn08",
           "mmio_0/btn09",
-          "mmio_0/btn08"
+          "mmio_0/btn10",
+          "mmio_0/btn11",
+          "mmio_0/btn12",
+          "mmio_0/btn13",
+          "mmio_0/btn14",
+          "mmio_0/btn15",
+          "mmio_0/btn16",
+          "mmio_0/btn17",
+          "mmio_0/btn18",
+          "mmio_0/btn19"
         ]
       }
     }

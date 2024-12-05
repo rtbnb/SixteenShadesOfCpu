@@ -1,6 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../Integration.ip_user_files/bd/main/ip/main_blk_mem_gen_0_0/sim/main_blk_mem_gen_0_0.v" \
+"../../../../Integration.ip_user_files/bd/main/ip/main_xlconstant_0_0/sim/main_xlconstant_0_0.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

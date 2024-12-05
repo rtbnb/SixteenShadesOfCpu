@@ -1,3 +1,11 @@
+# ----------------------------------------------------------------------------------
+# Name: Lukas Reil
+# Design Name: ShadeCpu
+# Module Name: assenmbler.py
+# Project Name: ShadeCpu-1
+# Target Devices: Host PC with Python 3
+# Repository: https://github.com/rtbnb/SixteenShadesOfCpu
+# ----------------------------------------------------------------------------------
 
 from enum import Enum
 

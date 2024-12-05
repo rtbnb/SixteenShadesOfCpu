@@ -1,3 +1,11 @@
+# ----------------------------------------------------------------------------------
+# Name: Lukas Reil
+# Design Name: ShadeCpu
+# Module Name: assenmblerV2.py
+# Project Name: ShadeCpu-1
+# Target Devices: Host PC with Python 3
+# Repository: https://github.com/rtbnb/SixteenShadesOfCpu
+# ----------------------------------------------------------------------------------
 
 from enum import Enum
 import re
@@ -39,8 +47,8 @@ class Argument():
                 return current_binary | ((num & ((1 << (self._argument_length_bits)) - 1)) << self._argument_begin_bit)
 
 #asm_file = "architektur/TestProgramme/MMIOTest.asm"
-asm_file = "architektur/Programme/pong/pong.asm"
-#asm_file = "architektur/Programme/demonstration/demonstration.asm"
+#asm_file = "architektur/Programme/pong/pong.asm"
+asm_file = "architektur/Programme/demonstration/demonstration.asm"
 asm_file_name = ".".join(asm_file.split(".")[0:-1])
 
 instructions = {
