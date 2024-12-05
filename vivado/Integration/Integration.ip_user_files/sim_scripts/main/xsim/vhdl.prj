@@ -1,0 +1,31 @@
+vhdl xil_defaultlib  \
+"../../../bd/main/ip/main_Pipelining_Controller_0_0/sim/main_Pipelining_Controller_0_0.vhd" \
+"../../../bd/main/ip/main_ProgramCounter_0_0/sim/main_ProgramCounter_0_0.vhd" \
+"../../../bd/main/ip/main_CU_Decoder_0_0/sim/main_CU_Decoder_0_0.vhd" \
+"../../../bd/main/ip/main_Decoder_0_0/sim/main_Decoder_0_0.vhd" \
+"../../../bd/main/ip/main_RegFile_0_0/sim/main_RegFile_0_0.vhd" \
+"../../../bd/main/ip/main_Pipelining_Forwarder_0_0/sim/main_Pipelining_Forwarder_0_0.vhd" \
+"../../../bd/main/ip/main_Pipelining_Execution_0_0/sim/main_Pipelining_Execution_0_0.vhd" \
+"../../../bd/main/ip/main_CU_RAMAddressControl_0_0/sim/main_CU_RAMAddressControl_0_0.vhd" \
+"../../../bd/main/ip/main_ALU_0_0/sim/main_ALU_0_0.vhd" \
+"../../../bd/main/ip/main_CU_ImmediateManipula_0_0/sim/main_CU_ImmediateManipula_0_0.vhd" \
+"../../../bd/main/ip/main_CU_JumpDestinationSe_0_0/sim/main_CU_JumpDestinationSe_0_0.vhd" \
+"../../../bd/main/ip/main_CU_JumpController_0_0/sim/main_CU_JumpController_0_0.vhd" \
+"../../../bd/main/ip/main_CU_WriteSelector_0_0/sim/main_CU_WriteSelector_0_0.vhd" \
+"../../../bd/main/ip/main_Pipelining_WriteBack_0_0/sim/main_Pipelining_WriteBack_0_0.vhd" \
+"../../../bd/main/ip/main_ALU_FLAG_PACKER_0_1/sim/main_ALU_FLAG_PACKER_0_1.vhd" \
+"../../../bd/main/ip/main_clockcontroller_0_0/sim/main_clockcontroller_0_0.vhd" \
+"../../../bd/main/ip/main_mmu_0_0/sim/main_mmu_0_0.vhd" \
+"../../../bd/main/ip/main_mmio_0_0/sim/main_mmio_0_0.vhd" \
+"../../../bd/main/ip/main_Debugger_0_0/sim/main_Debugger_0_0.vhd" \
+"../../../bd/main/ip/main_RX_UART_0_0/sim/main_RX_UART_0_0.vhd" \
+"../../../bd/main/ip/main_TX_UART_0_0/sim/main_TX_UART_0_0.vhd" \
+"../../../bd/main/ip/main_VGA_CPU_Bridge_0_0/sim/main_VGA_CPU_Bridge_0_0.vhd" \
+"../../../bd/main/ip/main_GPU_0_0/sim/main_GPU_0_0.vhd" \
+"../../../bd/main/ip/main_VGA_Controller_0_0/sim/main_VGA_Controller_0_0.vhd" \
+"../../../bd/main/ip/main_FPU_0_0/sim/main_FPU_0_0.vhd" \
+"../../../bd/main/ip/main_ALU_FLAG_PACKER_1_0/sim/main_ALU_FLAG_PACKER_1_0.vhd" \
+"../../../bd/main/sim/main.vhd" \
+
+# Do not sort compile order
+nosort

@@ -90,6 +90,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_ALU_FL
 # IP: bd/main/ip/main_xlconstant_0_0/main_xlconstant_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==main_xlconstant_0_0 || ORIG_REF_NAME==main_xlconstant_0_0} -quiet] -quiet
 
-# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
+# XDC: d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/ip/main_blk_mem_gen_0_0/main_blk_mem_gen_0_0_ooc.xdc
 
-# XDC: c:/Entwicklung/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc
+# XDC: d:/Programmieren/Projekte/FPGA_CPU/SixteenShadesOfCpu/vivado/Integration/Integration.gen/sources_1/bd/main/main_ooc.xdc

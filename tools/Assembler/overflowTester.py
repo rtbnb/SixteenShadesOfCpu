@@ -1,4 +1,11 @@
-
+# ----------------------------------------------------------------------------------
+# Name: Lukas Reil
+# Design Name: ShadeCpu
+# Module Name: overflowTester.py
+# Project Name: ShadeCpu-1
+# Target Devices: Host PC with Python 3
+# Repository: https://github.com/rtbnb/SixteenShadesOfCpu
+# ----------------------------------------------------------------------------------
 
 def determine_overflow_circuit(a, b, y, s):
     a2 = (a >> 3) & 1
