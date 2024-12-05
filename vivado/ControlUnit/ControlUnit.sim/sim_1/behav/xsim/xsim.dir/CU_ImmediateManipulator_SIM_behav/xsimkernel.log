@@ -1,7 +1,7 @@
-Running: xsim.dir/CU_ImmediateManipulator_SIM_behav/xsimk.exe -simmode gui -wdb CU_ImmediateManipulator_SIM_behav.wdb -simrunnum 0 -socket 51105
+Running: xsim.dir/CU_ImmediateManipulator_SIM_behav/xsimk.exe -simmode gui -wdb CU_ImmediateManipulator_SIM_behav.wdb -simrunnum 0 -socket 65509
 Design successfully loaded
-Design Loading Memory Usage: 7676 KB (Peak: 7676 KB)
-Design Loading CPU Usage: 31 ms
+Design Loading Memory Usage: 7708 KB (Peak: 7708 KB)
+Design Loading CPU Usage: 46 ms
 Simulation completed
-Simulation Memory Usage: 8100 KB (Peak: 8100 KB)
+Simulation Memory Usage: 8240 KB (Peak: 8240 KB)
 Simulation CPU Usage: 46 ms
