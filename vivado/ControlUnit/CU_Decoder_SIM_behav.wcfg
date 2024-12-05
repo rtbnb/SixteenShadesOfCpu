@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="ControlUnitSimulation_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="ControlUnitSimulation" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,309.136 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="166"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/instructionToDecode" type="array">
+      <obj_property name="ElementShortName">instructionToDecode[15:0]</obj_property>
+      <obj_property name="ObjectShortName">instructionToDecode[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/reg1Read" type="logic">
+      <obj_property name="ElementShortName">reg1Read</obj_property>
+      <obj_property name="ObjectShortName">reg1Read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/reg2Read" type="logic">
+      <obj_property name="ElementShortName">reg2Read</obj_property>
+      <obj_property name="ObjectShortName">reg2Read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/rfWHB" type="logic">
+      <obj_property name="ElementShortName">rfWHB</obj_property>
+      <obj_property name="ObjectShortName">rfWHB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/rfWLB" type="logic">
+      <obj_property name="ElementShortName">rfWLB</obj_property>
+      <obj_property name="ObjectShortName">rfWLB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/rfWrite" type="logic">
+      <obj_property name="ElementShortName">rfWrite</obj_property>
+      <obj_property name="ObjectShortName">rfWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/writeDataSelect" type="array">
+      <obj_property name="ElementShortName">writeDataSelect[2:0]</obj_property>
+      <obj_property name="ObjectShortName">writeDataSelect[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/flagSelect" type="array">
+      <obj_property name="ElementShortName">flagSelect[0:0]</obj_property>
+      <obj_property name="ObjectShortName">flagSelect[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/ramAddressSrc" type="logic">
+      <obj_property name="ElementShortName">ramAddressSrc</obj_property>
+      <obj_property name="ObjectShortName">ramAddressSrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/ramRead" type="logic">
+      <obj_property name="ElementShortName">ramRead</obj_property>
+      <obj_property name="ObjectShortName">ramRead</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/ramWrite" type="logic">
+      <obj_property name="ElementShortName">ramWrite</obj_property>
+      <obj_property name="ObjectShortName">ramWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/jmp" type="logic">
+      <obj_property name="ElementShortName">jmp</obj_property>
+      <obj_property name="ObjectShortName">jmp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/jmpConditional" type="logic">
+      <obj_property name="ElementShortName">jmpConditional</obj_property>
+      <obj_property name="ObjectShortName">jmpConditional</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/jmpRelative" type="logic">
+      <obj_property name="ElementShortName">jmpRelative</obj_property>
+      <obj_property name="ObjectShortName">jmpRelative</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/jmpDestinationSource" type="logic">
+      <obj_property name="ElementShortName">jmpDestinationSource</obj_property>
+      <obj_property name="ObjectShortName">jmpDestinationSource</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/isALUOp" type="logic">
+      <obj_property name="ElementShortName">isALUOp</obj_property>
+      <obj_property name="ObjectShortName">isALUOp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/isRAMOp" type="logic">
+      <obj_property name="ElementShortName">isRAMOp</obj_property>
+      <obj_property name="ObjectShortName">isRAMOp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ControlUnitSimulation/CU_Decoder/EUT/isGPUOp" type="logic">
+      <obj_property name="ElementShortName">isGPUOp</obj_property>
+      <obj_property name="ObjectShortName">isGPUOp</obj_property>
+   </wvobject>
+</wave_config>

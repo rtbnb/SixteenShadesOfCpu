@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 16.11.2024 14:55:29
--- Name: Robin
+-- Name: Robin Eilers
 -- Design Name: ShadeCpu
 -- Module Name: mainSim - Behavioral
 -- Project Name: ShadeCpu-1
@@ -140,53 +140,176 @@ begin
         clk100mhzIn <= '1';
         
         while true loop
-            wait for 5ns;    
+            wait for 2500ps;    
             clk100mhzIn <= not clk100mhzIn;
         end loop;
     end process;
     
-    process
+    process 
     begin
-        debugMockClk <= '1';
+        wait for 17500ps; --iram write
+        debugBank <= "1111";
+        debugAddr <= "0000000000000001";
+        debugDin <= "0000000000001001";
+        debugOverrideEnable <= '1';
+        debugEnable <= '1';
+        debugWe <= '1';
         
-        while true loop
-            wait for 10ns;
-            debugMockClk <= not debugMockClk;
-        end loop;
-    end process;
-    
-    process
-    begin
-        iramAddr <= X"0000";
-        debugEnable <= '0';
-        debugReset <= '0';
-        faultReset <= '0';
+        wait for 7500ps; --blank
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        debugWe <= '0';
+        
+        wait for 2500ps; --gram write
+        debugBank <= "0000";
+        debugAddr <= "0000000000000001";
+        debugDin <= "0000000000001101";
+        debugWe <= '1';
+        
+        wait for 7500ps; --blank
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        debugWe <= '0';
+        
+        wait for 2500ps; --iram read
+        debugBank <= "1111";
+        debugAddr <= "0000000000000001";
+        debugWe <= '0';        
+        
+        wait for 7500ps; --blank
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        debugWe <= '0';
+        
+        wait for 2500ps; --gram read
+        debugBank <= "0000";
+        debugAddr <= "0000000000000001";
+        debugWe <= '0';                  
+        
+        wait for 7500ps; --blank
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        debugWe <= '0';
+        
+        wait for 2500ps; --mmio led set
+        debugBank <= "0001";
+        debugAddr <= "1000000000000000";
+        debugDin <= "0000000000000001";
+        debugWe <= '1';      
+        
+        wait for 7500ps; --blank  
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        debugWe <= '0';
+        
+        wait for 2500ps; --mmio led clear        
+        debugBank <= "0001";
+        debugAddr <= "1000000000000000";
+        debugDin <= "0000000000000000";
+        debugWe <= '1';  
+
+        wait for 7500ps; --blank
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        debugWe <= '0';
+        
+        btn00 <= '1';
+        
+        wait for 2500ps; --mmio button read
+        debugBank <= "0001";
+        debugAddr <= "1000000000010100";
+        debugWe <= '0';
+        
+        wait for 7500ps; --blank
+        debugBank <= "UUUU";
+        debugAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        debugWe <= '0';
+        
+        btn00 <= '0';
         debugOverrideEnable <= '0';
-        
-        gramBank <= "0000";
-        count_s <= '0';
-        gramWe <= '0';
-        gramDin <= X"0000";
-        gramAddr <= X"0000";
-        wait for 10ns;
+        debugEnable <= '0';
+        wait for 2500ps;
         
         debugReset <= '1';
+        wait for 7500ps;
+        debugReset <= '0';
+        
+        wait for 2500ps;
+        iramAddr <= "0000000000000001";
+        gramAddr <= "0000000000000001";
+        gramBank <= "0000";
+        gramOe <= '1';
+        gramWe <= '0';
+        
+        wait for 7500ps;
+        gramAddr <= "UUUUUUUUUUUUUUUU";
+        iramAddr <= "UUUUUUUUUUUUUUUU";
+        debugDin <= "UUUUUUUUUUUUUUUU";
+        gramBank <= "UUUU";
+        gramOe <= '0';
+        gramWe <= '0';
+        
+        wait for 2500ps;
+        
+        wait for 30ns;
+        
         
         while true loop
-            count_s <= not count_s;
-            
-            if count_s='1' then
-                gramBank <= "0000";
-            else
-                gramBank <= "0000";
-            end if;
-            
-            gramWe <= '1';
-            gramAddr <= X"0001";
-            gramDin <= std_logic_vector(unsigned(gramDin) + 1);
+            debugOverrideEnable <= '0';
             wait for 10ns;
         end loop;
     
     end process;
-
+    
+    process
+    begin
+        external_debugClk <= '0';
+        wait for 20ns;
+        external_debugClk <= '1';
+        wait for 5ns;
+        external_debugClk <= '0';
+        wait for 5ns;
+        external_debugClk <= '1';
+        wait for 5ns;
+        external_debugClk <= '0';
+        wait for 5ns;
+        external_debugClk <= '1';
+        wait for 5ns;
+        external_debugClk <= '0';
+        wait for 5ns;
+        external_debugClk <= '1';
+        wait for 5ns;
+        external_debugClk <= '0';
+        wait for 5ns;
+        external_debugClk <= '1';
+        wait for 5ns;
+        external_debugClk <= '0';
+        wait for 5ns;
+        external_debugClk <= '1';
+        wait for 5ns;
+        external_debugClk <= '0';
+        wait for 5ns;
+        external_debugClk <= '1';
+        wait for 5ns;
+        external_debugClk <= '0';    
+                                
+        while true loop
+            wait for 10ns;
+            external_debugClk <= '0';
+        end loop;
+    end process;
+    
+    process
+    begin
+        debugMockClk <= '0';
+        wait for 10ns;
+    end process;
+    
 end Behavioral;

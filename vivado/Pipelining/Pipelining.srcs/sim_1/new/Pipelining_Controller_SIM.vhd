@@ -1,124 +1,109 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 12.11.2024 17:21:33
--- Design Name: 
--- Module Name: Pipelining_Forwarder_SIM - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Name: Lukas Reil
+-- Design Name: ShadeCpu
+-- Module Name: Pipelining_Controller_SIM - Behavioral
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
 entity Pipelining_Controller_SIM is
---  Port ( );
-end Pipelining_Controller_SIM;
+end entity Pipelining_Controller_SIM;
 
 architecture Behavioral of Pipelining_Controller_SIM is
     component Pipelining_Controller is
-        Port ( InstrLoad_CLK : in STD_LOGIC;
-               InstrExec_CLK : in STD_LOGIC;
-               Reset : in STD_LOGIC;
-               Instruction : in STD_LOGIC_VECTOR (15 downto 0);
-               ResetStall : in STD_LOGIC;
-               PC_Count : out STD_LOGIC;
-               InstructionForwardConfiguration : out STD_LOGIC_VECTOR (4 downto 0);
-               InstructionToExecute : out STD_LOGIC_VECTOR (15 downto 0));
+        Port (
+            loadClk : in std_logic;
+            instructionIn : in std_logic_vector (15 downto 0);
+            reset : in std_logic;
+            pcLoad : in std_logic;
+            rfJmp : in std_logic;
+            execJmp : in std_logic;
+            stalled : out std_logic;
+            instructionOut : out std_logic_vector (15 downto 0)
+        );
     end component Pipelining_Controller;
     
-    signal InstrLoad_CLK, InstrExec_CLK, Reset : STD_LOGIC;
-    signal Instruction : STD_LOGIC_VECTOR(15 downto 0);
-    signal ResetStall : STD_LOGIC;
+    signal load_clk_s, reset_s : std_logic;
+    signal instruction_s : std_logic_vector(15 downto 0);
+    signal pc_load_s, rf_jmp_s, exec_jmp_s : std_logic;
     
 begin
     
     EUT : Pipelining_Controller port map(
-        InstrLoad_CLK => InstrLoad_CLK,
-        InstrExec_CLK => InstrExec_CLK,
-        Reset => Reset,
-        Instruction => Instruction,
-        ResetStall => ResetStall
+        loadClk => load_clk_s,
+        reset => reset_s,
+        pcLoad => pc_load_s,
+        instructionIn => instruction_s,
+        rfJmp => rf_jmp_s,
+        execJmp => exec_jmp_s
     );
-    
-    InstrExec_CLK <= not InstrLoad_CLK;
 
-    process is
+    simulator : process is
     begin
-        Instruction <= X"0000";
-        ResetStall <= '0';
-        wait for 15 ns;
-        Instruction <= X"4000";
-        wait for 20 ns;
-        Instruction <= X"5000";
-        wait for 20 ns;
-        Instruction <= X"4101";
-        wait for 20 ns;
-        Instruction <= X"5100";
-        wait for 20 ns;
-        Instruction <= X"4300";
-        wait for 20 ns;
-        Instruction <= X"5300";
-        wait for 20 ns;
-        Instruction <= X"4401";
-        wait for 20 ns;
-        Instruction <= X"5400";
-        wait for 20 ns;
-        Instruction <= X"e200";
-        wait for 20 ns;
-        Instruction <= X"e001";
-        wait for 20 ns;
-        Instruction <= X"7230";
-        wait for 20 ns;
-        Instruction <= X"1002";
-        wait for 20 ns;
-        Instruction <= X"8005";
-        wait for 20 ns;
-        Instruction <= X"e10e";
-        wait for 105 ns;
-        ResetStall <= '1';
+        instruction_s <= X"0007";
+        pc_load_s <= '0';
+        rf_jmp_s <= '0';
+        exec_jmp_s <= '0';
         wait for 10 ns;
-        ResetStall <= '0';
-        wait for 200 ns;
+        instruction_s <= X"0015";
+        pc_load_s <= '0';
+        rf_jmp_s <= '0';
+        exec_jmp_s <= '1';
+        wait for 10 ns;
+        instruction_s <= X"0a0a";
+        pc_load_s <= '0';
+        rf_jmp_s <= '1';
+        exec_jmp_s <= '0';
+        wait for 10 ns;
+        instruction_s <= X"360f";
+        pc_load_s <= '0';
+        rf_jmp_s <= '1';
+        exec_jmp_s <= '1';
+        wait for 10 ns;
+        instruction_s <= X"0007";
+        pc_load_s <= '1';
+        rf_jmp_s <= '0';
+        exec_jmp_s <= '0';
+        wait for 10 ns;
+        instruction_s <= X"7256";
+        pc_load_s <= '1';
+        rf_jmp_s <= '0';
+        exec_jmp_s <= '1';
+        wait for 10 ns;
+        instruction_s <= X"ab77";
+        pc_load_s <= '1';
+        rf_jmp_s <= '1';
+        exec_jmp_s <= '0';
+        wait for 10 ns;
+        instruction_s <= X"76ac";
+        pc_load_s <= '1';
+        rf_jmp_s <= '1';
+        exec_jmp_s <= '1';
+        wait for 10 ns;
         
-    end process;
+    end process simulator;
     
-    process is
+    clocker : process is
     begin
-        InstrLoad_CLK <= '0';
-        wait for 10 ns;
-        InstrLoad_CLK <= '1';
-        wait for 10 ns;
-    end process;
+        load_clk_s <= '0';
+        wait for 5 ns;
+        load_clk_s <= '1';
+        wait for 5 ns;
+    end process clocker;
     
-    process is
+    resetter : process is
     begin
-        Reset <= '0';
+        reset_s <= '0';
         wait for 20 ns;
-        Reset <= '1';
+        reset_s <= '1';
         wait for 10 ns;
-        Reset <= '0';
+        reset_s <= '0';
         wait for 370 ns;
-    end process;
+    end process resetter;
 
-end Behavioral;
+end architecture Behavioral;

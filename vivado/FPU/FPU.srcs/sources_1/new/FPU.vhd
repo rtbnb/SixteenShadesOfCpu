@@ -1,21 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 13.11.2024 10:22:02
--- Design Name: 
+-- Name: Matthias Fuchs
+-- Design Name: ShadeCpu
 -- Module Name: FPU - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
 library IEEE;

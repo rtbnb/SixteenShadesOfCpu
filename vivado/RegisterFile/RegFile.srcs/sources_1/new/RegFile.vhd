@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Create Date: 06.11.2024 13:50:44
--- Name: Nico
+-- Name: Nico Tunkowski
 -- Design Name: ShadeCpu
 -- Module Name: RegFile - Behavioral
 -- Project Name: ShadeCpu-1

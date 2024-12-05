@@ -1,3 +1,12 @@
+# ----------------------------------------------------------------------------------
+# Name: Nico Tunkowski
+# Design Name: ShadeCpu
+# Module Name: DatapoolebugWindow.py
+# Project Name: ShadeCpu-1
+# Target Devices: Host PC with Python 3
+# Repository: https://github.com/rtbnb/SixteenShadesOfCpu
+# ----------------------------------------------------------------------------------
+
 from PySide6 import QtWidgets
 import sys
 from Datapool import Datapool

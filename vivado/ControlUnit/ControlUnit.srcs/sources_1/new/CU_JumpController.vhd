@@ -28,7 +28,7 @@ entity CU_JumpController is
         --            100: Overflow
         -- HW Flags Select: 1
         -- Condition: 000: Rho
-        --            001: Not Zero
+        --            001: GPU Done
         jmpCondition : in std_logic_vector(4 downto 0);
         flags : in std_logic_vector(15 downto 0);
         rhoPin : in std_logic;

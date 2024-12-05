@@ -1,3 +1,12 @@
+# ----------------------------------------------------------------------------------
+# Name: Nico Tunkowski
+# Design Name: ShadeCpu
+# Module Name: TXThread.py
+# Project Name: ShadeCpu-1
+# Target Devices: Host PC with Python 3
+# Repository: https://github.com/rtbnb/SixteenShadesOfCpu
+# ----------------------------------------------------------------------------------
+
 import threading
 import serial
 import DebugWindow

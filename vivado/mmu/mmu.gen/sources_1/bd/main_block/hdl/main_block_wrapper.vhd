@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Nov 29 11:54:45 2024
+--Date        : Tue Dec  3 20:28:30 2024
 --Host        : DESKTOP-Q664A4O running 64-bit major release  (build 9200)
 --Command     : generate_target main_block_wrapper.bd
 --Design      : main_block_wrapper
@@ -89,7 +89,7 @@ entity main_block_wrapper is
     vgaClk : out STD_LOGIC;
     vga_dout : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
-end entity main_block_wrapper;
+end main_block_wrapper;
 
 architecture STRUCTURE of main_block_wrapper is
   component main_block is
@@ -248,4 +248,4 @@ main_block_i: component main_block
       vgaClk => vgaClk,
       vga_dout(11 downto 0) => vga_dout(11 downto 0)
     );
-end architecture STRUCTURE;
+end STRUCTURE;

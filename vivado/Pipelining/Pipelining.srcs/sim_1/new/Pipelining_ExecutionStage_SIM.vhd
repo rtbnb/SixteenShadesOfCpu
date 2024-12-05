@@ -1,198 +1,218 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 12.11.2024 17:21:33
--- Design Name: 
--- Module Name: Pipelining_Forwarder_SIM - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Name: Lukas Reil
+-- Design Name: ShadeCpu
+-- Module Name: Pipelining_ExecutionStage_SIM - Behavioral
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+library ieee;
+use ieee.std_logic_1164.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity Pipelining_ExecutionStage_SIM is
---  Port ( );
-end Pipelining_ExecutionStage_SIM;
+end entity Pipelining_ExecutionStage_SIM;
 
 architecture Behavioral of Pipelining_ExecutionStage_SIM is
 
     component Pipelining_ExecutionStage is
-        Port ( InstrLoad_CLK : in STD_LOGIC;
-               Reset : in STD_LOGIC;
-               Operand1 : in STD_LOGIC_VECTOR (15 downto 0);
-               Operand2 : in STD_LOGIC_VECTOR (15 downto 0);
-               Immediate : in STD_LOGIC_VECTOR (15 downto 0);
-               MA : in STD_LOGIC_VECTOR (15 downto 0);
-               WriteAddress : in STD_LOGIC_VECTOR (3 downto 0);
-               WHB : in STD_LOGIC;
-               WLB : in STD_LOGIC;
-               WriteDataSel : in STD_LOGIC_VECTOR (1 downto 0);
-               RAM_Src : in STD_LOGIC;
-               RAM_Read : in STD_LOGIC;
-               RAM_Write : in STD_LOGIC;
-               Use_MA : in STD_LOGIC;
-               JMP : in STD_LOGIC;
-               JMP_Conditional : in STD_LOGIC;
-               JMP_Relative : in STD_LOGIC;
-               JMP_DestinationSelect : in STD_LOGIC;
-               JMP_Condition : in STD_LOGIC_VECTOR (2 downto 0);
-               Is_ALU_OP : in STD_LOGIC;
-               Is_RAM_OP : in STD_LOGIC;
-               Operand1_out : out STD_LOGIC_VECTOR (15 downto 0);
-               Operand2_out : out STD_LOGIC_VECTOR (15 downto 0);
-               Immediate_out : out STD_LOGIC_VECTOR (15 downto 0);
-               MA_out : out STD_LOGIC_VECTOR (15 downto 0);
-               WriteAddress_out : out STD_LOGIC_VECTOR (3 downto 0);
-               WHB_out : out STD_LOGIC;
-               WLB_out : out STD_LOGIC;
-               WriteDataSel_out : out STD_LOGIC_VECTOR (1 downto 0);
-               RAM_Src_out : out STD_LOGIC;
-               RAM_Read_out : out STD_LOGIC;
-               RAM_Write_out : out STD_LOGIC;
-               Use_MA_out : out STD_LOGIC;
-               JMP_out : out STD_LOGIC;
-               JMP_Conditional_out : out STD_LOGIC;
-               JMP_Relative_out : out STD_LOGIC;
-               JMP_DestinationSelect_out : out STD_LOGIC;
-               JMP_Condition_out : out STD_LOGIC_VECTOR (2 downto 0);
-               IS_ALU_OP_out : out STD_LOGIC;
-               Is_RAM_OP_out : out STD_LOGIC);
+        Port (
+            loadClk : in std_logic;
+            reset : in std_logic;
+            operand1 : in std_logic_vector(15 downto 0);
+            operand2 : in std_logic_vector(15 downto 0);
+            immediate : in std_logic_vector(15 downto 0);
+            writeAddress : in std_logic_vector(3 downto 0);
+            whb : in std_logic;
+            wlb : in std_logic;
+            rfWrite : in std_logic;
+            writeDataSel : in std_logic_vector(2 downto 0);
+            flagSel : in std_logic_vector(0 downto 0);
+            ramSrc : in std_logic;
+            ramRead : in std_logic;
+            ramWrite : in std_logic;
+            ramBankID : in std_logic_vector(3 downto 0);
+            jmp : in std_logic;
+            jmpConditional : in std_logic;
+            jmpRelative : in std_logic;
+            jmpDestinationSelect : in std_logic;
+            jmpCondition : in std_logic_vector(4 downto 0);
+            isALUOp : in std_logic;
+            isRAMOp : in std_logic;
+            isGPUOp : in std_logic;
+            operand1Out : out std_logic_vector(15 downto 0);
+            operand2Out : out std_logic_vector(15 downto 0);
+            immediateOut : out std_logic_vector(15 downto 0);
+            writeAddressOut : out std_logic_vector(3 downto 0);
+            whbOut : out std_logic;
+            wlbOut : out std_logic;
+            rfWriteOut : out std_logic;
+            writeDataSelOut : out std_logic_vector(2 downto 0);
+            flagSelOut : out std_logic_vector(0 downto 0);
+            ramSrcOut : out std_logic;
+            ramReadOut : out std_logic;
+            ramWriteOut : out std_logic;
+            ramBankIDOut : out std_logic_vector(3 downto 0);
+            jmpOut : out std_logic;
+            jmpConditionalOut : out std_logic;
+            jmpRelativeOut : out std_logic;
+            jmpDestinationSelectOut : out std_logic;
+            jmpConditionOut : out std_logic_vector(4 downto 0);
+            isALUOpOut : out std_logic;
+            isRAMOpOut : out std_logic;
+            isGPUOpOut : out std_logic
+        );
     end component Pipelining_ExecutionStage;
     
-    signal InstrLoad_CLK, Reset : STD_LOGIC;
-    signal Operand1, Operand2, Immediate, MA : STD_LOGIC_VECTOR(15 downto 0);
-    signal WriteAddress : STD_LOGIC_VECTOR(3 downto 0);
-    signal WriteDataSel : STD_LOGIC_VECTOR(1 downto 0);
-    signal JMP_Condition : STD_LOGIC_VECTOR(2 downto 0);
-    signal WHB, WLB, RAM_Src, RAM_Read, RAM_Write, Use_MA, JMP, JMP_Conditional, JMP_Relative, JMP_DestinationSelect, Is_ALU_OP, Is_RAM_OP : STD_LOGIC;
+    signal load_clk_s, reset_s : std_logic;
+    signal operand_1_s, operand_2_s, immediate_s : std_logic_vector(15 downto 0);
+    signal write_address_s, ram_bank_id_s : std_logic_vector(3 downto 0);
+    signal write_data_sel_s : std_logic_vector(2 downto 0);
+    signal flag_sel_s : std_logic_vector(0 downto 0);
+    signal jmp_condition_s : std_logic_vector(4 downto 0);
+    signal whb_s, wlb_s, rf_write_s, ram_src_s, ram_read_s, ram_write_s, Use_MA, jmp_s, jmp_conditional_s, jmp_relative_s, jmp_destination_select_s, is_alu_op_s, is_ram_op_s, is_gpu_op_s : std_logic;
 begin
 
     EUT : Pipelining_ExecutionStage port map(
-        InstrLoad_CLK => InstrLoad_CLK,
-        Reset => Reset,
-        Operand1 => Operand1,
-        Operand2 => Operand2,
-        Immediate => Immediate,
-        MA => MA, 
-        WriteAddress => WriteAddress,
-        WHB => WHB,
-        WLB => WLB,
-        WriteDataSel => WriteDataSel,
-        RAM_Src => RAM_Src,
-        RAM_Read => RAM_Read,
-        RAM_Write => RAM_Write,
-        Use_MA => Use_MA,
-        JMP => JMP,
-        JMP_Conditional => JMP_Conditional,
-        JMP_Relative => JMP_Relative,
-        JMP_DestinationSelect => JMP_DestinationSelect,
-        JMP_Condition => JMP_Condition,
-        Is_ALU_OP => Is_ALU_OP,
-        Is_RAM_OP => Is_RAM_OP
+        loadClk => load_clk_s,
+        reset => reset_s,
+        operand1 => operand_1_s,
+        operand2 => operand_2_s,
+        immediate => immediate_s,
+        writeAddress => write_address_s,
+        whb => whb_s,
+        wlb => wlb_s,
+        rfWrite => rf_write_s,
+        writeDataSel => write_data_sel_s,
+        flagSel => flag_sel_s,
+        ramSrc => ram_src_s,
+        ramRead => ram_read_s,
+        ramWrite => ram_write_s,
+        ramBankID => ram_bank_id_s,
+        jmp => jmp_s,
+        jmpConditional => jmp_conditional_s,
+        jmpRelative => jmp_relative_s,
+        jmpDestinationSelect => jmp_destination_select_s,
+        jmpCondition => jmp_condition_s,
+        isALUOp => is_alu_op_s,
+        isRAMOp => is_ram_op_s,
+        isGPUOp => is_gpu_op_s
     );
 
-    process is
-    begin
-        Operand1 <= X"12c1";
-        Operand2 <= X"acd1";
-        Immediate <= X"c321";
-        MA <= X"42ac";
-        WriteAddress <= X"f";
-        WHB <= '1';
-        WLB <= '1';
-        WriteDataSel <= "01";
-        RAM_Src <= '1';
-        RAM_Read <= '0';
-        RAM_Write <= '1';
-        Use_MA <= '0';
-        JMP <= '1';
-        JMP_Conditional <= '1';
-        JMP_Relative <= '1';
-        JMP_DestinationSelect <= '0';
-        JMP_Condition <= "111";
-        Is_ALU_OP <= '1';
-        Is_RAM_OP <= '1';
-        wait for 20 ns;
-        
-        Operand1 <= X"fc21";
-        Operand2 <= X"654c";
-        Immediate <= X"9762";
-        MA <= X"423e";
-        WriteAddress <= X"e";
-        WHB <= '0';
-        WLB <= '1';
-        WriteDataSel <= "11";
-        RAM_Src <= '0';
-        RAM_Read <= '1';
-        RAM_Write <= '0';
-        Use_MA <= '0';
-        JMP <= '0';
-        JMP_Conditional <= '0';
-        JMP_Relative <= '1';
-        JMP_DestinationSelect <= '1';
-        JMP_Condition <= "111";
-        Is_ALU_OP <= '0';
-        Is_RAM_OP <= '0';
-        wait for 20 ns;
-        
-        Operand1 <= X"756a";
-        Operand2 <= X"ce32";
-        Immediate <= X"fe62";
-        MA <= X"32de";
-        WriteAddress <= X"f";
-        WHB <= '1';
-        WLB <= '0';
-        WriteDataSel <= "00";
-        RAM_Src <= '1';
-        RAM_Read <= '1';
-        RAM_Write <= '1';
-        Use_MA <= '0';
-        JMP <= '0';
-        JMP_Conditional <= '1';
-        JMP_Relative <= '1';
-        JMP_DestinationSelect <= '0';
-        JMP_Condition <= "001";
-        Is_ALU_OP <= '1';
-        Is_RAM_OP <= '0';
-        wait for 20 ns;
-    end process;
+    rf_write_s <= wlb_s or whb_s;
 
-    process is
+    simulator : process is
     begin
-        InstrLoad_CLK <= '0';
+        operand_1_s <= X"12c1";
+        operand_2_s <= X"acd1";
+        immediate_s <= X"c321";
+        write_address_s <= X"f";
+        whb_s <= '1';
+        wlb_s <= '1';
+        write_data_sel_s <= "001";
+        flag_sel_s <= "1";
+        ram_src_s <= '1';
+        ram_read_s <= '0';
+        ram_write_s <= '1';
+        ram_bank_id_s <= X"3";
+        jmp_s <= '1';
+        jmp_conditional_s <= '1';
+        jmp_relative_s <= '1';
+        jmp_destination_select_s <= '0';
+        jmp_condition_s <= "11111";
+        is_alu_op_s <= '1';
+        is_ram_op_s <= '1';
+        is_gpu_op_s <= '1';
+        wait for 20 ns;
+
+        operand_1_s <= X"fc21";
+        operand_2_s <= X"654c";
+        immediate_s <= X"9762";
+        write_address_s <= X"e";
+        whb_s <= '0';
+        wlb_s <= '1';
+        write_data_sel_s <= "011";
+        flag_sel_s <= "0";
+        ram_src_s <= '1';
+        ram_read_s <= '0';
+        ram_write_s <= '1';
+        ram_bank_id_s <= X"a";
+        jmp_s <= '0';
+        jmp_conditional_s <= '0';
+        jmp_relative_s <= '1';
+        jmp_destination_select_s <= '0';
+        jmp_condition_s <= "10100";
+        is_alu_op_s <= '0';
+        is_ram_op_s <= '1';
+        is_gpu_op_s <= '0';
+        wait for 20 ns;
+
+
+        operand_1_s <= X"94af";
+        operand_2_s <= X"ad62";
+        immediate_s <= X"4258";
+        write_address_s <= X"1";
+        whb_s <= '1';
+        wlb_s <= '0';
+        write_data_sel_s <= "100";
+        flag_sel_s <= "1";
+        ram_src_s <= '0';
+        ram_read_s <= '1';
+        ram_write_s <= '0';
+        ram_bank_id_s <= X"5";
+        jmp_s <= '1';
+        jmp_conditional_s <= '0';
+        jmp_relative_s <= '0';
+        jmp_destination_select_s <= '1';
+        jmp_condition_s <= "00101";
+        is_alu_op_s <= '1';
+        is_ram_op_s <= '0';
+        is_gpu_op_s <= '1';
+        wait for 20 ns;
+
+
+        operand_1_s <= X"94af";
+        operand_2_s <= X"ad62";
+        immediate_s <= X"4258";
+        write_address_s <= X"1";
+        whb_s <= '0';
+        wlb_s <= '0';
+        write_data_sel_s <= "100";
+        flag_sel_s <= "1";
+        ram_src_s <= '1';
+        ram_read_s <= '1';
+        ram_write_s <= '0';
+        ram_bank_id_s <= X"5";
+        jmp_s <= '1';
+        jmp_conditional_s <= '1';
+        jmp_relative_s <= '0';
+        jmp_destination_select_s <= '1';
+        jmp_condition_s <= "00101";
+        is_alu_op_s <= '1';
+        is_ram_op_s <= '0';
+        is_gpu_op_s <= '1';
+        wait for 20 ns;
+    end process simulator;
+
+    clocker : process is
+    begin
+        load_clk_s <= '0';
         wait for 10 ns;
-        InstrLoad_CLK <= '1';
+        load_clk_s <= '1';
         wait for 10 ns;
-    end process;
+    end process clocker;
     
-    process is
+    resetter : process is
     begin
-        Reset <= '0';
-        wait for 1000 ns;
-        Reset <= '1';
+        reset_s <= '0';
+        wait for 100 ns;
+        reset_s <= '1';
         wait for 10 ns;
-    end process;
+    end process resetter;
 
 
-end Behavioral;
+end architecture Behavioral;

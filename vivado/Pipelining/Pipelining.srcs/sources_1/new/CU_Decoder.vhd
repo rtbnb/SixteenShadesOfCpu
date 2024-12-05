@@ -20,7 +20,8 @@ entity CU_Decoder is
         rfWHB : out std_logic;
         rfWLB : out std_logic;
         rfWrite : out std_logic;
-        writeDataSelect : out std_logic_vector(1 downto 0);
+        writeDataSelect : out std_logic_vector(2 downto 0);
+        flagSelect : out std_logic_vector(0 downto 0);
         ramAddressSrc : out std_logic;
         ramRead : out std_logic;
         ramWrite : out std_logic;
@@ -36,7 +37,7 @@ end entity CU_Decoder;
 
 architecture Behavioral of CU_Decoder is
     signal instruction_name_s : std_logic_vector(3 downto 0);
-    signal is_nop_s, is_alu_s, is_rdmi_s, is_wrmi_s, is_iml_s, is_imh_s, is_rdmr_s, is_wrmr_s, is_jc_s, is_jr_s, is_ja_s, is_cr_s, is_gpu_s : boolean;
+    signal is_nop_s, is_alu_s, is_rdmi_s, is_wrmi_s, is_iml_s, is_imh_s, is_rdmr_s, is_wrmr_s, is_jc_s, is_jr_s, is_ja_s, is_cr_s, is_gpu_s, is_fpu_s : boolean;
     signal write_whole_byte_s : boolean;
 begin
     instruction_name_s <= instructionToDecode(15 downto 12);
@@ -53,6 +54,7 @@ begin
     is_ja_s   <= instruction_name_s = "1010";
     is_cr_s   <= instruction_name_s = "1110";
     is_gpu_s  <= instruction_name_s = "1111";
+    is_fpu_s  <= is_alu_s and (instructionToDecode(11 downto 8) = "0101" or instructionToDecode(11 downto 8) = "0110" or instructionToDecode(11 downto 8) = "0111");
 
     -- ALU for operand1
     -- WRMI for write data
@@ -74,17 +76,21 @@ begin
 
     rfWHB <= '1' when write_whole_byte_s or is_imh_s else '0';
     rfWLB <= '1' when write_whole_byte_s or is_iml_s else '0';
-    rfWrite <= rfWHB or rfWLB;
+    rfWrite <= '1' when write_whole_byte_s or is_imh_s or is_iml_s else '0';
 
     -- ALU => Select 0 (Also used as default)
     -- IMH/IML => Select 1
     -- CR => Select 2
     -- RDMR/RDMI (others) => Select 3
-    writeDataSelect <= "00" when is_alu_s else
-        "01" when is_imh_s or is_iml_s else
-        "10" when is_cr_s else
-        "11" when is_rdmi_s or is_rdmr_s else
-        "00";
+    writeDataSelect <= "000" when is_alu_s and not is_fpu_s else
+        "001" when is_imh_s or is_iml_s else
+        "010" when is_cr_s else
+        "011" when is_rdmi_s or is_rdmr_s else
+        "100" when is_fpu_s else
+        "000";
+
+    flagSelect <= "1" when is_fpu_s else "0";
+
     -- '0': Reg2 is used as RAM Address
     -- '1': Immediate is used as RAM Address
     ramAddressSrc <= '1' when is_rdmi_s or is_wrmi_s else '0';

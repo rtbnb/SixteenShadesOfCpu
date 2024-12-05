@@ -1,65 +1,49 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
 -- Create Date: 11.11.2024 11:34:47
--- Design Name: 
+-- Name: Lukas Reil
+-- Design Name: ShadeCpu
 -- Module Name: CU_JumpDestinationSelector_SIM - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Project Name: ShadeCpu-1
+-- Target Devices: Arty A7-35T Development Board
+-- Repository: https://github.com/rtbnb/SixteenShadesOfCpu
 ----------------------------------------------------------------------------------
 
+library ieee;
+use ieee.std_logic_1164.ALL;
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity CU_JumpDestinationSelector_SIM is
---  Port ( );
-end CU_JumpDestinationSelector_SIM;
+end entity CU_JumpDestinationSelector_SIM;
 
 architecture Behavioral of CU_JumpDestinationSelector_SIM is
 
     component CU_JumpDestinationSelector is
-        Port ( Immediate : in STD_LOGIC_VECTOR (15 downto 0);
-               Register1 : in STD_LOGIC_VECTOR (15 downto 0);
-               JMP_DestinationSelect : in STD_LOGIC;
-               JMP_Address : out STD_LOGIC_VECTOR (15 downto 0));
+        Port (
+            immediate : in std_logic_vector(15 downto 0);
+            register1 : in std_logic_vector(15 downto 0);
+            jmpDestinationSelect : in std_logic;
+            jmpAddress : out std_logic_vector(15 downto 0)
+        );
     end component CU_JumpDestinationSelector;
     
-    signal Immediate : STD_LOGIC_VECTOR(15 downto 0) := X"ab15";
-    signal Register1 : STD_LOGIC_VECTOR(15 downto 0) := X"cdef";
-    signal JMP_DestinationSelect : STD_LOGIC;
+    signal immediate_s : std_logic_vector(15 downto 0) := X"ab15";
+    signal register_1_s : std_logic_vector(15 downto 0) := X"cdef";
+    signal jmp_destination_select_s : std_logic;
 begin
+
+    -- Outputs are not connected, as they will be configured in the waveform
     EUT : CU_JumpDestinationSelector port map(
-        Immediate => Immediate,
-        Register1 => Register1,
-        JMP_DestinationSelect => JMP_DestinationSelect
+        immediate => immediate_s,
+        register1 => register_1_s,
+        jmpDestinationSelect => jmp_destination_select_s
     );
     
-    process is
+    simulator : process is
     begin
-        JMP_DestinationSelect <= '0';
+        jmp_destination_select_s <= '0';
         wait for 10 ns;
-        JMP_DestinationSelect <= '1';
+        jmp_destination_select_s <= '1';
         wait for 10 ns;
-    end process;
+    end process simulator;
 
-end Behavioral;
+end architecture Behavioral;
