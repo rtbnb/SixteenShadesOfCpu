@@ -30,7 +30,7 @@ entity Debugger is
         txDataSended: in std_logic;
 
         nsel: out std_logic_vector(7 downto 0);
-        debugBufferClk: out std_logic;
+        debugBufferClk: out std_logic := '0';
         data: inout std_logic_vector((BYTES_PER_WORD * 8) - 1 downto 0) := (others => 'Z');
         mode: out std_logic;
 
@@ -44,11 +44,14 @@ architecture Behavioral of Debugger is
     type state_type is (AwaitData, ReadBytes, ErrorCorrected, ControlSignalSet, Send);
 
     signal s_state: state_type := AwaitData;
+
+    -- data storage
     signal s_dataIn: std_logic_vector((W_FORMAT_BYTES * 8) - 1 downto 0);
 
     -- counter signals
     signal s_counter_target: unsiged(3 downto 0) := (others => '0');
     signal s_counter: unsigned(3 downto 0) := (others => '0');
+    signal s_burstCounter: unsigned(4 downto 0) := (others => '0');
 begin
     debugBufferClk <= s_debugBufferClk;
 
@@ -86,9 +89,59 @@ begin
                         s_state <= AwaitData;
                     end if;
                 when ErrorCorrected => -- set control signals
-                    case s_dataIn((W_FORMAT_BYTES * 8) - 1 downto (W_FORMAT_BYTES - 1) * 8) is
+                    case s_dataIn((W_FORMAT_BYTES * 8) - 1 downto (W_FORMAT_BYTES * 8) - 3) is
                         when "000" => -- Read
+                            data((BYTES_PER_WORD * 8) - 1 downto 0) := (others => 'Z');
                             nsel <= s_dataIn((W_FORMAT_BYTES - 1) * 8 - 1 downto (W_FORMAT_BYTES - 2) * 8);
+                            s_burstCounter <= 0;
+                            debugBufferClk <= '1';
+                            mode <= '0';
+                            s_state <= ControlSignalSet;
+                        when "001" => -- Burst Read
+                            data((BYTES_PER_WORD * 8) - 1 downto 0) := (others => 'Z');
+                            nsel <= s_dataIn((W_FORMAT_BYTES - 1) * 8 - 1 downto (W_FORMAT_BYTES - 2) * 8);
+                            s_burstCounter <= s_dataIn((W_FORMAT_BYTES) * 8 - 4 downto (W_FORMAT_BYTES - 1) * 8);
+                            debugBufferClk <= '1';
+                            mode <= '0';
+                            s_state <= ControlSignalSet;
+                        when "010" => -- Cpu Clk Step
+                            data((BYTES_PER_WORD * 8) - 1 downto 0) := (others => 'Z');
+                            s_burstCounter <= 0;
+                            mode <= '0';
+                            s_state <= ControlSignalSet;
+                        when "011" => -- Debug
+                            data((BYTES_PER_WORD * 8) - 1 downto 0) := (others => 'Z');
+                            s_burstCounter <= 0;
+                            mode <= '0';
+                            debugEnable <= s_dataIn((W_FORMAT_BYTES * 8) - 4);
+                            s_state <= ControlSignalSet;
+                        when "101" => -- Mem Write
+                            data((BYTES_PER_WORD * 8) - 1 downto 0) := s_dataIn((W_FORMAT_BYTES - 2) * 8 - 1 downto (W_FORMAT_BYTES - 2 - BYTES_PER_WORD) * 8);
+                            nsel <= "00000000"; -- TODO: define nsel table
+                            s_burstCounter <= 0;
+                            mode <= '1';
+                            debugBufferClk <= '1';
+                            s_state <= ControlSignalSet;
+                        when "110" => -- Mem Read
+                            data((BYTES_PER_WORD * 8) - 1 downto 0) := (others => 'Z');
+                            nsel <= "00000000"; -- TODO: define nsel table
+                            s_burstCounter <= 0;
+                            mode <= '0';
+                            debugBufferClk <= '1';
+                            s_state <= ControlSignalSet;
+                        when "111" => -- Write
+                            data((BYTES_PER_WORD * 8) - 1 downto 0) := s_dataIn((W_FORMAT_BYTES - 2) * 8 - 1 downto (W_FORMAT_BYTES - 2 - BYTES_PER_WORD) * 8);
+                            nsel <= s_dataIn((W_FORMAT_BYTES - 1) * 8 - 1 downto (W_FORMAT_BYTES - 2) * 8);
+                            s_burstCounter <= 0;
+                            debugBufferClk <= '1';
+                            mode <= '1';
+                            s_state <= ControlSignalSet;
+                        when others =>
+                            s_state <= AwaitData;
+                    end case;
+                when ControlSignalSet =>
+                    case s_dataIn((W_FORMAT_BYTES * 8) - 1 downto (W_FORMAT_BYTES * 8) - 3) is
+                        when "000" => -- Read
                         when "001" => -- Burst Read
                         when "010" => -- Cpu Clk Step
                         when "011" => -- Debug
@@ -96,11 +149,9 @@ begin
                         when "110" => -- Mem Read
                         when "111" => -- Write
                         when others =>
-                            s_state <= AwaitData;
+                            s_sztate <= AwaitData;
                     end case;
-                    debugBufferClk <= '1';
-                    s_state <= ControlSignalSet;
-                when ControlSignalSet =>
+                    debugBufferClk <= '0';
                 when Send =>
                 when others =>
             end case;
