@@ -85,13 +85,13 @@ begin
                         s_state <= AwaitData;
                     end if;
                 when ReadBytes =>
-                    if rxDataValid = '1' and (to_integer(s_counter) < to_integer(s_counter_target)) then -- read bytes
+                    if (rxDataValid = '1') and (to_integer(s_counter) = (to_integer(s_counter_target) - 1)) then -- read bytes + error correction
+                        s_dataIn((to_integer(W_FORMAT_BYTES - s_counter) * 8) - 1 downto (to_integer(W_FORMAT_BYTES - s_counter - 1) * 8)) <= rxData;
+                        s_state <= ErrorCorrected;
+                    elsif rxDataValid = '1' and (to_integer(s_counter) <= to_integer(s_counter_target)) then -- read bytes
                         s_counter <= s_counter + 1;
                         s_dataIn((to_integer(W_FORMAT_BYTES - s_counter) * 8) - 1 downto (to_integer(W_FORMAT_BYTES - s_counter - 1) * 8)) <= rxData;
                         s_state <= ReadBytes;
-                    elsif rxDataValid = '1' and (to_integer(s_counter) = to_integer(s_counter_target)) then -- read bytes + error correction
-                        s_dataIn((to_integer(W_FORMAT_BYTES - s_counter) * 8) - 1 downto (to_integer(W_FORMAT_BYTES - s_counter - 1) * 8)) <= rxData;
-                        s_state <= ErrorCorrected;
                     else -- error state
                         s_state <= Error;
                     end if;
@@ -174,6 +174,8 @@ begin
                         else
                             s_state <= ErrorCorrected;
                         end if;
+                    elsif txDataSended = '0' then
+                        s_state <= SendACC;
                     elsif txDataSended = '1' then
                         s_state <= Send;
                     else
