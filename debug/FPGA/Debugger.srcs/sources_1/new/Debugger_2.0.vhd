@@ -31,8 +31,10 @@ entity Debugger is
 
         nsel: out std_logic_vector(7 downto 0);
         debugBufferClk: out std_logic := '0';
-        data: inout std_logic_vector((2 * 8) - 1 downto 0) := (others => 'Z');
-        mode: out std_logic;
+        debugDataOut: out std_logic_vector(15 downto 0);
+        debugDataIn: in std_logic_vector(15 downto 0);
+        -- debugData: inout std_logic_vector(15 downto 0); -- := (others => 'U');
+        debugMode: out std_logic := '0';
 
         -- architecture specific Shade 1
         debugEnable: out std_logic := '0'
@@ -48,6 +50,11 @@ architecture Behavioral of Debugger is
     -- data storage
     signal s_dataIn: std_logic_vector((to_integer(W_FORMAT_BYTES) * 8) - 1 downto 0);
     signal s_dataOut: std_logic_vector((to_integer(W_FORMAT_BYTES) * 8) - 1 downto 0);
+
+    -- bus signals
+    signal s_busDataIn: std_logic_vector((2 * 8) - 1 downto 0);
+    signal s_busDataOut: std_logic_vector((2 * 8) - 1 downto 0) := (others => '0');
+    signal s_mode: std_logic := '0';
 
     -- counter signals
     signal s_counter_target: unsigned(3 downto 0) := (others => '0');
@@ -96,45 +103,42 @@ begin
                         s_state <= Error;
                     end if;
                 when ErrorCorrected => -- set control signals
+                    s_busDataOut <= (others => '0');
+                    s_mode <= '0';
                     case s_dataIn((to_integer(W_FORMAT_BYTES) * 8) - 1 downto (to_integer(W_FORMAT_BYTES) * 8) - 3) is
                         when "000" => -- Read
-                            data((to_integer(BYTES_PER_WORD) * 8) - 1 downto 0) <= (others => 'Z');
                             nsel <= s_dataIn((to_integer(W_FORMAT_BYTES) - 1) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2) * 8);
                             debugBufferClk <= '1';
-                            mode <= '0';
+                            s_mode <= '0';
                             s_state <= ControlSignalSet;
                         when "001" => -- Burst Read
-                            data((to_integer(BYTES_PER_WORD) * 8) - 1 downto 0) <= (others => 'Z');
                             nsel <= s_dataIn((to_integer(W_FORMAT_BYTES) - 1) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2) * 8);
                             debugBufferClk <= '1';
-                            mode <= '0';
+                            s_mode <= '0';
                             s_state <= ControlSignalSet;
                         when "010" => -- Cpu Clk Step
-                            data((to_integer(BYTES_PER_WORD) * 8) - 1 downto 0) <= (others => 'Z');
-                            mode <= '0';
+                            s_mode <= '1';
                             s_state <= ControlSignalSet;
                         when "011" => -- Debug
-                            data((to_integer(BYTES_PER_WORD) * 8) - 1 downto 0) <= (others => 'Z');
-                            mode <= '0';
+                            s_mode <= '1';
                             debugEnable <= s_dataIn((to_integer(W_FORMAT_BYTES) * 8) - 4);
                             s_state <= ControlSignalSet;
                         when "101" => -- Mem Write
-                            data((to_integer(BYTES_PER_WORD) * 8) - 1 downto 0) <= s_dataIn((to_integer(W_FORMAT_BYTES) - 2) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8);
+                            s_busDataOut <= s_dataIn((to_integer(W_FORMAT_BYTES) - 2) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8);
                             nsel <= "00000000"; -- TODO: define nsel table
-                            mode <= '1';
+                            s_mode <= '1';
                             debugBufferClk <= '1';
                             s_state <= ControlSignalSet;
                         when "110" => -- Mem Read
-                            data((to_integer(BYTES_PER_WORD) * 8) - 1 downto 0) <= (others => 'Z');
                             nsel <= "00000000"; -- TODO: define nsel table
-                            mode <= '0';
+                            s_mode <= '0';
                             debugBufferClk <= '1';
                             s_state <= ControlSignalSet;
                         when "111" => -- Write
-                            data((to_integer(BYTES_PER_WORD) * 8) - 1 downto 0) <= s_dataIn((to_integer(W_FORMAT_BYTES) - 2) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8);
+                            s_busDataOut <= s_dataIn((to_integer(W_FORMAT_BYTES) - 2) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8);
                             nsel <= s_dataIn((to_integer(W_FORMAT_BYTES) - 1) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2) * 8);
                             debugBufferClk <= '1';
-                            mode <= '1';
+                            s_mode <= '1';
                             s_state <= ControlSignalSet;
                         when others =>
                             s_state <= Error;
@@ -143,10 +147,10 @@ begin
                     case s_dataIn((to_integer(W_FORMAT_BYTES) * 8) - 1 downto (to_integer(W_FORMAT_BYTES) * 8) - 3) is
                         when "000" | "001" | "110" => -- Data Format
                             s_dataOutCounter <= to_unsigned(2, 3) + BYTES_PER_WORD;
-                            s_dataOut((to_integer(W_FORMAT_BYTES) - 1 - to_integer(BYTES_PER_WORD)) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8) <= "00000000"; -- ECC
-                            s_dataOut(((to_integer(W_FORMAT_BYTES) - 1) * 8) - 1 downto (to_integer(W_FORMAT_BYTES) - 1 - to_integer(BYTES_PER_WORD)) * 8) <= data((to_integer(BYTES_PER_WORD) * 8) - 1 downto 0); -- Data
-                            s_dataOut((to_integer(W_FORMAT_BYTES) - 1 - to_integer(BYTES_PER_WORD)) * 8 - 1 downto ((to_integer(W_FORMAT_BYTES) - 1 - to_integer(BYTES_PER_WORD)) * 8) - 3) <= "000"; -- Status
-                            s_dataOut((to_integer(W_FORMAT_BYTES) - 1 - to_integer(BYTES_PER_WORD)) * 8 - 4 downto ((to_integer(W_FORMAT_BYTES) - 1 - to_integer(BYTES_PER_WORD)) * 8) - 8) <= std_logic_vector(s_burstCounter); -- Data Index
+                            s_dataOut((to_integer(W_FORMAT_BYTES) - 1) * 8 - 1 downto (to_integer(W_FORMAT_BYTES) - 2) * 8) <= "00000000"; -- ECC
+                            s_dataOut(((to_integer(W_FORMAT_BYTES) - 2) * 8) - 1 downto (to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8) <= s_busDataIn; -- Data
+                            s_dataOut((to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8 - 1 downto ((to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8) - 3) <= "000"; -- Status
+                            s_dataOut((to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8 - 4 downto ((to_integer(W_FORMAT_BYTES) - 2 - to_integer(BYTES_PER_WORD)) * 8) - 8) <= std_logic_vector(s_burstCounter); -- Data Index
                             s_burstCounter <= s_burstCounter - 1;
                             s_state <= Send;
                         when "010" | "011" | "101" | "111" => -- Acc Format
@@ -182,10 +186,16 @@ begin
                         s_state <= Error;
                     end if;
                 when Error =>
-                    s_state <= Error;
+                    s_state <= AwaitData;
                 when others =>
                     s_state <= Error;
             end case;
         end if;
     end process state_machine;
+
+    -- debug bus
+    debugDataOut <= s_busDataOut; -- when s_mode = '1' else "ZZZZZZZZZZZZZZZZ";
+    s_busDataIn <= debugDataIn;
+
+    -- debugMode <= s_mode;
 end Behavioral;

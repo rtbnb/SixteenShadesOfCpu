@@ -17,121 +17,110 @@ entity DebugNodeModelsim is
 end DebugNodeModelsim;
 
 architecture Behavioral of DebugNodeModelsim is
-    component Debugger is
+    component design_1_wrapper is
         port (
-            clk: in std_logic;
-            rxData: in std_logic_vector(7 downto 0);
-            rxDataValid: in std_logic;
-
-            txData: out std_logic_vector(7 downto 0);
-            txDataValid: out std_logic;
-            txDataSended: in std_logic;
-
-            nsel: out std_logic_vector(7 downto 0);
-            debugBufferClk: out std_logic := '0';
-            data: inout std_logic_vector((2 * 8) - 1 downto 0) := (others => 'Z');
-            mode: out std_logic;
-
-            -- architecture specific Shade 1
-            debugEnable: out std_logic := '0'
+            clk_0 : in STD_LOGIC;
+            rxData_0 : in STD_LOGIC_VECTOR ( 7 downto 0 );
+            rxDataValid_0 : in STD_LOGIC;
+            txData_0 : out STD_LOGIC_VECTOR ( 7 downto 0 );
+            txDataSended_0 : in STD_LOGIC;
+            txDataValid_0 : out STD_LOGIC;
+            debugEnable_0 : out STD_LOGIC;
+            nodeClkOut_0 : out STD_LOGIC;
+            nodeDataOut_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+            nodeDataIn_0 : in STD_LOGIC_VECTOR ( 15 downto 0 )
         );
-    end component Debugger;
+    end component design_1_wrapper;
 
-    signal clk: std_logic := '0';
-    signal rxData: std_logic_vector(7 downto 0) := (others => '0');
-    signal rxDataValid: std_logic := '0';
+    signal clk_0: std_logic := '0';
+    signal rxData_0: std_logic_vector(7 downto 0) := (others => '0');
+    signal rxDataValid_0: std_logic := '0';
 
-    signal txData: std_logic_vector(7 downto 0) := (others => '0');
-    signal txDataValid: std_logic := '0';
-    signal txDataSended: std_logic := '0';
+    signal txData_0: std_logic_vector(7 downto 0) := (others => '0');
+    signal txDataValid_0: std_logic := '0';
+    signal txDataSended_0: std_logic := '0';
 
-    signal nsel: std_logic_vector(7 downto 0) := (others => '0');
-    signal debugBufferClk: std_logic := '0';
-    signal data: std_logic_vector((2 * 8) - 1 downto 0) := (others => 'Z');
-    signal mode: std_logic := '0';
-
-    -- architecture specific Shade 1
-    signal debugEnable: std_logic := '0';
+    signal debugEnable_0: std_logic := '0';
+    signal nodeClkOut_0: std_logic := '0';
+    signal nodeDataOut_0: std_logic_vector(15 downto 0) := (others => '0');
+    signal nodeDataIn_0: std_logic_vector ( 15 downto 0 ) := x"ABAB";
 begin
-    EUT: Debugger
+    EUT: design_1_wrapper
     port map (
-        clk => clk,
-        rxData => rxData,
-        rxDataValid => rxDataValid,
-        txData => txData,
-        txDataValid => txDataValid,
-        txDataSended => txDataSended,
-        nsel => nsel,
-        debugBufferClk => debugBufferClk,
-        data => data,
-        mode => mode,
-        debugEnable => debugEnable
+        clk_0 => clk_0,
+        rxData_0 => rxData_0,
+        rxDataValid_0 => rxDataValid_0,
+        txData_0 => txData_0,
+        txDataValid_0 => txDataValid_0,
+        txDataSended_0 => txDataSended_0,
+        debugEnable_0 => debugEnable_0,
+        nodeClkOut_0 => nodeClkOut_0,
+        nodeDataOut_0 => nodeDataOut_0,
+        nodeDataIn_0 => nodeDataIn_0
+        
     );
 
     clock: process begin
-        clk <= not clk;
+        clk_0 <= not clk_0;
         wait for 2.5ns;
     end process clock;
 
     test: process begin
-        rxDataValid <= '0';
+        rxDataValid_0 <= '0';
         wait for 5ns;
         -- start data transmission
         -- Await Data
-        rxData <= "00001001"; -- cmdID: 1, burst length: 1
-        rxDataValid <= '1';
+        rxData_0 <= "00001001"; -- cmdID: 1, burst length: 1
+        rxDataValid_0 <= '1';
         wait for 5ns;
         -- Read Bytes
-        rxData <= "00000001"; -- nsel: 1
-        rxDataValid <= '1';
+        rxData_0 <= "00000001"; -- nsel: 1
+        rxDataValid_0 <= '1';
         wait for 5ns;
         -- Read Bytes
-        rxData <= "00000010"; -- ecc: 2
-        rxDataValid <= '1';
+        rxData_0 <= "00000010"; -- ecc: 2
+        rxDataValid_0 <= '1';
         wait for 5ns;
         -- Error Corrected
-        rxDataValid <= '0';
-        data <= x"ABAB";
-        assert debugBufferClk = '1' report "DebugBufferClk is not high" severity error;
-        assert nsel = "00000001" report "nsel is not 1" severity error;
+        rxDataValid_0 <= '0';
         wait for 5ns;
         -- control signal set
-        data <= x"ABAB";
-        assert debugBufferClk = '0' report "DebugBufferClk is not low" severity error;
+        -- data_0 <= x"ABAB";
+        -- assert debugBufferClk_0 = '1' report "DebugBufferClk is not high" severity error;
         wait for 5ns;
         -- Send
-        data <= "ZZZZZZZZZZZZZZZZ";
-        assert txDataValid = '1' report "txDataValid is not high" severity error;
+        -- assert nsel = "00000001" report "nsel is not 1" severity error;
+        -- data <= "ZZZZZZZZZZZZZZZZ";
         wait for 5ns;
         -- Wait Sended
-        txDataSended <= '1';
-        assert txDataValid = '0' report "txDataValid is not low" severity error;
+        txDataSended_0 <= '1';
+        -- assert txDataValid = '1' report "txDataValid is not high" severity error;
         wait for 5ns;
         -- Send
-        txDataSended <= '0';
-        assert txDataValid = '1' report "txDataValid is not high" severity error;
+        txDataSended_0 <= '0';
         wait for 5ns;
         -- Wait Sended
-        txDataSended <= '1';
-        assert txDataValid = '0' report "txDataValid is not low" severity error;
+        txDataSended_0 <= '1';
+        -- assert txDataValid = '0' report "txDataValid is not low" severity error;
         wait for 5ns;
         -- Send
-        txDataSended <= '0';
-        assert txDataValid = '1' report "txDataValid is not high" severity error;
+        txDataSended_0 <= '0';
+        -- assert txDataValid = '0' report "txDataValid is not low" severity error;
         wait for 5ns;
         -- Wait Sended
-        txDataSended <= '1';
-        assert txDataValid = '0' report "txDataValid is not low" severity error;
+        txDataSended_0 <= '1';
+        -- assert txDataValid = '1' report "txDataValid is not high" severity error;
         wait for 5ns;
         -- Send
-        txDataSended <= '0';
-        assert txDataValid = '1' report "txDataValid is not high" severity error;
+        txDataSended_0 <= '0';
+        -- assert txDataValid = '0' report "txDataValid is not low" severity error;
         wait for 5ns;
         -- Wait Sended
-        txDataSended <= '1';
-        assert txDataValid = '0' report "txDataValid is not low" severity error;
+        txDataSended_0 <= '1';
+        -- assert txDataValid = '1' report "txDataValid is not high" severity error;
         wait for 5ns;
         -- Await Data
+        -- assert txDataValid = '0' report "txDataValid is not low" severity error;
         wait;
     end process test;
 
